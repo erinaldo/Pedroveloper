@@ -74,6 +74,9 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="SpreadsheetLight, Version=3.4.11.0, Culture=neutral, PublicKeyToken=32fbb46dc1730c57, processorArchitecture=MSIL">
       <HintPath>..\packages\SpreadsheetLight.3.4.11\lib\net40\SpreadsheetLight.dll</HintPath>
     </Reference>
@@ -116,6 +119,7 @@
     <Compile Include="Logica\Bases.cs" />
     <Compile Include="Logica\Lcaja.cs" />
     <Compile Include="Logica\Lcontrolcobros.cs" />
+    <Compile Include="Logica\LCotizacion.cs" />
     <Compile Include="Logica\LdetalleVenta.cs" />
     <Compile Include="Logica\LEmpleados.cs" />
     <Compile Include="Logica\LKardex.cs" />
@@ -132,6 +136,7 @@
     <Compile Include="Logica\LMarcan.cs" />
     <Compile Include="Logica\LVehiculos.cs" />
     <Compile Include="Logica\Lventas.cs" />
+    <Compile Include="Logica\Pedidos.cs" />
     <Compile Include="Presentacion\Admin_nivel_dios\DASHBOARD_PRINCIPAL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +274,24 @@
     </Compile>
     <Compile Include="Presentacion\CorreoBase\ConfigurarCorreo.Designer.cs">
       <DependentUpon>ConfigurarCorreo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Cotizacion\Cotizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Cotizacion\Cotizaciones.Designer.cs">
+      <DependentUpon>Cotizaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Cotizacion\PagosCotizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Cotizacion\PagosCotizaciones.Designer.cs">
+      <DependentUpon>PagosCotizaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Cotizacion\CotizacionAgranel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Cotizacion\CotizacionAgranel.Designer.cs">
+      <DependentUpon>CotizacionAgranel.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\DISEÑADOR_DE_COMPROBANTES\Ticket.cs">
       <SubType>Form</SubType>
@@ -486,11 +509,23 @@
     <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\CANTIDAD_A_GRANEL.Designer.cs">
       <DependentUpon>CANTIDAD_A_GRANEL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\Cotizaciones_En_Espera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\Cotizaciones_En_Espera.Designer.cs">
+      <DependentUpon>Cotizaciones_En_Espera.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\MEDIOS_DE_PAGO.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\MEDIOS_DE_PAGO.Designer.cs">
       <DependentUpon>MEDIOS_DE_PAGO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\Pedidos_En_Espera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\Pedidos_En_Espera.Designer.cs">
+      <DependentUpon>Pedidos_En_Espera.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\Ventas_en_espera.cs">
       <SubType>Form</SubType>
@@ -580,6 +615,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CorreoBase\ConfigurarCorreo.resx">
       <DependentUpon>ConfigurarCorreo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Cotizacion\Cotizaciones.resx">
+      <DependentUpon>Cotizaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Cotizacion\PagosCotizaciones.resx">
+      <DependentUpon>PagosCotizaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\DISEÑADOR_DE_COMPROBANTES\Ticket.resx">
       <DependentUpon>Ticket.cs</DependentUpon>
@@ -686,8 +727,14 @@
     <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\CANTIDAD_A_GRANEL.resx">
       <DependentUpon>CANTIDAD_A_GRANEL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\Cotizaciones_En_Espera.resx">
+      <DependentUpon>Cotizaciones_En_Espera.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\MEDIOS_DE_PAGO.resx">
       <DependentUpon>MEDIOS_DE_PAGO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\Pedidos_En_Espera.resx">
+      <DependentUpon>Pedidos_En_Espera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\Ventas_en_espera.resx">
       <DependentUpon>Ventas_en_espera.cs</DependentUpon>
@@ -721,6 +768,10 @@
   <ItemGroup>
     <Content Include="Presentacion\CAJA\FormatoCierreCaja.html" />
     <Content Include="Presentacion\LOGIN\HTMLPage1.html" />
+    <None Include="Resources\camion-de-reparto %281%29.png" />
+    <None Include="Resources\21387.png" />
+    <None Include="Resources\kisspng-computer-icons-scalable-vector-graphics-pickup-tru-eshahen-5c32661f515b46.2471659615468068153333.png" />
+    <None Include="Resources\pngegg.png" />
     <None Include="Resources\camion-de-reparto.png" />
     <None Include="Resources\1486485587-add-create-new-maths-math-signs-plus_81172.png" />
     <None Include="Resources\employee_3_icon-icons.com_76973.png" />
@@ -782,6 +833,9 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Presentacion\Pedido\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

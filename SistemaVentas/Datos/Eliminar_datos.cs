@@ -28,6 +28,26 @@ namespace SistemaVentas.Datos
             }
            
         }
+
+        public static void eliminar_cotizacion(int idcotizacion)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("eliminar_cotizacion", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idcotizacion", idcotizacion);
+                
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+        }
+
         public static void eliminar_ingreso(int idingreso)
         {
             try

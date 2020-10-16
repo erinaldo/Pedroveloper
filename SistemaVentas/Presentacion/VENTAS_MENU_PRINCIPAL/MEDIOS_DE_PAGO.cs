@@ -20,6 +20,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private PrintDocument DOCUMENTO;
         string moneda;
         int idcliente;
+        int idclienteasignado;
+
         int idventa;
         double total;
         double vuelto = 0;
@@ -37,6 +39,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         double credito = 0;
         int idcomprobante;
         string lblSerialPC;
+        int idEmpleado;
+        string nombreEmpleado;
+        string departamentoEmpleado;
+        string estadoEmpleado;
+        int idvehiculo;
+        string estadovehiculo;
+        string direccioncliente;
+        string nombreCliente;
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
             cambiar_el_formato_de_separador_de_decimales();
@@ -51,7 +61,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             calcular_restante();
             validarPedidodeCliente();
-
+            datalistadoempleado.Visible = false;
         }
 
         void calcular_restante()
@@ -923,7 +933,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
                 {
                     int Id_producto = Convert.ToInt32(row.Cells["Id_producto"].Value);
-                    double cantidad = Convert.ToDouble(row.Cells["Cant"].Value);
+                    double cantidad = Convert.ToDouble(row.Cells["Cantidad"].Value);
                     string STOCK = Convert.ToString(row.Cells["Stock"].Value);
                     if (STOCK != "Ilimitado")
                     {
@@ -976,7 +986,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
             {
                 int idproducto = Convert.ToInt32(row.Cells["Id_producto"].Value);
-                double cantidad = Convert.ToInt32(row.Cells["Cant"].Value);
+                double cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
                 try
                   {
                     //MessageBox.Show("entramos");
@@ -1314,16 +1324,35 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
         }
 
-        private void btnGuardarImprimirdirecto_Click_1(object sender, EventArgs e)
+        public void ImprimirDirecto()
         {
             if (restante == 0)
             {
                 if (txtImpresora.Text != "Ninguna")
                 {
-                    editar_eleccion_de_impresora();
-                    indicador = "DIRECTO";
-                    identificar_el_tipo_de_pago();
-                    INGRESAR_LOS_DATOS();
+                    if (Envio.Checked == true)
+                    {
+                        if (idEmpleado != 0)
+                        {
+                            editar_eleccion_de_impresora();
+                            indicador = "DIRECTO";
+                            identificar_el_tipo_de_pago();
+                            INGRESAR_LOS_DATOS();
+                            AsignarPersonalEnvio();
+                            actualizarVehiculo(idvehiculo);
+                            actualizarEmpleado(idEmpleado);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Selecciona un Empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    } else
+                    {
+                        editar_eleccion_de_impresora();
+                        indicador = "DIRECTO";
+                        identificar_el_tipo_de_pago();
+                        INGRESAR_LOS_DATOS();
+                    }
                 }
                 else
                 {
@@ -1336,18 +1365,50 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
         }
 
-        private void TGuardarSinImprimir_Click_1(object sender, EventArgs e)
+        private void btnGuardarImprimirdirecto_Click_1(object sender, EventArgs e)
+        {
+            if (idEmpleado !=0)
+            {
+                ImprimirDirecto();
+            }
+            else
+            {
+            }
+        }
+
+        public void GuardarSinImprimir()
         {
             if (restante == 0)
             {
-                indicador = "VISTA PREVIA";
-                identificar_el_tipo_de_pago();
-                INGRESAR_LOS_DATOS();
+                if (Envio.Checked == true)
+                {
+                    if(idEmpleado != 0)
+                    {
+                        indicador = "VISTA PREVIA";
+                        identificar_el_tipo_de_pago();
+                        INGRESAR_LOS_DATOS();
+                        AsignarPersonalEnvio();
+                        actualizarVehiculo(idvehiculo);
+                        actualizarEmpleado(idEmpleado);
+                    } else
+                    {
+                        MessageBox.Show("Selecciona un Empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                } else
+                {
+                    indicador = "VISTA PREVIA";
+                    identificar_el_tipo_de_pago();
+                    INGRESAR_LOS_DATOS();
+                }
             }
             else
             {
                 MessageBox.Show("El restante debe ser 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+        private void TGuardarSinImprimir_Click_1(object sender, EventArgs e)
+        {
+            GuardarSinImprimir();
         }
 
         private void txtefectivo2_KeyPress(object sender, KeyPressEventArgs e)
@@ -1381,6 +1442,185 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtclientesolicitabnte3.Text = datalistadoclientes3.SelectedCells[2].Value.ToString();
             idcliente = Convert.ToInt32(datalistadoclientes3.SelectedCells[1].Value.ToString());
             datalistadoclientes3.Visible = false;
+        }
+
+        private void Envio_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (Envio.Checked == true)
+            {
+                // Verificacion disponibilidad de Personal. ---------------GOOD-------------
+                // Verificar vehiculos disponibles
+                // Determinar disponibilidad: Asignar personal para el envio.
+                // Verificar personal capacitado.
+                if ( txtclientesolicitabnte3.TextLength > 0)
+                {
+                    if (VerificarEstadoPersonal() && verificarCliente() && VerificarEstadoVehiculos())
+                    {
+                        datalistadoempleado.Visible = true;
+                        if(Envio.Checked == false)
+                        {
+                            datalistadoempleado.Visible = false;
+                        }
+                        ObtenerVehiculo();
+                        
+                    } else
+                    {
+                        MessageBox.Show("Verifica el Estado del Personal, Clientes o Vehiculos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un cliente correctamente", "ADVERTENCIA" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } else
+            {
+               datalistadoempleado.Visible = false;
+            }
+        }
+
+        private void panelGuardado_de_datos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public bool VerificarEstadoPersonal()
+        {
+            DataTable dt = new DataTable();
+            Obtener_datos.EstadoPersonal(ref dt);
+            datalistadoempleado.DataSource = dt;
+            
+            if(datalistadoempleado.Rows.Count > 0)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+        public bool VerificarEstadoVehiculos()
+        {
+            DataTable dt = new DataTable();
+            Obtener_datos.EstadoVehiculos(ref dt);
+            datalistadovehiculo.DataSource = dt;
+            if (datalistadovehiculo.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void ObtenerEmpleado()
+        {
+            idEmpleado = Convert.ToInt32(datalistadoempleado.SelectedCells[0].Value);
+            nombreEmpleado = datalistadoempleado.SelectedCells[1].Value.ToString();
+            departamentoEmpleado = datalistadoempleado.SelectedCells[2].Value.ToString();
+            estadoEmpleado = datalistadoempleado.SelectedCells[3].Value.ToString();
+        }
+
+        public void ObtenerVehiculo()
+        {
+            idvehiculo = Convert.ToInt32(datalistadovehiculo.SelectedCells[0].Value);
+            estadovehiculo = datalistadovehiculo.SelectedCells[1].Value.ToString();
+        }
+
+        public bool verificarCliente()
+        {
+            try
+            {
+                idclienteasignado = 0;
+                CONEXION.CONEXIONMAESTRA.abrir();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter("verificarCliente", CONEXION.CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@nombre", txtclientesolicitabnte3.Text);
+                da.Fill(dt);
+                CONEXION.CONEXIONMAESTRA.cerrar();
+                DATALISTADOVERIFICAR.DataSource = dt;
+                idclienteasignado = Convert.ToInt32(DATALISTADOVERIFICAR.SelectedCells[0].Value);
+                nombreCliente = DATALISTADOVERIFICAR.SelectedCells[1].Value.ToString();
+                direccioncliente = DATALISTADOVERIFICAR.SelectedCells[2].Value.ToString();
+
+                CONEXION.CONEXIONMAESTRA.cerrar();
+                if (idclienteasignado > 1)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return false;
+            }
+        }
+        private void datalistadoempleado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ObtenerEmpleado();
+            
+        }
+
+        public void AsignarPersonalEnvio()
+        {
+            Logica.Pedidos parametros = new Logica.Pedidos();
+            Insertar_datos datos = new Insertar_datos();
+            parametros.idCliente = idclienteasignado;
+            parametros.idVenta = idventa;
+            parametros.idEmpleado = idEmpleado;
+            parametros.idVehiculo = idvehiculo;
+            parametros.FechaEnvio = DateTime.Now;
+            parametros.Destinatario = nombreCliente;
+            parametros.DireccionDestinatario = direccioncliente;
+            parametros.Estado = "EN CURSO";
+            if (datos.insertarPedido(parametros) == true)
+            {
+                //mostrar();
+            }
+        }
+
+        public void actualizarVehiculo(int idVehiculo)
+        {
+            try
+            {
+                CONEXION.CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("actualizarEstadoVehiculo", CONEXION.CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idVehiculo", idVehiculo);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                CONEXION.CONEXIONMAESTRA.cerrar();
+            }
+        }
+        public void actualizarEmpleado(int idEmpleado)
+        {
+            try
+            {
+                CONEXION.CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("actualizarEstadoEmpleado", CONEXION.CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                CONEXION.CONEXIONMAESTRA.cerrar();
+            }
         }
     }
 }

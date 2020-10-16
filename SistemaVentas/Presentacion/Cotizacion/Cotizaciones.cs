@@ -13,60 +13,52 @@ using System.IO;
 using System.Threading;
 using System.Globalization;
 using SistemaVentas.Logica;
-using SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL;
+using SistemaVentas.Presentacion.Cotizacion;
 using SistemaVentas.Datos;
 using System.Security.Cryptography.X509Certificates;
 using SistemaVentas.Presentacion.Admin_nivel_dios;
 using System.IO.Ports;
 using System.Drawing.Imaging;
+using SistemaVentas.CONEXION;
 
-namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
+namespace SistemaVentas.Presentacion.Cotizacion
 {
-    public partial class VENTAS_MENU_PRINCIPALOK : Form
+    public partial class Cotizaciones : Form
     {
-        public VENTAS_MENU_PRINCIPALOK()
+        public Cotizaciones()
         {
             InitializeComponent();
         }
 
+        // -------------- Variables --------------
         int contador_stock_detalle_de_venta;
         int idproducto;
         int idClienteEstandar;
         public static    int idusuario_que_inicio_sesion;
-        public static    int idVenta;
-        int iddetalleventa;
+        public static    int idCotizacion;
+        int iddetallecotizacion;
         int Contador;
         public static  double txtpantalla;
         double lblStock_de_Productos;
         public static double total;
-        public static   int Id_caja;
+        public static   int Id_caja = VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK.Id_caja;
         string SerialPC;
         string sevendePor;
          public static  string txtventagenerada;
         double txtprecio_unitario;
         string usainventarios;
-        string ResultadoLicencia;
-        string FechaFinal;
-        double cantidad;
-        string Tema;
-        int contadorVentasEspera;
-        int contadorCotizacionesEspera;
-
         string Ip;
+        double cantidad;
         Panel panel_mostrador_de_productos = new Panel();
-        public static int idcotizacion;
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
 
+        
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
-            //validarLicencia();
             
             Bases.Cambiar_idioma_regional();
             Bases.Obtener_serialPC(ref SerialPC);
+
             Obtener_datos.Obtener_id_caja_PorSerial(ref Id_caja);
             MOSTRAR_TIPO_DE_BUSQUEDA();
             Obtener_id_de_cliente_estandar();
@@ -84,85 +76,24 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 BTNLECTORA.BackColor = Color.LightGreen ;
                 BTNTECLADO.BackColor = Color.WhiteSmoke ;
             }
-            ValidarTemaCaja();
             Limpiar_para_venta_nueva();
             ObtenerIpLocal();
-
-
-
         }
+      
         private void ObtenerIpLocal()
         {
 
             this.Text = Bases.ObtenerIp(ref Ip);
         }
-        private void ContarVentasEspera()
-        {
-            Obtener_datos.contarVentasEspera(ref contadorVentasEspera);
-            if (contadorVentasEspera==0)
-            {
-                panelNotificacionEspera.Visible = false;
-            }
-            else
-            {
-                panelNotificacionEspera.Visible = true;
-                lblContadorEspera.Text = contadorVentasEspera.ToString();
-            }
-        }
-        private void ContarCotizacionesEspera()
-        {
-            Obtener_datos.contarCotizacionesEspera(ref contadorCotizacionesEspera);
-            if (contadorCotizacionesEspera == 0)
-            {
-                panelNotificacionEspera.Visible = false;
-            }
-            else
-            {
-                panelNotificacionEspera.Visible = true;
-                CantidadCotizaciones.Text = contadorCotizacionesEspera.ToString();
-            }
-        }
-        private void ValidarTemaCaja()
-        {
-            Obtener_datos.mostrarTemaCaja(ref Tema);
-            if(Tema =="Redentor")
-            {
-                TemaClaro();
-                IndicadorTema.Checked = false;
-            }
-            else
-            {
-                TemaOscuro();
-                IndicadorTema.Checked = true;
-
-            }
-        }
-        private void validarLicencia()
-        {
-            DLicencias funcion = new DLicencias();
-            funcion.ValidarLicencias(ref ResultadoLicencia, ref FechaFinal);           
-            if (ResultadoLicencia == "VENCIDA")
-            {
-                funcion.EditarMarcanVencidas();
-                Dispose();
-                LICENCIAS_MENBRESIAS.MembresiasNuevo frm = new LICENCIAS_MENBRESIAS.MembresiasNuevo();
-                frm.ShowDialog();
-            }
-
-
-
-        }
+        
         private void Limpiar_para_venta_nueva()
         {
-            idVenta = 0;
+            idCotizacion = 0;
             Listarproductosagregados();
-            txtventagenerada = "VENTA NUEVA";
+            txtventagenerada = "COTIZACION NUEVA";
             sumar();
-            PanelEnespera.Visible = false;
             panelBienvenida.Visible = true;
             PanelOperaciones.Visible = false;
-            ContarVentasEspera();
-            ContarCotizacionesEspera();
         }
 
 
@@ -344,6 +275,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             ValidarVentasNuevas();
             txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();
             idproducto = Convert.ToInt32 ( DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
+            MessageBox.Show("producto:", idproducto.ToString());
             vender_por_teclado();
 
         }
@@ -363,7 +295,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             if(contador_stock_detalle_de_venta == 0)
             {
                 // Si es producto no esta agregado a las ventas se tomara el Stock de la tabla Productos
-                lblStock_de_Productos = Convert.ToDouble ( DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString());     
+                lblStock_de_Productos = Convert.ToDouble ( DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString());
+                //MessageBox.Show("stock:" + lblStock_de_Productos);
+
+
             }
             else
             {
@@ -385,14 +320,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             else if (sevendePor == "Unidad")
             {
                 txtpantalla =1;
+                //MessageBox.Show("1");
                 vender_por_unidad();
             }
 
         }
         private void vender_a_granel()
         {
-          
-            CANTIDAD_A_GRANEL frm = new CANTIDAD_A_GRANEL();
+
+            CotizacionAgranel frm = new CotizacionAgranel();
             frm.preciounitario = txtprecio_unitario;
             frm.FormClosing += Frm_FormClosing;         
             frm.ShowDialog();
@@ -409,7 +345,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             
             ejecutar_insertar_ventas();
-            if (txtventagenerada == "VENTA GENERADA")
+            if (txtventagenerada == "COTIZACION GENERADA")
             {
                 insertar_detalle_venta();
                 Listarproductosagregados();
@@ -419,8 +355,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
         
         }
+
         private void Obtener_id_de_cliente_estandar()
         {
+
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             SqlCommand com = new SqlCommand("select idclientev  from clientes where Estado=0", con);
@@ -436,34 +374,33 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
 
         }
-    
         private void Obtener_id_venta_recien_Creada()
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-            SqlCommand com = new SqlCommand("mostrar_id_venta_por_Id_caja", con);
+            SqlCommand com = new SqlCommand("mostrar_id_cotizacion_por_Id_caja", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@Id_caja", Id_caja);
             try
             {
                 con.Open();
-                idVenta = Convert.ToInt32(com.ExecuteScalar());
+                idCotizacion = Convert.ToInt32(com.ExecuteScalar());
                 con.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("mostrar_id_venta_por_Id_caja");
+                MessageBox.Show(ex.Message);
             }
         }
         private void vender_por_unidad()
         {
             try
             {
-               if (txtbuscar.Text == DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value .ToString ())
+                if (txtbuscar.Text == DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString())
                 {
                     DATALISTADO_PRODUCTOS_OKA.Visible = true;
                     ejecutar_insertar_ventas();
-                 if (txtventagenerada =="VENTA GENERADA")
+                    if (txtventagenerada == "COTIZACION GENERADA")
                     {
                         insertar_detalle_venta();
                         Listarproductosagregados();
@@ -476,11 +413,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
-            } 
+            }
         }
         private void ejecutar_insertar_ventas()
         {
-            if (txtventagenerada == "VENTA NUEVA")
+            if (txtventagenerada == "COTIZACION NUEVA")
             {
                 try
                 {
@@ -488,7 +425,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
-                    cmd = new SqlCommand("insertar_venta", con);
+                    cmd = new SqlCommand("insertar_cotizacion", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@idcliente", idClienteEstandar);
                     cmd.Parameters.AddWithValue("@fecha_venta", DateTime.Today);
@@ -509,18 +446,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     cmd.ExecuteNonQuery();
                     con.Close();
                     Obtener_id_venta_recien_Creada();
-                    txtventagenerada = "VENTA GENERADA";
+                    txtventagenerada = "COTIZACION GENERADA";
                     mostrar_panel_de_Cobro();
 
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("insertar_venta");
+                    MessageBox.Show(ex.Message);
                 }
 
             }
         }
-       private void mostrar_panel_de_Cobro()
+        private void mostrar_panel_de_Cobro()
         {
             panelBienvenida.Visible = false;
             PanelOperaciones.Visible = true;
@@ -534,9 +471,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrar_productos_agregados_a_venta", con);
+                da = new SqlDataAdapter("mostrar_productos_agregados_a_cotizacion", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idventa",idVenta );
+                da.SelectCommand.Parameters.AddWithValue("@idcotizacion",idCotizacion);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();
@@ -560,14 +497,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
                 datalistadoDetalleVenta.Columns[18].Visible = false;
-                if (Tema=="Redentor")
-                {
                 Bases.Multilinea(ref datalistadoDetalleVenta);
-                }
-                else
-                {
-                Bases.MultilineaTemaOscuro(ref datalistadoDetalleVenta);
-                }
                 sumar();
             }
             catch (Exception ex)
@@ -579,9 +509,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             try
             {
-           if (usainventarios =="SI")
+                if (usainventarios == "SI")
                 {
-                    if ( lblStock_de_Productos >= txtpantalla)  
+                    MessageBox.Show(usainventarios);
+                    if (lblStock_de_Productos >= txtpantalla)
                     {
                         insertar_detalle_venta_Validado();
                     }
@@ -590,18 +521,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         TimerLABEL_STOCK.Start();
                     }
                 }
-
-           else if  (usainventarios =="NO")
+                else if (usainventarios == "NO")
                 {
                     insertar_detalle_venta_SIN_VALIDAR();
                 }
-        
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
             }
-          
         }
         private void insertar_detalle_venta_Validado()
         {
@@ -611,9 +539,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_detalle_venta", con);
+                cmd = new SqlCommand("insertar_detalle_cotizacion", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idventa", idVenta);
+                cmd.Parameters.AddWithValue("@idcotizacion", idCotizacion);
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
@@ -636,7 +564,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show(ex.StackTrace + ex.Message);
             }
         }
-   
+
         private void insertar_detalle_venta_SIN_VALIDAR()
         {
             try
@@ -645,9 +573,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_detalle_venta", con);
+                cmd = new SqlCommand("insertar_detalle_cotizacion", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idventa", idVenta);
+                cmd.Parameters.AddWithValue("@idcotizacion", idCotizacion);
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
@@ -685,7 +613,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrar_stock_de_detalle_de_ventas", con);
+                da = new SqlDataAdapter("mostrar_stock_de_detalle_de_cotizacion", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Id_producto", idproducto);
                 da.Fill(dt);
@@ -708,12 +636,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             con.Open();
-            cmd = new SqlCommand("editar_detalle_venta_sumar", con);
+            cmd = new SqlCommand("editar_detalle_cotizacion_sumar", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Id_producto", idproducto);
             cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
             cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
-            cmd.Parameters.AddWithValue("@Id_venta", idVenta);
+            cmd.Parameters.AddWithValue("@Id_cotizacion", idCotizacion);
             cmd.ExecuteNonQuery();
             con.Close();
             }
@@ -729,7 +657,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("disminuir_stock_en_detalle_de_venta", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("disminuir_stock_en_detalle_de_cotizacion", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_Producto1", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla );
@@ -747,7 +675,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             
             try
             {
-                iddetalleventa = Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[9].Value.ToString());
+                iddetallecotizacion = Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[9].Value.ToString());
                 idproducto = Convert.ToInt32(datalistadoDetalleVenta.SelectedCells[8].Value.ToString());
                 sevendePor = datalistadoDetalleVenta.SelectedCells[17].Value.ToString();
                 usainventarios = datalistadoDetalleVenta.SelectedCells[16].Value.ToString();
@@ -807,7 +735,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("aumentar_stock_en_detalle_de_venta", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("aumentar_stock_en_detalle_de_cotizacion", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_Producto1", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
@@ -827,13 +755,13 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             con.Open();
-            cmd = new SqlCommand("editar_detalle_venta_restar", con);
+            cmd = new SqlCommand("editar_detalle_cotizacion_restar", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@iddetalle_venta", iddetalleventa);
+            cmd.Parameters.AddWithValue("@iddetalle_cotizacion", iddetallecotizacion);
             cmd.Parameters.AddWithValue("cantidad", txtpantalla );
             cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
             cmd.Parameters.AddWithValue("@Id_producto", idproducto);
-            cmd.Parameters.AddWithValue("@Id_venta", idVenta);
+            cmd.Parameters.AddWithValue("@Id_cotizacion", idCotizacion);
             cmd.ExecuteNonQuery();
             con.Close();
            
@@ -867,16 +795,16 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             if (e.ColumnIndex == this.datalistadoDetalleVenta.Columns["EL"].Index)
             {
 
-                int iddetalle_venta =Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[9].Value);
+                int iddetalle_cotizacion =Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[9].Value);
                     try
                     {
                         SqlCommand cmd;
                         SqlConnection con = new SqlConnection();
                         con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                         con.Open();
-                        cmd = new SqlCommand("eliminar_detalle_venta", con);
+                        cmd = new SqlCommand("eliminar_detalle_cotizacion", con);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@iddetalleventa", iddetalle_venta);
+                        cmd.Parameters.AddWithValue("@iddetallecotizacion", iddetalle_cotizacion);
                         cmd.ExecuteNonQuery();
                         con.Close();
                         txtpantalla = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
@@ -907,9 +835,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                cmd = new SqlCommand("eliminar_venta", con);
+                cmd = new SqlCommand("eliminar_cotizacion", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idventa", idVenta);
+                cmd.Parameters.AddWithValue("@idCotizacion", idCotizacion);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -941,7 +869,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 if (Contador == 0)
                 {
                     eliminar_venta_al_agregar_productos();
-                    txtventagenerada = "VENTA NUEVA";
+                    txtventagenerada = "COTIZACION NUEVA";
                 }
             }
         }
@@ -1098,12 +1026,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                cmd = new SqlCommand("editar_detalle_venta_CANTIDAD", con);
+                cmd = new SqlCommand("editar_detalle_cotizacion_CANTIDAD", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_producto", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtmonto.Text);
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtmonto.Text);
-                cmd.Parameters.AddWithValue("@Id_venta", idVenta);
+                cmd.Parameters.AddWithValue("@Id_cotizacion", idCotizacion);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Listarproductosagregados();
@@ -1235,91 +1163,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void befectivo_Click_1(object sender, EventArgs e)
         {
             total = Convert.ToDouble(txt_total_suma.Text);
-            MEDIOS_DE_PAGO frm = new MEDIOS_DE_PAGO();
+            PagosCotizaciones frm = new PagosCotizaciones();
             frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
             frm.ShowDialog();
         }
 
       
-
-        private void btnrestaurar_Click_1(object sender, EventArgs e)
-        {
-            Ventas_en_espera frm = new Ventas_en_espera();
-            frm.FormClosing += Frm_FormClosing1;
-            frm.ShowDialog();
-        }
-
-        private void Frm_FormClosing1(object sender, FormClosingEventArgs e)
-        {
-            Listarproductosagregados();
-            mostrar_panel_de_Cobro();
-        }
-
-        private void btneliminar_Click(object sender, EventArgs e)
-        {
-            if (datalistadoDetalleVenta.RowCount >0)
-            {
-            DialogResult pregunta = MessageBox.Show("¿Realmente desea eliminar esta Venta?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (pregunta==DialogResult.OK )
-            {
-            Eliminar_datos.eliminar_venta(idVenta);
-            Limpiar_para_venta_nueva();
-            }
-            }
-           
-           
-        }
-
-        private void btnespera_Click(object sender, EventArgs e)
-        {
-            if (datalistadoDetalleVenta.RowCount>0)
-            {
-            PanelEnespera.Visible = true;
-            PanelEnespera.BringToFront();
-            PanelEnespera.Dock = DockStyle.Fill;
-            txtnombre.Clear();
-            }
-          
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ocularPanelenEspera();
-        }
-
-        private void ocularPanelenEspera()
-        {
-            PanelEnespera.Visible = false;
-            PanelEnespera.Dock = DockStyle.None;
-        }
-        private void btnGuardarEspera_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty (txtnombre.Text ))
-            {
-                editarVentaEspera();
-            }
-            else
-            {
-                MessageBox.Show("Ingrese una referencia");
-            }
-            
-        }
-        private void editarVentaEspera()
-
-        {
-            Editar_datos.ingresar_nombre_a_venta_en_espera(idVenta, txtnombre.Text);
-            Limpiar_para_venta_nueva();
-            ocularPanelenEspera();
-        }
-        private void btnAutomaticoEspera_Click(object sender, EventArgs e)
-        {
-            txtnombre.Text = "Ticket" + idVenta;
-            editarVentaEspera();
-        }
-
-        
-
         private void BTNLECTORA_Click_1(object sender, EventArgs e)
         {
             lbltipodebusqueda2.Text = "Buscar con LECTORA de Codigos de Barras";
@@ -1330,7 +1179,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtbuscar.Focus();
         }
 
-        private void BTNTECLADO_Click_1(object sender, EventArgs e)
+        private void BTNTECLADO_Click_1(object sender, EventArgs e) 
         {
             lbltipodebusqueda2.Text = "Buscar con  TECLADO";
             Tipo_de_busqueda = "TECLADO";
@@ -1340,98 +1189,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtbuscar.Focus();
         }
 
-        private void btnverMovimientosCaja_Click(object sender, EventArgs e)
-        {
-            CAJA.Listado_gastos_ingresos frm = new CAJA.Listado_gastos_ingresos();
-            frm.ShowDialog();
-        }
-
-        private void btnGastos_Click(object sender, EventArgs e)
-        {
-            Gastos_varios.Gastos frm = new Gastos_varios.Gastos();
-            frm.ShowDialog();
-        }
-
-        private void btnIngresosCaja_Click(object sender, EventArgs e)
-        {
-            Ingresos_varios.IngresosVarios frm = new Ingresos_varios.IngresosVarios();
-            frm.ShowDialog();
-
-        }
-
-        private void BtnCerrar_turno_Click(object sender, EventArgs e)
-        {
-            Dispose();
-            CAJA.CIERRE_DE_CAJA frm = new CAJA.CIERRE_DE_CAJA();
-            frm.ShowDialog();
-        
-        }
-
-        private void btnCreditoPagar_Click(object sender, EventArgs e)
-        {
-            Apertura_de_credito.PorPagar frm = new Apertura_de_credito.PorPagar();
-            frm.ShowDialog();
-        }
-
-        private void btnCreditoCobrar_Click(object sender, EventArgs e)
-        {
-            Apertura_de_credito.PorCobrarOk frm = new Apertura_de_credito.PorCobrarOk();
-            frm.ShowDialog();
-        }
-
-        private void btnadmin_Click(object sender, EventArgs e)
-        {
-            Dispose();
-            DASHBOARD_PRINCIPAL frm = new DASHBOARD_PRINCIPAL();
-            frm.ShowDialog();
-
-        }
-
         private void VENTAS_MENU_PRINCIPALOK_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dlgRes = MessageBox.Show("¿Realmente desea Cerrar el Sistema?", "Cerrando", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlgRes == DialogResult.Yes)
-            {
-                Dispose();
-                CopiasBd.GeneradorAutomatico frm = new CopiasBd.GeneradorAutomatico();
-                frm.ShowDialog();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
+               Dispose();
+               //Presentacion.VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK frm = new Presentacion.VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK();
+               //frm.ShowDialog();
         }
 
         private void VENTAS_MENU_PRINCIPALOK_FormClosed(object sender, FormClosedEventArgs e)
         {
             
         }
-
-        private void btnCobros_Click(object sender, EventArgs e)
-        {
-            Cobros.CobrosForm frm = new Cobros.CobrosForm();
-            frm.ShowDialog();
-        }
-
-        private void btnMayoreo_Click(object sender, EventArgs e)
-        {
-            aplicar_precio_mayoreo();
-        }
-        private void aplicar_precio_mayoreo()
-        {
-            if (datalistadoDetalleVenta.Rows.Count >0)
-            {
-            LdetalleVenta parametros = new LdetalleVenta();
-            Editar_datos funcion = new Editar_datos();
-            parametros.Id_producto = idproducto;
-            parametros.iddetalle_venta  =iddetalleventa;
-            if (funcion.aplicar_precio_mayoreo (parametros)==true)
-            {
-                Listarproductosagregados();
-            }
-            }
-            
-        }
+      
 
         private void datalistadoDetalleVenta_Click(object sender, EventArgs e)
         {
@@ -1440,11 +1209,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnprecio_Click(object sender, EventArgs e)
         {
+
             if (!string.IsNullOrEmpty(txtmonto.Text ))
             {
                 LdetalleVenta parametros = new LdetalleVenta();
                 Editar_datos funcion = new Editar_datos();
-                parametros.iddetalle_venta = iddetalleventa;
+                parametros.iddetalle_venta = iddetallecotizacion;
                 parametros.preciounitario =Convert.ToDouble ( txtmonto.Text);
             if (funcion.editarPrecioVenta (parametros)==true)
                 {
@@ -1453,182 +1223,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
         }
 
-        private void btndevoluciones_Click(object sender, EventArgs e)
+        private void btn0_Click_1(object sender, EventArgs e)
         {
-            HistorialVentas.HistorialVentasForm frm = new HistorialVentas.HistorialVentasForm();
-            frm.ShowDialog();
-        }
+            txtmonto.Text = txtmonto.Text + "0";
 
-        private void IndicadorTema_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IndicadorTema.Checked==true)
-            {
-                Tema = "Oscuro";
-                EditarTemaCaja();
-                TemaOscuro();
-                Listarproductosagregados();
-                PictureBox4.Visible = true;
-                pictureBox5.Visible = false;
-            }
-            else
-            {
-                Tema = "Redentor";
-                EditarTemaCaja();
-                TemaClaro();
-                Listarproductosagregados();
-                PictureBox4.Visible = false;
-                pictureBox5.Visible = true;
-            }
-        }
-        private void EditarTemaCaja()
-        {
-            Lcaja parametros = new Lcaja();
-            Editar_datos funcion = new Editar_datos();
-            parametros.Tema = Tema;
-            funcion.EditarTemaCaja(parametros);
-           
-        }
-        private void TemaOscuro()
-        {
-            //PanelC1 Encabezado
-            label9.ForeColor = Color.White;
-            label9.BackColor = Color.FromArgb(35, 35, 35);
-            PanelC1.BackColor = Color.FromArgb(35, 35, 35);
-            lblNombreSoftware.ForeColor = Color.White;
-            btnadmin.ForeColor = Color.White;
-            txtbuscar.BackColor = Color.FromArgb(20, 20, 20);
-            txtbuscar.ForeColor = Color.White;
-            lbltipodebusqueda2.BackColor = Color.FromArgb(20, 20, 20);
-            //PanelC2 Intermedio
-            panelC2.BackColor = Color.FromArgb(35, 35, 35);
-            btnCobros.BackColor = Color.FromArgb(45, 45, 45);
-            btnCobros.ForeColor = Color.White;
-          
-
-            btnCreditoCobrar.BackColor = Color.FromArgb(45, 45, 45);
-            btnCreditoCobrar.ForeColor = Color.White;
-            btnCreditoPagar.BackColor = Color.FromArgb(45, 45, 45);
-            btnCreditoPagar.ForeColor = Color.White;
-
-            //PanelC3
-            PanelC3.BackColor = Color.FromArgb(35, 35, 35);
-            btnMayoreo.BackColor = Color.FromArgb(45, 45, 45);
-            btnMayoreo.ForeColor = Color.White;
-            btnIngresosCaja.BackColor = Color.FromArgb(45, 45, 45);
-            btnIngresosCaja.ForeColor = Color.White;
-            btnGastos.BackColor = Color.FromArgb(45, 45, 45);
-            btnGastos.ForeColor = Color.White;
-            BtnTecladoV.BackColor = Color.FromArgb(45, 45, 45);
-            BtnTecladoV.ForeColor = Color.White;
-            //PanelC4 Pie de pagina
-            panelC4.BackColor = Color.FromArgb(20, 20, 20);
-            btnespera.BackColor = Color.FromArgb(20, 20, 20);
-            btnespera.ForeColor = Color.White;
-            btnrestaurar.BackColor = Color.FromArgb(20, 20, 20);
-            btnrestaurar.ForeColor = Color.White;
-            btneliminar.BackColor = Color.FromArgb(20, 20, 20);
-            btneliminar.ForeColor = Color.White;
-            btndevoluciones.BackColor = Color.FromArgb(20, 20, 20);
-            btndevoluciones.ForeColor = Color.White;
-            //PanelOperaciones
-            PanelOperaciones.BackColor = Color.FromArgb(35, 35, 35);
-            txt_total_suma.ForeColor = Color.WhiteSmoke;
-            //PanelBienvenida
-            panelBienvenida.BackColor= Color.FromArgb(35, 35, 35);
-            label8.ForeColor = Color.WhiteSmoke;
-            button4.BackColor = Color.FromArgb(45, 45, 45);
-            button4.ForeColor = Color.White;
-            btn4.ForeColor = Color.WhiteSmoke;
-            btn4.BackColor = Color.FromArgb(45, 45, 45);
-            Listarproductosagregados();
-            
-
-
-        }
-        private void TemaClaro()
-        {
-            //PanelC1 encabezado
-            label9.ForeColor = Color.Black;
-            label9.BackColor = Color.White;
-            PanelC1.BackColor = Color.White;
-            lblNombreSoftware.ForeColor = Color.Black;
-            btnadmin.ForeColor = Color.Black;
-            txtbuscar.BackColor = Color.White;
-            txtbuscar.ForeColor = Color.Black;
-            lbltipodebusqueda2.BackColor = Color.White;
-            btn4.ForeColor = Color.WhiteSmoke;
-            btn4.BackColor = Color.White;
-            //PanelC2 intermedio
-            panelC2.BackColor = Color.White;
-            btnCobros.BackColor = Color.WhiteSmoke;
-            btnCobros.ForeColor = Color.Black;
-            btn4.BackColor = Color.WhiteSmoke;
-            btn4.ForeColor = Color.White;
-
-            btnCreditoCobrar.BackColor = Color.WhiteSmoke;
-            btnCreditoCobrar.ForeColor = Color.Black;
-            btnCreditoPagar.BackColor = Color.WhiteSmoke;
-            btnCreditoPagar.ForeColor = Color.Black;
-
-            //PanelC3
-            PanelC3.BackColor = Color.White;
-            btnMayoreo.BackColor = Color.WhiteSmoke;
-            btnMayoreo.ForeColor = Color.Black;
-            btnIngresosCaja.BackColor = Color.WhiteSmoke;
-            btnIngresosCaja.ForeColor = Color.Black;
-            btnGastos.BackColor = Color.WhiteSmoke;
-            btnGastos.ForeColor = Color.Black;
-            BtnTecladoV.BackColor = Color.WhiteSmoke;
-            BtnTecladoV.ForeColor = Color.Black;
-            //PanelC4 pie de pagina
-            panelC4.BackColor = Color.Gainsboro;
-            btnespera.BackColor = Color.Gainsboro;
-            btnespera.ForeColor = Color.Black;
-            btnrestaurar.BackColor = Color.Gainsboro;
-            btnrestaurar.ForeColor = Color.Black;
-            btneliminar.BackColor = Color.Gainsboro;
-            btneliminar.ForeColor = Color.Black;
-            btndevoluciones.BackColor = Color.Gainsboro;
-            btndevoluciones.ForeColor = Color.Black;
-
-            //PanelOperaciones
-            PanelOperaciones.BackColor = Color.White;
-            
-            txt_total_suma.ForeColor = Color.Black;
-            //PanelBienvenida
-            panelBienvenida.BackColor = Color.White;
-            label8.ForeColor = Color.FromArgb(64, 64, 64);
-            Listarproductosagregados();
-
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Cotizacion.Cotizaciones frm = new Cotizacion.Cotizaciones();
-            frm.ShowDialog();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Cotizaciones_En_Espera frm = new Cotizaciones_En_Espera();
-            frm.ShowDialog();
-        }
-
-        private void datalistadocotizacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            Pedidos_En_Espera frm = new Pedidos_En_Espera();
-            frm.ShowDialog();
         }
     }
 }

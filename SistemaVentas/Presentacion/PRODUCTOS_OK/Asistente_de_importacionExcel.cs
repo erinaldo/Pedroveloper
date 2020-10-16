@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SpreadsheetLight;
 using System.IO;
 
+
 using System.Data.SqlClient;
 
 namespace SistemaVentas.Presentacion.PRODUCTOS_OK
@@ -27,7 +28,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
 
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {/*
+        {
             try
             {
                 string ruta;
@@ -46,7 +47,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
-            }*/
+            }
         }
 
         private void TSIGUIENTE_Y_GUARDAR__Click(object sender, EventArgs e)

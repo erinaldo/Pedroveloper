@@ -1465,5 +1465,10 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             Bases.Separador_de_Numeros(txtstockminimo, e);
 
         }
+
+        private void Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -55,6 +55,72 @@ namespace SistemaVentas.Datos
             }
         }
 
+        public static void mostrarPedido(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarPedidosEnCurso", CONEXIONMAESTRA.conectar);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void mostrarPedidoEspecifico(ref DataTable dt , int idPedido)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarPedidoEspecifico", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idPedido", idPedido);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static void EstadoPersonal(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarEmpleadosVehiculos", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                //da.SelectCommand.Parameters.AddWithValue(@)
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+
+        public static void EstadoVehiculos(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarVehiculosDisponibles", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+
         public static void BuscarVehiculos(ref DataTable dt, string buscador)
         {
             try
@@ -88,6 +154,22 @@ namespace SistemaVentas.Datos
 
             }
         }
+        public static void mostrar_cotizacion_en_espera_con_fecha_y_monto(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.cerrar();
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_cotizaciones_en_espera_con_fecha_y_monto", CONEXIONMAESTRA.conectar);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
         public static void mostrar_productos_agregados_a_ventas_en_espera(ref DataTable dt, int idventa)
         {
 
@@ -106,6 +188,26 @@ namespace SistemaVentas.Datos
 
             }
         }
+
+        public static void mostrar_productos_agregados_a_cotizaciones_en_espera(ref DataTable dt, int idventa)
+        {
+
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_cotizaciones_en_espera", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idventa", idventa);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
+
         public static void buscar_conceptos(ref DataTable dt, string buscador)
         {
 
@@ -747,6 +849,22 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand da = new SqlCommand("contarVentasEspera", CONEXIONMAESTRA.conectar);
                 Contador = Convert.ToInt32 ( da.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception)
+            {
+                Contador = 0;
+
+
+            }
+        }
+        public static void contarCotizacionesEspera(ref int Contador)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand da = new SqlCommand("contarCotizacionesEspera", CONEXIONMAESTRA.conectar);
+                Contador = Convert.ToInt32(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
             catch (Exception)

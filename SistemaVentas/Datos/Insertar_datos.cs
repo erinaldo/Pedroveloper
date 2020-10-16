@@ -31,6 +31,60 @@ namespace SistemaVentas.Datos
                 return false;
             }
         }
+
+        public static bool ProcesarPedido(int idPedido)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("ProcesarPedido", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idPedido", idPedido);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return true;
+            }
+        }
+
+        public static bool ActualizarDatosEmpleado(int idEmpleado)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("ActualizarDatosEmpleado", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception)
+            {
+                return true;
+            }
+        }
+        public static bool ActualizarDatosVehiculo(int idVehiculo)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("ActualizarDatosVehiculo", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idVehiculo", idVehiculo);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception)
+            {
+                return true;
+            }
+        }
         public static bool insertar_Gastos_varios(DateTime fecha,string Nro_documento,
           string  Tipo_comprobante, double Importe,string Descripcion,int Id_caja,int Id_concepto)
         {
@@ -343,6 +397,34 @@ namespace SistemaVentas.Datos
                 return true;
             }
             catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return true;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
+        public bool insertarPedido(Pedidos parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertar_pedido", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCliente", parametros.idCliente);
+                cmd.Parameters.AddWithValue("@idVenta", parametros.idVenta);
+                cmd.Parameters.AddWithValue("@idEmpleado", parametros.idEmpleado);
+                cmd.Parameters.AddWithValue("@idVehiculo", parametros.idVehiculo);
+                cmd.Parameters.AddWithValue("@FechaEnvio", parametros.FechaEnvio);
+                cmd.Parameters.AddWithValue("@Destinatario", parametros.Destinatario);
+                cmd.Parameters.AddWithValue("@DireccionDestinatario", parametros.DireccionDestinatario);
+                cmd.Parameters.AddWithValue("@Estado", parametros.Estado);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return true;

@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Productos_ok));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel3 = new System.Windows.Forms.Panel();
             this.Panel29 = new System.Windows.Forms.Panel();
             this.PictureBox2 = new System.Windows.Forms.PictureBox();
@@ -69,12 +69,6 @@
             this.Panel33 = new System.Windows.Forms.Panel();
             this.txtPorcentajeGanancia = new System.Windows.Forms.TextBox();
             this.txtgrupo = new System.Windows.Forms.TextBox();
-            this.PanelGrupo = new System.Windows.Forms.Panel();
-            this.Panel32 = new System.Windows.Forms.Panel();
-            this.btnVolver = new System.Windows.Forms.Button();
-            this.BtnGuardar_Categoria = new System.Windows.Forms.Button();
-            this.txtbancoseleccionado = new System.Windows.Forms.Label();
-            this.Button5 = new System.Windows.Forms.Button();
             this.MenuStrip9 = new System.Windows.Forms.MenuStrip();
             this.BtnGuardarCambios = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGuardar_grupo = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,16 +141,23 @@
             this.TXTPRESENTACION2 = new System.Windows.Forms.TextBox();
             this.btnagregaryguardar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
-            this.Panel28 = new System.Windows.Forms.Panel();
-            this.TGUARDAR = new System.Windows.Forms.PictureBox();
-            this.TGUARDARCAMBIOS = new System.Windows.Forms.PictureBox();
-            this.ProgressApagado = new System.Windows.Forms.ProgressBar();
-            this.ProgressEncendido = new System.Windows.Forms.ProgressBar();
+            this.TXTIDPRODUCTOOk = new System.Windows.Forms.Label();
             this.Panel26 = new System.Windows.Forms.Panel();
             this.lblIdProducto = new System.Windows.Forms.Label();
             this.datalistadoProductosNuevos = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtfecha_sistema = new System.Windows.Forms.DateTimePicker();
+            this.PanelGrupo = new System.Windows.Forms.Panel();
+            this.Panel32 = new System.Windows.Forms.Panel();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.BtnGuardar_Categoria = new System.Windows.Forms.Button();
+            this.txtbancoseleccionado = new System.Windows.Forms.Label();
+            this.Button5 = new System.Windows.Forms.Button();
+            this.Panel28 = new System.Windows.Forms.Panel();
+            this.TGUARDAR = new System.Windows.Forms.PictureBox();
+            this.TGUARDARCAMBIOS = new System.Windows.Forms.PictureBox();
+            this.ProgressApagado = new System.Windows.Forms.ProgressBar();
+            this.ProgressEncendido = new System.Windows.Forms.ProgressBar();
             this.Panel25 = new System.Windows.Forms.Panel();
             this.CheckInventarios = new System.Windows.Forms.CheckBox();
             this.Label42 = new System.Windows.Forms.Label();
@@ -187,7 +188,6 @@
             this.Label37 = new System.Windows.Forms.Label();
             this.Label49 = new System.Windows.Forms.Label();
             this.Label23 = new System.Windows.Forms.Label();
-            this.TXTIDPRODUCTOOk = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.txtapartirde = new System.Windows.Forms.TextBox();
             this.txtpreciomayoreo = new System.Windows.Forms.TextBox();
@@ -227,7 +227,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADO_PRODUCTOS_OKA)).BeginInit();
             this.PanelGRUPOSSELECT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoGrupos)).BeginInit();
-            this.PanelGrupo.SuspendLayout();
             this.MenuStrip9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
             this.PanelIMPUESTOS.SuspendLayout();
@@ -246,11 +245,12 @@
             this.Panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtund)).BeginInit();
             this.MenuStrip13.SuspendLayout();
+            this.Panel26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoProductosNuevos)).BeginInit();
+            this.PanelGrupo.SuspendLayout();
             this.Panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TGUARDAR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TGUARDARCAMBIOS)).BeginInit();
-            this.Panel26.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoProductosNuevos)).BeginInit();
             this.Panel25.SuspendLayout();
             this.Panel23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadooperacionesagregadas)).BeginInit();
@@ -278,6 +278,7 @@
             this.Panel3.Name = "Panel3";
             this.Panel3.Size = new System.Drawing.Size(1261, 93);
             this.Panel3.TabIndex = 357;
+            this.Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel3_Paint);
             // 
             // Panel29
             // 
@@ -468,7 +469,6 @@
             this.PANELDEPARTAMENTO.BackColor = System.Drawing.Color.White;
             this.PANELDEPARTAMENTO.Controls.Add(this.lblIdGrupo);
             this.PANELDEPARTAMENTO.Controls.Add(this.DATALISTADO_PRODUCTOS_OKA);
-            this.PANELDEPARTAMENTO.Controls.Add(this.maskedTextBox1);
             this.PANELDEPARTAMENTO.Controls.Add(this.Button2);
             this.PANELDEPARTAMENTO.Controls.Add(this.PanelGRUPOSSELECT);
             this.PANELDEPARTAMENTO.Controls.Add(this.txtPorcentajeGanancia);
@@ -555,7 +555,7 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(395, 109);
+            this.maskedTextBox1.Location = new System.Drawing.Point(111, 7);
             this.maskedTextBox1.Mask = "99.99";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(100, 26);
@@ -594,11 +594,11 @@
             this.datalistadoGrupos.AllowUserToAddRows = false;
             this.datalistadoGrupos.AllowUserToDeleteRows = false;
             this.datalistadoGrupos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoGrupos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoGrupos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.datalistadoGrupos.BackgroundColor = System.Drawing.Color.White;
             this.datalistadoGrupos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datalistadoGrupos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -615,8 +615,8 @@
             this.datalistadoGrupos.ReadOnly = true;
             this.datalistadoGrupos.RowHeadersVisible = false;
             this.datalistadoGrupos.RowHeadersWidth = 9;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            this.datalistadoGrupos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoGrupos.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.datalistadoGrupos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.datalistadoGrupos.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.datalistadoGrupos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
@@ -670,79 +670,6 @@
             this.txtgrupo.Size = new System.Drawing.Size(413, 26);
             this.txtgrupo.TabIndex = 610;
             this.txtgrupo.TextChanged += new System.EventHandler(this.txtgrupo_TextChanged);
-            // 
-            // PanelGrupo
-            // 
-            this.PanelGrupo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelGrupo.BackgroundImage")));
-            this.PanelGrupo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PanelGrupo.Controls.Add(this.Panel32);
-            this.PanelGrupo.Controls.Add(this.btnVolver);
-            this.PanelGrupo.Controls.Add(this.BtnGuardar_Categoria);
-            this.PanelGrupo.Controls.Add(this.txtbancoseleccionado);
-            this.PanelGrupo.Controls.Add(this.Button5);
-            this.PanelGrupo.Location = new System.Drawing.Point(43, 33);
-            this.PanelGrupo.Name = "PanelGrupo";
-            this.PanelGrupo.Size = new System.Drawing.Size(10, 10);
-            this.PanelGrupo.TabIndex = 609;
-            this.PanelGrupo.Visible = false;
-            // 
-            // Panel32
-            // 
-            this.Panel32.BackColor = System.Drawing.Color.LightGray;
-            this.Panel32.Location = new System.Drawing.Point(40, 109);
-            this.Panel32.Name = "Panel32";
-            this.Panel32.Size = new System.Drawing.Size(376, 2);
-            this.Panel32.TabIndex = 534;
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.BackColor = System.Drawing.Color.White;
-            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(234, 122);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(181, 33);
-            this.btnVolver.TabIndex = 461;
-            this.btnVolver.Text = "<Volver";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            // 
-            // BtnGuardar_Categoria
-            // 
-            this.BtnGuardar_Categoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(1)))));
-            this.BtnGuardar_Categoria.FlatAppearance.BorderSize = 0;
-            this.BtnGuardar_Categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGuardar_Categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardar_Categoria.Location = new System.Drawing.Point(30, 122);
-            this.BtnGuardar_Categoria.Name = "BtnGuardar_Categoria";
-            this.BtnGuardar_Categoria.Size = new System.Drawing.Size(181, 33);
-            this.BtnGuardar_Categoria.TabIndex = 461;
-            this.BtnGuardar_Categoria.Text = "Guardar";
-            this.BtnGuardar_Categoria.UseVisualStyleBackColor = false;
-            // 
-            // txtbancoseleccionado
-            // 
-            this.txtbancoseleccionado.AutoSize = true;
-            this.txtbancoseleccionado.BackColor = System.Drawing.Color.White;
-            this.txtbancoseleccionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtbancoseleccionado.ForeColor = System.Drawing.Color.Black;
-            this.txtbancoseleccionado.Location = new System.Drawing.Point(116, 21);
-            this.txtbancoseleccionado.Name = "txtbancoseleccionado";
-            this.txtbancoseleccionado.Size = new System.Drawing.Size(103, 20);
-            this.txtbancoseleccionado.TabIndex = 342;
-            this.txtbancoseleccionado.Text = "Nuevo Grupo";
-            // 
-            // Button5
-            // 
-            this.Button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(1)))));
-            this.Button5.FlatAppearance.BorderSize = 0;
-            this.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button5.Location = new System.Drawing.Point(30, 122);
-            this.Button5.Name = "Button5";
-            this.Button5.Size = new System.Drawing.Size(181, 33);
-            this.Button5.TabIndex = 461;
-            this.Button5.Text = "Guardar Cambios";
-            this.Button5.UseVisualStyleBackColor = false;
             // 
             // MenuStrip9
             // 
@@ -825,10 +752,11 @@
             // 
             this.PanelIMPUESTOS.Controls.Add(this.Panel18);
             this.PanelIMPUESTOS.Controls.Add(this.Panel6);
+            this.PanelIMPUESTOS.Controls.Add(this.maskedTextBox1);
             this.PanelIMPUESTOS.Controls.Add(this.TXTIDPRODUCTOOk);
             this.PanelIMPUESTOS.Controls.Add(this.Panel26);
             this.PanelIMPUESTOS.Controls.Add(this.PanelGrupo);
-            this.PanelIMPUESTOS.Location = new System.Drawing.Point(775, 117);
+            this.PanelIMPUESTOS.Location = new System.Drawing.Point(816, 117);
             this.PanelIMPUESTOS.Name = "PanelIMPUESTOS";
             this.PanelIMPUESTOS.Size = new System.Drawing.Size(10, 10);
             this.PanelIMPUESTOS.TabIndex = 607;
@@ -1581,6 +1509,155 @@
             this.btnagregar.Text = "Agregar >>>";
             this.btnagregar.UseVisualStyleBackColor = true;
             // 
+            // TXTIDPRODUCTOOk
+            // 
+            this.TXTIDPRODUCTOOk.AutoSize = true;
+            this.TXTIDPRODUCTOOk.Location = new System.Drawing.Point(-74, 46);
+            this.TXTIDPRODUCTOOk.Name = "TXTIDPRODUCTOOk";
+            this.TXTIDPRODUCTOOk.Size = new System.Drawing.Size(165, 20);
+            this.TXTIDPRODUCTOOk.TabIndex = 1;
+            this.TXTIDPRODUCTOOk.Text = "TXTIDPRODUCTOOk";
+            // 
+            // Panel26
+            // 
+            this.Panel26.Controls.Add(this.lblIdProducto);
+            this.Panel26.Controls.Add(this.datalistadoProductosNuevos);
+            this.Panel26.Controls.Add(this.txtfecha_sistema);
+            this.Panel26.Location = new System.Drawing.Point(20, 33);
+            this.Panel26.Name = "Panel26";
+            this.Panel26.Size = new System.Drawing.Size(10, 10);
+            this.Panel26.TabIndex = 605;
+            // 
+            // lblIdProducto
+            // 
+            this.lblIdProducto.AutoSize = true;
+            this.lblIdProducto.Location = new System.Drawing.Point(17, 62);
+            this.lblIdProducto.Name = "lblIdProducto";
+            this.lblIdProducto.Size = new System.Drawing.Size(57, 20);
+            this.lblIdProducto.TabIndex = 606;
+            this.lblIdProducto.Text = "Label7";
+            // 
+            // datalistadoProductosNuevos
+            // 
+            this.datalistadoProductosNuevos.AllowUserToAddRows = false;
+            this.datalistadoProductosNuevos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoProductosNuevos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.datalistadoProductosNuevos.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadoProductosNuevos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadoProductosNuevos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadoProductosNuevos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.datalistadoProductosNuevos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistadoProductosNuevos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewCheckBoxColumn10});
+            this.datalistadoProductosNuevos.EnableHeadersVisualStyles = false;
+            this.datalistadoProductosNuevos.Location = new System.Drawing.Point(21, 87);
+            this.datalistadoProductosNuevos.Name = "datalistadoProductosNuevos";
+            this.datalistadoProductosNuevos.ReadOnly = true;
+            this.datalistadoProductosNuevos.RowHeadersVisible = false;
+            this.datalistadoProductosNuevos.RowHeadersWidth = 9;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoProductosNuevos.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.datalistadoProductosNuevos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.datalistadoProductosNuevos.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.datalistadoProductosNuevos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(63)))));
+            this.datalistadoProductosNuevos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoProductosNuevos.RowTemplate.Height = 32;
+            this.datalistadoProductosNuevos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadoProductosNuevos.Size = new System.Drawing.Size(459, 96);
+            this.datalistadoProductosNuevos.TabIndex = 605;
+            // 
+            // DataGridViewCheckBoxColumn10
+            // 
+            this.DataGridViewCheckBoxColumn10.DataPropertyName = "Marcar";
+            this.DataGridViewCheckBoxColumn10.HeaderText = "Marcar";
+            this.DataGridViewCheckBoxColumn10.Name = "DataGridViewCheckBoxColumn10";
+            this.DataGridViewCheckBoxColumn10.ReadOnly = true;
+            // 
+            // txtfecha_sistema
+            // 
+            this.txtfecha_sistema.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtfecha_sistema.Location = new System.Drawing.Point(21, 29);
+            this.txtfecha_sistema.Name = "txtfecha_sistema";
+            this.txtfecha_sistema.Size = new System.Drawing.Size(124, 26);
+            this.txtfecha_sistema.TabIndex = 604;
+            // 
+            // PanelGrupo
+            // 
+            this.PanelGrupo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelGrupo.BackgroundImage")));
+            this.PanelGrupo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelGrupo.Controls.Add(this.Panel32);
+            this.PanelGrupo.Controls.Add(this.btnVolver);
+            this.PanelGrupo.Controls.Add(this.BtnGuardar_Categoria);
+            this.PanelGrupo.Controls.Add(this.txtbancoseleccionado);
+            this.PanelGrupo.Controls.Add(this.Button5);
+            this.PanelGrupo.Location = new System.Drawing.Point(43, 33);
+            this.PanelGrupo.Name = "PanelGrupo";
+            this.PanelGrupo.Size = new System.Drawing.Size(10, 10);
+            this.PanelGrupo.TabIndex = 609;
+            this.PanelGrupo.Visible = false;
+            // 
+            // Panel32
+            // 
+            this.Panel32.BackColor = System.Drawing.Color.LightGray;
+            this.Panel32.Location = new System.Drawing.Point(40, 109);
+            this.Panel32.Name = "Panel32";
+            this.Panel32.Size = new System.Drawing.Size(376, 2);
+            this.Panel32.TabIndex = 534;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.White;
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Location = new System.Drawing.Point(234, 122);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(181, 33);
+            this.btnVolver.TabIndex = 461;
+            this.btnVolver.Text = "<Volver";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            // 
+            // BtnGuardar_Categoria
+            // 
+            this.BtnGuardar_Categoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(1)))));
+            this.BtnGuardar_Categoria.FlatAppearance.BorderSize = 0;
+            this.BtnGuardar_Categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGuardar_Categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardar_Categoria.Location = new System.Drawing.Point(30, 122);
+            this.BtnGuardar_Categoria.Name = "BtnGuardar_Categoria";
+            this.BtnGuardar_Categoria.Size = new System.Drawing.Size(181, 33);
+            this.BtnGuardar_Categoria.TabIndex = 461;
+            this.BtnGuardar_Categoria.Text = "Guardar";
+            this.BtnGuardar_Categoria.UseVisualStyleBackColor = false;
+            // 
+            // txtbancoseleccionado
+            // 
+            this.txtbancoseleccionado.AutoSize = true;
+            this.txtbancoseleccionado.BackColor = System.Drawing.Color.White;
+            this.txtbancoseleccionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtbancoseleccionado.ForeColor = System.Drawing.Color.Black;
+            this.txtbancoseleccionado.Location = new System.Drawing.Point(116, 21);
+            this.txtbancoseleccionado.Name = "txtbancoseleccionado";
+            this.txtbancoseleccionado.Size = new System.Drawing.Size(103, 20);
+            this.txtbancoseleccionado.TabIndex = 342;
+            this.txtbancoseleccionado.Text = "Nuevo Grupo";
+            // 
+            // Button5
+            // 
+            this.Button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(1)))));
+            this.Button5.FlatAppearance.BorderSize = 0;
+            this.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button5.Location = new System.Drawing.Point(30, 122);
+            this.Button5.Name = "Button5";
+            this.Button5.Size = new System.Drawing.Size(181, 33);
+            this.Button5.TabIndex = 461;
+            this.Button5.Text = "Guardar Cambios";
+            this.Button5.UseVisualStyleBackColor = false;
+            // 
             // Panel28
             // 
             this.Panel28.Controls.Add(this.TGUARDAR);
@@ -1630,73 +1707,6 @@
             this.ProgressEncendido.Name = "ProgressEncendido";
             this.ProgressEncendido.Size = new System.Drawing.Size(22, 10);
             this.ProgressEncendido.TabIndex = 603;
-            // 
-            // Panel26
-            // 
-            this.Panel26.Controls.Add(this.lblIdProducto);
-            this.Panel26.Controls.Add(this.datalistadoProductosNuevos);
-            this.Panel26.Controls.Add(this.txtfecha_sistema);
-            this.Panel26.Location = new System.Drawing.Point(20, 33);
-            this.Panel26.Name = "Panel26";
-            this.Panel26.Size = new System.Drawing.Size(10, 10);
-            this.Panel26.TabIndex = 605;
-            // 
-            // lblIdProducto
-            // 
-            this.lblIdProducto.AutoSize = true;
-            this.lblIdProducto.Location = new System.Drawing.Point(17, 62);
-            this.lblIdProducto.Name = "lblIdProducto";
-            this.lblIdProducto.Size = new System.Drawing.Size(57, 20);
-            this.lblIdProducto.TabIndex = 606;
-            this.lblIdProducto.Text = "Label7";
-            // 
-            // datalistadoProductosNuevos
-            // 
-            this.datalistadoProductosNuevos.AllowUserToAddRows = false;
-            this.datalistadoProductosNuevos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoProductosNuevos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.datalistadoProductosNuevos.BackgroundColor = System.Drawing.Color.White;
-            this.datalistadoProductosNuevos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.datalistadoProductosNuevos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.datalistadoProductosNuevos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.datalistadoProductosNuevos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datalistadoProductosNuevos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DataGridViewCheckBoxColumn10});
-            this.datalistadoProductosNuevos.EnableHeadersVisualStyles = false;
-            this.datalistadoProductosNuevos.Location = new System.Drawing.Point(21, 87);
-            this.datalistadoProductosNuevos.Name = "datalistadoProductosNuevos";
-            this.datalistadoProductosNuevos.ReadOnly = true;
-            this.datalistadoProductosNuevos.RowHeadersVisible = false;
-            this.datalistadoProductosNuevos.RowHeadersWidth = 9;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
-            this.datalistadoProductosNuevos.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.datalistadoProductosNuevos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.datalistadoProductosNuevos.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.datalistadoProductosNuevos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(63)))));
-            this.datalistadoProductosNuevos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoProductosNuevos.RowTemplate.Height = 32;
-            this.datalistadoProductosNuevos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadoProductosNuevos.Size = new System.Drawing.Size(459, 96);
-            this.datalistadoProductosNuevos.TabIndex = 605;
-            // 
-            // DataGridViewCheckBoxColumn10
-            // 
-            this.DataGridViewCheckBoxColumn10.DataPropertyName = "Marcar";
-            this.DataGridViewCheckBoxColumn10.HeaderText = "Marcar";
-            this.DataGridViewCheckBoxColumn10.Name = "DataGridViewCheckBoxColumn10";
-            this.DataGridViewCheckBoxColumn10.ReadOnly = true;
-            // 
-            // txtfecha_sistema
-            // 
-            this.txtfecha_sistema.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtfecha_sistema.Location = new System.Drawing.Point(21, 29);
-            this.txtfecha_sistema.Name = "txtfecha_sistema";
-            this.txtfecha_sistema.Size = new System.Drawing.Size(124, 26);
-            this.txtfecha_sistema.TabIndex = 604;
             // 
             // Panel25
             // 
@@ -2016,15 +2026,6 @@
             this.Label23.TabIndex = 1;
             this.Label23.Text = "Precio venta :";
             // 
-            // TXTIDPRODUCTOOk
-            // 
-            this.TXTIDPRODUCTOOk.AutoSize = true;
-            this.TXTIDPRODUCTOOk.Location = new System.Drawing.Point(-74, 46);
-            this.TXTIDPRODUCTOOk.Name = "TXTIDPRODUCTOOk";
-            this.TXTIDPRODUCTOOk.Size = new System.Drawing.Size(165, 20);
-            this.TXTIDPRODUCTOOk.TabIndex = 1;
-            this.TXTIDPRODUCTOOk.Text = "TXTIDPRODUCTOOk";
-            // 
             // Label2
             // 
             this.Label2.AutoSize = true;
@@ -2214,52 +2215,52 @@
             this.datalistado.AllowUserToAddRows = false;
             this.datalistado.AllowUserToDeleteRows = false;
             this.datalistado.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
             this.datalistado.BackgroundColor = System.Drawing.Color.White;
             this.datalistado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datalistado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.datalistado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.datalistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datalistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
             this.Editar});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistado.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistado.DefaultCellStyle = dataGridViewCellStyle16;
             this.datalistado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datalistado.EnableHeadersVisualStyles = false;
             this.datalistado.Location = new System.Drawing.Point(0, 93);
             this.datalistado.Name = "datalistado";
             this.datalistado.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistado.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistado.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.datalistado.RowHeadersVisible = false;
             this.datalistado.RowHeadersWidth = 9;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gainsboro;
-            this.datalistado.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistado.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.datalistado.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.datalistado.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.datalistado.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
@@ -2383,8 +2384,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADO_PRODUCTOS_OKA)).EndInit();
             this.PanelGRUPOSSELECT.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoGrupos)).EndInit();
-            this.PanelGrupo.ResumeLayout(false);
-            this.PanelGrupo.PerformLayout();
             this.MenuStrip9.ResumeLayout(false);
             this.MenuStrip9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).EndInit();
@@ -2414,12 +2413,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtund)).EndInit();
             this.MenuStrip13.ResumeLayout(false);
             this.MenuStrip13.PerformLayout();
-            this.Panel28.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TGUARDAR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TGUARDARCAMBIOS)).EndInit();
             this.Panel26.ResumeLayout(false);
             this.Panel26.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoProductosNuevos)).EndInit();
+            this.PanelGrupo.ResumeLayout(false);
+            this.PanelGrupo.PerformLayout();
+            this.Panel28.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TGUARDAR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TGUARDARCAMBIOS)).EndInit();
             this.Panel25.ResumeLayout(false);
             this.Panel25.PerformLayout();
             this.Panel23.ResumeLayout(false);

@@ -78,13 +78,20 @@ namespace SistemaVentas.Presentacion.Empleados
                         {
                             if(txtDepartamento.Text != "")
                             {
-                                if(txtBanco.Text != "")
+                                if (txtBanco.Text != "")
                                 {
-                                    rellenarCamposVacios();
-                                    insertar();
+                                    if (txtTelefono.Text != "")
+                                    {
+                                        rellenarCamposVacios();
+                                        insertar();
+                                    } else
+                                    {
+                                        MessageBox.Show("Elija un Telefono correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
                                 }
                                 else
                                 {
+
                                     MessageBox.Show("Elija un banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 }
@@ -161,7 +168,7 @@ namespace SistemaVentas.Presentacion.Empleados
         }
         private void pintarDatalistado()
         {
-            Bases.Multilinea(ref datalistado);
+            /*Bases.Multilinea(ref datalistado);
             datalistado.Columns[2].Visible = false;
             datalistado.Columns[10].Visible = false;
             foreach (DataGridViewRow row in datalistado.Rows)
@@ -173,7 +180,7 @@ namespace SistemaVentas.Presentacion.Empleados
                     row.DefaultCellStyle.ForeColor = Color.Red;
                 }
 
-            }
+            }*/
         }
 
         private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -400,6 +407,225 @@ namespace SistemaVentas.Presentacion.Empleados
             txtDepartamento.Text = "";
             txtBanco.Text = "";
         }
-        
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelRegistros_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFecha_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBanco_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblId_empleado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblnumeroIcono_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ICONO_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtCuentaBanco_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtnombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelNuevo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dlg_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAno_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

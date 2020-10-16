@@ -73,6 +73,16 @@ namespace SistemaVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _21387 {
+            get {
+                object obj = ResourceManager.GetObject("21387", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _6030 {
             get {
                 object obj = ResourceManager.GetObject("6030", resourceCulture);
@@ -203,6 +213,26 @@ namespace SistemaVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap camion_de_reparto__1_ {
+            get {
+                object obj = ResourceManager.GetObject("camion-de-reparto (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap camion_de_reparto1 {
+            get {
+                object obj = ResourceManager.GetObject("camion-de-reparto1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cobrosIcono {
             get {
                 object obj = ResourceManager.GetObject("cobrosIcono", resourceCulture);
@@ -276,6 +306,28 @@ namespace SistemaVentas.Properties {
         internal static System.Drawing.Bitmap jugar {
             get {
                 object obj = ResourceManager.GetObject("jugar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kisspng_computer_icons_scalable_vector_graphics_pickup_tru_eshahen_5c32661f515b46_2471659615468068153333 {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-computer-icons-scalable-vector-graphics-pickup-tru-eshahen-5c32661f515b46" +
+                        ".2471659615468068153333", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kisspng_computer_icons_scalable_vector_graphics_pickup_tru_eshahen_5c32661f515b461 {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-computer-icons-scalable-vector-graphics-pickup-tru-eshahen-5c32661f515b46" +
+                        "1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -376,6 +428,16 @@ namespace SistemaVentas.Properties {
         internal static System.Drawing.Bitmap pagosicono {
             get {
                 object obj = ResourceManager.GetObject("pagosicono", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngegg {
+            get {
+                object obj = ResourceManager.GetObject("pngegg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

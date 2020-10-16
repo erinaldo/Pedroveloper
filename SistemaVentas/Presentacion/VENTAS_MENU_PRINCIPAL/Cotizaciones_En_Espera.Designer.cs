@@ -1,6 +1,6 @@
 ﻿namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 {
-    partial class Ventas_en_espera
+    partial class Cotizaciones_En_Espera
     {
         /// <summary>
         /// Required designer variable.
@@ -33,12 +33,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventas_en_espera));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cotizaciones_En_Espera));
             this.panel1 = new System.Windows.Forms.Panel();
             this.datalistado_ventas_en_espera = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -59,8 +59,8 @@
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado_ventas_en_espera)).BeginInit();
             this.panel3.SuspendLayout();
@@ -145,7 +145,6 @@
             // Eliminar
             // 
             this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
             this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
@@ -173,7 +172,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(360, 43);
             this.label1.TabIndex = 537;
-            this.label1.Text = "Ventas en Espera";
+            this.label1.Text = "Cotizaciones en Espera";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Panel29
@@ -195,6 +194,7 @@
             this.txtbusca.Name = "txtbusca";
             this.txtbusca.Size = new System.Drawing.Size(272, 22);
             this.txtbusca.TabIndex = 534;
+            this.txtbusca.TextChanged += new System.EventHandler(this.txtbusca_TextChanged);
             // 
             // MenuStrip1
             // 
@@ -219,7 +219,6 @@
             this.ToolStripMenuItem5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.ToolStripMenuItem5.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.ToolStripMenuItem5.ForeColor = System.Drawing.Color.Black;
-            this.ToolStripMenuItem5.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripMenuItem5.Image")));
             this.ToolStripMenuItem5.Name = "ToolStripMenuItem5";
             this.ToolStripMenuItem5.Size = new System.Drawing.Size(50, 30);
             this.ToolStripMenuItem5.Text = "+";
@@ -315,11 +314,11 @@
             // 
             // lblfechadeventa
             // 
-            this.lblfechadeventa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblfechadeventa.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblfechadeventa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfechadeventa.Location = new System.Drawing.Point(134, 0);
+            this.lblfechadeventa.Location = new System.Drawing.Point(174, 0);
             this.lblfechadeventa.Name = "lblfechadeventa";
-            this.lblfechadeventa.Size = new System.Drawing.Size(486, 49);
+            this.lblfechadeventa.Size = new System.Drawing.Size(446, 49);
             this.lblfechadeventa.TabIndex = 1;
             this.lblfechadeventa.Text = "--";
             this.lblfechadeventa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -330,9 +329,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 49);
+            this.label2.Size = new System.Drawing.Size(168, 49);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Fecha de venta:";
+            this.label2.Text = "Fecha de cotización:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel4
@@ -353,11 +352,11 @@
             this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btneliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btneliminar.Image = global::SistemaVentas.Properties.Resources.lapiz;
-            this.btneliminar.Location = new System.Drawing.Point(168, 6);
+            this.btneliminar.Location = new System.Drawing.Point(198, 6);
             this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(153, 47);
+            this.btneliminar.Size = new System.Drawing.Size(185, 47);
             this.btneliminar.TabIndex = 3;
-            this.btneliminar.Text = "Eliminar venta";
+            this.btneliminar.Text = "Eliminar cotización";
             this.btneliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btneliminar.UseVisualStyleBackColor = true;
             this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
@@ -371,9 +370,9 @@
             this.btnRestaurar.Image = global::SistemaVentas.Properties.Resources.jugar;
             this.btnRestaurar.Location = new System.Drawing.Point(0, 6);
             this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(168, 47);
+            this.btnRestaurar.Size = new System.Drawing.Size(198, 47);
             this.btnRestaurar.TabIndex = 4;
-            this.btnRestaurar.Text = "Restaurar venta";
+            this.btnRestaurar.Text = "Restaurar cotización";
             this.btnRestaurar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRestaurar.UseVisualStyleBackColor = true;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
@@ -394,24 +393,24 @@
             this.panel6.Size = new System.Drawing.Size(5, 466);
             this.panel6.TabIndex = 361;
             // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Image = global::SistemaVentas.Properties.Resources.advertencia;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // Ventas_en_espera
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::SistemaVentas.Properties.Resources.lapiz1;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            // 
+            // Cotizaciones_En_Espera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -419,7 +418,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Ventas_en_espera";
+            this.Name = "Cotizaciones_En_Espera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Ventas_en_espera_Load);
             this.panel1.ResumeLayout(false);
@@ -458,7 +457,7 @@
         private System.Windows.Forms.Button btnRestaurar;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        internal System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        internal System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }

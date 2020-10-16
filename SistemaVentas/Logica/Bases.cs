@@ -109,6 +109,29 @@ namespace SistemaVentas.Logica
             styCabeceras.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             List.ColumnHeadersDefaultCellStyle = styCabeceras;
         }
+
+        public static bool validar8Digitos(int n)
+        {
+            if(n > 8 || n < 8)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public static bool validar10Digitos(int n)
+        {
+            if (n > 10 || n < 10)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public static string Encriptar(string texto)
         {
             try
