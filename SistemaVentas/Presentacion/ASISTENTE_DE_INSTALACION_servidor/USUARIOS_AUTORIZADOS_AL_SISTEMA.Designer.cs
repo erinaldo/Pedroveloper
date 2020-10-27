@@ -472,6 +472,7 @@
             this.datalistadoEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datalistadoEmpleado.Size = new System.Drawing.Size(200, 86);
             this.datalistadoEmpleado.TabIndex = 644;
+            this.datalistadoEmpleado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoEmpleado_CellContentClick);
             // 
             // USUARIOS_AUTORIZADOS_AL_SISTEMA
             // 

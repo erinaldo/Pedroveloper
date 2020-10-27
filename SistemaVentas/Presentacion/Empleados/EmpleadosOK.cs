@@ -19,6 +19,8 @@ namespace SistemaVentas.Presentacion.Empleados
         {
             InitializeComponent();
         }
+        int idTipoTelefonoEditar;
+        int idDireccionEditar;
         int idEmpleado;
         string estado;
         int idDireccion;
@@ -333,7 +335,7 @@ namespace SistemaVentas.Presentacion.Empleados
         private void pintarDatalistado()
         {
             Bases.Multilinea(ref datalistado);
-            datalistado.Columns[2].Visible = false;
+            /*datalistado.Columns[2].Visible = false;
             datalistado.Columns[3].Visible = false;
             datalistado.Columns[4].Visible = false;
             datalistado.Columns[9].Visible = false;
@@ -342,7 +344,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
             datalistado.Columns[16].Visible = false;
             datalistado.Columns[20].Visible = false;
-            datalistado.Columns[25].Visible = false;
+            datalistado.Columns[25].Visible = false;*/
         }
         private void pintarDatalistadoDireccion()
         {
@@ -379,7 +381,10 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void txtbuscar_TextChanged(object sender, EventArgs e)
         {
-            buscar();
+            if (txtbuscar.Text != "")
+            {
+                buscar();
+            }
         }
 
         private void buscar()
@@ -573,9 +578,9 @@ namespace SistemaVentas.Presentacion.Empleados
         public void editar()
         {
             obtenerDatosID();
-            if (idTipoTelefono != 0)
+            if (idTipoTelefonoEditar != 0)
             {
-                if (idDireccion != 0)
+                if (idDireccionEditar != 0)
                 {
                     editarTipoHorario();
                 }
@@ -1041,10 +1046,12 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void datalistadoTiposTelefono_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            idTipoTelefonoEditar = Convert.ToInt32(datalistadoTiposTelefono.SelectedCells[2].Value.ToString());
             if (e.ColumnIndex == this.datalistadoTiposTelefono.Columns["EliminarG"].Index)
             {
                 lblidtipotelefono.Text = datalistadoTiposTelefono.SelectedCells[2].Value.ToString();
                 idTipoTelefono = Convert.ToInt32(datalistadoTiposTelefono.SelectedCells[2].Value.ToString());
+                idTipoTelefonoEditar = Convert.ToInt32(datalistadoTiposTelefono.SelectedCells[2].Value.ToString());
                 DialogResult result;
                 result = MessageBox.Show("¿Realmente desea eliminar este Tipo de Numero?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
@@ -1100,6 +1107,7 @@ namespace SistemaVentas.Presentacion.Empleados
             {
                 lblidtipotelefono.Text = datalistadoTiposTelefono.SelectedCells[2].Value.ToString();
                 idTipoTelefono = Convert.ToInt32(datalistadoTiposTelefono.SelectedCells[2].Value.ToString());
+                idTipoTelefonoEditar = Convert.ToInt32(datalistadoTiposTelefono.SelectedCells[2].Value.ToString());
                 txtTipoTelefono.Text = datalistadoTiposTelefono.SelectedCells[3].Value.ToString();
                 panelDatalistado.Visible = false;
                 btnGuardar_grupo.Visible = false;
@@ -1175,7 +1183,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void datalistadoDireccion_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            idDireccionEditar = Convert.ToInt32(datalistadoDireccion.SelectedCells[0].Value);
             idDireccion = Convert.ToInt32(datalistadoDireccion.SelectedCells[0].Value);
             idDireccion1 = Convert.ToInt32(datalistadoDireccion.SelectedCells[0].Value);
             txtDireccion.Text = datalistadoDireccion.SelectedCells[1].Value.ToString();

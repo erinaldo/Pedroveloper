@@ -208,10 +208,10 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
         private void txtnombre_TextChanged(object sender, EventArgs e)
         {
-            if(txtnombre.TextLength > 0)
+            buscar();
+            if (txtnombre.TextLength > 0)
             {
                 panelDataListadoEmpleados.Visible = true;
-                buscar();
             }
             else
             {
@@ -234,7 +234,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             }
         }
 
-        void pintarDatalistado()
+        private void pintarDatalistado()
         {
 
             Bases.Multilinea(ref datalistadoEmpleado);
@@ -248,6 +248,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             datalistadoEmpleado.Columns[16].Visible = false;
             datalistadoEmpleado.Columns[20].Visible = false;
             datalistadoEmpleado.Columns[25].Visible = false;*/
+        }
+
+        private void datalistadoEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
