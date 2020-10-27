@@ -20,6 +20,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         {
             InitializeComponent();
         }
+        int idEmpleado;
         string lblIDSERIAL;
         private void USUARIOS_AUTORIZADOS_AL_SISTEMA_Load(object sender, EventArgs e)
         {
@@ -238,21 +239,22 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         {
 
             Bases.Multilinea(ref datalistadoEmpleado);
-            /*datalistadoEmpleado.Columns[2].Visible = false;
-            datalistadoEmpleado.Columns[3].Visible = false;
-            datalistadoEmpleado.Columns[4].Visible = false;
+            datalistadoEmpleado.Columns[0].Visible = false;
+            datalistadoEmpleado.Columns[1].Visible = false;
+            datalistadoEmpleado.Columns[2].Visible = false;
+            datalistadoEmpleado.Columns[7].Visible = false;
             datalistadoEmpleado.Columns[9].Visible = false;
-            datalistadoEmpleado.Columns[11].Visible = false;
+            datalistadoEmpleado.Columns[12].Visible = false;
+
             datalistadoEmpleado.Columns[14].Visible = false;
-
-            datalistadoEmpleado.Columns[16].Visible = false;
-            datalistadoEmpleado.Columns[20].Visible = false;
-            datalistadoEmpleado.Columns[25].Visible = false;*/
+            datalistadoEmpleado.Columns[18].Visible = false;
+            datalistadoEmpleado.Columns[23].Visible = false;
         }
-
         private void datalistadoEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            idEmpleado = Convert.ToInt32(datalistadoEmpleado.SelectedCells[0].Value);
+            txtnombre.Text = datalistadoEmpleado.SelectedCells[3].Value.ToString();
+            panelDataListadoEmpleados.Visible = false;
         }
     }
 }
