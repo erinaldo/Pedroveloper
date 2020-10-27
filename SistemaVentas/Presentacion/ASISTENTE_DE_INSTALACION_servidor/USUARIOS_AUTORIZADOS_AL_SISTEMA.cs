@@ -46,22 +46,18 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         SqlCommand cmd = new SqlCommand();
                         cmd = new SqlCommand("insertar_usuario", con);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@nombres", txtnombre.Text);
+                        cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
                         cmd.Parameters.AddWithValue("@Login", TXTUSUARIO.Text);
                         cmd.Parameters.AddWithValue("@Password", contraseña_encryptada);
-
-                        cmd.Parameters.AddWithValue("@Correo", Presentacion.ASISTENTE_DE_INSTALACION_servidor.REGISTRO_DE_EMPRESA.correo );
-                        cmd.Parameters.AddWithValue("@Rol", "Administrador (Control total)");
                         System.IO.MemoryStream ms = new System.IO.MemoryStream();
                         PictureBox2.Image.Save(ms, PictureBox2.Image.RawFormat);
-
-
                         cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
-                        cmd.Parameters.AddWithValue("@Nombre_de_icono", "Ada_369");
+                        cmd.Parameters.AddWithValue("@Rol", "Administrador (Control total)");
+                        cmd.Parameters.AddWithValue("@Nombre_de_icono", "Pedroveloper");
                         cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                         cmd.ExecuteNonQuery();
                         con.Close();
-                        //Insertar_licencia_de_prueba_30_dias();
+                        Insertar_licencia_de_prueba_30_dias();
                         insertar_cliente_standar();
                         insertar_grupo_por_defecto();
                         insertar_inicio_De_sesion();
@@ -73,7 +69,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        //MessageBox.Show(ex.Message);
                     }
                 }
                 else
