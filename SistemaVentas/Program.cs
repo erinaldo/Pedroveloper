@@ -15,8 +15,8 @@ namespace SistemaVentas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Presentacion.LOGIN frm = new Presentacion.LOGIN();
-             Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA();
+             Presentacion.LOGIN frm = new Presentacion.LOGIN();
+             //Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA();
             //Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
             frm.FormClosed += Frm_FormClosed;
             frm.ShowDialog();

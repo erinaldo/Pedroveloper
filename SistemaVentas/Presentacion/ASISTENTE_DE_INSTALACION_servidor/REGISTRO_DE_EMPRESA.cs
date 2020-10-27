@@ -60,11 +60,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertar_3_COMPROBANTES_POR_DEFECTO();
                         correo = txtcorreo.Text;
                         Dispose();
-                      //  Presentacion.E. .USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA();
-                      //  frm.ShowDialog();
+                        
                         Presentacion.Empleados.EmpleadosOK frm1 = new Presentacion.Empleados.EmpleadosOK();
                         frm1.ShowDialog();
-
+                        USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new USUARIOS_AUTORIZADOS_AL_SISTEMA();
+                        frm.ShowDialog();
                     }
                     else
                     {

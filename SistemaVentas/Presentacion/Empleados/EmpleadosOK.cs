@@ -341,7 +341,6 @@ namespace SistemaVentas.Presentacion.Empleados
             datalistado.Columns[7].Visible = false;
             datalistado.Columns[9].Visible = false;
             datalistado.Columns[12].Visible = false;
-
             datalistado.Columns[14].Visible = false;
             datalistado.Columns[18].Visible = false;
             datalistado.Columns[23].Visible = false;
