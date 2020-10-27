@@ -58,7 +58,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         cmd.ExecuteNonQuery();
                         con.Close();
                         Insertar_licencia_de_prueba_30_dias();
-                       // insertar_cliente_standar();
+                        insertar_cliente_standar();
                         insertar_grupo_por_defecto();
                         insertar_inicio_De_sesion();
                         MessageBox.Show("!LISTO! RECUERDA que para Iniciar Sesión tu Usuario es: " + TXTUSUARIO.Text + " y tu Contraseña es: " + TXTCONTRASEÑA.Text, "Registro Exitoso", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -123,7 +123,34 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 MessageBox.Show(ex.Message);
             }
         }
-        
+        private void insertar_cliente_standar()
+        {
+            try
+            {
+
+
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd = new SqlCommand("insertar_clientes", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idPersona", 1);
+                cmd.Parameters.AddWithValue("@IdentificadorFiscal", "-");
+                cmd.Parameters.AddWithValue("@Estado ", 0);
+                cmd.Parameters.AddWithValue("@Saldo", 0);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void insertar_grupo_por_defecto()
         {
             try

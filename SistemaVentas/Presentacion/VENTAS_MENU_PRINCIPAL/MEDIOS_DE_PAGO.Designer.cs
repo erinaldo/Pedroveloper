@@ -71,14 +71,6 @@
             this.Panel8 = new System.Windows.Forms.Panel();
             this.TXTVUELTO = new System.Windows.Forms.TextBox();
             this.Label31 = new System.Windows.Forms.Label();
-            this.pcredito = new System.Windows.Forms.Panel();
-            this.datalistadoclientes2 = new System.Windows.Forms.DataGridView();
-            this.DataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.txtfecha_de_pago = new System.Windows.Forms.DateTimePicker();
-            this.Label21 = new System.Windows.Forms.Label();
-            this.MenuStrip9 = new System.Windows.Forms.MenuStrip();
-            this.ToolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtclientesolicitabnte2 = new System.Windows.Forms.TextBox();
             this.txtcredito2 = new System.Windows.Forms.TextBox();
             this.Panel22 = new System.Windows.Forms.Panel();
             this.Label20 = new System.Windows.Forms.Label();
@@ -103,7 +95,6 @@
             this.lblindicador_de_factura_1 = new System.Windows.Forms.Label();
             this.txtclientesolicitabnte3 = new System.Windows.Forms.TextBox();
             this.MenuStrip10 = new System.Windows.Forms.MenuStrip();
-            this.btnagregarCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.FlowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtImpresora = new System.Windows.Forms.ComboBox();
             this.Label1 = new System.Windows.Forms.Label();
@@ -131,14 +122,20 @@
             this.R = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.DATALISTADOVERIFICAR = new System.Windows.Forms.DataGridView();
+            this.btnagregarCliente = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtclientesolicitabnte2 = new System.Windows.Forms.TextBox();
+            this.Label21 = new System.Windows.Forms.Label();
+            this.txtfecha_de_pago = new System.Windows.Forms.DateTimePicker();
+            this.datalistadoclientes2 = new System.Windows.Forms.DataGridView();
+            this.DataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pcredito = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.PanelregistroClientes.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.FlowLayoutPanel2.SuspendLayout();
-            this.pcredito.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).BeginInit();
-            this.MenuStrip9.SuspendLayout();
             this.panelGuardado_de_datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoempleado)).BeginInit();
             this.panel6.SuspendLayout();
@@ -153,6 +150,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).BeginInit();
+            this.pcredito.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TXTTOTAL
@@ -210,7 +210,7 @@
             this.PanelregistroClientes.Controls.Add(this.label3);
             this.PanelregistroClientes.Controls.Add(this.label2);
             this.PanelregistroClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PanelregistroClientes.Location = new System.Drawing.Point(243, 80);
+            this.PanelregistroClientes.Location = new System.Drawing.Point(263, 355);
             this.PanelregistroClientes.Name = "PanelregistroClientes";
             this.PanelregistroClientes.Size = new System.Drawing.Size(676, 350);
             this.PanelregistroClientes.TabIndex = 632;
@@ -696,114 +696,6 @@
             this.Label31.Text = "Vuelto:";
             this.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pcredito
-            // 
-            this.pcredito.Controls.Add(this.datalistadoclientes2);
-            this.pcredito.Controls.Add(this.txtfecha_de_pago);
-            this.pcredito.Controls.Add(this.Label21);
-            this.pcredito.Controls.Add(this.MenuStrip9);
-            this.pcredito.Controls.Add(this.txtclientesolicitabnte2);
-            this.pcredito.Location = new System.Drawing.Point(23, 134);
-            this.pcredito.Name = "pcredito";
-            this.pcredito.Size = new System.Drawing.Size(360, 145);
-            this.pcredito.TabIndex = 564;
-            this.pcredito.Visible = false;
-            // 
-            // datalistadoclientes2
-            // 
-            this.datalistadoclientes2.AllowUserToAddRows = false;
-            this.datalistadoclientes2.AllowUserToDeleteRows = false;
-            this.datalistadoclientes2.AllowUserToResizeRows = false;
-            this.datalistadoclientes2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.datalistadoclientes2.BackgroundColor = System.Drawing.Color.White;
-            this.datalistadoclientes2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.datalistadoclientes2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.datalistadoclientes2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.datalistadoclientes2.ColumnHeadersVisible = false;
-            this.datalistadoclientes2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DataGridViewCheckBoxColumn4});
-            this.datalistadoclientes2.EnableHeadersVisualStyles = false;
-            this.datalistadoclientes2.Location = new System.Drawing.Point(4, 35);
-            this.datalistadoclientes2.Name = "datalistadoclientes2";
-            this.datalistadoclientes2.ReadOnly = true;
-            this.datalistadoclientes2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.datalistadoclientes2.RowHeadersVisible = false;
-            this.datalistadoclientes2.RowHeadersWidth = 5;
-            this.datalistadoclientes2.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.datalistadoclientes2.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.datalistadoclientes2.RowTemplate.Height = 40;
-            this.datalistadoclientes2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadoclientes2.Size = new System.Drawing.Size(305, 107);
-            this.datalistadoclientes2.TabIndex = 506;
-            this.datalistadoclientes2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoclientes2_CellClick);
-            this.datalistadoclientes2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoclientes2_CellContentClick);
-            // 
-            // DataGridViewCheckBoxColumn4
-            // 
-            this.DataGridViewCheckBoxColumn4.DataPropertyName = "Activo";
-            this.DataGridViewCheckBoxColumn4.HeaderText = "Activo";
-            this.DataGridViewCheckBoxColumn4.Name = "DataGridViewCheckBoxColumn4";
-            this.DataGridViewCheckBoxColumn4.ReadOnly = true;
-            this.DataGridViewCheckBoxColumn4.Visible = false;
-            // 
-            // txtfecha_de_pago
-            // 
-            this.txtfecha_de_pago.Checked = false;
-            this.txtfecha_de_pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtfecha_de_pago.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtfecha_de_pago.Location = new System.Drawing.Point(77, 35);
-            this.txtfecha_de_pago.Name = "txtfecha_de_pago";
-            this.txtfecha_de_pago.Size = new System.Drawing.Size(153, 26);
-            this.txtfecha_de_pago.TabIndex = 505;
-            // 
-            // Label21
-            // 
-            this.Label21.AutoSize = true;
-            this.Label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Label21.ForeColor = System.Drawing.Color.White;
-            this.Label21.Location = new System.Drawing.Point(3, 40);
-            this.Label21.Name = "Label21";
-            this.Label21.Size = new System.Drawing.Size(68, 20);
-            this.Label21.TabIndex = 504;
-            this.Label21.Text = "F. Venc:";
-            // 
-            // MenuStrip9
-            // 
-            this.MenuStrip9.AutoSize = false;
-            this.MenuStrip9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.MenuStrip9.Dock = System.Windows.Forms.DockStyle.None;
-            this.MenuStrip9.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem9});
-            this.MenuStrip9.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.MenuStrip9.Location = new System.Drawing.Point(312, 0);
-            this.MenuStrip9.Name = "MenuStrip9";
-            this.MenuStrip9.ShowItemToolTips = true;
-            this.MenuStrip9.Size = new System.Drawing.Size(42, 35);
-            this.MenuStrip9.TabIndex = 457;
-            this.MenuStrip9.Text = "MenuStrip8";
-            // 
-            // ToolStripMenuItem9
-            // 
-            this.ToolStripMenuItem9.AutoSize = false;
-            this.ToolStripMenuItem9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ToolStripMenuItem9.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.ToolStripMenuItem9.ForeColor = System.Drawing.Color.Black;
-            this.ToolStripMenuItem9.Name = "ToolStripMenuItem9";
-            this.ToolStripMenuItem9.Size = new System.Drawing.Size(30, 30);
-            this.ToolStripMenuItem9.Text = "+";
-            this.ToolStripMenuItem9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ToolStripMenuItem9.ToolTipText = "Guardar ";
-            this.ToolStripMenuItem9.Click += new System.EventHandler(this.ToolStripMenuItem9_Click);
-            // 
-            // txtclientesolicitabnte2
-            // 
-            this.txtclientesolicitabnte2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtclientesolicitabnte2.Location = new System.Drawing.Point(4, 3);
-            this.txtclientesolicitabnte2.Name = "txtclientesolicitabnte2";
-            this.txtclientesolicitabnte2.Size = new System.Drawing.Size(305, 29);
-            this.txtclientesolicitabnte2.TabIndex = 456;
-            this.txtclientesolicitabnte2.TextChanged += new System.EventHandler(this.txtclientesolicitabnte2_TextChanged);
-            // 
             // txtcredito2
             // 
             this.txtcredito2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -1133,19 +1025,6 @@
             this.MenuStrip10.Size = new System.Drawing.Size(42, 35);
             this.MenuStrip10.TabIndex = 370;
             this.MenuStrip10.Text = "MenuStrip8";
-            // 
-            // btnagregarCliente
-            // 
-            this.btnagregarCliente.AutoSize = false;
-            this.btnagregarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnagregarCliente.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.btnagregarCliente.ForeColor = System.Drawing.Color.Black;
-            this.btnagregarCliente.Name = "btnagregarCliente";
-            this.btnagregarCliente.Size = new System.Drawing.Size(30, 30);
-            this.btnagregarCliente.Text = "+";
-            this.btnagregarCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnagregarCliente.ToolTipText = "Guardar ";
-            this.btnagregarCliente.Click += new System.EventHandler(this.btnagregarCliente_Click);
             // 
             // FlowLayoutPanel3
             // 
@@ -1519,6 +1398,127 @@
             this.DATALISTADOVERIFICAR.Size = new System.Drawing.Size(305, 107);
             this.DATALISTADOVERIFICAR.TabIndex = 618;
             // 
+            // btnagregarCliente
+            // 
+            this.btnagregarCliente.AutoSize = false;
+            this.btnagregarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnagregarCliente.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.btnagregarCliente.ForeColor = System.Drawing.Color.Black;
+            this.btnagregarCliente.Name = "btnagregarCliente";
+            this.btnagregarCliente.Size = new System.Drawing.Size(30, 30);
+            this.btnagregarCliente.Text = "+";
+            this.btnagregarCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnagregarCliente.ToolTipText = "Guardar ";
+            this.btnagregarCliente.Click += new System.EventHandler(this.btnagregarCliente_Click);
+            // 
+            // txtclientesolicitabnte2
+            // 
+            this.txtclientesolicitabnte2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtclientesolicitabnte2.Location = new System.Drawing.Point(4, 3);
+            this.txtclientesolicitabnte2.Name = "txtclientesolicitabnte2";
+            this.txtclientesolicitabnte2.Size = new System.Drawing.Size(305, 29);
+            this.txtclientesolicitabnte2.TabIndex = 456;
+            this.txtclientesolicitabnte2.TextChanged += new System.EventHandler(this.txtclientesolicitabnte2_TextChanged);
+            // 
+            // Label21
+            // 
+            this.Label21.AutoSize = true;
+            this.Label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Label21.ForeColor = System.Drawing.Color.White;
+            this.Label21.Location = new System.Drawing.Point(3, 40);
+            this.Label21.Name = "Label21";
+            this.Label21.Size = new System.Drawing.Size(68, 20);
+            this.Label21.TabIndex = 504;
+            this.Label21.Text = "F. Venc:";
+            // 
+            // txtfecha_de_pago
+            // 
+            this.txtfecha_de_pago.Checked = false;
+            this.txtfecha_de_pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtfecha_de_pago.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtfecha_de_pago.Location = new System.Drawing.Point(77, 35);
+            this.txtfecha_de_pago.Name = "txtfecha_de_pago";
+            this.txtfecha_de_pago.Size = new System.Drawing.Size(153, 26);
+            this.txtfecha_de_pago.TabIndex = 505;
+            // 
+            // datalistadoclientes2
+            // 
+            this.datalistadoclientes2.AllowUserToAddRows = false;
+            this.datalistadoclientes2.AllowUserToDeleteRows = false;
+            this.datalistadoclientes2.AllowUserToResizeRows = false;
+            this.datalistadoclientes2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.datalistadoclientes2.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadoclientes2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadoclientes2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadoclientes2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.datalistadoclientes2.ColumnHeadersVisible = false;
+            this.datalistadoclientes2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewCheckBoxColumn4});
+            this.datalistadoclientes2.EnableHeadersVisualStyles = false;
+            this.datalistadoclientes2.Location = new System.Drawing.Point(4, 35);
+            this.datalistadoclientes2.Name = "datalistadoclientes2";
+            this.datalistadoclientes2.ReadOnly = true;
+            this.datalistadoclientes2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.datalistadoclientes2.RowHeadersVisible = false;
+            this.datalistadoclientes2.RowHeadersWidth = 5;
+            this.datalistadoclientes2.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.datalistadoclientes2.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadoclientes2.RowTemplate.Height = 40;
+            this.datalistadoclientes2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadoclientes2.Size = new System.Drawing.Size(305, 107);
+            this.datalistadoclientes2.TabIndex = 506;
+            this.datalistadoclientes2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoclientes2_CellClick);
+            this.datalistadoclientes2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoclientes2_CellContentClick);
+            // 
+            // DataGridViewCheckBoxColumn4
+            // 
+            this.DataGridViewCheckBoxColumn4.DataPropertyName = "Activo";
+            this.DataGridViewCheckBoxColumn4.HeaderText = "Activo";
+            this.DataGridViewCheckBoxColumn4.Name = "DataGridViewCheckBoxColumn4";
+            this.DataGridViewCheckBoxColumn4.ReadOnly = true;
+            this.DataGridViewCheckBoxColumn4.Visible = false;
+            // 
+            // pcredito
+            // 
+            this.pcredito.Controls.Add(this.menuStrip1);
+            this.pcredito.Controls.Add(this.datalistadoclientes2);
+            this.pcredito.Controls.Add(this.txtfecha_de_pago);
+            this.pcredito.Controls.Add(this.Label21);
+            this.pcredito.Controls.Add(this.txtclientesolicitabnte2);
+            this.pcredito.Location = new System.Drawing.Point(23, 134);
+            this.pcredito.Name = "pcredito";
+            this.pcredito.Size = new System.Drawing.Size(360, 145);
+            this.pcredito.TabIndex = 564;
+            this.pcredito.Visible = false;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.AutoSize = false;
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.menuStrip1.Location = new System.Drawing.Point(311, 3);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.ShowItemToolTips = true;
+            this.menuStrip1.Size = new System.Drawing.Size(42, 35);
+            this.menuStrip1.TabIndex = 507;
+            this.menuStrip1.Text = "MenuStrip8";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.AutoSize = false;
+            this.toolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(30, 30);
+            this.toolStripMenuItem1.Text = "+";
+            this.toolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolStripMenuItem1.ToolTipText = "Guardar ";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // MEDIOS_DE_PAGO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1545,11 +1545,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.FlowLayoutPanel2.ResumeLayout(false);
-            this.pcredito.ResumeLayout(false);
-            this.pcredito.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).EndInit();
-            this.MenuStrip9.ResumeLayout(false);
-            this.MenuStrip9.PerformLayout();
             this.panelGuardado_de_datos.ResumeLayout(false);
             this.panelGuardado_de_datos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoempleado)).EndInit();
@@ -1570,6 +1565,11 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).EndInit();
+            this.pcredito.ResumeLayout(false);
+            this.pcredito.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1584,14 +1584,6 @@
         internal System.Windows.Forms.Panel Panel8;
         internal System.Windows.Forms.TextBox TXTVUELTO;
         internal System.Windows.Forms.Label Label31;
-        private System.Windows.Forms.Panel pcredito;
-        public System.Windows.Forms.DataGridView datalistadoclientes2;
-        internal System.Windows.Forms.DataGridViewCheckBoxColumn DataGridViewCheckBoxColumn4;
-        internal System.Windows.Forms.DateTimePicker txtfecha_de_pago;
-        internal System.Windows.Forms.Label Label21;
-        internal System.Windows.Forms.MenuStrip MenuStrip9;
-        internal System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem9;
-        internal System.Windows.Forms.TextBox txtclientesolicitabnte2;
         internal System.Windows.Forms.TextBox txtcredito2;
         internal System.Windows.Forms.Panel Panel22;
         internal System.Windows.Forms.Label Label20;
@@ -1627,7 +1619,6 @@
         internal System.Windows.Forms.Label lblindicador_de_factura_1;
         internal System.Windows.Forms.TextBox txtclientesolicitabnte3;
         internal System.Windows.Forms.MenuStrip MenuStrip10;
-        internal System.Windows.Forms.ToolStripMenuItem btnagregarCliente;
         internal System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
@@ -1674,5 +1665,14 @@
         public System.Windows.Forms.DataGridView DATALISTADOVERIFICAR;
         public System.Windows.Forms.DataGridView datalistadovehiculo;
         internal System.Windows.Forms.Label label7;
+        internal System.Windows.Forms.ToolStripMenuItem btnagregarCliente;
+        private System.Windows.Forms.Panel pcredito;
+        internal System.Windows.Forms.MenuStrip menuStrip1;
+        internal System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        public System.Windows.Forms.DataGridView datalistadoclientes2;
+        internal System.Windows.Forms.DataGridViewCheckBoxColumn DataGridViewCheckBoxColumn4;
+        internal System.Windows.Forms.DateTimePicker txtfecha_de_pago;
+        internal System.Windows.Forms.Label Label21;
+        internal System.Windows.Forms.TextBox txtclientesolicitabnte2;
     }
 }
