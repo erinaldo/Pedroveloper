@@ -60,7 +60,6 @@
             this.lblIdGrupo = new System.Windows.Forms.Label();
             this.DATALISTADO_PRODUCTOS_OKA = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.Button2 = new System.Windows.Forms.Button();
             this.PanelGRUPOSSELECT = new System.Windows.Forms.Panel();
             this.datalistadoGrupos = new System.Windows.Forms.DataGridView();
@@ -141,6 +140,7 @@
             this.TXTPRESENTACION2 = new System.Windows.Forms.TextBox();
             this.btnagregaryguardar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.TXTIDPRODUCTOOk = new System.Windows.Forms.Label();
             this.Panel26 = new System.Windows.Forms.Panel();
             this.lblIdProducto = new System.Windows.Forms.Label();
@@ -553,14 +553,6 @@
             this.DataGridViewCheckBoxColumn8.ReadOnly = true;
             this.DataGridViewCheckBoxColumn8.Visible = false;
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(111, 7);
-            this.maskedTextBox1.Mask = "99.99";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 26);
-            this.maskedTextBox1.TabIndex = 612;
-            // 
             // Button2
             // 
             this.Button2.BackColor = System.Drawing.Color.Transparent;
@@ -756,7 +748,7 @@
             this.PanelIMPUESTOS.Controls.Add(this.TXTIDPRODUCTOOk);
             this.PanelIMPUESTOS.Controls.Add(this.Panel26);
             this.PanelIMPUESTOS.Controls.Add(this.PanelGrupo);
-            this.PanelIMPUESTOS.Location = new System.Drawing.Point(816, 117);
+            this.PanelIMPUESTOS.Location = new System.Drawing.Point(825, 23);
             this.PanelIMPUESTOS.Name = "PanelIMPUESTOS";
             this.PanelIMPUESTOS.Size = new System.Drawing.Size(10, 10);
             this.PanelIMPUESTOS.TabIndex = 607;
@@ -1508,6 +1500,14 @@
             this.btnagregar.TabIndex = 397;
             this.btnagregar.Text = "Agregar >>>";
             this.btnagregar.UseVisualStyleBackColor = true;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(111, 7);
+            this.maskedTextBox1.Mask = "99.99";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 26);
+            this.maskedTextBox1.TabIndex = 612;
             // 
             // TXTIDPRODUCTOOk
             // 

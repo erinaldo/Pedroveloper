@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(USUARIOS_AUTORIZADOS_AL_SISTEMA));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel12 = new System.Windows.Forms.Panel();
             this.LBLcontador_de_contraseña2 = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
@@ -61,12 +63,16 @@
             this.DataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DATALISTADOUSUARIOSSNUEVOS = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.panelDataListadoEmpleados = new System.Windows.Forms.Panel();
+            this.datalistadoEmpleado = new System.Windows.Forms.DataGridView();
             this.Panel1.SuspendLayout();
             this.Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
             this.MenuStrip4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado_empresas_nuevas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOUSUARIOSSNUEVOS)).BeginInit();
+            this.panelDataListadoEmpleados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoEmpleado)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel12
@@ -149,6 +155,7 @@
             // Panel2
             // 
             this.Panel2.BackColor = System.Drawing.Color.White;
+            this.Panel2.Controls.Add(this.panelDataListadoEmpleados);
             this.Panel2.Controls.Add(this.LBLcontador_de_contraseña2);
             this.Panel2.Controls.Add(this.Label7);
             this.Panel2.Controls.Add(this.LBLcontador_de_contraseña);
@@ -226,9 +233,9 @@
             this.Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Label2.Location = new System.Drawing.Point(14, 53);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(184, 20);
+            this.Label2.Size = new System.Drawing.Size(212, 20);
             this.Label2.TabIndex = 2;
-            this.Label2.Text = "Nombre del Cajero(a):";
+            this.Label2.Text = "Nombre del Empleado(a):";
             // 
             // MenuStrip4
             // 
@@ -284,17 +291,18 @@
             this.TXTUSUARIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.TXTUSUARIO.Location = new System.Drawing.Point(203, 85);
             this.TXTUSUARIO.Name = "TXTUSUARIO";
-            this.TXTUSUARIO.Size = new System.Drawing.Size(206, 23);
+            this.TXTUSUARIO.Size = new System.Drawing.Size(203, 23);
             this.TXTUSUARIO.TabIndex = 3;
             this.TXTUSUARIO.Text = "admin";
             // 
             // txtnombre
             // 
             this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtnombre.Location = new System.Drawing.Point(203, 53);
+            this.txtnombre.Location = new System.Drawing.Point(232, 53);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(231, 23);
             this.txtnombre.TabIndex = 3;
+            this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
             // 
             // Label6
             // 
@@ -325,30 +333,6 @@
             this.datalistado_empresas_nuevas.BackgroundColor = System.Drawing.Color.White;
             this.datalistado_empresas_nuevas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datalistado_empresas_nuevas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistado_empresas_nuevas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.datalistado_empresas_nuevas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datalistado_empresas_nuevas.ColumnHeadersVisible = false;
-            this.datalistado_empresas_nuevas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistado_empresas_nuevas.DefaultCellStyle = dataGridViewCellStyle2;
-            this.datalistado_empresas_nuevas.EnableHeadersVisualStyles = false;
-            this.datalistado_empresas_nuevas.Location = new System.Drawing.Point(297, 230);
-            this.datalistado_empresas_nuevas.Name = "datalistado_empresas_nuevas";
-            this.datalistado_empresas_nuevas.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -356,7 +340,31 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistado_empresas_nuevas.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.datalistado_empresas_nuevas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.datalistado_empresas_nuevas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistado_empresas_nuevas.ColumnHeadersVisible = false;
+            this.datalistado_empresas_nuevas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewCheckBoxColumn1});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistado_empresas_nuevas.DefaultCellStyle = dataGridViewCellStyle4;
+            this.datalistado_empresas_nuevas.EnableHeadersVisualStyles = false;
+            this.datalistado_empresas_nuevas.Location = new System.Drawing.Point(297, 230);
+            this.datalistado_empresas_nuevas.Name = "datalistado_empresas_nuevas";
+            this.datalistado_empresas_nuevas.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistado_empresas_nuevas.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.datalistado_empresas_nuevas.RowHeadersWidth = 5;
             this.datalistado_empresas_nuevas.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.datalistado_empresas_nuevas.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
@@ -379,28 +387,6 @@
             this.DATALISTADOUSUARIOSSNUEVOS.AllowUserToResizeRows = false;
             this.DATALISTADOUSUARIOSSNUEVOS.BackgroundColor = System.Drawing.Color.White;
             this.DATALISTADOUSUARIOSSNUEVOS.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DATALISTADOUSUARIOSSNUEVOS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.DATALISTADOUSUARIOSSNUEVOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DATALISTADOUSUARIOSSNUEVOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DataGridViewCheckBoxColumn3});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DATALISTADOUSUARIOSSNUEVOS.DefaultCellStyle = dataGridViewCellStyle5;
-            this.DATALISTADOUSUARIOSSNUEVOS.Location = new System.Drawing.Point(275, 267);
-            this.DATALISTADOUSUARIOSSNUEVOS.Name = "DATALISTADOUSUARIOSSNUEVOS";
-            this.DATALISTADOUSUARIOSSNUEVOS.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -408,7 +394,29 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DATALISTADOUSUARIOSSNUEVOS.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.DATALISTADOUSUARIOSSNUEVOS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.DATALISTADOUSUARIOSSNUEVOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DATALISTADOUSUARIOSSNUEVOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewCheckBoxColumn3});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DATALISTADOUSUARIOSSNUEVOS.DefaultCellStyle = dataGridViewCellStyle7;
+            this.DATALISTADOUSUARIOSSNUEVOS.Location = new System.Drawing.Point(275, 267);
+            this.DATALISTADOUSUARIOSSNUEVOS.Name = "DATALISTADOUSUARIOSSNUEVOS";
+            this.DATALISTADOUSUARIOSSNUEVOS.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DATALISTADOUSUARIOSSNUEVOS.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.DATALISTADOUSUARIOSSNUEVOS.RowHeadersVisible = false;
             this.DATALISTADOUSUARIOSSNUEVOS.RowHeadersWidth = 5;
             this.DATALISTADOUSUARIOSSNUEVOS.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.ForestGreen;
@@ -422,6 +430,48 @@
             this.DataGridViewCheckBoxColumn3.HeaderText = "Activo";
             this.DataGridViewCheckBoxColumn3.Name = "DataGridViewCheckBoxColumn3";
             this.DataGridViewCheckBoxColumn3.ReadOnly = true;
+            // 
+            // panelDataListadoEmpleados
+            // 
+            this.panelDataListadoEmpleados.Controls.Add(this.datalistadoEmpleado);
+            this.panelDataListadoEmpleados.Location = new System.Drawing.Point(232, 77);
+            this.panelDataListadoEmpleados.Name = "panelDataListadoEmpleados";
+            this.panelDataListadoEmpleados.Size = new System.Drawing.Size(200, 86);
+            this.panelDataListadoEmpleados.TabIndex = 652;
+            // 
+            // datalistadoEmpleado
+            // 
+            this.datalistadoEmpleado.AllowUserToAddRows = false;
+            this.datalistadoEmpleado.AllowUserToDeleteRows = false;
+            this.datalistadoEmpleado.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoEmpleado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.datalistadoEmpleado.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadoEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadoEmpleado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadoEmpleado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.datalistadoEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistadoEmpleado.ColumnHeadersVisible = false;
+            this.datalistadoEmpleado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datalistadoEmpleado.EnableHeadersVisualStyles = false;
+            this.datalistadoEmpleado.Location = new System.Drawing.Point(0, 0);
+            this.datalistadoEmpleado.Name = "datalistadoEmpleado";
+            this.datalistadoEmpleado.ReadOnly = true;
+            this.datalistadoEmpleado.RowHeadersVisible = false;
+            this.datalistadoEmpleado.RowHeadersWidth = 9;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadoEmpleado.RowTemplate.Height = 40;
+            this.datalistadoEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadoEmpleado.Size = new System.Drawing.Size(200, 86);
+            this.datalistadoEmpleado.TabIndex = 644;
             // 
             // USUARIOS_AUTORIZADOS_AL_SISTEMA
             // 
@@ -446,6 +496,8 @@
             this.MenuStrip4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado_empresas_nuevas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOUSUARIOSSNUEVOS)).EndInit();
+            this.panelDataListadoEmpleados.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoEmpleado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -478,5 +530,7 @@
         public System.Windows.Forms.DataGridView DATALISTADOUSUARIOSSNUEVOS;
         internal System.Windows.Forms.DataGridViewCheckBoxColumn DataGridViewCheckBoxColumn3;
         private System.Windows.Forms.Label txtfechaFinalOK;
+        private System.Windows.Forms.Panel panelDataListadoEmpleados;
+        internal System.Windows.Forms.DataGridView datalistadoEmpleado;
     }
 }

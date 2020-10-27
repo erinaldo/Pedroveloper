@@ -36,6 +36,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistado_ventas_en_espera.DataSource = dt;
                 datalistado_ventas_en_espera.Columns[1].Visible = false;
                 datalistado_ventas_en_espera.Columns[4].Visible = false;
+                datalistado_ventas_en_espera.Columns[5].Visible = false;
                 Bases.Multilinea (ref datalistado_ventas_en_espera);
             }
             catch (Exception ex)
@@ -64,6 +65,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             DataTable dt = new DataTable();
             Obtener_datos.mostrar_productos_agregados_a_ventas_en_espera(ref dt, idventa);
             datalistadodetalledeventasarestaurar.DataSource = dt;
+            datalistadodetalledeventasarestaurar.Columns[6].Visible = false;
+
         }
 
         private void btneliminar_Click(object sender, EventArgs e)

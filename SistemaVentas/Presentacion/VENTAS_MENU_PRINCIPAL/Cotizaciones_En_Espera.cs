@@ -20,9 +20,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             InitializeComponent();
         }
         int idcaja;
-        string fecha;
 
-        static int  idcotizacion;
+
+        int idventa;
         private void Ventas_en_espera_Load(object sender, EventArgs e)
         {
             mostrar_ventas_en_espera_con_fecha_y_monto();
@@ -37,13 +37,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistado_ventas_en_espera.DataSource = dt;
                 datalistado_ventas_en_espera.Columns[1].Visible = false;
                 datalistado_ventas_en_espera.Columns[4].Visible = false;
-               // datalistado_ventas_en_espera.Columns[5].Visible = false;
-                //lblfechadeventa.Text = datalistado_ventas_en_espera.SelectedCells[5].Value.ToString();
-                Bases.Multilinea (ref datalistado_ventas_en_espera);
+                datalistado_ventas_en_espera.Columns[5].Visible = false;
+                Bases.Multilinea(ref datalistado_ventas_en_espera);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace);              
+                MessageBox.Show(ex.StackTrace);
             }
         }
 
@@ -51,43 +50,30 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             try
             {
-           
-            idcotizacion = Convert.ToInt32 ( datalistado_ventas_en_espera.SelectedCells[1].Value);
-             //   MessageBox.Show(idcotizacion.ToString());
-            mostrar_detalle_venta();
+                idventa = Convert.ToInt32(datalistado_ventas_en_espera.SelectedCells[1].Value);
+                MessageBox.Show(idventa.ToString());
+                mostrar_detalle_venta();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
             }
-            
+
 
         }
         private void mostrar_detalle_venta()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.mostrar_productos_agregados_a_cotizaciones_en_espera(ref dt, idcotizacion);
+            Obtener_datos.mostrar_productos_agregados_a_cotizaciones_en_espera(ref dt, idventa);
             datalistadodetalledeventasarestaurar.DataSource = dt;
+            datalistadodetalledeventasarestaurar.Columns[6].Visible = false;
+
         }
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-                try
-                {
-                    CONEXIONMAESTRA.abrir();
-                    SqlCommand cmd = new SqlCommand("eliminar_cotizacion", CONEXIONMAESTRA.conectar);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@idcotizacion", idcotizacion);
-                    cmd.ExecuteNonQuery();
-                    CONEXIONMAESTRA.cerrar();
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-            
-            idcotizacion = 0;
+            Eliminar_datos.eliminar_venta(idventa);
+            idventa = 0;
             mostrar_ventas_en_espera_con_fecha_y_monto();
             mostrar_detalle_venta();
         }
@@ -99,33 +85,19 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
-            if (idcotizacion ==0)
+            if (idventa == 0)
             {
-                MessageBox.Show("Seleccione una cotizacion a Restaurar");
+                MessageBox.Show("Seleccione una Cotizacion a Restaurar");
             }
             else
             {
-                /*DataTable dt = new DataTable();
-                Obtener_datos.mostrar_productos_agregados_a_cotizaciones_en_espera(ref dt, idcotizacion);
-                datalistadocoti.DataSource = dt;*/
-                EnviarDatos();
+                VENTAS_MENU_PRINCIPALOK.idVenta = idventa;
+                VENTAS_MENU_PRINCIPALOK.txtventagenerada = "VENTA GENERADA";
+                Editar_datos.cambio_de_Caja(idcaja, idventa);
                 Dispose();
+
             }
-            
-        }
-
-        private void txtbusca_TextChanged(object sender, EventArgs e)
-        {
 
         }
-
-        public void EnviarDatos()
-        {
-            Logica.LCotizacion parametros = new Logica.LCotizacion();
-
-            parametros.idcotizacion = Convert.ToInt32(datalistadodetalledeventasarestaurar.SelectedCells[7].Value);
-            MessageBox.Show(parametros.idcotizacion.ToString());
-        }
-
     }
 }

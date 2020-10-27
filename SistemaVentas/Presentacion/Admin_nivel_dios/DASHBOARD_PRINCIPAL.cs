@@ -586,7 +586,10 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
             frm.ShowDialog();
         }
 
-        
+        private void chartProductos_Click(object sender, EventArgs e)
+        {
+
+        }
     }  
     
 }

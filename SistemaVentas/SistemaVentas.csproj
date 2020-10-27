@@ -117,11 +117,15 @@
     <Compile Include="Datos\Insertar_datos.cs" />
     <Compile Include="Datos\Obtener_datos.cs" />
     <Compile Include="Logica\Bases.cs" />
+    <Compile Include="Logica\Direcciones.cs" />
     <Compile Include="Logica\Lcaja.cs" />
     <Compile Include="Logica\Lcontrolcobros.cs" />
     <Compile Include="Logica\LCotizacion.cs" />
     <Compile Include="Logica\LdetalleVenta.cs" />
+    <Compile Include="Logica\LDireccion.cs" />
+    <Compile Include="Logica\LDocumentos.cs" />
     <Compile Include="Logica\LEmpleados.cs" />
+    <Compile Include="Logica\LHorario.cs" />
     <Compile Include="Logica\LKardex.cs" />
     <Compile Include="Logica\Lmail.cs" />
     <Compile Include="Logica\Lmcaja.cs" />
@@ -131,9 +135,11 @@
     <Compile Include="Logica\LcreditosPorPagar.cs" />
     <Compile Include="Logica\Lempresa.cs" />
     <Compile Include="Logica\Limpresoras.cs" />
+    <Compile Include="Logica\LPersona.cs" />
     <Compile Include="Logica\Lproductos.cs" />
     <Compile Include="Logica\Lproveedores.cs" />
     <Compile Include="Logica\LMarcan.cs" />
+    <Compile Include="Logica\LTelefono.cs" />
     <Compile Include="Logica\LVehiculos.cs" />
     <Compile Include="Logica\Lventas.cs" />
     <Compile Include="Logica\Pedidos.cs" />
@@ -292,6 +298,12 @@
     </Compile>
     <Compile Include="Presentacion\Cotizacion\CotizacionAgranel.Designer.cs">
       <DependentUpon>CotizacionAgranel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Direccion\Direcciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Direccion\Direcciones.Designer.cs">
+      <DependentUpon>Direcciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\DISEÑADOR_DE_COMPROBANTES\Ticket.cs">
       <SubType>Form</SubType>
@@ -622,6 +634,9 @@
     <EmbeddedResource Include="Presentacion\Cotizacion\PagosCotizaciones.resx">
       <DependentUpon>PagosCotizaciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Direccion\Direcciones.resx">
+      <DependentUpon>Direcciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\DISEÑADOR_DE_COMPROBANTES\Ticket.resx">
       <DependentUpon>Ticket.cs</DependentUpon>
     </EmbeddedResource>
@@ -768,6 +783,7 @@
   <ItemGroup>
     <Content Include="Presentacion\CAJA\FormatoCierreCaja.html" />
     <Content Include="Presentacion\LOGIN\HTMLPage1.html" />
+    <None Include="Resources\addthis.png" />
     <None Include="Resources\camion-de-reparto %281%29.png" />
     <None Include="Resources\21387.png" />
     <None Include="Resources\kisspng-computer-icons-scalable-vector-graphics-pickup-tru-eshahen-5c32661f515b46.2471659615468068153333.png" />

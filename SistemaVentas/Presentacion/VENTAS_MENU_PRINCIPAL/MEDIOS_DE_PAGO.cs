@@ -62,6 +62,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             calcular_restante();
             validarPedidodeCliente();
             datalistadoempleado.Visible = false;
+            label7.Visible = false;
         }
 
         void calcular_restante()
@@ -691,7 +692,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoclientes2.Columns[4].Visible = false;
                 datalistadoclientes2.Columns[5].Visible = false;
                 datalistadoclientes2.Columns[2].Width = 420;
-                CONEXION.CONEXIONMAESTRA.cerrar();
+                CONEXION.CONEXIONMAESTRA.cerrar(); 
             }
             catch (Exception ex)
             {
@@ -1408,7 +1409,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void TGuardarSinImprimir_Click_1(object sender, EventArgs e)
         {
-            GuardarSinImprimir();
+            
+                GuardarSinImprimir();
+            
         }
 
         private void txtefectivo2_KeyPress(object sender, KeyPressEventArgs e)
@@ -1431,10 +1434,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnagregarCliente_Click(object sender, EventArgs e)
         {
-            PanelregistroClientes.Visible = true;
-            PanelregistroClientes.Dock = DockStyle.Fill;
-            PanelregistroClientes.BringToFront();
-            limpiar_datos_de_registrodeclientes();
+            Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
+            frm.ShowDialog();
         }
 
         private void datalistadoclientes3_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1457,16 +1458,20 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 {
                     if (VerificarEstadoPersonal() && verificarCliente() && VerificarEstadoVehiculos())
                     {
+            label7.Visible = true;
                         datalistadoempleado.Visible = true;
-                        if(Envio.Checked == false)
+                        if (Envio.Checked == false)
                         {
                             datalistadoempleado.Visible = false;
+                            label7.Visible = false;
+
                         }
                         ObtenerVehiculo();
                         
                     } else
                     {
                         MessageBox.Show("Verifica el Estado del Personal, Clientes o Vehiculos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
                     }
 
                 }
@@ -1477,6 +1482,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             } else
             {
                datalistadoempleado.Visible = false;
+                label7.Visible = false;
+
             }
         }
 
@@ -1621,6 +1628,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
+        }
+
+        private void datalistadoempleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

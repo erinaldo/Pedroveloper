@@ -32,6 +32,255 @@ namespace SistemaVentas.Datos
             }
         }
 
+        public bool insertarPersona(LPersona parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarPersona", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", parametros.nombre);
+                cmd.Parameters.AddWithValue("@apellido", parametros.apellido);
+                cmd.Parameters.AddWithValue("@Correo", parametros.correo);
+                cmd.Parameters.AddWithValue("@fechaNacimiento", parametros.fechaNacimiento);
+                cmd.Parameters.AddWithValue("@idDireccion", parametros.idDireccion);
+                cmd.Parameters.AddWithValue("@idDocumento", parametros.idDocumento);
+                cmd.Parameters.AddWithValue("@idTelefono", parametros.idTelefono);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+        }
+
+
+        public bool insertarTipoTelefono(LTelefono parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarTipoTelefono", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TipoTelefono", parametros.TipoTelefono);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+
+        }
+        public bool insertarHorario(LHorario parametros, int idTipoHorario)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarHorario", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@HoraEntrada", parametros.horaEntrada);
+                cmd.Parameters.AddWithValue("@HoraSalida", parametros.horaSalida);
+                cmd.Parameters.AddWithValue("@TipoHorario", idTipoHorario);
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+
+            }
+        }
+        public bool InsertarDocumento(LDocumentos parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarDocumento", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TipoDocumento", parametros.tipo);
+                cmd.Parameters.AddWithValue("@numeracion", parametros.numeracion);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+
+            }
+        }
+        public static bool insertarTipoHorario(string TipoHorario)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarTipoHorario", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TipoHorario", TipoHorario);
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception EX)
+            {
+
+                MessageBox.Show(EX.Message);
+                return true;
+
+            }
+        }
+
+        public bool insertarDireccion(LDireccion parametros, int idRegion, int idMunicipio, int idSector, int idCalle, int idProvincia)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertar_Direccion", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", parametros.desDireccion);
+                cmd.Parameters.AddWithValue("@idRegion", idRegion);
+                cmd.Parameters.AddWithValue("@idMunicipio", idMunicipio);
+                cmd.Parameters.AddWithValue("@idSector", idSector);
+                cmd.Parameters.AddWithValue("@idProvincia", idProvincia);
+                cmd.Parameters.AddWithValue("@idCalle",idCalle);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+            }
+        }
+
+
+
+        public bool insertarCalle(LDireccion parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertar_calle", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Calle);
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+            }
+        }
+        public bool insertarProvincia(LDireccion parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertar_provincia", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Provincia);
+                MessageBox.Show(parametros.Provincia);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+
+            }
+        }
+        public bool insertarMunicipio(LDireccion parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertar_municipio", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Municipio);
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+
+            }
+        }
+        public bool insertarSector(LDireccion parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertar_sector", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Sector);
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+
+            }
+        }
+
+        public bool insertarRegion(LDireccion parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertar_region", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Region);
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+
+            }
+        }
+
+
+
+        public bool insertarTelefono(LTelefono parametros, int idTipoTelefono)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarTelefono", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Telefono", parametros.Telefono);
+                cmd.Parameters.AddWithValue("@idTipoTelefono", idTipoTelefono);
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+        }
+
         public static bool ProcesarPedido(int idPedido)
         {
             try
@@ -176,10 +425,8 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertar_Proveedores", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Nombre", parametros.Nombre);
-                cmd.Parameters.AddWithValue("@Direccion", parametros.Direccion);
+                cmd.Parameters.AddWithValue("@idPersona", parametros.idPersona);
                 cmd.Parameters.AddWithValue("@IdentificadorFiscal", parametros.IdentificadorFiscal);
-                cmd.Parameters.AddWithValue("@Celular", parametros.Celular);
                 cmd.Parameters.AddWithValue("@Estado","ACTIVO");
                 cmd.Parameters.AddWithValue("@Saldo", 0);
                 cmd.ExecuteNonQuery();
@@ -233,15 +480,12 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertar_clientes", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Nombre", parametros.Nombre);
-                cmd.Parameters.AddWithValue("@Direccion", parametros.Direccion);
+                cmd.Parameters.AddWithValue("@idPersona", parametros.idPersona);
                 cmd.Parameters.AddWithValue("@IdentificadorFiscal", parametros.IdentificadorFiscal);
-                cmd.Parameters.AddWithValue("@Celular", parametros.Celular);
                 cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                 cmd.Parameters.AddWithValue("@Saldo", 0);
                 cmd.ExecuteNonQuery();
                 return true;
-
             }
             catch (Exception ex)
             {
@@ -384,11 +628,9 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarEmpleados", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nombres", parametros.nombre);
-                cmd.Parameters.AddWithValue("@cedula", parametros.cedula);
-                cmd.Parameters.AddWithValue("@correo", parametros.correoElectronico);
+                cmd.Parameters.AddWithValue("@idPersona", parametros.idPersona);
+                cmd.Parameters.AddWithValue("@idHorario", parametros.idHorario);
                 cmd.Parameters.AddWithValue("@cuentaBanco", parametros.cuentaBanco);
-                cmd.Parameters.AddWithValue("@fechaNacimiento", parametros.fechaNacimiento);
                 cmd.Parameters.AddWithValue("@departamento", parametros.departamento);
                 cmd.Parameters.AddWithValue("@banco", parametros.banco);
                 cmd.Parameters.AddWithValue("@icono", parametros.icono);
@@ -406,6 +648,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
+
         public bool insertarPedido(Pedidos parametros)
         {
             try

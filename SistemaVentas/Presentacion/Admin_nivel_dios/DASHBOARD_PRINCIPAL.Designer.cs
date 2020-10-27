@@ -2982,6 +2982,7 @@
             title1.Name = "Title1";
             title1.Text = "5 Productos mas vendidos";
             this.chartProductos.Titles.Add(title1);
+            this.chartProductos.Click += new System.EventHandler(this.chartProductos_Click);
             // 
             // Panel17
             // 

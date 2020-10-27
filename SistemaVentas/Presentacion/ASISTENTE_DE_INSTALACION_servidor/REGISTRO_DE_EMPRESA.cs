@@ -60,7 +60,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertar_3_COMPROBANTES_POR_DEFECTO();
                         correo = txtcorreo.Text;
                         Dispose();
-                       USUARIOS_AUTORIZADOS_AL_SISTEMA  frm = new USUARIOS_AUTORIZADOS_AL_SISTEMA();
+                       Presentacion.Empleados.EmpleadosOK  frm = new Presentacion.Empleados.EmpleadosOK();
                         frm.ShowDialog();
 
                     }
@@ -187,7 +187,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd = new SqlCommand("Insertar_FORMATO_TICKET", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Identificador_fiscal", "RUC Identificador Fiscal de la Empresa");
+                cmd.Parameters.AddWithValue("@Identificador_fiscal", "RNC Identificador Fiscal de la Empresa");
                 cmd.Parameters.AddWithValue("@Direccion", "Calle, Nro, avenida");
                 cmd.Parameters.AddWithValue("@Provincia_Departamento_Pais", "Provincia - Departamento - Pais");
                 cmd.Parameters.AddWithValue("@Nombre_de_Moneda", "Nombre de Moneda");

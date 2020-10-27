@@ -22,6 +22,165 @@ namespace SistemaVentas.Datos
             cmd.ExecuteNonQuery();
             CONEXIONMAESTRA.cerrar();
         }
+        public bool editarEmpleado(LEmpleados parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarEmpleado", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idPersona", parametros.idPersona);
+                cmd.Parameters.AddWithValue("@idHorario", parametros.idHorario);
+                cmd.Parameters.AddWithValue("@cuentaBanco", parametros.cuentaBanco);
+                cmd.Parameters.AddWithValue("@departamento", parametros.departamento);
+                cmd.Parameters.AddWithValue("@banco", parametros.banco);
+                cmd.Parameters.AddWithValue("@icono", parametros.icono);
+                cmd.Parameters.AddWithValue("@estado", "ACTIVO");
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return true;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
+        public bool editarTelefono(LTelefono parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarTelefono", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idTelefono", parametros.idTelefono);
+                cmd.Parameters.AddWithValue("@Telefono", parametros.Telefono);
+                cmd.Parameters.AddWithValue("@idTipoTelefono", parametros.idTipoTelefono);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+        }
+        public bool editarPersona(LPersona parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarPersona", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@idPersona", parametros.idPersona);
+                cmd.Parameters.AddWithValue("@nombre", parametros.nombre);
+                cmd.Parameters.AddWithValue("@apellido", parametros.apellido);
+                cmd.Parameters.AddWithValue("@Correo", parametros.correo);
+                cmd.Parameters.AddWithValue("@fechaNacimiento", parametros.fechaNacimiento);
+                cmd.Parameters.AddWithValue("@idDireccion", parametros.idDireccion);
+                cmd.Parameters.AddWithValue("@idDocumento", parametros.idDocumento);
+                cmd.Parameters.AddWithValue("@idTelefono", parametros.idTelefono);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+        }
+
+
+        public bool editarTipoTelefono(LTelefono parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarTipoTelefono", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@idTipoTelefono", parametros.idTipoTelefono);
+                cmd.Parameters.AddWithValue("@idTelefono", parametros.idTelefono);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+
+        }
+        public bool editarHorario(LHorario parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarHorario", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@idHorario", parametros.idHorario);
+                cmd.Parameters.AddWithValue("@HoraEntrada", parametros.horaEntrada);
+                cmd.Parameters.AddWithValue("@HoraSalida", parametros.horaSalida);
+                cmd.Parameters.AddWithValue("@TipoHorario", parametros.idTipoHorario);
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+
+            }
+        }
+        public bool editarDocumento(LDocumentos parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarDocumento", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idDocumento", parametros.idDocumento);
+                cmd.Parameters.AddWithValue("@TipoDocumento", parametros.tipo);
+                cmd.Parameters.AddWithValue("@numeracion", parametros.numeracion);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+
+            }
+        }
+        
+        public bool editarTipoHorario(LHorario parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarTipoHorario", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idTipoHorario", parametros.idTipoHorario);
+                cmd.Parameters.AddWithValue("@TipoHorario", parametros.Descripcion_TipoHorario);
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception EX)
+            {
+
+                MessageBox.Show(EX.Message);
+                return true;
+
+            }
+        }
         public static void ingresar_nombre_a_venta_en_espera(int idventa, string nombre)
         {
             try
@@ -49,6 +208,126 @@ namespace SistemaVentas.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_concepto", idconcepto);
                 cmd.Parameters.AddWithValue("@Descripcion", descripcion);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool editarCalle(LDireccion parametros, int idcalle)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarCalle", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCalle", idcalle);
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Calle);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool editarDireccion(LDireccion parametros, int idcalle)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarDireccion", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idDireccion", idcalle);
+                cmd.Parameters.AddWithValue("@descripcion", parametros.desDireccion);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool editarRegion(LDireccion parametros, int idRegion)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarRegion", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idRegion", idRegion);
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Region);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool editarMunicipio(LDireccion parametros, int idMunicipio)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarMunicipio", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idMunicipio", idMunicipio);
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Municipio);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool editarSector(LDireccion parametros, int idSector)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarSector", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idSector", idSector);
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Sector);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool editarProvincia(LDireccion parametros, int idProvincia)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarProvincia", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idProvincia", idProvincia);
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Provincia);
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
                 return true;
@@ -88,13 +367,10 @@ namespace SistemaVentas.Datos
                 SqlCommand cmd = new SqlCommand("editar_Proveedores", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IdProveedor", parametros.IdProveedor);
-                cmd.Parameters.AddWithValue("@Nombre", parametros.Nombre);
-                cmd.Parameters.AddWithValue("@Direccion", parametros.Direccion);
+                cmd.Parameters.AddWithValue("@idPersona", parametros.idPersona);
                 cmd.Parameters.AddWithValue("@IdentificadorFiscal", parametros.IdentificadorFiscal);
-                cmd.Parameters.AddWithValue("@Celular", parametros.Celular);
                 cmd.ExecuteNonQuery();
                 return true;
-
             }
             catch (Exception ex)
             {
@@ -161,27 +437,28 @@ namespace SistemaVentas.Datos
 
         public bool EditarEmpleado(LEmpleados parametros)
         {
-            try
-            {
-                CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("editar_empleado", CONEXIONMAESTRA.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idEmpleado", parametros.idEmpleado);
-                cmd.Parameters.AddWithValue("@Nombres", parametros.nombre);
-                cmd.Parameters.AddWithValue("@Cedula", parametros.cedula);
-                cmd.Parameters.AddWithValue("@Correo", parametros.correoElectronico);
-                cmd.Parameters.AddWithValue("@CuentaBanco", parametros.cuentaBanco);
-                cmd.Parameters.AddWithValue("@FechaNacimiento", parametros.fechaNacimiento);
-                cmd.Parameters.AddWithValue("@Departamento", parametros.departamento);
-                cmd.Parameters.AddWithValue("@Banco", parametros.banco);
-               // MessageBox.Show(parametros.idEmpleado + "nombre " + parametros.nombre + "cedula " + parametros.cedula + "correo " + parametros.correoElectronico + "cuenta b " + parametros.cuentaBanco + "fecha " + parametros.fechaNacimiento + "banco " + parametros.banco);
-                cmd.ExecuteNonQuery();
-                return true;
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.StackTrace);
-                return false;
-            }
+            /*try
+             {
+                 CONEXIONMAESTRA.abrir();
+                 SqlCommand cmd = new SqlCommand("editar_empleado", CONEXIONMAESTRA.conectar);
+                 cmd.CommandType = CommandType.StoredProcedure;
+                 cmd.Parameters.AddWithValue("@idEmpleado", parametros.idEmpleado);
+                 cmd.Parameters.AddWithValue("@Nombres", parametros.nombre);
+                 cmd.Parameters.AddWithValue("@Cedula", parametros.cedula);
+                 cmd.Parameters.AddWithValue("@Correo", parametros.correoElectronico);
+                 cmd.Parameters.AddWithValue("@CuentaBanco", parametros.cuentaBanco);
+                 cmd.Parameters.AddWithValue("@FechaNacimiento", parametros.fechaNacimiento);
+                 cmd.Parameters.AddWithValue("@Departamento", parametros.departamento);
+                 cmd.Parameters.AddWithValue("@Banco", parametros.banco);
+                // MessageBox.Show(parametros.idEmpleado + "nombre " + parametros.nombre + "cedula " + parametros.cedula + "correo " + parametros.correoElectronico + "cuenta b " + parametros.cuentaBanco + "fecha " + parametros.fechaNacimiento + "banco " + parametros.banco);
+                 cmd.ExecuteNonQuery();
+                 return true;
+             }catch(Exception ex)
+             {
+                 MessageBox.Show(ex.StackTrace);
+                 return false;
+             }*/
+            return true;
         }
         public bool restaurar_clientes(Lclientes parametros)
         {
@@ -395,6 +672,7 @@ namespace SistemaVentas.Datos
             }
         }
         //Clientes
+
         public bool editar_clientes(Lclientes  parametros)
         {
             try
@@ -402,14 +680,11 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("editar_clientes", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Idcliente", parametros.idcliente );
-                cmd.Parameters.AddWithValue("@Nombre", parametros.Nombre);
-                cmd.Parameters.AddWithValue("@Direccion", parametros.Direccion);
+                cmd.Parameters.AddWithValue("@idCliente", parametros.idcliente );
+                cmd.Parameters.AddWithValue("@idPersona", parametros.idPersona );
                 cmd.Parameters.AddWithValue("@IdentificadorFiscal", parametros.IdentificadorFiscal);
-                cmd.Parameters.AddWithValue("@Celular", parametros.Celular);
                 cmd.ExecuteNonQuery();
                 return true;
-
             }
             catch (Exception ex)
             {

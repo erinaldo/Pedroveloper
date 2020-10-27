@@ -904,7 +904,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
 
             if (e.ColumnIndex == this.datalistadoGrupos.Columns["EditarG"].Index)
-
             {
             lblIdGrupo.Text = datalistadoGrupos.SelectedCells[2].Value.ToString();
             txtgrupo .Text = datalistadoGrupos.SelectedCells[3].Value.ToString();

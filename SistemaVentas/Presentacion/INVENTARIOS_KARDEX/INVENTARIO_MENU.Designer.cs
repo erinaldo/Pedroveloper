@@ -890,6 +890,7 @@
             this.txtbuscarMovimiento.Size = new System.Drawing.Size(345, 19);
             this.txtbuscarMovimiento.TabIndex = 611;
             this.txtbuscarMovimiento.Text = "Buscar producto";
+            this.txtbuscarMovimiento.TextAlignChanged += new System.EventHandler(this.txtbuscarMovimiento_TextAlignChanged);
             this.txtbuscarMovimiento.TextChanged += new System.EventHandler(this.txtbuscarMovimiento_TextChanged);
             // 
             // panel4

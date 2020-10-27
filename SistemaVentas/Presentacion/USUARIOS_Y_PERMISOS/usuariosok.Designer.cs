@@ -29,34 +29,39 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usuariosok));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtbuscar = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelNuevo = new System.Windows.Forms.Panel();
+            this.PictureBox2 = new System.Windows.Forms.PictureBox();
             this.datalistado = new System.Windows.Forms.DataGridView();
-            this.panelRegistros = new System.Windows.Forms.Panel();
-            this.panelICONO = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Eli = new System.Windows.Forms.DataGridViewImageColumn();
             this.dlg = new System.Windows.Forms.OpenFileDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panelDataListadoEmpleado = new System.Windows.Forms.Panel();
+            this.datalistadoEmpleado = new System.Windows.Forms.DataGridView();
+            this.panelICONO = new System.Windows.Forms.Panel();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lblId_usuario = new System.Windows.Forms.Label();
             this.lblnumeroIcono = new System.Windows.Forms.Label();
-            this.Label7 = new System.Windows.Forms.Label();
             this.LblAnuncioIcono = new System.Windows.Forms.Label();
             this.ICONO = new System.Windows.Forms.PictureBox();
             this.btnVolver = new System.Windows.Forms.Button();
@@ -64,45 +69,43 @@
             this.btnGuardar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGuardarCambios = new System.Windows.Forms.ToolStripMenuItem();
             this.txtrol = new System.Windows.Forms.ComboBox();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.txtcorreo = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtlogin = new System.Windows.Forms.TextBox();
-            this.txtnombre = new System.Windows.Forms.TextBox();
+            this.txtEmpleado = new System.Windows.Forms.TextBox();
             this.Label5 = new System.Windows.Forms.Label();
             this.Label9 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
-            this.Label6 = new System.Windows.Forms.Label();
             this.Label8 = new System.Windows.Forms.Label();
-            this.Eli = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PictureBox2 = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelRegistros = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panelNuevo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
-            this.panelRegistros.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panelDataListadoEmpleado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoEmpleado)).BeginInit();
             this.panelICONO.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.panel5.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ICONO)).BeginInit();
             this.menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
+            this.panelRegistros.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -176,6 +179,12 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(28, 22);
+            // 
             // panelNuevo
             // 
             this.panelNuevo.Controls.Add(this.PictureBox2);
@@ -184,6 +193,19 @@
             this.panelNuevo.Name = "panelNuevo";
             this.panelNuevo.Size = new System.Drawing.Size(214, 597);
             this.panelNuevo.TabIndex = 2;
+            // 
+            // PictureBox2
+            // 
+            this.PictureBox2.BackColor = System.Drawing.Color.White;
+            this.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox2.Image")));
+            this.PictureBox2.Location = new System.Drawing.Point(-46, 164);
+            this.PictureBox2.Name = "PictureBox2";
+            this.PictureBox2.Size = new System.Drawing.Size(295, 279);
+            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox2.TabIndex = 360;
+            this.PictureBox2.TabStop = false;
+            this.PictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
             // datalistado
             // 
@@ -212,52 +234,13 @@
             this.datalistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistado_CellContentClick);
             this.datalistado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistado_CellDoubleClick);
             // 
-            // panelRegistros
+            // Eli
             // 
-            this.panelRegistros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.panelRegistros.Controls.Add(this.panelICONO);
-            this.panelRegistros.Controls.Add(this.panel5);
-            this.panelRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelRegistros.Location = new System.Drawing.Point(12, 117);
-            this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(649, 574);
-            this.panelRegistros.TabIndex = 4;
-            this.panelRegistros.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // panelICONO
-            // 
-            this.panelICONO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelICONO.Controls.Add(this.pictureBox11);
-            this.panelICONO.Controls.Add(this.flowLayoutPanel2);
-            this.panelICONO.Controls.Add(this.flowLayoutPanel1);
-            this.panelICONO.Location = new System.Drawing.Point(499, 118);
-            this.panelICONO.Name = "panelICONO";
-            this.panelICONO.Size = new System.Drawing.Size(263, 526);
-            this.panelICONO.TabIndex = 606;
-            this.panelICONO.Visible = false;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.pictureBox7);
-            this.flowLayoutPanel2.Controls.Add(this.pictureBox8);
-            this.flowLayoutPanel2.Controls.Add(this.pictureBox9);
-            this.flowLayoutPanel2.Controls.Add(this.pictureBox10);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 188);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(648, 148);
-            this.flowLayoutPanel2.TabIndex = 0;
-            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox3);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox4);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox5);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox6);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 23);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(648, 148);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.Eli.HeaderText = "";
+            this.Eli.Image = ((System.Drawing.Image)(resources.GetObject("Eli.Image")));
+            this.Eli.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eli.Name = "Eli";
+            this.Eli.ReadOnly = true;
             // 
             // dlg
             // 
@@ -271,6 +254,90 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.label15);
+            this.panel5.Controls.Add(this.panelDataListadoEmpleado);
+            this.panel5.Controls.Add(this.panelICONO);
+            this.panel5.Controls.Add(this.panel10);
+            this.panel5.Controls.Add(this.LblAnuncioIcono);
+            this.panel5.Controls.Add(this.ICONO);
+            this.panel5.Controls.Add(this.btnVolver);
+            this.panel5.Controls.Add(this.menuStrip2);
+            this.panel5.Controls.Add(this.txtrol);
+            this.panel5.Controls.Add(this.panel8);
+            this.panel5.Controls.Add(this.panel7);
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Controls.Add(this.txtPassword);
+            this.panel5.Controls.Add(this.txtlogin);
+            this.panel5.Controls.Add(this.txtEmpleado);
+            this.panel5.Controls.Add(this.Label5);
+            this.panel5.Controls.Add(this.Label9);
+            this.panel5.Controls.Add(this.Label4);
+            this.panel5.Controls.Add(this.Label8);
+            this.panel5.Location = new System.Drawing.Point(22, 17);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(685, 362);
+            this.panel5.TabIndex = 605;
+            // 
+            // panelDataListadoEmpleado
+            // 
+            this.panelDataListadoEmpleado.Controls.Add(this.datalistadoEmpleado);
+            this.panelDataListadoEmpleado.Location = new System.Drawing.Point(189, 62);
+            this.panelDataListadoEmpleado.Name = "panelDataListadoEmpleado";
+            this.panelDataListadoEmpleado.Size = new System.Drawing.Size(200, 86);
+            this.panelDataListadoEmpleado.TabIndex = 653;
+            // 
+            // datalistadoEmpleado
+            // 
+            this.datalistadoEmpleado.AllowUserToAddRows = false;
+            this.datalistadoEmpleado.AllowUserToDeleteRows = false;
+            this.datalistadoEmpleado.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoEmpleado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.datalistadoEmpleado.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadoEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadoEmpleado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadoEmpleado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.datalistadoEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistadoEmpleado.ColumnHeadersVisible = false;
+            this.datalistadoEmpleado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datalistadoEmpleado.EnableHeadersVisualStyles = false;
+            this.datalistadoEmpleado.Location = new System.Drawing.Point(0, 0);
+            this.datalistadoEmpleado.Name = "datalistadoEmpleado";
+            this.datalistadoEmpleado.ReadOnly = true;
+            this.datalistadoEmpleado.RowHeadersVisible = false;
+            this.datalistadoEmpleado.RowHeadersWidth = 9;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadoEmpleado.RowTemplate.Height = 40;
+            this.datalistadoEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadoEmpleado.Size = new System.Drawing.Size(200, 86);
+            this.datalistadoEmpleado.TabIndex = 644;
+            this.datalistadoEmpleado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoEmpleado_CellContentClick);
+            // 
+            // panelICONO
+            // 
+            this.panelICONO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelICONO.Controls.Add(this.pictureBox11);
+            this.panelICONO.Controls.Add(this.flowLayoutPanel2);
+            this.panelICONO.Controls.Add(this.flowLayoutPanel1);
+            this.panelICONO.Location = new System.Drawing.Point(546, 230);
+            this.panelICONO.Name = "panelICONO";
+            this.panelICONO.Size = new System.Drawing.Size(117, 129);
+            this.panelICONO.TabIndex = 606;
+            this.panelICONO.Visible = false;
+            // 
             // pictureBox11
             // 
             this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -282,6 +349,18 @@
             this.pictureBox11.TabIndex = 1;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.pictureBox7);
+            this.flowLayoutPanel2.Controls.Add(this.pictureBox8);
+            this.flowLayoutPanel2.Controls.Add(this.pictureBox9);
+            this.flowLayoutPanel2.Controls.Add(this.pictureBox10);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 188);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(648, 148);
+            this.flowLayoutPanel2.TabIndex = 0;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // pictureBox7
             // 
@@ -328,6 +407,17 @@
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.pictureBox3);
+            this.flowLayoutPanel1.Controls.Add(this.pictureBox4);
+            this.flowLayoutPanel1.Controls.Add(this.pictureBox5);
+            this.flowLayoutPanel1.Controls.Add(this.pictureBox6);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 23);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(648, 148);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
@@ -372,36 +462,6 @@
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Controls.Add(this.panel10);
-            this.panel5.Controls.Add(this.Label7);
-            this.panel5.Controls.Add(this.LblAnuncioIcono);
-            this.panel5.Controls.Add(this.ICONO);
-            this.panel5.Controls.Add(this.btnVolver);
-            this.panel5.Controls.Add(this.menuStrip2);
-            this.panel5.Controls.Add(this.txtrol);
-            this.panel5.Controls.Add(this.panel9);
-            this.panel5.Controls.Add(this.panel8);
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Controls.Add(this.txtcorreo);
-            this.panel5.Controls.Add(this.txtPassword);
-            this.panel5.Controls.Add(this.txtlogin);
-            this.panel5.Controls.Add(this.txtnombre);
-            this.panel5.Controls.Add(this.Label5);
-            this.panel5.Controls.Add(this.Label9);
-            this.panel5.Controls.Add(this.Label4);
-            this.panel5.Controls.Add(this.Label6);
-            this.panel5.Controls.Add(this.Label8);
-            this.panel5.Location = new System.Drawing.Point(22, 17);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(685, 362);
-            this.panel5.TabIndex = 605;
-            // 
             // panel10
             // 
             this.panel10.Controls.Add(this.lblId_usuario);
@@ -428,18 +488,6 @@
             this.lblnumeroIcono.Size = new System.Drawing.Size(51, 20);
             this.lblnumeroIcono.TabIndex = 612;
             this.lblnumeroIcono.Text = "label2";
-            // 
-            // Label7
-            // 
-            this.Label7.AutoSize = true;
-            this.Label7.BackColor = System.Drawing.Color.White;
-            this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label7.ForeColor = System.Drawing.Color.Gray;
-            this.Label7.Location = new System.Drawing.Point(186, 154);
-            this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(211, 15);
-            this.Label7.TabIndex = 614;
-            this.Label7.Text = "Servira para recuperar su Contraseña";
             // 
             // LblAnuncioIcono
             // 
@@ -470,6 +518,8 @@
             this.btnVolver.FlatAppearance.BorderSize = 0;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.ForeColor = System.Drawing.Color.White;
+            this.btnVolver.Image = global::SistemaVentas.Properties.Resources.amarillo;
             this.btnVolver.Location = new System.Drawing.Point(371, 255);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(138, 49);
@@ -520,19 +570,11 @@
             "Solo Ventas (no esta autorizado para manejar dinero)",
             "Cajero (Si esta autorizado para manejar dinero)",
             "Administrador (Control total)"});
-            this.txtrol.Location = new System.Drawing.Point(189, 199);
+            this.txtrol.Location = new System.Drawing.Point(132, 138);
             this.txtrol.Name = "txtrol";
-            this.txtrol.Size = new System.Drawing.Size(461, 28);
+            this.txtrol.Size = new System.Drawing.Size(301, 28);
             this.txtrol.TabIndex = 607;
             this.txtrol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Gray;
-            this.panel9.Location = new System.Drawing.Point(189, 150);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(237, 1);
-            this.panel9.TabIndex = 606;
             // 
             // panel8
             // 
@@ -558,14 +600,6 @@
             this.panel6.Size = new System.Drawing.Size(237, 1);
             this.panel6.TabIndex = 606;
             // 
-            // txtcorreo
-            // 
-            this.txtcorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtcorreo.Location = new System.Drawing.Point(189, 125);
-            this.txtcorreo.Name = "txtcorreo";
-            this.txtcorreo.Size = new System.Drawing.Size(282, 19);
-            this.txtcorreo.TabIndex = 605;
-            // 
             // txtPassword
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -584,13 +618,15 @@
             this.txtlogin.Size = new System.Drawing.Size(237, 19);
             this.txtlogin.TabIndex = 605;
             // 
-            // txtnombre
+            // txtEmpleado
             // 
-            this.txtnombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtnombre.Location = new System.Drawing.Point(189, 18);
-            this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(237, 19);
-            this.txtnombre.TabIndex = 605;
+            this.txtEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmpleado.Location = new System.Drawing.Point(189, 18);
+            this.txtEmpleado.Name = "txtEmpleado";
+            this.txtEmpleado.Size = new System.Drawing.Size(237, 19);
+            this.txtEmpleado.TabIndex = 605;
+            this.txtEmpleado.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
+            this.txtEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmpleado_KeyPress);
             // 
             // Label5
             // 
@@ -607,7 +643,7 @@
             // 
             this.Label9.AutoSize = true;
             this.Label9.BackColor = System.Drawing.Color.Transparent;
-            this.Label9.Location = new System.Drawing.Point(146, 202);
+            this.Label9.Location = new System.Drawing.Point(89, 141);
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(37, 20);
             this.Label9.TabIndex = 601;
@@ -624,55 +660,39 @@
             this.Label4.TabIndex = 603;
             this.Label4.Text = "Contraseña:";
             // 
-            // Label6
-            // 
-            this.Label6.AutoSize = true;
-            this.Label6.BackColor = System.Drawing.Color.White;
-            this.Label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label6.ForeColor = System.Drawing.Color.DimGray;
-            this.Label6.Location = new System.Drawing.Point(41, 124);
-            this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(142, 20);
-            this.Label6.TabIndex = 604;
-            this.Label6.Text = "Correo electronico:";
-            // 
             // Label8
             // 
             this.Label8.AutoSize = true;
             this.Label8.BackColor = System.Drawing.Color.Transparent;
             this.Label8.ForeColor = System.Drawing.Color.Black;
-            this.Label8.Location = new System.Drawing.Point(27, 24);
+            this.Label8.Location = new System.Drawing.Point(11, 24);
             this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(156, 20);
+            this.Label8.Size = new System.Drawing.Size(172, 20);
             this.Label8.TabIndex = 600;
-            this.Label8.Text = "Nombres y Apellidos:";
+            this.Label8.Text = "Seleccionar Empleado:";
             // 
-            // Eli
+            // panelRegistros
             // 
-            this.Eli.HeaderText = "";
-            this.Eli.Image = ((System.Drawing.Image)(resources.GetObject("Eli.Image")));
-            this.Eli.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eli.Name = "Eli";
-            this.Eli.ReadOnly = true;
+            this.panelRegistros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.panelRegistros.Controls.Add(this.panel5);
+            this.panelRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelRegistros.Location = new System.Drawing.Point(12, 117);
+            this.panelRegistros.Name = "panelRegistros";
+            this.panelRegistros.Size = new System.Drawing.Size(649, 574);
+            this.panelRegistros.TabIndex = 4;
+            this.panelRegistros.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
-            // PictureBox2
+            // label15
             // 
-            this.PictureBox2.BackColor = System.Drawing.Color.White;
-            this.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox2.Image")));
-            this.PictureBox2.Location = new System.Drawing.Point(-46, 164);
-            this.PictureBox2.Name = "PictureBox2";
-            this.PictureBox2.Size = new System.Drawing.Size(295, 279);
-            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox2.TabIndex = 360;
-            this.PictureBox2.TabStop = false;
-            this.PictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(28, 22);
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.White;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Gray;
+            this.label15.Location = new System.Drawing.Point(202, 47);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(219, 15);
+            this.label15.TabIndex = 654;
+            this.label15.Text = "Presione enter para verificar empleado";
             // 
             // usuariosok
             // 
@@ -697,28 +717,30 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelNuevo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
-            this.panelRegistros.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panelDataListadoEmpleado.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoEmpleado)).EndInit();
             this.panelICONO.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ICONO)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
+            this.panelRegistros.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -735,28 +757,10 @@
         private System.Windows.Forms.Panel panelNuevo;
         internal System.Windows.Forms.PictureBox PictureBox2;
         private System.Windows.Forms.DataGridView datalistado;
-        private System.Windows.Forms.Panel panelRegistros;
+        private System.Windows.Forms.DataGridViewImageColumn Eli;
+        private System.Windows.Forms.OpenFileDialog dlg;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox txtrol;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox txtcorreo;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtlogin;
-        private System.Windows.Forms.TextBox txtnombre;
-        internal System.Windows.Forms.Label Label5;
-        internal System.Windows.Forms.Label Label9;
-        internal System.Windows.Forms.Label Label4;
-        internal System.Windows.Forms.Label Label6;
-        internal System.Windows.Forms.Label Label8;
-        private System.Windows.Forms.Label LblAnuncioIcono;
-        private System.Windows.Forms.PictureBox ICONO;
-        private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem btnGuardar;
-        private System.Windows.Forms.ToolStripMenuItem btnGuardarCambios;
         private System.Windows.Forms.Panel panelICONO;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -769,13 +773,30 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label lblnumeroIcono;
-        private System.Windows.Forms.DataGridViewImageColumn Eli;
-        private System.Windows.Forms.Label lblId_usuario;
-        internal System.Windows.Forms.Label Label7;
-        private System.Windows.Forms.OpenFileDialog dlg;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.Label lblId_usuario;
+        private System.Windows.Forms.Label lblnumeroIcono;
+        private System.Windows.Forms.Label LblAnuncioIcono;
+        private System.Windows.Forms.PictureBox ICONO;
+        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem btnGuardar;
+        private System.Windows.Forms.ToolStripMenuItem btnGuardarCambios;
+        private System.Windows.Forms.ComboBox txtrol;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtlogin;
+        internal System.Windows.Forms.Label Label5;
+        internal System.Windows.Forms.Label Label9;
+        internal System.Windows.Forms.Label Label4;
+        internal System.Windows.Forms.Label Label8;
+        private System.Windows.Forms.Panel panelRegistros;
+        private System.Windows.Forms.Panel panelDataListadoEmpleado;
+        internal System.Windows.Forms.DataGridView datalistadoEmpleado;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox txtEmpleado;
+        internal System.Windows.Forms.Label label15;
     }
 }
 

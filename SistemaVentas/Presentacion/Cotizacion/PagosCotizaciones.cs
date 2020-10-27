@@ -143,7 +143,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                string query = "select tipodoc from Serializacion where Destino='COTIZACION'";
+                string query = "select tipodoc from Serializacion where Destino='VENTAS'";
                 SqlCommand cmd = new SqlCommand(query, CONEXION.CONEXIONMAESTRA.conectar);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -400,9 +400,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
             {
                 DataTable dt = new DataTable();
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_cotizacion", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_ventas", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idcotizacion", idcotizacion);
+                da.SelectCommand.Parameters.AddWithValue("@idventa", idcotizacion);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
@@ -503,7 +503,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso_cotizacion", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Id_venta", idcotizacion);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
@@ -533,7 +533,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso_cotizacion", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Id_venta", idcotizacion);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
@@ -557,9 +557,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("Confirmar_cotizacion", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("Confirmar_venta", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idcotizacion", idcotizacion);
+                cmd.Parameters.AddWithValue("@idventa", idcotizacion);
                 cmd.Parameters.AddWithValue("@montototal", total);
                 cmd.Parameters.AddWithValue("@IGV", 0);
                 cmd.Parameters.AddWithValue("@Saldo", vuelto);

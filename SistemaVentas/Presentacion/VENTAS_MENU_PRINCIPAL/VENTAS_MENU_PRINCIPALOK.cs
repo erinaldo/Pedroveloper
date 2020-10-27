@@ -63,8 +63,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
-            //validarLicencia();
-            
+                      
             Bases.Cambiar_idioma_regional();
             Bases.Obtener_serialPC(ref SerialPC);
             Obtener_datos.Obtener_id_caja_PorSerial(ref Id_caja);
@@ -89,7 +88,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             ObtenerIpLocal();
 
 
-
+            panelNotificacionEspera.Visible = true;
         }
         private void ObtenerIpLocal()
         {
@@ -100,6 +99,19 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             Obtener_datos.contarVentasEspera(ref contadorVentasEspera);
             if (contadorVentasEspera==0)
+            {
+                panelNotificacionEspera.Visible = false;
+            }
+            else
+            {
+                panelNotificacionEspera.Visible = true;
+                lblContadorEspera.Text = contadorVentasEspera.ToString();
+            }
+        }
+        private void ContarCotizacionesEnEspera()
+        {
+            Obtener_datos.contarVentasEspera(ref contadorVentasEspera);
+            if (contadorVentasEspera == 0)
             {
                 panelNotificacionEspera.Visible = false;
             }
@@ -1528,6 +1540,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             btnrestaurar.ForeColor = Color.White;
             btneliminar.BackColor = Color.FromArgb(20, 20, 20);
             btneliminar.ForeColor = Color.White;
+            button7.BackColor = Color.FromArgb(20, 20, 20);
+            button7.ForeColor = Color.White;
+            button6.BackColor = Color.FromArgb(20, 20, 20);
+            button6.ForeColor = Color.White;
             btndevoluciones.BackColor = Color.FromArgb(20, 20, 20);
             btndevoluciones.ForeColor = Color.White;
             //PanelOperaciones
@@ -1558,6 +1574,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             lbltipodebusqueda2.BackColor = Color.White;
             btn4.ForeColor = Color.WhiteSmoke;
             btn4.BackColor = Color.White;
+            button6.ForeColor = Color.WhiteSmoke;
+            button6.BackColor = Color.White;
+            button7.ForeColor = Color.WhiteSmoke;
+            button7.BackColor = Color.White;
             //PanelC2 intermedio
             panelC2.BackColor = Color.White;
             btnCobros.BackColor = Color.WhiteSmoke;
@@ -1617,6 +1637,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void button6_Click(object sender, EventArgs e)
         {
             Cotizaciones_En_Espera frm = new Cotizaciones_En_Espera();
+            frm.FormClosing += Frm_FormClosing1;
             frm.ShowDialog();
         }
 

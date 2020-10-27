@@ -90,6 +90,7 @@
             this.Label18 = new System.Windows.Forms.Label();
             this.lblprueba = new System.Windows.Forms.Label();
             this.panelGuardado_de_datos = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.datalistadoempleado = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -119,6 +120,7 @@
             this.PanelImpresionvistaprevia = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.datalistadovehiculo = new System.Windows.Forms.DataGridView();
             this.reportViewer1 = new Telerik.ReportViewer.WinForms.ReportViewer();
             this.txttotaldecimal = new System.Windows.Forms.TextBox();
             this.txtnumeroconvertidoenletra = new System.Windows.Forms.TextBox();
@@ -129,7 +131,6 @@
             this.R = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.DATALISTADOVERIFICAR = new System.Windows.Forms.DataGridView();
-            this.datalistadovehiculo = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.PanelregistroClientes.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -148,10 +149,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtComprobantes)).BeginInit();
             this.PanelImpresionvistaprevia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadovehiculo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadovehiculo)).BeginInit();
             this.SuspendLayout();
             // 
             // TXTTOTAL
@@ -920,6 +921,7 @@
             // panelGuardado_de_datos
             // 
             this.panelGuardado_de_datos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.panelGuardado_de_datos.Controls.Add(this.label7);
             this.panelGuardado_de_datos.Controls.Add(this.datalistadoempleado);
             this.panelGuardado_de_datos.Controls.Add(this.panel6);
             this.panelGuardado_de_datos.Controls.Add(this.btnGuardarImprimirdirecto);
@@ -935,6 +937,17 @@
             this.panelGuardado_de_datos.TabIndex = 4;
             this.panelGuardado_de_datos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGuardado_de_datos_Paint);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.DimGray;
+            this.label7.Location = new System.Drawing.Point(18, 162);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(198, 20);
+            this.label7.TabIndex = 618;
+            this.label7.Text = "Empleado: (Obligatorio)";
+            // 
             // datalistadoempleado
             // 
             this.datalistadoempleado.AllowUserToAddRows = false;
@@ -947,7 +960,7 @@
             this.datalistadoempleado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.datalistadoempleado.ColumnHeadersVisible = false;
             this.datalistadoempleado.EnableHeadersVisualStyles = false;
-            this.datalistadoempleado.Location = new System.Drawing.Point(16, 153);
+            this.datalistadoempleado.Location = new System.Drawing.Point(16, 188);
             this.datalistadoempleado.Name = "datalistadoempleado";
             this.datalistadoempleado.ReadOnly = true;
             this.datalistadoempleado.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -960,6 +973,7 @@
             this.datalistadoempleado.Size = new System.Drawing.Size(442, 120);
             this.datalistadoempleado.TabIndex = 617;
             this.datalistadoempleado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoempleado_CellClick);
+            this.datalistadoempleado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoempleado_CellContentClick);
             // 
             // panel6
             // 
@@ -1135,7 +1149,7 @@
             // 
             // FlowLayoutPanel3
             // 
-            this.FlowLayoutPanel3.Location = new System.Drawing.Point(16, 153);
+            this.FlowLayoutPanel3.Location = new System.Drawing.Point(16, 188);
             this.FlowLayoutPanel3.Name = "FlowLayoutPanel3";
             this.FlowLayoutPanel3.Size = new System.Drawing.Size(442, 120);
             this.FlowLayoutPanel3.TabIndex = 609;
@@ -1288,6 +1302,7 @@
             this.PanelImpresionvistaprevia.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelImpresionvistaprevia.Controls.Add(this.pictureBox1);
             this.PanelImpresionvistaprevia.Controls.Add(this.label5);
+            this.PanelImpresionvistaprevia.Controls.Add(this.datalistadovehiculo);
             this.PanelImpresionvistaprevia.Controls.Add(this.reportViewer1);
             this.PanelImpresionvistaprevia.Location = new System.Drawing.Point(323, 9);
             this.PanelImpresionvistaprevia.Name = "PanelImpresionvistaprevia";
@@ -1317,6 +1332,31 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "VENTA REALIZADA CORRECTAMENTE";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // datalistadovehiculo
+            // 
+            this.datalistadovehiculo.AllowUserToAddRows = false;
+            this.datalistadovehiculo.AllowUserToDeleteRows = false;
+            this.datalistadovehiculo.AllowUserToResizeRows = false;
+            this.datalistadovehiculo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.datalistadovehiculo.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadovehiculo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadovehiculo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadovehiculo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.datalistadovehiculo.ColumnHeadersVisible = false;
+            this.datalistadovehiculo.EnableHeadersVisualStyles = false;
+            this.datalistadovehiculo.Location = new System.Drawing.Point(77, 24);
+            this.datalistadovehiculo.Name = "datalistadovehiculo";
+            this.datalistadovehiculo.ReadOnly = true;
+            this.datalistadovehiculo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.datalistadovehiculo.RowHeadersVisible = false;
+            this.datalistadovehiculo.RowHeadersWidth = 5;
+            this.datalistadovehiculo.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.datalistadovehiculo.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadovehiculo.RowTemplate.Height = 40;
+            this.datalistadovehiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadovehiculo.Size = new System.Drawing.Size(10, 10);
+            this.datalistadovehiculo.TabIndex = 618;
             // 
             // reportViewer1
             // 
@@ -1479,38 +1519,12 @@
             this.DATALISTADOVERIFICAR.Size = new System.Drawing.Size(305, 107);
             this.DATALISTADOVERIFICAR.TabIndex = 618;
             // 
-            // datalistadovehiculo
-            // 
-            this.datalistadovehiculo.AllowUserToAddRows = false;
-            this.datalistadovehiculo.AllowUserToDeleteRows = false;
-            this.datalistadovehiculo.AllowUserToResizeRows = false;
-            this.datalistadovehiculo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.datalistadovehiculo.BackgroundColor = System.Drawing.Color.White;
-            this.datalistadovehiculo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.datalistadovehiculo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.datalistadovehiculo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.datalistadovehiculo.ColumnHeadersVisible = false;
-            this.datalistadovehiculo.EnableHeadersVisualStyles = false;
-            this.datalistadovehiculo.Location = new System.Drawing.Point(307, 30);
-            this.datalistadovehiculo.Name = "datalistadovehiculo";
-            this.datalistadovehiculo.ReadOnly = true;
-            this.datalistadovehiculo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.datalistadovehiculo.RowHeadersVisible = false;
-            this.datalistadovehiculo.RowHeadersWidth = 5;
-            this.datalistadovehiculo.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.datalistadovehiculo.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.datalistadovehiculo.RowTemplate.Height = 40;
-            this.datalistadovehiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadovehiculo.Size = new System.Drawing.Size(305, 107);
-            this.datalistadovehiculo.TabIndex = 618;
-            // 
             // MEDIOS_DE_PAGO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1169, 620);
-            this.Controls.Add(this.datalistadovehiculo);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.PanelImpresionvistaprevia);
@@ -1551,11 +1565,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtComprobantes)).EndInit();
             this.PanelImpresionvistaprevia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadovehiculo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadovehiculo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1659,5 +1673,6 @@
         public System.Windows.Forms.DataGridView datalistadoempleado;
         public System.Windows.Forms.DataGridView DATALISTADOVERIFICAR;
         public System.Windows.Forms.DataGridView datalistadovehiculo;
+        internal System.Windows.Forms.Label label7;
     }
 }

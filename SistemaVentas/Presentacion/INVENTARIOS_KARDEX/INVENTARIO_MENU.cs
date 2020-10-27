@@ -348,10 +348,10 @@ buscar_MOVIMIENTOS_FILTROS();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
 
-                da = new SqlDataAdapter("select*from USUARIO2", con);
-               
+                da = new SqlDataAdapter("select U.idUsuario as idUsuario, P.nombre as Nombre FROM USUARIO2 AS U INNER JOIN Empleados AS E ON U.idEmpleado = E.idEmpleado INNER JOIN Persona AS P ON E.idPersona = P.idPersona", con);
+
                 da.Fill(dt);
-                txtUSUARIOS.DisplayMember = "Nombres_y_Apellidos";
+                txtUSUARIOS.DisplayMember = "Nombre";
                 txtUSUARIOS.ValueMember = "idUsuario";
 
                 txtUSUARIOS.DataSource = dt;
@@ -893,6 +893,11 @@ buscar_MOVIMIENTOS_FILTROS();
         {
             KardexSalidas frm = new KardexSalidas();
             frm.ShowDialog();
+        }
+
+        private void txtbuscarMovimiento_TextAlignChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }

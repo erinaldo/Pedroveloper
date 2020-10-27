@@ -275,7 +275,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             ValidarVentasNuevas();
             txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();
             idproducto = Convert.ToInt32 ( DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
-            MessageBox.Show("producto:", idproducto.ToString());
+            //MessageBox.Show("producto:", idproducto.ToString());
             vender_por_teclado();
 
         }
@@ -378,7 +378,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-            SqlCommand com = new SqlCommand("mostrar_id_cotizacion_por_Id_caja", con);
+            SqlCommand com = new SqlCommand("mostrar_id_venta_por_Id_caja", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@Id_caja", Id_caja);
             try
@@ -425,7 +425,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
-                    cmd = new SqlCommand("insertar_cotizacion", con);
+                    cmd = new SqlCommand("insertar_venta", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@idcliente", idClienteEstandar);
                     cmd.Parameters.AddWithValue("@fecha_venta", DateTime.Today);
@@ -437,7 +437,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                     cmd.Parameters.AddWithValue("@Comprobante", 0);
                     cmd.Parameters.AddWithValue("@id_usuario", idusuario_que_inicio_sesion);
                     cmd.Parameters.AddWithValue("@Fecha_de_pago", DateTime.Today);
-                    cmd.Parameters.AddWithValue("@ACCION", "VENTA");
+                    cmd.Parameters.AddWithValue("@ACCION", "COTIZACION");
                     cmd.Parameters.AddWithValue("@Saldo", 0);
                     cmd.Parameters.AddWithValue("@Pago_con", 0);
                     cmd.Parameters.AddWithValue("@Porcentaje_IGV", 0);
@@ -471,9 +471,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrar_productos_agregados_a_cotizacion", con);
+                da = new SqlDataAdapter("mostrar_productos_agregados_a_venta", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idcotizacion",idCotizacion);
+                da.SelectCommand.Parameters.AddWithValue("@idventa",idCotizacion);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();
@@ -511,7 +511,6 @@ namespace SistemaVentas.Presentacion.Cotizacion
             {
                 if (usainventarios == "SI")
                 {
-                    MessageBox.Show(usainventarios);
                     if (lblStock_de_Productos >= txtpantalla)
                     {
                         insertar_detalle_venta_Validado();
@@ -539,9 +538,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_detalle_cotizacion", con);
+                cmd = new SqlCommand("insertar_detalle_venta", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idcotizacion", idCotizacion);
+                cmd.Parameters.AddWithValue("@idventa", idCotizacion);
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
@@ -557,7 +556,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
-                disminuir_stock_en_detalle_de_venta();
+                //disminuir_stock_en_detalle_de_venta();
             }
             catch (Exception ex)
             {
@@ -573,9 +572,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_detalle_cotizacion", con);
+                cmd = new SqlCommand("insertar_detalle_venta", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idcotizacion", idCotizacion);
+                cmd.Parameters.AddWithValue("@idventa", idCotizacion);
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
@@ -613,7 +612,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrar_stock_de_detalle_de_cotizacion", con);
+                da = new SqlDataAdapter("mostrar_stock_de_detalle_de_ventas", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Id_producto", idproducto);
                 da.Fill(dt);
@@ -636,12 +635,12 @@ namespace SistemaVentas.Presentacion.Cotizacion
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             con.Open();
-            cmd = new SqlCommand("editar_detalle_cotizacion_sumar", con);
+            cmd = new SqlCommand("editar_detalle_venta_sumar", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Id_producto", idproducto);
             cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
             cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
-            cmd.Parameters.AddWithValue("@Id_cotizacion", idCotizacion);
+            cmd.Parameters.AddWithValue("@Id_venta", idCotizacion);
             cmd.ExecuteNonQuery();
             con.Close();
             }
@@ -652,12 +651,13 @@ namespace SistemaVentas.Presentacion.Cotizacion
             }
            
         }
+        
         private void disminuir_stock_en_detalle_de_venta()
         {
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("disminuir_stock_en_detalle_de_cotizacion", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("disminuir_stock_en_detalle_de_venta", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_Producto1", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla );
@@ -670,6 +670,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
              
             }
         }
+        
         private void Obtener_datos_del_detalle_de_venta()
         {
             
@@ -735,7 +736,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("aumentar_stock_en_detalle_de_cotizacion", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("aumentar_stock_en_detalle_de_venta", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_Producto1", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
@@ -755,13 +756,13 @@ namespace SistemaVentas.Presentacion.Cotizacion
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             con.Open();
-            cmd = new SqlCommand("editar_detalle_cotizacion_restar", con);
+            cmd = new SqlCommand("editar_detalle_venta_restar", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@iddetalle_cotizacion", iddetallecotizacion);
+            cmd.Parameters.AddWithValue("@iddetalle_venta", iddetallecotizacion);
             cmd.Parameters.AddWithValue("cantidad", txtpantalla );
             cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
             cmd.Parameters.AddWithValue("@Id_producto", idproducto);
-            cmd.Parameters.AddWithValue("@Id_cotizacion", idCotizacion);
+            cmd.Parameters.AddWithValue("@Id_venta", idCotizacion);
             cmd.ExecuteNonQuery();
             con.Close();
            
@@ -802,9 +803,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                         SqlConnection con = new SqlConnection();
                         con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                         con.Open();
-                        cmd = new SqlCommand("eliminar_detalle_cotizacion", con);
+                        cmd = new SqlCommand("eliminar_detalle_venta", con);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@iddetallecotizacion", iddetalle_cotizacion);
+                        cmd.Parameters.AddWithValue("@iddetalleventa", iddetalle_cotizacion);
                         cmd.ExecuteNonQuery();
                         con.Close();
                         txtpantalla = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
@@ -835,9 +836,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                cmd = new SqlCommand("eliminar_cotizacion", con);
+                cmd = new SqlCommand("eliminar_venta", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCotizacion", idCotizacion);
+                cmd.Parameters.AddWithValue("@idventa", idCotizacion);
                 cmd.ExecuteNonQuery();
                 con.Close();
 

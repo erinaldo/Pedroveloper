@@ -48,6 +48,26 @@ namespace SistemaVentas.Datos
 
         }
 
+        public static void eliminarEmpleado(int idEmpleado)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("eliminarEmpleado", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
+
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+        }
+
+
         public static void eliminar_ingreso(int idingreso)
         {
             try

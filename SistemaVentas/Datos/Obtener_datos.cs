@@ -38,6 +38,358 @@ namespace SistemaVentas.Datos
 
             }
         }
+        
+
+        public static void buscarDireccion(ref DataTable dt, string buscador)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("buscarDireccion", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@letra", buscador);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
+        public static int obtenerDocumentoid(string numeracion)
+        {
+            int idDocumento;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("obtenerDocumentoid", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@documento", numeracion);
+                idDocumento = Convert.ToInt32(cmd.ExecuteScalar());
+                return idDocumento;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return idDocumento = 0;
+            }
+        }
+        public static int obtenerTelefonoid(string numeracion)
+        {
+            int idDocumento;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("obtenerTelefonoid", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@telefono", numeracion);
+                idDocumento = Convert.ToInt32(cmd.ExecuteScalar());
+                return idDocumento;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return idDocumento = 0;
+            }
+        }
+        public static int obtenerPersonaid(string numeracion)
+        {
+            int idDocumento;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("obtenerPersonaid", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@documento", numeracion);
+                idDocumento = Convert.ToInt32(cmd.ExecuteScalar());
+                return idDocumento;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return idDocumento = 0;
+            }
+        }
+        public static int obtenerDocumento()
+        {
+            int idDocumento;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerDocumento", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idDocumento = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idDocumento;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idDocumento = 0;
+            }
+        }
+        public static string obtenerDireccion(string descripcion)
+        {
+            string idDocumento;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("verificarDireccion", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@descripcion", descripcion);
+                idDocumento = (string)com.ExecuteScalar();
+                CONEXIONMAESTRA.cerrar();
+                return idDocumento;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idDocumento = "";
+            }
+        }
+        public static string verificarTipoTelefono(string descripcion)
+        {
+            string idDocumento;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("verificarDireccion", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@descripcion", descripcion);
+                idDocumento = (string)com.ExecuteScalar();
+                CONEXIONMAESTRA.cerrar();
+                return idDocumento;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idDocumento = "";
+            }
+        }
+        public static int obtenerHorario()
+        {
+            int idHorario;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerHorario", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idHorario = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idHorario;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idHorario = 0;
+            }
+        }
+
+        public static int obtenerTipoTelefono()
+        {
+            int idTipoTelefono;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerTipoTelefono", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idTipoTelefono = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idTipoTelefono;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idTipoTelefono = 0;
+            }
+        }
+        public static int obtenerTipoTelefonoid( string tipotelefono)
+        {
+            int idTipoTelefono;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerTipoTelefonoid", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@TipoTelefono", tipotelefono);
+                idTipoTelefono = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idTipoTelefono;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idTipoTelefono = 0;
+            }
+        }
+        public static int obtenerPersona()
+        {
+            int idPersona;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerPersona", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idPersona = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idPersona;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idPersona = 0;
+            }
+        }
+        public static int obtenerTelefono()
+        {
+            int idTelefono;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerTelefono", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idTelefono = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idTelefono;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idTelefono = 0;
+            }
+        }
+     
+        public static int obtenerTipoHorarip()
+        {
+            int idTipoHorario;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerTipoHorarip", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idTipoHorario = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idTipoHorario;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idTipoHorario = 0;
+            }
+        }
+
+
+        public static int ObtenerRegion()
+        {
+            int idRegion;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerRegion", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idRegion = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idRegion;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idRegion = 0;
+            }
+        }
+
+        public static bool ObtenerDireccion(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter com = new SqlDataAdapter("mostrarDireccion", CONEXIONMAESTRA.conectar);
+                com.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return true;
+            }
+        }
+        public static int ObtenerMunicipio()
+        {
+            int idMunicipio;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerMunicipio", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idMunicipio = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idMunicipio;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idMunicipio = 0;
+            }
+        }
+        public static int ObtenerSector()
+        {
+            int idSector;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerSector", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idSector = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idSector;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idSector = 0;
+            }
+        }
+        public static int ObtenerProvincia()
+        {
+            int idProvincia;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerProvincia", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idProvincia = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idProvincia;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idProvincia = 0;
+            }
+        }
+
+        public static int ObtenerCalle()
+        {
+            int idCalle;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand com = new SqlCommand("obtenerCalle", CONEXIONMAESTRA.conectar);
+                com.CommandType = CommandType.StoredProcedure;
+                idCalle = Convert.ToInt32(com.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+                return idCalle;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return idCalle = 0;
+            }
+        }
+
+
 
         public static void mostrarVehiculos(ref DataTable dt)
         {

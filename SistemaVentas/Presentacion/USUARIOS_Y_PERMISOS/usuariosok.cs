@@ -17,7 +17,10 @@ namespace SistemaVentas
         {
             InitializeComponent();
         }
-
+        int idEmpleado;
+        int idEmpleado1;
+        int idPersona;
+        int idPersona1;
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -88,18 +91,10 @@ namespace SistemaVentas
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validar_Mail(txtcorreo.Text) == false)
-            {
-                MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtcorreo.Focus();
-                txtcorreo.SelectAll();
-            }
-            else
-            {
 
 
 
-                if (txtnombre.Text != "")
+                if (txtEmpleado.Text != "")
 
                 {
                     if (txtrol .Text != "")
@@ -112,19 +107,15 @@ namespace SistemaVentas
                             try
                             {
 
-                         
-
                                 SqlConnection con = new SqlConnection();
                                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                                 con.Open();
                                 SqlCommand cmd = new SqlCommand();
                                 cmd = new SqlCommand("insertar_usuario", con);
                                 cmd.CommandType = CommandType.StoredProcedure;
-                                cmd.Parameters.AddWithValue("@nombres", txtnombre.Text);
+                                cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
                                 cmd.Parameters.AddWithValue("@Login", txtlogin.Text);
                                 cmd.Parameters.AddWithValue("@Password",Bases.Encriptar (txtPassword.Text));
-
-                                cmd.Parameters.AddWithValue("@Correo", txtcorreo.Text);
                                 cmd.Parameters.AddWithValue("@Rol", txtrol.Text);
                                 System.IO.MemoryStream ms = new System.IO.MemoryStream();
                                 ICONO.Image.Save(ms, ICONO.Image.RawFormat);
@@ -168,33 +159,26 @@ namespace SistemaVentas
                 }
 
 
-            }
         }
         private void mostrar()
         {
             try
             {
-DataTable dt = new DataTable();
+            DataTable dt = new DataTable();
             SqlDataAdapter da;
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             con.Open();
-         
             da = new SqlDataAdapter("mostrar_usuario", con);
-             
-
-
-
-                da.Fill(dt);
+            da.Fill(dt);
             datalistado.DataSource = dt;
             con.Close();
 
                 datalistado.Columns[1].Visible = false;
-                datalistado.Columns[5].Visible = false;
-                datalistado.Columns[6].Visible = false;
-                datalistado.Columns[7].Visible = false;
-                datalistado.Columns[8].Visible = false;
-
+                datalistado.Columns[2].Visible = false;
+                datalistado.Columns[3].Visible = false;
+                datalistado.Columns[9].Visible = false;
+                datalistado.Columns[10].Visible = false;
             }
             catch (Exception ex)
             {
@@ -287,6 +271,7 @@ DataTable dt = new DataTable();
 
         private void usuariosok_Load(object sender, EventArgs e)
         {
+            panelDataListadoEmpleado.Visible = false;
             panelRegistros.Visible = false;
             panelICONO.Visible = false;
             mostrar();
@@ -298,10 +283,9 @@ DataTable dt = new DataTable();
             panelRegistros.Dock = DockStyle.Fill;
             panelNuevo.Visible = false;
             LblAnuncioIcono.Visible = true;
-            txtnombre.Text = "";
+            txtEmpleado.Text = "";
             txtlogin.Text = "";
             txtPassword.Text = "";
-               txtcorreo .Text = "";
             btnGuardar.Visible = true;
             btnGuardarCambios.Visible = false;
         }
@@ -314,21 +298,17 @@ DataTable dt = new DataTable();
         private void datalistado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             lblId_usuario.Text = datalistado.SelectedCells[1].Value.ToString();
-            txtnombre.Text = datalistado.SelectedCells[2].Value.ToString();
-            txtlogin.Text = datalistado.SelectedCells[3].Value.ToString();
-
-            txtPassword .Text = datalistado.SelectedCells[4].Value.ToString();
-
+            idEmpleado1 = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+            txtEmpleado.Text = datalistado.SelectedCells[4].Value.ToString();
+            txtlogin.Text = datalistado.SelectedCells[6].Value.ToString();
+            txtPassword .Text = datalistado.SelectedCells[7].Value.ToString();
             ICONO.BackgroundImage = null;
-            byte[] b = (Byte[])datalistado.SelectedCells[5].Value;
+            txtrol.Text = datalistado.SelectedCells[8].Value.ToString();
+            lblnumeroIcono.Text = datalistado.SelectedCells[9].Value.ToString();
+            byte[] b = (Byte[])datalistado.SelectedCells[10].Value;
             MemoryStream ms = new MemoryStream(b);
             ICONO.Image = Image.FromStream(ms);
-        
             LblAnuncioIcono.Visible = false;
-
-            lblnumeroIcono .Text = datalistado.SelectedCells[6].Value.ToString();
-            txtcorreo .Text = datalistado.SelectedCells[7].Value.ToString();
-            txtrol .Text = datalistado.SelectedCells[8].Value.ToString();
             panelRegistros.Visible = true;
             panelRegistros.Dock = DockStyle.Fill;
             panelNuevo.Visible = false;
@@ -344,7 +324,7 @@ DataTable dt = new DataTable();
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text != "")
+            if (txtEmpleado.Text != "")
             {
                 try
                 {
@@ -354,12 +334,10 @@ DataTable dt = new DataTable();
                     SqlCommand cmd = new SqlCommand();
                     cmd = new SqlCommand("editar_usuario", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@idUsuario", lblId_usuario .Text);
-                    cmd.Parameters.AddWithValue("@nombres", txtnombre.Text);
+                    cmd.Parameters.AddWithValue("@idUsuario", lblId_usuario.Text);
+                    cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado1);
                     cmd.Parameters.AddWithValue("@Login", txtlogin.Text);
                     cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-
-                    cmd.Parameters.AddWithValue("@Correo", txtcorreo.Text);
                     cmd.Parameters.AddWithValue("@Rol", txtrol.Text);
                     System.IO.MemoryStream ms = new System.IO.MemoryStream();
                     ICONO.Image.Save(ms, ICONO.Image.RawFormat);
@@ -494,11 +472,10 @@ DataTable dt = new DataTable();
                 con.Close();
 
                 datalistado.Columns[1].Visible = false;
-                datalistado.Columns[5].Visible = false;
-                datalistado.Columns[6].Visible = false;
-                datalistado.Columns[7].Visible = false;
-                datalistado.Columns[8].Visible = false;
-
+                datalistado.Columns[2].Visible = false;
+                datalistado.Columns[3].Visible = false;
+                datalistado.Columns[9].Visible = false;
+                datalistado.Columns[10].Visible = false;
             }
             catch (Exception ex)
             {
@@ -548,6 +525,88 @@ DataTable dt = new DataTable();
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtnombre_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEmpleado.Text != "")
+            {
+                mostrarEmpleado();
+            }
+            else
+            {
+                panelDataListadoEmpleado.Visible = false;
+
+            }
+        }
+        private void mostrarEmpleado()
+        {
+            panelDataListadoEmpleado.Visible = true;
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("buscarEmpleado", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@letra", txtEmpleado.Text);
+                da.Fill(dt);
+                datalistadoEmpleado.DataSource = dt;
+                con.Close();
+
+                datalistadoEmpleado.DataSource = dt;
+                pintardatalistadoEmpleado();
+                datalistadoEmpleado.Columns[1].Width = 500;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistado);
+        }
+        private void pintardatalistadoEmpleado()
+        {
+            Bases.Multilinea(ref datalistadoEmpleado);
+            datalistadoEmpleado.Columns[0].Visible = false;
+            datalistadoEmpleado.Columns[1].Visible = false;
+        }
+
+        private void datalistadoEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            idEmpleado = Convert.ToInt32(datalistadoEmpleado.SelectedCells[0].Value);
+            idEmpleado1 = Convert.ToInt32(datalistadoEmpleado.SelectedCells[0].Value);
+            idPersona = Convert.ToInt32(datalistadoEmpleado.SelectedCells[1].Value);
+            idPersona1 = Convert.ToInt32(datalistadoEmpleado.SelectedCells[1].Value);
+            txtEmpleado.Text = datalistadoEmpleado.SelectedCells[2].Value.ToString();
+            panelDataListadoEmpleado.Visible = false;
+        }
+
+        private void txtEmpleado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                if (datalistadoEmpleado.SelectedRows.Count > 0)
+                {
+
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("¿Desea agregar un nuevo Empleado?", "Empleado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (result == System.Windows.Forms.DialogResult.OK)
+                    {
+                        Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
+                        frm.ShowDialog();
+                    }
+
+                }
+            }
         }
     }
 }

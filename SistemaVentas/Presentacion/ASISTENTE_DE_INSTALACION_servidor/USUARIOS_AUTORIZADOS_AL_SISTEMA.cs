@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Management;
 using SistemaVentas.Logica;
+using SistemaVentas.Datos;
+
 namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 {
     public partial class USUARIOS_AUTORIZADOS_AL_SISTEMA : Form
@@ -22,6 +24,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         private void USUARIOS_AUTORIZADOS_AL_SISTEMA_Load(object sender, EventArgs e)
         {
             Panel2.Location = new Point((Width - Panel2.Width) / 2, (Height - Panel2.Height) / 2);
+            panelDataListadoEmpleados.Visible = false;
 
             Bases.Obtener_serialPC(ref lblIDSERIAL);
         }
@@ -57,7 +60,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                         cmd.ExecuteNonQuery();
                         con.Close();
-                        Insertar_licencia_de_prueba_30_dias();
+                        //Insertar_licencia_de_prueba_30_dias();
                         insertar_cliente_standar();
                         insertar_grupo_por_defecto();
                         insertar_inicio_De_sesion();
@@ -201,6 +204,50 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txtnombre_TextChanged(object sender, EventArgs e)
+        {
+            if(txtnombre.TextLength > 0)
+            {
+                panelDataListadoEmpleados.Visible = true;
+                buscar();
+            }
+            else
+            {
+                panelDataListadoEmpleados.Visible = false;
+            }
+        }
+
+        private void buscar()
+        {
+            DataTable dt = new DataTable();
+            Obtener_datos.buscar_empleados(ref dt, txtnombre.Text);
+            datalistadoEmpleado.DataSource = dt;
+            if(datalistadoEmpleado.Rows.Count > 0)
+            {
+                pintarDatalistado();
+            }
+            else
+            {
+
+            }
+        }
+
+        void pintarDatalistado()
+        {
+
+            Bases.Multilinea(ref datalistadoEmpleado);
+            /*datalistadoEmpleado.Columns[2].Visible = false;
+            datalistadoEmpleado.Columns[3].Visible = false;
+            datalistadoEmpleado.Columns[4].Visible = false;
+            datalistadoEmpleado.Columns[9].Visible = false;
+            datalistadoEmpleado.Columns[11].Visible = false;
+            datalistadoEmpleado.Columns[14].Visible = false;
+
+            datalistadoEmpleado.Columns[16].Visible = false;
+            datalistadoEmpleado.Columns[20].Visible = false;
+            datalistadoEmpleado.Columns[25].Visible = false;*/
         }
     }
 }

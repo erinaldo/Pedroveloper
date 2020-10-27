@@ -194,7 +194,7 @@
             this.txtbusca.Name = "txtbusca";
             this.txtbusca.Size = new System.Drawing.Size(272, 22);
             this.txtbusca.TabIndex = 534;
-            this.txtbusca.TextChanged += new System.EventHandler(this.txtbusca_TextChanged);
+           // this.txtbusca.TextChanged += new System.EventHandler(this.txtbusca_TextChanged);
             // 
             // MenuStrip1
             // 

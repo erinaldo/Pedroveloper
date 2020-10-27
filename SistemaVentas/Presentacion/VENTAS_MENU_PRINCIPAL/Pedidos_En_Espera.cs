@@ -69,7 +69,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             DataTable dt = new DataTable();
             Obtener_datos.mostrarPedidoEspecifico(ref dt, idPedido);
-            //datalistadopedidocompleto.Columns[0].Visible = false;
+            datalistadopedidocompleto.Columns[0].Visible = false;
+            /*datalistadopedidocompleto.Columns[1].Visible = false;
+            datalistadopedidocompleto.Columns[2].Visible = false;
+            datalistadopedidocompleto.Columns[3].Visible = false;
+            datalistadopedidocompleto.Columns[4].Visible = false;*/
+
             datalistadopedidocompleto.DataSource = dt;
         }
 
