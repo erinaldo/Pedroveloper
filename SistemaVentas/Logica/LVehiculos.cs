@@ -16,6 +16,9 @@ namespace SistemaVentas.Logica
         public int Ano { set; get; }
         public string Estado { set; get; }
         public byte[] icono { set; get; }
+        public int idTipoVehiculo { set; get; }
+        public string TipoVehiculo { set; get; }
+        public string Carga { set; get; }
 
 
     }

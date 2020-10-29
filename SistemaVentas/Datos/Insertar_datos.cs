@@ -451,12 +451,14 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("InsertarVehiculo", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TipoVehiculo", parametros.TipoVehiculo);
                 cmd.Parameters.AddWithValue("@NPlaca", parametros.NPlaca);
                 cmd.Parameters.AddWithValue("@Transmision", parametros.Transmision);
                 cmd.Parameters.AddWithValue("@Color", parametros.Color);
                 cmd.Parameters.AddWithValue("@Marca", parametros.Marca);
                 cmd.Parameters.AddWithValue("@Modelo", parametros.Modelo);
                 cmd.Parameters.AddWithValue("@Ano", parametros.Ano);
+                cmd.Parameters.AddWithValue("@Capacidad", parametros.Carga);
                 cmd.Parameters.AddWithValue("@Icono", parametros.icono);
                 cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                 cmd.ExecuteNonQuery();

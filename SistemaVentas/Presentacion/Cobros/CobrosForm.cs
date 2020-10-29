@@ -181,5 +181,10 @@ namespace SistemaVentas.Presentacion.Cobros
                 buscar();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

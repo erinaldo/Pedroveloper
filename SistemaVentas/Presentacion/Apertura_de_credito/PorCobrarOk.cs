@@ -31,14 +31,14 @@ namespace SistemaVentas.Presentacion.Apertura_de_credito
             parametros.Total = Convert.ToDouble(txtsaldo.Text);
             parametros.Saldo = Convert.ToDouble(txtsaldo.Text);
             parametros.Id_cliente = idcliente;
+            double credito = Convert.ToDouble(txtsaldo.Text);
+            aumentar_monto_a_cliente(credito);
             if (funcion.insertar_CreditoPorCobrar(parametros) == true)
             {
                 MessageBox.Show("Registrado");
                 limpiar();
                 buscar_clientes();
-                double credito = parametros.Saldo;
-                aumentar_monto_a_cliente(credito);
-
+                
             }
 
         }
@@ -46,15 +46,15 @@ namespace SistemaVentas.Presentacion.Apertura_de_credito
         void aumentar_monto_a_cliente( double credito)
         {
             
-            if (credito > 0)
+            if (credito > 0.00)
             {
                 try
                 {
                     CONEXION.CONEXIONMAESTRA.abrir();
                     SqlCommand cmd = new SqlCommand("aumentar_saldo_a_cliente", CONEXION.CONEXIONMAESTRA.conectar);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Saldo", txtsaldo.Text);
                     cmd.Parameters.AddWithValue("@idcliente", idcliente);
+                    cmd.Parameters.AddWithValue("@Saldo", txtsaldo.Text);
                     cmd.ExecuteNonQuery();
                     CONEXION.CONEXIONMAESTRA.cerrar();
 

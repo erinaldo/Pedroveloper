@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace SistemaVentas.Presentacion.Vehiculos
             InitializeComponent();
         }
         int idVehiculo;
+        int idTipoVehiculo;
         string estado;
 
         private void PictureBox2_Click(object sender, EventArgs e)
@@ -29,6 +31,11 @@ namespace SistemaVentas.Presentacion.Vehiculos
 
         private void EmpleadosOK_Load(object sender, EventArgs e)
         {
+            linealbl.Visible = false;
+            lblcapacidad.Visible = false;
+            txtCarga.Visible = false;
+            MenuStrip9.Visible = false;
+            PanelTipoVehiculo.Visible = false;
             txtbuscar.Focus();
             panelRegistros.Visible = false;
             mostrar();
@@ -111,13 +118,14 @@ namespace SistemaVentas.Presentacion.Vehiculos
         {
             LVehiculos parametros = new LVehiculos();
             Insertar_datos funcion = new Insertar_datos();
+            parametros.TipoVehiculo = txtTipoVehiculo.Text;
             parametros.NPlaca = txtPlaca.Text;
             parametros.Transmision = txtTransmision.Text;
             parametros.Color = txtColor.Text;
             parametros.Marca = txtMarca.Text;
             parametros.Modelo = txtModelo.Text;
             parametros.Ano = Convert.ToInt32(txtAno.Value);
-
+            parametros.Carga = txtCarga.Text;
             System.IO.MemoryStream ms = new System.IO.MemoryStream();
             ICONO.Image.Save(ms, ICONO.Image.RawFormat);
 
@@ -415,6 +423,97 @@ namespace SistemaVentas.Presentacion.Vehiculos
             {
                 MessageBox.Show(ex.StackTrace);
             }
+        }
+
+        private void buscarTipoVehiculo()
+        {
+            DataTable dt = new DataTable();
+            Obtener_datos.buscarTipoTelefono(ref dt,txtTipoVehiculo.Text);
+            datalistadoTipoVehiculo.DataSource = dt;
+            Bases.Multilinea1( ref datalistadoTipoVehiculo);
+        }
+
+        private void txtTipoVehiculo_TextChanged(object sender, EventArgs e)
+        {
+            if(txtTipoVehiculo.Text != "")
+            {
+                linealbl.Visible = true;
+                lblcapacidad.Visible = true;
+                txtCarga.Visible = true;
+                PanelTipoVehiculo.Visible = true;
+                MenuStrip9.Visible = true;
+                datalistadoTipoVehiculo.Visible = true;
+                buscarTipoVehiculo();
+                btnGuardar_grupo.Visible = true;
+            }
+            else
+            {
+                linealbl.Visible = false;
+                               PanelTipoVehiculo.Visible = true;
+                lblcapacidad.Visible = false;
+                txtCarga.Visible = false;
+                MenuStrip9.Visible = false;
+                datalistadoTipoVehiculo.Visible = false;
+                btnGuardar_grupo.Visible = false;
+
+            }
+        }
+
+        private void btnGuardar_grupo_Click(object sender, EventArgs e)
+        {
+            if(txtTipoVehiculo.Text != "")
+            {
+                if (txtCarga.Text != "")
+                {
+                    try
+                    {
+                        SqlConnection con = new SqlConnection();
+                        con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd = new SqlCommand("insertarTipoVehiculo", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TipoVehiculo", txtTipoVehiculo.Text);
+                        cmd.Parameters.AddWithValue("@capacidad", txtCarga.Text);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+         
+                        idTipoVehiculo = Convert.ToInt32(datalistadoTipoVehiculo.SelectedCells[2].Value);
+                        txtTipoVehiculo.Text = datalistadoTipoVehiculo.SelectedCells[3].Value.ToString();
+                        txtCarga.Text = datalistadoTipoVehiculo.SelectedCells[4].Value.ToString();
+
+                        PanelTipoVehiculo.Visible = true;
+                        btnGuardar_grupo.Visible = false;
+                        BtnCancelar.Visible = false;
+                        btnNuevoGrupo.Visible = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Digite la carga del Vehiculo correctamente", "Tipos de Vehiculos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Digite el Tipo de Vehiculo correctamente", "Tipos de Vehiculos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            PanelTipoVehiculo.Visible = false;
+            btnGuardar_grupo.Visible = false;
+            BtnCancelar.Visible = false;
+            btnNuevoGrupo.Visible = true;
+            txtTipoVehiculo.Clear();
+            txtCarga.Clear();
+            buscarTipoVehiculo();
         }
     }
 }
