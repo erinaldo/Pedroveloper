@@ -153,6 +153,7 @@
             this.datalistado.TabIndex = 507;
             this.datalistado.Visible = false;
             this.datalistado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistado_CellClick);
+            this.datalistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistado_CellContentClick);
             // 
             // Eliminar
             // 

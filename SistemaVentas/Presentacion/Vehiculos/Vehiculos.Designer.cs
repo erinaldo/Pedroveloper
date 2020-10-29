@@ -79,6 +79,9 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panelRegistros.SuspendLayout();
@@ -156,6 +159,9 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.comboBox1);
+            this.panel5.Controls.Add(this.panel13);
+            this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.Label21);
             this.panel5.Controls.Add(this.txtAno);
             this.panel5.Controls.Add(this.panel3);
@@ -680,6 +686,45 @@
             this.label2.Text = "Vehiculos";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.ForeColor = System.Drawing.Color.White;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Blanco",
+            "Negro",
+            "Plata",
+            "Gris",
+            "Azul",
+            "Rojo",
+            "Amarillo"});
+            this.comboBox1.Location = new System.Drawing.Point(117, 314);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(238, 28);
+            this.comboBox1.TabIndex = 635;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.Gray;
+            this.panel13.Location = new System.Drawing.Point(118, 344);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(237, 1);
+            this.panel13.TabIndex = 634;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(62, 325);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 20);
+            this.label9.TabIndex = 633;
+            this.label9.Text = "Color:";
+            // 
             // Vehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -764,5 +809,8 @@
         private System.Windows.Forms.Panel panel12;
         internal System.Windows.Forms.Label Label21;
         internal System.Windows.Forms.Panel Panel19;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Panel panel13;
+        internal System.Windows.Forms.Label label9;
     }
 }

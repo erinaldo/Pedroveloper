@@ -153,9 +153,9 @@ namespace SistemaVentas.Presentacion.Vehiculos
         private void pintarDatalistado()
         {
             Bases.Multilinea1(ref datalistado);
-            datalistado.Columns[2].Visible = false;
+            /*datalistado.Columns[2].Visible = false;
             datalistado.Columns[9].Visible = false;
-            datalistado.Columns[10].Visible = false;
+            datalistado.Columns[10].Visible = false;*/
             foreach (DataGridViewRow row in datalistado.Rows)
             {
                 string estado = Convert.ToString(row.Cells["Estado"].Value);

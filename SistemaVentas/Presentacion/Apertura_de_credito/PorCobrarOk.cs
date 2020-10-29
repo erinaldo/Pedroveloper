@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace SistemaVentas.Presentacion.Apertura_de_credito
             InitializeComponent();
         }
         int idcliente;
+
         Panel p = new Panel();
         //Crud------
         private void insertarCreditos()
@@ -34,7 +36,34 @@ namespace SistemaVentas.Presentacion.Apertura_de_credito
                 MessageBox.Show("Registrado");
                 limpiar();
                 buscar_clientes();
+                double credito = parametros.Saldo;
+                aumentar_monto_a_cliente(credito);
 
+            }
+
+        }
+
+        void aumentar_monto_a_cliente( double credito)
+        {
+            
+            if (credito > 0)
+            {
+                try
+                {
+                    CONEXION.CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("aumentar_saldo_a_cliente", CONEXION.CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Saldo", txtsaldo.Text);
+                    cmd.Parameters.AddWithValue("@idcliente", idcliente);
+                    cmd.ExecuteNonQuery();
+                    CONEXION.CONEXIONMAESTRA.cerrar();
+
+                }
+                catch (Exception ex)
+                {
+                    CONEXION.CONEXIONMAESTRA.cerrar();
+                    MessageBox.Show(ex.StackTrace);
+                }
             }
 
         }
@@ -119,6 +148,11 @@ namespace SistemaVentas.Presentacion.Apertura_de_credito
         private void txtsaldo_KeyPress(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txtsaldo, e);
+
+        }
+
+        private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
