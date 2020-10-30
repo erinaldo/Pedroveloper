@@ -495,7 +495,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("buscarVehiculo", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("Mostrartipovehiculo", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letra", buscador);
                 da.Fill(dt);

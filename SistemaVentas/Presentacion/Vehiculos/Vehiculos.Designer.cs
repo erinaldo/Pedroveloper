@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vehiculos));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -94,6 +94,7 @@
             this.btnGuardar_grupo = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNuevoGrupo = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblidtipovehiculo = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panelRegistros.SuspendLayout();
@@ -174,6 +175,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.lblidtipovehiculo);
             this.panel5.Controls.Add(this.PanelTipoVehiculo);
             this.panel5.Controls.Add(this.MenuStrip9);
             this.panel5.Controls.Add(this.txtTipoVehiculo);
@@ -243,7 +245,7 @@
             this.Label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.Label21.ForeColor = System.Drawing.Color.White;
             this.Label21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Label21.Location = new System.Drawing.Point(497, 3);
+            this.Label21.Location = new System.Drawing.Point(448, 3);
             this.Label21.Name = "Label21";
             this.Label21.Size = new System.Drawing.Size(211, 25);
             this.Label21.TabIndex = 632;
@@ -616,32 +618,32 @@
             this.datalistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar2,
             this.Editar2});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistado.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistado.DefaultCellStyle = dataGridViewCellStyle6;
             this.datalistado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datalistado.EnableHeadersVisualStyles = false;
             this.datalistado.Location = new System.Drawing.Point(0, 110);
             this.datalistado.Name = "datalistado";
             this.datalistado.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistado.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistado.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.datalistado.RowHeadersVisible = false;
             this.datalistado.RowHeadersWidth = 9;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            this.datalistado.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            this.datalistado.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.datalistado.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.datalistado.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.datalistado.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -769,11 +771,11 @@
             this.datalistadoTipoVehiculo.AllowUserToAddRows = false;
             this.datalistadoTipoVehiculo.AllowUserToDeleteRows = false;
             this.datalistadoTipoVehiculo.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoTipoVehiculo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoTipoVehiculo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.datalistadoTipoVehiculo.BackgroundColor = System.Drawing.Color.White;
             this.datalistadoTipoVehiculo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datalistadoTipoVehiculo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -790,8 +792,8 @@
             this.datalistadoTipoVehiculo.ReadOnly = true;
             this.datalistadoTipoVehiculo.RowHeadersVisible = false;
             this.datalistadoTipoVehiculo.RowHeadersWidth = 9;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            this.datalistadoTipoVehiculo.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoTipoVehiculo.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
@@ -800,6 +802,8 @@
             this.datalistadoTipoVehiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datalistadoTipoVehiculo.Size = new System.Drawing.Size(360, 178);
             this.datalistadoTipoVehiculo.TabIndex = 535;
+            this.datalistadoTipoVehiculo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoTipoVehiculo_CellClick);
+            this.datalistadoTipoVehiculo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoTipoVehiculo_CellContentClick);
             // 
             // EliminarG
             // 
@@ -869,6 +873,16 @@
             this.btnNuevoGrupo.Text = "+ Agregar Tipo";
             this.btnNuevoGrupo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnNuevoGrupo.ToolTipText = "+ Agregar Grupo";
+            this.btnNuevoGrupo.Click += new System.EventHandler(this.btnNuevoGrupo_Click);
+            // 
+            // lblidtipovehiculo
+            // 
+            this.lblidtipovehiculo.AutoSize = true;
+            this.lblidtipovehiculo.Location = new System.Drawing.Point(820, 125);
+            this.lblidtipovehiculo.Name = "lblidtipovehiculo";
+            this.lblidtipovehiculo.Size = new System.Drawing.Size(60, 20);
+            this.lblidtipovehiculo.TabIndex = 643;
+            this.lblidtipovehiculo.Text = "label10";
             // 
             // Vehiculos
             // 
@@ -969,5 +983,6 @@
         internal System.Windows.Forms.ToolStripMenuItem btnGuardar_grupo;
         internal System.Windows.Forms.ToolStripMenuItem BtnCancelar;
         internal System.Windows.Forms.ToolStripMenuItem btnNuevoGrupo;
+        private System.Windows.Forms.Label lblidtipovehiculo;
     }
 }

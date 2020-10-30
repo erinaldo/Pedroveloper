@@ -451,7 +451,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("InsertarVehiculo", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@TipoVehiculo", parametros.TipoVehiculo);
+                cmd.Parameters.AddWithValue("@idTipoVehiculo", parametros.idTipoVehiculo);
                 cmd.Parameters.AddWithValue("@NPlaca", parametros.NPlaca);
                 cmd.Parameters.AddWithValue("@Transmision", parametros.Transmision);
                 cmd.Parameters.AddWithValue("@Color", parametros.Color);

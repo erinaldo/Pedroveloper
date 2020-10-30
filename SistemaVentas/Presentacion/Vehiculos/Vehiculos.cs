@@ -21,6 +21,7 @@ namespace SistemaVentas.Presentacion.Vehiculos
         }
         int idVehiculo;
         int idTipoVehiculo;
+        int idTipoVehiculoEditar;
         string estado;
 
         private void PictureBox2_Click(object sender, EventArgs e)
@@ -31,10 +32,12 @@ namespace SistemaVentas.Presentacion.Vehiculos
 
         private void EmpleadosOK_Load(object sender, EventArgs e)
         {
+            btnNuevoGrupo.Visible = true;
+            BtnCancelar.Visible = false;
+            btnGuardar_grupo.Visible = false;
             linealbl.Visible = false;
             lblcapacidad.Visible = false;
             txtCarga.Visible = false;
-            MenuStrip9.Visible = false;
             PanelTipoVehiculo.Visible = false;
             txtbuscar.Focus();
             panelRegistros.Visible = false;
@@ -116,25 +119,32 @@ namespace SistemaVentas.Presentacion.Vehiculos
         }
         private void insertar()
         {
-            LVehiculos parametros = new LVehiculos();
-            Insertar_datos funcion = new Insertar_datos();
-            parametros.TipoVehiculo = txtTipoVehiculo.Text;
-            parametros.NPlaca = txtPlaca.Text;
-            parametros.Transmision = txtTransmision.Text;
-            parametros.Color = txtColor.Text;
-            parametros.Marca = txtMarca.Text;
-            parametros.Modelo = txtModelo.Text;
-            parametros.Ano = Convert.ToInt32(txtAno.Value);
-            parametros.Carga = txtCarga.Text;
-            System.IO.MemoryStream ms = new System.IO.MemoryStream();
-            ICONO.Image.Save(ms, ICONO.Image.RawFormat);
-
-            parametros.icono = ms.GetBuffer();
-
-
-            if (funcion.InsertarVehiculos(parametros) == true)
+            if(idTipoVehiculo != 0)
             {
-                mostrar();
+                LVehiculos parametros = new LVehiculos();
+                Insertar_datos funcion = new Insertar_datos();
+                parametros.idTipoVehiculo = idTipoVehiculo;
+                parametros.NPlaca = txtPlaca.Text;
+                parametros.Transmision = txtTransmision.Text;
+                parametros.Color = txtColor.Text;
+                parametros.Marca = txtMarca.Text;
+                parametros.Modelo = txtModelo.Text;
+                parametros.Ano = Convert.ToInt32(txtAno.Value);
+                parametros.Carga = txtCarga.Text;
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                ICONO.Image.Save(ms, ICONO.Image.RawFormat);
+
+                parametros.icono = ms.GetBuffer();
+
+
+                if (funcion.InsertarVehiculos(parametros) == true)
+                {
+                    mostrar();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Clickea correctamente dentro de un tipo de vehiculo", "Registro de Vehiculos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -161,9 +171,10 @@ namespace SistemaVentas.Presentacion.Vehiculos
         private void pintarDatalistado()
         {
             Bases.Multilinea1(ref datalistado);
-            /*datalistado.Columns[2].Visible = false;
-            datalistado.Columns[9].Visible = false;
-            datalistado.Columns[10].Visible = false;*/
+            datalistado.Columns[2].Visible = false;
+            datalistado.Columns[3].Visible = false;
+            datalistado.Columns[12].Visible = false;
+
             foreach (DataGridViewRow row in datalistado.Rows)
             {
                 string estado = Convert.ToString(row.Cells["Estado"].Value);
@@ -175,24 +186,32 @@ namespace SistemaVentas.Presentacion.Vehiculos
 
             }
         }
-
-        private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+        public void editarVehiculos()
         {
-            if (e.ColumnIndex == datalistado.Columns["Editar"].Index)
+            if (idTipoVehiculo != 0)
             {
-                obtenerDatos();
-            }
-            if (e.ColumnIndex == datalistado.Columns["Eliminar"].Index)
-            {
-                obtenerId_estado();
-                if (estado == "ACTIVO")
+                LVehiculos parametros = new LVehiculos();
+                Editar_datos funcion = new Editar_datos();
+                parametros.idVehiculo = idVehiculo;
+                parametros.idTipoVehiculo = idTipoVehiculo;
+                parametros.NPlaca = txtPlaca.Text;
+                parametros.Transmision = txtTransmision.Text;
+                parametros.Color = txtColor.Text;
+                parametros.Marca = txtMarca.Text;
+                parametros.Modelo = txtModelo.Text;
+                parametros.Ano = Convert.ToInt32(txtAno.Value);
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                ICONO.Image.Save(ms, ICONO.Image.RawFormat);
+                parametros.icono = ms.GetBuffer();
+                if (funcion.editarVehiculos(parametros) == true)
                 {
-                    DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (result == System.Windows.Forms.DialogResult.OK)
-                    {
-                        eliminar();
-                    }
+                    mostrar();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Clickea correctamente dentro de un tipo de vehiculo", "Registro de Vehiculos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -248,7 +267,7 @@ namespace SistemaVentas.Presentacion.Vehiculos
                             {
                                 obtenerId_estado();
                                 rellenarCamposVacios();
-                                editar();
+                                editarVehiculos();
                             }
                             else
                             {
@@ -282,27 +301,7 @@ namespace SistemaVentas.Presentacion.Vehiculos
 
         }
 
-        public void editar()
-        {
-            LVehiculos parametros = new LVehiculos();
-            Editar_datos Editar = new Editar_datos();
-            parametros.idVehiculo = idVehiculo;
-            parametros.NPlaca = txtPlaca.Text;
-            parametros.Transmision = txtTransmision.Text;
-            parametros.Color = txtColor.Text;
-            parametros.Marca = txtMarca.Text;
-            parametros.Modelo = txtModelo.Text;
-            parametros.Ano = Convert.ToInt32(txtAno.Value);
-
-            System.IO.MemoryStream ms = new System.IO.MemoryStream();
-            ICONO.Image.Save(ms, ICONO.Image.RawFormat);
-
-            parametros.icono = ms.GetBuffer();
-            if (Editar.EditarVehiculo(parametros) == true)
-            {
-                mostrar();
-            }
-        }
+       
         
         private void eliminar()
         {
@@ -321,7 +320,7 @@ namespace SistemaVentas.Presentacion.Vehiculos
             try
             {
                 idVehiculo = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                estado = datalistado.SelectedCells[10].Value.ToString();
+                estado = datalistado.SelectedCells[13].Value.ToString();
 
             }
             catch (Exception)
@@ -392,19 +391,22 @@ namespace SistemaVentas.Presentacion.Vehiculos
             try
             {
                 idVehiculo = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                txtPlaca.Text = datalistado.SelectedCells[3].Value.ToString();
-                txtTransmision.Text = datalistado.SelectedCells[4].Value.ToString();
-                txtColor.Text = datalistado.SelectedCells[5].Value.ToString();
-                txtMarca.Text = datalistado.SelectedCells[6].Value.ToString();
-                txtModelo.Text = datalistado.SelectedCells[7].Value.ToString();
-                txtAno.Text = datalistado.SelectedCells[8].Value.ToString();
+                idTipoVehiculo = Convert.ToInt32(datalistado.SelectedCells[3].Value);
+                txtTipoVehiculo.Text = datalistado.SelectedCells[4].Value.ToString();
+                txtPlaca.Text = datalistado.SelectedCells[5].Value.ToString();
+                txtTransmision.Text = datalistado.SelectedCells[6].Value.ToString();
+                txtColor.Text = datalistado.SelectedCells[7].Value.ToString();
+                txtMarca.Text = datalistado.SelectedCells[8].Value.ToString();
+                txtModelo.Text = datalistado.SelectedCells[9].Value.ToString();
+                txtAno.Text = datalistado.SelectedCells[10].Value.ToString();
+                txtCarga.Text = datalistado.SelectedCells[11].Value.ToString();
                 ICONO.BackgroundImage = null;
-                byte[] b = (Byte[])datalistado.SelectedCells[9].Value;
+                byte[] b = (Byte[])datalistado.SelectedCells[12].Value;
                 MemoryStream ms = new MemoryStream(b);
                 ICONO.Image = Image.FromStream(ms);
                 LblAnuncioIcono.Visible = false;
 
-                estado = datalistado.SelectedCells[10].Value.ToString();
+                estado = datalistado.SelectedCells[13].Value.ToString();
                 if (estado == "ELIMINADO")
                 {
                     DialogResult result = MessageBox.Show("Este Vehiculo se Elimino. ¿Desea Volver a Habilitarlo?", "Restaurando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -431,6 +433,9 @@ namespace SistemaVentas.Presentacion.Vehiculos
             Obtener_datos.buscarTipoTelefono(ref dt,txtTipoVehiculo.Text);
             datalistadoTipoVehiculo.DataSource = dt;
             Bases.Multilinea1( ref datalistadoTipoVehiculo);
+            datalistadoTipoVehiculo.Columns[1].Visible = false;
+            datalistadoTipoVehiculo.Columns[2].Visible = false;
+
         }
 
         private void txtTipoVehiculo_TextChanged(object sender, EventArgs e)
@@ -477,15 +482,18 @@ namespace SistemaVentas.Presentacion.Vehiculos
                         cmd.Parameters.AddWithValue("@capacidad", txtCarga.Text);
                         cmd.ExecuteNonQuery();
                         con.Close();
-         
+                        buscarTipoVehiculo();
+
                         idTipoVehiculo = Convert.ToInt32(datalistadoTipoVehiculo.SelectedCells[2].Value);
                         txtTipoVehiculo.Text = datalistadoTipoVehiculo.SelectedCells[3].Value.ToString();
                         txtCarga.Text = datalistadoTipoVehiculo.SelectedCells[4].Value.ToString();
-
                         PanelTipoVehiculo.Visible = true;
                         btnGuardar_grupo.Visible = false;
                         BtnCancelar.Visible = false;
                         btnNuevoGrupo.Visible = true;
+                        txtCarga.Visible = true;
+                        lblcapacidad.Visible = true;
+                        linealbl.Visible = true;
                     }
                     catch (Exception ex)
                     {
@@ -513,7 +521,108 @@ namespace SistemaVentas.Presentacion.Vehiculos
             btnNuevoGrupo.Visible = true;
             txtTipoVehiculo.Clear();
             txtCarga.Clear();
+            txtCarga.Clear();
             buscarTipoVehiculo();
+            txtCarga.Visible = false;
+            lblcapacidad.Visible = false;
+            linealbl.Visible = false;
+        }
+
+        private void datalistadoTipoVehiculo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void datalistadoTipoVehiculo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idTipoVehiculoEditar = Convert.ToInt32(datalistadoTipoVehiculo.SelectedCells[2].Value.ToString());
+            if (e.ColumnIndex == this.datalistadoTipoVehiculo.Columns["EliminarG"].Index)
+            {
+                lblidtipovehiculo.Text = datalistadoTipoVehiculo.SelectedCells[2].Value.ToString();
+                idTipoVehiculo = Convert.ToInt32(datalistadoTipoVehiculo.SelectedCells[2].Value.ToString());
+                idTipoVehiculoEditar = Convert.ToInt32(datalistadoTipoVehiculo.SelectedCells[2].Value.ToString());
+                DialogResult result;
+                result = MessageBox.Show("¿Realmente desea eliminar este Tipo de Vehiculo?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    SqlCommand cmd;
+                    try
+                    {
+                        foreach (DataGridViewRow row in datalistadoTipoVehiculo.SelectedRows)
+                        {
+
+                            int onekey = Convert.ToInt32(lblidtipovehiculo.Text);
+
+                            try
+                            {
+                                try
+                                {
+                                    SqlConnection con = new SqlConnection();
+                                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                                    con.Open();
+                                    cmd = new SqlCommand("eliminartipovehiculo", con);
+                                    cmd.CommandType = CommandType.StoredProcedure;
+                                    cmd.Parameters.AddWithValue("@id", onekey);
+                                    cmd.ExecuteNonQuery();
+                                    con.Close();
+                                }
+                                catch (Exception ex)
+                                {
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                            }
+                        }
+                        txtTipoVehiculo.Text = "DIGITA EL TIPO DE VEHICULO";
+                        txtTipoVehiculo.SelectAll();
+                        txtTipoVehiculo.Focus();
+                        buscarTipoVehiculo();
+                        lblidtipovehiculo.Text = datalistadoTipoVehiculo.SelectedCells[2].Value.ToString();
+                        idTipoVehiculo = Convert.ToInt32(datalistadoTipoVehiculo.SelectedCells[2].Value.ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+            }
+
+            if (e.ColumnIndex == this.datalistadoTipoVehiculo.Columns["EditarG"].Index)
+
+            {
+                lblidtipovehiculo.Text = datalistadoTipoVehiculo.SelectedCells[2].Value.ToString();
+                idTipoVehiculo = Convert.ToInt32(datalistadoTipoVehiculo.SelectedCells[2].Value.ToString());
+                idTipoVehiculoEditar = Convert.ToInt32(datalistadoTipoVehiculo.SelectedCells[2].Value.ToString());
+                txtTipoVehiculo.Text = datalistadoTipoVehiculo.SelectedCells[3].Value.ToString();
+                PanelTipoVehiculo.Visible = false;
+                btnGuardar_grupo.Visible = false;
+                BtnCancelar.Visible = true;
+                btnNuevoGrupo.Visible = false;
+            }
+            if (e.ColumnIndex == this.datalistadoTipoVehiculo.Columns["descripcion"].Index)
+            {
+                lblidtipovehiculo.Text = datalistadoTipoVehiculo.SelectedCells[2].Value.ToString();
+                idTipoVehiculo = Convert.ToInt32(datalistadoTipoVehiculo.SelectedCells[2].Value.ToString());
+                txtTipoVehiculo.Text = datalistadoTipoVehiculo.SelectedCells[3].Value.ToString();
+                txtCarga.Text = datalistadoTipoVehiculo.SelectedCells[4].Value.ToString();
+                PanelTipoVehiculo.Visible = false;
+                btnGuardar_grupo.Visible = false;
+                BtnCancelar.Visible = false;
+                btnNuevoGrupo.Visible = true;
+            }
+        }
+
+        private void btnNuevoGrupo_Click(object sender, EventArgs e)
+        {
+            txtTipoVehiculo.SelectAll();
+            txtTipoVehiculo.Focus();
+            PanelTipoVehiculo.Visible = false;
+            btnGuardar_grupo.Visible = true;
+            BtnCancelar.Visible = true;
+            btnNuevoGrupo.Visible = false;
+            txtCarga.Visible = true;
+            lblcapacidad.Visible = true;
+            linealbl.Visible = true;
         }
     }
 }

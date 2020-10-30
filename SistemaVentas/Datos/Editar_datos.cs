@@ -49,6 +49,35 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
+        public bool editarVehiculos(LVehiculos parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("Editar_vehiculo", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idVehiculo", parametros.idVehiculo);
+                cmd.Parameters.AddWithValue("@idTipoVehiculo", parametros.idTipoVehiculo);
+                cmd.Parameters.AddWithValue("@NPlaca", parametros.NPlaca);
+                cmd.Parameters.AddWithValue("@Transmision", parametros.Transmision);
+                cmd.Parameters.AddWithValue("@Color", parametros.Color);
+                cmd.Parameters.AddWithValue("@Marca", parametros.Marca);
+                cmd.Parameters.AddWithValue("@Modelo", parametros.Modelo);
+                cmd.Parameters.AddWithValue("@Ano", parametros.Ano);
+                cmd.Parameters.AddWithValue("@Icono", parametros.icono);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return true;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
         public bool editarTelefono(LTelefono parametros)
         {
             try
@@ -371,34 +400,6 @@ namespace SistemaVentas.Datos
                 cmd.Parameters.AddWithValue("@IdentificadorFiscal", parametros.IdentificadorFiscal);
                 cmd.ExecuteNonQuery();
                 return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-            finally
-            {
-                CONEXIONMAESTRA.cerrar();
-            }
-        }
-        public bool EditarVehiculo(LVehiculos parametros)
-        {
-            try
-            {
-                CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("editar_vehiculos", CONEXIONMAESTRA.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idVehiculos", parametros.idVehiculo);
-                cmd.Parameters.AddWithValue("@NPlaca", parametros.NPlaca);
-                cmd.Parameters.AddWithValue("@Transmision", parametros.Transmision);
-                cmd.Parameters.AddWithValue("@Color", parametros.Color);
-                cmd.Parameters.AddWithValue("@Marca", parametros.Marca);
-                cmd.Parameters.AddWithValue("@Modelo", parametros.Modelo);
-                cmd.Parameters.AddWithValue("@Ano", parametros.Ano);
-                cmd.ExecuteNonQuery();
-                return true;
-
             }
             catch (Exception ex)
             {
