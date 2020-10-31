@@ -384,11 +384,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             //Extraemos los datos del producto de la tabla Productos directamente
             usainventarios = DATALISTADO_PRODUCTOS_OKA.SelectedCells[3].Value.ToString();
+            lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
+            txtprecio_unitario = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
+            MessageBox.Show(usainventarios);
+            sevendePor = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
             lbldescripcion.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[9].Value.ToString();
             lblcodigo.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();
-            lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
-            sevendePor = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
-            txtprecio_unitario =Convert.ToDouble ( DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
             //Preguntamos que tipo de producto sera el que se agrege al detalle de Factura
             if (sevendePor == "Granel")
             {
@@ -554,7 +555,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 da = new SqlDataAdapter("mostrar_productos_agregados_a_factura", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@idFactura",idFactura );
-                //MessageBox.Show("mostrar_productos_agregados_a_factura", idFactura.ToString());
+                MessageBox.Show("mostrar_productos_agregados_a_factura", idFactura.ToString());
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();

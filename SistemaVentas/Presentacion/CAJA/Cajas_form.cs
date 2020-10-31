@@ -66,7 +66,7 @@ namespace SistemaVentas.Presentacion.CAJA
                     {
 
                     }
-                    LABELusuario.Text = "Por " + rdr["Nombres_y_Apellidos"].ToString();
+                    LABELusuario.Text = "Por " + rdr["nombre"].ToString();
                     LABELusuario.Dock = DockStyle.Bottom;
                     LABELusuario.AutoSize = false;
                     LABELusuario.TextAlign = ContentAlignment.MiddleCenter;
@@ -224,7 +224,7 @@ namespace SistemaVentas.Presentacion.CAJA
                     {
 
                     }
-                    LABELusuario.Text = "Por " + rdr["Nombres_y_Apellidos"].ToString();
+                    LABELusuario.Text = "Por " + rdr["nombre"].ToString();
                     LABELusuario.Dock = DockStyle.Bottom;
                     LABELusuario.AutoSize = false;
                     LABELusuario.TextAlign = ContentAlignment.MiddleCenter;

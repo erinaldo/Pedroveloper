@@ -378,7 +378,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-            SqlCommand com = new SqlCommand("mostrar_id_venta_por_Id_caja", con);
+            SqlCommand com = new SqlCommand("mostrar_id_factura_por_Id_caja", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@Id_caja", Id_caja);
             try
@@ -612,7 +612,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrar_stock_de_detalle_de_ventas", con);
+                da = new SqlDataAdapter("mostrar_stock_de_detalle_de_facturas", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Id_producto", idproducto);
                 da.Fill(dt);

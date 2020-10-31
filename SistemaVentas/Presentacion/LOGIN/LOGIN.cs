@@ -313,9 +313,11 @@ namespace SistemaVentas.Presentacion
           if (contador > 0)
             {
             obtener_idusuario();
+                //MessageBox.Show(idusuariovariable.ToString());
             mostrar_roles();
                if (lblRol !=cajero )
                  {
+                    MessageBox.Show("timer");
                    timerValidarRol.Start();
                  }
                else if(lblRol ==cajero)
@@ -332,6 +334,7 @@ namespace SistemaVentas.Presentacion
             {
                 lblusuario_queinicioCaja.Text = datalistado_detalle_cierre_de_caja.SelectedCells[1].Value.ToString();
                 lblnombredeCajero.Text = datalistado_detalle_cierre_de_caja.SelectedCells[2].Value.ToString();
+                MessageBox.Show(lblusuario_queinicioCaja.Text + " " + lblnombredeCajero.Text);
             }
             catch
             {
@@ -754,15 +757,16 @@ namespace SistemaVentas.Presentacion
                 BackColor = Color.FromArgb(26, 26, 26);
                 progressBar1.Value = progressBar1.Value + 10;
                 PdeCarga.Visible = true;
-
             }
             else
             {
                 progressBar1.Value = 0;
-                timerValidarRol.Stop();            
-                if (lblRol  == administrador )
+                timerValidarRol.Stop();
+                //MessageBox.Show(lblRol.ToString());
+                if (administrador == ("Administrador (Control total)"))
                 {
                     editar_inicio_De_sesion();
+                    //MessageBox.Show("entra");
                     Dispose();
                     Admin_nivel_dios.DASHBOARD_PRINCIPAL  frm = new Admin_nivel_dios.DASHBOARD_PRINCIPAL();
                     frm.ShowDialog();

@@ -1278,7 +1278,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenfentasHoyEmpleado", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenfacturasHoyEmpleado", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@idEmpleado", idEmpleado);
 
