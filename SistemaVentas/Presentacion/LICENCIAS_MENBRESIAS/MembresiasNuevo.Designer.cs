@@ -285,7 +285,7 @@
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(1295, 92);
             this.Label1.TabIndex = 6;
-            this.Label1.Text = "Sigue usando \"Sistema de Ventas\" por Solo $ 100 (dolares americanos)\r\npor Todo 1 " +
+            this.Label1.Text = "Sigue usando \"Sistema de Facturas\" por Solo $ 100 (dolares americanos)\r\npor Todo 1 " +
     "AÑO";
             this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 

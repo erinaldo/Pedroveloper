@@ -67,7 +67,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         Presentacion.LOGIN frm = new Presentacion.LOGIN();
                         frm.ShowDialog();
                     }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                     catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                     {
                         //MessageBox.Show(ex.Message);
                     }

@@ -2112,7 +2112,7 @@
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(83, 17);
             this.Label7.TabIndex = 0;
-            this.Label7.Text = "F. de venta:";
+            this.Label7.Text = "F. de Factura:";
             // 
             // Label8
             // 
@@ -2524,7 +2524,7 @@
             this.lblidusuario.Name = "lblidusuario";
             this.lblidusuario.Size = new System.Drawing.Size(83, 17);
             this.lblidusuario.TabIndex = 0;
-            this.lblidusuario.Text = "F. de venta:";
+            this.lblidusuario.Text = "F. de Factura:";
             // 
             // txtcantidad_de_unidad_de_medidaoka
             // 
@@ -2554,7 +2554,7 @@
             this.txttipo.Name = "txttipo";
             this.txttipo.Size = new System.Drawing.Size(83, 17);
             this.txttipo.TabIndex = 0;
-            this.txttipo.Text = "F. de venta:";
+            this.txttipo.Text = "F. de Factura:";
             // 
             // txtmenuinterno
             // 
@@ -3224,7 +3224,7 @@
             this.Label32.Name = "Label32";
             this.Label32.Size = new System.Drawing.Size(111, 17);
             this.Label32.TabIndex = 1;
-            this.Label32.Text = "Total VENTAS";
+            this.Label32.Text = "Total Facturas";
             // 
             // Panel2
             // 

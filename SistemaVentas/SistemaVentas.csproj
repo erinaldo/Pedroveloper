@@ -121,7 +121,7 @@
     <Compile Include="Logica\Lcaja.cs" />
     <Compile Include="Logica\Lcontrolcobros.cs" />
     <Compile Include="Logica\LCotizacion.cs" />
-    <Compile Include="Logica\LdetalleVenta.cs" />
+    <Compile Include="Logica\LdetalleFactura.cs" />
     <Compile Include="Logica\LDireccion.cs" />
     <Compile Include="Logica\LDocumentos.cs" />
     <Compile Include="Logica\LEmpleados.cs" />
@@ -621,9 +621,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CopiasBd\CrearCopiaBd.resx">
       <DependentUpon>CrearCopiaBd.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CopiasBd\GeneradorAutomatico.resx">
       <DependentUpon>GeneradorAutomatico.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CorreoBase\ConfigurarCorreo.resx">
       <DependentUpon>ConfigurarCorreo.cs</DependentUpon>

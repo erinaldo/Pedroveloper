@@ -30,7 +30,9 @@ namespace SistemaVentas.Presentacion.LICENCIAS_MENBRESIAS
         string FechaFinLicencia;
         string EstadoLicencia;
         string NombreSoftwareLicencia;
+#pragma warning disable CS0169 // El campo 'MembresiasNuevo.Resultado' nunca se usa
         string Resultado;
+#pragma warning restore CS0169 // El campo 'MembresiasNuevo.Resultado' nunca se usa
         private void btncomprar_Click(object sender, EventArgs e)
         {
             Process.Start("https://twitter.com/pedroveloper");
@@ -111,7 +113,9 @@ namespace SistemaVentas.Presentacion.LICENCIAS_MENBRESIAS
                 dbcnString = root.Attributes.Item(0).Value;
                 LicenciaDescifrada = (aes.Decrypt(dbcnString, Desencryptacion.appPwdUnique, int.Parse("256")));
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (CryptographicException ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }

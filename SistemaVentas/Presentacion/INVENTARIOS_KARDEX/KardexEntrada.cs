@@ -146,14 +146,14 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
                         }
                         else
                         {
-                            MessageBox.Show("El precio de venta al por mayor no puede estar vacio", "Valores vacios");
+                            MessageBox.Show("El precio de Factura al por mayor no puede estar vacio", "Valores vacios");
                             txtpreciomayoreo.Focus();
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("El precio de venta no puede estar vacio", "Valores vacios");
+                        MessageBox.Show("El precio de Factura no puede estar vacio", "Valores vacios");
                         txtprecio_venta.Focus();
                     }
 

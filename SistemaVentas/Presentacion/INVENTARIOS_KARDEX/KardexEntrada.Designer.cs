@@ -344,7 +344,7 @@
             this.Label42.Name = "Label42";
             this.Label42.Size = new System.Drawing.Size(126, 25);
             this.Label42.TabIndex = 0;
-            this.Label42.Text = "Precio venta:";
+            this.Label42.Text = "Precio Factura:";
             // 
             // Label44
             // 

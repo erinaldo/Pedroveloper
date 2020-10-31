@@ -20,7 +20,9 @@ namespace SistemaVentas.Presentacion.Direccion
             InitializeComponent();
         }
         int idDireccion;
+#pragma warning disable CS0169 // El campo 'Direcciones.estado' nunca se usa
         string estado;
+#pragma warning restore CS0169 // El campo 'Direcciones.estado' nunca se usa
         int idRegion, idMunicipio, idSector, idProvincia, idCalle;
 
         private void PictureBox2_Click(object sender, EventArgs e)

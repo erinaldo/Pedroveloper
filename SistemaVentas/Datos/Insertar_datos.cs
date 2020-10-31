@@ -637,6 +637,7 @@ namespace SistemaVentas.Datos
                 cmd.Parameters.AddWithValue("@banco", parametros.banco);
                 cmd.Parameters.AddWithValue("@icono", parametros.icono);
                 cmd.Parameters.AddWithValue("@estado", "ACTIVO");
+                cmd.Parameters.AddWithValue("@idEmpresa", 1);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -659,7 +660,7 @@ namespace SistemaVentas.Datos
                 SqlCommand cmd = new SqlCommand("insertar_pedido", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idCliente", parametros.idCliente);
-                cmd.Parameters.AddWithValue("@idVenta", parametros.idVenta);
+                cmd.Parameters.AddWithValue("@idFactura", parametros.idFactura);
                 cmd.Parameters.AddWithValue("@idEmpleado", parametros.idEmpleado);
                 cmd.Parameters.AddWithValue("@idVehiculo", parametros.idVehiculo);
                 cmd.Parameters.AddWithValue("@FechaEnvio", parametros.FechaEnvio);

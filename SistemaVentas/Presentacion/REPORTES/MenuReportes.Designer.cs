@@ -171,7 +171,7 @@
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(288, 60);
             this.btnVentas.TabIndex = 614;
-            this.btnVentas.Text = "Ventas";
+            this.btnVentas.Text = "Facturas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.UseVisualStyleBackColor = true;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
@@ -460,7 +460,7 @@
             this.btnResumenVentas.Name = "btnResumenVentas";
             this.btnResumenVentas.Size = new System.Drawing.Size(240, 44);
             this.btnResumenVentas.TabIndex = 614;
-            this.btnResumenVentas.Text = "Resumen de Ventas";
+            this.btnResumenVentas.Text = "Resumen de Facturas";
             this.btnResumenVentas.UseVisualStyleBackColor = false;
             this.btnResumenVentas.Click += new System.EventHandler(this.btnResumenVentas_Click);
             // 
@@ -499,7 +499,7 @@
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Size = new System.Drawing.Size(287, 44);
             this.btnEmpleado.TabIndex = 615;
-            this.btnEmpleado.Text = "Ventas por Empleado";
+            this.btnEmpleado.Text = "Facturas por Empleado";
             this.btnEmpleado.UseVisualStyleBackColor = false;
             this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
             // 

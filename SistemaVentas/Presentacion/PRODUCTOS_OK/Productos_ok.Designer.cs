@@ -1019,7 +1019,7 @@
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(334, 36);
             this.Label10.TabIndex = 350;
-            this.Label10.Text = "Precios de venta agregados:";
+            this.Label10.Text = "Precios de Factura agregados:";
             // 
             // txtunidad
             // 
@@ -1281,7 +1281,7 @@
             this.Label16.Name = "Label16";
             this.Label16.Size = new System.Drawing.Size(152, 20);
             this.Label16.TabIndex = 1;
-            this.Label16.Text = "Precio de venta Unt:";
+            this.Label16.Text = "Precio de Factura Unt:";
             // 
             // lblcostoUnt
             // 
@@ -2024,7 +2024,7 @@
             this.Label23.Name = "Label23";
             this.Label23.Size = new System.Drawing.Size(104, 20);
             this.Label23.TabIndex = 1;
-            this.Label23.Text = "Precio venta :";
+            this.Label23.Text = "Precio Factura :";
             // 
             // Label2
             // 

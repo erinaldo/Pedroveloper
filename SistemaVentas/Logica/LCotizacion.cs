@@ -9,7 +9,7 @@ namespace SistemaVentas.Logica
     {
         public int idcotizacion { get; set; }
         public int idclientev { get; set; }
-        public DateTime fecha_venta { get; set; }
+        public DateTime fecha_factura { get; set; }
         public string Numero_de_doc { get; set; }
         public double Monto_total { get; set; }
         public string Tipo_de_pago { get; set; }

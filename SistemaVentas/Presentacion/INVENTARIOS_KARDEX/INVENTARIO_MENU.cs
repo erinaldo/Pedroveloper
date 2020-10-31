@@ -136,7 +136,9 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
             {
             idProducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_Movimientos.SelectedCells[1].Value.ToString());
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
             
             }
@@ -389,7 +391,9 @@ buscar_MOVIMIENTOS_FILTROS();
                 rptFREPORT2 = new REPORTES.REPORTES_DE_KARDEX_listo.Reporte_de_Kardex_diseño.ReportKARDEX_Movimientos_ok();
                 rptFREPORT2.DataSource = dt;
                 rptFREPORT2.table1.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.Report = rptFREPORT2;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.RefreshReport ();
 
             }
@@ -487,7 +491,9 @@ buscar_MOVIMIENTOS_FILTROS();
                 resultado = Convert.ToString(comMoneda.ExecuteScalar()); //asignamos el valor del importe
                 con.Close();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 con.Close();
                 resultado = "";

@@ -97,7 +97,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 Panel6.Visible = false;
                 timer4.Start();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 this.Cursor = Cursors.Default;
                 Panel6.Visible = true;
@@ -127,7 +129,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 ejecutar_scryt_crearProcedimientos_almacenados_y_tablas();                       
                 timer4.Start();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {       
             }
 
@@ -163,7 +167,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                     sw.Close();
                 }
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }
@@ -179,7 +185,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
                 ////////Timer1.Enabled = true;
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 //acaba = False
             }
@@ -206,7 +214,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 myConn.Open();
                 myCommand.ExecuteNonQuery();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
 
@@ -230,7 +240,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 myConn.Open();
                 myCommand.ExecuteNonQuery();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
 
@@ -269,7 +281,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 {
                     File.Delete(ruta);
                 }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                 catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                 {
 
                 }
@@ -315,7 +329,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 Panel4.Dock = DockStyle.Fill;
 
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }
@@ -342,7 +358,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 sw.Close();
                 TimerCRARINI.Stop();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }

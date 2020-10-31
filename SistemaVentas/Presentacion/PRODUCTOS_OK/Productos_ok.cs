@@ -521,7 +521,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 {
 
                     DialogResult result;
-                    result = MessageBox.Show("El precio de Venta es menor que el COSTO, Esto Te puede Generar Perdidas", "Producto con Perdidas", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    result = MessageBox.Show("El precio de Factura es menor que el COSTO, Esto Te puede Generar Perdidas", "Producto con Perdidas", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.OK)
                     {
@@ -560,7 +560,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 cmd.Parameters.AddWithValue("@Descripcion", txtdescripcion.Text);
                 cmd.Parameters.AddWithValue("@Imagen", ".");
                 cmd.Parameters.AddWithValue("@Precio_de_compra", txtcosto.Text);
-                cmd.Parameters.AddWithValue("@Precio_de_venta", TXTPRECIODEVENTA2.Text);
+                cmd.Parameters.AddWithValue("@precio_de_factura", TXTPRECIODEVENTA2.Text);
                 cmd.Parameters.AddWithValue("@Codigo", txtcodigodebarras.Text);
                 cmd.Parameters.AddWithValue("@A_partir_de", txtapartirde.Text);
                 cmd.Parameters.AddWithValue("@Impuesto", 0);
@@ -635,7 +635,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 cmd.Parameters.AddWithValue("@Imagen", ".");
 
                 cmd.Parameters.AddWithValue("@Precio_de_compra", txtcosto.Text);
-                cmd.Parameters.AddWithValue("@Precio_de_venta", TXTPRECIODEVENTA2.Text);
+                cmd.Parameters.AddWithValue("@precio_de_factura", TXTPRECIODEVENTA2.Text);
                 cmd.Parameters.AddWithValue("@Codigo", txtcodigodebarras.Text);
                 cmd.Parameters.AddWithValue("@A_partir_de", txtapartirde.Text);
                 cmd.Parameters.AddWithValue("@Impuesto", 0);
@@ -745,7 +745,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 resultado = Convert.ToString(comMoneda.ExecuteScalar()); //asignamos el valor del importe
                 con.Close();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 con.Close();
                 resultado = "";
@@ -945,7 +947,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 resultado = Convert.ToDouble(comMoneda.ExecuteScalar()) + 1; 
                 con.Close();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 resultado = 1;
             }
@@ -959,7 +963,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
     
                 txtcodigodebarras.Text = resultado + Palabra[0].Substring(0, 2) + 369;
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
             }
         }
@@ -1034,12 +1040,16 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 txtdescripcion.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString();
                 DATALISTADO_PRODUCTOS_OKA.Visible = false;
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }
         }
+#pragma warning disable CS0414 // El campo 'Productos_ok.SECUENCIA' está asignado pero su valor nunca se usa
         bool SECUENCIA = true;
+#pragma warning restore CS0414 // El campo 'Productos_ok.SECUENCIA' está asignado pero su valor nunca se usa
         private void txtcosto_TextChanged_1(object sender, EventArgs e)
         {
             //if (SECUENCIA == true)
@@ -1085,7 +1095,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 {
 
                     DialogResult result;
-                    result = MessageBox.Show("El precio de Venta es menor que el COSTO, Esto Te puede Generar Perdidas", "Producto con Perdidas", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    result = MessageBox.Show("El precio de Factura es menor que el COSTO, Esto Te puede Generar Perdidas", "Producto con Perdidas", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.OK)
                     {
@@ -1289,7 +1299,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                         buscar();
                     }
 
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                     catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                     {
 
                     }
@@ -1320,7 +1332,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 }
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }
@@ -1378,7 +1392,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
 
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }
@@ -1405,7 +1421,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                     //Me.txtPorcentajeGanancia.Text = 0
                 }
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }

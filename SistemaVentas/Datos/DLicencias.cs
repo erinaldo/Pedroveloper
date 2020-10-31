@@ -11,13 +11,23 @@ namespace SistemaVentas.Datos
 {
     public  class DLicencias
     {
+#pragma warning disable CS0169 // El campo 'DLicencias.fechaFinal' nunca se usa
         DateTime fechaFinal;
+#pragma warning restore CS0169 // El campo 'DLicencias.fechaFinal' nunca se usa
 
+#pragma warning disable CS0169 // El campo 'DLicencias.FechaInicial' nunca se usa
         DateTime FechaInicial;
+#pragma warning restore CS0169 // El campo 'DLicencias.FechaInicial' nunca se usa
+#pragma warning disable CS0169 // El campo 'DLicencias.estado' nunca se usa
         string estado;
+#pragma warning restore CS0169 // El campo 'DLicencias.estado' nunca se usa
+#pragma warning disable CS0169 // El campo 'DLicencias.SerialPcLicencia' nunca se usa
         string SerialPcLicencia;
+#pragma warning restore CS0169 // El campo 'DLicencias.SerialPcLicencia' nunca se usa
         DateTime fechaSistema = DateTime.Today;
+#pragma warning disable CS0169 // El campo 'DLicencias.SerialPC' nunca se usa
         string SerialPC;
+#pragma warning restore CS0169 // El campo 'DLicencias.SerialPC' nunca se usa
        public void ValidarLicencias(ref string Resultado,ref string ResultFechafinal)
         {/*
 			try

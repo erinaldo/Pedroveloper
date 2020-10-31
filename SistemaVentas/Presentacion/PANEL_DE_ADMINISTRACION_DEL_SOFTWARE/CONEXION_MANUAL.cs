@@ -44,7 +44,9 @@ namespace SistemaVentas.PANEL_DE_ADMINISTRACION_DEL_SOFTWARE
                 txtCnString.Text = (aes.Decrypt(dbcnString, CONEXION.Desencryptacion .appPwdUnique, int.Parse("256")));
 
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (System.Security.Cryptography.CryptographicException ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
 
@@ -79,7 +81,9 @@ namespace SistemaVentas.PANEL_DE_ADMINISTRACION_DEL_SOFTWARE
                 Application.Exit();
 
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 MessageBox.Show("Sin conexion a la Base de datos", "Conexion fallida", MessageBoxButtons.OK, MessageBoxIcon.Error );
 

@@ -1376,9 +1376,9 @@
             this.Label7.ForeColor = System.Drawing.Color.Black;
             this.Label7.Location = new System.Drawing.Point(10, 2);
             this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(83, 17);
+            this.Label7.Size = new System.Drawing.Size(96, 17);
             this.Label7.TabIndex = 0;
-            this.Label7.Text = "F. de venta:";
+            this.Label7.Text = "F. de Factura:";
             // 
             // Label2
             // 
@@ -1799,9 +1799,9 @@
             this.lblidusuario.ForeColor = System.Drawing.Color.Black;
             this.lblidusuario.Location = new System.Drawing.Point(140, 61);
             this.lblidusuario.Name = "lblidusuario";
-            this.lblidusuario.Size = new System.Drawing.Size(83, 17);
+            this.lblidusuario.Size = new System.Drawing.Size(96, 17);
             this.lblidusuario.TabIndex = 0;
-            this.lblidusuario.Text = "F. de venta:";
+            this.lblidusuario.Text = "F. de Factura:";
             // 
             // txtcantidad_de_unidad_de_medidaoka
             // 
@@ -1829,9 +1829,9 @@
             this.txttipo.ForeColor = System.Drawing.Color.Black;
             this.txttipo.Location = new System.Drawing.Point(131, 97);
             this.txttipo.Name = "txttipo";
-            this.txttipo.Size = new System.Drawing.Size(83, 17);
+            this.txttipo.Size = new System.Drawing.Size(96, 17);
             this.txttipo.TabIndex = 0;
-            this.txttipo.Text = "F. de venta:";
+            this.txttipo.Text = "F. de Factura:";
             // 
             // txtmenuinterno
             // 
@@ -2346,9 +2346,9 @@
             this.lblNombreSoftware.ForeColor = System.Drawing.Color.Black;
             this.lblNombreSoftware.Location = new System.Drawing.Point(51, 11);
             this.lblNombreSoftware.Name = "lblNombreSoftware";
-            this.lblNombreSoftware.Size = new System.Drawing.Size(80, 25);
+            this.lblNombreSoftware.Size = new System.Drawing.Size(96, 25);
             this.lblNombreSoftware.TabIndex = 600;
-            this.lblNombreSoftware.Text = "Ventas";
+            this.lblNombreSoftware.Text = "Facturas";
             // 
             // dtempresaok
             // 
@@ -3413,7 +3413,7 @@
             this.btndevoluciones.Name = "btndevoluciones";
             this.btndevoluciones.Size = new System.Drawing.Size(374, 51);
             this.btndevoluciones.TabIndex = 2;
-            this.btndevoluciones.Text = "Ver ventas del dia y Devoluciones";
+            this.btndevoluciones.Text = "Ver Facturas del dia y Devoluciones";
             this.btndevoluciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btndevoluciones.UseVisualStyleBackColor = true;
             this.btndevoluciones.Click += new System.EventHandler(this.btndevoluciones_Click);
@@ -3664,9 +3664,9 @@
             this.Label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.Label59.Location = new System.Drawing.Point(10, 12);
             this.Label59.Name = "Label59";
-            this.Label59.Size = new System.Drawing.Size(286, 15);
+            this.Label59.Size = new System.Drawing.Size(296, 15);
             this.Label59.TabIndex = 5;
-            this.Label59.Text = "Servira para que encuentres mas rapido esta Venta";
+            this.Label59.Text = "Servira para que encuentres mas rapido esta Factura";
             // 
             // datalistadocotizacion
             // 
@@ -3822,7 +3822,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VENTAS_MENU_PRINCIPALOK";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu Principal - Ventas";
+            this.Text = "Menu Principal - Facturas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VENTAS_MENU_PRINCIPALOK_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VENTAS_MENU_PRINCIPALOK_FormClosed);

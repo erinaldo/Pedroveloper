@@ -194,7 +194,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                     cmd.Parameters.AddWithValue("@Stock", 0);
                     cmd.Parameters.AddWithValue("@Precio_de_compra", 0);
                     cmd.Parameters.AddWithValue("@Fecha_de_vencimiento", "NO APLICA");
-                    cmd.Parameters.AddWithValue("@Precio_de_venta", 0);
+                    cmd.Parameters.AddWithValue("@precio_de_factura", 0);
                     cmd.Parameters.AddWithValue("@Codigo", CODIGO);
 
                     cmd.Parameters.AddWithValue("@Se_vende_a", "Unidad");

@@ -513,7 +513,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_ventas_en_espera_con_fecha_y_monto", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_facturas_en_espera_con_fecha_y_monto", CONEXIONMAESTRA.conectar);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -539,15 +539,15 @@ namespace SistemaVentas.Datos
 
             }
         }
-        public static void mostrar_productos_agregados_a_ventas_en_espera(ref DataTable dt, int idventa)
+        public static void mostrar_productos_agregados_a_ventas_en_espera(ref DataTable dt, int idFactura)
         {
 
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_ventas_en_espera", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_facturas_en_espera", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idventa", idventa);
+                da.SelectCommand.Parameters.AddWithValue("@idFactura", idFactura);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -558,7 +558,7 @@ namespace SistemaVentas.Datos
             }
         }
 
-        public static void mostrar_productos_agregados_a_cotizaciones_en_espera(ref DataTable dt, int idventa)
+        public static void mostrar_productos_agregados_a_cotizaciones_en_espera(ref DataTable dt, int idFactura)
         {
 
             try
@@ -566,7 +566,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_cotizaciones_en_espera", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idventa", idventa);
+                da.SelectCommand.Parameters.AddWithValue("@idFactura", idFactura);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -702,7 +702,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("mostrar_ventas_en_efectivo_por_turno", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("mostrar_cobrosº_en_efectivo_por_turno", CONEXIONMAESTRA.conectar);
                 da.CommandType = CommandType.StoredProcedure;
                 da.Parameters.AddWithValue("@idcaja", idcaja);
                 da.Parameters.AddWithValue("@fi", fi);
@@ -710,7 +710,9 @@ namespace SistemaVentas.Datos
                 monto = Convert.ToDouble(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
                 monto = 0;
@@ -731,7 +733,9 @@ namespace SistemaVentas.Datos
                 monto = Convert.ToDouble(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
                 monto = 0;
@@ -752,7 +756,9 @@ namespace SistemaVentas.Datos
                 monto = Convert.ToDouble(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
                 monto = 0;
@@ -774,7 +780,9 @@ namespace SistemaVentas.Datos
                 monto = Convert.ToDouble(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 monto = 0;
             }
@@ -792,7 +800,9 @@ namespace SistemaVentas.Datos
                 monto = Convert.ToDouble(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
                 monto = 0;
@@ -812,7 +822,9 @@ namespace SistemaVentas.Datos
                 monto = Convert.ToDouble(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 monto = 0;
 
@@ -832,7 +844,9 @@ namespace SistemaVentas.Datos
                 monto = Convert.ToDouble(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 monto = 0;
 
@@ -1110,13 +1124,13 @@ namespace SistemaVentas.Datos
         }
 
      
-        //Ventas
+        //Facturas
         public static void mostrarVentasGrafica(ref DataTable dt)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrarVentasGrafica", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrarFacturasGrafica", CONEXIONMAESTRA.conectar);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1130,7 +1144,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrarVentasGraficaFechas", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrarFacturasGraficaFechas", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@fi", fi);
                 da.SelectCommand.Parameters.AddWithValue("@ff", ff);
@@ -1148,7 +1162,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("ReporteTotalVentas", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("ReporteTotalFacturas", CONEXIONMAESTRA.conectar);
                 Monto = Convert.ToDouble(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
 
@@ -1163,24 +1177,26 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand  da = new SqlCommand("ReporteTotalVentasFechas", CONEXIONMAESTRA.conectar);
+                SqlCommand  da = new SqlCommand("ReporteTotalFacturasFechas", CONEXIONMAESTRA.conectar);
                 da.CommandType = CommandType.StoredProcedure;
                 da.Parameters.AddWithValue("@fi", fi);
                 da.Parameters.AddWithValue("@ff", ff);
                 Monto = Convert.ToDouble ( da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 Monto = 0;
             }
         }
-        public static void buscarVentas(ref DataTable dt, string buscador)
+        public static void Buscarfactura(ref DataTable dt, string buscador)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("buscarVentas", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("BuscarFacturas", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@busqueda", buscador);
                 da.Fill(dt);
@@ -1197,7 +1213,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("buscarVentasPorFechas", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("buscarFacturasPorFechas", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@fi", fi);
                 da.SelectCommand.Parameters.AddWithValue("@ff", ff);
@@ -1216,7 +1232,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("contarVentasEspera", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("contarFacturasEspera", CONEXIONMAESTRA.conectar);
                 Contador = Convert.ToInt32 ( da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1248,7 +1264,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenVentasHoy", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenFacturasHoy", CONEXIONMAESTRA.conectar);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1262,7 +1278,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenVentasHoyEmpleado", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenfentasHoyEmpleado", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@idEmpleado", idEmpleado);
 
@@ -1280,7 +1296,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenVentasFechas", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenfacturasFechas", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@fi", fi);
                 da.SelectCommand.Parameters.AddWithValue("@ff", ff);
@@ -1297,7 +1313,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenVentasEmpleadoFechas", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenfacturasEmpleadoFechas", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@idEmpleado", idEmpleado);
                 da.SelectCommand.Parameters.AddWithValue("@fi", fi);
@@ -1312,7 +1328,7 @@ namespace SistemaVentas.Datos
             }
         }
 
-        //Detalle ventas
+        //Detalle Facturas
         public static void ReporteGanancias(ref double Monto)
         {
             try
@@ -1340,19 +1356,21 @@ namespace SistemaVentas.Datos
                 Monto = Convert.ToDouble(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 Monto = 0;
             }
         }
-        public static void MostrarDetalleVenta(ref DataTable dt, int idventa)
+        public static void MostrarDetalleVenta(ref DataTable dt, int idFactura)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_venta", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_factura", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idventa", idventa );
+                da.SelectCommand.Parameters.AddWithValue("@idFactura", idFactura );
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1480,7 +1498,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("select Moneda  from EMPRESA", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("select Moneda from EMPRESA", CONEXIONMAESTRA.conectar);
                 moneda =Convert.ToString ( da.ExecuteScalar());
             }
             catch (Exception ex)
@@ -1600,14 +1618,14 @@ namespace SistemaVentas.Datos
         }
 
         //Tickets
-        public static void mostrar_ticket_impreso(ref DataTable dt,int idventa,string TotalLetras)
+        public static void mostrar_ticket_impreso(ref DataTable dt,int idFactura,string TotalLetras)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Id_venta", idventa);
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idFactura);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", TotalLetras);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();

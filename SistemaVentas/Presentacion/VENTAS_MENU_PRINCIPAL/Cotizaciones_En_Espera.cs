@@ -22,7 +22,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         int idcaja;
 
 
-        int idventa;
+        int idFactura;
         private void Ventas_en_espera_Load(object sender, EventArgs e)
         {
             mostrar_ventas_en_espera_con_fecha_y_monto();
@@ -50,8 +50,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             try
             {
-                idventa = Convert.ToInt32(datalistado_ventas_en_espera.SelectedCells[1].Value);
-                MessageBox.Show(idventa.ToString());
+                idFactura = Convert.ToInt32(datalistado_ventas_en_espera.SelectedCells[1].Value);
+                MessageBox.Show(idFactura.ToString());
                 mostrar_detalle_venta();
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void mostrar_detalle_venta()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.mostrar_productos_agregados_a_cotizaciones_en_espera(ref dt, idventa);
+            Obtener_datos.mostrar_productos_agregados_a_cotizaciones_en_espera(ref dt, idFactura);
             datalistadodetalledeventasarestaurar.DataSource = dt;
             datalistadodetalledeventasarestaurar.Columns[6].Visible = false;
 
@@ -72,8 +72,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            Eliminar_datos.eliminar_venta(idventa);
-            idventa = 0;
+            Eliminar_datos.eliminar_factura(idFactura);
+            idFactura = 0;
             mostrar_ventas_en_espera_con_fecha_y_monto();
             mostrar_detalle_venta();
         }
@@ -85,15 +85,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
-            if (idventa == 0)
+            if (idFactura == 0)
             {
                 MessageBox.Show("Seleccione una Cotizacion a Restaurar");
             }
             else
             {
-                VENTAS_MENU_PRINCIPALOK.idVenta = idventa;
-                VENTAS_MENU_PRINCIPALOK.txtventagenerada = "VENTA GENERADA";
-                Editar_datos.cambio_de_Caja(idcaja, idventa);
+                VENTAS_MENU_PRINCIPALOK.idFactura = idFactura;
+                VENTAS_MENU_PRINCIPALOK.txtventagenerada = "Factura GENERADA";
+                Editar_datos.cambio_de_Caja(idcaja, idFactura);
                 Dispose();
 
             }

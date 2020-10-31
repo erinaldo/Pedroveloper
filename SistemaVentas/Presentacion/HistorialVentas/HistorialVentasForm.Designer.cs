@@ -377,7 +377,7 @@
             this.Label17.Name = "Label17";
             this.Label17.Size = new System.Drawing.Size(365, 41);
             this.Label17.TabIndex = 542;
-            this.Label17.Text = "Ventas Realizadas";
+            this.Label17.Text = "Facturas Realizadas";
             this.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelBienvenida
@@ -401,7 +401,7 @@
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(138, 14);
             this.Label8.TabIndex = 2;
-            this.Label8.Text = "Elije una Venta para Empezar";
+            this.Label8.Text = "Elije una Factura para Empezar";
             this.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -518,7 +518,7 @@
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.btnEliminar.Size = new System.Drawing.Size(117, 43);
-            this.btnEliminar.Text = "Cancelar Venta";
+            this.btnEliminar.Text = "Cancelar Factura";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // PanelTICKET

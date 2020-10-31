@@ -288,13 +288,13 @@ namespace SistemaVentas.Presentacion.Cotizacion
         }
         private void vender_por_teclado()
         {
-            // mostramos los registros del producto en el detalle de venta
+            // mostramos los registros del producto en el detalle de Factura
             mostrar_stock_de_detalle_de_ventas();
             contar_stock_detalle_ventas();
         
             if(contador_stock_detalle_de_venta == 0)
             {
-                // Si es producto no esta agregado a las ventas se tomara el Stock de la tabla Productos
+                // Si es producto no esta agregado a las Facturas se tomara el Stock de la tabla Productos
                 lblStock_de_Productos = Convert.ToDouble ( DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString());
                 //MessageBox.Show("stock:" + lblStock_de_Productos);
 
@@ -302,7 +302,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             }
             else
             {
-                 //en caso que el producto ya este agregado al detalle de venta se va a extraer el Stock de la tabla Detalle_de_venta
+                 //en caso que el producto ya este agregado al detalle de Factura se va a extraer el Stock de la tabla Detalle_de_venta
                 lblStock_de_Productos = Convert.ToDouble(datalistado_stock_detalle_venta.SelectedCells[1].Value.ToString());
             }
             //Extraemos los datos del producto de la tabla Productos directamente
@@ -312,7 +312,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
             sevendePor = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
             txtprecio_unitario =Convert.ToDouble ( DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
-            //Preguntamos que tipo de producto sera el que se agrege al detalle de venta
+            //Preguntamos que tipo de producto sera el que se agrege al detalle de Factura
             if (sevendePor == "Granel")
             {
                 vender_a_granel();
@@ -347,7 +347,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             ejecutar_insertar_ventas();
             if (txtventagenerada == "COTIZACION GENERADA")
             {
-                insertar_detalle_venta();
+                insertar_detalle_factura();
                 Listarproductosagregados();
                 txtbuscar.Text = "";
                 txtbuscar.Focus();
@@ -402,7 +402,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                     ejecutar_insertar_ventas();
                     if (txtventagenerada == "COTIZACION GENERADA")
                     {
-                        insertar_detalle_venta();
+                        insertar_detalle_factura();
                         Listarproductosagregados();
                         txtbuscar.Text = "";
                         txtbuscar.Focus();
@@ -425,10 +425,10 @@ namespace SistemaVentas.Presentacion.Cotizacion
                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
-                    cmd = new SqlCommand("insertar_venta", con);
+                    cmd = new SqlCommand("insertar_factura", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@idcliente", idClienteEstandar);
-                    cmd.Parameters.AddWithValue("@fecha_venta", DateTime.Today);
+                    cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Today);
                     cmd.Parameters.AddWithValue("@nume_documento", 0);
                     cmd.Parameters.AddWithValue("@montototal", 0);
                     cmd.Parameters.AddWithValue("@Tipo_de_pago", 0);
@@ -471,9 +471,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrar_productos_agregados_a_venta", con);
+                da = new SqlDataAdapter("mostrar_productos_agregados_a_factura", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idventa",idCotizacion);
+                da.SelectCommand.Parameters.AddWithValue("@idFactura",idCotizacion);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();
@@ -505,7 +505,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 MessageBox.Show(ex.StackTrace);
             }
         }
-        private void insertar_detalle_venta()
+        private void insertar_detalle_factura()
         {
             try
             {
@@ -538,9 +538,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_detalle_venta", con);
+                cmd = new SqlCommand("insertar_detalle_factura", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idventa", idCotizacion);
+                cmd.Parameters.AddWithValue("@idFactura", idCotizacion);
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
@@ -572,9 +572,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_detalle_venta", con);
+                cmd = new SqlCommand("insertar_detalle_factura", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idventa", idCotizacion);
+                cmd.Parameters.AddWithValue("@idFactura", idCotizacion);
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
@@ -635,12 +635,12 @@ namespace SistemaVentas.Presentacion.Cotizacion
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             con.Open();
-            cmd = new SqlCommand("editar_detalle_venta_sumar", con);
+            cmd = new SqlCommand("Editar_detalle_factura_sumar", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Id_producto", idproducto);
             cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
             cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
-            cmd.Parameters.AddWithValue("@Id_venta", idCotizacion);
+            cmd.Parameters.AddWithValue("@Id_factura", idCotizacion);
             cmd.ExecuteNonQuery();
             con.Close();
             }
@@ -687,7 +687,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 MessageBox.Show(ex.Message);
             }
         }
-        private void editar_detalle_venta_sumar()
+        private void Editar_detalle_factura_sumar()
         {
     
           
@@ -717,7 +717,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
            
           }
-        private void editar_detalle_venta_restar()
+        private void Editar_detalle_factura_restar()
         {
            
             if (usainventarios == "SI")
@@ -756,13 +756,13 @@ namespace SistemaVentas.Presentacion.Cotizacion
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             con.Open();
-            cmd = new SqlCommand("editar_detalle_venta_restar", con);
+            cmd = new SqlCommand("Editar_detalle_factura_restar", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@iddetalle_venta", iddetallecotizacion);
+            cmd.Parameters.AddWithValue("@iddetalle_factura", iddetallecotizacion);
             cmd.Parameters.AddWithValue("cantidad", txtpantalla );
             cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
             cmd.Parameters.AddWithValue("@Id_producto", idproducto);
-            cmd.Parameters.AddWithValue("@Id_venta", idCotizacion);
+            cmd.Parameters.AddWithValue("@Id_factura", idCotizacion);
             cmd.ExecuteNonQuery();
             con.Close();
            
@@ -783,13 +783,13 @@ namespace SistemaVentas.Presentacion.Cotizacion
             if (e.ColumnIndex == this.datalistadoDetalleVenta.Columns["S"].Index)
             {
                 txtpantalla = 1;
-                editar_detalle_venta_sumar();
+                Editar_detalle_factura_sumar();
             }
             if (e.ColumnIndex== this .datalistadoDetalleVenta.Columns ["R"].Index )
             {
                 txtpantalla = 1;
-                editar_detalle_venta_restar();
-                EliminarVentas();
+                Editar_detalle_factura_restar();
+                EliminarFacturas();
             }
             
 
@@ -803,9 +803,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                         SqlConnection con = new SqlConnection();
                         con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                         con.Open();
-                        cmd = new SqlCommand("eliminar_detalle_venta", con);
+                        cmd = new SqlCommand("eliminar_detalle_factura", con);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@iddetalleventa", iddetalle_cotizacion);
+                        cmd.Parameters.AddWithValue("@idDetalleFactura", iddetalle_cotizacion);
                         cmd.ExecuteNonQuery();
                         con.Close();
                         txtpantalla = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
@@ -816,10 +816,10 @@ namespace SistemaVentas.Presentacion.Cotizacion
                         MessageBox.Show(ex.Message);
                     }      
                 Listarproductosagregados();
-                EliminarVentas();
+                EliminarFacturas();
             }
         }
-        private void EliminarVentas()
+        private void EliminarFacturas()
         {
             contar_tablas_ventas();
             if (Contador == 0)
@@ -836,9 +836,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                cmd = new SqlCommand("eliminar_venta", con);
+                cmd = new SqlCommand("eliminar_factura", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idventa", idCotizacion);
+                cmd.Parameters.AddWithValue("@idFactura", idCotizacion);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -861,11 +861,11 @@ namespace SistemaVentas.Presentacion.Cotizacion
             Obtener_datos_del_detalle_de_venta();
             if (e.KeyChar ==Convert.ToChar ("+"))
             {    
-                editar_detalle_venta_sumar();
+                Editar_detalle_factura_sumar();
             }
             if (e.KeyChar == Convert.ToChar ("-"))
                 {
-                editar_detalle_venta_restar();
+                Editar_detalle_factura_restar();
                 contar_tablas_ventas();
                 if (Contador == 0)
                 {
@@ -1019,7 +1019,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
 
         }
-        private void editar_detalle_venta_CANTIDAD()
+        private void Editar_detalle_factura_cantidad()
         {
             try
             {
@@ -1121,12 +1121,12 @@ namespace SistemaVentas.Presentacion.Cotizacion
             if (MontoaIngresar > Cantidad)
             {
                 txtpantalla = MontoaIngresar - Cantidad;
-                editar_detalle_venta_sumar();
+                Editar_detalle_factura_sumar();
             }
             else if (MontoaIngresar < Cantidad)
             {
                 txtpantalla = Cantidad - MontoaIngresar;
-                editar_detalle_venta_restar();
+                Editar_detalle_factura_restar();
             }
         }
         private void frm_FormClosed (Object sender, FormClosedEventArgs e)
@@ -1213,9 +1213,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
             if (!string.IsNullOrEmpty(txtmonto.Text ))
             {
-                LdetalleVenta parametros = new LdetalleVenta();
+                LdetalleFactura parametros = new LdetalleFactura();
                 Editar_datos funcion = new Editar_datos();
-                parametros.iddetalle_venta = iddetallecotizacion;
+                parametros.iddetalle_factura = iddetallecotizacion;
                 parametros.preciounitario =Convert.ToDouble ( txtmonto.Text);
             if (funcion.editarPrecioVenta (parametros)==true)
                 {

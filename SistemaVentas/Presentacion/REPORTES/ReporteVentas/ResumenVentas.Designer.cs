@@ -48,7 +48,7 @@ namespace SistemaVentas.Presentacion.REPORTES.ReporteVentas
             this.textBox8.Style.Font.Bold = true;
             this.textBox8.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox8.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox8.Value = "Venta Bruta";
+            this.textBox8.Value = "Factura Bruta";
             // 
             // textBox10
             // 
@@ -77,7 +77,7 @@ namespace SistemaVentas.Presentacion.REPORTES.ReporteVentas
             this.textBox6.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox6.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
             this.textBox6.StyleName = "";
-            this.textBox6.Value = "=Fields.fecha_venta";
+            this.textBox6.Value = "=Fields.fecha_factura";
             // 
             // pageHeaderSection1
             // 
@@ -108,7 +108,7 @@ namespace SistemaVentas.Presentacion.REPORTES.ReporteVentas
             this.TextBox2.Style.Font.Bold = true;
             this.TextBox2.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.TextBox2.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.TextBox2.Value = "REPORTE DE RESUMEN DE VENTAS";
+            this.TextBox2.Value = "REPORTE DE RESUMEN DE Facturas";
             // 
             // panel1
             // 
@@ -258,10 +258,10 @@ namespace SistemaVentas.Presentacion.REPORTES.ReporteVentas
             this.table1.Name = "table1";
             tableGroup5.Name = "group3";
             tableGroup4.ChildGroups.Add(tableGroup5);
-            tableGroup4.Groupings.Add(new Telerik.Reporting.Grouping("=Fields.fecha_venta"));
-            tableGroup4.Name = "fecha_venta";
+            tableGroup4.Groupings.Add(new Telerik.Reporting.Grouping("=Fields.fecha_factura"));
+            tableGroup4.Name = "fecha_factura";
             tableGroup4.ReportItem = this.textBox6;
-            tableGroup4.Sortings.Add(new Telerik.Reporting.Sorting("=Fields.fecha_venta", Telerik.Reporting.SortDirection.Asc));
+            tableGroup4.Sortings.Add(new Telerik.Reporting.Sorting("=Fields.fecha_factura", Telerik.Reporting.SortDirection.Asc));
             this.table1.RowGroups.Add(tableGroup4);
             this.table1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(16.104D), Telerik.Reporting.Drawing.Unit.Cm(1.148D));
             // 

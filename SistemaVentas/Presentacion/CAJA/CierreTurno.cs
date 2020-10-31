@@ -39,7 +39,7 @@ namespace SistemaVentas.Presentacion.CAJA
             Obtener_datos.mostrarUsuariosSesion(ref dt);
             foreach (DataRow row in dt.Rows )
             {
-                usuario = row["Nombres_y_Apellidos"].ToString();
+                usuario = row["Nombre"].ToString();
             }
         }
         public void mostrarcorreodeEnvio()

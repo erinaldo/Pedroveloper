@@ -22,7 +22,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         int idcliente;
         int idclienteasignado;
 
-        int idventa;
+        int idFactura;
         double total;
         double vuelto = 0;
         double efectivo_calculado = 0;
@@ -211,7 +211,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         void Obtener_id_de_venta()
         {
-            idventa = VENTAS_MENU_PRINCIPALOK.idVenta;
+            idFactura = VENTAS_MENU_PRINCIPALOK.idFactura;
         }
         void configuraciones_de_diseño()
         {
@@ -247,7 +247,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void MOSTRAR_comprobante_serializado_POR_DEFECTO()
         {
-            SqlCommand cmd = new SqlCommand("select tipodoc from Serializacion Where Por_defecto='SI'", CONEXION.CONEXIONMAESTRA.conectar);
+            SqlCommand cmd = new SqlCommand("select from Serializacion Where Por_defecto='SI'", CONEXION.CONEXIONMAESTRA.conectar);
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
@@ -266,7 +266,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                string query = "select tipodoc from Serializacion where Destino='VENTAS'";
+                string query = "select tipodoc from Serializacion where Destino='Facturas'";
                 SqlCommand cmd = new SqlCommand(query, CONEXION.CONEXIONMAESTRA.conectar);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -354,7 +354,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 lblCantidad_de_numeros.Text = dtComprobantes.SelectedCells[3].Value.ToString();
                 lblCorrelativoconCeros.Text = CONEXION.Agregar_ceros_adelante_De_numero.ceros(txtnumerofin.Text, Convert.ToInt32(lblCantidad_de_numeros.Text));
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }
@@ -372,7 +374,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 dtComprobantes.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
             }
         }
@@ -694,7 +698,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoclientes2.Columns[2].Width = 420;
                 CONEXION.CONEXIONMAESTRA.cerrar(); 
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 
             }
@@ -713,7 +719,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoclientes3.Columns[2].Width = 420;
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }
@@ -942,7 +950,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         SqlCommand cmd = new SqlCommand("insertar_KARDEX_SALIDA", CONEXION.CONEXIONMAESTRA.conectar );
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@Motivo", "Venta #" + lblComprobante.Text + " " + lblCorrelativoconCeros.Text);
+                        cmd.Parameters.AddWithValue("@Motivo", "Factura #" + lblComprobante.Text + " " + lblCorrelativoconCeros.Text);
                         cmd.Parameters.AddWithValue("@Cantidad ", cantidad);
                         cmd.Parameters.AddWithValue("@Id_producto", Id_producto);
                         cmd.Parameters.AddWithValue("@Id_usuario", VENTAS_MENU_PRINCIPALOK.idusuario_que_inicio_sesion);
@@ -961,15 +969,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show(ex.Message + " " + ex.StackTrace);
             }
         }
-        void mostrar_productos_agregados_a_venta()
+        void mostrar_productos_agregados_a_factura()
         {
             try
             {
                 DataTable dt = new DataTable();
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_venta", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_factura", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idventa", idventa);
+                da.SelectCommand.Parameters.AddWithValue("@idFactura", idFactura);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
@@ -983,7 +991,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         void disminuir_stock_productos()
         {
-            mostrar_productos_agregados_a_venta();
+            mostrar_productos_agregados_a_factura();
             foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
             {
                 int idproducto = Convert.ToInt32(row.Cells["Id_producto"].Value);
@@ -1069,13 +1077,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 CONEXION.CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Id_venta", idventa);
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idFactura);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
                 da.Fill(dt);
                 rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
                 rpt.table1.DataSource = dt;
                 rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer2.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer2.RefreshReport();
                 CONEXION.CONEXIONMAESTRA.cerrar();
 
@@ -1099,13 +1109,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 CONEXION.CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Id_venta", idventa);
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idFactura);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
                 da.Fill(dt);
                 rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
                 rpt.table1.DataSource = dt;
                 rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.RefreshReport();
                 CONEXION.CONEXIONMAESTRA.cerrar();
 
@@ -1121,9 +1133,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("Confirmar_venta", CONEXION.CONEXIONMAESTRA.conectar );
+                SqlCommand cmd = new SqlCommand("confirmar_factura", CONEXION.CONEXIONMAESTRA.conectar );
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idventa", idventa);
+                cmd.Parameters.AddWithValue("@idFactura", idFactura);
                 cmd.Parameters.AddWithValue("@montototal", total);
                 cmd.Parameters.AddWithValue("@IGV", 0);
                 cmd.Parameters.AddWithValue("@Saldo", vuelto);
@@ -1132,8 +1144,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@idcliente", idcliente);
                 cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
                 cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text ));
-                cmd.Parameters.AddWithValue("@fecha_venta", DateTime.Now);
-                cmd.Parameters.AddWithValue("@ACCION", "VENTA");
+                cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Now);
+                cmd.Parameters.AddWithValue("@ACCION", "Factura");
                 cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value );
                 cmd.Parameters.AddWithValue("@Pago_con", txtefectivo2.Text);
                 cmd.Parameters.AddWithValue("@Referencia_tarjeta", "NULO");
@@ -1578,7 +1590,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             Logica.Pedidos parametros = new Logica.Pedidos();
             Insertar_datos datos = new Insertar_datos();
             parametros.idCliente = idclienteasignado;
-            parametros.idVenta = idventa;
+            parametros.idFactura = idFactura;
             parametros.idEmpleado = idEmpleado;
             parametros.idVehiculo = idvehiculo;
             parametros.FechaEnvio = DateTime.Now;

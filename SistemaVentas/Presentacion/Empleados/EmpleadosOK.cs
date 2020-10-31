@@ -1077,12 +1077,16 @@ namespace SistemaVentas.Presentacion.Empleados
                                     cmd.ExecuteNonQuery();
                                     con.Close();
                                 }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                                 catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                                 {
                                     //MessageBox.Show(ex.Message);
                                 }
                             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                             {
 
                                 //MessageBox.Show(ex.Message);
@@ -1095,7 +1099,9 @@ namespace SistemaVentas.Presentacion.Empleados
                         lblidtipotelefono.Text = datalistadoTiposTelefono.SelectedCells[2].Value.ToString();
                         idTipoTelefono = Convert.ToInt32(datalistadoTiposTelefono.SelectedCells[2].Value.ToString());
                     }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                     catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                     {
                         //MessageBox.Show(ex.Message);
                     }

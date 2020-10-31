@@ -128,7 +128,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@numeroinicio", 6);
                 cmd.Parameters.AddWithValue("@numerofin", 0);
                 cmd.Parameters.AddWithValue("@tipodoc", "TICKET");
-                cmd.Parameters.AddWithValue("@Destino", "VENTAS");
+                cmd.Parameters.AddWithValue("@Destino", "FACTURAS");
                 cmd.Parameters.AddWithValue("@Por_defecto", "SI");
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -141,7 +141,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@numeroinicio", 6);
                 cmd.Parameters.AddWithValue("@numerofin", 0);
                 cmd.Parameters.AddWithValue("@tipodoc", "BOLETA");
-                cmd.Parameters.AddWithValue("@Destino", "VENTAS");
+                cmd.Parameters.AddWithValue("@Destino", "FACTURAS");
                 cmd.Parameters.AddWithValue("@Por_defecto", "-");
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -154,7 +154,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@numeroinicio", 6);
                 cmd.Parameters.AddWithValue("@numerofin", 0);
                 cmd.Parameters.AddWithValue("@tipodoc", "FACTURA");
-                cmd.Parameters.AddWithValue("@Destino", "VENTAS");
+                cmd.Parameters.AddWithValue("@Destino", "FACTURAS");
                 cmd.Parameters.AddWithValue("@Por_defecto", "-");
                 cmd.ExecuteNonQuery();
                 con.Close();

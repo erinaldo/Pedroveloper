@@ -566,11 +566,15 @@ namespace SistemaVentas.Presentacion.Vehiculos
                                     cmd.ExecuteNonQuery();
                                     con.Close();
                                 }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                                 catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                                 {
                                 }
                             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                             {
                             }
                         }
@@ -581,7 +585,9 @@ namespace SistemaVentas.Presentacion.Vehiculos
                         lblidtipovehiculo.Text = datalistadoTipoVehiculo.SelectedCells[2].Value.ToString();
                         idTipoVehiculo = Convert.ToInt32(datalistadoTipoVehiculo.SelectedCells[2].Value.ToString());
                     }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                     catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
                     {
                     }
                 }

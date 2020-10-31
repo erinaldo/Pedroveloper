@@ -80,8 +80,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-          /*  Eliminar_datos.eliminar_venta(idventa);
-            idventa = 0;
+          /*  Eliminar_datos.eliminar_factura(idFactura);
+            idFactura = 0;
             mostrar_ventas_en_espera_con_fecha_y_monto();
             mostrar_detalle_venta();*/
         }

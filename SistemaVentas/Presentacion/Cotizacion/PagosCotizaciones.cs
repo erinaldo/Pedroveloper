@@ -23,18 +23,34 @@ namespace SistemaVentas.Presentacion.Cotizacion
         int idcotizacion;
         double total;
         double vuelto = 0;
+#pragma warning disable CS0414 // El campo 'PagosCotizaciones.efectivo_calculado' está asignado pero su valor nunca se usa
         double efectivo_calculado = 0;
+#pragma warning restore CS0414 // El campo 'PagosCotizaciones.efectivo_calculado' está asignado pero su valor nunca se usa
         double restante = 0;
+#pragma warning disable CS0169 // El campo 'PagosCotizaciones.INDICADOR_DE_FOCO' nunca se usa
         int INDICADOR_DE_FOCO;
+#pragma warning restore CS0169 // El campo 'PagosCotizaciones.INDICADOR_DE_FOCO' nunca se usa
+#pragma warning disable CS0414 // El campo 'PagosCotizaciones.SECUENCIA1' está asignado pero su valor nunca se usa
         bool SECUENCIA1 = true;
+#pragma warning restore CS0414 // El campo 'PagosCotizaciones.SECUENCIA1' está asignado pero su valor nunca se usa
+#pragma warning disable CS0414 // El campo 'PagosCotizaciones.SECUENCIA2' está asignado pero su valor nunca se usa
         bool SECUENCIA2 = true;
+#pragma warning restore CS0414 // El campo 'PagosCotizaciones.SECUENCIA2' está asignado pero su valor nunca se usa
+#pragma warning disable CS0414 // El campo 'PagosCotizaciones.SECUENCIA3' está asignado pero su valor nunca se usa
         bool SECUENCIA3 = true;
+#pragma warning restore CS0414 // El campo 'PagosCotizaciones.SECUENCIA3' está asignado pero su valor nunca se usa
         string indicador;
+#pragma warning disable CS0414 // El campo 'PagosCotizaciones.indicador_de_tipo_de_pago_string' está asignado pero su valor nunca se usa
         string indicador_de_tipo_de_pago_string;
+#pragma warning restore CS0414 // El campo 'PagosCotizaciones.indicador_de_tipo_de_pago_string' está asignado pero su valor nunca se usa
+#pragma warning disable CS0649 // El campo 'PagosCotizaciones.txttipo' nunca se asigna y siempre tendrá el valor predeterminado null
         string txttipo;
+#pragma warning restore CS0649 // El campo 'PagosCotizaciones.txttipo' nunca se asigna y siempre tendrá el valor predeterminado null
         string TXTTOTAL_STRING;
         string lblproceso;
+#pragma warning disable CS0414 // El campo 'PagosCotizaciones.credito' está asignado pero su valor nunca se usa
         double credito = 0;
+#pragma warning restore CS0414 // El campo 'PagosCotizaciones.credito' está asignado pero su valor nunca se usa
         int idcomprobante;
         string lblSerialPC;
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
@@ -143,7 +159,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                string query = "select tipodoc from Serializacion where Destino='VENTAS'";
+                string query = "select tipodoc from Serializacion where Destino='FACTURAS'";
                 SqlCommand cmd = new SqlCommand(query, CONEXION.CONEXIONMAESTRA.conectar);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -231,7 +247,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 lblCantidad_de_numeros.Text = dtComprobantes.SelectedCells[3].Value.ToString();
                 lblCorrelativoconCeros.Text = CONEXION.Agregar_ceros_adelante_De_numero.ceros(txtnumerofin.Text, Convert.ToInt32(lblCantidad_de_numeros.Text));
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }
@@ -242,14 +260,16 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 CONEXION.CONEXIONMAESTRA .abrir();
-                SqlDataAdapter da = new SqlDataAdapter("buscar_Tipo_de_documentos_para_insertar_en_ventas", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("buscar_Tipo_de_documentos_para_insertar_en_facturas", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letra", lblComprobante.Text);
                 da.Fill(dt);
                 dtComprobantes.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
             }
         }
@@ -394,15 +414,15 @@ namespace SistemaVentas.Presentacion.Cotizacion
             }
         }
 
-        void mostrar_productos_agregados_a_venta()
+        void mostrar_productos_agregados_a_factura()
         {
             try
             {
                 DataTable dt = new DataTable();
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_ventas", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_facturas", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idventa", idcotizacion);
+                da.SelectCommand.Parameters.AddWithValue("@idFactura", idcotizacion);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
@@ -418,7 +438,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         // No disminuir stock
         void disminuir_stock_productos()
         {
-            mostrar_productos_agregados_a_venta();
+            mostrar_productos_agregados_a_factura();
             foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
             {
                 int idproducto = Convert.ToInt32(row.Cells["Id_producto"].Value);
@@ -505,13 +525,15 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 CONEXION.CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Id_venta", idcotizacion);
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idcotizacion);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
                 da.Fill(dt);
                 rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
                 rpt.table1.DataSource = dt;
                 rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer2.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer2.RefreshReport();
                 CONEXION.CONEXIONMAESTRA.cerrar();
 
@@ -535,13 +557,15 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 CONEXION.CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Id_venta", idcotizacion);
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idcotizacion);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
                 da.Fill(dt);
                 rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
                 rpt.table1.DataSource = dt;
                 rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.RefreshReport();
                 CONEXION.CONEXIONMAESTRA.cerrar();
 
@@ -557,9 +581,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("Confirmar_venta", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("confirmar_factura", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idventa", idcotizacion);
+                cmd.Parameters.AddWithValue("@idFactura", idcotizacion);
                 cmd.Parameters.AddWithValue("@montototal", total);
                 cmd.Parameters.AddWithValue("@IGV", 0);
                 cmd.Parameters.AddWithValue("@Saldo", vuelto);
@@ -568,7 +592,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 cmd.Parameters.AddWithValue("@idcliente", idcliente);
                 cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
                 cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text ));
-                cmd.Parameters.AddWithValue("@fecha_venta", DateTime.Now);
+                cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ACCION", "COTIZACION");
                 cmd.Parameters.AddWithValue("@Fecha_de_pago", DateTime.Now);
                 cmd.Parameters.AddWithValue("@Pago_con", TXTTOTAL.Text);
@@ -741,7 +765,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
             datalistadoclientes2.Columns[2].Width = 420;
             CONEXION.CONEXIONMAESTRA.cerrar();
         }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
         catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
         {
 
         }
@@ -760,7 +786,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
             datalistadoclientes3.Columns[2].Width = 420;
             CONEXION.CONEXIONMAESTRA.cerrar();
         }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
         catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
         {
 
         }

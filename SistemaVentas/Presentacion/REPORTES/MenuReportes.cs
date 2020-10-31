@@ -67,7 +67,9 @@ namespace SistemaVentas.Presentacion.REPORTES
             ReporteVentas.ResumenVentas rpt = new ReporteVentas.ResumenVentas();
             rpt.table1.DataSource = dt;
             rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer1.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer1.RefreshReport();
         }
 
@@ -127,7 +129,9 @@ namespace SistemaVentas.Presentacion.REPORTES
             ReporteVentas.ResumenVentas rpt = new ReporteVentas.ResumenVentas();
             rpt.table1.DataSource = dt;
             rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer1.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer1.RefreshReport();
         }
 
@@ -154,7 +158,9 @@ namespace SistemaVentas.Presentacion.REPORTES
             ReporteVentas.ResumenVentas rpt = new ReporteVentas.ResumenVentas();
             rpt.table1.DataSource = dt;
             rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer1.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer1.RefreshReport();
         }
         private void ReporteResumenVentasEmpleadoFechas()
@@ -164,7 +170,9 @@ namespace SistemaVentas.Presentacion.REPORTES
             ReporteVentas.ResumenVentas rpt = new ReporteVentas.ResumenVentas();
             rpt.table1.DataSource = dt;
             rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer1.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer1.RefreshReport();
         }
         private void mostrarUsuarios()
@@ -241,7 +249,9 @@ namespace SistemaVentas.Presentacion.REPORTES
             ReportePorCobrar.ReporteCobrar rpt = new ReportePorCobrar.ReporteCobrar();
             rpt.Table1.DataSource = dt;
             rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer2.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer2.RefreshReport();
         }
 
@@ -270,7 +280,9 @@ namespace SistemaVentas.Presentacion.REPORTES
             ReportePorPagar.ReportePagar rpt = new ReportePorPagar.ReportePagar();
             rpt.Table1.DataSource = dt;
             rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer2.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             reportViewer2.RefreshReport();
         }
 
@@ -312,7 +324,9 @@ namespace SistemaVentas.Presentacion.REPORTES
             REPORTES_DE_KARDEX_listo.REPORTES_DE_INVENTARIOS_todos.ReportInventarios_Todos rpt = new REPORTES_DE_KARDEX_listo.REPORTES_DE_INVENTARIOS_todos.ReportInventarios_Todos();
             rpt.table1.DataSource = dt;
             rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             ReportViewer3.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             ReportViewer3.RefreshReport();
         }
 
@@ -331,7 +345,9 @@ namespace SistemaVentas.Presentacion.REPORTES
             REPORTES_DE_KARDEX_listo.REPORTES_DE_INVENTARIOS_todos.ReportePVencidos rpt = new REPORTES_DE_KARDEX_listo.REPORTES_DE_INVENTARIOS_todos.ReportePVencidos();
             rpt.table1.DataSource = dt;
             rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             ReportViewer3.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             ReportViewer3.RefreshReport();
         }
 
@@ -350,7 +366,9 @@ namespace SistemaVentas.Presentacion.REPORTES
             REPORTES_DE_KARDEX_listo.REPORTES_DE_INVENTARIOS_todos.ReportePbajomin rpt = new REPORTES_DE_KARDEX_listo.REPORTES_DE_INVENTARIOS_todos.ReportePbajomin();
             rpt.table1.DataSource = dt;
             rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             ReportViewer3.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
             ReportViewer3.RefreshReport();
 
         }

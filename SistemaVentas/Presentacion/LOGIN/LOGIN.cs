@@ -32,15 +32,21 @@ namespace SistemaVentas.Presentacion
         public static int idcajavariable;
         int idusuarioVerificador;
         string lblSerialPc;
+#pragma warning disable CS0169 // El campo 'LOGIN.lblSerialPcLocal' nunca se usa
         string lblSerialPcLocal;
+#pragma warning restore CS0169 // El campo 'LOGIN.lblSerialPcLocal' nunca se usa
         string cajero= "Cajero (Si esta autorizado para manejar dinero)";
-        string vendedor= "Solo Ventas (no esta autorizado para manejar dinero)";
+        string vendedor= "Solo Facturas (no esta autorizado para manejar dinero)";
         string administrador= "Administrador (Control total)";
         string lblRol;
         string txtlogin;
         string lblApertura_De_caja;
+#pragma warning disable CS0169 // El campo 'LOGIN.ResultadoLicencia' nunca se usa
         string ResultadoLicencia;
+#pragma warning restore CS0169 // El campo 'LOGIN.ResultadoLicencia' nunca se usa
+#pragma warning disable CS0169 // El campo 'LOGIN.FechaFinal' nunca se usa
         string FechaFinal;
+#pragma warning restore CS0169 // El campo 'LOGIN.FechaFinal' nunca se usa
         string Ip;
         public LOGIN()
               
@@ -104,7 +110,9 @@ namespace SistemaVentas.Presentacion
             con.Close();
 
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
             }
@@ -128,7 +136,9 @@ namespace SistemaVentas.Presentacion
               
 
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
   
             }
@@ -252,10 +262,6 @@ namespace SistemaVentas.Presentacion
         {
             try
             {
-
-           
-
-
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
@@ -263,20 +269,20 @@ namespace SistemaVentas.Presentacion
                 cmd = new SqlCommand("insertar_DETALLE_cierre_de_caja", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@fechaini",DateTime.Now );
-            cmd.Parameters.AddWithValue("@fechafin", DateTime.Now);
+                cmd.Parameters.AddWithValue("@fechafin", DateTime.Now);
                 //cmd.Parameters.AddWithValue("@fecha", DateTime.Today);
 
                 cmd.Parameters.AddWithValue("@fechacierre", DateTime.Now);
-            cmd.Parameters.AddWithValue("@ingresos", "0.00");
-            cmd.Parameters.AddWithValue("@egresos", "0.00");
-            cmd.Parameters.AddWithValue("@saldo", "0.00");
-            cmd.Parameters.AddWithValue("@idusuario", idusuariovariable);
-            cmd.Parameters.AddWithValue("@totalcaluclado", "0.00");
-            cmd.Parameters.AddWithValue("@totalreal", "0.00");
+                cmd.Parameters.AddWithValue("@ingresos", "0.00");
+                cmd.Parameters.AddWithValue("@egresos", "0.00");
+                cmd.Parameters.AddWithValue("@saldo", "0.00");
+                cmd.Parameters.AddWithValue("@idusuario", idusuariovariable);
+                cmd.Parameters.AddWithValue("@totalcaluclado", "0.00");
+                cmd.Parameters.AddWithValue("@totalreal", "0.00");
 
-            cmd.Parameters.AddWithValue("@estado", "CAJA APERTURADA");
-            cmd.Parameters.AddWithValue("@diferencia", "0.00");
-            cmd.Parameters.AddWithValue("@id_caja", idcajavariable );
+                cmd.Parameters.AddWithValue("@estado", "CAJA APERTURADA");
+                cmd.Parameters.AddWithValue("@diferencia", "0.00");
+                cmd.Parameters.AddWithValue("@id_caja", idcajavariable );
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -417,7 +423,7 @@ namespace SistemaVentas.Presentacion
 
                 da = new SqlDataAdapter("validar_usuario", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@password",Bases.Encriptar ( txtpaswwor .Text));
+                da.SelectCommand.Parameters.AddWithValue("@password",Bases.Encriptar ( txtpaswwor.Text));
                 da.SelectCommand.Parameters.AddWithValue("@login", txtlogin);
 
                 da.Fill(dt);
@@ -565,7 +571,9 @@ namespace SistemaVentas.Presentacion
             }
         }
    
+#pragma warning disable CS0169 // El campo 'LOGIN.txtcontador_USUARIOS' nunca se usa
         int txtcontador_USUARIOS;
+#pragma warning restore CS0169 // El campo 'LOGIN.txtcontador_USUARIOS' nunca se usa
       private void validar_conexion()
         {
             mostrar_usuarios_registrados();
@@ -754,7 +762,6 @@ namespace SistemaVentas.Presentacion
                 timerValidarRol.Stop();            
                 if (lblRol  == administrador )
                 {
-                
                     editar_inicio_De_sesion();
                     Dispose();
                     Admin_nivel_dios.DASHBOARD_PRINCIPAL  frm = new Admin_nivel_dios.DASHBOARD_PRINCIPAL();
@@ -769,8 +776,7 @@ namespace SistemaVentas.Presentacion
                     Dispose();
                     CAJA.APERTURA_DE_CAJA  frm = new CAJA.APERTURA_DE_CAJA();
                     frm.ShowDialog();
-                       
-                    }
+                }
                else if (lblApertura_De_caja == "Aperturado" & lblRol == cajero)
                 {
                     editar_inicio_De_sesion();

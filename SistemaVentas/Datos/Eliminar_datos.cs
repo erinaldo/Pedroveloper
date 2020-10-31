@@ -11,14 +11,14 @@ namespace SistemaVentas.Datos
 {
     public class Eliminar_datos
     {
-        public static void eliminar_venta(int idventa)
+        public static void eliminar_factura(int idFactura)
         {
             try
             {
             CONEXIONMAESTRA.abrir();
-            SqlCommand cmd = new SqlCommand("eliminar_venta", CONEXIONMAESTRA.conectar);
+            SqlCommand cmd = new SqlCommand("eliminar_factura", CONEXIONMAESTRA.conectar);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@idventa", idventa);
+            cmd.Parameters.AddWithValue("@idFactura", idFactura);
             cmd.ExecuteNonQuery();
             CONEXIONMAESTRA.cerrar();
             }
@@ -168,15 +168,15 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        //Ventas
-        public bool EliminarVentas(Lventas parametros)
+        //Facturas
+        public bool EliminarFacturas(Lventas parametros)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("eliminar_venta", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("eliminar_factura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idventa", parametros.idventa);
+                cmd.Parameters.AddWithValue("@idFactura", parametros.idFactura);
                 cmd.ExecuteNonQuery();
                 return true;
             }
