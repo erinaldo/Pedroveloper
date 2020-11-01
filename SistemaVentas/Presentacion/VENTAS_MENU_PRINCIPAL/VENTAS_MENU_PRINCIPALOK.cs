@@ -94,7 +94,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
 
             this.Text = Bases.ObtenerIp(ref Ip);
-        }
+        } 
         private void ContarVentasEspera()
         {
             Obtener_datos.contarVentasEspera(ref contadorVentasEspera);
@@ -110,27 +110,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void ContarCotizacionesEnEspera()
         {
-            Obtener_datos.contarVentasEspera(ref contadorVentasEspera);
-            if (contadorVentasEspera == 0)
-            {
-                panelNotificacionEspera.Visible = false;
-            }
-            else
-            {
-                panelNotificacionEspera.Visible = true;
-                lblContadorEspera.Text = contadorVentasEspera.ToString();
-            }
-        }
-        private void ContarCotizacionesEspera()
-        {
             Obtener_datos.contarCotizacionesEspera(ref contadorCotizacionesEspera);
             if (contadorCotizacionesEspera == 0)
             {
-                panelNotificacionEspera.Visible = false;
+                panel3.Visible = false;
             }
             else
             {
-                panelNotificacionEspera.Visible = true;
+                panel3.Visible = true;
                 CantidadCotizaciones.Text = contadorCotizacionesEspera.ToString();
             }
         }
@@ -169,12 +156,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             idVenta = 0;
             Listarproductosagregados();
             txtventagenerada = "FACTURA NUEVA";
+            lblsubtotal.Text = "0.00";
+            txt_total_suma.Text = "0.00";
             sumar();
             PanelEnespera.Visible = false;
             panelBienvenida.Visible = true;
             PanelOperaciones.Visible = false;
             ContarVentasEspera();
-            ContarCotizacionesEspera();
+            ContarCotizacionesEnEspera();
         }
 
 
@@ -1261,10 +1250,17 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void befectivo_Click_1(object sender, EventArgs e)
         {
-            total = Convert.ToDouble(txt_total_suma.Text);
-            MEDIOS_DE_PAGO frm = new MEDIOS_DE_PAGO();
-            frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
-            frm.ShowDialog();
+            if (datalistadoDetalleVenta.Rows.Count == 0)
+            {
+
+            }
+            else
+            {
+                total = Convert.ToDouble(txt_total_suma.Text);
+                MEDIOS_DE_PAGO frm = new MEDIOS_DE_PAGO();
+                frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
+                frm.ShowDialog();
+            }
         }
 
 

@@ -51,6 +51,8 @@
             this.ToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.datalistadodetalledeventasarestaurar = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblfechadeventa = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado_ventas_en_espera)).BeginInit();
             this.panel3.SuspendLayout();
@@ -195,6 +195,7 @@
             this.txtbusca.Name = "txtbusca";
             this.txtbusca.Size = new System.Drawing.Size(272, 22);
             this.txtbusca.TabIndex = 534;
+            this.txtbusca.TextChanged += new System.EventHandler(this.txtbusca_TextChanged);
             // 
             // MenuStrip1
             // 
@@ -303,6 +304,23 @@
             this.datalistadodetalledeventasarestaurar.Size = new System.Drawing.Size(620, 364);
             this.datalistadodetalledeventasarestaurar.TabIndex = 360;
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.lblfechadeventa);
@@ -353,9 +371,9 @@
             this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btneliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btneliminar.Image = global::SistemaVentas.Properties.Resources.lapiz;
-            this.btneliminar.Location = new System.Drawing.Point(168, 6);
+            this.btneliminar.Location = new System.Drawing.Point(175, 6);
             this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(153, 47);
+            this.btneliminar.Size = new System.Drawing.Size(167, 47);
             this.btneliminar.TabIndex = 3;
             this.btneliminar.Text = "Eliminar Factura";
             this.btneliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -371,7 +389,7 @@
             this.btnRestaurar.Image = global::SistemaVentas.Properties.Resources.jugar;
             this.btnRestaurar.Location = new System.Drawing.Point(0, 6);
             this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(168, 47);
+            this.btnRestaurar.Size = new System.Drawing.Size(175, 47);
             this.btnRestaurar.TabIndex = 4;
             this.btnRestaurar.Text = "Restaurar Factura";
             this.btnRestaurar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -393,23 +411,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(5, 466);
             this.panel6.TabIndex = 361;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Ventas_en_espera
             // 
