@@ -211,7 +211,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         void Obtener_id_de_venta()
         {
-            idFactura = VENTAS_MENU_PRINCIPALOK.idFactura;
+            idFactura = VENTAS_MENU_PRINCIPALOK.idVenta;
         }
         void configuraciones_de_diseño()
         {
@@ -247,7 +247,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void MOSTRAR_comprobante_serializado_POR_DEFECTO()
         {
-            SqlCommand cmd = new SqlCommand("select from Serializacion Where Por_defecto='SI'", CONEXION.CONEXIONMAESTRA.conectar);
+            SqlCommand cmd = new SqlCommand("select * from Serializacion Where Por_defecto='SI'", CONEXION.CONEXIONMAESTRA.conectar);
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
@@ -266,7 +266,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                string query = "select tipodoc from Serializacion where Destino='Facturas'";
+                string query = "select tipodoc from Serializacion where Destino='FACTURAS'";
                 SqlCommand cmd = new SqlCommand(query, CONEXION.CONEXIONMAESTRA.conectar);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
