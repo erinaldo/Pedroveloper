@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MEDIOS_DE_PAGO));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TXTTOTAL = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PanelregistroClientes = new System.Windows.Forms.Panel();
@@ -107,7 +107,6 @@
             this.FlowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtImpresora = new System.Windows.Forms.ComboBox();
             this.Label1 = new System.Windows.Forms.Label();
-            this.lblCantidad_de_numeros = new System.Windows.Forms.Label();
             this.txtnumerofin = new System.Windows.Forms.Label();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtserie = new System.Windows.Forms.Label();
@@ -131,6 +130,7 @@
             this.R = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.DATALISTADOVERIFICAR = new System.Windows.Forms.DataGridView();
+            this.lblCantidad_de_numeros = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.PanelregistroClientes.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -926,6 +926,7 @@
             this.panelGuardado_de_datos.Controls.Add(this.panel6);
             this.panelGuardado_de_datos.Controls.Add(this.btnGuardarImprimirdirecto);
             this.panelGuardado_de_datos.Controls.Add(this.TGuardarSinImprimir);
+            this.panelGuardado_de_datos.Controls.Add(this.FlowLayoutPanel1);
             this.panelGuardado_de_datos.Controls.Add(this.panelClienteFactura);
             this.panelGuardado_de_datos.Controls.Add(this.FlowLayoutPanel3);
             this.panelGuardado_de_datos.Controls.Add(this.txtImpresora);
@@ -1176,41 +1177,26 @@
             this.Label1.TabIndex = 579;
             this.Label1.Text = "Impresora:";
             // 
-            // lblCantidad_de_numeros
-            // 
-            this.lblCantidad_de_numeros.AutoSize = true;
-            this.lblCantidad_de_numeros.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblCantidad_de_numeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad_de_numeros.ForeColor = System.Drawing.Color.White;
-            this.lblCantidad_de_numeros.Location = new System.Drawing.Point(-12, 300);
-            this.lblCantidad_de_numeros.Name = "lblCantidad_de_numeros";
-            this.lblCantidad_de_numeros.Size = new System.Drawing.Size(19, 150);
-            this.lblCantidad_de_numeros.TabIndex = 613;
-            this.lblCantidad_de_numeros.Text = "Comprobante";
-            // 
             // txtnumerofin
             // 
             this.txtnumerofin.AutoSize = true;
-            this.txtnumerofin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtnumerofin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnumerofin.ForeColor = System.Drawing.Color.White;
-            this.txtnumerofin.Location = new System.Drawing.Point(-12, 150);
+            this.txtnumerofin.Location = new System.Drawing.Point(28, -1);
             this.txtnumerofin.Name = "txtnumerofin";
-            this.txtnumerofin.Size = new System.Drawing.Size(19, 150);
+            this.txtnumerofin.Size = new System.Drawing.Size(93, 15);
             this.txtnumerofin.TabIndex = 613;
             this.txtnumerofin.Text = "Comprobante";
             // 
             // FlowLayoutPanel1
             // 
             this.FlowLayoutPanel1.Controls.Add(this.txtserie);
-            this.FlowLayoutPanel1.Controls.Add(this.txtnumerofin);
-            this.FlowLayoutPanel1.Controls.Add(this.lblCantidad_de_numeros);
             this.FlowLayoutPanel1.Controls.Add(this.lblCorrelativoconCeros);
             this.FlowLayoutPanel1.Controls.Add(this.lblComprobante);
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(57, 31);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(16, 514);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
             this.FlowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FlowLayoutPanel1.Size = new System.Drawing.Size(10, 10);
+            this.FlowLayoutPanel1.Size = new System.Drawing.Size(442, 19);
             this.FlowLayoutPanel1.TabIndex = 611;
             // 
             // txtserie
@@ -1219,9 +1205,9 @@
             this.txtserie.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtserie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtserie.ForeColor = System.Drawing.Color.White;
-            this.txtserie.Location = new System.Drawing.Point(-12, 0);
+            this.txtserie.Location = new System.Drawing.Point(346, 0);
             this.txtserie.Name = "txtserie";
-            this.txtserie.Size = new System.Drawing.Size(19, 150);
+            this.txtserie.Size = new System.Drawing.Size(93, 15);
             this.txtserie.TabIndex = 605;
             this.txtserie.Text = "Comprobante";
             // 
@@ -1231,9 +1217,9 @@
             this.lblCorrelativoconCeros.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblCorrelativoconCeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorrelativoconCeros.ForeColor = System.Drawing.Color.White;
-            this.lblCorrelativoconCeros.Location = new System.Drawing.Point(-12, 450);
+            this.lblCorrelativoconCeros.Location = new System.Drawing.Point(247, 0);
             this.lblCorrelativoconCeros.Name = "lblCorrelativoconCeros";
-            this.lblCorrelativoconCeros.Size = new System.Drawing.Size(19, 150);
+            this.lblCorrelativoconCeros.Size = new System.Drawing.Size(93, 15);
             this.lblCorrelativoconCeros.TabIndex = 606;
             this.lblCorrelativoconCeros.Text = "Comprobante";
             // 
@@ -1243,9 +1229,9 @@
             this.lblComprobante.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblComprobante.ForeColor = System.Drawing.Color.White;
-            this.lblComprobante.Location = new System.Drawing.Point(-12, 600);
+            this.lblComprobante.Location = new System.Drawing.Point(148, 0);
             this.lblComprobante.Name = "lblComprobante";
-            this.lblComprobante.Size = new System.Drawing.Size(19, 150);
+            this.lblComprobante.Size = new System.Drawing.Size(93, 15);
             this.lblComprobante.TabIndex = 605;
             this.lblComprobante.Text = "Comprobante";
             // 
@@ -1401,14 +1387,14 @@
             this.datalistadoDetalleVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datalistadoDetalleVenta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.datalistadoDetalleVenta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadoDetalleVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadoDetalleVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.datalistadoDetalleVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datalistadoDetalleVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EL,
@@ -1433,14 +1419,14 @@
             // 
             // EL
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.EL.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.NullValue = null;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.EL.DefaultCellStyle = dataGridViewCellStyle10;
             this.EL.HeaderText = "";
             this.EL.Image = ((System.Drawing.Image)(resources.GetObject("EL.Image")));
             this.EL.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -1451,13 +1437,13 @@
             // 
             // S
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.S.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            this.S.DefaultCellStyle = dataGridViewCellStyle11;
             this.S.HeaderText = "";
             this.S.Name = "S";
             this.S.ReadOnly = true;
@@ -1466,13 +1452,13 @@
             // 
             // R
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.R.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            this.R.DefaultCellStyle = dataGridViewCellStyle12;
             this.R.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.R.HeaderText = "";
             this.R.Name = "R";
@@ -1482,10 +1468,11 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.txtnumerofin);
             this.panel3.Controls.Add(this.DATALISTADOVERIFICAR);
+            this.panel3.Controls.Add(this.lblCantidad_de_numeros);
             this.panel3.Controls.Add(this.txtnumeroconvertidoenletra);
             this.panel3.Controls.Add(this.txttotaldecimal);
-            this.panel3.Controls.Add(this.FlowLayoutPanel1);
             this.panel3.Controls.Add(this.datalistadoDetalleVenta);
             this.panel3.Controls.Add(this.dtComprobantes);
             this.panel3.Controls.Add(this.lblprueba);
@@ -1518,6 +1505,17 @@
             this.DATALISTADOVERIFICAR.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DATALISTADOVERIFICAR.Size = new System.Drawing.Size(305, 107);
             this.DATALISTADOVERIFICAR.TabIndex = 618;
+            // 
+            // lblCantidad_de_numeros
+            // 
+            this.lblCantidad_de_numeros.AutoSize = true;
+            this.lblCantidad_de_numeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad_de_numeros.ForeColor = System.Drawing.Color.White;
+            this.lblCantidad_de_numeros.Location = new System.Drawing.Point(99, 58);
+            this.lblCantidad_de_numeros.Name = "lblCantidad_de_numeros";
+            this.lblCantidad_de_numeros.Size = new System.Drawing.Size(93, 15);
+            this.lblCantidad_de_numeros.TabIndex = 613;
+            this.lblCantidad_de_numeros.Text = "Comprobante";
             // 
             // MEDIOS_DE_PAGO
             // 
@@ -1649,7 +1647,6 @@
         public System.Windows.Forms.DataGridView dtComprobantes;
         internal System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         internal System.Windows.Forms.Label txtnumerofin;
-        internal System.Windows.Forms.Label lblCantidad_de_numeros;
         internal System.Windows.Forms.Label lblprueba;
         internal System.Windows.Forms.DataGridView datalistadoDetalleVenta;
         internal System.Windows.Forms.DataGridViewImageColumn EL;
@@ -1674,5 +1671,6 @@
         internal System.Windows.Forms.DateTimePicker txtfecha_de_pago;
         internal System.Windows.Forms.Label Label21;
         internal System.Windows.Forms.TextBox txtclientesolicitabnte2;
+        internal System.Windows.Forms.Label lblCantidad_de_numeros;
     }
 }

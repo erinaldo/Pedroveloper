@@ -342,7 +342,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void ocultar_mostrar_productos()
         {
-            MessageBox.Show(" ocultar_mostrar_productos");
+         //   MessageBox.Show(" ocultar_mostrar_productos");
 
             panel_mostrador_de_productos.Visible = false;
             DATALISTADO_PRODUCTOS_OKA.Visible = false;
@@ -355,7 +355,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void DATALISTADO_PRODUCTOS_OKA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show(" txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();");
+          //  MessageBox.Show(" txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();");
             ValidarVentasNuevas();
             txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();
             idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
@@ -402,7 +402,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             else if (sevendePor == "Unidad")
             {
-                MessageBox.Show("sevendePor == Unidad");
+              //  MessageBox.Show("sevendePor == Unidad");
 
                 txtpantalla = 1;
                 vender_por_unidad();
@@ -422,7 +422,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("ejecutar_ventas_a_granel");
+          //  MessageBox.Show("ejecutar_ventas_a_granel");
             ejecutar_ventas_a_granel();
         }
 
@@ -432,7 +432,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             ejecutar_insertar_ventas();
             if (txtventagenerada == "FACTURA GENERADA")
             {
-                MessageBox.Show("(txtventagenerada == FACTURA GENERADA2");
+                //MessageBox.Show("(txtventagenerada == FACTURA GENERADA2");
                 insertar_detalle_venta();
                 Listarproductosagregados();
                 txtbuscar.Text = "";
@@ -489,7 +489,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     ejecutar_insertar_ventas();
                     if (txtventagenerada == "FACTURA GENERADA")
                     {
-                        MessageBox.Show("(txtventagenerada == FACTURA GENERADA");
+                        //MessageBox.Show("(txtventagenerada == FACTURA GENERADA");
                         insertar_detalle_venta();
                         Listarproductosagregados();
                         txtbuscar.Text = "";
@@ -505,12 +505,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void ejecutar_insertar_ventas()
         {
-            MessageBox.Show("ejecutar_insertar_ventas",txtventagenerada);
+            //MessageBox.Show("ejecutar_insertar_ventas",txtventagenerada);
             if (txtventagenerada == "FACTURA NUEVA")
             {
                 try
                 {
-                    MessageBox.Show("insertar_venta");
+                    //MessageBox.Show("insertar_venta");
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                     con.Open();
@@ -567,7 +567,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();
-               /* datalistadoDetalleVenta.Columns[0].Width = 50;
+               datalistadoDetalleVenta.Columns[0].Width = 50;
                 datalistadoDetalleVenta.Columns[1].Width = 50;
                 datalistadoDetalleVenta.Columns[2].Width = 50;
                 datalistadoDetalleVenta.Columns[3].Visible = false;
@@ -586,7 +586,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoDetalleVenta.Columns[15].Visible = false;
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
-                datalistadoDetalleVenta.Columns[18].Visible = false;*/
+                datalistadoDetalleVenta.Columns[18].Visible = false;
                 if (Tema == "Redentor")
                 {
                     Bases.Multilinea(ref datalistadoDetalleVenta);

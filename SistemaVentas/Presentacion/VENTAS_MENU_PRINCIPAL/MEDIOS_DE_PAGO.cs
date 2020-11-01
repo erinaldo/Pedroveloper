@@ -247,11 +247,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void MOSTRAR_comprobante_serializado_POR_DEFECTO()
         {
-            SqlCommand cmd = new SqlCommand("select * from Serializacion Where Por_defecto='SI'", CONEXION.CONEXIONMAESTRA.conectar);
+            SqlCommand cmd = new SqlCommand("select tipodoc from Serializacion Where Por_defecto='SI'", CONEXION.CONEXIONMAESTRA.conectar);
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
                 lblComprobante.Text = Convert.ToString(cmd.ExecuteScalar());
+                //MessageBox.Show(lblComprobante.Text);
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
@@ -279,8 +280,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     b.FlatStyle = FlatStyle.Flat;
                     b.ForeColor = Color.WhiteSmoke;
                     FlowLayoutPanel3.Controls.Add(b);
+                    
                     if (b.Text == lblComprobante.Text)
                     {
+                        MessageBox.Show("b" + b.Text);
                         b.Visible = false;
                     }
                     b.Click += miEvento;
@@ -366,10 +369,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             DataTable dt = new DataTable();
             try
             {
-                CONEXION.CONEXIONMAESTRA .abrir();
-                SqlDataAdapter da = new SqlDataAdapter("buscar_Tipo_de_documentos_para_insertar_en_ventas", CONEXION.CONEXIONMAESTRA.conectar);
+                CONEXION.CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Buscar_tipo_de_documentos_para_insertar_en_facturas", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letra", lblComprobante.Text);
+                MessageBox.Show(lblComprobante.Text);
                 da.Fill(dt);
                 dtComprobantes.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
@@ -1144,6 +1148,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@idcliente", idcliente);
                 cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
                 cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text ));
+                MessageBox.Show(txtserie.Text + "-" + lblCorrelativoconCeros.Text);
                 cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ACCION", "Factura");
                 cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value );
