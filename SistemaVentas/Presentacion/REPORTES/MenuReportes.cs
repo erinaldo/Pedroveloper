@@ -179,7 +179,8 @@ namespace SistemaVentas.Presentacion.REPORTES
         {
             DataTable dt = new DataTable();
             Obtener_datos.mostrarUsuarios(ref dt);
-            txtEmpleado.DisplayMember = "Nombres_y_Apellidos";
+            txtEmpleado.DisplayMember = "nombre";
+            MessageBox.Show(txtEmpleado.ValueMember.ToString());
             txtEmpleado.ValueMember = "idUsuario";
             txtEmpleado.DataSource = dt;
 

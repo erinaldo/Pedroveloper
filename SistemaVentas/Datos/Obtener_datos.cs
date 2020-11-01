@@ -1643,7 +1643,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("Select * from USUARIO2", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT u.idUsuario,p.nombre AS Nombre FROM USUARIO2 AS u INNER JOIN Empleados AS e ON u.idEmpleado = e.idEmpleado INNER JOIN Persona AS p ON e.idPersona = p.idPersona WHERE  u.Estado = 'ACTIVO'", CONEXIONMAESTRA.conectar);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }

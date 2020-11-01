@@ -530,9 +530,9 @@
             // 
             this.ReportViewer3.AccessibilityKeyMap = null;
             this.ReportViewer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReportViewer3.Location = new System.Drawing.Point(0, 53);
+            this.ReportViewer3.Location = new System.Drawing.Point(0, 56);
             this.ReportViewer3.Name = "ReportViewer3";
-            this.ReportViewer3.Size = new System.Drawing.Size(1260, 497);
+            this.ReportViewer3.Size = new System.Drawing.Size(1260, 494);
             this.ReportViewer3.TabIndex = 2;
             this.ReportViewer3.ViewMode = Telerik.ReportViewer.WinForms.ViewMode.PrintPreview;
             this.ReportViewer3.Visible = false;
@@ -547,7 +547,7 @@
             this.FlowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.FlowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.FlowLayoutPanel2.Name = "FlowLayoutPanel2";
-            this.FlowLayoutPanel2.Size = new System.Drawing.Size(1260, 53);
+            this.FlowLayoutPanel2.Size = new System.Drawing.Size(1260, 56);
             this.FlowLayoutPanel2.TabIndex = 1;
             // 
             // panel7

@@ -39,13 +39,13 @@ namespace SistemaVentas.Presentacion.HistorialVentas
             DataTable dt = new DataTable();
             Obtener_datos.Buscarfactura(ref dt, txtbusca.Text);
             datalistadoVentas.DataSource = dt;
-            /*datalistadoVentas.Columns[1].Visible = false;
+            datalistadoVentas.Columns[1].Visible = false;
             datalistadoVentas.Columns[4].Visible = false;
             datalistadoVentas.Columns[5].Visible = false;
             datalistadoVentas.Columns[6].Visible = false;
             datalistadoVentas.Columns[8].Visible = false;
             datalistadoVentas.Columns[9].Visible = false;
-            datalistadoVentas.Columns[10].Visible = false;*/
+            datalistadoVentas.Columns[10].Visible = false;
             Bases.Multilinea(ref datalistadoVentas);
         }
 

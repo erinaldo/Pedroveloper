@@ -936,7 +936,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 con.Open();
                 cmd = new SqlCommand("eliminar_factura", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idventa", idVenta);
+                cmd.Parameters.AddWithValue("@idFactura", idVenta);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -1531,7 +1531,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             btnCobros.BackColor = Color.FromArgb(45, 45, 45);
             btnCobros.ForeColor = Color.White;
 
-
+            
             btnCreditoCobrar.BackColor = Color.FromArgb(45, 45, 45);
             btnCreditoCobrar.ForeColor = Color.White;
             btnCreditoPagar.BackColor = Color.FromArgb(45, 45, 45);
@@ -1578,6 +1578,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void TemaClaro()
         {
+            button4.ForeColor = Color.Black;
+            button4.BackColor = Color.WhiteSmoke;
+            button6.ForeColor = Color.Black;
+            button6.BackColor = Color.Gainsboro;
+            button7.ForeColor = Color.Black;
+            button7.BackColor = Color.Gainsboro;
             //PanelC1 encabezado
             label9.ForeColor = Color.Black;
             label9.BackColor = Color.White;
@@ -1589,10 +1595,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             lbltipodebusqueda2.BackColor = Color.White;
             btn4.ForeColor = Color.WhiteSmoke;
             btn4.BackColor = Color.White;
-            button6.ForeColor = Color.WhiteSmoke;
-            button6.BackColor = Color.White;
-            button7.ForeColor = Color.WhiteSmoke;
-            button7.BackColor = Color.White;
+           
             //PanelC2 intermedio
             panelC2.BackColor = Color.White;
             btnCobros.BackColor = Color.WhiteSmoke;
