@@ -34,9 +34,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 DataTable dt = new DataTable();
                 Obtener_datos.mostrar_ventas_en_espera_con_fecha_y_monto(ref dt);
                 datalistado_ventas_en_espera.DataSource = dt;
-                /*datalistado_ventas_en_espera.Columns[1].Visible = false;
+                datalistado_ventas_en_espera.Columns[1].Visible = false;
                 datalistado_ventas_en_espera.Columns[4].Visible = false;
-                datalistado_ventas_en_espera.Columns[5].Visible = false;*/
+                datalistado_ventas_en_espera.Columns[5].Visible = false;
                 Bases.Multilinea (ref datalistado_ventas_en_espera);
             }
             catch (Exception ex)

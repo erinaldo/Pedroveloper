@@ -63,7 +63,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
-
+            MOSTRAR_comprobante_serializado_POR_DEFECTO();
+            validar_tipos_de_comprobantes();
             Bases.Cambiar_idioma_regional();
             Bases.Obtener_serialPC(ref SerialPC);
             Obtener_datos.Obtener_id_caja_PorSerial(ref Id_caja);
@@ -331,7 +332,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void ocultar_mostrar_productos()
         {
-         //   MessageBox.Show(" ocultar_mostrar_productos");
 
             panel_mostrador_de_productos.Visible = false;
             DATALISTADO_PRODUCTOS_OKA.Visible = false;
@@ -467,6 +467,66 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show("mostrar_id_venta_por_Id_caja");
             }
         }
+        private void MOSTRAR_comprobante_serializado_POR_DEFECTO()
+        {
+            SqlCommand cmd = new SqlCommand("select tipodoc from Serializacion Where Por_defecto='SI'", CONEXION.CONEXIONMAESTRA.conectar);
+            try
+            {
+                CONEXION.CONEXIONMAESTRA.abrir();
+                lblComprobante.Text = Convert.ToString(cmd.ExecuteScalar());
+                //MessageBox.Show(lblComprobante.Text);
+                CONEXION.CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        void buscar_Tipo_de_documentos_para_insertar_en_ventas()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                CONEXION.CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Buscar_tipo_de_documentos_para_insertar_en_facturas", CONEXION.CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@letra", lblComprobante.Text);
+                //MessageBox.Show(lblComprobante.Text);
+                da.Fill(dt);
+                dtComprobantes.DataSource = dt;
+                CONEXION.CONEXIONMAESTRA.cerrar();
+            }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            {
+            }
+        }
+        int idcomprobante;
+
+        void validar_tipos_de_comprobantes()
+        {
+            buscar_Tipo_de_documentos_para_insertar_en_ventas();
+            try
+            {
+                int numerofin;
+
+                txtserie.Text = dtComprobantes.SelectedCells[2].Value.ToString();
+
+                numerofin = Convert.ToInt32(dtComprobantes.SelectedCells[4].Value);
+                idcomprobante = Convert.ToInt32(dtComprobantes.SelectedCells[5].Value);
+                txtnumerofin.Text = Convert.ToString(numerofin + 1);
+                lblCantidad_de_numeros.Text = dtComprobantes.SelectedCells[3].Value.ToString();
+                lblCorrelativoconCeros.Text = CONEXION.Agregar_ceros_adelante_De_numero.ceros(txtnumerofin.Text, Convert.ToInt32(lblCantidad_de_numeros.Text));
+                //MessageBox.Show;
+            }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            {
+
+            }
+        }
         private void vender_por_unidad()
         {
             try
@@ -513,10 +573,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     cmd.Parameters.AddWithValue("@Tipo_de_pago", 0);
                     cmd.Parameters.AddWithValue("@estado", "EN ESPERA");
                     cmd.Parameters.AddWithValue("@IGV", 0);
-                    cmd.Parameters.AddWithValue("@Comprobante", 0);
+                    cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text);
                     cmd.Parameters.AddWithValue("@id_usuario", idusuario_que_inicio_sesion);
                     cmd.Parameters.AddWithValue("@Fecha_de_pago", DateTime.Today);
-                    cmd.Parameters.AddWithValue("@ACCION", "VENTA");
+                    cmd.Parameters.AddWithValue("@ACCION", "Factura");
                     cmd.Parameters.AddWithValue("@Saldo", 0);
                     cmd.Parameters.AddWithValue("@Pago_con", 0);
                     cmd.Parameters.AddWithValue("@Porcentaje_IGV", 0);
@@ -1297,6 +1357,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             if (datalistadoDetalleVenta.RowCount > 0)
             {
+                MOSTRAR_comprobante_serializado_POR_DEFECTO();
                 PanelEnespera.Visible = true;
                 PanelEnespera.BringToFront();
                 PanelEnespera.Dock = DockStyle.Fill;
@@ -1340,7 +1401,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtnombre.Text = "Ticket" + idVenta;
             editarVentaEspera();
         }
-
+        
 
 
         private void BTNLECTORA_Click_1(object sender, EventArgs e)

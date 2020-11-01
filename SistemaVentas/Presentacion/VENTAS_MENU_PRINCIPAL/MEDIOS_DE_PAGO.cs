@@ -283,7 +283,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     
                     if (b.Text == lblComprobante.Text)
                     {
-                        MessageBox.Show("b" + b.Text);
+                        //MessageBox.Show("b" + b.Text);
                         b.Visible = false;
                     }
                     b.Click += miEvento;
@@ -373,7 +373,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlDataAdapter da = new SqlDataAdapter("Buscar_tipo_de_documentos_para_insertar_en_facturas", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letra", lblComprobante.Text);
-                MessageBox.Show(lblComprobante.Text);
+                //MessageBox.Show(lblComprobante.Text);
                 da.Fill(dt);
                 dtComprobantes.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
@@ -1148,7 +1148,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@idcliente", idcliente);
                 cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
                 cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text ));
-                MessageBox.Show(txtserie.Text + "-" + lblCorrelativoconCeros.Text);
+               // MessageBox.Show(txtserie.Text + "-" + lblCorrelativoconCeros.Text);
                 cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ACCION", "Factura");
                 cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value );

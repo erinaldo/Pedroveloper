@@ -317,7 +317,7 @@ namespace SistemaVentas.Presentacion
             mostrar_roles();
                if (lblRol !=cajero )
                  {
-                    MessageBox.Show("timer");
+                   // MessageBox.Show("timer");
                    timerValidarRol.Start();
                  }
                else if(lblRol ==cajero)

@@ -97,6 +97,10 @@
             this.Envio = new UIDC.UI_MaterialToggle();
             this.btnGuardarImprimirdirecto = new System.Windows.Forms.Button();
             this.TGuardarSinImprimir = new System.Windows.Forms.Button();
+            this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtserie = new System.Windows.Forms.Label();
+            this.lblCorrelativoconCeros = new System.Windows.Forms.Label();
+            this.lblComprobante = new System.Windows.Forms.Label();
             this.panelClienteFactura = new System.Windows.Forms.Panel();
             this.datalistadoclientes3 = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -108,10 +112,6 @@
             this.txtImpresora = new System.Windows.Forms.ComboBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.txtnumerofin = new System.Windows.Forms.Label();
-            this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtserie = new System.Windows.Forms.Label();
-            this.lblCorrelativoconCeros = new System.Windows.Forms.Label();
-            this.lblComprobante = new System.Windows.Forms.Label();
             this.dtComprobantes = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -142,10 +142,10 @@
             this.panelGuardado_de_datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoempleado)).BeginInit();
             this.panel6.SuspendLayout();
+            this.FlowLayoutPanel1.SuspendLayout();
             this.panelClienteFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes3)).BeginInit();
             this.MenuStrip10.SuspendLayout();
-            this.FlowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtComprobantes)).BeginInit();
             this.PanelImpresionvistaprevia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -961,7 +961,7 @@
             this.datalistadoempleado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.datalistadoempleado.ColumnHeadersVisible = false;
             this.datalistadoempleado.EnableHeadersVisualStyles = false;
-            this.datalistadoempleado.Location = new System.Drawing.Point(16, 188);
+            this.datalistadoempleado.Location = new System.Drawing.Point(16, 193);
             this.datalistadoempleado.Name = "datalistadoempleado";
             this.datalistadoempleado.ReadOnly = true;
             this.datalistadoempleado.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -971,7 +971,7 @@
             this.datalistadoempleado.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.datalistadoempleado.RowTemplate.Height = 40;
             this.datalistadoempleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadoempleado.Size = new System.Drawing.Size(442, 120);
+            this.datalistadoempleado.Size = new System.Drawing.Size(442, 115);
             this.datalistadoempleado.TabIndex = 617;
             this.datalistadoempleado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoempleado_CellClick);
             this.datalistadoempleado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoempleado_CellContentClick);
@@ -1048,6 +1048,53 @@
             this.TGuardarSinImprimir.Text = "Guardar y ver en Pantalla";
             this.TGuardarSinImprimir.UseVisualStyleBackColor = false;
             this.TGuardarSinImprimir.Click += new System.EventHandler(this.TGuardarSinImprimir_Click_1);
+            // 
+            // FlowLayoutPanel1
+            // 
+            this.FlowLayoutPanel1.Controls.Add(this.txtserie);
+            this.FlowLayoutPanel1.Controls.Add(this.lblCorrelativoconCeros);
+            this.FlowLayoutPanel1.Controls.Add(this.lblComprobante);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(16, 514);
+            this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
+            this.FlowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FlowLayoutPanel1.Size = new System.Drawing.Size(442, 19);
+            this.FlowLayoutPanel1.TabIndex = 611;
+            // 
+            // txtserie
+            // 
+            this.txtserie.AutoSize = true;
+            this.txtserie.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtserie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtserie.ForeColor = System.Drawing.Color.White;
+            this.txtserie.Location = new System.Drawing.Point(346, 0);
+            this.txtserie.Name = "txtserie";
+            this.txtserie.Size = new System.Drawing.Size(93, 15);
+            this.txtserie.TabIndex = 605;
+            this.txtserie.Text = "Comprobante";
+            // 
+            // lblCorrelativoconCeros
+            // 
+            this.lblCorrelativoconCeros.AutoSize = true;
+            this.lblCorrelativoconCeros.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblCorrelativoconCeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorrelativoconCeros.ForeColor = System.Drawing.Color.White;
+            this.lblCorrelativoconCeros.Location = new System.Drawing.Point(247, 0);
+            this.lblCorrelativoconCeros.Name = "lblCorrelativoconCeros";
+            this.lblCorrelativoconCeros.Size = new System.Drawing.Size(93, 15);
+            this.lblCorrelativoconCeros.TabIndex = 606;
+            this.lblCorrelativoconCeros.Text = "Comprobante";
+            // 
+            // lblComprobante
+            // 
+            this.lblComprobante.AutoSize = true;
+            this.lblComprobante.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComprobante.ForeColor = System.Drawing.Color.White;
+            this.lblComprobante.Location = new System.Drawing.Point(148, 0);
+            this.lblComprobante.Name = "lblComprobante";
+            this.lblComprobante.Size = new System.Drawing.Size(93, 15);
+            this.lblComprobante.TabIndex = 605;
+            this.lblComprobante.Text = "Comprobante";
             // 
             // panelClienteFactura
             // 
@@ -1187,53 +1234,6 @@
             this.txtnumerofin.Size = new System.Drawing.Size(93, 15);
             this.txtnumerofin.TabIndex = 613;
             this.txtnumerofin.Text = "Comprobante";
-            // 
-            // FlowLayoutPanel1
-            // 
-            this.FlowLayoutPanel1.Controls.Add(this.txtserie);
-            this.FlowLayoutPanel1.Controls.Add(this.lblCorrelativoconCeros);
-            this.FlowLayoutPanel1.Controls.Add(this.lblComprobante);
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(16, 514);
-            this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
-            this.FlowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FlowLayoutPanel1.Size = new System.Drawing.Size(442, 19);
-            this.FlowLayoutPanel1.TabIndex = 611;
-            // 
-            // txtserie
-            // 
-            this.txtserie.AutoSize = true;
-            this.txtserie.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtserie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtserie.ForeColor = System.Drawing.Color.White;
-            this.txtserie.Location = new System.Drawing.Point(346, 0);
-            this.txtserie.Name = "txtserie";
-            this.txtserie.Size = new System.Drawing.Size(93, 15);
-            this.txtserie.TabIndex = 605;
-            this.txtserie.Text = "Comprobante";
-            // 
-            // lblCorrelativoconCeros
-            // 
-            this.lblCorrelativoconCeros.AutoSize = true;
-            this.lblCorrelativoconCeros.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblCorrelativoconCeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorrelativoconCeros.ForeColor = System.Drawing.Color.White;
-            this.lblCorrelativoconCeros.Location = new System.Drawing.Point(247, 0);
-            this.lblCorrelativoconCeros.Name = "lblCorrelativoconCeros";
-            this.lblCorrelativoconCeros.Size = new System.Drawing.Size(93, 15);
-            this.lblCorrelativoconCeros.TabIndex = 606;
-            this.lblCorrelativoconCeros.Text = "Comprobante";
-            // 
-            // lblComprobante
-            // 
-            this.lblComprobante.AutoSize = true;
-            this.lblComprobante.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComprobante.ForeColor = System.Drawing.Color.White;
-            this.lblComprobante.Location = new System.Drawing.Point(148, 0);
-            this.lblComprobante.Name = "lblComprobante";
-            this.lblComprobante.Size = new System.Drawing.Size(93, 15);
-            this.lblComprobante.TabIndex = 605;
-            this.lblComprobante.Text = "Comprobante";
             // 
             // dtComprobantes
             // 
@@ -1553,13 +1553,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoempleado)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.FlowLayoutPanel1.ResumeLayout(false);
+            this.FlowLayoutPanel1.PerformLayout();
             this.panelClienteFactura.ResumeLayout(false);
             this.panelClienteFactura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes3)).EndInit();
             this.MenuStrip10.ResumeLayout(false);
             this.MenuStrip10.PerformLayout();
-            this.FlowLayoutPanel1.ResumeLayout(false);
-            this.FlowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtComprobantes)).EndInit();
             this.PanelImpresionvistaprevia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
