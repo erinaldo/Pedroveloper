@@ -35,6 +35,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         public static int idusuario_que_inicio_sesion;
         public static int idVenta;
         int iddetalleventa;
+        double preciounitario;
         int Contador;
         public static double txtpantalla;
         double lblStock_de_Productos;
@@ -693,7 +694,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
-                cmd.Parameters.AddWithValue("@moneda", 0);
+                cmd.Parameters.AddWithValue("@moneda", "DOP");
                 cmd.Parameters.AddWithValue("@unidades", "Unidad");
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Estado", "EN ESPERA");

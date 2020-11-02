@@ -739,8 +739,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void datalistadoclientes2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            idcliente = Convert.ToInt32(datalistadoclientes2.SelectedCells[1].Value.ToString());
             txtclientesolicitabnte2.Text = datalistadoclientes2.SelectedCells[2].Value.ToString();
-            idcliente =Convert.ToInt32 ( datalistadoclientes2.SelectedCells[1].Value.ToString());
             datalistadoclientes2.Visible = false;
         }
 
@@ -900,11 +900,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         void vender_en_efectivo()
         {
-            if (idcliente==0 )
+            if (idcliente==0 || idcliente==1 )
             {
                 MOSTRAR_cliente_standar();
             }
-            if (lblComprobante.Text == "FACTURA" && idcliente == 0 && txttipo != "CREDITO")
+            if (lblComprobante.Text == "FACTURA" && idcliente > -1 && idcliente < 2 && txttipo != "CREDITO")
             {
                 MessageBox.Show("Seleccione un Cliente, para Facturas es Obligatorio", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -912,7 +912,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 procesar_venta_efectivo();
             }
-
             else if (lblComprobante.Text != "FACTURA" && txttipo != "CREDITO")
             {
                 procesar_venta_efectivo();
@@ -1045,6 +1044,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
            if ( indicador =="VISTA PREVIA")
             {
                 mostrar_ticket_impreso_VISTA_PREVIA();
+                mostrar_factura_impresa_VISTA_PREVIA();
             }
            else if (indicador =="DIRECTO")
             {
@@ -1132,6 +1132,39 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
 
         }
+        void mostrar_factura_impresa_VISTA_PREVIA()
+        {
+            PanelImpresionvistaprevia.Visible = true;
+            PanelImpresionvistaprevia.Dock = DockStyle.Fill;
+            panelGuardado_de_datos.Dock = DockStyle.None;
+            panelGuardado_de_datos.Visible = false;
+
+            Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report();
+            DataTable dt = new DataTable();
+            try
+            {
+                CONEXION.CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso", CONEXION.CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idFactura);
+                da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
+                da.Fill(dt);
+                rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report();
+                rpt.table1.DataSource = dt;
+                rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
+                reportViewer1.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
+                reportViewer1.RefreshReport();
+                CONEXION.CONEXIONMAESTRA.cerrar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+        }
         void CONFIRMAR_VENTA_EFECTIVO()
         {
             try
@@ -1145,6 +1178,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@Saldo", vuelto);
                 cmd.Parameters.AddWithValue("@Tipo_de_pago",txttipo );
                 cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
+                MessageBox.Show(idcliente.ToString());
                 cmd.Parameters.AddWithValue("@idcliente", idcliente);
                 cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
                 cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text ));
@@ -1457,8 +1491,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void datalistadoclientes3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtclientesolicitabnte3.Text = datalistadoclientes3.SelectedCells[2].Value.ToString();
             idcliente = Convert.ToInt32(datalistadoclientes3.SelectedCells[1].Value.ToString());
+            MessageBox.Show(idcliente.ToString());
+            txtclientesolicitabnte3.Text = datalistadoclientes3.SelectedCells[2].Value.ToString();
             datalistadoclientes3.Visible = false;
         }
 
