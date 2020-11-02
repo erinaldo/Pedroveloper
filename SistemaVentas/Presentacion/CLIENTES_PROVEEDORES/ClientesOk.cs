@@ -351,15 +351,30 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtnombre.Text))
-            {
-                rellenarCamposVacios();
-                insertar();
-            }
-            else
-            {
-                MessageBox.Show("Ingrese un nombre", "Datos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtTipoTelefono, txtCorreo};
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+
+                if (txtNumeracion.Text.Length == 13)
+                {
+
+                    if (txtTelefono.Text.Length == 12)
+                    {
+                        rellenarCamposVacios();
+                        insertar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
+                            "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
+                       " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
         private void rellenarCamposVacios()
@@ -465,15 +480,29 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtnombre.Text))
+            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtTipoTelefono, txtCorreo };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
-                rellenarCamposVacios();
-                editar();
-            }
-            else
-            {
-                MessageBox.Show("Ingrese un nombre", "Datos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                if (txtNumeracion.Text.Length == 13)
+                {
+
+                    if (txtTelefono.Text.Length == 12)
+                    {
+                        rellenarCamposVacios();
+                        editar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
+                            "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
+                       " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 

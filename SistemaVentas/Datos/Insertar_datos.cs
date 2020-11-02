@@ -22,7 +22,7 @@ namespace SistemaVentas.Datos
             {
                 if (string.IsNullOrEmpty(textBox[i].Text))
                 {
-                    MessageBox.Show("Ingrese los datos corrrectamente del Empleado", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("RELLENE TODOS LOS CAMPOS CORRECTAMENTE", "Verificacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
 

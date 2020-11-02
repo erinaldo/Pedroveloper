@@ -785,6 +785,7 @@
   <ItemGroup>
     <Content Include="Presentacion\CAJA\FormatoCierreCaja.html" />
     <Content Include="Presentacion\LOGIN\HTMLPage1.html" />
+    <None Include="Resources\disco-flexible.png" />
     <None Include="Resources\addthis.png" />
     <None Include="Resources\camion-de-reparto %281%29.png" />
     <None Include="Resources\21387.png" />

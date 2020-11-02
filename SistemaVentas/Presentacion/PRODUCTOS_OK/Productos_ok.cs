@@ -506,43 +506,45 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void TGUARDAR_Click_1(object sender, EventArgs e)
         {
-            double txtpreciomayoreoV=Convert.ToDouble (txtpreciomayoreo.Text );
-
-            double txtapartirdeV = Convert.ToDouble(txtapartirde.Text);
-            double txtcostoV= Convert.ToDouble(txtcosto.Text);
-            double TXTPRECIODEVENTA2V = Convert.ToDouble(TXTPRECIODEVENTA2.Text);
-            if (txtpreciomayoreo.Text == "") txtpreciomayoreo.Text = "0";
-            if (txtapartirde.Text == "") txtapartirde.Text = "0";
-            //TXTPRECIODEVENTA2.Text = TXTPRECIODEVENTA2.Text.Replace(lblmoneda.Text + " ", "");
-            //TXTPRECIODEVENTA2.Text = System.String.Format(((decimal)TXTPRECIODEVENTA2.Text), "##0.00");
-            if ((txtpreciomayoreoV  > 0 & Convert.ToDouble(txtapartirde.Text ) > 0) | (txtpreciomayoreoV  == 0 & txtapartirdeV  == 0))
+            TextBox[] array = { txtpreciomayoreo, txtdescripcion, txtcodigodebarras, txtcosto, TXTPRECIODEVENTA2, txtpreciomayoreo, txtgrupo };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
-                if (txtcostoV  >= TXTPRECIODEVENTA2V )
+                if(txtstock2.Text != "0" && txtcosto.Text !="0" && TXTPRECIODEVENTA2.Text != "0")
                 {
-
-                    DialogResult result;
-                    result = MessageBox.Show("El precio de Factura es menor que el COSTO, Esto Te puede Generar Perdidas", "Producto con Perdidas", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
-                    if (result == DialogResult.OK)
+                    double txtpreciomayoreoV = Convert.ToDouble(txtpreciomayoreo.Text);
+                    double txtapartirdeV = Convert.ToDouble(txtapartirde.Text);
+                    double txtcostoV = Convert.ToDouble(txtcosto.Text);
+                    double TXTPRECIODEVENTA2V = Convert.ToDouble(TXTPRECIODEVENTA2.Text);
+                    if (txtpreciomayoreo.Text == "") txtpreciomayoreo.Text = "0";
+                    if (txtapartirde.Text == "") txtapartirde.Text = "0";
+                    if ((txtpreciomayoreoV > 0 & Convert.ToDouble(txtapartirde.Text) > 0) | (txtpreciomayoreoV == 0 & txtapartirdeV == 0))
                     {
-                        insertar_productos();
+                        if (txtcostoV >= TXTPRECIODEVENTA2V)
+                        {
+
+                            DialogResult result;
+                            result = MessageBox.Show("El precio del Articulo es menor o igual que el costo, Esto te puede generar perdidas", "Producto con Perdidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                            if (result == DialogResult.OK)
+                            {
+                                TXTPRECIODEVENTA2.Focus();
+                                TXTPRECIODEVENTA2.SelectAll();
+                            }
+                        }
+                        else if (txtcostoV < TXTPRECIODEVENTA2V)
+                        {
+                            insertar_productos();
+                        }
                     }
-                    else
+                    else if (txtpreciomayoreoV != 0 | txtapartirdeV != 0)
                     {
-                        TXTPRECIODEVENTA2.Focus();
+                        MessageBox.Show("Estas configurando Precio mayoreo, debes completar los campos de Precio mayoreo y A partir de, si no deseas configurarlo dejalos en blanco", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     }
-
-
                 }
-                else if (txtcostoV < TXTPRECIODEVENTA2V)
+                else
                 {
-                    insertar_productos();
+                    MessageBox.Show("Los datos estan incorrectos, el formato es:" + "\nPrecio costo = 100\nPrecio articulo mayor a 100\n%Ganancia puede ser 0", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 }
-            }
-            else if (txtpreciomayoreoV  != 0 | txtapartirdeV  != 0)
-            {
-                MessageBox.Show("Estas configurando Precio mayoreo, debes completar los campos de Precio mayoreo y A partir de, si no deseas configurarlo dejalos en blanco", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
             }
         }
         private void insertar_productos()
@@ -1080,43 +1082,49 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void TGUARDARCAMBIOS_Click_1(object sender, EventArgs e)
         {
-            double txtpreciomayoreoV = Convert.ToDouble(txtpreciomayoreo.Text);
-
-            double txtapartirdeV = Convert.ToDouble(txtapartirde.Text);
-            double txtcostoV = Convert.ToDouble(txtcosto.Text);
-            double TXTPRECIODEVENTA2V = Convert.ToDouble(TXTPRECIODEVENTA2.Text);
-            if (txtpreciomayoreo.Text == "") txtpreciomayoreo.Text = "0";
-            if (txtapartirde.Text == "") txtapartirde.Text = "0";
-            //TXTPRECIODEVENTA2.Text = TXTPRECIODEVENTA2.Text.Replace(lblmoneda.Text + " ", "");
-            //TXTPRECIODEVENTA2.Text = System.String.Format(((decimal)TXTPRECIODEVENTA2.Text), "##0.00");
-            if ((txtpreciomayoreoV > 0 & Convert.ToDouble(txtapartirde.Text) > 0) | (txtpreciomayoreoV == 0 & txtapartirdeV == 0))
+            TextBox[] array = { txtpreciomayoreo, txtdescripcion, txtcodigodebarras, txtcosto, TXTPRECIODEVENTA2, txtpreciomayoreo, txtgrupo };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
-                if (txtcostoV >= TXTPRECIODEVENTA2V)
+                if (txtstock2.Text != "0" && txtcosto.Text != "0" && TXTPRECIODEVENTA2.Text != "0")
                 {
+                    double txtpreciomayoreoV = Convert.ToDouble(txtpreciomayoreo.Text);
 
-                    DialogResult result;
-                    result = MessageBox.Show("El precio de Factura es menor que el COSTO, Esto Te puede Generar Perdidas", "Producto con Perdidas", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
-                    if (result == DialogResult.OK)
+                    double txtapartirdeV = Convert.ToDouble(txtapartirde.Text);
+                    double txtcostoV = Convert.ToDouble(txtcosto.Text);
+                    double TXTPRECIODEVENTA2V = Convert.ToDouble(TXTPRECIODEVENTA2.Text);
+                    if (txtpreciomayoreo.Text == "") txtpreciomayoreo.Text = "0";
+                    if (txtapartirde.Text == "") txtapartirde.Text = "0";
+                    //TXTPRECIODEVENTA2.Text = TXTPRECIODEVENTA2.Text.Replace(lblmoneda.Text + " ", "");
+                    //TXTPRECIODEVENTA2.Text = System.String.Format(((decimal)TXTPRECIODEVENTA2.Text), "##0.00");
+                    if ((txtpreciomayoreoV > 0 & Convert.ToDouble(txtapartirde.Text) > 0) | (txtpreciomayoreoV == 0 & txtapartirdeV == 0))
                     {
-                        editar_productos();
+                        if (txtcostoV >= TXTPRECIODEVENTA2V)
+                        {
+
+                            DialogResult result;
+                            result = MessageBox.Show("El precio del Articulo es menor o igual que el costo, Esto te puede generar perdidas", "Producto con Perdidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                            if (result == DialogResult.OK)
+                            {
+                                TXTPRECIODEVENTA2.Focus();
+                                TXTPRECIODEVENTA2.SelectAll();
+                            }
+                        }
+                        else if (txtcostoV < TXTPRECIODEVENTA2V)
+                        {
+                            editar_productos();
+                        }
                     }
-                    else
+                    else if (txtpreciomayoreoV != 0 | txtapartirdeV != 0)
                     {
-                        TXTPRECIODEVENTA2.Focus();
+                        MessageBox.Show("Estas configurando Precio mayoreo, debes completar los campos de Precio mayoreo y A partir de, si no deseas configurarlo dejalos en blanco", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
                     }
-
-
                 }
-                else if (txtcostoV < TXTPRECIODEVENTA2V)
+                else
                 {
-                    editar_productos();
+                    MessageBox.Show("Los datos estan incorrectos, el formato es:" + "\nPrecio costo = 100\nPrecio articulo mayor a 100\n%Ganancia puede ser 0", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 }
-            }
-            else if (txtpreciomayoreoV != 0 | txtapartirdeV != 0)
-            {
-                MessageBox.Show("Estas configurando Precio mayoreo, debes completar los campos de Precio mayoreo y A partir de, si no deseas configurarlo dejalos en blanco", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
             }
         }
 
@@ -1486,6 +1494,11 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void Panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
