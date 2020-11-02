@@ -399,7 +399,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             Bases.Cambiar_idioma_regional();
 
             PANELDEPARTAMENTO.Visible = false;
-            txtbusca.Text = "Buscar...";
+            txtbusca.Focus();
+            txtbusca.SelectAll();
             sumar_costo_de_inventario_CONTAR_PRODUCTOS();
             buscar();
             mostrar_grupos();
@@ -533,7 +534,18 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                         }
                         else if (txtcostoV < TXTPRECIODEVENTA2V)
                         {
-                            insertar_productos();
+                            if(Convert.ToDouble(txtpreciomayoreo.Text) <= Convert.ToDouble(txtcosto.Text) && 
+                                (Convert.ToDouble(txtpreciomayoreo.Text) != 0 || Convert.ToDouble(txtpreciomayoreo.Text) != 0.00))
+                            {
+                                
+                                MessageBox.Show("El precio al por mayor es menor o igual que el costo, Esto te puede generar perdidas", "Producto con Perdidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txtpreciomayoreo.Focus();
+                                txtpreciomayoreo.SelectAll();
+                            }
+                            else
+                            {
+                                insertar_productos();
+                            }
                         }
                     }
                     else if (txtpreciomayoreoV != 0 | txtapartirdeV != 0)
@@ -611,7 +623,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
            
                 con.Close();
                 PANELDEPARTAMENTO.Visible = false;
-                txtbusca.Text = txtdescripcion.Text;
+                //txtbusca.Text = txtdescripcion.Text;
+                txtbusca.Focus();
                 buscar();
             }
             catch (Exception ex)
@@ -679,7 +692,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 con.Close();
                 PANELDEPARTAMENTO.Visible = false;
-                txtbusca.Text = txtdescripcion.Text;
+                //txtbusca.Text = txtdescripcion.Text;
+                txtbusca.Focus();
                 buscar();
             }
             catch (Exception ex)
@@ -1112,7 +1126,18 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                         }
                         else if (txtcostoV < TXTPRECIODEVENTA2V)
                         {
-                            editar_productos();
+                            if (Convert.ToDouble(txtpreciomayoreo.Text) <= Convert.ToDouble(txtcosto.Text) &&
+                                (Convert.ToDouble(txtpreciomayoreo.Text) != 0 || Convert.ToDouble(txtpreciomayoreo.Text) != 0.00))
+                            {
+
+                                MessageBox.Show("El precio al por mayor es menor o igual que el costo, Esto te puede generar perdidas", "Producto con Perdidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txtpreciomayoreo.Focus();
+                                txtpreciomayoreo.SelectAll();
+                            }
+                            else
+                            {
+                                editar_productos();
+                            }
                         }
                     }
                     else if (txtpreciomayoreoV != 0 | txtapartirdeV != 0)
