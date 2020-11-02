@@ -7,12 +7,29 @@ using System.Data.SqlClient;
 using SistemaVentas.CONEXION;
 using System.Windows.Forms;
 using SistemaVentas.Logica;
+using System.Text.RegularExpressions;
+
 namespace SistemaVentas.Datos
 {
-  public  class Insertar_datos
+    public class Insertar_datos
     {
+       
         int idcaja;
         int idusuario;
+        public static bool ValidTextIsNotNullOrEmpty(TextBox[] textBox)
+        {
+            for(int i = 0; i < textBox.Length; ++i)
+            {
+                if (string.IsNullOrEmpty(textBox[i].Text))
+                {
+                    MessageBox.Show("Ingrese los datos corrrectamente del Empleado", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+
+            }
+            return true;
+        }
+
         public static bool insertar_Conceptos(string descripcion)
         {
             try

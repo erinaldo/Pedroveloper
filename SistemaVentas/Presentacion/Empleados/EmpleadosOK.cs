@@ -96,80 +96,76 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
-            if (Datos.Obtener_datos.validar_Mail(txtCorreo.Text) == false)
+            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono,  txtDireccion, txtCuentaBanco,  txtTipoTelefono};
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
-                MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtCorreo.Focus();
-                txtCorreo.SelectAll();
-            }
-            else
-            {
-                if(txtnombre.Text != "")
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                if (ICONO.Image != null)
                 {
-                    if(txtNumeracion.Text != "")
+                    if (Datos.Obtener_datos.validar_Mail(txtCorreo.Text) == false)
                     {
-                        if(txtCuentaBanco.Text != "")
+                        MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtCorreo.Focus();
+                        txtCorreo.SelectAll();
+                    }
+                    else
+                    {
+                        if (txtNumeracion.Text.Length == 13)
                         {
-                            if(txtDepartamento.Text != "")
+                            if (txtCuentaBanco.Text.Length == 9)
                             {
-                                if (txtBanco.Text != "")
+                                if (txtDepartamento.Text != "")
                                 {
-                                    if (txtTelefono.Text != "" && txtTipoTelefono.Text != "")
+                                    if (txtBanco.Text != "")
                                     {
-                                        if(txtTipoDocumento.Text != "" && txtTipoDocumento.Text !="" && txtTipoHorario.Text !="")
+                                        if (txtTelefono.Text.Length == 12)
                                         {
-                                            if(txtDireccion.Text != "")
+                                            if (txtTipoDocumento.Text != "" && txtTipoHorario.Text != "")
                                             {
+
                                                 insertar();
                                                 rellenarCamposVacios();
+
                                             }
                                             else
                                             {
-                                                MessageBox.Show("Elija una direccion correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                MessageBox.Show("Elija un Tipo de Documento correctamente o el Tipo de Horario", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                                             }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Elija un Tipo de Documento correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                                            MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
+                                                "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                         }
-
-                                    } else
+                                    }
+                                    else
                                     {
-                                        MessageBox.Show("Elija un Telefono correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show("Elija un tipo de banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                 }
                                 else
                                 {
-
-                                    MessageBox.Show("Elija un banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                                    MessageBox.Show("Elija un departamento correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Elija un departamento correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                                MessageBox.Show("Cuenta de banco no valida, la cuenta debe tener el formato: XXXXXXXXX 9 CARACTERES," +
+                                    " " + " por favor seleccione una cuenta valida", "Validación de cuenta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Elija una cuenta de banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                            MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
+                                " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Elija una cedula correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Elija un nombre correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }  
+                    MessageBox.Show("Seleccione una foto del Empleado", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
         private void insertar()
@@ -492,59 +488,76 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Datos.Obtener_datos.validar_Mail(txtCorreo.Text) == false)
+            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtCuentaBanco, txtTipoTelefono };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
-                MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtCorreo.Focus();
-                txtCorreo.SelectAll();
-            }
-            else
-            {
-                if (txtnombre.Text != "")
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                if (ICONO.Image != null)
                 {
-                    if (txtNumeracion.Text != "")
+                    if (Datos.Obtener_datos.validar_Mail(txtCorreo.Text) == false)
                     {
-                        if (txtCuentaBanco.Text != "")
+                        MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtCorreo.Focus();
+                        txtCorreo.SelectAll();
+                    }
+                    else
+                    {
+                        if (txtNumeracion.Text.Length == 13)
                         {
-                            if (txtDepartamento.Text != "")
+                            if (txtCuentaBanco.Text.Length == 9)
                             {
-                                if (txtBanco.Text != "")
+                                if (txtDepartamento.Text != "")
                                 {
-                                    obtenerId_estado();
-                                    rellenarCamposVacios();
-                                    editar();
+                                    if (txtBanco.Text != "")
+                                    {
+                                        if (txtTelefono.Text.Length == 12)
+                                        {
+                                            if (txtTipoDocumento.Text != "" && txtTipoHorario.Text != "")
+                                            {
+                                                obtenerId_estado();
+                                                rellenarCamposVacios();
+                                                editar();
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Elija un Tipo de Documento correctamente o el Tipo de Horario", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
+                                                "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Elija un tipo de banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Elija un banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                                    MessageBox.Show("Elija un departamento correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Elija un departamento correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                                MessageBox.Show("Cuenta de banco no valida, la cuenta debe tener el formato: XXXXXXXXX 9 CARACTERES," +
+                                    " " + " por favor seleccione una cuenta valida", "Validación de cuenta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Elija una cuenta de banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                            MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
+                                " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Elija una cedula correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Elija un nombre correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MessageBox.Show("Seleccione una foto del Empleado", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
         }
 
         int idEmpleado1;

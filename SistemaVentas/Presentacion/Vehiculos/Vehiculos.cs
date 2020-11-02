@@ -73,49 +73,56 @@ namespace SistemaVentas.Presentacion.Vehiculos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (txtPlaca.Text != "")
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            if(ICONO.Image != null)
             {
-                if (txtTransmision.Text != "")
+                if (txtPlaca.Text != "" && txtPlaca.Text.Length == 7)
                 {
-                    if (txtColor.Text != "")
+                    if (txtTransmision.Text != "")
                     {
-                        if (txtMarca.Text != "")
+                        if (txtColor.Text != "")
                         {
-                            if (txtModelo.Text != "")
+                            if (txtMarca.Text != "")
                             {
-                                rellenarCamposVacios();
-                                insertar();
+                                if (txtModelo.Text != "")
+                                {
+                                    rellenarCamposVacios();
+                                    insertar();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Elija un Modelo correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Elija un Modelo correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Elija una Marca correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Elija una Marca correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Elija un Color correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Elija un color correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Elija una Transmision correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Elija una Transmision correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Digite una placa correctamente de 7 digitos " + "con el formato:\nTipo: S-U-J-L XXXXXXX" , "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
             else
             {
-                MessageBox.Show("Digite una placa correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("Seleccione una foto del vehiculo", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
         private void insertar()
         {
@@ -144,7 +151,7 @@ namespace SistemaVentas.Presentacion.Vehiculos
             }
             else
             {
-                MessageBox.Show("Clickea correctamente dentro de un tipo de vehiculo", "Registro de Vehiculos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Clickea correctamente dentro de un Tipo de Vehiculo", "Registro de Vehiculos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -255,52 +262,58 @@ namespace SistemaVentas.Presentacion.Vehiculos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtPlaca.Text != "")
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            if (ICONO.Image != null)
             {
-                if (txtTransmision.Text != "")
+                if (txtPlaca.Text != "" && txtPlaca.Text.Length == 7)
                 {
-                    if (txtColor.Text != "")
+                    if (txtTransmision.Text != "")
                     {
-                        if (txtMarca.Text != "")
+                        if (txtColor.Text != "")
                         {
-                            if (txtModelo.Text != "")
+                            if (txtMarca.Text != "")
                             {
-                                obtenerId_estado();
-                                rellenarCamposVacios();
-                                editarVehiculos();
+                                if (txtModelo.Text != "")
+                                {
+                                    obtenerId_estado();
+                                    rellenarCamposVacios();
+                                    editarVehiculos();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Elija un Modelo correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Elija un Modelo correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Elija una Marca correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Elija una Marca correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Elija un Color correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Elija un color correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Elija una Transmision correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Elija una Transmision correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Digite una placa correctamente de 7 digitos " + "con el formato:\nTipo: S-U-J-L XXXXXXX", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
             else
             {
-                MessageBox.Show("Digite una placa correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("Seleccione una foto del vehiculo", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
-
        
         
         private void eliminar()
@@ -629,6 +642,11 @@ namespace SistemaVentas.Presentacion.Vehiculos
             txtCarga.Visible = true;
             lblcapacidad.Visible = true;
             linealbl.Visible = true;
+        }
+
+        private void txtPlaca_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

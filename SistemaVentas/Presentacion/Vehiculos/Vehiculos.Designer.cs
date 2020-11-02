@@ -30,17 +30,31 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vehiculos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vehiculos));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.PictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.txtbuscar = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lblidtipovehiculo = new System.Windows.Forms.Label();
+            this.PanelTipoVehiculo = new System.Windows.Forms.Panel();
+            this.datalistadoTipoVehiculo = new System.Windows.Forms.DataGridView();
+            this.EliminarG = new System.Windows.Forms.DataGridViewImageColumn();
+            this.EditarG = new System.Windows.Forms.DataGridViewImageColumn();
+            this.MenuStrip9 = new System.Windows.Forms.MenuStrip();
+            this.btnGuardar_grupo = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnCancelar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevoGrupo = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtTipoVehiculo = new System.Windows.Forms.TextBox();
+            this.linealbl = new System.Windows.Forms.Panel();
+            this.txtCarga = new System.Windows.Forms.TextBox();
+            this.lblcapacidad = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.Label21 = new System.Windows.Forms.Label();
@@ -72,7 +86,6 @@
             this.Label6 = new System.Windows.Forms.Label();
             this.Label8 = new System.Windows.Forms.Label();
             this.Panel19 = new System.Windows.Forms.Panel();
-            this.PictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dlg = new System.Windows.Forms.OpenFileDialog();
             this.datalistado = new System.Windows.Forms.DataGridView();
@@ -82,32 +95,19 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.linealbl = new System.Windows.Forms.Panel();
-            this.txtCarga = new System.Windows.Forms.TextBox();
-            this.lblcapacidad = new System.Windows.Forms.Label();
-            this.txtTipoVehiculo = new System.Windows.Forms.TextBox();
-            this.PanelTipoVehiculo = new System.Windows.Forms.Panel();
-            this.datalistadoTipoVehiculo = new System.Windows.Forms.DataGridView();
-            this.EliminarG = new System.Windows.Forms.DataGridViewImageColumn();
-            this.EditarG = new System.Windows.Forms.DataGridViewImageColumn();
-            this.MenuStrip9 = new System.Windows.Forms.MenuStrip();
-            this.btnGuardar_grupo = new System.Windows.Forms.ToolStripMenuItem();
-            this.BtnCancelar = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnNuevoGrupo = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblidtipovehiculo = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panelRegistros.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAno)).BeginInit();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ICONO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
-            this.panel4.SuspendLayout();
             this.PanelTipoVehiculo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoTipoVehiculo)).BeginInit();
             this.MenuStrip9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAno)).BeginInit();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ICONO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -121,6 +121,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1136, 63);
             this.panel2.TabIndex = 4;
+            // 
+            // PictureBox2
+            // 
+            this.PictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBox2.Image = global::SistemaVentas.Properties.Resources._1486485587_add_create_new_maths_math_signs_plus_81172;
+            this.PictureBox2.Location = new System.Drawing.Point(373, 6);
+            this.PictureBox2.Name = "PictureBox2";
+            this.PictureBox2.Size = new System.Drawing.Size(138, 55);
+            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox2.TabIndex = 360;
+            this.PictureBox2.TabStop = false;
+            this.PictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
             // panel12
             // 
@@ -217,6 +230,172 @@
             this.panel5.Size = new System.Drawing.Size(1136, 493);
             this.panel5.TabIndex = 605;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // lblidtipovehiculo
+            // 
+            this.lblidtipovehiculo.AutoSize = true;
+            this.lblidtipovehiculo.Location = new System.Drawing.Point(820, 125);
+            this.lblidtipovehiculo.Name = "lblidtipovehiculo";
+            this.lblidtipovehiculo.Size = new System.Drawing.Size(60, 20);
+            this.lblidtipovehiculo.TabIndex = 643;
+            this.lblidtipovehiculo.Text = "label10";
+            // 
+            // PanelTipoVehiculo
+            // 
+            this.PanelTipoVehiculo.Controls.Add(this.datalistadoTipoVehiculo);
+            this.PanelTipoVehiculo.Location = new System.Drawing.Point(433, 303);
+            this.PanelTipoVehiculo.Name = "PanelTipoVehiculo";
+            this.PanelTipoVehiculo.Size = new System.Drawing.Size(360, 178);
+            this.PanelTipoVehiculo.TabIndex = 642;
+            // 
+            // datalistadoTipoVehiculo
+            // 
+            this.datalistadoTipoVehiculo.AllowUserToAddRows = false;
+            this.datalistadoTipoVehiculo.AllowUserToDeleteRows = false;
+            this.datalistadoTipoVehiculo.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoTipoVehiculo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.datalistadoTipoVehiculo.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadoTipoVehiculo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadoTipoVehiculo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadoTipoVehiculo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.datalistadoTipoVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistadoTipoVehiculo.ColumnHeadersVisible = false;
+            this.datalistadoTipoVehiculo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EliminarG,
+            this.EditarG});
+            this.datalistadoTipoVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datalistadoTipoVehiculo.EnableHeadersVisualStyles = false;
+            this.datalistadoTipoVehiculo.Location = new System.Drawing.Point(0, 0);
+            this.datalistadoTipoVehiculo.Name = "datalistadoTipoVehiculo";
+            this.datalistadoTipoVehiculo.ReadOnly = true;
+            this.datalistadoTipoVehiculo.RowHeadersVisible = false;
+            this.datalistadoTipoVehiculo.RowHeadersWidth = 9;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoTipoVehiculo.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadoTipoVehiculo.RowTemplate.Height = 40;
+            this.datalistadoTipoVehiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadoTipoVehiculo.Size = new System.Drawing.Size(360, 178);
+            this.datalistadoTipoVehiculo.TabIndex = 535;
+            this.datalistadoTipoVehiculo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoTipoVehiculo_CellClick);
+            this.datalistadoTipoVehiculo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoTipoVehiculo_CellContentClick);
+            // 
+            // EliminarG
+            // 
+            this.EliminarG.HeaderText = "";
+            this.EliminarG.Image = ((System.Drawing.Image)(resources.GetObject("EliminarG.Image")));
+            this.EliminarG.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.EliminarG.Name = "EliminarG";
+            this.EliminarG.ReadOnly = true;
+            this.EliminarG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // EditarG
+            // 
+            this.EditarG.HeaderText = "";
+            this.EditarG.Image = ((System.Drawing.Image)(resources.GetObject("EditarG.Image")));
+            this.EditarG.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.EditarG.Name = "EditarG";
+            this.EditarG.ReadOnly = true;
+            // 
+            // MenuStrip9
+            // 
+            this.MenuStrip9.AutoSize = false;
+            this.MenuStrip9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.MenuStrip9.Dock = System.Windows.Forms.DockStyle.None;
+            this.MenuStrip9.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGuardar_grupo,
+            this.BtnCancelar,
+            this.btnNuevoGrupo});
+            this.MenuStrip9.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.MenuStrip9.Location = new System.Drawing.Point(433, 260);
+            this.MenuStrip9.Name = "MenuStrip9";
+            this.MenuStrip9.ShowItemToolTips = true;
+            this.MenuStrip9.Size = new System.Drawing.Size(625, 37);
+            this.MenuStrip9.TabIndex = 641;
+            this.MenuStrip9.Text = "MenuStrip3";
+            // 
+            // btnGuardar_grupo
+            // 
+            this.btnGuardar_grupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnGuardar_grupo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnGuardar_grupo.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar_grupo.Name = "btnGuardar_grupo";
+            this.btnGuardar_grupo.Size = new System.Drawing.Size(110, 33);
+            this.btnGuardar_grupo.Text = "Guardar Tipo";
+            this.btnGuardar_grupo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar_grupo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnGuardar_grupo.ToolTipText = "Agregar nuevo Concepto de Gastos";
+            this.btnGuardar_grupo.Click += new System.EventHandler(this.btnGuardar_grupo_Click);
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.BtnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnCancelar.ForeColor = System.Drawing.Color.White;
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(79, 33);
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // btnNuevoGrupo
+            // 
+            this.btnNuevoGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnNuevoGrupo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnNuevoGrupo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevoGrupo.Name = "btnNuevoGrupo";
+            this.btnNuevoGrupo.Size = new System.Drawing.Size(125, 33);
+            this.btnNuevoGrupo.Text = "+ Agregar Tipo";
+            this.btnNuevoGrupo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnNuevoGrupo.ToolTipText = "+ Agregar Grupo";
+            this.btnNuevoGrupo.Click += new System.EventHandler(this.btnNuevoGrupo_Click);
+            // 
+            // txtTipoVehiculo
+            // 
+            this.txtTipoVehiculo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.txtTipoVehiculo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTipoVehiculo.ForeColor = System.Drawing.Color.White;
+            this.txtTipoVehiculo.Location = new System.Drawing.Point(189, 312);
+            this.txtTipoVehiculo.Name = "txtTipoVehiculo";
+            this.txtTipoVehiculo.Size = new System.Drawing.Size(237, 19);
+            this.txtTipoVehiculo.TabIndex = 640;
+            this.txtTipoVehiculo.TextChanged += new System.EventHandler(this.txtTipoVehiculo_TextChanged);
+            // 
+            // linealbl
+            // 
+            this.linealbl.BackColor = System.Drawing.Color.Gray;
+            this.linealbl.Location = new System.Drawing.Point(190, 384);
+            this.linealbl.Name = "linealbl";
+            this.linealbl.Size = new System.Drawing.Size(237, 1);
+            this.linealbl.TabIndex = 638;
+            // 
+            // txtCarga
+            // 
+            this.txtCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.txtCarga.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCarga.ForeColor = System.Drawing.Color.White;
+            this.txtCarga.Location = new System.Drawing.Point(190, 363);
+            this.txtCarga.Name = "txtCarga";
+            this.txtCarga.Size = new System.Drawing.Size(237, 19);
+            this.txtCarga.TabIndex = 637;
+            // 
+            // lblcapacidad
+            // 
+            this.lblcapacidad.AutoSize = true;
+            this.lblcapacidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.lblcapacidad.ForeColor = System.Drawing.Color.White;
+            this.lblcapacidad.Location = new System.Drawing.Point(66, 362);
+            this.lblcapacidad.Name = "lblcapacidad";
+            this.lblcapacidad.Size = new System.Drawing.Size(116, 20);
+            this.lblcapacidad.TabIndex = 636;
+            this.lblcapacidad.Text = "Capacidad(kg):";
             // 
             // panel13
             // 
@@ -526,6 +705,7 @@
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(237, 19);
             this.txtPlaca.TabIndex = 605;
+            this.txtPlaca.TextChanged += new System.EventHandler(this.txtPlaca_TextChanged);
             // 
             // Label5
             // 
@@ -581,19 +761,6 @@
             this.Panel19.Size = new System.Drawing.Size(1387, 1);
             this.Panel19.TabIndex = 631;
             // 
-            // PictureBox2
-            // 
-            this.PictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PictureBox2.Image = global::SistemaVentas.Properties.Resources._1486485587_add_create_new_maths_math_signs_plus_81172;
-            this.PictureBox2.Location = new System.Drawing.Point(373, 6);
-            this.PictureBox2.Name = "PictureBox2";
-            this.PictureBox2.Size = new System.Drawing.Size(138, 55);
-            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox2.TabIndex = 360;
-            this.PictureBox2.TabStop = false;
-            this.PictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -618,32 +785,32 @@
             this.datalistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar2,
             this.Editar2});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistado.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistado.DefaultCellStyle = dataGridViewCellStyle8;
             this.datalistado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datalistado.EnableHeadersVisualStyles = false;
             this.datalistado.Location = new System.Drawing.Point(0, 110);
             this.datalistado.Name = "datalistado";
             this.datalistado.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistado.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistado.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.datalistado.RowHeadersVisible = false;
             this.datalistado.RowHeadersWidth = 9;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            this.datalistado.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            this.datalistado.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.datalistado.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.datalistado.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.datalistado.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -718,172 +885,6 @@
             this.label2.Text = "Vehiculos";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // linealbl
-            // 
-            this.linealbl.BackColor = System.Drawing.Color.Gray;
-            this.linealbl.Location = new System.Drawing.Point(190, 384);
-            this.linealbl.Name = "linealbl";
-            this.linealbl.Size = new System.Drawing.Size(237, 1);
-            this.linealbl.TabIndex = 638;
-            // 
-            // txtCarga
-            // 
-            this.txtCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.txtCarga.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCarga.ForeColor = System.Drawing.Color.White;
-            this.txtCarga.Location = new System.Drawing.Point(190, 363);
-            this.txtCarga.Name = "txtCarga";
-            this.txtCarga.Size = new System.Drawing.Size(237, 19);
-            this.txtCarga.TabIndex = 637;
-            // 
-            // lblcapacidad
-            // 
-            this.lblcapacidad.AutoSize = true;
-            this.lblcapacidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.lblcapacidad.ForeColor = System.Drawing.Color.White;
-            this.lblcapacidad.Location = new System.Drawing.Point(66, 362);
-            this.lblcapacidad.Name = "lblcapacidad";
-            this.lblcapacidad.Size = new System.Drawing.Size(116, 20);
-            this.lblcapacidad.TabIndex = 636;
-            this.lblcapacidad.Text = "Capacidad(kg):";
-            // 
-            // txtTipoVehiculo
-            // 
-            this.txtTipoVehiculo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.txtTipoVehiculo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTipoVehiculo.ForeColor = System.Drawing.Color.White;
-            this.txtTipoVehiculo.Location = new System.Drawing.Point(189, 312);
-            this.txtTipoVehiculo.Name = "txtTipoVehiculo";
-            this.txtTipoVehiculo.Size = new System.Drawing.Size(237, 19);
-            this.txtTipoVehiculo.TabIndex = 640;
-            this.txtTipoVehiculo.TextChanged += new System.EventHandler(this.txtTipoVehiculo_TextChanged);
-            // 
-            // PanelTipoVehiculo
-            // 
-            this.PanelTipoVehiculo.Controls.Add(this.datalistadoTipoVehiculo);
-            this.PanelTipoVehiculo.Location = new System.Drawing.Point(433, 303);
-            this.PanelTipoVehiculo.Name = "PanelTipoVehiculo";
-            this.PanelTipoVehiculo.Size = new System.Drawing.Size(360, 178);
-            this.PanelTipoVehiculo.TabIndex = 642;
-            // 
-            // datalistadoTipoVehiculo
-            // 
-            this.datalistadoTipoVehiculo.AllowUserToAddRows = false;
-            this.datalistadoTipoVehiculo.AllowUserToDeleteRows = false;
-            this.datalistadoTipoVehiculo.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoTipoVehiculo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.datalistadoTipoVehiculo.BackgroundColor = System.Drawing.Color.White;
-            this.datalistadoTipoVehiculo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.datalistadoTipoVehiculo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.datalistadoTipoVehiculo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.datalistadoTipoVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datalistadoTipoVehiculo.ColumnHeadersVisible = false;
-            this.datalistadoTipoVehiculo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EliminarG,
-            this.EditarG});
-            this.datalistadoTipoVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datalistadoTipoVehiculo.EnableHeadersVisualStyles = false;
-            this.datalistadoTipoVehiculo.Location = new System.Drawing.Point(0, 0);
-            this.datalistadoTipoVehiculo.Name = "datalistadoTipoVehiculo";
-            this.datalistadoTipoVehiculo.ReadOnly = true;
-            this.datalistadoTipoVehiculo.RowHeadersVisible = false;
-            this.datalistadoTipoVehiculo.RowHeadersWidth = 9;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gainsboro;
-            this.datalistadoTipoVehiculo.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            this.datalistadoTipoVehiculo.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.datalistadoTipoVehiculo.RowTemplate.Height = 40;
-            this.datalistadoTipoVehiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadoTipoVehiculo.Size = new System.Drawing.Size(360, 178);
-            this.datalistadoTipoVehiculo.TabIndex = 535;
-            this.datalistadoTipoVehiculo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoTipoVehiculo_CellClick);
-            this.datalistadoTipoVehiculo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoTipoVehiculo_CellContentClick);
-            // 
-            // EliminarG
-            // 
-            this.EliminarG.HeaderText = "";
-            this.EliminarG.Image = ((System.Drawing.Image)(resources.GetObject("EliminarG.Image")));
-            this.EliminarG.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.EliminarG.Name = "EliminarG";
-            this.EliminarG.ReadOnly = true;
-            this.EliminarG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // EditarG
-            // 
-            this.EditarG.HeaderText = "";
-            this.EditarG.Image = ((System.Drawing.Image)(resources.GetObject("EditarG.Image")));
-            this.EditarG.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.EditarG.Name = "EditarG";
-            this.EditarG.ReadOnly = true;
-            // 
-            // MenuStrip9
-            // 
-            this.MenuStrip9.AutoSize = false;
-            this.MenuStrip9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.MenuStrip9.Dock = System.Windows.Forms.DockStyle.None;
-            this.MenuStrip9.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnGuardar_grupo,
-            this.BtnCancelar,
-            this.btnNuevoGrupo});
-            this.MenuStrip9.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.MenuStrip9.Location = new System.Drawing.Point(433, 260);
-            this.MenuStrip9.Name = "MenuStrip9";
-            this.MenuStrip9.ShowItemToolTips = true;
-            this.MenuStrip9.Size = new System.Drawing.Size(625, 37);
-            this.MenuStrip9.TabIndex = 641;
-            this.MenuStrip9.Text = "MenuStrip3";
-            // 
-            // btnGuardar_grupo
-            // 
-            this.btnGuardar_grupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.btnGuardar_grupo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnGuardar_grupo.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar_grupo.Name = "btnGuardar_grupo";
-            this.btnGuardar_grupo.Size = new System.Drawing.Size(110, 33);
-            this.btnGuardar_grupo.Text = "Guardar Tipo";
-            this.btnGuardar_grupo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar_grupo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnGuardar_grupo.ToolTipText = "Agregar nuevo Concepto de Gastos";
-            this.btnGuardar_grupo.Click += new System.EventHandler(this.btnGuardar_grupo_Click);
-            // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.BtnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnCancelar.ForeColor = System.Drawing.Color.White;
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(79, 33);
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
-            // 
-            // btnNuevoGrupo
-            // 
-            this.btnNuevoGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.btnNuevoGrupo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnNuevoGrupo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoGrupo.Name = "btnNuevoGrupo";
-            this.btnNuevoGrupo.Size = new System.Drawing.Size(125, 33);
-            this.btnNuevoGrupo.Text = "+ Agregar Tipo";
-            this.btnNuevoGrupo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnNuevoGrupo.ToolTipText = "+ Agregar Grupo";
-            this.btnNuevoGrupo.Click += new System.EventHandler(this.btnNuevoGrupo_Click);
-            // 
-            // lblidtipovehiculo
-            // 
-            this.lblidtipovehiculo.AutoSize = true;
-            this.lblidtipovehiculo.Location = new System.Drawing.Point(820, 125);
-            this.lblidtipovehiculo.Name = "lblidtipovehiculo";
-            this.lblidtipovehiculo.Size = new System.Drawing.Size(60, 20);
-            this.lblidtipovehiculo.TabIndex = 643;
-            this.lblidtipovehiculo.Text = "label10";
-            // 
             // Vehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -902,22 +903,22 @@
             this.Load += new System.EventHandler(this.EmpleadosOK_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelRegistros.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAno)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ICONO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.PanelTipoVehiculo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoTipoVehiculo)).EndInit();
             this.MenuStrip9.ResumeLayout(false);
             this.MenuStrip9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAno)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ICONO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -1689,5 +1689,12 @@ namespace SistemaVentas.Datos
 
         }
 
+        public static bool validarCedula(string sMail)
+        {
+            return Regex.IsMatch(sMail, @"^\\d{3}\\D?\\d{7}\\D?\\d$");
+
+        }
+
+
     }
 }
