@@ -1058,7 +1058,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
            else if (indicador =="DIRECTO")
             {
-                imprimir_directo();
+                if (tipoImpresion == "FACTURA")
+                {
+                    imprimir_directo_factura();
+                }
+                else if (tipoImpresion == "TICKET")
+                {
+                    imprimir_directo();
+
+                }
             }
         }
         void imprimir_directo()
@@ -1080,6 +1088,54 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             catch (Exception ex)
             {
                 MessageBox.Show (ex.StackTrace);
+            }
+        }
+        void imprimir_directo_factura()
+        {
+            mostrar_factura_llena();
+            try
+            {
+                DOCUMENTO = new PrintDocument();
+                DOCUMENTO.PrinterSettings.PrinterName = txtImpresora.Text;
+                if (DOCUMENTO.PrinterSettings.IsValid)
+                {
+                    PrinterSettings printerSettings = new PrinterSettings();
+                    printerSettings.PrinterName = txtImpresora.Text;
+                    ReportProcessor reportProcessor = new ReportProcessor();
+                    reportProcessor.PrintReport(reportViewer2.ReportSource, printerSettings);
+                }
+                Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+        void mostrar_factura_llena()
+        {
+            Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
+            DataTable dt = new DataTable();
+            try
+            {
+                CONEXION.CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_factura_impreso", CONEXION.CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idFactura);
+                da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
+                da.Fill(dt);
+                rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
+                rpt.table1.DataSource = dt;
+                rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
+                reportViewer2.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
+                reportViewer2.RefreshReport();
+                CONEXION.CONEXIONMAESTRA.cerrar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
             }
         }
         void mostrar_Ticket_lleno()

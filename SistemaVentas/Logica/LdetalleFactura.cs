@@ -24,6 +24,6 @@ namespace SistemaVentas.Logica
         public string Usa_inventarios { get; set; }
         public double  Costo { get; set; }
         public double  Ganancia { get; set; }
-
+        public double Descuento { get; set; }
     }
 }

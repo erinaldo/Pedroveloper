@@ -29,6 +29,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             InitializeComponent();
         }
 
+        double descuento;
         int contador_stock_detalle_de_venta;
         int idproducto;
         int idClienteEstandar;
@@ -370,7 +371,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 // Si es producto no esta agregado a las ventas se tomara el Stock de la tabla Productos
                 lblStock_de_Productos = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString());
-                MessageBox.Show("contador_stock_detalle_de_venta");
+               // MessageBox.Show("contador_stock_detalle_de_venta");
 
             }
             else
@@ -680,6 +681,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
 
         }
+
         private void insertar_detalle_venta_Validado()
         {
             try
@@ -695,6 +697,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
                 cmd.Parameters.AddWithValue("@moneda", "DOP");
+                cmd.Parameters.AddWithValue("@Descuento", 0.00);
                 cmd.Parameters.AddWithValue("@unidades", "Unidad");
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Estado", "EN ESPERA");
@@ -775,6 +778,30 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 MessageBox.Show(ex.StackTrace + ex.Message);
             }
+        }
+        private void ejecutar_detalle_venta_decuento()
+        {
+            try
+            {
+                SqlCommand cmd;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+                cmd = new SqlCommand("editar_detalle_factura_descuento", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_producto", idproducto);
+                cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
+                cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
+                cmd.Parameters.AddWithValue("@Id_factura", idVenta);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+
+            }
+
         }
 
         private void ejecutar_editar_detalle_venta_sumar()
@@ -1200,7 +1227,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 {
 
                     if (sevendePor == "Unidad")
-
                     {
                         string cadena = txtmonto.Text;
                         if (cadena.Contains("."))
@@ -1210,8 +1236,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         else
                         {
                             BotonCantidad();
-
-
                         }
                     }
                     else if (sevendePor == "Granel")
@@ -1224,17 +1248,48 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     txtmonto.Clear();
                     txtmonto.Focus();
                 }
+                txtmonto.Focus();
+                txtmonto.Clear();
             }
 
         }
+
         private void BotonCantidad()
         {
-
             double MontoaIngresar;
             MontoaIngresar = Convert.ToDouble(txtmonto.Text);
             double Cantidad;
             Cantidad = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
 
+            double stock;
+            double condicional;
+            string ControlStock;
+            ControlStock = datalistadoDetalleVenta.SelectedCells[16].Value.ToString();
+            if (ControlStock == "SI")
+            {
+                stock = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[11].Value);
+                condicional = Cantidad + stock;
+                if (condicional >= MontoaIngresar)
+                {
+                    BotonCantidadEjecuta();
+                }
+                else
+                {
+                    TimerLABEL_STOCK.Start();
+                }
+            }
+            else
+            {
+                BotonCantidadEjecuta();
+            }
+        }
+
+        private void BotonDescuento()
+        {
+            double MontoaIngresar;
+            MontoaIngresar = Convert.ToDouble(txtmonto.Text);
+            double Cantidad;
+            Cantidad = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[18].Value);
             double stock;
             double condicional;
             string ControlStock;
@@ -1399,6 +1454,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void btnAutomaticoEspera_Click(object sender, EventArgs e)
         {
+            //OJOOOOOOO
             txtnombre.Text = "Ticket" + idVenta;
             editarVentaEspera();
         }
@@ -1525,16 +1581,62 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnprecio_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtmonto.Text))
+            //double precio = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
+            if (iddetalleventa == 0)
             {
-                LdetalleFactura parametros = new LdetalleFactura();
-                Editar_datos funcion = new Editar_datos();
-                parametros.iddetalle_factura = iddetalleventa;
-                parametros.preciounitario = Convert.ToDouble(txtmonto.Text);
-                if (funcion.editarPrecioVenta(parametros) == true)
+                MessageBox.Show("Seleccione un producto para realizar la edición", "Editar precio del Articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(txtmonto.Text))
                 {
-                    Listarproductosagregados();
+                    LdetalleFactura parametros = new LdetalleFactura();
+                    Editar_datos funcion = new Editar_datos();
+                    parametros.iddetalle_factura = iddetalleventa;
+                    parametros.preciounitario = Convert.ToDouble(txtmonto.Text);
+
+                    if (funcion.editarPrecioVenta(parametros) == true)
+                    {
+                        Listarproductosagregados();
+                    }
                 }
+                txtmonto.Focus();
+                txtmonto.Clear();
+
+            }
+        }
+
+        private void Descuento_Click(object sender, EventArgs e)
+        {
+            
+            if (iddetalleventa == 0)
+            {
+                MessageBox.Show("Seleccione un descuento", "Editar descuento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                double precio = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[6].Value);
+                //MessageBox.Show(precio.ToString());
+                if (!string.IsNullOrEmpty(txtmonto.Text))
+                {
+                    if((Convert.ToInt32(txtmonto.Text) < precio))
+                    {
+                        LdetalleFactura parametros = new LdetalleFactura();
+                        Editar_datos funcion = new Editar_datos();
+                        parametros.iddetalle_factura = iddetalleventa;
+                        parametros.Descuento = Convert.ToDouble(txtmonto.Text);
+                        if (funcion.editarDescuentoFactura(parametros) == true)
+                        {
+                            Listarproductosagregados();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asigne un descuento menor a el precio de la unidad", "Editar descuento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                txtmonto.Focus();
+                txtmonto.Clear();
             }
         }
 
@@ -1543,6 +1645,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             HistorialVentas.HistorialVentasForm frm = new HistorialVentas.HistorialVentasForm();
             frm.ShowDialog();
         }
+
+
 
         private void IndicadorTema_CheckedChanged(object sender, EventArgs e)
         {
@@ -1727,5 +1831,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             Pedidos_En_Espera frm = new Pedidos_En_Espera();
             frm.ShowDialog();
         }
+
+        
     }
 }

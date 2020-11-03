@@ -824,7 +824,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("editarPrecioVenta", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("editarPrecioFactura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idDetalleFactura", parametros.iddetalle_factura);
                 cmd.Parameters.AddWithValue("@precio", parametros.preciounitario);
@@ -835,6 +835,30 @@ namespace SistemaVentas.Datos
             {
 
                 MessageBox.Show(ex.StackTrace );
+                return false;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
+
+        public bool editarDescuentoFactura(LdetalleFactura parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarDescuentoFactura", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idDetalleFactura", parametros.iddetalle_factura);
+                cmd.Parameters.AddWithValue("@Descuento", parametros.Descuento);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
                 return false;
             }
             finally
