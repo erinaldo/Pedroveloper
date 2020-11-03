@@ -34,6 +34,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TXTTOTAL = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PanelregistroClientes = new System.Windows.Forms.Panel();
@@ -131,6 +136,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.DATALISTADOVERIFICAR = new System.Windows.Forms.DataGridView();
             this.lblCantidad_de_numeros = new System.Windows.Forms.Label();
+            this.datalistadoprueba = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.PanelregistroClientes.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -153,6 +162,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).BeginInit();
             this.SuspendLayout();
             // 
             // TXTTOTAL
@@ -1292,7 +1302,7 @@
             this.PanelImpresionvistaprevia.Controls.Add(this.reportViewer1);
             this.PanelImpresionvistaprevia.Location = new System.Drawing.Point(323, 9);
             this.PanelImpresionvistaprevia.Name = "PanelImpresionvistaprevia";
-            this.PanelImpresionvistaprevia.Size = new System.Drawing.Size(96, 34);
+            this.PanelImpresionvistaprevia.Size = new System.Drawing.Size(96, 74);
             this.PanelImpresionvistaprevia.TabIndex = 6;
             this.PanelImpresionvistaprevia.Visible = false;
             // 
@@ -1300,7 +1310,7 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = global::SistemaVentas.Properties.Resources.LogoNegro;
-            this.pictureBox1.Location = new System.Drawing.Point(478, 200);
+            this.pictureBox1.Location = new System.Drawing.Point(695, 200);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(0, 80);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1312,7 +1322,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(478, 0);
+            this.label5.Location = new System.Drawing.Point(695, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 200);
             this.label5.TabIndex = 1;
@@ -1350,7 +1360,7 @@
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Left;
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(478, 34);
+            this.reportViewer1.Size = new System.Drawing.Size(695, 74);
             this.reportViewer1.TabIndex = 0;
             // 
             // txttotaldecimal
@@ -1374,7 +1384,7 @@
             this.reportViewer2.AccessibilityKeyMap = null;
             this.reportViewer2.Location = new System.Drawing.Point(262, 9);
             this.reportViewer2.Name = "reportViewer2";
-            this.reportViewer2.Size = new System.Drawing.Size(56, 50);
+            this.reportViewer2.Size = new System.Drawing.Size(10, 10);
             this.reportViewer2.TabIndex = 8;
             this.reportViewer2.Visible = false;
             // 
@@ -1468,6 +1478,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.datalistadoprueba);
             this.panel3.Controls.Add(this.txtnumerofin);
             this.panel3.Controls.Add(this.DATALISTADOVERIFICAR);
             this.panel3.Controls.Add(this.lblCantidad_de_numeros);
@@ -1476,7 +1487,7 @@
             this.panel3.Controls.Add(this.datalistadoDetalleVenta);
             this.panel3.Controls.Add(this.dtComprobantes);
             this.panel3.Controls.Add(this.lblprueba);
-            this.panel3.Location = new System.Drawing.Point(451, 33);
+            this.panel3.Location = new System.Drawing.Point(599, 49);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(10, 10);
             this.panel3.TabIndex = 602;
@@ -1516,6 +1527,102 @@
             this.lblCantidad_de_numeros.Size = new System.Drawing.Size(93, 15);
             this.lblCantidad_de_numeros.TabIndex = 613;
             this.lblCantidad_de_numeros.Text = "Comprobante";
+            // 
+            // datalistadoprueba
+            // 
+            this.datalistadoprueba.AllowUserToAddRows = false;
+            this.datalistadoprueba.AllowUserToDeleteRows = false;
+            this.datalistadoprueba.AllowUserToResizeRows = false;
+            this.datalistadoprueba.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadoprueba.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadoprueba.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadoprueba.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadoprueba.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.datalistadoprueba.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistadoprueba.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewImageColumn1,
+            this.dataGridViewButtonColumn1,
+            this.dataGridViewButtonColumn2});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistadoprueba.DefaultCellStyle = dataGridViewCellStyle9;
+            this.datalistadoprueba.EnableHeadersVisualStyles = false;
+            this.datalistadoprueba.GridColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoprueba.Location = new System.Drawing.Point(0, 4);
+            this.datalistadoprueba.Name = "datalistadoprueba";
+            this.datalistadoprueba.ReadOnly = true;
+            this.datalistadoprueba.RowHeadersVisible = false;
+            this.datalistadoprueba.RowHeadersWidth = 9;
+            this.datalistadoprueba.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.datalistadoprueba.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datalistadoprueba.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.datalistadoprueba.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoprueba.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadoprueba.RowTemplate.Height = 36;
+            this.datalistadoprueba.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadoprueba.Size = new System.Drawing.Size(10, 10);
+            this.datalistadoprueba.TabIndex = 603;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.ToolTipText = "Opcional \"Supr\" para Eliminar";
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewButtonColumn1.HeaderText = "";
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.ReadOnly = true;
+            this.dataGridViewButtonColumn1.Text = "+";
+            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
+            // 
+            // dataGridViewButtonColumn2
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewButtonColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewButtonColumn2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.dataGridViewButtonColumn2.HeaderText = "";
+            this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
+            this.dataGridViewButtonColumn2.ReadOnly = true;
+            this.dataGridViewButtonColumn2.Text = "-";
+            this.dataGridViewButtonColumn2.UseColumnTextForButtonValue = true;
             // 
             // MEDIOS_DE_PAGO
             // 
@@ -1568,6 +1675,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1672,5 +1780,9 @@
         internal System.Windows.Forms.Label Label21;
         internal System.Windows.Forms.TextBox txtclientesolicitabnte2;
         internal System.Windows.Forms.Label lblCantidad_de_numeros;
+        internal System.Windows.Forms.DataGridView datalistadoprueba;
+        internal System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        internal System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        internal System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
     }
 }

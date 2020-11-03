@@ -261,6 +261,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             dibujarCOMPROBANTES();
         }
+        string tipoImpresion;
         private void dibujarCOMPROBANTES()
         {
             FlowLayoutPanel3.Controls.Clear();
@@ -283,10 +284,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     
                     if (b.Text == lblComprobante.Text)
                     {
-                        //MessageBox.Show("b" + b.Text);
+                        
+                        tipoImpresion = b.Text;
                         b.Visible = false;
                     }
                     b.Click += miEvento;
+                    
                 }
                     CONEXION.CONEXIONMAESTRA.cerrar();
             }
@@ -1043,8 +1046,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
            if ( indicador =="VISTA PREVIA")
             {
-                mostrar_ticket_impreso_VISTA_PREVIA();
-                mostrar_factura_impresa_VISTA_PREVIA();
+               // MessageBox.Show(tipoImpresion);
+                if(tipoImpresion == "FACTURA")
+                {
+                    mostrar_factura_impresa_VISTA_PREVIA();
+                }
+                else if(tipoImpresion == "TICKET")
+                {
+                    mostrar_ticket_impreso_VISTA_PREVIA();
+                }
             }
            else if (indicador =="DIRECTO")
             {
@@ -1143,8 +1153,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             DataTable dt = new DataTable();
             try
             {
+                asdasd();
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_factura_impreso", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Id_factura", idFactura);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
@@ -1165,6 +1176,27 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
 
         }
+        private void asdasd()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                CONEXION.CONEXIONMAESTRA.abrir();
+                da = new SqlDataAdapter("mostrar_factura_impreso", CONEXION.CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idFactura);
+                da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
+                da.Fill(dt);
+                datalistadoprueba.DataSource = dt;
+                CONEXION.CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                CONEXION.CONEXIONMAESTRA.cerrar();
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
         void CONFIRMAR_VENTA_EFECTIVO()
         {
             try
@@ -1178,7 +1210,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@Saldo", vuelto);
                 cmd.Parameters.AddWithValue("@Tipo_de_pago",txttipo );
                 cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
-                MessageBox.Show(idcliente.ToString());
+            //    MessageBox.Show(idcliente.ToString());
                 cmd.Parameters.AddWithValue("@idcliente", idcliente);
                 cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
                 cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text ));

@@ -331,7 +331,7 @@ namespace SistemaVentas.Presentacion.Empleados
         private void pintarDatalistado()
         {
             Bases.Multilinea(ref datalistado);
-            datalistado.Columns[2].Visible = false;
+            /*datalistado.Columns[2].Visible = false;
             datalistado.Columns[3].Visible = false;
             datalistado.Columns[4].Visible = false;
             datalistado.Columns[9].Visible = false;
@@ -339,7 +339,7 @@ namespace SistemaVentas.Presentacion.Empleados
             datalistado.Columns[14].Visible = false;
             datalistado.Columns[16].Visible = false;
             datalistado.Columns[20].Visible = false;
-            datalistado.Columns[25].Visible = false;
+            datalistado.Columns[25].Visible = false;*/
             //datalistado.Columns[24].Visible = false;
         }
         private void pintarDatalistadoDireccion()

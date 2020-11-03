@@ -9,7 +9,6 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.Reporting.Barcodes.PDF417Encoder pdF417Encoder1 = new Telerik.Reporting.Barcodes.PDF417Encoder();
             Telerik.Reporting.TableGroup tableGroup1 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup2 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup3 = new Telerik.Reporting.TableGroup();
@@ -27,29 +26,25 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox12 = new Telerik.Reporting.TextBox();
             this.textBox49 = new Telerik.Reporting.TextBox();
             this.textBox14 = new Telerik.Reporting.TextBox();
+            this.textBox52 = new Telerik.Reporting.TextBox();
+            this.textBox53 = new Telerik.Reporting.TextBox();
             this.pageHeaderSection1 = new Telerik.Reporting.PageHeaderSection();
             this.pictureBox1 = new Telerik.Reporting.PictureBox();
             this.textBox1 = new Telerik.Reporting.TextBox();
             this.TextBox22 = new Telerik.Reporting.TextBox();
             this.textBox36 = new Telerik.Reporting.TextBox();
-            this.textBox35 = new Telerik.Reporting.TextBox();
             this.textBox37 = new Telerik.Reporting.TextBox();
             this.textBox38 = new Telerik.Reporting.TextBox();
             this.TextBox3 = new Telerik.Reporting.TextBox();
             this.textBox41 = new Telerik.Reporting.TextBox();
             this.textBox44 = new Telerik.Reporting.TextBox();
-            this.textBox45 = new Telerik.Reporting.TextBox();
-            this.textBox46 = new Telerik.Reporting.TextBox();
             this.TextBox24 = new Telerik.Reporting.TextBox();
             this.TextBox25 = new Telerik.Reporting.TextBox();
             this.TextBox9 = new Telerik.Reporting.TextBox();
-            this.textBox33 = new Telerik.Reporting.TextBox();
-            this.textBox47 = new Telerik.Reporting.TextBox();
             this.textBox48 = new Telerik.Reporting.TextBox();
             this.textBox50 = new Telerik.Reporting.TextBox();
             this.TextBox4 = new Telerik.Reporting.TextBox();
             this.TextBox5 = new Telerik.Reporting.TextBox();
-            this.barcode1 = new Telerik.Reporting.Barcode();
             this.detail = new Telerik.Reporting.DetailSection();
             this.pageFooterSection1 = new Telerik.Reporting.PageFooterSection();
             this.reportHeaderSection1 = new Telerik.Reporting.ReportHeaderSection();
@@ -65,17 +60,17 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox28 = new Telerik.Reporting.TextBox();
             this.textBox29 = new Telerik.Reporting.TextBox();
             this.textBox30 = new Telerik.Reporting.TextBox();
-            this.textBox32 = new Telerik.Reporting.TextBox();
-            this.textBox20 = new Telerik.Reporting.TextBox();
             this.table2 = new Telerik.Reporting.Table();
             this.textBox8 = new Telerik.Reporting.TextBox();
             this.textBox10 = new Telerik.Reporting.TextBox();
-            this.textBox52 = new Telerik.Reporting.TextBox();
-            this.textBox53 = new Telerik.Reporting.TextBox();
             this.textBox23 = new Telerik.Reporting.TextBox();
             this.textBox54 = new Telerik.Reporting.TextBox();
             this.textBox34 = new Telerik.Reporting.TextBox();
-            this.textBox55 = new Telerik.Reporting.TextBox();
+            this.textBox6 = new Telerik.Reporting.TextBox();
+            this.textBox7 = new Telerik.Reporting.TextBox();
+            this.textBox32 = new Telerik.Reporting.TextBox();
+            this.textBox16 = new Telerik.Reporting.TextBox();
+            this.textBox17 = new Telerik.Reporting.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // textBox2
@@ -85,7 +80,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox2.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox2.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.textBox2.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox2.Value = "Cant";
+            this.textBox2.Value = "Cantidad";
             // 
             // textBox12
             // 
@@ -114,58 +109,77 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox14.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
             this.textBox14.Value = "Importe";
             // 
+            // textBox52
+            // 
+            this.textBox52.Name = "textBox52";
+            this.textBox52.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.097D), Telerik.Reporting.Drawing.Unit.Cm(0.93D));
+            this.textBox52.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.None;
+            this.textBox52.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
+            this.textBox52.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
+            this.textBox52.Value = "Subtotal";
+            // 
+            // textBox53
+            // 
+            this.textBox53.Name = "textBox53";
+            this.textBox53.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.239D), Telerik.Reporting.Drawing.Unit.Cm(0.93D));
+            this.textBox53.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.None;
+            this.textBox53.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
+            this.textBox53.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
+            this.textBox53.Value = "=Fields.Subtotal";
+            // 
             // pageHeaderSection1
             // 
-            this.pageHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Cm(7D);
+            this.pageHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Cm(9.8D);
             this.pageHeaderSection1.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.pictureBox1,
             this.textBox1,
             this.TextBox22,
             this.textBox36,
-            this.textBox35,
             this.textBox37,
             this.textBox38,
             this.TextBox3,
             this.textBox41,
             this.textBox44,
-            this.textBox45,
-            this.textBox46,
             this.TextBox24,
             this.TextBox25,
             this.TextBox9,
-            this.textBox33,
-            this.textBox47,
             this.textBox48,
-            this.textBox50});
+            this.textBox50,
+            this.TextBox5,
+            this.textBox6,
+            this.textBox7,
+            this.textBox32,
+            this.TextBox4});
             this.pageHeaderSection1.Name = "pageHeaderSection1";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(10.163D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
+            this.pictureBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(10.998D), Telerik.Reporting.Drawing.Unit.Cm(0.7D));
             this.pictureBox1.MimeType = "";
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.265D), Telerik.Reporting.Drawing.Unit.Cm(3.6D));
+            this.pictureBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.202D), Telerik.Reporting.Drawing.Unit.Cm(3.9D));
             this.pictureBox1.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.ScaleProportional;
-            this.pictureBox1.Value = "=Fields.Logo";
+            this.pictureBox1.Value = "=Fields.lg";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(2.6D));
+            this.textBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(2.1D));
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.424D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
             this.textBox1.Style.Font.Bold = true;
             this.textBox1.Style.Font.Name = "Franklin Gothic Medium";
+            this.textBox1.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.textBox1.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox1.Value = "=Fields.Empresa";
             // 
             // TextBox22
             // 
-            this.TextBox22.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(5.1D));
+            this.TextBox22.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(5.436D));
             this.TextBox22.Name = "TextBox22";
-            this.TextBox22.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.024D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
+            this.TextBox22.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.089D), Telerik.Reporting.Drawing.Unit.Cm(0.864D));
             this.TextBox22.Style.Font.Bold = false;
             this.TextBox22.Style.Font.Name = "Franklin Gothic Medium";
-            this.TextBox22.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
+            this.TextBox22.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.TextBox22.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.TextBox22.Value = "=Fields.Cliente";
             // 
@@ -173,23 +187,12 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             this.textBox36.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(3.483D), Telerik.Reporting.Drawing.Unit.Cm(3.2D));
             this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.024D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
+            this.textBox36.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.024D), Telerik.Reporting.Drawing.Unit.Cm(0.5D));
             this.textBox36.Style.Font.Bold = false;
             this.textBox36.Style.Font.Name = "Franklin Gothic Medium";
-            this.textBox36.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
+            this.textBox36.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.textBox36.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.textBox36.Value = "=Fields.Direccion";
-            // 
-            // textBox35
-            // 
-            this.textBox35.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(3.2D));
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.4D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
-            this.textBox35.Style.Font.Bold = true;
-            this.textBox35.Style.Font.Name = "Franklin Gothic Medium";
-            this.textBox35.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
-            this.textBox35.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
-            this.textBox35.Value = "Dirección:";
             // 
             // textBox37
             // 
@@ -204,7 +207,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox38
             // 
-            this.textBox38.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(4.3D));
+            this.textBox38.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(4.6D));
             this.textBox38.Name = "textBox38";
             this.textBox38.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.073D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
             this.textBox38.Style.Font.Bold = true;
@@ -215,17 +218,17 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // TextBox3
             // 
-            this.TextBox3.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(5.7D));
+            this.TextBox3.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(7.1D));
             this.TextBox3.Name = "TextBox3";
-            this.TextBox3.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.024D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
+            this.TextBox3.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.089D), Telerik.Reporting.Drawing.Unit.Cm(0.8D));
             this.TextBox3.Style.Font.Name = "Franklin Gothic Medium";
-            this.TextBox3.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
+            this.TextBox3.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.TextBox3.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.TextBox3.Value = "=Fields.DireccionCliente";
             // 
             // textBox41
             // 
-            this.textBox41.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(9.3D), Telerik.Reporting.Drawing.Unit.Cm(4.3D));
+            this.textBox41.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(9.3D), Telerik.Reporting.Drawing.Unit.Cm(5.436D));
             this.textBox41.Name = "textBox41";
             this.textBox41.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.3D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
             this.textBox41.Style.Font.Bold = true;
@@ -236,91 +239,51 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox44
             // 
-            this.textBox44.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(9.3D), Telerik.Reporting.Drawing.Unit.Cm(5.1D));
+            this.textBox44.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(9.3D), Telerik.Reporting.Drawing.Unit.Cm(6.236D));
             this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.3D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
+            this.textBox44.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.3D), Telerik.Reporting.Drawing.Unit.Cm(0.9D));
             this.textBox44.Style.Font.Bold = true;
             this.textBox44.Style.Font.Name = "Franklin Gothic Medium";
             this.textBox44.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.textBox44.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.textBox44.Value = "FECHA";
             // 
-            // textBox45
-            // 
-            this.textBox45.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(9.3D), Telerik.Reporting.Drawing.Unit.Cm(5.7D));
-            this.textBox45.Name = "textBox45";
-            this.textBox45.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.3D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
-            this.textBox45.Style.Font.Bold = true;
-            this.textBox45.Style.Font.Name = "Franklin Gothic Medium";
-            this.textBox45.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
-            this.textBox45.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
-            this.textBox45.Value = "N° DE PEDIDO";
-            // 
-            // textBox46
-            // 
-            this.textBox46.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(9.3D), Telerik.Reporting.Drawing.Unit.Cm(6.3D));
-            this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.2D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
-            this.textBox46.Style.Font.Bold = true;
-            this.textBox46.Style.Font.Name = "Franklin Gothic Medium";
-            this.textBox46.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
-            this.textBox46.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
-            this.textBox46.Value = "FECHA VENCIMIENTO";
-            // 
             // TextBox24
             // 
-            this.TextBox24.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(3.6D));
+            this.TextBox24.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(3.7D));
             this.TextBox24.Name = "TextBox24";
-            this.TextBox24.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.4D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
+            this.TextBox24.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.4D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
             this.TextBox24.Style.Font.Bold = true;
             this.TextBox24.Style.Font.Name = "Franklin Gothic Medium";
-            this.TextBox24.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
-            this.TextBox24.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
+            this.TextBox24.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
+            this.TextBox24.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.TextBox24.Value = "Cajero(a):";
             // 
             // TextBox25
             // 
-            this.TextBox25.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(3.483D), Telerik.Reporting.Drawing.Unit.Cm(3.6D));
+            this.TextBox25.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(3.483D), Telerik.Reporting.Drawing.Unit.Cm(3.7D));
             this.TextBox25.Name = "TextBox25";
-            this.TextBox25.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.024D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
+            this.TextBox25.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.024D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
             this.TextBox25.Style.Font.Bold = false;
             this.TextBox25.Style.Font.Name = "Franklin Gothic Medium";
-            this.TextBox25.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
+            this.TextBox25.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.TextBox25.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.TextBox25.Value = "=Fields.Usuario";
             // 
             // TextBox9
             // 
-            this.TextBox9.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(12.6D), Telerik.Reporting.Drawing.Unit.Cm(5.1D));
+            this.TextBox9.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(12.6D), Telerik.Reporting.Drawing.Unit.Cm(6.236D));
             this.TextBox9.Name = "TextBox9";
-            this.TextBox9.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.065D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
+            this.TextBox9.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.256D), Telerik.Reporting.Drawing.Unit.Cm(0.9D));
             this.TextBox9.Style.Font.Name = "Franklin Gothic Medium";
             this.TextBox9.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
             this.TextBox9.Value = "=Fields.fecha";
             // 
-            // textBox33
-            // 
-            this.textBox33.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(13.5D), Telerik.Reporting.Drawing.Unit.Cm(6.3D));
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.165D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
-            this.textBox33.Style.Font.Name = "Franklin Gothic Medium";
-            this.textBox33.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
-            this.textBox33.Value = "=Fields.fechavencimiento";
-            // 
-            // textBox47
-            // 
-            this.textBox47.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(12.6D), Telerik.Reporting.Drawing.Unit.Cm(5.7D));
-            this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.3D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
-            this.textBox47.Style.Font.Name = "Franklin Gothic Medium";
-            this.textBox47.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
-            this.textBox47.Value = "=Fields.idPedido";
-            // 
             // textBox48
             // 
-            this.textBox48.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(12.6D), Telerik.Reporting.Drawing.Unit.Cm(4.3D));
+            this.textBox48.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(12.6D), Telerik.Reporting.Drawing.Unit.Cm(5.436D));
             this.textBox48.Name = "textBox48";
-            this.textBox48.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
+            this.textBox48.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.7D), Telerik.Reporting.Drawing.Unit.Cm(0.8D));
             this.textBox48.Style.Font.Name = "Franklin Gothic Medium";
             this.textBox48.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
             this.textBox48.Value = "=Fields.Numero_de_doc";
@@ -329,42 +292,31 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             this.textBox50.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(6.3D));
             this.textBox50.Name = "textBox50";
-            this.textBox50.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.024D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
+            this.textBox50.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.089D), Telerik.Reporting.Drawing.Unit.Cm(0.8D));
             this.textBox50.Style.Font.Name = "Franklin Gothic Medium";
-            this.textBox50.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
+            this.textBox50.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.textBox50.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
-            this.textBox50.Value = "=Fields.TelefonoCliente";
+            this.textBox50.Value = "=Fields.Telefono";
             // 
             // TextBox4
             // 
-            this.TextBox4.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.276D), Telerik.Reporting.Drawing.Unit.Cm(3.743D));
+            this.TextBox4.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(3.2D));
             this.TextBox4.Name = "TextBox4";
-            this.TextBox4.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.424D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
+            this.TextBox4.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.4D), Telerik.Reporting.Drawing.Unit.Cm(0.5D));
             this.TextBox4.Style.Font.Name = "Franklin Gothic Medium";
-            this.TextBox4.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
+            this.TextBox4.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.TextBox4.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.TextBox4.Value = "=Fields.Identificador_fiscal";
             // 
             // TextBox5
             // 
-            this.TextBox5.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.072D), Telerik.Reporting.Drawing.Unit.Cm(5.038D));
+            this.TextBox5.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(2.7D));
             this.TextBox5.Name = "TextBox5";
-            this.TextBox5.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.1D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
+            this.TextBox5.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.424D), Telerik.Reporting.Drawing.Unit.Cm(0.5D));
             this.TextBox5.Style.Font.Name = "Franklin Gothic Medium";
-            this.TextBox5.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
-            this.TextBox5.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
+            this.TextBox5.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
+            this.TextBox5.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.TextBox5.Value = "=Fields.Provincia_Departamento_Pais";
-            // 
-            // barcode1
-            // 
-            this.barcode1.Encoder = pdF417Encoder1;
-            this.barcode1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.704D), Telerik.Reporting.Drawing.Unit.Cm(8D));
-            this.barcode1.Name = "barcode1";
-            this.barcode1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.46D), Telerik.Reporting.Drawing.Unit.Cm(1.5D));
-            this.barcode1.Stretch = true;
-            this.barcode1.Style.Font.Name = "Franklin Gothic Medium";
-            this.barcode1.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
-            this.barcode1.Value = "=Fields.Empresa + Fields.Identificador_fiscal + Fields.Monto_total";
             // 
             // detail
             // 
@@ -378,7 +330,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // reportHeaderSection1
             // 
-            this.reportHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Cm(9.8D);
+            this.reportHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Cm(7.7D);
             this.reportHeaderSection1.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.table1,
             this.textBox21,
@@ -388,12 +340,8 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox28,
             this.textBox29,
             this.textBox30,
-            this.textBox32,
-            this.barcode1,
-            this.TextBox5,
-            this.textBox20,
             this.table2,
-            this.TextBox4});
+            this.textBox17});
             this.reportHeaderSection1.Name = "reportHeaderSection1";
             // 
             // table1
@@ -436,6 +384,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.table1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(17.856D), Telerik.Reporting.Drawing.Unit.Cm(1.7D));
             this.table1.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.table1.Style.Font.Name = "Franklin Gothic Medium";
+            this.table1.Style.LineWidth = Telerik.Reporting.Drawing.Unit.Point(2D);
             // 
             // textBox11
             // 
@@ -472,34 +421,34 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox21
             // 
-            this.textBox21.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(1.994D));
+            this.textBox21.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(3D), Telerik.Reporting.Drawing.Unit.Cm(1.994D));
             this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.417D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
+            this.textBox21.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.4D), Telerik.Reporting.Drawing.Unit.Cm(0.776D));
             this.textBox21.Style.Font.Name = "Franklin Gothic Medium";
-            this.textBox21.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
+            this.textBox21.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.textBox21.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.textBox21.Value = "=Fields.total_en_letras + Fields.Nombre_de_Moneda";
             // 
             // TextBox39
             // 
-            this.TextBox39.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(2.524D));
+            this.TextBox39.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.038D), Telerik.Reporting.Drawing.Unit.Cm(2.77D));
             this.TextBox39.Name = "TextBox39";
-            this.TextBox39.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.081D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
+            this.TextBox39.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.662D), Telerik.Reporting.Drawing.Unit.Cm(0.776D));
             this.TextBox39.Style.Font.Bold = true;
             this.TextBox39.Style.Font.Name = "Franklin Gothic Medium";
-            this.TextBox39.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(8D);
+            this.TextBox39.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.TextBox39.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.TextBox39.Value = "Cantidad de Productos:";
             // 
             // TextBox40
             // 
             this.TextBox40.Format = "{0:N2}";
-            this.TextBox40.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(3.1D), Telerik.Reporting.Drawing.Unit.Cm(2.524D));
+            this.TextBox40.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(4.7D), Telerik.Reporting.Drawing.Unit.Cm(2.77D));
             this.TextBox40.Name = "TextBox40";
-            this.TextBox40.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(5.072D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
+            this.TextBox40.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.819D), Telerik.Reporting.Drawing.Unit.Cm(0.776D));
             this.TextBox40.Style.Font.Name = "Franklin Gothic Medium";
-            this.TextBox40.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
-            this.TextBox40.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
+            this.TextBox40.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
+            this.TextBox40.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.TextBox40.Value = "=Fields.Cantidad_de_productos";
             // 
             // textBox27
@@ -546,32 +495,10 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox30.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox30.Value = "=Fields.Anuncio";
             // 
-            // textBox32
-            // 
-            this.textBox32.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(3.237D));
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.081D), Telerik.Reporting.Drawing.Unit.Cm(0.506D));
-            this.textBox32.Style.Font.Bold = false;
-            this.textBox32.Style.Font.Name = "Franklin Gothic Medium";
-            this.textBox32.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(8D);
-            this.textBox32.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
-            this.textBox32.Value = "=Fields.Datos_fiscales_de_autorizacion";
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(1.994D));
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.012D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
-            this.textBox20.Style.Font.Bold = true;
-            this.textBox20.Style.Font.Name = "Courier New";
-            this.textBox20.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(8D);
-            this.textBox20.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
-            this.textBox20.Value = "SON:";
-            // 
             // table2
             // 
-            this.table2.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(3.781D)));
-            this.table2.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(3.912D)));
+            this.table2.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(4.097D)));
+            this.table2.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(4.239D)));
             this.table2.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Cm(0.818D)));
             this.table2.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Cm(0.825D)));
             this.table2.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Cm(0.87D)));
@@ -580,7 +507,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.table2.Body.SetCellContent(1, 0, this.textBox23);
             this.table2.Body.SetCellContent(1, 1, this.textBox54);
             this.table2.Body.SetCellContent(2, 0, this.textBox34);
-            this.table2.Body.SetCellContent(2, 1, this.textBox55);
+            this.table2.Body.SetCellContent(2, 1, this.textBox16);
             tableGroup6.Name = "tableGroup";
             tableGroup6.ReportItem = this.textBox52;
             tableGroup7.Name = "tableGroup1";
@@ -590,13 +517,13 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.table2.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.textBox8,
             this.textBox10,
-            this.textBox52,
-            this.textBox53,
             this.textBox23,
             this.textBox54,
             this.textBox34,
-            this.textBox55});
-            this.table2.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(10.163D), Telerik.Reporting.Drawing.Unit.Cm(1.994D));
+            this.textBox52,
+            this.textBox53,
+            this.textBox16});
+            this.table2.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(9.519D), Telerik.Reporting.Drawing.Unit.Cm(1.994D));
             this.table2.Name = "table2";
             tableGroup9.Name = "group1";
             tableGroup10.Name = "group2";
@@ -607,72 +534,104 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             tableGroup8.Groupings.Add(new Telerik.Reporting.Grouping(null));
             tableGroup8.Name = "detailTableGroup";
             this.table2.RowGroups.Add(tableGroup8);
-            this.table2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.693D), Telerik.Reporting.Drawing.Unit.Cm(3.444D));
+            this.table2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.337D), Telerik.Reporting.Drawing.Unit.Cm(3.444D));
             this.table2.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.table2.Style.Font.Name = "Franklin Gothic Medium";
             // 
             // textBox8
             // 
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.781D), Telerik.Reporting.Drawing.Unit.Cm(0.818D));
+            this.textBox8.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.097D), Telerik.Reporting.Drawing.Unit.Cm(0.818D));
             this.textBox8.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox8.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
+            this.textBox8.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox8.Value = "Descuento";
             // 
             // textBox10
             // 
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.912D), Telerik.Reporting.Drawing.Unit.Cm(0.818D));
+            this.textBox10.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.239D), Telerik.Reporting.Drawing.Unit.Cm(0.818D));
             this.textBox10.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox10.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
+            this.textBox10.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox10.Value = "0";
-            // 
-            // textBox52
-            // 
-            this.textBox52.Name = "textBox52";
-            this.textBox52.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.781D), Telerik.Reporting.Drawing.Unit.Cm(0.93D));
-            this.textBox52.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.None;
-            this.textBox52.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
-            this.textBox52.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox52.Value = "Subtotal";
-            // 
-            // textBox53
-            // 
-            this.textBox53.Name = "textBox53";
-            this.textBox53.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.912D), Telerik.Reporting.Drawing.Unit.Cm(0.93D));
-            this.textBox53.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.None;
-            this.textBox53.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
-            this.textBox53.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox53.Value = "=Fields.Subtotal";
             // 
             // textBox23
             // 
             this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.781D), Telerik.Reporting.Drawing.Unit.Cm(0.825D));
+            this.textBox23.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.097D), Telerik.Reporting.Drawing.Unit.Cm(0.825D));
+            this.textBox23.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox23.StyleName = "";
-            this.textBox23.Value = "Subtotal";
+            this.textBox23.Value = "Itbis";
             // 
             // textBox54
             // 
             this.textBox54.Name = "textBox54";
-            this.textBox54.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.912D), Telerik.Reporting.Drawing.Unit.Cm(0.825D));
+            this.textBox54.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.239D), Telerik.Reporting.Drawing.Unit.Cm(0.825D));
             this.textBox54.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox54.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
-            this.textBox54.Value = "0";
+            this.textBox54.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
+            this.textBox54.Value = "[=Fields.Subtotal_impuesto]";
             // 
             // textBox34
             // 
             this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.781D), Telerik.Reporting.Drawing.Unit.Cm(0.87D));
+            this.textBox34.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.097D), Telerik.Reporting.Drawing.Unit.Cm(0.87D));
+            this.textBox34.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox34.StyleName = "";
             this.textBox34.Value = "Total";
             // 
-            // textBox55
+            // textBox6
             // 
-            this.textBox55.Name = "textBox55";
-            this.textBox55.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.912D), Telerik.Reporting.Drawing.Unit.Cm(0.87D));
-            this.textBox55.StyleName = "";
-            this.textBox55.Value = "=Fields.Total";
+            this.textBox6.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(7.9D));
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.089D), Telerik.Reporting.Drawing.Unit.Cm(0.8D));
+            this.textBox6.Style.Font.Name = "Franklin Gothic Medium";
+            this.textBox6.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
+            this.textBox6.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
+            this.textBox6.Value = "=Fields.Calle";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.083D), Telerik.Reporting.Drawing.Unit.Cm(8.7D));
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.089D), Telerik.Reporting.Drawing.Unit.Cm(0.8D));
+            this.textBox7.Style.Font.Name = "Franklin Gothic Medium";
+            this.textBox7.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
+            this.textBox7.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
+            this.textBox7.Value = "=Fields.Sector";
+            // 
+            // textBox32
+            // 
+            this.textBox32.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(9.3D), Telerik.Reporting.Drawing.Unit.Cm(7.394D));
+            this.textBox32.Name = "textBox32";
+            this.textBox32.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.089D), Telerik.Reporting.Drawing.Unit.Cm(0.8D));
+            this.textBox32.Style.Font.Bold = false;
+            this.textBox32.Style.Font.Name = "Franklin Gothic Medium";
+            this.textBox32.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(8D);
+            this.textBox32.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
+            this.textBox32.Value = "=Fields.Datos_fiscales_de_autorizacion";
+            // 
+            // textBox16
+            // 
+            this.textBox16.Format = "{0:N2}";
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.239D), Telerik.Reporting.Drawing.Unit.Cm(0.87D));
+            this.textBox16.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.None;
+            this.textBox16.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
+            this.textBox16.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
+            this.textBox16.Value = "=Fields.Importe";
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(1.994D));
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3D), Telerik.Reporting.Drawing.Unit.Cm(0.776D));
+            this.textBox17.Style.Font.Bold = true;
+            this.textBox17.Style.Font.Name = "Franklin Gothic Medium";
+            this.textBox17.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
+            this.textBox17.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
+            this.textBox17.Value = "SON";
             // 
             // Factura_report
             // 
@@ -706,7 +665,6 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
         internal Telerik.Reporting.TextBox TextBox4;
         internal Telerik.Reporting.TextBox TextBox3;
         internal Telerik.Reporting.TextBox TextBox5;
-        private Telerik.Reporting.Barcode barcode1;
         internal Telerik.Reporting.TextBox TextBox22;
         internal Telerik.Reporting.TextBox TextBox24;
         internal Telerik.Reporting.TextBox TextBox9;
@@ -718,7 +676,6 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
         private Telerik.Reporting.TextBox textBox2;
         private Telerik.Reporting.TextBox textBox12;
         private Telerik.Reporting.TextBox textBox14;
-        internal Telerik.Reporting.TextBox textBox20;
         internal Telerik.Reporting.TextBox textBox21;
         internal Telerik.Reporting.TextBox TextBox39;
         internal Telerik.Reporting.TextBox TextBox40;
@@ -726,19 +683,13 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
         internal Telerik.Reporting.TextBox textBox28;
         internal Telerik.Reporting.TextBox textBox29;
         internal Telerik.Reporting.TextBox textBox30;
-        internal Telerik.Reporting.TextBox textBox32;
         public Telerik.Reporting.PageHeaderSection pageHeaderSection1;
         public Telerik.Reporting.Table table1;
-        internal Telerik.Reporting.TextBox textBox33;
         internal Telerik.Reporting.TextBox textBox36;
-        internal Telerik.Reporting.TextBox textBox35;
         internal Telerik.Reporting.TextBox textBox37;
         internal Telerik.Reporting.TextBox textBox38;
         internal Telerik.Reporting.TextBox textBox41;
         internal Telerik.Reporting.TextBox textBox44;
-        internal Telerik.Reporting.TextBox textBox45;
-        internal Telerik.Reporting.TextBox textBox46;
-        internal Telerik.Reporting.TextBox textBox47;
         internal Telerik.Reporting.TextBox textBox48;
         private Telerik.Reporting.TextBox textBox51;
         private Telerik.Reporting.TextBox textBox49;
@@ -749,8 +700,12 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
         private Telerik.Reporting.TextBox textBox23;
         private Telerik.Reporting.TextBox textBox54;
         private Telerik.Reporting.TextBox textBox34;
-        private Telerik.Reporting.TextBox textBox55;
         private Telerik.Reporting.TextBox textBox52;
         private Telerik.Reporting.TextBox textBox53;
+        internal Telerik.Reporting.TextBox textBox6;
+        internal Telerik.Reporting.TextBox textBox7;
+        internal Telerik.Reporting.TextBox textBox32;
+        private Telerik.Reporting.TextBox textBox16;
+        internal Telerik.Reporting.TextBox textBox17;
     }
 }
