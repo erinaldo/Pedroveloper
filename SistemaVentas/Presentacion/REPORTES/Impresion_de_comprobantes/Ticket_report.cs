@@ -22,6 +22,11 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             //
             // TODO: Add any constructor code after InitializeComponent call
             //
+            metodo();
+            void metodo()
+            {
+                
+            }
         }
     }
 }

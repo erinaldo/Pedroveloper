@@ -1580,7 +1580,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void datalistadoclientes3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             idcliente = Convert.ToInt32(datalistadoclientes3.SelectedCells[1].Value.ToString());
-            MessageBox.Show(idcliente.ToString());
+            //MessageBox.Show(idcliente.ToString());
             txtclientesolicitabnte3.Text = datalistadoclientes3.SelectedCells[2].Value.ToString();
             datalistadoclientes3.Visible = false;
         }

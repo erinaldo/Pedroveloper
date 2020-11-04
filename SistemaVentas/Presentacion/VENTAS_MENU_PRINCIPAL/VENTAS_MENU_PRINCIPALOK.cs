@@ -160,8 +160,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             Listarproductosagregados();
             txtventagenerada = "FACTURA NUEVA";
             lblsubtotal.Text = "0.00";
+            lbldescuento.Text = "0.00";
             txt_total_suma.Text = "0.00";
             sumar();
+            sumarDescuentos();
             PanelEnespera.Visible = false;
             panelBienvenida.Visible = true;
             PanelOperaciones.Visible = false;
@@ -190,6 +192,35 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
                     txt_total_suma.Text = Convert.ToString(totalpagar);
                     lblsubtotal.Text = txt_total_suma.Text;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void sumarDescuentos()
+        {
+            try
+            {
+
+                int x;
+                x = datalistadoDetalleVenta.Rows.Count;
+                if (x == 0)
+                {
+                    txt_total_suma.Text = "0.00";
+                }
+
+                double descuento;
+                descuento = 0;
+                foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
+                {
+
+                    descuento += Convert.ToDouble(fila.Cells["Descuento"].Value);
+                    lbldescuento.Text = Convert.ToString(descuento);
+                  //  lblsubtotal.Text = lbldescuento.Text;
 
                 }
             }
@@ -647,6 +678,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     Bases.MultilineaTemaOscuro(ref datalistadoDetalleVenta);
                 }
                 sumar();
+                sumarDescuentos();
             }
             catch (Exception ex)
             {
@@ -1213,6 +1245,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 Listarproductosagregados();
                 txtmonto.Clear();
                 txtmonto.Focus();
+                idVenta = 0;
             }
             catch (Exception ex)
             {
@@ -1221,37 +1254,43 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void Button21_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtmonto.Text))
+            if (iddetalleventa == 0)
             {
-                if (datalistadoDetalleVenta.RowCount > 0)
+                MessageBox.Show("Seleccione un producto para realizar la edición", "Editar cantidad del Articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(txtmonto.Text))
                 {
-
-                    if (sevendePor == "Unidad")
+                    if (datalistadoDetalleVenta.RowCount > 0)
                     {
-                        string cadena = txtmonto.Text;
-                        if (cadena.Contains("."))
+
+                        if (sevendePor == "Unidad")
                         {
-                            MessageBox.Show("Este Producto no acepta decimales ya que esta configurado para ser vendido por UNIDAD", "Formato Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            string cadena = txtmonto.Text;
+                            if (cadena.Contains("."))
+                            {
+                                MessageBox.Show("Este Producto no acepta decimales ya que esta configurado para ser vendido por UNIDAD", "Formato Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            else
+                            {
+                                BotonCantidad();
+                            }
                         }
-                        else
+                        else if (sevendePor == "Granel")
                         {
                             BotonCantidad();
                         }
                     }
-                    else if (sevendePor == "Granel")
+                    else
                     {
-                        BotonCantidad();
+                        txtmonto.Clear();
+                        txtmonto.Focus();
                     }
-                }
-                else
-                {
-                    txtmonto.Clear();
                     txtmonto.Focus();
+                    txtmonto.Clear();
                 }
-                txtmonto.Focus();
-                txtmonto.Clear();
             }
-
         }
 
         private void BotonCantidad()
@@ -1602,7 +1641,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 }
                 txtmonto.Focus();
                 txtmonto.Clear();
-
+                iddetalleventa = 0;
             }
         }
 
@@ -1635,6 +1674,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         MessageBox.Show("Asigne un descuento menor a el precio de la unidad", "Editar descuento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+                iddetalleventa = 0;
                 txtmonto.Focus();
                 txtmonto.Clear();
             }
