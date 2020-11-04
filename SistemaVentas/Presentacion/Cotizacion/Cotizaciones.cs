@@ -92,6 +92,10 @@ namespace SistemaVentas.Presentacion.Cotizacion
             Listarproductosagregados();
             txtventagenerada = "COTIZACION NUEVA";
             sumar();
+            sumarDescuentos();
+            lblsubtotal.Text = "0.00";
+            lbldescuento.Text = "0.00";
+            txt_total_suma.Text = "0.00";
             panelBienvenida.Visible = true;
             PanelOperaciones.Visible = false;
         }
@@ -499,6 +503,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 datalistadoDetalleVenta.Columns[18].Visible = false;
                 Bases.Multilinea(ref datalistadoDetalleVenta);
                 sumar();
+                sumarDescuentos();
             }
             catch (Exception ex)
             {
@@ -544,7 +549,8 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
-                cmd.Parameters.AddWithValue("@moneda", 0);
+                cmd.Parameters.AddWithValue("@moneda", "DOP");
+                cmd.Parameters.AddWithValue("@Descuento", 0.00);
                 cmd.Parameters.AddWithValue("@unidades", "Unidad");
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Estado", "EN ESPERA");
@@ -1046,38 +1052,46 @@ namespace SistemaVentas.Presentacion.Cotizacion
         }
         private void Button21_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtmonto.Text ))
+            if (iddetallecotizacion == 0)
             {
-           if (datalistadoDetalleVenta.RowCount >0 )
-            {      
-
-            if (sevendePor =="Unidad")
-
-            {
-                string cadena = txtmonto.Text;
-                if (cadena.Contains ("."))
-                {
-                    MessageBox.Show("Este Producto no acepta decimales ya que esta configurado para ser vendido por UNIDAD", "Formato Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                else
-                {
-                        BotonCantidad();
-
-
-                }
-             }
-            else if (sevendePor == "Granel")
-                {
-                    BotonCantidad();
-                }
-           }
-           else
-            {
-                txtmonto.Clear();
-                txtmonto.Focus();
+                MessageBox.Show("Seleccione un producto para realizar la edición", "Editar cantidad del Articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+                if (!string.IsNullOrEmpty(txtmonto.Text))
+                {
+                    if (datalistadoDetalleVenta.RowCount > 0)
+                    {
+
+                        if (sevendePor == "Unidad")
+
+                        {
+                            string cadena = txtmonto.Text;
+                            if (cadena.Contains("."))
+                            {
+                                MessageBox.Show("Este Producto no acepta decimales ya que esta configurado para ser vendido por UNIDAD", "Formato Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            else
+                            {
+                                BotonCantidad();
+
+
+                            }
+                        }
+                        else if (sevendePor == "Granel")
+                        {
+                            BotonCantidad();
+                        }
+                    }
+                    else
+                    {
+                        txtmonto.Clear();
+                        txtmonto.Focus();
+                    }
+                    txtmonto.Focus();
+                    txtmonto.Clear();
+                }
             }
-         
         }
         private void BotonCantidad()
         {
@@ -1210,17 +1224,27 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
         private void btnprecio_Click(object sender, EventArgs e)
         {
-
-            if (!string.IsNullOrEmpty(txtmonto.Text ))
+            //double precio = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
+            if (iddetallecotizacion == 0)
             {
-                LdetalleFactura parametros = new LdetalleFactura();
-                Editar_datos funcion = new Editar_datos();
-                parametros.iddetalle_factura = iddetallecotizacion;
-                parametros.preciounitario =Convert.ToDouble ( txtmonto.Text);
-            if (funcion.editarPrecioVenta (parametros)==true)
+                MessageBox.Show("Seleccione un producto para realizar la edición", "Editar precio del Articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(txtmonto.Text))
                 {
-                    Listarproductosagregados();
+                    LdetalleFactura parametros = new LdetalleFactura();
+                    Editar_datos funcion = new Editar_datos();
+                    parametros.iddetalle_factura = iddetallecotizacion;
+                    parametros.preciounitario = Convert.ToDouble(txtmonto.Text);
+                    if (funcion.editarPrecioVenta(parametros) == true)
+                    {
+                        Listarproductosagregados();
+                    }
                 }
+                txtmonto.Focus();
+                txtmonto.Clear();
+                iddetallecotizacion = 0;
             }
         }
 
@@ -1228,6 +1252,69 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
             txtmonto.Text = txtmonto.Text + "0";
 
+        }
+        private void sumarDescuentos()
+        {
+            try
+            {
+
+                int x;
+                x = datalistadoDetalleVenta.Rows.Count;
+                if (x == 0)
+                {
+                    txt_total_suma.Text = "0.00";
+                }
+
+                double descuento;
+                descuento = 0;
+                foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
+                {
+
+                    descuento += Convert.ToDouble(fila.Cells["Descuento"].Value);
+                    lbldescuento.Text = Convert.ToString(descuento);
+                    //  lblsubtotal.Text = lbldescuento.Text;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+            if (iddetallecotizacion == 0)
+            {
+                MessageBox.Show("Seleccione un producto para aplicarle descuento", "Editar descuento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                double precio = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[6].Value);
+                //MessageBox.Show(precio.ToString());
+                if (!string.IsNullOrEmpty(txtmonto.Text))
+                {
+                    if ((Convert.ToInt32(txtmonto.Text) < precio))
+                    {
+                        LdetalleFactura parametros = new LdetalleFactura();
+                        Editar_datos funcion = new Editar_datos();
+                        parametros.iddetalle_factura = iddetallecotizacion;
+                        parametros.Descuento = Convert.ToDouble(txtmonto.Text);
+                        if (funcion.editarDescuentoFactura(parametros) == true)
+                        {
+                            Listarproductosagregados();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asigne un descuento menor a el precio de la unidad", "Editar descuento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                iddetallecotizacion = 0;
+                txtmonto.Focus();
+                txtmonto.Clear();
+            }
         }
     }
 }

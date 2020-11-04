@@ -134,12 +134,12 @@
             this.S = new System.Windows.Forms.DataGridViewButtonColumn();
             this.R = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.DATALISTADOVERIFICAR = new System.Windows.Forms.DataGridView();
-            this.lblCantidad_de_numeros = new System.Windows.Forms.Label();
             this.datalistadoprueba = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DATALISTADOVERIFICAR = new System.Windows.Forms.DataGridView();
+            this.lblCantidad_de_numeros = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.PanelregistroClientes.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -161,8 +161,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.datalistadovehiculo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).BeginInit();
             this.SuspendLayout();
             // 
             // TXTTOTAL
@@ -1492,42 +1492,6 @@
             this.panel3.Size = new System.Drawing.Size(10, 10);
             this.panel3.TabIndex = 602;
             // 
-            // DATALISTADOVERIFICAR
-            // 
-            this.DATALISTADOVERIFICAR.AllowUserToAddRows = false;
-            this.DATALISTADOVERIFICAR.AllowUserToDeleteRows = false;
-            this.DATALISTADOVERIFICAR.AllowUserToResizeRows = false;
-            this.DATALISTADOVERIFICAR.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DATALISTADOVERIFICAR.BackgroundColor = System.Drawing.Color.White;
-            this.DATALISTADOVERIFICAR.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DATALISTADOVERIFICAR.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.DATALISTADOVERIFICAR.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DATALISTADOVERIFICAR.ColumnHeadersVisible = false;
-            this.DATALISTADOVERIFICAR.EnableHeadersVisualStyles = false;
-            this.DATALISTADOVERIFICAR.Location = new System.Drawing.Point(78, 34);
-            this.DATALISTADOVERIFICAR.Name = "DATALISTADOVERIFICAR";
-            this.DATALISTADOVERIFICAR.ReadOnly = true;
-            this.DATALISTADOVERIFICAR.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.DATALISTADOVERIFICAR.RowHeadersVisible = false;
-            this.DATALISTADOVERIFICAR.RowHeadersWidth = 5;
-            this.DATALISTADOVERIFICAR.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.DATALISTADOVERIFICAR.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.DATALISTADOVERIFICAR.RowTemplate.Height = 40;
-            this.DATALISTADOVERIFICAR.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DATALISTADOVERIFICAR.Size = new System.Drawing.Size(305, 107);
-            this.DATALISTADOVERIFICAR.TabIndex = 618;
-            // 
-            // lblCantidad_de_numeros
-            // 
-            this.lblCantidad_de_numeros.AutoSize = true;
-            this.lblCantidad_de_numeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad_de_numeros.ForeColor = System.Drawing.Color.White;
-            this.lblCantidad_de_numeros.Location = new System.Drawing.Point(99, 58);
-            this.lblCantidad_de_numeros.Name = "lblCantidad_de_numeros";
-            this.lblCantidad_de_numeros.Size = new System.Drawing.Size(93, 15);
-            this.lblCantidad_de_numeros.TabIndex = 613;
-            this.lblCantidad_de_numeros.Text = "Comprobante";
-            // 
             // datalistadoprueba
             // 
             this.datalistadoprueba.AllowUserToAddRows = false;
@@ -1624,6 +1588,42 @@
             this.dataGridViewButtonColumn2.Text = "-";
             this.dataGridViewButtonColumn2.UseColumnTextForButtonValue = true;
             // 
+            // DATALISTADOVERIFICAR
+            // 
+            this.DATALISTADOVERIFICAR.AllowUserToAddRows = false;
+            this.DATALISTADOVERIFICAR.AllowUserToDeleteRows = false;
+            this.DATALISTADOVERIFICAR.AllowUserToResizeRows = false;
+            this.DATALISTADOVERIFICAR.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DATALISTADOVERIFICAR.BackgroundColor = System.Drawing.Color.White;
+            this.DATALISTADOVERIFICAR.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DATALISTADOVERIFICAR.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.DATALISTADOVERIFICAR.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DATALISTADOVERIFICAR.ColumnHeadersVisible = false;
+            this.DATALISTADOVERIFICAR.EnableHeadersVisualStyles = false;
+            this.DATALISTADOVERIFICAR.Location = new System.Drawing.Point(78, 34);
+            this.DATALISTADOVERIFICAR.Name = "DATALISTADOVERIFICAR";
+            this.DATALISTADOVERIFICAR.ReadOnly = true;
+            this.DATALISTADOVERIFICAR.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.DATALISTADOVERIFICAR.RowHeadersVisible = false;
+            this.DATALISTADOVERIFICAR.RowHeadersWidth = 5;
+            this.DATALISTADOVERIFICAR.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.DATALISTADOVERIFICAR.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DATALISTADOVERIFICAR.RowTemplate.Height = 40;
+            this.DATALISTADOVERIFICAR.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DATALISTADOVERIFICAR.Size = new System.Drawing.Size(305, 107);
+            this.DATALISTADOVERIFICAR.TabIndex = 618;
+            // 
+            // lblCantidad_de_numeros
+            // 
+            this.lblCantidad_de_numeros.AutoSize = true;
+            this.lblCantidad_de_numeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad_de_numeros.ForeColor = System.Drawing.Color.White;
+            this.lblCantidad_de_numeros.Location = new System.Drawing.Point(99, 58);
+            this.lblCantidad_de_numeros.Name = "lblCantidad_de_numeros";
+            this.lblCantidad_de_numeros.Size = new System.Drawing.Size(93, 15);
+            this.lblCantidad_de_numeros.TabIndex = 613;
+            this.lblCantidad_de_numeros.Text = "Comprobante";
+            // 
             // MEDIOS_DE_PAGO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1674,8 +1674,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

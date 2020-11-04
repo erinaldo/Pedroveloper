@@ -153,6 +153,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             }
             dibujarCOMPROBANTES();
         }
+        string tipoImpresion;
         private void dibujarCOMPROBANTES()
         {
             FlowLayoutPanel3.Controls.Clear();
@@ -174,6 +175,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                     FlowLayoutPanel3.Controls.Add(b);
                     if (b.Text == lblComprobante.Text)
                     {
+                        tipoImpresion = b.Text;
                         b.Visible = false;
                     }
                     b.Click += miEvento;
@@ -484,15 +486,134 @@ namespace SistemaVentas.Presentacion.Cotizacion
             }
         }
 
+        void mostrar_factura_impresa_VISTA_PREVIA()
+        {
+            PanelImpresionvistaprevia.Visible = true;
+            PanelImpresionvistaprevia.Dock = DockStyle.Fill;
+            panelGuardado_de_datos.Dock = DockStyle.None;
+            panelGuardado_de_datos.Visible = false;
+
+            Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report();
+            DataTable dt = new DataTable();
+            try
+            {
+                asdasd();
+                CONEXION.CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_factura_impreso", CONEXION.CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idcotizacion);
+                da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
+                da.Fill(dt);
+                rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report();
+                rpt.table1.DataSource = dt;
+                rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
+                reportViewer1.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
+                reportViewer1.RefreshReport();
+                CONEXION.CONEXIONMAESTRA.cerrar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+        }
+        private void asdasd()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                CONEXION.CONEXIONMAESTRA.abrir();
+                da = new SqlDataAdapter("mostrar_factura_impreso", CONEXION.CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idcotizacion);
+                da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
+                da.Fill(dt);
+                datalistadoprueba.DataSource = dt;
+                CONEXION.CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                CONEXION.CONEXIONMAESTRA.cerrar();
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
         void validar_tipo_de_impresion()
         {
-           if ( indicador =="VISTA PREVIA")
+            if (indicador == "VISTA PREVIA")
             {
-                mostrar_ticket_impreso_VISTA_PREVIA();
+                // MessageBox.Show(tipoImpresion);
+                if (tipoImpresion == "FACTURA")
+                {
+                    mostrar_factura_impresa_VISTA_PREVIA();
+                }
+                else if (tipoImpresion == "TICKET")
+                {
+                    mostrar_ticket_impreso_VISTA_PREVIA();
+                }
             }
-           else if (indicador =="DIRECTO")
+            else if (indicador == "DIRECTO")
             {
-                imprimir_directo();
+                if (tipoImpresion == "FACTURA")
+                {
+                    imprimir_directo_factura();
+                }
+                else if (tipoImpresion == "TICKET")
+                {
+                    imprimir_directo();
+
+                }
+            }
+        }
+        void mostrar_factura_llena()
+        {
+            Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
+            DataTable dt = new DataTable();
+            try
+            {
+                CONEXION.CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_factura_impreso", CONEXION.CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idcotizacion);
+                da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
+                da.Fill(dt);
+                rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
+                rpt.table1.DataSource = dt;
+                rpt.DataSource = dt;
+#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
+                reportViewer2.Report = rpt;
+#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
+                reportViewer2.RefreshReport();
+                CONEXION.CONEXIONMAESTRA.cerrar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+        void imprimir_directo_factura()
+        {
+            mostrar_factura_llena();
+            try
+            {
+                DOCUMENTO = new PrintDocument();
+                DOCUMENTO.PrinterSettings.PrinterName = txtImpresora.Text;
+                if (DOCUMENTO.PrinterSettings.IsValid)
+                {
+                    PrinterSettings printerSettings = new PrinterSettings();
+                    printerSettings.PrinterName = txtImpresora.Text;
+                    ReportProcessor reportProcessor = new ReportProcessor();
+                    reportProcessor.PrintReport(reportViewer2.ReportSource, printerSettings);
+                }
+                Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
             }
         }
         void imprimir_directo()
@@ -586,6 +707,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 cmd.Parameters.AddWithValue("@idFactura", idcotizacion);
                 cmd.Parameters.AddWithValue("@montototal", total);
                 cmd.Parameters.AddWithValue("@IGV", 0);
+
                 cmd.Parameters.AddWithValue("@Saldo", vuelto);
                 cmd.Parameters.AddWithValue("@Tipo_de_pago","EFECTIVO" );
                 cmd.Parameters.AddWithValue("@Estado", "EN ESPERA");

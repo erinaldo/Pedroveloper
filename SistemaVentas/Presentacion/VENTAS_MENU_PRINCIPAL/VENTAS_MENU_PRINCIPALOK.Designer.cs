@@ -229,9 +229,6 @@
             this.Panel11 = new System.Windows.Forms.Panel();
             this.datalistadoventas_nuevasok = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Panel14 = new System.Windows.Forms.Panel();
-            this.ToolStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnadmin = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelC3 = new System.Windows.Forms.Panel();
             this.btnverMovimientosCaja = new System.Windows.Forms.Button();
             this.BtnTecladoV = new UIDC.UI_TecladoBasico();
@@ -300,8 +297,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panelC2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.btnCreditoPagar = new System.Windows.Forms.Button();
-            this.btnCreditoCobrar = new System.Windows.Forms.Button();
             this.btnCobros = new System.Windows.Forms.Button();
             this.PanelEnespera = new System.Windows.Forms.Panel();
             this.btnAutomaticoEspera = new System.Windows.Forms.Button();
@@ -316,6 +311,9 @@
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ToolStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnadmin = new System.Windows.Forms.ToolStripMenuItem();
+            this.Panel14 = new System.Windows.Forms.Panel();
             this.PanelC1.SuspendLayout();
             this.panel_granel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtComprobantes)).BeginInit();
@@ -352,8 +350,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtempresaok)).BeginInit();
             this.Panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoventas_nuevasok)).BeginInit();
-            this.Panel14.SuspendLayout();
-            this.ToolStrip1.SuspendLayout();
             this.PanelC3.SuspendLayout();
             this.StatusStrip4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).BeginInit();
@@ -372,6 +368,8 @@
             this.panelC2.SuspendLayout();
             this.PanelEnespera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadocotizacion)).BeginInit();
+            this.ToolStrip1.SuspendLayout();
+            this.Panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelC1
@@ -388,7 +386,6 @@
             this.PanelC1.Controls.Add(this.lblNombreSoftware);
             this.PanelC1.Controls.Add(this.dtempresaok);
             this.PanelC1.Controls.Add(this.Panel11);
-            this.PanelC1.Controls.Add(this.Panel14);
             this.PanelC1.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelC1.Location = new System.Drawing.Point(0, 0);
             this.PanelC1.Name = "PanelC1";
@@ -2517,50 +2514,13 @@
             this.DataGridViewCheckBoxColumn5.Name = "DataGridViewCheckBoxColumn5";
             this.DataGridViewCheckBoxColumn5.ReadOnly = true;
             // 
-            // Panel14
-            // 
-            this.Panel14.BackColor = System.Drawing.Color.Transparent;
-            this.Panel14.Controls.Add(this.ToolStrip1);
-            this.Panel14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Panel14.Location = new System.Drawing.Point(1211, 0);
-            this.Panel14.Name = "Panel14";
-            this.Panel14.Size = new System.Drawing.Size(287, 47);
-            this.Panel14.TabIndex = 599;
-            // 
-            // ToolStrip1
-            // 
-            this.ToolStrip1.AutoSize = false;
-            this.ToolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.ToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.ToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnadmin});
-            this.ToolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.ToolStrip1.Location = new System.Drawing.Point(11, 8);
-            this.ToolStrip1.Name = "ToolStrip1";
-            this.ToolStrip1.ShowItemToolTips = true;
-            this.ToolStrip1.Size = new System.Drawing.Size(228, 31);
-            this.ToolStrip1.TabIndex = 599;
-            this.ToolStrip1.Text = "MenuStrip6";
-            // 
-            // btnadmin
-            // 
-            this.btnadmin.BackColor = System.Drawing.Color.Transparent;
-            this.btnadmin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnadmin.ForeColor = System.Drawing.Color.Black;
-            this.btnadmin.Image = ((System.Drawing.Image)(resources.GetObject("btnadmin.Image")));
-            this.btnadmin.Name = "btnadmin";
-            this.btnadmin.Size = new System.Drawing.Size(148, 27);
-            this.btnadmin.Text = "Administrador";
-            this.btnadmin.ToolTipText = "Agregar y ver Productos";
-            this.btnadmin.Click += new System.EventHandler(this.btnadmin_Click);
-            // 
             // PanelC3
             // 
             this.PanelC3.BackColor = System.Drawing.Color.White;
             this.PanelC3.Controls.Add(this.btnverMovimientosCaja);
             this.PanelC3.Controls.Add(this.BtnTecladoV);
-            this.PanelC3.Controls.Add(this.StatusStrip4);
             this.PanelC3.Controls.Add(this.BtnCerrar_turno);
+            this.PanelC3.Controls.Add(this.StatusStrip4);
             this.PanelC3.Controls.Add(this.MenuStrip21);
             this.PanelC3.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelC3.Location = new System.Drawing.Point(0, 95);
@@ -2670,7 +2630,7 @@
             this.BtnCerrar_turno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCerrar_turno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCerrar_turno.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrar_turno.Location = new System.Drawing.Point(629, 7);
+            this.BtnCerrar_turno.Location = new System.Drawing.Point(860, 3);
             this.BtnCerrar_turno.Name = "BtnCerrar_turno";
             this.BtnCerrar_turno.Size = new System.Drawing.Size(157, 43);
             this.BtnCerrar_turno.TabIndex = 600;
@@ -2833,6 +2793,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.Location = new System.Drawing.Point(199, 299);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(90, 55);
@@ -2911,6 +2872,7 @@
             this.btncantidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncantidad.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.btncantidad.ForeColor = System.Drawing.Color.White;
+            this.btncantidad.Image = global::SistemaVentas.Properties.Resources.negro;
             this.btncantidad.Location = new System.Drawing.Point(199, 173);
             this.btncantidad.Name = "btncantidad";
             this.btncantidad.Size = new System.Drawing.Size(90, 55);
@@ -2966,6 +2928,7 @@
             this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn0.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.btn0.ForeColor = System.Drawing.Color.White;
+            this.btn0.Image = ((System.Drawing.Image)(resources.GetObject("btn0.Image")));
             this.btn0.Location = new System.Drawing.Point(11, 356);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(55, 56);
@@ -3013,6 +2976,7 @@
             this.btnprecio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnprecio.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.btnprecio.ForeColor = System.Drawing.Color.White;
+            this.btnprecio.Image = ((System.Drawing.Image)(resources.GetObject("btnprecio.Image")));
             this.btnprecio.Location = new System.Drawing.Point(199, 235);
             this.btnprecio.Name = "btnprecio";
             this.btnprecio.Size = new System.Drawing.Size(90, 55);
@@ -3045,6 +3009,7 @@
             this.btnSeparador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeparador.Font = new System.Drawing.Font("Calibri", 21F, System.Drawing.FontStyle.Bold);
             this.btnSeparador.ForeColor = System.Drawing.Color.White;
+            this.btnSeparador.Image = ((System.Drawing.Image)(resources.GetObject("btnSeparador.Image")));
             this.btnSeparador.Location = new System.Drawing.Point(70, 356);
             this.btnSeparador.Name = "btnSeparador";
             this.btnSeparador.Size = new System.Drawing.Size(55, 56);
@@ -3077,6 +3042,7 @@
             this.btnborrartodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnborrartodo.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.btnborrartodo.ForeColor = System.Drawing.Color.White;
+            this.btnborrartodo.Image = ((System.Drawing.Image)(resources.GetObject("btnborrartodo.Image")));
             this.btnborrartodo.Location = new System.Drawing.Point(131, 356);
             this.btnborrartodo.Name = "btnborrartodo";
             this.btnborrartodo.Size = new System.Drawing.Size(55, 56);
@@ -3114,6 +3080,7 @@
             this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.btn1.ForeColor = System.Drawing.Color.White;
+            this.btn1.Image = ((System.Drawing.Image)(resources.GetObject("btn1.Image")));
             this.btn1.Location = new System.Drawing.Point(3, 3);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(55, 55);
@@ -3135,6 +3102,7 @@
             this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn2.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.btn2.ForeColor = System.Drawing.Color.White;
+            this.btn2.Image = ((System.Drawing.Image)(resources.GetObject("btn2.Image")));
             this.btn2.Location = new System.Drawing.Point(64, 3);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(55, 55);
@@ -3156,6 +3124,7 @@
             this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn3.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.btn3.ForeColor = System.Drawing.Color.White;
+            this.btn3.Image = ((System.Drawing.Image)(resources.GetObject("btn3.Image")));
             this.btn3.Location = new System.Drawing.Point(125, 3);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(55, 55);
@@ -3177,6 +3146,7 @@
             this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn4.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.btn4.ForeColor = System.Drawing.Color.White;
+            this.btn4.Image = ((System.Drawing.Image)(resources.GetObject("btn4.Image")));
             this.btn4.Location = new System.Drawing.Point(3, 64);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(55, 55);
@@ -3198,6 +3168,7 @@
             this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn5.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.btn5.ForeColor = System.Drawing.Color.White;
+            this.btn5.Image = ((System.Drawing.Image)(resources.GetObject("btn5.Image")));
             this.btn5.Location = new System.Drawing.Point(64, 64);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(55, 55);
@@ -3219,6 +3190,7 @@
             this.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn6.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.btn6.ForeColor = System.Drawing.Color.White;
+            this.btn6.Image = ((System.Drawing.Image)(resources.GetObject("btn6.Image")));
             this.btn6.Location = new System.Drawing.Point(125, 64);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(55, 55);
@@ -3240,6 +3212,7 @@
             this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn7.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.btn7.ForeColor = System.Drawing.Color.White;
+            this.btn7.Image = ((System.Drawing.Image)(resources.GetObject("btn7.Image")));
             this.btn7.Location = new System.Drawing.Point(3, 125);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(55, 55);
@@ -3261,6 +3234,7 @@
             this.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn8.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.btn8.ForeColor = System.Drawing.Color.White;
+            this.btn8.Image = ((System.Drawing.Image)(resources.GetObject("btn8.Image")));
             this.btn8.Location = new System.Drawing.Point(64, 125);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(55, 55);
@@ -3282,6 +3256,7 @@
             this.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn9.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.btn9.ForeColor = System.Drawing.Color.White;
+            this.btn9.Image = ((System.Drawing.Image)(resources.GetObject("btn9.Image")));
             this.btn9.Location = new System.Drawing.Point(125, 125);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(55, 55);
@@ -3600,9 +3575,8 @@
             // panelC2
             // 
             this.panelC2.BackColor = System.Drawing.Color.White;
+            this.panelC2.Controls.Add(this.Panel14);
             this.panelC2.Controls.Add(this.button4);
-            this.panelC2.Controls.Add(this.btnCreditoPagar);
-            this.panelC2.Controls.Add(this.btnCreditoCobrar);
             this.panelC2.Controls.Add(this.btnCobros);
             this.panelC2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelC2.Location = new System.Drawing.Point(0, 47);
@@ -3618,7 +3592,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::SistemaVentas.Properties.Resources.costo;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(606, 6);
+            this.button4.Location = new System.Drawing.Point(88, 8);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(124, 34);
             this.button4.TabIndex = 6;
@@ -3626,40 +3600,6 @@
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // btnCreditoPagar
-            // 
-            this.btnCreditoPagar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCreditoPagar.FlatAppearance.BorderSize = 0;
-            this.btnCreditoPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreditoPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreditoPagar.Image = global::SistemaVentas.Properties.Resources.costo;
-            this.btnCreditoPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreditoPagar.Location = new System.Drawing.Point(364, 8);
-            this.btnCreditoPagar.Name = "btnCreditoPagar";
-            this.btnCreditoPagar.Size = new System.Drawing.Size(249, 34);
-            this.btnCreditoPagar.TabIndex = 5;
-            this.btnCreditoPagar.Text = "Aperturar Credito por Pagar";
-            this.btnCreditoPagar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreditoPagar.UseVisualStyleBackColor = false;
-            this.btnCreditoPagar.Click += new System.EventHandler(this.btnCreditoPagar_Click);
-            // 
-            // btnCreditoCobrar
-            // 
-            this.btnCreditoCobrar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCreditoCobrar.FlatAppearance.BorderSize = 0;
-            this.btnCreditoCobrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreditoCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreditoCobrar.Image = global::SistemaVentas.Properties.Resources.euro;
-            this.btnCreditoCobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreditoCobrar.Location = new System.Drawing.Point(98, 8);
-            this.btnCreditoCobrar.Name = "btnCreditoCobrar";
-            this.btnCreditoCobrar.Size = new System.Drawing.Size(260, 34);
-            this.btnCreditoCobrar.TabIndex = 4;
-            this.btnCreditoCobrar.Text = "Aperturar Credito por Cobrar";
-            this.btnCreditoCobrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreditoCobrar.UseVisualStyleBackColor = false;
-            this.btnCreditoCobrar.Click += new System.EventHandler(this.btnCreditoCobrar_Click);
             // 
             // btnCobros
             // 
@@ -3900,6 +3840,43 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.ToolTipText = "Opcional \"Supr\" para Eliminar";
             // 
+            // ToolStrip1
+            // 
+            this.ToolStrip1.AutoSize = false;
+            this.ToolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnadmin});
+            this.ToolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.ToolStrip1.Name = "ToolStrip1";
+            this.ToolStrip1.ShowItemToolTips = true;
+            this.ToolStrip1.Size = new System.Drawing.Size(287, 48);
+            this.ToolStrip1.TabIndex = 599;
+            this.ToolStrip1.Text = "MenuStrip6";
+            // 
+            // btnadmin
+            // 
+            this.btnadmin.BackColor = System.Drawing.Color.Transparent;
+            this.btnadmin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnadmin.ForeColor = System.Drawing.Color.Black;
+            this.btnadmin.Image = ((System.Drawing.Image)(resources.GetObject("btnadmin.Image")));
+            this.btnadmin.Name = "btnadmin";
+            this.btnadmin.Size = new System.Drawing.Size(148, 44);
+            this.btnadmin.Text = "Administrador";
+            this.btnadmin.ToolTipText = "Agregar y ver Productos";
+            this.btnadmin.Click += new System.EventHandler(this.btnadmin_Click);
+            // 
+            // Panel14
+            // 
+            this.Panel14.BackColor = System.Drawing.Color.Transparent;
+            this.Panel14.Controls.Add(this.ToolStrip1);
+            this.Panel14.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Panel14.Location = new System.Drawing.Point(1211, 0);
+            this.Panel14.Name = "Panel14";
+            this.Panel14.Size = new System.Drawing.Size(287, 48);
+            this.Panel14.TabIndex = 600;
+            // 
             // VENTAS_MENU_PRINCIPALOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3978,9 +3955,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtempresaok)).EndInit();
             this.Panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoventas_nuevasok)).EndInit();
-            this.Panel14.ResumeLayout(false);
-            this.ToolStrip1.ResumeLayout(false);
-            this.ToolStrip1.PerformLayout();
             this.PanelC3.ResumeLayout(false);
             this.StatusStrip4.ResumeLayout(false);
             this.StatusStrip4.PerformLayout();
@@ -4003,6 +3977,9 @@
             this.PanelEnespera.ResumeLayout(false);
             this.PanelEnespera.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadocotizacion)).EndInit();
+            this.ToolStrip1.ResumeLayout(false);
+            this.ToolStrip1.PerformLayout();
+            this.Panel14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -4161,7 +4138,6 @@
         internal System.Windows.Forms.Panel Panel11;
         internal System.Windows.Forms.DataGridView datalistadoventas_nuevasok;
         internal System.Windows.Forms.DataGridViewCheckBoxColumn DataGridViewCheckBoxColumn5;
-        internal System.Windows.Forms.Panel Panel14;
         internal System.Windows.Forms.Panel PanelC3;
         internal System.Windows.Forms.StatusStrip StatusStrip4;
         internal System.Windows.Forms.ToolStripButton btnMayoreo;
@@ -4169,8 +4145,6 @@
         internal System.Windows.Forms.ToolStripButton btnGastos;
         internal System.Windows.Forms.Button BtnCerrar_turno;
         internal System.Windows.Forms.MenuStrip MenuStrip21;
-        internal System.Windows.Forms.MenuStrip ToolStrip1;
-        internal System.Windows.Forms.ToolStripMenuItem btnadmin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         public System.Windows.Forms.DataGridView DATALISTADO_PRODUCTOS_OKA;
@@ -4228,8 +4202,6 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panelC2;
-        private System.Windows.Forms.Button btnCreditoPagar;
-        private System.Windows.Forms.Button btnCreditoCobrar;
         private System.Windows.Forms.Button btnCobros;
         private UIDC.UI_TecladoBasico BtnTecladoV;
         internal System.Windows.Forms.Button btnverMovimientosCaja;
@@ -4264,5 +4236,8 @@
         internal System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn4;
         private System.Windows.Forms.Label lblCantidad_de_numeros;
         internal System.Windows.Forms.Button button8;
+        internal System.Windows.Forms.Panel Panel14;
+        internal System.Windows.Forms.MenuStrip ToolStrip1;
+        internal System.Windows.Forms.ToolStripMenuItem btnadmin;
     }
 }

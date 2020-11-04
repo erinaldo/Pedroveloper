@@ -1650,7 +1650,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             
             if (iddetalleventa == 0)
             {
-                MessageBox.Show("Seleccione un descuento", "Editar descuento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Seleccione un producto para aplicarle descuento", "Editar descuento", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -1734,11 +1734,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             btnCobros.ForeColor = Color.White;
 
             
-            btnCreditoCobrar.BackColor = Color.FromArgb(45, 45, 45);
+            /*btnCreditoCobrar.BackColor = Color.FromArgb(45, 45, 45);
             btnCreditoCobrar.ForeColor = Color.White;
             btnCreditoPagar.BackColor = Color.FromArgb(45, 45, 45);
             btnCreditoPagar.ForeColor = Color.White;
-
+            */
             //PanelC3
             PanelC3.BackColor = Color.FromArgb(35, 35, 35);
             btnMayoreo.BackColor = Color.FromArgb(45, 45, 45);
@@ -1805,10 +1805,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             btn4.BackColor = Color.WhiteSmoke;
             btn4.ForeColor = Color.White;
 
-            btnCreditoCobrar.BackColor = Color.WhiteSmoke;
+          /*  btnCreditoCobrar.BackColor = Color.WhiteSmoke;
             btnCreditoCobrar.ForeColor = Color.Black;
             btnCreditoPagar.BackColor = Color.WhiteSmoke;
-            btnCreditoPagar.ForeColor = Color.Black;
+            btnCreditoPagar.ForeColor = Color.Black;*/
 
             //PanelC3
             PanelC3.BackColor = Color.White;
