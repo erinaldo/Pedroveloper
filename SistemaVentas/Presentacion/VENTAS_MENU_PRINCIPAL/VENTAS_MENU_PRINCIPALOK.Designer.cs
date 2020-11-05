@@ -252,7 +252,6 @@
             this.labeligv = new System.Windows.Forms.Label();
             this.txtmonto = new System.Windows.Forms.TextBox();
             this.Label11 = new System.Windows.Forms.Label();
-            this.btn0 = new System.Windows.Forms.Button();
             this.Label36 = new System.Windows.Forms.Label();
             this.lblsubtotal = new System.Windows.Forms.Label();
             this.btnprecio = new System.Windows.Forms.Button();
@@ -314,6 +313,7 @@
             this.ToolStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnadmin = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel14 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.PanelC1.SuspendLayout();
             this.panel_granel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtComprobantes)).BeginInit();
@@ -2756,6 +2756,7 @@
             // PanelOperaciones
             // 
             this.PanelOperaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.PanelOperaciones.Controls.Add(this.button9);
             this.PanelOperaciones.Controls.Add(this.button8);
             this.PanelOperaciones.Controls.Add(this.Panel15);
             this.PanelOperaciones.Controls.Add(this.label9);
@@ -2764,7 +2765,6 @@
             this.PanelOperaciones.Controls.Add(this.labeligv);
             this.PanelOperaciones.Controls.Add(this.txtmonto);
             this.PanelOperaciones.Controls.Add(this.Label11);
-            this.PanelOperaciones.Controls.Add(this.btn0);
             this.PanelOperaciones.Controls.Add(this.Label36);
             this.PanelOperaciones.Controls.Add(this.lblsubtotal);
             this.PanelOperaciones.Controls.Add(this.btnprecio);
@@ -2915,29 +2915,6 @@
             this.Label11.Size = new System.Drawing.Size(101, 22);
             this.Label11.TabIndex = 507;
             this.Label11.Text = "Descuento:";
-            // 
-            // btn0
-            // 
-            this.btn0.BackColor = System.Drawing.Color.Transparent;
-            this.btn0.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn0.BackgroundImage")));
-            this.btn0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn0.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn0.FlatAppearance.BorderSize = 0;
-            this.btn0.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn0.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn0.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
-            this.btn0.ForeColor = System.Drawing.Color.White;
-            this.btn0.Image = ((System.Drawing.Image)(resources.GetObject("btn0.Image")));
-            this.btn0.Location = new System.Drawing.Point(11, 356);
-            this.btn0.Name = "btn0";
-            this.btn0.Size = new System.Drawing.Size(55, 56);
-            this.btn0.TabIndex = 605;
-            this.btn0.Text = "0";
-            this.btn0.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn0.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn0.UseVisualStyleBackColor = false;
-            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
             // Label36
             // 
@@ -3877,6 +3854,28 @@
             this.Panel14.Size = new System.Drawing.Size(287, 48);
             this.Panel14.TabIndex = 600;
             // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.Transparent;
+            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
+            this.button9.Location = new System.Drawing.Point(11, 356);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(55, 55);
+            this.button9.TabIndex = 43;
+            this.button9.Text = "0";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // VENTAS_MENU_PRINCIPALOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4159,7 +4158,6 @@
         internal System.Windows.Forms.Label labeligv;
         internal System.Windows.Forms.TextBox txtmonto;
         internal System.Windows.Forms.Label Label11;
-        internal System.Windows.Forms.Button btn0;
         internal System.Windows.Forms.Label Label36;
         internal System.Windows.Forms.Label lblsubtotal;
         internal System.Windows.Forms.Button btnprecio;
@@ -4239,5 +4237,6 @@
         internal System.Windows.Forms.Panel Panel14;
         internal System.Windows.Forms.MenuStrip ToolStrip1;
         internal System.Windows.Forms.ToolStripMenuItem btnadmin;
+        internal System.Windows.Forms.Button button9;
     }
 }

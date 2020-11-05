@@ -29,6 +29,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             InitializeComponent();
         }
 
+        string itbis;
         double descuento;
         int contador_stock_detalle_de_venta;
         int idproducto;
@@ -1130,7 +1131,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btn0_Click(object sender, EventArgs e)
         {
-            txtmonto.Text = txtmonto.Text + "0";
         }
         bool SECUENCIA = true;
         private void btnSeparador_Click(object sender, EventArgs e)
@@ -1872,6 +1872,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             frm.ShowDialog();
         }
 
+        private void button9_Click(object sender, EventArgs e)
+        {
+            txtmonto.Text = txtmonto.Text + "0";
+        }
         
+       
     }
 }

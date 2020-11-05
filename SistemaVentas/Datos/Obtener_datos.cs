@@ -1597,6 +1597,29 @@ namespace SistemaVentas.Datos
                 MessageBox.Show(ex.StackTrace);
             }
         }
+        public static bool VerificarItbis()
+        {
+            SqlCommand com = new SqlCommand("select Trabajas_con_impuestos from EMPRESA", CONEXION.CONEXIONMAESTRA.conectar);
+            try
+            {
+                CONEXION.CONEXIONMAESTRA.abrir();
+                string i = Convert.ToString(com.ExecuteScalar());
+                CONEXION.CONEXIONMAESTRA.cerrar();
+                if(i == "SI")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return false;
+            }
+        }
         public static void mostrarTemaCaja(ref string Tema)
         {
             try

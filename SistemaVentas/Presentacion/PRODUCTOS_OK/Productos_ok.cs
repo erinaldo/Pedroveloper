@@ -395,7 +395,12 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void Productos_ok_Load(object sender, EventArgs e)
         {
+            Impuestos.Visible = false;
 
+            if (Obtener_datos.VerificarItbis() == true)
+            {
+                Impuestos.Visible = true;
+            }
             Bases.Cambiar_idioma_regional();
 
             PANELDEPARTAMENTO.Visible = false;
@@ -561,77 +566,85 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void insertar_productos()
         {
+            double itbis;
             if (txtpreciomayoreo.Text == "0" | txtpreciomayoreo.Text == "") txtapartirde.Text = "0";
-
-            try
-            {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_Producto", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Descripcion", txtdescripcion.Text);
-                cmd.Parameters.AddWithValue("@Imagen", ".");
-                cmd.Parameters.AddWithValue("@Precio_de_compra", txtcosto.Text);
-                cmd.Parameters.AddWithValue("@precio_de_factura", TXTPRECIODEVENTA2.Text);
-                cmd.Parameters.AddWithValue("@Codigo", txtcodigodebarras.Text);
-                cmd.Parameters.AddWithValue("@A_partir_de", txtapartirde.Text);
-                cmd.Parameters.AddWithValue("@Impuesto", 0);
-                cmd.Parameters.AddWithValue("@Precio_mayoreo", txtpreciomayoreo.Text);
-                if (porunidad.Checked == true) txtse_vende_a.Text = "Unidad";
-                if (agranel.Checked == true) txtse_vende_a.Text = "Granel";
-
-                cmd .Parameters.AddWithValue("@Se_vende_a", txtse_vende_a.Text);
-                cmd .Parameters.AddWithValue("@Id_grupo", lblIdGrupo.Text);
-                if (PANELINVENTARIO.Visible == true)
+            
+                if (Impuestos.Checked)
                 {
-                    cmd.Parameters.AddWithValue("@Usa_inventarios", "SI");
-                    cmd.Parameters.AddWithValue("@Stock_minimo", txtstockminimo.Text);
-                    cmd.Parameters.AddWithValue("@Stock", txtstock2.Text);
+                    itbis = 0.18;
+                }
+                else
+                {
+                    itbis = 0.00;
+                }
+                try
+                {
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd = new SqlCommand("insertar_Producto", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Descripcion", txtdescripcion.Text);
+                    cmd.Parameters.AddWithValue("@Imagen", ".");
+                    cmd.Parameters.AddWithValue("@Precio_de_compra", txtcosto.Text);
+                    cmd.Parameters.AddWithValue("@precio_de_factura", TXTPRECIODEVENTA2.Text);
+                    cmd.Parameters.AddWithValue("@Codigo", txtcodigodebarras.Text);
+                    cmd.Parameters.AddWithValue("@A_partir_de", txtapartirde.Text);
+                    cmd.Parameters.AddWithValue("@Impuesto", itbis);
+                    cmd.Parameters.AddWithValue("@Precio_mayoreo", txtpreciomayoreo.Text);
+                    if (porunidad.Checked == true) txtse_vende_a.Text = "Unidad";
+                    if (agranel.Checked == true) txtse_vende_a.Text = "Granel";
 
-                    if (No_aplica_fecha.Checked == true)
+                    cmd.Parameters.AddWithValue("@Se_vende_a", txtse_vende_a.Text);
+                    cmd.Parameters.AddWithValue("@Id_grupo", lblIdGrupo.Text);
+                    if (PANELINVENTARIO.Visible == true)
                     {
+                        cmd.Parameters.AddWithValue("@Usa_inventarios", "SI");
+                        cmd.Parameters.AddWithValue("@Stock_minimo", txtstockminimo.Text);
+                        cmd.Parameters.AddWithValue("@Stock", txtstock2.Text);
+
+                        if (No_aplica_fecha.Checked == true)
+                        {
+                            cmd.Parameters.AddWithValue("@Fecha_de_vencimiento", "NO APLICA");
+                        }
+
+                        if (No_aplica_fecha.Checked == false)
+                        {
+                            cmd.Parameters.AddWithValue("@Fecha_de_vencimiento", txtfechaoka.Text);
+                        }
+
+
+                    }
+                    if (PANELINVENTARIO.Visible == false)
+                    {
+                        cmd.Parameters.AddWithValue("@Usa_inventarios", "NO");
+                        cmd.Parameters.AddWithValue("@Stock_minimo", 0);
                         cmd.Parameters.AddWithValue("@Fecha_de_vencimiento", "NO APLICA");
+                        cmd.Parameters.AddWithValue("@Stock", "Ilimitado");
+
                     }
+                    cmd.Parameters.AddWithValue("@Fecha", DateTime.Today);
+                    cmd.Parameters.AddWithValue("@Motivo", "Registro inicial de Producto");
+                    cmd.Parameters.AddWithValue("@Cantidad ", txtstock2.Text);
+                    cmd.Parameters.AddWithValue("@Id_usuario", idusuario);
+                    cmd.Parameters.AddWithValue("@Tipo", "ENTRADA");
+                    cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
+                    cmd.Parameters.AddWithValue("@Id_caja", idcaja);
 
-                    if (No_aplica_fecha.Checked == false)
-                    {
-                        cmd.Parameters.AddWithValue("@Fecha_de_vencimiento", txtfechaoka.Text);
-                    }
+                    cmd.ExecuteNonQuery();
 
 
+                    con.Close();
+                    PANELDEPARTAMENTO.Visible = false;
+                    //txtbusca.Text = txtdescripcion.Text;
+                    txtbusca.Focus();
+                    buscar();
                 }
-                if (PANELINVENTARIO.Visible == false)
+                catch (Exception ex)
                 {
-                    cmd.Parameters.AddWithValue("@Usa_inventarios", "NO");
-                    cmd.Parameters.AddWithValue("@Stock_minimo", 0);
-                    cmd.Parameters.AddWithValue("@Fecha_de_vencimiento", "NO APLICA");
-                    cmd.Parameters.AddWithValue("@Stock", "Ilimitado");
-
+                    MessageBox.Show(ex.Message);
                 }
-                cmd.Parameters.AddWithValue("@Fecha", DateTime.Today);
-                cmd.Parameters.AddWithValue("@Motivo", "Registro inicial de Producto");
-                cmd.Parameters.AddWithValue("@Cantidad ", txtstock2.Text);
-                cmd.Parameters.AddWithValue("@Id_usuario",idusuario );
-                cmd.Parameters.AddWithValue("@Tipo", "ENTRADA");
-                cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
-                cmd.Parameters.AddWithValue("@Id_caja",idcaja );
-
-                cmd.ExecuteNonQuery();
-               
-           
-                con.Close();
-                PANELDEPARTAMENTO.Visible = false;
-                //txtbusca.Text = txtdescripcion.Text;
-                txtbusca.Focus();
-                buscar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
         private void editar_productos()
         {
