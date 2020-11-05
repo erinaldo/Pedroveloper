@@ -163,7 +163,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             lblsubtotal.Text = "0.00";
             lbldescuento.Text = "0.00";
             txt_total_suma.Text = "0.00";
+            sumarItbis();
             sumar();
+            sumar2();
             sumarDescuentos();
             PanelEnespera.Visible = false;
             panelBienvenida.Visible = true;
@@ -183,17 +185,74 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 if (x == 0)
                 {
                     txt_total_suma.Text = "0.00";
+                    lblItbiss.Text = "0.00";
+                    lblsubtotal.Text = "0.00";
                 }
 
+                double preciounitario;
+                double cantidad; 
+                double itbis1;
                 double totalpagar;
+                subtotal = 0;
+                preciounitario = 0;
+                cantidad = 0;
+                preciounitario = 0;
+                itbis1 = 0;
                 totalpagar = 0;
+                double total = 0;
+                double descuento = 0;
                 foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
                 {
+                   // MessageBox.Show(fila.Cells.IndexOf(fila.Cells["Itbis"]).ToString());
+                   /*itbis1 += Convert.ToDouble(fila.Cells["Itbis"].Value);
+                    if (itbis1 == 0.18)
+                    {
+                        MessageBox.Show(itbis1.ToString());
+                        preciounitario += Convert.ToDouble(fila.Cells["PrecioUnidad"].Value);
+                        cantidad += Convert.ToInt32(fila.Cells["Cantidad"].Value);
 
-                    totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
-                    txt_total_suma.Text = Convert.ToString(totalpagar);
-                    lblsubtotal.Text = txt_total_suma.Text;
+                        descuento += Convert.ToDouble(fila.Cells["Descuento"].Value);
 
+                        totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
+
+                        total += (((preciounitario * cantidad) - descuento) * itbis1);
+                        lblItbiss.Text = Convert.ToString(total);
+                        txt_total_suma.Text = Convert.ToString(totalpagar + total);
+                    }
+                    else
+                    {*/
+                       // MessageBox.Show(itbis1.ToString());
+                        totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
+                        txt_total_suma.Text = Convert.ToString(totalpagar + Convert.ToDouble(lblItbiss.Text));
+
+                   /* }*/
+                    // lblsubtotal.Text += Convert.ToString(totalpagar - total);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        double subtotal;
+
+        private void sumar2()
+        {
+            try
+            {
+
+                int x;
+                x = datalistadoDetalleVenta.Rows.Count;
+                if (x == 0)
+                {
+                    lblsubtotal.Text = "0.00";
+                }
+
+                subtotal = 0;
+                foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
+                {
+                    subtotal += Convert.ToDouble(fila.Cells["Importe"].Value);
+                    lblsubtotal.Text = Convert.ToString(subtotal);
                 }
             }
             catch (Exception ex)
@@ -202,6 +261,33 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void sumarItbis()
+        {
+            try
+            {
+
+                int x;
+                x = datalistadoDetalleVenta.Rows.Count;
+                if (x == 0)
+                {
+                    lblsubtotal.Text = "0.00";
+                }
+
+                subtotal = 0;
+                foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
+                {
+                    subtotal += Convert.ToDouble(fila.Cells["Itbis"].Value);
+                    lblItbiss.Text = Convert.ToString(subtotal);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void sumarDescuentos()
         {
             try
@@ -257,6 +343,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 DATALISTADO_PRODUCTOS_OKA.Columns[8].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[9].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[10].Visible = false;
+
             }
             catch (Exception ex)
             {
@@ -418,6 +505,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
             sevendePor = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
             txtprecio_unitario = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
+            lblItbis.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[11].Value.ToString();
             //Preguntamos que tipo de producto sera el que se agrege al detalle de venta
             if (sevendePor == "Granel")
             {
@@ -670,6 +758,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
                 datalistadoDetalleVenta.Columns[18].Visible = false;
+                datalistadoDetalleVenta.Columns[20].Visible = false;
                 if (Tema == "Redentor")
                 {
                     Bases.Multilinea(ref datalistadoDetalleVenta);
@@ -678,7 +767,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 {
                     Bases.MultilineaTemaOscuro(ref datalistadoDetalleVenta);
                 }
+                sumarItbis();
                 sumar();
+                sumar2();
                 sumarDescuentos();
             }
             catch (Exception ex)
@@ -740,6 +831,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
                 cmd.Parameters.AddWithValue("@Usa_inventarios", usainventarios);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
+                cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblItbis.Text));
                 cmd.ExecuteNonQuery();
                 con.Close();
                 disminuir_stock_en_detalle_de_venta();
@@ -1206,6 +1298,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     lblcodigo.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();
                     lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
                     txtprecio_unitario = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
+
                     sevendePor = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
                     if (sevendePor == "Unidad")
                     {

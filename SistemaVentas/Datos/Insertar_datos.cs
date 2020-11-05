@@ -551,7 +551,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("Insertar_ControlCobros", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("Insertar_controlcobros", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Monto", parametros.Monto);
                 cmd.Parameters.AddWithValue("@Fecha", parametros.Fecha);

@@ -121,6 +121,7 @@ namespace SistemaVentas.Presentacion.CAJA
         }
         private void mostrar_cobros_efectivo_por_turno()
         {
+            MessageBox.Show(fechaInicial.ToString(), fechafinal.ToString());
             Obtener_datos.mostrar_cobros_en_efectivo_por_turno(idcaja, fechaInicial, fechafinal, ref cobrosEfectivo);
             lblabonosEfectivo.Text = cobrosEfectivo.ToString();
         }

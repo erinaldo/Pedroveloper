@@ -189,7 +189,7 @@
             this.lblgananciasVentas.Enabled = false;
             this.lblgananciasVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblgananciasVentas.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblgananciasVentas.Location = new System.Drawing.Point(100, 14);
+            this.lblgananciasVentas.Location = new System.Drawing.Point(141, 14);
             this.lblgananciasVentas.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblgananciasVentas.Name = "lblgananciasVentas";
             this.lblgananciasVentas.Size = new System.Drawing.Size(19, 20);
@@ -241,7 +241,7 @@
             this.Label34.Location = new System.Drawing.Point(11, 14);
             this.Label34.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label34.Name = "Label34";
-            this.Label34.Size = new System.Drawing.Size(135, 20);
+            this.Label34.Size = new System.Drawing.Size(149, 20);
             this.Label34.TabIndex = 192;
             this.Label34.Text = "Facturas Totales:";
             // 
@@ -355,7 +355,7 @@
             this.lblDineroEncaja.Enabled = false;
             this.lblDineroEncaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblDineroEncaja.ForeColor = System.Drawing.Color.White;
-            this.lblDineroEncaja.Location = new System.Drawing.Point(278, 260);
+            this.lblDineroEncaja.Location = new System.Drawing.Point(309, 260);
             this.lblDineroEncaja.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDineroEncaja.Name = "lblDineroEncaja";
             this.lblDineroEncaja.Size = new System.Drawing.Size(19, 20);
@@ -515,7 +515,7 @@
             this.Label29.Location = new System.Drawing.Point(117, 76);
             this.Label29.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label29.Name = "Label29";
-            this.Label29.Size = new System.Drawing.Size(145, 20);
+            this.Label29.Size = new System.Drawing.Size(157, 20);
             this.Label29.TabIndex = 192;
             this.Label29.Text = "Facturas en efectivo:";
             // 
@@ -663,7 +663,7 @@
             this.Label9.Location = new System.Drawing.Point(175, 14);
             this.Label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(130, 20);
+            this.Label9.Size = new System.Drawing.Size(144, 20);
             this.Label9.TabIndex = 192;
             this.Label9.Text = "Facturas Totales";
             // 
@@ -768,9 +768,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(1238, 749);
+            this.Controls.Add(this.Panel3);
             this.Controls.Add(this.BtnCerrar_turno);
             this.Controls.Add(this.panel12);
-            this.Controls.Add(this.Panel3);
             this.Controls.Add(this.Panel5);
             this.Controls.Add(this.Panel11);
             this.Controls.Add(this.Label37);

@@ -142,7 +142,7 @@ namespace SistemaVentas.Presentacion.Cobros
             parametros.Comprobante = "-";
             parametros.efectivo = efectivoCalculado;
             parametros.tarjeta = tarjeta;
-            if (funcion.Insertar_ControlCobros (parametros )==true)
+            if (funcion.Insertar_ControlCobros(parametros)==true)
             {
                 Dispose();
             }

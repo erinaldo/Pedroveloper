@@ -702,7 +702,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("mostrar_cobrosº_en_efectivo_por_turno", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("Mostrar_cobros_en_efectivo_por_turno", CONEXIONMAESTRA.conectar);
                 da.CommandType = CommandType.StoredProcedure;
                 da.Parameters.AddWithValue("@idcaja", idcaja);
                 da.Parameters.AddWithValue("@fi", fi);
