@@ -43,24 +43,24 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             else
             {
 
-            if (txtempresa.Text != "")
-               {
-                    if (txtRuta.Text  !="")
+                if (txtempresa.Text != "")
+                {
+                    if (txtRuta.Text != "")
                     {
-                     if (no.Checked ==true)
-                      {
-                      TXTTRABAJASCONIMPUESTOS.Text = "NO";
-                       }
-                     if (si.Checked == true)
-                     {
-                      TXTTRABAJASCONIMPUESTOS.Text = "SI";
-                     }
-                    Ingresar_empresa();
+                        if (no.Checked == true)
+                        {
+                            TXTTRABAJASCONIMPUESTOS.Text = "NO";
+                        }
+                        if (si.Checked == true)
+                        {
+                            TXTTRABAJASCONIMPUESTOS.Text = "SI";
+                        }
+                        Ingresar_empresa();
                         Ingresar_caja();
                         insertar_3_COMPROBANTES_POR_DEFECTO();
                         correo = txtcorreo.Text;
                         Dispose();
-                        
+
                         Presentacion.Empleados.EmpleadosOK frm1 = new Presentacion.Empleados.EmpleadosOK();
                         frm1.ShowDialog();
                         USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new USUARIOS_AUTORIZADOS_AL_SISTEMA();
@@ -71,15 +71,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         MessageBox.Show("Seleccione una Ruta para Guardar las Copias de Seguridad", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
-
-
-
                 }
-                
-            else 
-            {
+                else
+                {
                     MessageBox.Show("Ingrese un Nombre de Empresa", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                }
             }
 
 

@@ -212,6 +212,7 @@ namespace SistemaVentas.Datos
         }
         public static void ingresar_nombre_a_venta_en_espera(int idFactura, string nombre)
         {
+            MessageBox.Show("asd");
             try
             {
                 CONEXIONMAESTRA.abrir();

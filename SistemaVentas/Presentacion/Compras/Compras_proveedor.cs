@@ -319,7 +319,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 da.Fill(dt);
                 DATALISTADO_PRODUCTOS_OKA.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
-                DATALISTADO_PRODUCTOS_OKA.Columns[0].Visible = false;
+               /* DATALISTADO_PRODUCTOS_OKA.Columns[0].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[1].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[2].Width = 600;
                 DATALISTADO_PRODUCTOS_OKA.Columns[3].Visible = false;
@@ -329,7 +329,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 DATALISTADO_PRODUCTOS_OKA.Columns[7].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[8].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[9].Visible = false;
-                DATALISTADO_PRODUCTOS_OKA.Columns[10].Visible = false;
+                DATALISTADO_PRODUCTOS_OKA.Columns[10].Visible = false;*/
 
             }
             catch (Exception ex)
@@ -484,6 +484,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             {
                 //en caso que el producto ya este agregado al detalle de venta se va a extraer el Stock de la tabla Detalle_de_venta
                 lblStock_de_Productos = Convert.ToDouble(datalistado_stock_detalle_venta.SelectedCells[1].Value.ToString());
+               // MessageBox.Show(lblStock_de_Productos.ToString());
             }
             //Extraemos los datos del producto de la tabla Productos directamente
             usainventarios = DATALISTADO_PRODUCTOS_OKA.SelectedCells[3].Value.ToString();
@@ -726,7 +727,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();
-                datalistadoDetalleVenta.Columns[0].Width = 50;
+               /* datalistadoDetalleVenta.Columns[0].Width = 50;
                 datalistadoDetalleVenta.Columns[1].Width = 50;
                 datalistadoDetalleVenta.Columns[2].Width = 50;
                 datalistadoDetalleVenta.Columns[3].Visible = false;
@@ -746,7 +747,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
                 datalistadoDetalleVenta.Columns[18].Visible = false;
-                datalistadoDetalleVenta.Columns[20].Visible = false;
+                datalistadoDetalleVenta.Columns[20].Visible = false;*/
                 if (Tema == "Redentor")
                 {
                     Bases.Multilinea(ref datalistadoDetalleVenta);
@@ -878,7 +879,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrar_stock_de_detalle_de_compras", con);
+                da = new SqlDataAdapter("Mostrar_stock_de_detalle_de_compras", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Id_producto", idproducto);
                 da.Fill(dt);
