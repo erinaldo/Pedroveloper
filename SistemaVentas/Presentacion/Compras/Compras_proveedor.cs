@@ -688,8 +688,8 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                     SqlCommand cmd = new SqlCommand();
                     cmd = new SqlCommand("insertar_compras", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@idproveedor", idProveedorEstandar);
-                    cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Today);
+                    cmd.Parameters.AddWithValue("@idProveedor", idProveedorEstandar);
+                    cmd.Parameters.AddWithValue("@fecha_compra", DateTime.Today);
                     cmd.Parameters.AddWithValue("@nume_documento", 0);
                     cmd.Parameters.AddWithValue("@montototal", 0);
                     cmd.Parameters.AddWithValue("@Tipo_de_pago", 0);
@@ -702,7 +702,7 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                     cmd.Parameters.AddWithValue("@Pago_con", 0);
                     cmd.Parameters.AddWithValue("@Id_caja", Id_caja);
                     cmd.Parameters.AddWithValue("@Referencia_tarjeta", 0);
-                    cmd.Parameters.AddWithValue("@Transferencia_Bancaria", 0);
+                    cmd.Parameters.AddWithValue("@Transferencia_Bancaria", "-");
                     cmd.ExecuteNonQuery();
                     con.Close();
                     Obtener_id_venta_recien_Creada();
@@ -712,6 +712,7 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                 }
                 catch (Exception ex)
                 {
+                MessageBox.Show(ex.StackTrace);
                     MessageBox.Show("insertar_compra");
                 }
 
@@ -733,6 +734,7 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                 con.Open();
                 da = new SqlDataAdapter("mostrar_productos_agregados_a_compra", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                MessageBox.Show(idVenta.ToString());
                 da.SelectCommand.Parameters.AddWithValue("@idCompra", idVenta);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
