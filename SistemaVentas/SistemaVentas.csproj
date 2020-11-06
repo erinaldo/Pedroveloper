@@ -245,6 +245,12 @@
     <Compile Include="Presentacion\Cobros\MediosCobros.Designer.cs">
       <DependentUpon>MediosCobros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Compras\Compras_proveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Compras\Compras_proveedor.Designer.cs">
+      <DependentUpon>Compras_proveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Conexion_remota\Caja_secundaria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -545,6 +551,12 @@
     <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\Pedidos_En_Espera.Designer.cs">
       <DependentUpon>Pedidos_En_Espera.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\VentasCamiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\VentasCamiones.Designer.cs">
+      <DependentUpon>VentasCamiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\Ventas_en_espera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -615,6 +627,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Cobros\MediosCobros.resx">
       <DependentUpon>MediosCobros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Compras\Compras_proveedor.resx">
+      <DependentUpon>Compras_proveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Conexion_remota\Caja_secundaria.resx">
       <DependentUpon>Caja_secundaria.cs</DependentUpon>

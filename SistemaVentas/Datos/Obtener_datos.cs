@@ -702,7 +702,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("Mostrar_cobros_en_efectivo_por_turno", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("Mostrar_facturas_en_efectivo_por_turno", CONEXIONMAESTRA.conectar);
                 da.CommandType = CommandType.StoredProcedure;
                 da.Parameters.AddWithValue("@idcaja", idcaja);
                 da.Parameters.AddWithValue("@fi", fi);
@@ -772,7 +772,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("M_ventas_Tarjeta_por_turno", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("M_facturas_Tarjeta_por_turno", CONEXIONMAESTRA.conectar);
                 da.CommandType = CommandType.StoredProcedure;
                 da.Parameters.AddWithValue("@idcaja", idcaja);
                 da.Parameters.AddWithValue("@fi", fi);
@@ -792,7 +792,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("M_ventas_credito_por_turno", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("M_facturas_credito_por_turno", CONEXIONMAESTRA.conectar);
                 da.CommandType = CommandType.StoredProcedure;
                 da.Parameters.AddWithValue("@idcaja", idcaja);
                 da.Parameters.AddWithValue("@fi", fi);

@@ -19,13 +19,12 @@ using System.Security.Cryptography.X509Certificates;
 using SistemaVentas.Presentacion.Admin_nivel_dios;
 using System.IO.Ports;
 using System.Drawing.Imaging;
-using SistemaVentas.Presentacion.Compras.Compras_proveedor;
 
-namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
+namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
 {
-    public partial class VENTAS_MENU_PRINCIPALOK : Form
+    public partial class Compras_proveedor : Form
     {
-        public VENTAS_MENU_PRINCIPALOK()
+        public Compras_proveedor()
         {
             InitializeComponent();
         }
@@ -34,7 +33,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         double descuento;
         int contador_stock_detalle_de_venta;
         int idproducto;
-        int idClienteEstandar;
+        int idProveedorEstandar;
         public static int idusuario_que_inicio_sesion;
         public static int idVenta;
         int iddetalleventa;
@@ -73,7 +72,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             Bases.Obtener_serialPC(ref SerialPC);
             Obtener_datos.Obtener_id_caja_PorSerial(ref Id_caja);
             MOSTRAR_TIPO_DE_BUSQUEDA();
-            Obtener_id_de_cliente_estandar();
+            Obtener_id_de_proveedor_estandar();
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario_que_inicio_sesion);
 
             if (Tipo_de_busqueda == "TECLADO")
@@ -160,7 +159,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             idVenta = 0;
             Listarproductosagregados();
-            txtventagenerada = "FACTURA NUEVA";
+            txtventagenerada = "COMPRA NUEVA";
             lblsubtotal.Text = "0.00";
             lbldescuento.Text = "0.00";
             txt_total_suma.Text = "0.00";
@@ -542,9 +541,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
 
             ejecutar_insertar_ventas();
-            if (txtventagenerada == "FACTURA GENERADA")
+            if (txtventagenerada == "COMPRA GENERADA")
             {
-                //MessageBox.Show("(txtventagenerada == FACTURA GENERADA2");
+                //MessageBox.Show("(txtventagenerada == COMPRA GENERADA2");
                 insertar_detalle_venta();
                 Listarproductosagregados();
                 txtbuscar.Text = "";
@@ -553,16 +552,16 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
 
         }
-        private void Obtener_id_de_cliente_estandar()
+        private void Obtener_id_de_proveedor_estandar()
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-            SqlCommand com = new SqlCommand("select idclientev from clientes where Estado=0", con);
+            SqlCommand com = new SqlCommand("select idProveedor from Proveedores where Estado=0", con);
             try
             {
 
                 con.Open();
-                idClienteEstandar = Convert.ToInt32(com.ExecuteScalar());
+                idProveedorEstandar = Convert.ToInt32(com.ExecuteScalar());
                 con.Close();
             }
             catch (Exception ex)
@@ -576,7 +575,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-            SqlCommand com = new SqlCommand("mostrar_id_factura_por_Id_caja", con);
+            SqlCommand com = new SqlCommand("mostrar_id_compra_por_Id_caja", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@Id_caja", Id_caja);
             try
@@ -611,7 +610,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("Buscar_tipo_de_documentos_para_insertar_en_facturas", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("Buscar_tipo_de_documentos_para_insertar_en_compras", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letra", lblComprobante.Text);
                 //MessageBox.Show(lblComprobante.Text);
@@ -659,9 +658,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 {
                     DATALISTADO_PRODUCTOS_OKA.Visible = true;
                     ejecutar_insertar_ventas();
-                    if (txtventagenerada == "FACTURA GENERADA")
+                    if (txtventagenerada == "COMPRA GENERADA")
                     {
-                        //MessageBox.Show("(txtventagenerada == FACTURA GENERADA");
+                        //MessageBox.Show("(txtventagenerada == COMPRA GENERADA");
                         insertar_detalle_venta();
                         Listarproductosagregados();
                         txtbuscar.Text = "";
@@ -678,43 +677,42 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void ejecutar_insertar_ventas()
         {
             //MessageBox.Show("ejecutar_insertar_ventas",txtventagenerada);
-            if (txtventagenerada == "FACTURA NUEVA")
+            if (txtventagenerada == "COMPRA NUEVA")
             {
                 try
                 {
-                    //MessageBox.Show("insertar_venta");
+                    MessageBox.Show("insertar_comprasss");
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
-                    cmd = new SqlCommand("insertar_factura", con);
+                    cmd = new SqlCommand("insertar_compras", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@idcliente", idClienteEstandar);
+                    cmd.Parameters.AddWithValue("@idproveedor", idProveedorEstandar);
                     cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Today);
                     cmd.Parameters.AddWithValue("@nume_documento", 0);
                     cmd.Parameters.AddWithValue("@montototal", 0);
                     cmd.Parameters.AddWithValue("@Tipo_de_pago", 0);
                     cmd.Parameters.AddWithValue("@estado", "EN ESPERA");
-                    cmd.Parameters.AddWithValue("@IGV", 0);
                     cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text);
                     cmd.Parameters.AddWithValue("@id_usuario", idusuario_que_inicio_sesion);
                     cmd.Parameters.AddWithValue("@Fecha_de_pago", DateTime.Today);
-                    cmd.Parameters.AddWithValue("@ACCION", "Factura");
+                    cmd.Parameters.AddWithValue("@ACCION", "COMPRA");
                     cmd.Parameters.AddWithValue("@Saldo", 0);
                     cmd.Parameters.AddWithValue("@Pago_con", 0);
-                    cmd.Parameters.AddWithValue("@Porcentaje_IGV", 0);
                     cmd.Parameters.AddWithValue("@Id_caja", Id_caja);
                     cmd.Parameters.AddWithValue("@Referencia_tarjeta", 0);
+                    cmd.Parameters.AddWithValue("@Transferencia_Bancaria", 0);
                     cmd.ExecuteNonQuery();
                     con.Close();
                     Obtener_id_venta_recien_Creada();
-                    txtventagenerada = "FACTURA GENERADA";
+                    txtventagenerada = "COMPRA GENERADA";
                     mostrar_panel_de_Cobro();
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("insertar_venta");
+                    MessageBox.Show("insertar_compra");
                 }
 
             }
@@ -733,13 +731,13 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrar_productos_agregados_a_factura", con);
+                da = new SqlDataAdapter("mostrar_productos_agregados_a_compra", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idFactura", idVenta);
+                da.SelectCommand.Parameters.AddWithValue("@idCompra", idVenta);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();
-               datalistadoDetalleVenta.Columns[0].Width = 50;
+              /* datalistadoDetalleVenta.Columns[0].Width = 50;
                 datalistadoDetalleVenta.Columns[1].Width = 50;
                 datalistadoDetalleVenta.Columns[2].Width = 50;
                 datalistadoDetalleVenta.Columns[3].Visible = false;
@@ -759,7 +757,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
                 datalistadoDetalleVenta.Columns[18].Visible = false;
-                datalistadoDetalleVenta.Columns[20].Visible = false;
+                datalistadoDetalleVenta.Columns[20].Visible = false;*/
                 if (Tema == "Redentor")
                 {
                     Bases.Multilinea(ref datalistadoDetalleVenta);
@@ -815,9 +813,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_detalle_factura", con);
+                cmd = new SqlCommand("insertar_detalle_compra", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idFactura", idVenta);
+                cmd.Parameters.AddWithValue("@idCompra", idVenta);
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
@@ -851,9 +849,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_detalle_factura", con);
+                cmd = new SqlCommand("insertar_detalle_compra", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idFactura", idVenta);
+                cmd.Parameters.AddWithValue("@idCompra", idVenta);
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
@@ -891,7 +889,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrar_stock_de_detalle_de_facturas", con);
+                da = new SqlDataAdapter("mostrar_stock_de_detalle_de_compras", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Id_producto", idproducto);
                 da.Fill(dt);
@@ -913,12 +911,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                cmd = new SqlCommand("editar_detalle_factura_descuento", con);
+                cmd = new SqlCommand("editar_detalle_compra_descuento", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_producto", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
-                cmd.Parameters.AddWithValue("@Id_factura", idVenta);
+                cmd.Parameters.AddWithValue("@Id_compra", idVenta);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -938,12 +936,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                cmd = new SqlCommand("editar_detalle_factura_sumar", con);
+                cmd = new SqlCommand("editar_detalle_compra_sumar", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_producto", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
-                cmd.Parameters.AddWithValue("@Id_factura", idVenta);
+                cmd.Parameters.AddWithValue("@Id_compra", idVenta);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -959,7 +957,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("disminuir_stock_en_detalle_de_factura", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("disminuir_stock_en_detalle_de_compra", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_Producto1", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
@@ -1037,7 +1035,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("aumentar_stock_en_detalle_de_factura", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("aumentar_stock_en_detalle_de_compra", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_Producto1", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
@@ -1057,13 +1055,13 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                cmd = new SqlCommand("editar_detalle_factura_restar", con);
+                cmd = new SqlCommand("editar_detalle_compra_restar", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@iddetalle_factura", iddetalleventa);
+                cmd.Parameters.AddWithValue("@iddetalle_compra", iddetalleventa);
                 cmd.Parameters.AddWithValue("cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Id_producto", idproducto);
-                cmd.Parameters.AddWithValue("@Id_factura", idVenta);
+                cmd.Parameters.AddWithValue("@Id_compra", idVenta);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -1104,9 +1102,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                     con.Open();
-                    cmd = new SqlCommand("eliminar_detalle_factura", con);
+                    cmd = new SqlCommand("eliminar_detalle_compra", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@iddetallefactura", iddetalle_venta);
+                    cmd.Parameters.AddWithValue("@iddetallecompra", iddetalle_venta);
                     cmd.ExecuteNonQuery();
                     con.Close();
                     txtpantalla = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
@@ -1137,9 +1135,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                cmd = new SqlCommand("eliminar_factura", con);
+                cmd = new SqlCommand("eliminar_compra", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idFactura", idVenta);
+                cmd.Parameters.AddWithValue("@idCompra", idVenta);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -1171,7 +1169,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 if (Contador == 0)
                 {
                     eliminar_venta_al_agregar_productos();
-                    txtventagenerada = "FACTURA NUEVA";
+                    txtventagenerada = "COMPRA NUEVA";
                 }
             }
         }
@@ -1328,12 +1326,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                cmd = new SqlCommand("editar_detalle_factura_CANTIDAD", con);
+                cmd = new SqlCommand("editar_detalle_compra_CANTIDAD", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_producto", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtmonto.Text);
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtmonto.Text);
-                cmd.Parameters.AddWithValue("@Id_factura", idVenta);
+                cmd.Parameters.AddWithValue("@Id_compra", idVenta);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Listarproductosagregados();
@@ -1663,12 +1661,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void VENTAS_MENU_PRINCIPALOK_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dlgRes = MessageBox.Show("¿Realmente desea Cerrar el Sistema?", "Cerrando", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dlgRes = MessageBox.Show("¿Realmente desea cerrar la ventana?", "Cerrando", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlgRes == DialogResult.Yes)
             {
                 Dispose();
-                CopiasBd.GeneradorAutomatico frm = new CopiasBd.GeneradorAutomatico();
-                frm.ShowDialog();
             }
             else
             {
@@ -1818,14 +1814,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             label9.BackColor = Color.FromArgb(35, 35, 35);
             PanelC1.BackColor = Color.FromArgb(35, 35, 35);
             lblNombreSoftware.ForeColor = Color.White;
-            btnadmin.ForeColor = Color.White;
+            //btnadmin.ForeColor = Color.White;
             txtbuscar.BackColor = Color.FromArgb(20, 20, 20);
             txtbuscar.ForeColor = Color.White;
             lbltipodebusqueda2.BackColor = Color.FromArgb(20, 20, 20);
             //PanelC2 Intermedio
             panelC2.BackColor = Color.FromArgb(35, 35, 35);
-            btnCobros.BackColor = Color.FromArgb(45, 45, 45);
-            btnCobros.ForeColor = Color.White;
+            //btnCobros.BackColor = Color.FromArgb(45, 45, 45);
+           // btnCobros.ForeColor = Color.White;
 
             
             /*btnCreditoCobrar.BackColor = Color.FromArgb(45, 45, 45);
@@ -1835,14 +1831,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             */
             //PanelC3
             PanelC3.BackColor = Color.FromArgb(35, 35, 35);
-            btnMayoreo.BackColor = Color.FromArgb(45, 45, 45);
-            btnMayoreo.ForeColor = Color.White;
-            btnIngresosCaja.BackColor = Color.FromArgb(45, 45, 45);
-            btnIngresosCaja.ForeColor = Color.White;
-            btnGastos.BackColor = Color.FromArgb(45, 45, 45);
-            btnGastos.ForeColor = Color.White;
-            BtnTecladoV.BackColor = Color.FromArgb(45, 45, 45);
-            BtnTecladoV.ForeColor = Color.White;
+            //btnMayoreo.BackColor = Color.FromArgb(45, 45, 45);
+            //btnMayoreo.ForeColor = Color.White;
+            ///btnIngresosCaja.BackColor = Color.FromArgb(45, 45, 45);
+            //btnIngresosCaja.ForeColor = Color.White;
+            //btnGastos.BackColor = Color.FromArgb(45, 45, 45);
+           // btnGastos.ForeColor = Color.White;
+            //BtnTecladoV.BackColor = Color.FromArgb(45, 45, 45);
+            //BtnTecladoV.ForeColor = Color.White;
             //PanelC4 Pie de pagina
             panelC4.BackColor = Color.FromArgb(20, 20, 20);
             btnespera.BackColor = Color.FromArgb(20, 20, 20);
@@ -1853,8 +1849,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             btneliminar.ForeColor = Color.White;
             button7.BackColor = Color.FromArgb(20, 20, 20);
             button7.ForeColor = Color.White;
-            button6.BackColor = Color.FromArgb(20, 20, 20);
-            button6.ForeColor = Color.White;
+            //button6.BackColor = Color.FromArgb(20, 20, 20);
+            //button6.ForeColor = Color.White;
             btndevoluciones.BackColor = Color.FromArgb(20, 20, 20);
             btndevoluciones.ForeColor = Color.White;
             //PanelOperaciones
@@ -1863,8 +1859,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             //PanelBienvenida
             panelBienvenida.BackColor = Color.FromArgb(35, 35, 35);
             label8.ForeColor = Color.WhiteSmoke;
-            button4.BackColor = Color.FromArgb(45, 45, 45);
-            button4.ForeColor = Color.White;
+            //button4.BackColor = Color.FromArgb(45, 45, 45);
+            //button4.ForeColor = Color.White;
             btn4.ForeColor = Color.WhiteSmoke;
             btn4.BackColor = Color.FromArgb(45, 45, 45);
             Listarproductosagregados();
@@ -1874,10 +1870,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void TemaClaro()
         {
-            button4.ForeColor = Color.Black;
-            button4.BackColor = Color.WhiteSmoke;
-            button6.ForeColor = Color.Black;
-            button6.BackColor = Color.Gainsboro;
+            //button4.ForeColor = Color.Black;
+            //button4.BackColor = Color.WhiteSmoke;
+            //button6.ForeColor = Color.Black;
+           // button6.BackColor = Color.Gainsboro;
             button7.ForeColor = Color.Black;
             button7.BackColor = Color.Gainsboro;
             //PanelC1 encabezado
@@ -1885,7 +1881,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             label9.BackColor = Color.White;
             PanelC1.BackColor = Color.White;
             lblNombreSoftware.ForeColor = Color.Black;
-            btnadmin.ForeColor = Color.Black;
+          //  btnadmin.ForeColor = Color.Black;
             txtbuscar.BackColor = Color.White;
             txtbuscar.ForeColor = Color.Black;
             lbltipodebusqueda2.BackColor = Color.White;
@@ -1894,8 +1890,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
            
             //PanelC2 intermedio
             panelC2.BackColor = Color.White;
-            btnCobros.BackColor = Color.WhiteSmoke;
-            btnCobros.ForeColor = Color.Black;
+            //btnCobros.BackColor = Color.WhiteSmoke;
+           //btnCobros.ForeColor = Color.Black;
             btn4.BackColor = Color.WhiteSmoke;
             btn4.ForeColor = Color.White;
 
@@ -1906,14 +1902,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             //PanelC3
             PanelC3.BackColor = Color.White;
-            btnMayoreo.BackColor = Color.WhiteSmoke;
-            btnMayoreo.ForeColor = Color.Black;
-            btnIngresosCaja.BackColor = Color.WhiteSmoke;
-            btnIngresosCaja.ForeColor = Color.Black;
-            btnGastos.BackColor = Color.WhiteSmoke;
-            btnGastos.ForeColor = Color.Black;
-            BtnTecladoV.BackColor = Color.WhiteSmoke;
-            BtnTecladoV.ForeColor = Color.Black;
+       //     btnMayoreo.BackColor = Color.WhiteSmoke;
+          //  btnMayoreo.ForeColor = Color.Black;
+            //btnIngresosCaja.BackColor = Color.WhiteSmoke;
+           // btnIngresosCaja.ForeColor = Color.Black;
+            //btnGastos.BackColor = Color.WhiteSmoke;
+          //  btnGastos.ForeColor = Color.Black;
+            //BtnTecladoV.BackColor = Color.WhiteSmoke;
+            //BtnTecladoV.ForeColor = Color.Black;
             //PanelC4 pie de pagina
             panelC4.BackColor = Color.Gainsboro;
             btnespera.BackColor = Color.Gainsboro;
@@ -1973,8 +1969,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void button10_Click(object sender, EventArgs e)
         {
-            Compras_proveedor frm = new Compras_proveedor();
-            frm.ShowDialog();
+            
         }
     }
 }
