@@ -1,25 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Management;
 using System.Data.SqlClient;
-using System.IO;
-using System.Threading;
-using System.Globalization;
 using SistemaVentas.Logica;
-using SistemaVentas.Presentacion.Cotizacion;
 using SistemaVentas.Datos;
-using System.Security.Cryptography.X509Certificates;
-using SistemaVentas.Presentacion.Admin_nivel_dios;
-using System.IO.Ports;
-using System.Drawing.Imaging;
-using SistemaVentas.CONEXION;
 
 namespace SistemaVentas.Presentacion.Cotizacion
 {

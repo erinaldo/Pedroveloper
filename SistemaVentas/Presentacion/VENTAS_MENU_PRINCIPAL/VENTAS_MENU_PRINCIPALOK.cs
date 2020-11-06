@@ -19,8 +19,7 @@ using System.Security.Cryptography.X509Certificates;
 using SistemaVentas.Presentacion.Admin_nivel_dios;
 using System.IO.Ports;
 using System.Drawing.Imaging;
-using SistemaVentas.Presentacion.Compras.Compras_proveedor;
-
+using SistemaVentas.Presentacion.Compras_proveedor;
 namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 {
     public partial class VENTAS_MENU_PRINCIPALOK : Form
@@ -1973,7 +1972,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void button10_Click(object sender, EventArgs e)
         {
-            Compras_proveedor frm = new Compras_proveedor();
+            Compras_proveedor.Compras_proveedor frm = new Compras_proveedor.Compras_proveedor();
             frm.ShowDialog();
         }
     }
