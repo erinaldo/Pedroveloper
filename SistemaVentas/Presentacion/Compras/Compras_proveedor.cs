@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using SistemaVentas.Logica;
 using SistemaVentas.Datos;
+using SistemaVentas.Presentacion.Compras;
 
 namespace SistemaVentas.Presentacion.Compras_proveedor
 {
@@ -1391,14 +1392,9 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             {
                 stock = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[11].Value);
                 condicional = Cantidad + stock;
-                if (condicional >= MontoaIngresar)
-                {
-                    BotonCantidadEjecuta();
-                }
-                else
-                {
-                    TimerLABEL_STOCK.Start();
-                }
+                MessageBox.Show("Stock: " + stock.ToString() + " Condicional: " + cantidad.ToString() + " + " + stock.ToString() + "\nMontoIngrsar" + MontoaIngresar.ToString());
+                
+                BotonCantidadEjecuta();
             }
             else
             {
@@ -1505,9 +1501,9 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         private void btnrestaurar_Click_1(object sender, EventArgs e)
         {
-            //Ventas_en_espera frm = new Ventas_en_espera();
-          //  frm.FormClosing += Frm_FormClosing1;
-         //   frm.ShowDialog();
+            Compras_en_espera frm = new Compras_en_espera();
+            frm.FormClosing += Frm_FormClosing1;
+            frm.ShowDialog();
         }
 
         private void Frm_FormClosing1(object sender, FormClosingEventArgs e)

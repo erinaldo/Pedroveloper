@@ -680,7 +680,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void txtclientesolicitabnte3_TextChanged(object sender, EventArgs e)
         {
-            buscarclientes3();
+            buscarProveedor();
             datalistadoclientes3.Visible = true;
         }
 
@@ -714,12 +714,12 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 
             }
         }
-        void buscarclientes3()
+        void buscarProveedor()
         {
             try
             {
                 DataTable dt = new DataTable();
-                Obtener_datos.buscar_clientes(ref dt, txtclientesolicitabnte3.Text);
+                Obtener_datos.buscar_Proveedores(ref dt, txtProveedor.Text);
                 datalistadoclientes3.DataSource = dt;
                 datalistadoclientes3.Columns[1].Visible = false;
                 datalistadoclientes3.Columns[3].Visible = false;
@@ -1482,7 +1482,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void btnagregarCliente_Click(object sender, EventArgs e)
         {
-            Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
+            Presentacion.CLIENTES_PROVEEDORES.Proveedores frm = new Presentacion.CLIENTES_PROVEEDORES.Proveedores();
             frm.ShowDialog();
         }
 
@@ -1490,7 +1490,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             idProveedor = Convert.ToInt32(datalistadoclientes3.SelectedCells[1].Value.ToString());
             //MessageBox.Show(idProveedor.ToString());
-            txtclientesolicitabnte3.Text = datalistadoclientes3.SelectedCells[2].Value.ToString();
+            txtProveedor.Text = datalistadoclientes3.SelectedCells[2].Value.ToString();
             datalistadoclientes3.Visible = false;
         }
 
@@ -1551,7 +1551,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter("verificarCliente", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@nombre", txtclientesolicitabnte3.Text);
+                da.SelectCommand.Parameters.AddWithValue("@nombre", txtProveedor.Text);
                 da.Fill(dt);
                 CONEXION.CONEXIONMAESTRA.cerrar();
                 DATALISTADOVERIFICAR.DataSource = dt;

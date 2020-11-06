@@ -513,7 +513,23 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_facturas_en_espera_con_fecha_y_monto", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("Mostrar_facturas_en_espera_con_fecha_y_monto", CONEXIONMAESTRA.conectar);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+
+        public static void mostrar_compras_en_espera_con_fecha_y_monto(ref DataTable dt)
+        {
+
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Mostrar_compras_en_espera_con_fecha_y_monto", CONEXIONMAESTRA.conectar);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -557,7 +573,24 @@ namespace SistemaVentas.Datos
 
             }
         }
+        public static void mostrar_productos_agregados_a_compras_en_espera(ref DataTable dt, int idFactura)
+        {
 
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_compras_en_espera", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idCompra", idFactura);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
         public static void mostrar_productos_agregados_a_cotizaciones_en_espera(ref DataTable dt, int idFactura)
         {
 
