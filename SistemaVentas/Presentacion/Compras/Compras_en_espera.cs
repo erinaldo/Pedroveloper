@@ -49,9 +49,9 @@ namespace SistemaVentas.Presentacion.Compras
         {
             try
             {
-           
-            idFactura =Convert.ToInt32 ( datalistado_ventas_en_espera.SelectedCells[1].Value);
-            mostrar_detalle_venta();
+                idFactura = Convert.ToInt32(datalistado_ventas_en_espera.SelectedCells[1].Value);
+                MessageBox.Show(idFactura.ToString());
+                mostrar_detalle_venta();
             }
             catch (Exception ex)
             {
@@ -70,7 +70,7 @@ namespace SistemaVentas.Presentacion.Compras
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            Eliminar_datos.eliminar_factura(idFactura);
+            Eliminar_datos.eliminar_compra(idFactura);
             idFactura = 0;
             mostrar_ventas_en_espera_con_fecha_y_monto();
             mostrar_detalle_venta();
@@ -78,6 +78,15 @@ namespace SistemaVentas.Presentacion.Compras
 
         private void datalistado_ventas_en_espera_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                idFactura = Convert.ToInt32(datalistado_ventas_en_espera.SelectedCells[1].Value);
+                mostrar_detalle_venta();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
 
         }
 

@@ -60,8 +60,8 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
             calcular_restante();
             validarPedidodeCliente();
-            datalistadoempleado.Visible = false;
-            label7.Visible = false;
+           // datalistadoempleado.Visible = false;
+            //label7.Visible = false;
         }
 
         void calcular_restante()
@@ -1499,9 +1499,9 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         }
 
-        public bool VerificarEstadoPersonal()
+        public void VerificarEstadoPersonal()
         {
-            DataTable dt = new DataTable();
+         /*   DataTable dt = new DataTable();
             Obtener_datos.EstadoPersonal(ref dt);
             datalistadoempleado.DataSource = dt;
             
@@ -1511,7 +1511,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             } else
             {
                 return false;
-            }
+            }*/
         }
         public bool VerificarEstadoVehiculos()
         {
@@ -1530,10 +1530,10 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         public void ObtenerEmpleado()
         {
-            idEmpleado = Convert.ToInt32(datalistadoempleado.SelectedCells[0].Value);
+           /* idEmpleado = Convert.ToInt32(datalistadoempleado.SelectedCells[0].Value);
             nombreEmpleado = datalistadoempleado.SelectedCells[1].Value.ToString();
             departamentoEmpleado = datalistadoempleado.SelectedCells[2].Value.ToString();
-            estadoEmpleado = datalistadoempleado.SelectedCells[3].Value.ToString();
+            estadoEmpleado = datalistadoempleado.SelectedCells[3].Value.ToString();*/
         }
 
         public void ObtenerVehiculo()

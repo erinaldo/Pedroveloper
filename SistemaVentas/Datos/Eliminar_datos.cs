@@ -28,6 +28,24 @@ namespace SistemaVentas.Datos
             }
            
         }
+        public static void eliminar_compra(int idFactura)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("Eliminar_compra", CONEXIONMAESTRA.conectar);
+                MessageBox.Show(idFactura.ToString());
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCompra", idFactura);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+        }
 
         public static void eliminar_cotizacion(int idcotizacion)
         {

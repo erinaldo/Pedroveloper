@@ -320,7 +320,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 da.Fill(dt);
                 DATALISTADO_PRODUCTOS_OKA.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
-               /* DATALISTADO_PRODUCTOS_OKA.Columns[0].Visible = false;
+                DATALISTADO_PRODUCTOS_OKA.Columns[0].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[1].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[2].Width = 600;
                 DATALISTADO_PRODUCTOS_OKA.Columns[3].Visible = false;
@@ -330,7 +330,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 DATALISTADO_PRODUCTOS_OKA.Columns[7].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[8].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[9].Visible = false;
-                DATALISTADO_PRODUCTOS_OKA.Columns[10].Visible = false;*/
+                DATALISTADO_PRODUCTOS_OKA.Columns[10].Visible = false;
 
             }
             catch (Exception ex)
@@ -728,7 +728,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();
-               /* datalistadoDetalleVenta.Columns[0].Width = 50;
+                datalistadoDetalleVenta.Columns[0].Width = 50;
                 datalistadoDetalleVenta.Columns[1].Width = 50;
                 datalistadoDetalleVenta.Columns[2].Width = 50;
                 datalistadoDetalleVenta.Columns[3].Visible = false;
@@ -748,7 +748,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
                 datalistadoDetalleVenta.Columns[18].Visible = false;
-                datalistadoDetalleVenta.Columns[20].Visible = false;*/
+                datalistadoDetalleVenta.Columns[20].Visible = false;
                 if (Tema == "Redentor")
                 {
                     Bases.Multilinea(ref datalistadoDetalleVenta);
@@ -1566,14 +1566,15 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
         private void editarVentaEspera()
 
         {
-            Editar_datos.ingresar_nombre_a_venta_en_espera(idVenta, txtnombre.Text);
+            Editar_datos.ingresar_nombre_a_compra_en_espera(idVenta, txtnombre.Text);
             Limpiar_para_venta_nueva();
             ocularPanelenEspera();
         }
         private void btnAutomaticoEspera_Click(object sender, EventArgs e)
         {
             //OJOOOOOOO
-            txtnombre.Text = "Ticket" + idVenta;
+
+            txtnombre.Text = "Compra #" + idVenta;
             editarVentaEspera();
         }
 

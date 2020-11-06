@@ -229,6 +229,25 @@ namespace SistemaVentas.Datos
                 MessageBox.Show(ex.StackTrace);
             }
         }
+        public static void ingresar_nombre_a_compra_en_espera(int idFactura, string nombre)
+        {
+            MessageBox.Show("asd");
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("ingresar_nombre_a_compra_en_espera", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idFactura", idFactura);
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
         public static bool   editar_Conceptos(int idconcepto,string descripcion)
         {
             try
