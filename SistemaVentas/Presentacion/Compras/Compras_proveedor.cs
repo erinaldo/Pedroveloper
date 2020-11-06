@@ -199,7 +199,6 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                 preciounitario = 0;
                 itbis1 = 0;
                 totalpagar = 0;
-                double total = 0;
                 double descuento = 0;
                 foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
                 {
@@ -222,8 +221,8 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                     else
                     {*/
                        // MessageBox.Show(itbis1.ToString());
-                        totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
-                        txt_total_suma.Text = Convert.ToString(totalpagar + Convert.ToDouble(lblItbiss.Text));
+                        total += Convert.ToDouble(fila.Cells["Importe"].Value);
+                        txt_total_suma.Text = Convert.ToString(total + Convert.ToDouble(lblItbiss.Text));
 
                    /* }*/
                     // lblsubtotal.Text += Convert.ToString(totalpagar - total);
@@ -681,7 +680,7 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
             {
                 try
                 {
-                    MessageBox.Show("insertar_comprasss");
+                   // MessageBox.Show("insertar_comprasss");
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                     con.Open();
@@ -734,12 +733,12 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                 con.Open();
                 da = new SqlDataAdapter("mostrar_productos_agregados_a_compra", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                MessageBox.Show(idVenta.ToString());
+                //MessageBox.Show(idVenta.ToString());
                 da.SelectCommand.Parameters.AddWithValue("@idCompra", idVenta);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();
-              /* datalistadoDetalleVenta.Columns[0].Width = 50;
+                datalistadoDetalleVenta.Columns[0].Width = 50;
                 datalistadoDetalleVenta.Columns[1].Width = 50;
                 datalistadoDetalleVenta.Columns[2].Width = 50;
                 datalistadoDetalleVenta.Columns[3].Visible = false;
@@ -759,7 +758,7 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
                 datalistadoDetalleVenta.Columns[18].Visible = false;
-                datalistadoDetalleVenta.Columns[20].Visible = false;*/
+                datalistadoDetalleVenta.Columns[20].Visible = false;
                 if (Tema == "Redentor")
                 {
                     Bases.Multilinea(ref datalistadoDetalleVenta);
@@ -835,7 +834,8 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                 cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblItbis.Text));
                 cmd.ExecuteNonQuery();
                 con.Close();
-                disminuir_stock_en_detalle_de_venta();
+                aumentar_stock_en_detalle_de_venta();
+                //disminuir_stock_en_detalle_de_venta();
             }
             catch (Exception ex)
             {
@@ -999,7 +999,7 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                 {
 
                     ejecutar_editar_detalle_venta_sumar();
-                    disminuir_stock_en_detalle_de_venta();
+                    //disminuir_stock_en_detalle_de_venta();
                 }
                 else
                 {
@@ -1024,7 +1024,8 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
             if (usainventarios == "SI")
             {
                 ejecutar_editar_detalle_venta_restar();
-                aumentar_stock_en_detalle_de_venta();
+               // disminuir_stock_en_detalle_de_venta();
+                //aumentar_stock_en_detalle_de_venta();
             }
             else
             {
@@ -1059,7 +1060,7 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                 con.Open();
                 cmd = new SqlCommand("editar_detalle_compra_restar", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@iddetalle_compra", iddetalleventa);
+                cmd.Parameters.AddWithValue("@iddetalle_factura", iddetalleventa);
                 cmd.Parameters.AddWithValue("cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Id_producto", idproducto);
@@ -1110,7 +1111,8 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                     cmd.ExecuteNonQuery();
                     con.Close();
                     txtpantalla = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
-                    aumentar_stock_en_detalle_de_venta();
+                    //disminuir_stock_en_detalle_de_venta();
+                    //aumentar_stock_en_detalle_de_venta();
                 }
                 catch (Exception ex)
                 {
@@ -1496,7 +1498,7 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
                 TimerLABEL_STOCK.Stop();
             }
         }
-
+        public static double total_;
         private void befectivo_Click_1(object sender, EventArgs e)
         {
             if (datalistadoDetalleVenta.Rows.Count == 0)
@@ -1505,7 +1507,8 @@ namespace SistemaVentas.Presentacion.Compras.Compras_proveedor
             }
             else
             {
-                total = Convert.ToDouble(txt_total_suma.Text);
+                total_ = 0;
+                total_ = Convert.ToDouble(txt_total_suma.Text);
                 MEDIOS_DE_PAGO frm = new MEDIOS_DE_PAGO();
                 frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
                 frm.ShowDialog();

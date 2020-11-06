@@ -251,6 +251,12 @@
     <Compile Include="Presentacion\Compras\Compras_proveedor.Designer.cs">
       <DependentUpon>Compras_proveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Compras\Medios_de_Compra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Compras\Medios_de_Compra.Designer.cs">
+      <DependentUpon>Medios_de_Compra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Conexion_remota\Caja_secundaria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -630,6 +636,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Compras\Compras_proveedor.resx">
       <DependentUpon>Compras_proveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Compras\Medios_de_Compra.resx">
+      <DependentUpon>Medios_de_Compra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Conexion_remota\Caja_secundaria.resx">
       <DependentUpon>Caja_secundaria.cs</DependentUpon>
