@@ -46,6 +46,9 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             datalistadoVentas.Columns[8].Visible = false;
             datalistadoVentas.Columns[9].Visible = false;
             datalistadoVentas.Columns[10].Visible = false;
+            datalistadoVentas.Columns[11].Visible = false;
+            datalistadoVentas.Columns[12].Visible = false;
+
             Bases.Multilinea(ref datalistadoVentas);
         }
 
@@ -98,6 +101,8 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             datalistadoDetalleVenta.Columns[14].Visible = false;
             datalistadoDetalleVenta.Columns[15].Visible = false;
             datalistadoDetalleVenta.Columns[16].Visible = false;
+            datalistadoDetalleVenta.Columns[17].Visible = false;
+
             Bases.Multilinea(ref datalistadoDetalleVenta);
 
         }
@@ -153,13 +158,13 @@ namespace SistemaVentas.Presentacion.HistorialCompras
                       parametros.iddetalle_factura = idDetalleFactura;
                       parametros.cantidad = Convert.ToDouble (CantidadDevolucion);
                       parametros.Cantidad_mostrada  = Convert.ToDouble(CantidadDevolucion);
-                       if (funcion.Detallefacturadevolucion (parametros)==true)
+                       if (funcion.DetalleCompraDevolucion(parametros)==true)
                            {
                             if (ControlStock=="SI")
                             {
                                 aumentarStock();
                                 AumentarStockDetalle();
-                                insertar_KARDEX_Entrada();
+                                insertar_KARDEX_SALIDA();
                                 lbltotal.Text = TotalNuevo.ToString();
                                 Editarfactura();
                                 Panelcantidad.Visible = false;
@@ -216,15 +221,25 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             parametros.Monto_total =TotalNuevo;
             funcion.Editarfactura(parametros);
         }
-        private void insertar_KARDEX_Entrada()
+        private void insertar_KARDEX_SALIDA()
         {
             LKardex parametros = new LKardex();
             Insertar_datos funcion = new Insertar_datos();
             parametros.Fecha = DateTime.Now;
-            parametros.Motivo = "Devolucion de producto Factura #" + lblcomprobante.Text;
+            parametros.Motivo = "Devolución de producto COMPRA #" + lblcomprobante.Text;
             parametros.Cantidad =Convert.ToDouble ( txtcantidad.Text);
             parametros.Id_producto = idproducto;
-            funcion.insertar_KARDEX_Entrada(parametros);
+            funcion.insertar_KARDEX_SALIDA(parametros);
+        }
+        private void insertar_KARDEX_ENTRADA()
+        {
+            LKardex parametros = new LKardex();
+            Insertar_datos funcion = new Insertar_datos();
+            parametros.Fecha = DateTime.Now;
+            parametros.Motivo = "Devolución de producto COMPRA #" + lblcomprobante.Text;
+            parametros.Cantidad = Convert.ToDouble(txtcantidad.Text);
+            parametros.Id_producto = idproducto;
+            funcion.insertar_KARDEX_SALIDA(parametros);
         }
         private void aumentarStock()
         {
@@ -264,7 +279,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Estas seguro de Eliminar esta Factura?", "Eliminando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Estas seguro de Eliminar esta Compra?", "Eliminando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK )
             {
                 foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
@@ -276,9 +291,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
                         txtcantidad.Text = row.Cells["Cantidad"].Value.ToString();
                         aumentarStock();
                         AumentarStockDetalle();
-                        insertar_KARDEX_Entrada();
-                       
-                        
+                        insertar_KARDEX_ENTRADA();
                     }
                 }
                         TotalNuevo = 0;
@@ -358,12 +371,14 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             MessageBox.Show(fi.Value.ToString(), ff.Value.ToString());
             Obtener_datos.buscarComprasPorFechas(ref dt, fi.Value, ff.Value);
             datalistadoVentas.DataSource = dt;
-            /*datalistadoVentas.Columns[1].Visible = false;
+            datalistadoVentas.Columns[1].Visible = false;
             datalistadoVentas.Columns[4].Visible = false;
             datalistadoVentas.Columns[5].Visible = false;
             datalistadoVentas.Columns[6].Visible = false;
             datalistadoVentas.Columns[8].Visible = false;
-            datalistadoVentas.Columns[9].Visible = false;*/
+            datalistadoVentas.Columns[9].Visible = false;
+            datalistadoVentas.Columns[10].Visible = false;
+
             Bases.Multilinea(ref datalistadoVentas);
         }
 

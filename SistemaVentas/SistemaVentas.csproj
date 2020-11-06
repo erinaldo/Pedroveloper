@@ -696,6 +696,9 @@
     <EmbeddedResource Include="Presentacion\Gastos_varios\Gastos.resx">
       <DependentUpon>Gastos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\HistorialCompras\HistorialComprasForm.resx">
+      <DependentUpon>HistorialComprasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\HistorialVentas\HistorialVentasForm.resx">
       <DependentUpon>HistorialVentasForm.cs</DependentUpon>
     </EmbeddedResource>

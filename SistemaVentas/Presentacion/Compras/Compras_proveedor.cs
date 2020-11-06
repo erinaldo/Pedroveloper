@@ -1752,7 +1752,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         private void btndevoluciones_Click(object sender, EventArgs e)
         {
-            HistorialVentas.HistorialVentasForm frm = new HistorialVentas.HistorialVentasForm();
+            HistorialCompras.HistorialComprasForm frm = new HistorialCompras.HistorialComprasForm();
             frm.ShowDialog();
         }
 

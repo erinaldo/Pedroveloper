@@ -33,9 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialComprasForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialComprasForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.datalistadoVentas = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -56,9 +56,7 @@
             this.Label17 = new System.Windows.Forms.Label();
             this.panelBienvenida = new System.Windows.Forms.Panel();
             this.Label8 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.Pcancelado = new System.Windows.Forms.PictureBox();
             this.panelDetalle = new System.Windows.Forms.Panel();
             this.panelReporte = new System.Windows.Forms.Panel();
             this.reportViewer1 = new Telerik.ReportViewer.WinForms.ReportViewer();
@@ -96,6 +94,8 @@
             this.Label46 = new System.Windows.Forms.Label();
             this.Label47 = new System.Windows.Forms.Label();
             this.Label48 = new System.Windows.Forms.Label();
+            this.Pcancelado = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoVentas)).BeginInit();
             this.panel2.SuspendLayout();
@@ -103,8 +103,6 @@
             this.Panel7.SuspendLayout();
             this.MenuStrip2.SuspendLayout();
             this.panelBienvenida.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Pcancelado)).BeginInit();
             this.panelDetalle.SuspendLayout();
             this.panelReporte.SuspendLayout();
             this.menuStrip6.SuspendLayout();
@@ -114,6 +112,8 @@
             this.MenuStrip4.SuspendLayout();
             this.MenuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pcancelado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -191,7 +191,6 @@
             // Eliminar
             // 
             this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
             this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
@@ -253,7 +252,6 @@
             this.ToolStripMenuItem5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.ToolStripMenuItem5.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.ToolStripMenuItem5.ForeColor = System.Drawing.Color.Black;
-            this.ToolStripMenuItem5.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripMenuItem5.Image")));
             this.ToolStripMenuItem5.Name = "ToolStripMenuItem5";
             this.ToolStripMenuItem5.Size = new System.Drawing.Size(50, 30);
             this.ToolStripMenuItem5.Text = "+";
@@ -315,10 +313,9 @@
             this.btnHoy.BackColor = System.Drawing.Color.Gainsboro;
             this.btnHoy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnHoy.ForeColor = System.Drawing.Color.Black;
-            this.btnHoy.Image = ((System.Drawing.Image)(resources.GetObject("btnHoy.Image")));
             this.btnHoy.Name = "btnHoy";
             this.btnHoy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.btnHoy.Size = new System.Drawing.Size(100, 33);
+            this.btnHoy.Size = new System.Drawing.Size(84, 33);
             this.btnHoy.Text = "Hoy (Todos)";
             this.btnHoy.Click += new System.EventHandler(this.btnHoy_Click);
             // 
@@ -377,7 +374,7 @@
             this.Label17.Name = "Label17";
             this.Label17.Size = new System.Drawing.Size(365, 41);
             this.Label17.TabIndex = 542;
-            this.Label17.Text = "Facturas Realizadas";
+            this.Label17.Text = "Compras Realizadas";
             this.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelBienvenida
@@ -404,17 +401,6 @@
             this.Label8.Text = "Elije una Factura para Empezar";
             this.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::SistemaVentas.Properties.Resources.LogoNegro;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 238);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(138, 93);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -422,18 +408,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(138, 238);
             this.panel4.TabIndex = 1;
-            // 
-            // Pcancelado
-            // 
-            this.Pcancelado.Image = ((System.Drawing.Image)(resources.GetObject("Pcancelado.Image")));
-            this.Pcancelado.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Pcancelado.Location = new System.Drawing.Point(872, 132);
-            this.Pcancelado.Name = "Pcancelado";
-            this.Pcancelado.Size = new System.Drawing.Size(206, 345);
-            this.Pcancelado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Pcancelado.TabIndex = 568;
-            this.Pcancelado.TabStop = false;
-            this.Pcancelado.Visible = false;
             // 
             // panelDetalle
             // 
@@ -487,7 +461,6 @@
             this.btnReimprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(1)))));
             this.btnReimprimir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnReimprimir.ForeColor = System.Drawing.Color.Black;
-            this.btnReimprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnReimprimir.Image")));
             this.btnReimprimir.Name = "btnReimprimir";
             this.btnReimprimir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.btnReimprimir.Size = new System.Drawing.Size(117, 43);
@@ -514,17 +487,15 @@
             this.btnEliminar.BackColor = System.Drawing.Color.Gainsboro;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.btnEliminar.Size = new System.Drawing.Size(117, 43);
+            this.btnEliminar.Size = new System.Drawing.Size(110, 43);
             this.btnEliminar.Text = "Cancelar Factura";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // PanelTICKET
             // 
             this.PanelTICKET.BackColor = System.Drawing.Color.White;
-            this.PanelTICKET.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelTICKET.BackgroundImage")));
             this.PanelTICKET.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PanelTICKET.Controls.Add(this.Panelcantidad);
             this.PanelTICKET.Controls.Add(this.datalistadoDetalleVenta);
@@ -597,7 +568,7 @@
             this.MenuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnVolver});
             this.MenuStrip4.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.MenuStrip4.Location = new System.Drawing.Point(255, 108);
+            this.MenuStrip4.Location = new System.Drawing.Point(241, 104);
             this.MenuStrip4.Name = "MenuStrip4";
             this.MenuStrip4.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.MenuStrip4.ShowItemToolTips = true;
@@ -625,7 +596,7 @@
             this.btnGuardar,
             this.ToolStripMenuItem6});
             this.MenuStrip3.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.MenuStrip3.Location = new System.Drawing.Point(168, 108);
+            this.MenuStrip3.Location = new System.Drawing.Point(168, 104);
             this.MenuStrip3.Name = "MenuStrip3";
             this.MenuStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.MenuStrip3.ShowItemToolTips = true;
@@ -638,10 +609,9 @@
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(63)))));
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.btnGuardar.Size = new System.Drawing.Size(79, 33);
+            this.btnGuardar.Size = new System.Drawing.Size(63, 33);
             this.btnGuardar.Text = "Aceptar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -918,7 +888,29 @@
             this.Label48.Text = "*****************************************************************************";
             this.Label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // HistorialVentasForm
+            // Pcancelado
+            // 
+            this.Pcancelado.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Pcancelado.Location = new System.Drawing.Point(872, 132);
+            this.Pcancelado.Name = "Pcancelado";
+            this.Pcancelado.Size = new System.Drawing.Size(206, 345);
+            this.Pcancelado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Pcancelado.TabIndex = 568;
+            this.Pcancelado.TabStop = false;
+            this.Pcancelado.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::SistemaVentas.Properties.Resources.LogoNegro;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 238);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(138, 93);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // HistorialComprasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -929,7 +921,7 @@
             this.Controls.Add(this.panelBienvenida);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "HistorialVentasForm";
+            this.Name = "HistorialComprasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.HistorialVentasForm_Load);
@@ -944,8 +936,6 @@
             this.MenuStrip2.ResumeLayout(false);
             this.MenuStrip2.PerformLayout();
             this.panelBienvenida.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Pcancelado)).EndInit();
             this.panelDetalle.ResumeLayout(false);
             this.panelReporte.ResumeLayout(false);
             this.menuStrip6.ResumeLayout(false);
@@ -961,6 +951,8 @@
             this.MenuStrip3.ResumeLayout(false);
             this.MenuStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pcancelado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
