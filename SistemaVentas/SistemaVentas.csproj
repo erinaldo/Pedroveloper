@@ -347,6 +347,12 @@
     <Compile Include="Presentacion\Gastos_varios\Gastos.Designer.cs">
       <DependentUpon>Gastos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\HistorialCompras\HistorialComprasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\HistorialCompras\HistorialComprasForm.Designer.cs">
+      <DependentUpon>HistorialComprasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\HistorialVentas\HistorialVentasForm.cs">
       <SubType>Form</SubType>
     </Compile>
