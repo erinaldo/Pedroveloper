@@ -48,14 +48,12 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         string nombreCliente;
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
+            txtMonto.Enabled = false;
             chkTrans.Visible = false;
             chkTrans.Checked = false;
-            txtMonto.Visible = false;
             txtTransferencia.Visible = false;
             label2.Visible = false;
-            label3.Visible = false;
             asd1.Visible = false;
-            asd2.Visible = false;
             cambiar_el_formato_de_separador_de_decimales();
             MOSTRAR_comprobante_serializado_POR_DEFECTO();
             validar_tipos_de_comprobantes();
@@ -633,10 +631,9 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             CONVERTIR_TOTAL_A_LETRAS();
             completar_con_ceros_los_texbox_de_otros_medios_de_pago();
-            if (txttipo =="EFECTIVO" && vuelto >=0)
+            if (txttipo =="CONTADO" && vuelto >=0)
             {
-                vender_en_efectivo();
-
+                COMPRAR_CONTADO();
             }
             else if (txttipo == "EFECTIVO" && vuelto < 0)
             {
@@ -645,7 +642,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             // condicional para creditos
             if (txttipo == "CREDITO" && datalistadoclientes2.Visible == false)
             {
-                vender_en_efectivo();
+                COMPRAR_CONTADO();
             }
             else if (txttipo == "CREDITO" && datalistadoclientes2.Visible == true)
             {
@@ -654,17 +651,17 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
             if (txttipo == "TARJETA")
             {
-                vender_en_efectivo();
+                COMPRAR_CONTADO();
             }
 
 
             if (txttipo == "MIXTO")
             {
-                vender_en_efectivo();
+                COMPRAR_CONTADO();
             }
 
         }
-        void vender_en_efectivo()
+        void COMPRAR_CONTADO()
         {
             if (idProveedor==0 || idProveedor==1 )
             {
@@ -672,26 +669,26 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             }
             if (lblComprobante.Text == "FACTURA" && idProveedor > -1 && idProveedor < 2 && txttipo != "CREDITO")
             {
-                MessageBox.Show("Seleccione un Cliente, para Facturas es Obligatorio", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccione un Proveedor, para Facturas es Obligatorio", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (lblComprobante.Text == "FACTURA" && idProveedor != 0)
             {
-                procesar_venta_efectivo();
+                procesar_compra_contado();
             }
             else if (lblComprobante.Text != "FACTURA" && txttipo != "CREDITO")
             {
-                procesar_venta_efectivo();
+                procesar_compra_contado();
             }
             else if (lblComprobante.Text != "FACTURA" && txttipo == "CREDITO")
             {
-                procesar_venta_efectivo();
+                procesar_compra_contado();
             }
 
 
 
            
         }
-        void procesar_venta_efectivo()
+        void procesar_compra_contado()
         {
             actualizar_serie_mas_uno();
             validar_tipos_de_comprobantes();
@@ -1021,13 +1018,14 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             try
             {
+                MessageBox.Show(txttipo);
                 CONEXION.CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("confirmar_compra", CONEXION.CONEXIONMAESTRA.conectar );
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idCompra", idCompra);
                 cmd.Parameters.AddWithValue("@montototal", total);
                 cmd.Parameters.AddWithValue("@Saldo", vuelto);
-                cmd.Parameters.AddWithValue("@Tipo_de_pago",txttipo );
+                cmd.Parameters.AddWithValue("@Tipo_de_pago", txttipo);
                 cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
                 cmd.Parameters.AddWithValue("@idProveedor", idProveedor);
                 cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
@@ -1036,8 +1034,15 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 cmd.Parameters.AddWithValue("@ACCION", "COMPRA");
                 cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value );
                 cmd.Parameters.AddWithValue("@Vuelto", vuelto);
-                cmd.Parameters.AddWithValue("@TotalPagado", efectivo_calculado);
-                cmd.Parameters.AddWithValue("@Transferencia_Bancaria", txtTransferencia.Text);
+                cmd.Parameters.AddWithValue("@TotalPagado", total);
+                if (txttipo == "CONTADO - Transferencia bancaria")
+                {
+                    cmd.Parameters.AddWithValue("@Transferencia_Bancaria", txtTransferencia.Text);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Transferencia_Bancaria", "SIN TRANSFERENCIA BANCARIA");
+                }
                 cmd.ExecuteNonQuery();
                 CONEXION.CONEXIONMAESTRA.cerrar();
                 lblproceso = "PROCEDE";              
@@ -1066,10 +1071,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         }
         void completar_con_ceros_los_texbox_de_otros_medios_de_pago()
         {
-            if (txtMonto.Text == "")
-            {
-                txtMonto.Text = "0";
-            }
+            
             if (TXTVUELTO.Text == "")
             {
                 TXTVUELTO.Text = "0";
@@ -1099,17 +1101,6 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             int indicadorContadoTransferencia = 2;
             int indicadorCredito = 3;
             int indicadorCreditoTransferemcia = 1;
-
-
-            if (txtMonto.Text == "")
-            {
-                txtMonto.Text = "0";
-            }
-            //validacion de .
-            if (txtMonto.Text == ".")
-            {
-                txtMonto.Text = "0";
-            }
             
             if(chkContado.Checked == true && chkTrans.Checked == false)
             {
@@ -1186,10 +1177,10 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (restante == 0)
             {
-                            editar_eleccion_de_impresora();
-                            indicador = "DIRECTO";
-                            identificar_el_tipo_de_pago();
-                            INGRESAR_LOS_DATOS();
+                editar_eleccion_de_impresora();
+                indicador = "DIRECTO";
+                identificar_el_tipo_de_pago();
+                INGRESAR_LOS_DATOS();
             }
             else
             {
@@ -1381,26 +1372,19 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (chkTrans.Checked == true)
             {
-                panel2.Visible = false;
+                //panel2.Visible = false;
                 txttipo = "TRANSFERENCIA BANCARIA";
-                txtMonto.Visible = true;
                 txtTransferencia.Visible = true;
                 label2.Visible = true;
-                label3.Visible = true;
                 asd1.Visible = true;
-                asd2.Visible = true;
             }
             else
             {
-                txtefectivo2_Click(sender, e);
-                panel2.Visible = true;
-                txtMonto.Visible = false;
+              //  txtefectivo2_Click(sender, e);
+                ///panel2.Visible = true;
                 txtTransferencia.Visible = false;
                 label2.Visible = false;
-                label3.Visible = false;
                 asd1.Visible = false;
-                asd2.Visible = false;
-                identificar_el_tipo_de_pago();
             }
         }
 
@@ -1432,12 +1416,20 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if(chkCredito.Checked == true)
             {
+                chkContado.Checked = false;
                 chkTrans.Checked = false;
+                chkTrans.Visible = false;
+                asd1.Visible = false;
+                txtTransferencia.Visible = false;
+                txtTransferencia.Clear();
                 pcredito.Visible = true;
                 ValidarChkCredito();
             }
             else
             {
+                pcredito.Visible = false;
+                chkContado.Checked = true;
+                txtTransferencia.Clear();
                 chkTrans.Checked = false;
             }
         }
@@ -1446,11 +1438,20 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (chkContado.Checked == true)
             {
+               // label2.Visible = true;
+               // asd1.Visible = true;
+                chkCredito.Checked = false;
                 chkTrans.Visible = true;
-                chkTrans.Checked = true;
+                chkTrans.Checked = false;
+                txtTransferencia.Clear();
+               // txtTransferencia.Visible = true;
+               // txtTransferencia.Focus();
             }
             else
             {
+               // label2.Visible = false;
+               // asd1.Visible = false;
+                txtTransferencia.Visible = false;
                 chkTrans.Visible = false;
                 chkTrans.Checked = false;
             }
