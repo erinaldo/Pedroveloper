@@ -48,6 +48,11 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         string nombreCliente;
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
+            panelClienteFactura.Visible = true;
+            lblindicador_de_factura_1.Text = "Proveedor: (Obligatorio)";
+            lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
+            FlowLayoutPanel1.Visible = false;
+            //chkContado.Checked = true;
             txtMonto.Enabled = false;
             chkTrans.Visible = false;
             chkTrans.Checked = false;
@@ -65,7 +70,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             cargar_impresoras_del_equipo();
 
             calcular_restante();
-            validarPedidodeCliente();
+            validarPedidodeProveedor();
            // datalistadoempleado.Visible = false;
             //label7.Visible = false;
         }
@@ -222,6 +227,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 MessageBox.Show(ex.Message);
             }
             dibujarCOMPROBANTES();
+            //lblComprobante.Text = lblcomprobantecompra.Text;
         }
         string tipoImpresion;
 
@@ -232,35 +238,35 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             FlowLayoutPanel3.Controls.Clear();
             try
             {
-                CONEXION.CONEXIONMAESTRA.abrir();
-                string query = "select tipodoc from Serializacion where Destino='FACTURAS'";
-                SqlCommand cmd = new SqlCommand(query, CONEXION.CONEXIONMAESTRA.conectar);
-                SqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    Button b = new Button();
-                    b.Text = rdr["tipodoc"].ToString();
-                    b.Size = new System.Drawing.Size(191, 60);
-                    b.BackColor = Color.FromArgb(70, 70, 71);
-                    b.Font = new System.Drawing.Font("Segoe UI", 13);
-                    b.FlatStyle = FlatStyle.Flat;
-                    b.ForeColor = Color.WhiteSmoke;
-                    FlowLayoutPanel3.Controls.Add(b);
-                    
-                    if (b.Text == lblComprobante.Text)
-                    {
-                        
-                        tipoImpresion = b.Text;
-                        b.Visible = false;
-                    }
-                    b.Click += miEvento;
-                    
-                }
-                    CONEXION.CONEXIONMAESTRA.cerrar();
+                /* CONEXION.CONEXIONMAESTRA.abrir();
+                 string query = "select tipodoc from Serializacion where Destino='FACTURAS'";
+                 SqlCommand cmd = new SqlCommand(query, CONEXION.CONEXIONMAESTRA.conectar);
+                 SqlDataReader rdr = cmd.ExecuteReader();
+                 while (rdr.Read())
+                 {*/
+                Button b = new Button();
+                b.Text = "COMPRA";
+                b.Size = new System.Drawing.Size(191, 60);
+                b.BackColor = Color.FromArgb(70, 70, 71);
+                b.Font = new System.Drawing.Font("Segoe UI", 13);
+                b.FlatStyle = FlatStyle.Flat;
+                b.ForeColor = Color.WhiteSmoke;
+                FlowLayoutPanel3.Controls.Add(b);
+
+              // // if (b.Text == lblComprobante.Text)
+             //   {
+//
+                    tipoImpresion = b.Text;
+                lblcomprobantecompra.Text = b.Text;
+                   // b.Visible = false;
+                //}
+                b.Click += miEvento;
+                // }
+                CONEXION.CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace );
+                MessageBox.Show(ex.StackTrace);
             }
         }
         private void miEvento(System.Object sender, EventArgs e)
@@ -269,46 +275,33 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             dibujarCOMPROBANTES();
             validar_tipos_de_comprobantes();       
             identificar_el_tipo_de_pago();
-            validarPedidodeCliente();
+            validarPedidodeProveedor();
         }
-        private void validarPedidodeCliente()
+        private void validarPedidodeProveedor()
         {
-            
-          
-          if (lblComprobante.Text =="FACTURA" && txttipo =="CREDITO")
+            if (lblComprobante.Text =="FACTURA" && txttipo =="CREDITO")
             {
                 panelClienteFactura.Visible = false;
             }
-            if (lblComprobante.Text == "FACTURA" && txttipo == "EFECTIVO")
+            if (lblComprobante.Text == "FACTURA" && txttipo == "CONTADO")
             {
                 panelClienteFactura.Visible = true;
-                lblindicador_de_factura_1.Text = "Cliente: (Obligatorio)";
+                lblindicador_de_factura_1.Text = "Proveedor: (Obligatorio)";
+                lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
+            }
+            else if (lblComprobante.Text != "FACTURA" && txttipo == "CONTADO - Transferencia bancaria")
+            {
+                panelClienteFactura.Visible = true;
+                lblindicador_de_factura_1.Text = "Proveedor: (Obligatorio)";
+                lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
+            }
+            else if (lblComprobante.Text == "FACTURA" && txttipo == "CONTADO - Transferencia bancaria")
+            {
+                panelClienteFactura.Visible = true;
+                lblindicador_de_factura_1.Text = "Proveedor: (Obligatorio)";
                 lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
 
             }
-            else if (lblComprobante.Text != "FACTURA" && txttipo == "EFECTIVO")
-            {
-                panelClienteFactura.Visible = true;
-                lblindicador_de_factura_1.Text = "Cliente: (Opcional)";
-                lblindicador_de_factura_1.ForeColor = Color.DimGray;
-
-            }
-
-            if (lblComprobante.Text == "FACTURA" && txttipo == "TARJETA")
-            {
-                panelClienteFactura.Visible = true;
-                lblindicador_de_factura_1.Text = "Cliente: (Obligatorio)";
-                lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
-
-            }
-            else if (lblComprobante.Text != "FACTURA" && txttipo == "TARJETA")
-            {
-                panelClienteFactura.Visible = true;
-                lblindicador_de_factura_1.Text = "Cliente: (Opcional)";
-                lblindicador_de_factura_1.ForeColor = Color.DimGray;
-            }
-
-
         }
         void validar_tipos_de_comprobantes()
         {
@@ -494,25 +487,21 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void txtclientesolicitabnte2_TextChanged(object sender, EventArgs e)
         {
-            buscarclientes2();
-            datalistadoclientes2.Visible = true;
+            buscarProveedor2();
+            datalistadoProveedores.Visible = true;
         }
-        void buscarclientes2()
+        void buscarProveedor2()
         {
-        
-
             try
             {
-
-
                 DataTable dt = new DataTable();
-                Obtener_datos.buscar_clientes(ref dt, txtclientesolicitabnte2.Text);
-                datalistadoclientes2.DataSource = dt;
-                datalistadoclientes2.Columns[1].Visible = false;
-                datalistadoclientes2.Columns[3].Visible = false;
-                datalistadoclientes2.Columns[4].Visible = false;
-                datalistadoclientes2.Columns[5].Visible = false;
-                datalistadoclientes2.Columns[2].Width = 420;
+                Obtener_datos.buscar_Proveedores(ref dt, txtProveedorCredito.Text);
+                datalistadoProveedores.DataSource = dt;
+                datalistadoProveedores.Columns[1].Visible = false;
+                datalistadoProveedores.Columns[3].Visible = false;
+                datalistadoProveedores.Columns[4].Visible = false;
+                datalistadoProveedores.Columns[5].Visible = false;
+                datalistadoProveedores.Columns[2].Width = 420;
                 CONEXION.CONEXIONMAESTRA.cerrar(); 
             }
 #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
@@ -552,9 +541,9 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void datalistadoclientes2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            idProveedor = Convert.ToInt32(datalistadoclientes2.SelectedCells[1].Value.ToString());
-            txtclientesolicitabnte2.Text = datalistadoclientes2.SelectedCells[2].Value.ToString();
-            datalistadoclientes2.Visible = false;
+            idProveedor = Convert.ToInt32(datalistadoProveedores.SelectedCells[1].Value.ToString());
+            txtProveedorCredito.Text = datalistadoProveedores.SelectedCells[2].Value.ToString();
+            datalistadoProveedores.Visible = false;
         }
 
         private void ToolStripMenuItem9_Click(object sender, EventArgs e)
@@ -631,35 +620,30 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             CONVERTIR_TOTAL_A_LETRAS();
             completar_con_ceros_los_texbox_de_otros_medios_de_pago();
+            if (txttipo == "CONTADO - Transferencia bancaria" && vuelto >= 0)
+            {
+                COMPRAR_CONTADO();
+            }else if(txttipo == "CONTADO" && vuelto < 0)
+            {
+                MessageBox.Show("El vuelto no puede ser menor a el Total pagado ", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             if (txttipo =="CONTADO" && vuelto >=0)
             {
                 COMPRAR_CONTADO();
             }
-            else if (txttipo == "EFECTIVO" && vuelto < 0)
+            else if (txttipo == "CONTADO" && vuelto < 0)
             {
                MessageBox.Show("El vuelto no puede ser menor a el Total pagado ", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             // condicional para creditos
-            if (txttipo == "CREDITO" && datalistadoclientes2.Visible == false)
+            if (txttipo == "CREDITO" && datalistadoProveedores.Visible == false)
             {
                 COMPRAR_CONTADO();
             }
-            else if (txttipo == "CREDITO" && datalistadoclientes2.Visible == true)
+            else if (txttipo == "CREDITO" && datalistadoProveedores.Visible == true)
             {
-             MessageBox.Show("Seleccione un Cliente para Activar Pago a Credito", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccione un Proveedor para Activar Pago a Credito", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-            if (txttipo == "TARJETA")
-            {
-                COMPRAR_CONTADO();
-            }
-
-
-            if (txttipo == "MIXTO")
-            {
-                COMPRAR_CONTADO();
-            }
-
         }
         void COMPRAR_CONTADO()
         {
@@ -667,19 +651,19 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             {
                 mostrar_proveedor_estandar();
             }
-            if (lblComprobante.Text == "FACTURA" && idProveedor > -1 && idProveedor < 2 && txttipo != "CREDITO")
+            if (lblComprobante.Text == "COMPRA" && idProveedor > -1 && idProveedor < 2 && txttipo != "CREDITO")
             {
-                MessageBox.Show("Seleccione un Proveedor, para Facturas es Obligatorio", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccione un Proveedor, para Compras es Obligatorio", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (lblComprobante.Text == "FACTURA" && idProveedor != 0)
-            {
-                procesar_compra_contado();
-            }
-            else if (lblComprobante.Text != "FACTURA" && txttipo != "CREDITO")
+            else if (lblComprobante.Text == "COMPRA" && idProveedor != 0)
             {
                 procesar_compra_contado();
             }
-            else if (lblComprobante.Text != "FACTURA" && txttipo == "CREDITO")
+            else if (lblComprobante.Text != "COMPRA" && txttipo != "CREDITO")
+            {
+                procesar_compra_contado();
+            }
+            else if (lblComprobante.Text != "COMPRA" && txttipo == "CREDITO")
             {
                 procesar_compra_contado();
             }
@@ -1190,7 +1174,21 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void btnGuardarImprimirdirecto_Click_1(object sender, EventArgs e)
         {
-                ImprimirDirecto();
+            if (chkContado.Checked || chkCredito.Checked)
+            {
+                if (!string.IsNullOrEmpty(txtTransferencia.Text))
+                {
+                    ImprimirDirecto();
+                }
+                else
+                {
+                    MessageBox.Show("Asigne el numero de transferencia", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un tipo de Compra", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         public void GuardarSinImprimir()
@@ -1208,9 +1206,23 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         }
         private void TGuardarSinImprimir_Click_1(object sender, EventArgs e)
         {
-            
-                GuardarSinImprimir();
-            
+
+            if (chkContado.Checked || chkCredito.Checked)
+            {
+                if (!string.IsNullOrEmpty(txtTransferencia.Text))
+                {
+                    GuardarSinImprimir();
+                }
+                else
+                {
+                    MessageBox.Show("Asigne el numero de transferencia", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un tipo de Compra", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
 
         private void btnagregarCliente_Click(object sender, EventArgs e)
@@ -1364,7 +1376,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
+            Presentacion.CLIENTES_PROVEEDORES.Proveedores frm = new Presentacion.CLIENTES_PROVEEDORES.Proveedores();
             frm.ShowDialog();
         }
 
@@ -1417,6 +1429,8 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             if(chkCredito.Checked == true)
             {
                 chkContado.Checked = false;
+                FlowLayoutPanel1.Visible = true;
+                AsignarTipoComprobante();
                 chkTrans.Checked = false;
                 chkTrans.Visible = false;
                 asd1.Visible = false;
@@ -1427,19 +1441,29 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             }
             else
             {
+                panelClienteFactura.Visible = true;
+                AsignarTipoComprobante();
+                FlowLayoutPanel1.Visible = true;
                 pcredito.Visible = false;
                 chkContado.Checked = true;
                 txtTransferencia.Clear();
                 chkTrans.Checked = false;
             }
         }
-
+        public void AsignarTipoComprobante()
+        {
+            lblcomprobantecompra.Text = tipoImpresion;
+            lblComprobante.Text = lblcomprobantecompra.Text;
+            txtserie.Text = "C";
+        }
         private void chkContado_CheckedChanged(object sender, EventArgs e)
         {
             if (chkContado.Checked == true)
             {
-               // label2.Visible = true;
-               // asd1.Visible = true;
+                FlowLayoutPanel1.Visible = true;
+                // label2.Visible = true;
+                // asd1.Visible = true;
+                AsignarTipoComprobante();
                 chkCredito.Checked = false;
                 chkTrans.Visible = true;
                 chkTrans.Checked = false;
@@ -1449,10 +1473,16 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             }
             else
             {
+                FlowLayoutPanel1.Visible = true;
+
+                lblcomprobantecompra.Text = tipoImpresion;
+                lblComprobante.Text = lblcomprobantecompra.Text;
+                txtserie.Text = "C";
                // label2.Visible = false;
                // asd1.Visible = false;
                 txtTransferencia.Visible = false;
                 chkTrans.Visible = false;
+                AsignarTipoComprobante();
                 chkTrans.Checked = false;
             }
         }
