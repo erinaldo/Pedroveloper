@@ -1730,6 +1730,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     if (funcion.editarPrecioVenta(parametros) == true)
                     {
                         Listarproductosagregados();
+                        
                     }
                 }
                 txtmonto.Focus();

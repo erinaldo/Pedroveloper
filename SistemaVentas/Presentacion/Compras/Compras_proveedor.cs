@@ -1517,14 +1517,14 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                     parametrosProductos.Id_Producto1 = idproducto;
                     parametrosProductos.Precio_de_venta = precioVentaNuevo_;
                     parametrosProductos.Precio_de_compra = precioCompra;
-                    if (precioCompra != precioVenta)
-                    {
+                   // if (precioCompra != precioVenta)
+                    //{
                         if (funcion.Editarpreciosproductoscompra(parametrosProductos) == true)
                         {
                             MessageBox.Show("id:" + idproducto.ToString() + " prventa:" + precioVenta.ToString() +
                         "prcompra:" + precioCompra.ToString() + " prventaN:" + precioVentaNuevo.ToString());
                         }
-                    }
+                   // }
 
 
                     total = Convert.ToDouble(txt_total_suma.Text);
