@@ -71,7 +71,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
             calcular_restante();
             validarPedidodeProveedor();
-           // datalistadoempleado.Visible = false;
+            // datalistadoempleado.Visible = false;
             //label7.Visible = false;
         }
 
@@ -82,7 +82,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 double efectivo = 0;
                 double tarjeta = 0;
                 double importe_bruto = 0;
-               
+
                 if (txtMonto.Text == "")
                 {
                     importe_bruto = 0;
@@ -91,7 +91,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 {
                     importe_bruto = Convert.ToDouble(txtMonto.Text);
                 }
-                
+
                 if (txtMonto.Text == "0.00")
                 {
                     importe_bruto = 0;
@@ -103,25 +103,25 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
                 try
                 {
-                    if (efectivo>total)
+                    if (efectivo > total)
                     {
                         efectivo_calculado = efectivo - (total + credito + tarjeta + importe_bruto);
-                        if (efectivo_calculado <0)
+                        if (efectivo_calculado < 0)
                         {
                             vuelto = 0;
                             TXTVUELTO.Text = "0";
-                            txtrestante.Text =Convert.ToString ( efectivo_calculado);
+                            txtrestante.Text = Convert.ToString(efectivo_calculado);
                             restante = efectivo_calculado;
                         }
                         else
                         {
                             vuelto = efectivo - (total - credito - tarjeta - importe_bruto);
-                            TXTVUELTO.Text = Convert.ToString ( vuelto);
-                            restante = efectivo - (total + credito + tarjeta+efectivo_calculado + importe_bruto);
-                            txtrestante.Text = Convert.ToString ( restante);
+                            TXTVUELTO.Text = Convert.ToString(vuelto);
+                            restante = efectivo - (total + credito + tarjeta + efectivo_calculado + importe_bruto);
+                            txtrestante.Text = Convert.ToString(restante);
                             txtrestante.Text = decimal.Parse(txtrestante.Text).ToString("##0.00");
                         }
-                      
+
                     }
                     else
                     {
@@ -137,7 +137,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 {
                     MessageBox.Show(ex.StackTrace);
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -164,13 +164,13 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace );
+                MessageBox.Show(ex.StackTrace);
             }
         }
         void cargar_impresoras_del_equipo()
         {
             txtImpresora.Items.Clear();
-            for (var I=0;I< PrinterSettings.InstalledPrinters.Count;I++)
+            for (var I = 0; I < PrinterSettings.InstalledPrinters.Count; I++)
             {
                 txtImpresora.Items.Add(PrinterSettings.InstalledPrinters[I]);
             }
@@ -186,7 +186,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             txtrestante.Text = "0.0";
             TXTTOTAL.Text = moneda + " " + Compras_proveedor.Compras_proveedor.total;
             total = Compras_proveedor.Compras_proveedor.total;
-            txtMonto.Text =Convert.ToString (total);
+            txtMonto.Text = Convert.ToString(total);
             idProveedor = 0;
 
         }
@@ -196,7 +196,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                moneda =Convert.ToString  (cmd.ExecuteScalar());
+                moneda = Convert.ToString(cmd.ExecuteScalar());
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
@@ -206,7 +206,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         }
         public void obtener_serial_pc()
         {
-           Bases.Obtener_serialPC (ref lblSerialPC);
+            Bases.Obtener_serialPC(ref lblSerialPC);
         }
         public void cambiar_el_formato_de_separador_de_decimales()
         {
@@ -253,12 +253,12 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 b.ForeColor = Color.WhiteSmoke;
                 FlowLayoutPanel3.Controls.Add(b);
 
-              // // if (b.Text == lblComprobante.Text)
-             //   {
-//
-                    tipoImpresion = b.Text;
+                // // if (b.Text == lblComprobante.Text)
+                //   {
+                //
+                tipoImpresion = b.Text;
                 lblcomprobantecompra.Text = b.Text;
-                   // b.Visible = false;
+                // b.Visible = false;
                 //}
                 b.Click += miEvento;
                 // }
@@ -273,13 +273,13 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             lblComprobante.Text = ((Button)sender).Text;
             dibujarCOMPROBANTES();
-            validar_tipos_de_comprobantes();       
+            validar_tipos_de_comprobantes();
             identificar_el_tipo_de_pago();
             validarPedidodeProveedor();
         }
         private void validarPedidodeProveedor()
         {
-            if (lblComprobante.Text =="FACTURA" && txttipo =="CREDITO")
+            if (lblComprobante.Text == "FACTURA" && txttipo == "CREDITO")
             {
                 panelClienteFactura.Visible = false;
             }
@@ -309,12 +309,12 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             try
             {
                 int numerofin;
-                
+
                 txtserie.Text = dtComprobantes.SelectedCells[2].Value.ToString();
 
-                numerofin = Convert.ToInt32 ( dtComprobantes.SelectedCells[4].Value);
-                idcomprobante= Convert.ToInt32(dtComprobantes.SelectedCells[5].Value);
-                txtnumerofin.Text =Convert.ToString  ( numerofin + 1);
+                numerofin = Convert.ToInt32(dtComprobantes.SelectedCells[4].Value);
+                idcomprobante = Convert.ToInt32(dtComprobantes.SelectedCells[5].Value);
+                txtnumerofin.Text = Convert.ToString(numerofin + 1);
                 lblCantidad_de_numeros.Text = dtComprobantes.SelectedCells[3].Value.ToString();
                 lblCorrelativoconCeros.Text = CONEXION.Agregar_ceros_adelante_De_numero.ceros(txtnumerofin.Text, Convert.ToInt32(lblCantidad_de_numeros.Text));
             }
@@ -325,7 +325,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
             }
         }
-         void buscar_Tipo_de_documentos_para_insertar_en_ventas()
+        void buscar_Tipo_de_documentos_para_insertar_en_ventas()
         {
             DataTable dt = new DataTable();
             try
@@ -359,14 +359,14 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             calcular_restante();
         }
-       
+
         private void btn1_Click(object sender, EventArgs e)
         {
-            if (INDICADOR_DE_FOCO==1)
+            if (INDICADOR_DE_FOCO == 1)
             {
                 txtMonto.Text = txtMonto.Text + "1";
             }
-         
+
         }
 
         private void btn2_Click(object sender, EventArgs e)
@@ -467,7 +467,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void btnborrartodo_Click(object sender, EventArgs e)
         {
-            if (INDICADOR_DE_FOCO==1)
+            if (INDICADOR_DE_FOCO == 1)
             {
                 txtMonto.Clear();
                 SECUENCIA1 = true;
@@ -502,13 +502,13 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 datalistadoProveedores.Columns[4].Visible = false;
                 datalistadoProveedores.Columns[5].Visible = false;
                 datalistadoProveedores.Columns[2].Width = 420;
-                CONEXION.CONEXIONMAESTRA.cerrar(); 
+                CONEXION.CONEXIONMAESTRA.cerrar();
             }
 #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
 #pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
-                
+
             }
         }
         void buscarProveedor()
@@ -549,53 +549,53 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         private void ToolStripMenuItem9_Click(object sender, EventArgs e)
         {
         }
-  
-       /* void insertar_cliente()
-        {
-            if (txtnombrecliente.Text != "")
-            {
 
-                if (txtdirecciondefactura.Text == "")
-                {
-                    txtdirecciondefactura.Text = "0";
-                }
-                if (txtrucdefactura.Text == "")
-                {
-                    txtrucdefactura.Text = "0";
-                }
-                if (txtcelular.Text == "")
-                {
-                    txtcelular.Text = "0";
-                }
+        /* void insertar_cliente()
+         {
+             if (txtnombrecliente.Text != "")
+             {
+
+                 if (txtdirecciondefactura.Text == "")
+                 {
+                     txtdirecciondefactura.Text = "0";
+                 }
+                 if (txtrucdefactura.Text == "")
+                 {
+                     txtrucdefactura.Text = "0";
+                 }
+                 if (txtcelular.Text == "")
+                 {
+                     txtcelular.Text = "0";
+                 }
 
 
-                try
-                {
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand();
-                    cmd = new SqlCommand("insertar_clientes", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Nombre", txtnombrecliente.Text);
-                    cmd.Parameters.AddWithValue("@Direccion", txtdirecciondefactura.Text);
-                    cmd.Parameters.AddWithValue("@IdentificadorFiscal", txtrucdefactura.Text);
-                    cmd.Parameters.AddWithValue("@Celular", txtcelular.Text);
-                    cmd.Parameters.AddWithValue("@Estado", "SI");
-                    //cmd.Parameters.AddWithValue("@Proveedor", "NO");
-                    //cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
-                    cmd.Parameters.AddWithValue("@Saldo", 0);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                 try
+                 {
+                     SqlConnection con = new SqlConnection();
+                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                     con.Open();
+                     SqlCommand cmd = new SqlCommand();
+                     cmd = new SqlCommand("insertar_clientes", con);
+                     cmd.CommandType = CommandType.StoredProcedure;
+                     cmd.Parameters.AddWithValue("@Nombre", txtnombrecliente.Text);
+                     cmd.Parameters.AddWithValue("@Direccion", txtdirecciondefactura.Text);
+                     cmd.Parameters.AddWithValue("@IdentificadorFiscal", txtrucdefactura.Text);
+                     cmd.Parameters.AddWithValue("@Celular", txtcelular.Text);
+                     cmd.Parameters.AddWithValue("@Estado", "SI");
+                     //cmd.Parameters.AddWithValue("@Proveedor", "NO");
+                     //cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
+                     cmd.Parameters.AddWithValue("@Saldo", 0);
+                     cmd.ExecuteNonQuery();
+                     con.Close();
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-       */
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show(ex.Message);
+                 }
+             }
+         }
+        */
         private void txtefectivo2_Click(object sender, EventArgs e)
         {
 
@@ -613,9 +613,9 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void TGuardarSinImprimir_Click(object sender, EventArgs e)
         {
-          
+
         }
- 
+
         void INGRESAR_LOS_DATOS()
         {
             CONVERTIR_TOTAL_A_LETRAS();
@@ -623,17 +623,17 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             if (txttipo == "CONTADO - Transferencia bancaria" && vuelto >= 0)
             {
                 COMPRAR_CONTADO();
-            }else if(txttipo == "CONTADO" && vuelto < 0)
+            } else if (txttipo == "CONTADO" && vuelto < 0)
             {
                 MessageBox.Show("El vuelto no puede ser menor a el Total pagado ", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            if (txttipo =="CONTADO" && vuelto >=0)
+            if (txttipo == "CONTADO" && vuelto >= 0)
             {
                 COMPRAR_CONTADO();
             }
             else if (txttipo == "CONTADO" && vuelto < 0)
             {
-               MessageBox.Show("El vuelto no puede ser menor a el Total pagado ", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("El vuelto no puede ser menor a el Total pagado ", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             // condicional para creditos
             if (txttipo == "CREDITO" && datalistadoProveedores.Visible == false)
@@ -647,7 +647,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         }
         void COMPRAR_CONTADO()
         {
-            if (idProveedor==0 || idProveedor==1 )
+            if (idProveedor == 0 || idProveedor == 1)
             {
                 mostrar_proveedor_estandar();
             }
@@ -670,15 +670,15 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
 
 
-           
+
         }
         void procesar_compra_contado()
         {
             actualizar_serie_mas_uno();
             validar_tipos_de_comprobantes();
             CONFIRMAR_VENTA_EFECTIVO();
-            if (lblproceso=="PROCEDE")
-            {                            
+            if (lblproceso == "PROCEDE")
+            {
                 disminuir_stock_productos();
                 INSERTAR_KARDEX_SALIDA();
                 //aumentar_monto_a_cliente();
@@ -689,7 +689,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             try
             {
-                foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
+                foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows)
                 {
                     int Id_producto = Convert.ToInt32(row.Cells["Id_producto"].Value);
                     double cantidad = Convert.ToDouble(row.Cells["Cantidad"].Value);
@@ -697,7 +697,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                     if (STOCK != "Ilimitado")
                     {
                         CONEXION.CONEXIONMAESTRA.abrir();
-                        SqlCommand cmd = new SqlCommand("Insertar_kardex_entrada", CONEXION.CONEXIONMAESTRA.conectar );
+                        SqlCommand cmd = new SqlCommand("Insertar_kardex_entrada", CONEXION.CONEXIONMAESTRA.conectar);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
                         cmd.Parameters.AddWithValue("@Motivo", "Compra #" + lblComprobante.Text + " " + lblCorrelativoconCeros.Text);
@@ -742,29 +742,29 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         void disminuir_stock_productos()
         {
             mostrar_productos_agregados_a_factura();
-            foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
+            foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows)
             {
                 int idproducto = Convert.ToInt32(row.Cells["Id_producto"].Value);
                 double cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
                 MessageBox.Show(idproducto.ToString() + " " + cantidad.ToString());
                 try
-                  {
+                {
                     //MessageBox.Show("entramos");
-                     CONEXION.CONEXIONMAESTRA.abrir();
-                     SqlCommand cmd = new SqlCommand("Aumentarstock", CONEXION.CONEXIONMAESTRA.conectar);
-                     cmd.CommandType = CommandType.StoredProcedure;
-                     cmd.Parameters.AddWithValue("@idproducto", idproducto);
-                     cmd.Parameters.AddWithValue("@cantidad", cantidad);
-                     cmd.ExecuteNonQuery(); 
-                     CONEXION.CONEXIONMAESTRA.cerrar();
-                  }
-                   catch (Exception ex)
-                  {
+                    CONEXION.CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("Aumentarstock", CONEXION.CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idproducto", idproducto);
+                    cmd.Parameters.AddWithValue("@cantidad", cantidad);
+                    cmd.ExecuteNonQuery();
+                    CONEXION.CONEXIONMAESTRA.cerrar();
+                }
+                catch (Exception ex)
+                {
                     CONEXION.CONEXIONMAESTRA.cerrar();
                     MessageBox.Show(ex.Message);
-                  }
+                }
             }
-          
+
 
         }
         void actualizar_serie_mas_uno()
@@ -772,10 +772,10 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                CONEXION .CONEXIONMAESTRA.abrir();
-                cmd = new SqlCommand("actualizar_serializacion_mas_uno", CONEXION .CONEXIONMAESTRA.conectar );
+                CONEXION.CONEXIONMAESTRA.abrir();
+                cmd = new SqlCommand("actualizar_serializacion_mas_uno", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idserie", idcomprobante);           
+                cmd.Parameters.AddWithValue("@idserie", idcomprobante);
                 cmd.ExecuteNonQuery();
                 CONEXION.CONEXIONMAESTRA.cerrar();
 
@@ -789,19 +789,19 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         void validar_tipo_de_impresion()
         {
-           if ( indicador =="VISTA PREVIA")
+            if (indicador == "VISTA PREVIA")
             {
-               // MessageBox.Show(tipoImpresion);
-                if(tipoImpresion == "FACTURA")
+                // MessageBox.Show(tipoImpresion);
+                if (tipoImpresion == "FACTURA")
                 {
                     //mostrar_factura_impresa_VISTA_PREVIA();
                 }
-                else if(tipoImpresion == "TICKET")
+                else if (tipoImpresion == "TICKET")
                 {
                     //mostrar_ticket_impreso_VISTA_PREVIA();
                 }
             }
-           else if (indicador =="DIRECTO")
+            else if (indicador == "DIRECTO")
             {
                 if (tipoImpresion == "FACTURA")
                 {
@@ -821,7 +821,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             {
                 DOCUMENTO = new PrintDocument();
                 DOCUMENTO.PrinterSettings.PrinterName = txtImpresora.Text;
-                if (DOCUMENTO.PrinterSettings.IsValid )
+                if (DOCUMENTO.PrinterSettings.IsValid)
                 {
                     PrinterSettings printerSettings = new PrinterSettings();
                     printerSettings.PrinterName = txtImpresora.Text;
@@ -832,7 +832,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             }
             catch (Exception ex)
             {
-                MessageBox.Show (ex.StackTrace);
+                MessageBox.Show(ex.StackTrace);
             }
         }
         void imprimir_directo_factura()
@@ -1004,7 +1004,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             {
                 MessageBox.Show(txttipo);
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("confirmar_compra", CONEXION.CONEXIONMAESTRA.conectar );
+                SqlCommand cmd = new SqlCommand("confirmar_compra", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idCompra", idCompra);
                 cmd.Parameters.AddWithValue("@montototal", total);
@@ -1012,11 +1012,11 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 cmd.Parameters.AddWithValue("@Tipo_de_pago", txttipo);
                 cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
                 cmd.Parameters.AddWithValue("@idProveedor", idProveedor);
-                cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
-                cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text ));
+                cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text);
+                cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text));
                 cmd.Parameters.AddWithValue("@fecha_compra", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ACCION", "COMPRA");
-                cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value );
+                cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value);
                 cmd.Parameters.AddWithValue("@Vuelto", vuelto);
                 cmd.Parameters.AddWithValue("@TotalPagado", total);
                 if (txttipo == "CONTADO - Transferencia bancaria")
@@ -1029,7 +1029,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 }
                 cmd.ExecuteNonQuery();
                 CONEXION.CONEXIONMAESTRA.cerrar();
-                lblproceso = "PROCEDE";              
+                lblproceso = "PROCEDE";
             }
             catch (Exception ex)
             {
@@ -1038,7 +1038,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 MessageBox.Show(ex.Message);
             }
         }
-       
+
         void mostrar_proveedor_estandar()
         {
             SqlCommand com = new SqlCommand("select idProveedor from Proveedores where Estado = 0", CONEXION.CONEXIONMAESTRA.conectar);
@@ -1055,7 +1055,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         }
         void completar_con_ceros_los_texbox_de_otros_medios_de_pago()
         {
-            
+
             if (TXTVUELTO.Text == "")
             {
                 TXTVUELTO.Text = "0";
@@ -1065,19 +1065,19 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             try
             {
-             TXTTOTAL.Text = Convert.ToString(total);
-             TXTTOTAL.Text = decimal.Parse(TXTTOTAL.Text).ToString("##0.00");
-             int numero = Convert.ToInt32(Math.Floor(Convert.ToDouble(total)));
-            TXTTOTAL_STRING = CONEXION.total_en_letras.Num2Text(numero);
-            string[] a = TXTTOTAL.Text.Split('.');
-            txttotaldecimal.Text = a[1];
-            txtnumeroconvertidoenletra.Text = TXTTOTAL_STRING + " CON " + txttotaldecimal.Text + "/100 ";
+                TXTTOTAL.Text = Convert.ToString(total);
+                TXTTOTAL.Text = decimal.Parse(TXTTOTAL.Text).ToString("##0.00");
+                int numero = Convert.ToInt32(Math.Floor(Convert.ToDouble(total)));
+                TXTTOTAL_STRING = CONEXION.total_en_letras.Num2Text(numero);
+                string[] a = TXTTOTAL.Text.Split('.');
+                txttotaldecimal.Text = a[1];
+                txtnumeroconvertidoenletra.Text = TXTTOTAL_STRING + " CON " + txttotaldecimal.Text + "/100 ";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-  
+
         }
         void identificar_el_tipo_de_pago()
         {
@@ -1085,13 +1085,13 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             int indicadorContadoTransferencia = 2;
             int indicadorCredito = 3;
             int indicadorCreditoTransferemcia = 1;
-            
-            if(chkContado.Checked == true && chkTrans.Checked == false)
+
+            if (chkContado.Checked == true && chkTrans.Checked == false)
             {
                 indicadorContadoTransferencia = 0;
                 indicadorCredito = 0;
                 indicadorCreditoTransferemcia = 0;
-            }else if(chkContado.Checked == true && chkTrans.Checked == true)
+            } else if (chkContado.Checked == true && chkTrans.Checked == true)
             {
                 indicadorCredito = 0;
                 indicadorCreditoTransferemcia = 0;
@@ -1128,14 +1128,14 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void btnGuardarImprimirdirecto_Click(object sender, EventArgs e)
         {
-            
+
         }
         void editar_eleccion_de_impresora()
         {
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("editar_eleccion_impresoras", CONEXION.CONEXIONMAESTRA.conectar );
+                SqlCommand cmd = new SqlCommand("editar_eleccion_impresoras", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Impresora_Ticket", txtImpresora.Text);
                 cmd.Parameters.AddWithValue("@idcaja", Compras_proveedor.Compras_proveedor.Id_caja);
@@ -1150,7 +1150,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void TXTTOTAL_Click(object sender, EventArgs e)
@@ -1223,8 +1223,8 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 MessageBox.Show("Selecciona un tipo de Compra", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
-        }
 
+        }
         private void btnagregarCliente_Click(object sender, EventArgs e)
         {
             Presentacion.CLIENTES_PROVEEDORES.Proveedores frm = new Presentacion.CLIENTES_PROVEEDORES.Proveedores();

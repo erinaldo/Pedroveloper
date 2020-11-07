@@ -862,6 +862,30 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
+        public bool editarPrecioCompra(LdetalleFactura parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarPrecioCompra", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idDetalleCompra", parametros.iddetalle_factura);
+                cmd.Parameters.AddWithValue("@precio", parametros.preciounitario);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+                return false;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
 
         public bool editarDescuentoFactura(LdetalleFactura parametros)
         {
@@ -1047,6 +1071,31 @@ namespace SistemaVentas.Datos
                 cmd.Parameters.AddWithValue("@costo", parametros.Precio_de_compra);    
                 cmd.Parameters.AddWithValue("@preciomayoreo", parametros.Precio_mayoreo);
                 cmd.Parameters.AddWithValue("@cantidadAgregada", parametros.Stock);              
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+                return false;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
+        public bool Editarpreciosproductoscompra(Lproductos parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("Editarpreciosproductoscompra", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idproducto", parametros.Id_Producto1);
+                cmd.Parameters.AddWithValue("@precioventa", parametros.Precio_de_venta);
+                cmd.Parameters.AddWithValue("@costo", parametros.Precio_de_compra);
                 cmd.ExecuteNonQuery();
                 return true;
 
