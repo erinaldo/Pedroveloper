@@ -1234,7 +1234,7 @@
             this.Label7.ForeColor = System.Drawing.Color.Black;
             this.Label7.Location = new System.Drawing.Point(10, 2);
             this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(96, 17);
+            this.Label7.Size = new System.Drawing.Size(104, 17);
             this.Label7.TabIndex = 0;
             this.Label7.Text = "F. de Compras:";
             // 
@@ -2079,7 +2079,7 @@
             this.lblidusuario.ForeColor = System.Drawing.Color.Black;
             this.lblidusuario.Location = new System.Drawing.Point(140, 61);
             this.lblidusuario.Name = "lblidusuario";
-            this.lblidusuario.Size = new System.Drawing.Size(96, 17);
+            this.lblidusuario.Size = new System.Drawing.Size(97, 17);
             this.lblidusuario.TabIndex = 0;
             this.lblidusuario.Text = "F. de Compra:";
             // 

@@ -48,6 +48,14 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         string nombreCliente;
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
+            chkTrans.Visible = false;
+            chkTrans.Checked = false;
+            txtMonto.Visible = false;
+            txtTransferencia.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            asd1.Visible = false;
+            asd2.Visible = false;
             cambiar_el_formato_de_separador_de_decimales();
             MOSTRAR_comprobante_serializado_POR_DEFECTO();
             validar_tipos_de_comprobantes();
@@ -70,86 +78,43 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             {
                 double efectivo = 0;
                 double tarjeta = 0;
-              
-                if(txtefectivo2.Text =="")
+                double importe_bruto = 0;
+               
+                if (txtMonto.Text == "")
                 {
-                    efectivo = 0;
+                    importe_bruto = 0;
                 }
                 else
                 {
-                    efectivo = Convert.ToDouble(txtefectivo2.Text);
+                    importe_bruto = Convert.ToDouble(txtMonto.Text);
                 }
-                if (txtcredito2.Text =="")
+                
+                if (txtMonto.Text == "0.00")
                 {
-                    credito = 0;
+                    importe_bruto = 0;
                 }
-                else
+                if (txtMonto.Text == ".")
                 {
-                    credito = Convert.ToDouble (txtcredito2.Text);
-                }
-                if(txttarjeta2.Text =="")
-                {
-                    tarjeta = 0;
-                } 
-                else
-                {
-                    tarjeta = Convert.ToDouble(txttarjeta2.Text);
+                    importe_bruto = 0;
                 }
 
-                if (txtefectivo2.Text == "0.00")
-                {
-                    efectivo = 0;
-                }
-                if (txtcredito2.Text == "0.00")
-                {
-                    credito = 0;
-                }
-                if (txttarjeta2.Text == "0.00")
-                {
-                    tarjeta = 0;
-
-                }
-
-                if (txtefectivo2.Text == ".")
-                {
-                    efectivo = 0;
-                }
-                if (txtcredito2.Text == ".")
-                {
-                    tarjeta = 0;
-                }
-                if (txttarjeta2.Text == ".")
-                {
-                    credito = 0;
-                }
-                ///////
-                //Total= 5 
-                //Efectivo= 10
-                // Tarjeta = 22
-                //EC=E-(T+TA)
-                //EC= 10-(5+22)
-                //EC= 3
-                //V=E-(T-TA)
-                //V=10-(5-2)
-                //V=7
-       
                 try
                 {
                     if (efectivo>total)
                     {
-                        efectivo_calculado = efectivo - (total + credito + tarjeta);
+                        efectivo_calculado = efectivo - (total + credito + tarjeta + importe_bruto);
                         if (efectivo_calculado <0)
                         {
                             vuelto = 0;
-                                TXTVUELTO.Text = "0";
+                            TXTVUELTO.Text = "0";
                             txtrestante.Text =Convert.ToString ( efectivo_calculado);
                             restante = efectivo_calculado;
                         }
                         else
                         {
-                            vuelto = efectivo - (total - credito - tarjeta);
+                            vuelto = efectivo - (total - credito - tarjeta - importe_bruto);
                             TXTVUELTO.Text = Convert.ToString ( vuelto);
-                            restante = efectivo - (total + credito + tarjeta+efectivo_calculado );
+                            restante = efectivo - (total + credito + tarjeta+efectivo_calculado + importe_bruto);
                             txtrestante.Text = Convert.ToString ( restante);
                             txtrestante.Text = decimal.Parse(txtrestante.Text).ToString("##0.00");
                         }
@@ -160,7 +125,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                         vuelto = 0;
                         TXTVUELTO.Text = "0";
                         efectivo_calculado = efectivo;
-                        restante = total - efectivo_calculado - credito - tarjeta;
+                        restante = total - efectivo_calculado - credito - tarjeta - importe_bruto;
                         txtrestante.Text = Convert.ToString(restante);
                         txtrestante.Text = decimal.Parse(txtrestante.Text).ToString("##0.00");
                     }
@@ -218,7 +183,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             txtrestante.Text = "0.0";
             TXTTOTAL.Text = moneda + " " + Compras_proveedor.Compras_proveedor.total;
             total = Compras_proveedor.Compras_proveedor.total;
-            txtefectivo2.Text =Convert.ToString (total);
+            txtMonto.Text =Convert.ToString (total);
             idProveedor = 0;
 
         }
@@ -402,73 +367,22 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         private void txtcredito2_TextChanged(object sender, EventArgs e)
         {
             calcular_restante();
-            ValidarPanelCredito();
         }
-        void ValidarPanelCredito()
-        {
-            try
-            {
-                double textocredito = 0;
-                if (txtcredito2.Text ==".")
-                {
-                    textocredito = 0;
-                }
-                if (txtcredito2.Text =="")
-                {
-                    textocredito = 0;
-                }
-                else
-                {
-                    textocredito = Convert.ToDouble(txtcredito2.Text);
-                }
-
-                if (textocredito>0)
-                {
-                    pcredito.Visible = true;
-                    panelClienteFactura.Visible = false;
-                }
-                else
-                {
-                    pcredito.Visible = false;
-                    panelClienteFactura.Visible = true;
-
-                    idProveedor = 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.StackTrace);
-            }
-        }
+       
         private void btn1_Click(object sender, EventArgs e)
         {
             if (INDICADOR_DE_FOCO==1)
             {
-                txtefectivo2.Text = txtefectivo2.Text + "1";
+                txtMonto.Text = txtMonto.Text + "1";
             }
-            else if (INDICADOR_DE_FOCO==2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "1";
-            }
-            else if (INDICADOR_DE_FOCO==3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "1";
-            }
+         
         }
 
         private void btn2_Click(object sender, EventArgs e)
         {
             if (INDICADOR_DE_FOCO == 1)
             {
-                txtefectivo2.Text = txtefectivo2.Text + "2";
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "2";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "2";
+                txtMonto.Text = txtMonto.Text + "2";
             }
         }
 
@@ -476,15 +390,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (INDICADOR_DE_FOCO == 1)
             {
-                txtefectivo2.Text = txtefectivo2.Text + "3";
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "3";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "3";
+                txtMonto.Text = txtMonto.Text + "3";
             }
         }
 
@@ -492,16 +398,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (INDICADOR_DE_FOCO == 1)
             {
-                txtefectivo2.Text = txtefectivo2.Text + "4";
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "4";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "4";
+                txtMonto.Text = txtMonto.Text + "4";
             }
         }
 
@@ -509,16 +406,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (INDICADOR_DE_FOCO == 1)
             {
-                txtefectivo2.Text = txtefectivo2.Text + "5";
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "5";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "5";
+                txtMonto.Text = txtMonto.Text + "5";
             }
         }
 
@@ -526,16 +414,8 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (INDICADOR_DE_FOCO == 1)
             {
-                txtefectivo2.Text = txtefectivo2.Text + "6";
+                txtMonto.Text = txtMonto.Text + "6";
 
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "6";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "6";
             }
         }
 
@@ -543,16 +423,8 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (INDICADOR_DE_FOCO == 1)
             {
-                txtefectivo2.Text = txtefectivo2.Text + "7";
+                txtMonto.Text = txtMonto.Text + "7";
 
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "7";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "7";
             }
         }
 
@@ -560,16 +432,8 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (INDICADOR_DE_FOCO == 1)
             {
-                txtefectivo2.Text = txtefectivo2.Text + "8";
+                txtMonto.Text = txtMonto.Text + "8";
 
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "8";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "8";
             }
         }
 
@@ -577,16 +441,8 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (INDICADOR_DE_FOCO == 1)
             {
-                txtefectivo2.Text = txtefectivo2.Text + "9";
+                txtMonto.Text = txtMonto.Text + "9";
 
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "9";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "9";
             }
         }
 
@@ -594,16 +450,8 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (INDICADOR_DE_FOCO == 1)
             {
-                txtefectivo2.Text = txtefectivo2.Text + "0";
+                txtMonto.Text = txtMonto.Text + "0";
 
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "0";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "0";
             }
         }
 
@@ -611,25 +459,12 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (INDICADOR_DE_FOCO == 1)
             {
-                if (SECUENCIA1 == true  ) 
+                if (SECUENCIA1 == true)
                 {
-                    txtefectivo2.Text = txtefectivo2.Text + ".";
+                    txtMonto.Text = txtMonto.Text + ".";
+                    txtMonto_Click(sender, e);
                     SECUENCIA1 = false;
                 }
-           
-                 else
-               {
-                    return;
-                }
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                if (SECUENCIA2 == true)
-                {
-                    txttarjeta2 .Text = txttarjeta2.Text + ".";
-                    SECUENCIA2 = false;
-                }
 
                 else
                 {
@@ -637,39 +472,14 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 }
 
             }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                if (SECUENCIA3 == true)
-                {
-                    txtcredito2 .Text = txtcredito2.Text + ".";
-                    SECUENCIA3 = false;
-                }
-
-                else
-                {
-                    return;
-                }
-
-            }
-
         }
 
         private void btnborrartodo_Click(object sender, EventArgs e)
         {
             if (INDICADOR_DE_FOCO==1)
             {
-                txtcredito2.Clear();
+                txtMonto.Clear();
                 SECUENCIA1 = true;
-            }
-            else if (INDICADOR_DE_FOCO==2)
-            {
-                txttarjeta2.Clear();
-                SECUENCIA2 = true;
-            }
-            else if (INDICADOR_DE_FOCO ==3)
-            {
-                txtcredito2.Clear();
-                SECUENCIA3 = true;
             }
         }
 
@@ -801,45 +611,17 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
        */
         private void txtefectivo2_Click(object sender, EventArgs e)
         {
-            calcular_restante();
-            INDICADOR_DE_FOCO = 1;
-            if (txtrestante.Text =="0.00")
-            {
-                txtefectivo2.Text = "";
-            }
-            else
-            {
-                txtefectivo2.Text = txtrestante.Text;
-            }
+
         }
 
         private void txttarjeta2_Click(object sender, EventArgs e)
         {
-            calcular_restante();
-            INDICADOR_DE_FOCO = 2;
-            if (txtrestante.Text == "0.00")
-            {
-                txttarjeta2 .Text = "";
-            }
-            else
-            {
-                txttarjeta2.Text = txtrestante.Text;
-            }
+
         }
 
         private void txtcredito2_Click(object sender, EventArgs e)
         {
-            calcular_restante();
-            INDICADOR_DE_FOCO = 3;
-            if (txtrestante.Text == "0.00")
-            {
-                txtcredito2 .Text = "";
-            }
-            else
-            {
-                txtcredito2.Text = txtrestante.Text;
-                ValidarPanelCredito();
-            }
+
         }
 
         private void TGuardarSinImprimir_Click(object sender, EventArgs e)
@@ -1253,13 +1035,10 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 cmd.Parameters.AddWithValue("@fecha_compra", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ACCION", "COMPRA");
                 cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value );
-                cmd.Parameters.AddWithValue("@Pago_con", txtefectivo2.Text);
                 cmd.Parameters.AddWithValue("@Referencia_tarjeta", "NULO");
                 cmd.Parameters.AddWithValue("@Vuelto", vuelto);
                 cmd.Parameters.AddWithValue("@Efectivo", efectivo_calculado);
-                cmd.Parameters.AddWithValue("@Credito", txtcredito2.Text);
-                cmd.Parameters.AddWithValue("@Tarjeta", txttarjeta2.Text);
-                cmd.Parameters.AddWithValue("@Transferencia_Bancaria", txttarjeta2.Text);
+                cmd.Parameters.AddWithValue("@Transferencia_Bancaria", txtTransferencia.Text;
                 cmd.ExecuteNonQuery();
                 CONEXION.CONEXIONMAESTRA.cerrar();
                 lblproceso = "PROCEDE";              
@@ -1288,17 +1067,9 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         }
         void completar_con_ceros_los_texbox_de_otros_medios_de_pago()
         {
-            if (txtefectivo2.Text == "")
+            if (txtMonto.Text == "")
             {
-                txtefectivo2.Text = "0";
-            }
-            if (txtcredito2.Text == "")
-            {
-                txtcredito2.Text = "0";
-            }
-            if (txttarjeta2.Text == "")
-            {
-                txttarjeta2.Text = "0";
+                txtMonto.Text = "0";
             }
             if (TXTVUELTO.Text == "")
             {
@@ -1325,55 +1096,39 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         }
         void identificar_el_tipo_de_pago()
         {
-            int indicadorEfectivo = 4;
-            int indicadorCredito = 2;
-            int indicadorTarjeta = 3;
+            int indicadorContado = 4;
+            int indicadorContadoTransferencia = 2;
+            int indicadorCredito = 3;
+            int indicadorCreditoTransferemcia = 1;
 
-            // validacion para evitar valores vacios
-            if (txtefectivo2.Text =="")
+
+            if (txtMonto.Text == "")
             {
-                txtefectivo2.Text = "0";
-            }
-            if (txttarjeta2 .Text == "")
-            {
-                txttarjeta2.Text = "0";
-            }
-            if (txtcredito2 .Text == "")
-            {
-                txtcredito2.Text = "0";
+                txtMonto.Text = "0";
             }
             //validacion de .
-            if (txtefectivo2.Text ==".")
+            if (txtMonto.Text == ".")
             {
-                txtefectivo2.Text = "0";
+                txtMonto.Text = "0";
             }
-            if (txttarjeta2 .Text == ".")
+            
+            if(chkContado.Checked == true && chkTrans.Checked == false)
             {
-                txttarjeta2.Text = "0";
+                indicadorContadoTransferencia = 0;
+                indicadorCredito = 0;
+                indicadorCreditoTransferemcia = 0;
             }
-            if (txtcredito2 .Text == ".")
+            /*if (txtMonto.Text == "0")
             {
-                txtcredito2.Text = "0";
-            }
-            //validacion de 0
-            if (txtefectivo2.Text =="0")
-            {
-                indicadorEfectivo = 0;
-            }
-            if (txttarjeta2 .Text == "0")
-            {
-                indicadorTarjeta = 0;
-            }
-            if (txtcredito2 .Text == "0")
-            {
-                indicadorCredito  = 0;
-            }
+                indicadorContado = 0;
+            }*/
+
             //calculo de indicador
-            int calculo_identificacion = indicadorCredito + indicadorEfectivo + indicadorTarjeta;
+            int calculo_identificacion = indicadorCredito + indicadorContado + indicadorContadoTransferencia + indicadorCreditoTransferemcia;
             //consulta al identificador
-            if (calculo_identificacion ==4)
+            if (calculo_identificacion == 4)
             {
-                indicador_de_tipo_de_pago_string = "EFECTIVO";
+                indicador_de_tipo_de_pago_string = "CONTADO";
             }
             if (calculo_identificacion == 2)
             {
@@ -1383,12 +1138,11 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             {
                 indicador_de_tipo_de_pago_string = "TARJETA";
             }
-            if (calculo_identificacion >4)
+            if (calculo_identificacion > 4)
             {
                 indicador_de_tipo_de_pago_string = "MIXTO";
             }
             txttipo = indicador_de_tipo_de_pago_string;
-
         }
 
         private void btnGuardarImprimirdirecto_Click(object sender, EventArgs e)
@@ -1633,6 +1387,122 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
             frm.ShowDialog();
+        }
+
+        private void chkTrans_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTrans.Checked == true)
+            {
+                panel2.Visible = false;
+                txttipo = "TRANSFERENCIA BANCARIA";
+                txtMonto.Visible = true;
+                txtTransferencia.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                asd1.Visible = true;
+                asd2.Visible = true;
+            }
+            else
+            {
+                txtefectivo2_Click(sender, e);
+                panel2.Visible = true;
+                txtMonto.Visible = false;
+                txtTransferencia.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                asd1.Visible = false;
+                asd2.Visible = false;
+                identificar_el_tipo_de_pago();
+            }
+        }
+
+        private void txtMonto_TextChanged(object sender, EventArgs e)
+        {
+            calcular_restante();
+        }
+
+        private void txtMonto_Click(object sender, EventArgs e)
+        {
+            calcular_restante();
+            INDICADOR_DE_FOCO = 1;
+            if (txtrestante.Text =="0.00")
+            {
+                txtMonto.Text = "";
+            }
+            else
+            {
+                txtMonto.Text = txtrestante.Text;
+            }
+        }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtMonto, e);
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkCredito.Checked == true)
+            {
+                chkTrans.Visible = true;
+                chkTrans.Checked = true;
+                pcredito.Visible = true;
+                ValidarChkCredito();
+            }
+            else
+            {
+                chkTrans.Visible = false;
+                chkTrans.Checked = false;
+            }
+        }
+
+        private void chkContado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkContado.Checked == true)
+            {
+                chkTrans.Visible = true;
+                chkTrans.Checked = true;
+            }
+            else
+            {
+                chkTrans.Visible = false;
+                chkTrans.Checked = false;
+            }
+        }
+
+        void ValidarChkCredito()
+        {
+            try
+            {
+                double textocredito = 0;
+                if (txtMonto.Text == ".")
+                {
+                    textocredito = 0;
+                }
+                if (txtMonto.Text == "")
+                {
+                    textocredito = 0;
+                }
+                else
+                {
+                    textocredito = Convert.ToDouble(txtMonto.Text);
+                }
+                if (textocredito > 0)
+                {
+                    pcredito.Visible = true;
+                    panelClienteFactura.Visible = false;
+                }
+                else
+                {
+                    pcredito.Visible = false;
+                    panelClienteFactura.Visible = true;
+                    idProveedor = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
         }
     }
 }

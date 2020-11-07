@@ -94,12 +94,12 @@
             this.S = new System.Windows.Forms.DataGridViewButtonColumn();
             this.R = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.datalistadoclientes2 = new System.Windows.Forms.DataGridView();
-            this.DataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.datalistadoprueba = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.datalistadoclientes2 = new System.Windows.Forms.DataGridView();
+            this.DataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.PanelregistroClientes.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -114,8 +114,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).BeginInit();
             this.SuspendLayout();
             // 
             // TXTTOTAL
@@ -800,41 +800,6 @@
             this.panel3.Size = new System.Drawing.Size(10, 10);
             this.panel3.TabIndex = 602;
             // 
-            // datalistadoclientes2
-            // 
-            this.datalistadoclientes2.AllowUserToAddRows = false;
-            this.datalistadoclientes2.AllowUserToDeleteRows = false;
-            this.datalistadoclientes2.AllowUserToResizeRows = false;
-            this.datalistadoclientes2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.datalistadoclientes2.BackgroundColor = System.Drawing.Color.White;
-            this.datalistadoclientes2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.datalistadoclientes2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.datalistadoclientes2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.datalistadoclientes2.ColumnHeadersVisible = false;
-            this.datalistadoclientes2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DataGridViewCheckBoxColumn4});
-            this.datalistadoclientes2.EnableHeadersVisualStyles = false;
-            this.datalistadoclientes2.Location = new System.Drawing.Point(-115, 19);
-            this.datalistadoclientes2.Name = "datalistadoclientes2";
-            this.datalistadoclientes2.ReadOnly = true;
-            this.datalistadoclientes2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.datalistadoclientes2.RowHeadersVisible = false;
-            this.datalistadoclientes2.RowHeadersWidth = 5;
-            this.datalistadoclientes2.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.datalistadoclientes2.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.datalistadoclientes2.RowTemplate.Height = 40;
-            this.datalistadoclientes2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadoclientes2.Size = new System.Drawing.Size(305, 107);
-            this.datalistadoclientes2.TabIndex = 603;
-            // 
-            // DataGridViewCheckBoxColumn4
-            // 
-            this.DataGridViewCheckBoxColumn4.DataPropertyName = "Activo";
-            this.DataGridViewCheckBoxColumn4.HeaderText = "Activo";
-            this.DataGridViewCheckBoxColumn4.Name = "DataGridViewCheckBoxColumn4";
-            this.DataGridViewCheckBoxColumn4.ReadOnly = true;
-            this.DataGridViewCheckBoxColumn4.Visible = false;
-            // 
             // datalistadoprueba
             // 
             this.datalistadoprueba.AllowUserToAddRows = false;
@@ -931,6 +896,41 @@
             this.dataGridViewButtonColumn2.Text = "-";
             this.dataGridViewButtonColumn2.UseColumnTextForButtonValue = true;
             // 
+            // datalistadoclientes2
+            // 
+            this.datalistadoclientes2.AllowUserToAddRows = false;
+            this.datalistadoclientes2.AllowUserToDeleteRows = false;
+            this.datalistadoclientes2.AllowUserToResizeRows = false;
+            this.datalistadoclientes2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.datalistadoclientes2.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadoclientes2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadoclientes2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadoclientes2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.datalistadoclientes2.ColumnHeadersVisible = false;
+            this.datalistadoclientes2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewCheckBoxColumn4});
+            this.datalistadoclientes2.EnableHeadersVisualStyles = false;
+            this.datalistadoclientes2.Location = new System.Drawing.Point(-115, 19);
+            this.datalistadoclientes2.Name = "datalistadoclientes2";
+            this.datalistadoclientes2.ReadOnly = true;
+            this.datalistadoclientes2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.datalistadoclientes2.RowHeadersVisible = false;
+            this.datalistadoclientes2.RowHeadersWidth = 5;
+            this.datalistadoclientes2.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.datalistadoclientes2.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadoclientes2.RowTemplate.Height = 40;
+            this.datalistadoclientes2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadoclientes2.Size = new System.Drawing.Size(305, 107);
+            this.datalistadoclientes2.TabIndex = 603;
+            // 
+            // DataGridViewCheckBoxColumn4
+            // 
+            this.DataGridViewCheckBoxColumn4.DataPropertyName = "Activo";
+            this.DataGridViewCheckBoxColumn4.HeaderText = "Activo";
+            this.DataGridViewCheckBoxColumn4.Name = "DataGridViewCheckBoxColumn4";
+            this.DataGridViewCheckBoxColumn4.ReadOnly = true;
+            this.DataGridViewCheckBoxColumn4.Visible = false;
+            // 
             // PagosCotizaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -970,8 +970,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
