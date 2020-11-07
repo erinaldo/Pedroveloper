@@ -895,7 +895,31 @@ namespace SistemaVentas.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@iddetalle", parametros.iddetalle_factura);
                 cmd.Parameters.AddWithValue("@cantidad", parametros.cantidad);
-                cmd.Parameters.AddWithValue("@cantidadMostrada", parametros.Cantidad_mostrada );
+                cmd.Parameters.AddWithValue("@cantidadMostrada", parametros.Cantidad_mostrada);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+                return false;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
+        public bool DetalleCompraDevolucion(LdetalleFactura parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("Detallecompradevolucion", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@iddetalle", parametros.iddetalle_factura);
+                cmd.Parameters.AddWithValue("@cantidad", parametros.cantidad);
+                cmd.Parameters.AddWithValue("@cantidadMostrada", parametros.Cantidad_mostrada);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -935,6 +959,32 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
+        public bool DISMINUIRSTOCKDETALLE(LdetalleFactura parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("disminuir_stock_en_detalle_de_compra", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Id_Producto1", parametros.Id_producto);
+                cmd.Parameters.AddWithValue("@cantidad", parametros.cantidad);
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+                return false;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
+
         //Productos
         public bool aumentarStock(Lproductos parametros)
         {
@@ -1022,7 +1072,31 @@ namespace SistemaVentas.Datos
                 SqlCommand cmd = new SqlCommand("Editarfactura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idFactura", parametros.idFactura);
-                cmd.Parameters.AddWithValue("@monto", parametros.Monto_total );
+                cmd.Parameters.AddWithValue("@monto", parametros.Monto_total);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+                return false;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+
+        }
+        public bool EditarCompra(Lventas parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("Editarcompra", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCompra", parametros.idFactura);
+                cmd.Parameters.AddWithValue("@monto", parametros.Monto_total);
                 cmd.ExecuteNonQuery();
                 return true;
             }

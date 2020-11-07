@@ -46,8 +46,6 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             datalistadoVentas.Columns[8].Visible = false;
             datalistadoVentas.Columns[9].Visible = false;
             datalistadoVentas.Columns[10].Visible = false;
-            datalistadoVentas.Columns[11].Visible = false;
-            datalistadoVentas.Columns[12].Visible = false;
 
             Bases.Multilinea(ref datalistadoVentas);
         }
@@ -72,7 +70,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
                 Total =Convert.ToDouble ( datalistadoVentas.SelectedCells[4].Value);
                 lblcajero.Text = datalistadoVentas.SelectedCells[5].Value.ToString();
                 lblpagocon.Text = datalistadoVentas.SelectedCells[6].Value.ToString();
-                
+
                 LBLTipodePagoOK.Text = datalistadoVentas.SelectedCells[8].Value.ToString();
                 lblvuelto.Text = datalistadoVentas.SelectedCells[9].Value.ToString();
                 PanelTICKET.Visible = true;
@@ -123,7 +121,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             idproducto = Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[6].Value);
             idDetalleFactura =Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[7].Value);
             ControlStock = datalistadoDetalleVenta.SelectedCells[14].Value.ToString();
-           
+            lblcliente.Text = datalistadoDetalleVenta.SelectedCells[11].Value.ToString();
             txtcantidad.Clear();
             txtcantidad.Focus();
             Panelcantidad.Location = new Point(lblcomprobante.Location.X, lblcomprobante.Location.Y);
@@ -162,8 +160,8 @@ namespace SistemaVentas.Presentacion.HistorialCompras
                            {
                             if (ControlStock=="SI")
                             {
-                                aumentarStock();
-                                AumentarStockDetalle();
+                                disminuirSTOCK();
+                                disminuirSTOCKDETALLE();
                                 insertar_KARDEX_SALIDA();
                                 lbltotal.Text = TotalNuevo.ToString();
                                 Editarfactura();
@@ -189,7 +187,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
                 }
                 else
                 {
-                    MessageBox.Show("La cantidad a delvolver debe ser mayor a 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La cantidad a devolver debe ser mayor a 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
 
@@ -219,14 +217,14 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             Editar_datos funcion = new Editar_datos();
             parametros.idFactura = idFactura;
             parametros.Monto_total =TotalNuevo;
-            funcion.Editarfactura(parametros);
+            funcion.EditarCompra(parametros);
         }
         private void insertar_KARDEX_SALIDA()
         {
             LKardex parametros = new LKardex();
             Insertar_datos funcion = new Insertar_datos();
             parametros.Fecha = DateTime.Now;
-            parametros.Motivo = "Devolución de producto COMPRA #" + lblcomprobante.Text;
+            parametros.Motivo = "Devolución por salida de COMPRA #" + lblcomprobante.Text;
             parametros.Cantidad =Convert.ToDouble ( txtcantidad.Text);
             parametros.Id_producto = idproducto;
             funcion.insertar_KARDEX_SALIDA(parametros);
@@ -236,26 +234,26 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             LKardex parametros = new LKardex();
             Insertar_datos funcion = new Insertar_datos();
             parametros.Fecha = DateTime.Now;
-            parametros.Motivo = "Devolución de producto COMPRA #" + lblcomprobante.Text;
+            parametros.Motivo = "Devolución por entrada de COMPRA #" + lblcomprobante.Text;
             parametros.Cantidad = Convert.ToDouble(txtcantidad.Text);
             parametros.Id_producto = idproducto;
             funcion.insertar_KARDEX_SALIDA(parametros);
         }
-        private void aumentarStock()
+        private void disminuirSTOCK()
         {
             Lproductos parametros = new Lproductos();
             Editar_datos funcion = new Editar_datos();
             parametros.Id_Producto1 = idproducto;
             parametros.Stock = txtcantidad.Text;
-            funcion.aumentarStock(parametros);
+            funcion.disminuir_stock(parametros);
         }
-        private void AumentarStockDetalle()
+        private void disminuirSTOCKDETALLE()
         {
             LdetalleFactura parametros = new LdetalleFactura();
             Editar_datos funcion = new Editar_datos();
             parametros.Id_producto = idproducto;
             parametros.cantidad =Convert.ToDouble (  txtcantidad.Text);
-            funcion.AumentarStockDetalle(parametros);
+            funcion.DISMINUIRSTOCKDETALLE(parametros);
         }
 
         private void txtcantidad_TextChanged(object sender, EventArgs e)
@@ -289,9 +287,9 @@ namespace SistemaVentas.Presentacion.HistorialCompras
                     {
                         idproducto=Convert.ToInt32 ( row.Cells["Id_producto"].Value);
                         txtcantidad.Text = row.Cells["Cantidad"].Value.ToString();
-                        aumentarStock();
-                        AumentarStockDetalle();
-                        insertar_KARDEX_ENTRADA();
+                        disminuirSTOCK();
+                        disminuirSTOCKDETALLE();
+                        insertar_KARDEX_SALIDA();
                     }
                 }
                         TotalNuevo = 0;
@@ -305,7 +303,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             Lventas parametros = new Lventas();
             Eliminar_datos funcion = new Eliminar_datos();
             parametros.idFactura = idFactura;
-            funcion.EliminarFacturas(parametros);
+            funcion.EliminarCompras(parametros);
         }
 
         private void btnReimprimir_Click(object sender, EventArgs e)
@@ -366,9 +364,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
         }
         public void buscarComprasPorFechas()
         {
-            MessageBox.Show("ASD");
             DataTable dt = new DataTable();
-            MessageBox.Show(fi.Value.ToString(), ff.Value.ToString());
             Obtener_datos.buscarComprasPorFechas(ref dt, fi.Value, ff.Value);
             datalistadoVentas.DataSource = dt;
             datalistadoVentas.Columns[1].Visible = false;

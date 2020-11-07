@@ -56,6 +56,7 @@
             this.Label17 = new System.Windows.Forms.Label();
             this.panelBienvenida = new System.Windows.Forms.Panel();
             this.Label8 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panelDetalle = new System.Windows.Forms.Panel();
             this.panelReporte = new System.Windows.Forms.Panel();
@@ -95,7 +96,6 @@
             this.Label47 = new System.Windows.Forms.Label();
             this.Label48 = new System.Windows.Forms.Label();
             this.Pcancelado = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoVentas)).BeginInit();
             this.panel2.SuspendLayout();
@@ -103,6 +103,7 @@
             this.Panel7.SuspendLayout();
             this.MenuStrip2.SuspendLayout();
             this.panelBienvenida.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelDetalle.SuspendLayout();
             this.panelReporte.SuspendLayout();
             this.menuStrip6.SuspendLayout();
@@ -113,7 +114,6 @@
             this.MenuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcancelado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -400,6 +400,17 @@
             this.Label8.TabIndex = 2;
             this.Label8.Text = "Elije una Factura para Empezar";
             this.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::SistemaVentas.Properties.Resources.LogoNegro;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 238);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(138, 93);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel4
             // 
@@ -805,11 +816,11 @@
             this.Label23.AutoSize = true;
             this.Label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.Label23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Label23.Location = new System.Drawing.Point(82, 414);
+            this.Label23.Location = new System.Drawing.Point(57, 414);
             this.Label23.Name = "Label23";
-            this.Label23.Size = new System.Drawing.Size(63, 13);
+            this.Label23.Size = new System.Drawing.Size(88, 13);
             this.Label23.TabIndex = 2;
-            this.Label23.Text = "CLIENTE:";
+            this.Label23.Text = "PROVEEDOR:";
             // 
             // lblcliente
             // 
@@ -899,17 +910,6 @@
             this.Pcancelado.TabStop = false;
             this.Pcancelado.Visible = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::SistemaVentas.Properties.Resources.LogoNegro;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 238);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(138, 93);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // HistorialComprasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -936,6 +936,7 @@
             this.MenuStrip2.ResumeLayout(false);
             this.MenuStrip2.PerformLayout();
             this.panelBienvenida.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelDetalle.ResumeLayout(false);
             this.panelReporte.ResumeLayout(false);
             this.menuStrip6.ResumeLayout(false);
@@ -952,7 +953,6 @@
             this.MenuStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcancelado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
