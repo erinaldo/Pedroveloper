@@ -1035,10 +1035,9 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 cmd.Parameters.AddWithValue("@fecha_compra", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ACCION", "COMPRA");
                 cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value );
-                cmd.Parameters.AddWithValue("@Referencia_tarjeta", "NULO");
                 cmd.Parameters.AddWithValue("@Vuelto", vuelto);
-                cmd.Parameters.AddWithValue("@Efectivo", efectivo_calculado);
-                cmd.Parameters.AddWithValue("@Transferencia_Bancaria", txtTransferencia.Text;
+                cmd.Parameters.AddWithValue("@TotalPagado", efectivo_calculado);
+                cmd.Parameters.AddWithValue("@Transferencia_Bancaria", txtTransferencia.Text);
                 cmd.ExecuteNonQuery();
                 CONEXION.CONEXIONMAESTRA.cerrar();
                 lblproceso = "PROCEDE";              
@@ -1117,6 +1116,17 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 indicadorContadoTransferencia = 0;
                 indicadorCredito = 0;
                 indicadorCreditoTransferemcia = 0;
+            }else if(chkContado.Checked == true && chkTrans.Checked == true)
+            {
+                indicadorCredito = 0;
+                indicadorCreditoTransferemcia = 0;
+            }
+
+            if (chkCredito.Checked == true)
+            {
+                indicadorContado = 0;
+                indicadorContadoTransferencia = 0;
+                indicadorCreditoTransferemcia = 0;
             }
             /*if (txtMonto.Text == "0")
             {
@@ -1130,17 +1140,13 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             {
                 indicador_de_tipo_de_pago_string = "CONTADO";
             }
-            if (calculo_identificacion == 2)
+            if (calculo_identificacion == 6)
             {
-                indicador_de_tipo_de_pago_string = "CREDITO";
+                indicador_de_tipo_de_pago_string = "CONTADO - Transferencia bancaria";
             }
             if (calculo_identificacion == 3)
             {
-                indicador_de_tipo_de_pago_string = "TARJETA";
-            }
-            if (calculo_identificacion > 4)
-            {
-                indicador_de_tipo_de_pago_string = "MIXTO";
+                indicador_de_tipo_de_pago_string = "CREDITO";
             }
             txttipo = indicador_de_tipo_de_pago_string;
         }
@@ -1214,24 +1220,6 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             
                 GuardarSinImprimir();
             
-        }
-
-        private void txtefectivo2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Bases.Separador_de_Numeros(txtefectivo2, e);
-
-        }
-
-        private void txttarjeta2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Bases.Separador_de_Numeros(txttarjeta2, e);
-
-        }
-
-        private void txtcredito2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Bases.Separador_de_Numeros(txtcredito2, e);
-
         }
 
         private void btnagregarCliente_Click(object sender, EventArgs e)
@@ -1444,14 +1432,12 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if(chkCredito.Checked == true)
             {
-                chkTrans.Visible = true;
-                chkTrans.Checked = true;
+                chkTrans.Checked = false;
                 pcredito.Visible = true;
                 ValidarChkCredito();
             }
             else
             {
-                chkTrans.Visible = false;
                 chkTrans.Checked = false;
             }
         }

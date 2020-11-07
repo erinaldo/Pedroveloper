@@ -688,9 +688,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                     cmd.Parameters.AddWithValue("@Fecha_de_pago", DateTime.Today);
                     cmd.Parameters.AddWithValue("@ACCION", "COMPRA");
                     cmd.Parameters.AddWithValue("@Saldo", 0);
-                    cmd.Parameters.AddWithValue("@Pago_con", 0);
                     cmd.Parameters.AddWithValue("@Id_caja", Id_caja);
-                    cmd.Parameters.AddWithValue("@Referencia_tarjeta", 0);
                     cmd.Parameters.AddWithValue("@Transferencia_Bancaria", "-");
                     cmd.ExecuteNonQuery();
                     con.Close();
