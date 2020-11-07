@@ -161,7 +161,6 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.datalistadoVentas.DefaultCellStyle = dataGridViewCellStyle3;
-            this.datalistadoVentas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datalistadoVentas.EnableHeadersVisualStyles = false;
             this.datalistadoVentas.Location = new System.Drawing.Point(0, 229);
             this.datalistadoVentas.Name = "datalistadoVentas";
@@ -398,7 +397,7 @@
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(138, 14);
             this.Label8.TabIndex = 2;
-            this.Label8.Text = "Elije una Factura para Empezar";
+            this.Label8.Text = "Elije una Compra para Empezar";
             this.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -472,6 +471,7 @@
             this.btnReimprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(1)))));
             this.btnReimprimir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnReimprimir.ForeColor = System.Drawing.Color.Black;
+            this.btnReimprimir.Image = global::SistemaVentas.Properties.Resources.euro;
             this.btnReimprimir.Name = "btnReimprimir";
             this.btnReimprimir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.btnReimprimir.Size = new System.Drawing.Size(117, 43);
@@ -498,9 +498,10 @@
             this.btnEliminar.BackColor = System.Drawing.Color.Gainsboro;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminar.Image = global::SistemaVentas.Properties.Resources.advertencia;
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.btnEliminar.Size = new System.Drawing.Size(110, 43);
+            this.btnEliminar.Size = new System.Drawing.Size(126, 43);
             this.btnEliminar.Text = "Cancelar Factura";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 

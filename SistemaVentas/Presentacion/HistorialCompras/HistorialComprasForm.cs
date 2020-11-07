@@ -70,7 +70,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
                 Total =Convert.ToDouble ( datalistadoVentas.SelectedCells[4].Value);
                 lblcajero.Text = datalistadoVentas.SelectedCells[5].Value.ToString();
                 lblpagocon.Text = datalistadoVentas.SelectedCells[6].Value.ToString();
-
+                lblcliente.Text = datalistadoVentas.SelectedCells[11].Value.ToString();
                 LBLTipodePagoOK.Text = datalistadoVentas.SelectedCells[8].Value.ToString();
                 lblvuelto.Text = datalistadoVentas.SelectedCells[9].Value.ToString();
                 PanelTICKET.Visible = true;
@@ -121,7 +121,6 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             idproducto = Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[6].Value);
             idDetalleFactura =Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[7].Value);
             ControlStock = datalistadoDetalleVenta.SelectedCells[14].Value.ToString();
-            lblcliente.Text = datalistadoDetalleVenta.SelectedCells[11].Value.ToString();
             txtcantidad.Clear();
             txtcantidad.Focus();
             Panelcantidad.Location = new Point(lblcomprobante.Location.X, lblcomprobante.Location.Y);

@@ -79,13 +79,13 @@ namespace SistemaVentas.Presentacion.HistorialVentas
                 Panelcantidad.Visible = false;
                 panelReporte.Visible = false;
                 panelDetalle.Dock = DockStyle.Fill;
-                MostrarDetalleVenta();
+                MostrarDetalleCompra();
             }
         }
-        private void MostrarDetalleVenta()
+        private void MostrarDetalleCompra()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.MostrarDetalleVenta(ref dt, idFactura);
+            Obtener_datos.MostrarDetalleCompra(ref dt, idFactura);
             datalistadoDetalleVenta.DataSource = dt;
             datalistadoDetalleVenta.Columns[6].Visible = false;
             datalistadoDetalleVenta.Columns[7].Visible = false;
