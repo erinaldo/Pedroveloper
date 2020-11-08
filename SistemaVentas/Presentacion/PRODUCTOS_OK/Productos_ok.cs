@@ -1408,10 +1408,10 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void txtPorcentajeGanancia_TextChanged_1(object sender, EventArgs e)
         {
-            TimerCalucular_porcentaje_ganancia.Stop();
+           /* TimerCalucular_porcentaje_ganancia.Stop();
 
             TimerCalcular_precio_venta.Start();
-            TimerCalucular_porcentaje_ganancia.Stop();
+            TimerCalucular_porcentaje_ganancia.Stop();*/
         }
 
         private void TimerCalucular_porcentaje_ganancia_Tick(object sender, EventArgs e)
@@ -1495,7 +1495,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void txtPorcentajeGanancia_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            Bases.Separador_de_Numeros(txtPorcentajeGanancia, e);
+           // Bases.Separador_de_Numeros(txtPorcentajeGanancia, e);
 
         }
 
