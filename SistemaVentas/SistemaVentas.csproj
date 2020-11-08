@@ -221,6 +221,12 @@
     <Compile Include="Presentacion\CAJA\Listado_gastos_ingresos.Designer.cs">
       <DependentUpon>Listado_gastos_ingresos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Categoria\CategoriaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Categoria\CategoriaProductos.Designer.cs">
+      <DependentUpon>CategoriaProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\CLIENTES_PROVEEDORES\ClientesOk.cs">
       <SubType>Form</SubType>
     </Compile>

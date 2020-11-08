@@ -1526,7 +1526,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void txtstockminimo_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txtstockminimo, e);
-
         }
 
         private void Panel3_Paint(object sender, PaintEventArgs e)
@@ -1537,6 +1536,16 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txtgrupo_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void label81_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
