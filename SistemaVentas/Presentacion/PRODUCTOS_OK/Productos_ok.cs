@@ -29,6 +29,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void PictureBox2_Click(object sender, EventArgs e)
         {
+            datalistadoCategoriasInformacionBasicaPanel.Visible = false;
             PANELREGISTRO.Visible = true;
             //PANELDEPARTAMENTO.Visible = true;
             CheckInventarios.Checked = true;
@@ -39,7 +40,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             BtnCancelar.Visible = false;
             btnNuevoGrupo.Visible = true;
             mostrar_grupos();
-            txtgrupo.Text = "";
+            txtCategoria.Text = "";
             txtPorcentajeGanancia.Clear();
 
             lblEstadoCodigo.Text = "NUEVO";
@@ -91,7 +92,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             txtcosto.Text = "0";
             TXTPRECIODEVENTA2.Text = "0";
             // txtpreciomayoreo.Text = "0";
-            txtgrupo.Text = "";
+            txtCategoria.Text = "";
 
             agranel.Checked = false;
             txtstockminimo.Text = "0";
@@ -106,10 +107,12 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void Productos_ok_Load(object sender, EventArgs e)
         {
+           // datalistado
+            txtDepartamento.Enabled = false;
             panelCategoriaAgregar.Visible = false;
             PANELREGISTRO.Visible = false;
             Impuestos.Visible = false;
-
+            /*
             if (Obtener_datos.VerificarItbis() == true)
             {
                 Impuestos.Visible = true;
@@ -122,7 +125,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             sumar_costo_de_inventario_CONTAR_PRODUCTOS();
             buscar();
             mostrar_grupos();
-
+            */
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
             Obtener_datos.Obtener_id_caja_PorSerial(ref idcaja);
 
@@ -136,7 +139,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void mostrar_grupos()
         {
             //PANELCATEGORIASELECT.Visible = true;
-            try
+           /* try
             {
                 DataTable dt = new DataTable();
                 SqlDataAdapter da;
@@ -161,7 +164,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistado);
+            Bases.Multilinea(ref datalistado);*/
         }
 
         private void btnGuardar_grupo_Click_1(object sender, EventArgs e)
@@ -174,14 +177,14 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 SqlCommand cmd = new SqlCommand();
                 cmd = new SqlCommand("insertar_Grupo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Grupo", txtgrupo.Text);
+                cmd.Parameters.AddWithValue("@Grupo", txtCategoria.Text);
                 cmd.Parameters.AddWithValue("@Por_defecto", "NO");
                 cmd.ExecuteNonQuery();
                 con.Close();
                 mostrar_grupos();
 
                 lblIdGrupo.Text = datalistadoCategorias.SelectedCells[2].Value.ToString();
-                txtgrupo.Text = datalistadoCategorias.SelectedCells[3].Value.ToString();
+                txtCategoria.Text = datalistadoCategorias.SelectedCells[3].Value.ToString();
 
                 //PANELCATEGORIASELECT.Visible = false;
                 btnGuardar_grupo.Visible = false;
@@ -196,9 +199,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void btnNuevoGrupo_Click(object sender, EventArgs e)
         {
-            txtgrupo.Text = "Escribe el Nuevo GRUPO";
-            txtgrupo.SelectAll();
-            txtgrupo.Focus();
+            txtCategoria.Text = "Escribe el Nuevo GRUPO";
+            txtCategoria.SelectAll();
+            txtCategoria.Focus();
 
             //PANELCATEGORIASELECT.Visible = false;
             btnGuardar_grupo.Visible = true;
@@ -209,7 +212,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void txtgrupo_TextChanged(object sender, EventArgs e)
         {
-            mostrar_grupos();
+
         }
 
         private void BtnCancelar_Click_1(object sender, EventArgs e)
@@ -219,7 +222,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             BtnGuardarCambios.Visible = false;
             BtnCancelar.Visible = false;
             btnNuevoGrupo.Visible = true;
-            txtgrupo.Clear();
+            txtCategoria.Clear();
             mostrar_grupos();
 
         }
@@ -607,7 +610,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 resultado = 1;
             }
 
-            string Cadena = txtgrupo.Text;
+            string Cadena = txtCategoria.Text;
             string[] Palabra;
             String espacio = " ";
             Palabra = Cadena.Split(Convert.ToChar(espacio));
@@ -828,7 +831,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 txtidproducto.Text = datalistado.SelectedCells[2].Value.ToString();
                 txtcodigodebarras.Text = datalistado.SelectedCells[3].Value.ToString();
-                txtgrupo.Text = datalistado.SelectedCells[4].Value.ToString();
+                txtCategoria.Text = datalistado.SelectedCells[4].Value.ToString();
 
                 txtdescripcion.Text = datalistado.SelectedCells[5].Value.ToString();
                 txtnumeroigv.Text = datalistado.SelectedCells[6].Value.ToString();
@@ -1242,7 +1245,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void txtCategoriaProductos_TextChanged(object sender, EventArgs e)
         {
-            mostarCategoriaCompleta();
+            mostarCategoriaCompleta(txtCategoriaProductos.Text);
         }
 
 
@@ -1304,10 +1307,10 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             txtCategoriaAgregar.Clear();
             txtDepartamentoAgregar.Clear();
             panelCategoriaAgregar.Visible = false;
-            mostarCategoriaCompleta();
+            mostarCategoriaCompleta(txtCategoriaProductos.Text);
         }
 
-        private void mostarCategoriaCompleta()
+        private void mostarCategoriaCompleta(string categoria)
         {
             try
             {
@@ -1319,7 +1322,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 da = new SqlDataAdapter("mostrarCategorias", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@buscar", txtCategoriaProductos.Text);
+                da.SelectCommand.Parameters.AddWithValue("@buscar", categoria);
                 da.Fill(dt);
                 datalistadoCategorias.DataSource = dt;
                 con.Close();
@@ -1339,7 +1342,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void panelCategoria_Paint(object sender, PaintEventArgs e)
         {
             txtCategoriaAgregar.Focus();
-            mostarCategoriaCompleta();
+            mostarCategoriaCompleta(txtCategoriaProductos.Text);
+
         }
 
 
@@ -1401,6 +1405,78 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            panelCategoria.Location = new Point(167, 31);
+            panelCategoria.Size = new Size(925, 452);
+        }
+
+        private void txtCategoria_TextChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show(txtCategoria.TextLength.ToString());
+            if(txtCategoria.TextLength > 0)
+            {
+                datalistadoCategoriasInformacionBasicaPanel.BringToFront();
+                datalistadoCategoriasInformacionBasicaPanel.Location = new Point(61, 209);
+                datalistadoCategoriasInformacionBasicaPanel.Size = new Size(174, 72);
+                mostarCategoria();
+                datalistadoCategoriasInformacionBasicaPanel.Visible = true;
+            }
+            else
+            {
+                mostarCategoria();
+                datalistadoCategoriasInformacionBasicaPanel.SendToBack();
+                datalistadoCategoriasInformacionBasicaPanel.Visible = false;
+            }
+        }
+
+        private void mostarCategoria()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrarCategorias", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtCategoria.Text);
+                da.Fill(dt);
+                con.Close();
+                datalistadoCategoriasInformacionBasica.DataSource = dt;
+                datalistadoCategoriasInformacionBasica.Columns[0].Visible = false;
+                datalistadoCategoriasInformacionBasica.Columns[2].Visible = false;
+                datalistadoCategoriasInformacionBasica.Columns[1].Width = 150;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistado);
+        }
+
+        private void datalistadoCategoriasInformacionBasica_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            obtenerCategoriaDepartamento();
+        }
+
+        int idCategoria;
+        string descripcion;
+        string departamento;
+        private void obtenerCategoriaDepartamento()
+        {
+            idCategoriaAgregar = Convert.ToInt32(datalistadoCategoriasInformacionBasica.SelectedCells[0].Value);
+            descripcion = (datalistadoCategoriasInformacionBasica.SelectedCells[1].Value.ToString());
+            departamento = (datalistadoCategoriasInformacionBasica.SelectedCells[2].Value.ToString());
+
+            txtCategoria.Text = descripcion;
+            txtDepartamento.Text = departamento;
+            datalistadoCategoriasInformacionBasicaPanel.Visible = false;
         }
     }
 }
