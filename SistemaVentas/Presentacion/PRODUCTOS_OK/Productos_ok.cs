@@ -27,63 +27,66 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         public static int idcaja;
         private int idUnidadCompra;
+        private int idClaveSatCompra;
         public int idClaveSat;
         private void PictureBox2_Click(object sender, EventArgs e)
         {
-            datalistadoCategoriasInformacionBasicaPanel.Visible = false;
+
             PANELREGISTRO.Visible = true;
+            PANELINFOR.Visible = true;
+
+            LIMPIAR();
             //PANELDEPARTAMENTO.Visible = true;
-            CheckInventarios.Checked = true;
-            PANELINVENTARIO.Visible = true;
+            /* CheckInventarios.Checked = true;
+             PANELINVENTARIO.Visible = true;*/
+            //PANELCATEGORIASELECT.Visible = true;
+            /* btnGuardar_grupo.Visible = false;
+             BtnGuardarCambios.Visible = false;
+             BtnCancelar.Visible = false;
+             btnNuevoGrupo.Visible = true;
+             mostrar_grupos();
+             txtCategoria.Text = "";
+             txtPorcentajeGanancia.Clear();*/
+
+            /*blEstadoCodigo.Text = "NUEVO";
             //PANELCATEGORIASELECT.Visible = true;
             btnGuardar_grupo.Visible = false;
             BtnGuardarCambios.Visible = false;
             BtnCancelar.Visible = false;
             btnNuevoGrupo.Visible = true;
-            mostrar_grupos();
-            txtCategoria.Text = "";
-            txtPorcentajeGanancia.Clear();
+            mostrar_grupos();*/
 
-            lblEstadoCodigo.Text = "NUEVO";
-            //PANELCATEGORIASELECT.Visible = true;
-            btnGuardar_grupo.Visible = false;
-            BtnGuardarCambios.Visible = false;
-            BtnCancelar.Visible = false;
-            btnNuevoGrupo.Visible = true;
-            mostrar_grupos();
-
-            txtapartirde.Text = "0";
+           /* txtapartirde.Text = "0";
             txtstock2.ReadOnly = false;
             Panel25.Enabled = true;
             Panel21.Visible = false;
             Panel22.Visible = false;
             Panel18.Visible = false;
-            TXTIDPRODUCTOOk.Text = "0";
+            TXTIDPRODUCTOOk.Text = "0";*/
 
-            PANELINVENTARIO.Visible = true;
+            //PANELINVENTARIO.Visible = true;
 
-            txtdescripcion.AutoCompleteCustomSource = CONEXION.DataHelper.LoadAutoComplete();
-            txtdescripcion.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            txtdescripcion.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            /*  txtdescripcion.AutoCompleteCustomSource = CONEXION.DataHelper.LoadAutoComplete();
+              txtdescripcion.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+              txtdescripcion.AutoCompleteSource = AutoCompleteSource.CustomSource;*/
 
-            PANELDEPARTAMENTO.Visible = true;
-            porunidad.Checked = true;
-            No_aplica_fecha.Checked = false;
-            Panel6.Visible = false;
+            /* PANELDEPARTAMENTO.Visible = true;
+             porunidad.Checked = true;
+             No_aplica_fecha.Checked = false;
+             Panel6.Visible = false;
 
-            LIMPIAR();
-            btnagregaryguardar.Visible = true;
-            btnagregar.Visible = false;
-
-
-            txtdescripcion.Text = "";
-            PANELINVENTARIO.Visible = true;
+             btnagregaryguardar.Visible = true;
+             btnagregar.Visible = false;
 
 
-            TGUARDAR.Visible = true;
-            TGUARDARCAMBIOS.Visible = false;
+             txtdescripcion.Text = "";
+             PANELINVENTARIO.Visible = true;
 
 
+             TGUARDAR.Visible = true;
+             TGUARDARCAMBIOS.Visible = false;
+
+                 */
 
         }
         internal void LIMPIAR()
@@ -100,6 +103,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             txtstock2.Text = "0";
             lblEstadoCodigo.Text = "NUEVO";
         }
+
         public static int idusuario;
 
 
@@ -108,14 +112,21 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void Productos_ok_Load(object sender, EventArgs e)
         {
+            PANELREGISTRO.Visible = false;
+            panelProveedor.Visible = false;
+            datalistadoCategoriasInformacionBasicaPanel.Visible = false;
+            PanelInformacionAdicional.Visible = false;
+            panelCategoria.Visible = false;
             panelUnidad.Visible = false;
-            // datalistado
-           // PClaveSAT.Enabled = false;
             panelClaveUnidadSat.Visible = false;
             txtDepartamento.Enabled = false;
             panelCategoriaAgregar.Visible = false;
-            PANELREGISTRO.Visible = false;
-            Impuestos.Visible = false;
+            PANELINFOR.Visible = false;
+            
+            Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
+            Obtener_datos.Obtener_id_caja_PorSerial(ref idcaja);
+
+
             /*
             if (Obtener_datos.VerificarItbis() == true)
             {
@@ -130,9 +141,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             buscar();
             mostrar_grupos();
             */
-            Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
-            Obtener_datos.Obtener_id_caja_PorSerial(ref idcaja);
-
         }
 
         private void BtnGuardarCambios_Click_1(object sender, EventArgs e)
@@ -1185,6 +1193,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
+            panelInformacionBasica.Location = new Point(36, 1);
+            panelInformacionBasica.Size = new Size(979, 634);
             panelInformacionBasica.Visible = true;
             panelInfoAduana.Visible = false;
             PanelInformacionAdicional.Visible = false;
@@ -1233,8 +1243,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void btnAgregarCategoriaForm_Click(object sender, EventArgs e)
         {
             panelCategoriaAgregar.Visible = true;
-            panelCategoriaAgregar.Location = new Point(357, 138);
-            panelCategoriaAgregar.Size = new Size(268, 248);
+            panelCategoriaAgregar.Location = new Point(93, 106);
+            panelCategoriaAgregar.Size = new Size(276, 249);
             inhabilitarCategoria();
             txtCategoriaAgregar.Clear();
             txtDepartamentoAgregar.Clear();
@@ -1253,6 +1263,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void txtCategoriaProductos_TextChanged(object sender, EventArgs e)
         {
+            if(txtCategoriaProductos.Text != "")
             mostarCategoriaCompleta(txtCategoriaProductos.Text);
         }
 
@@ -1337,20 +1348,47 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 datalistadoCategorias.DataSource = dt;
                 datalistadoCategorias.Columns[2].Visible = false;
-                datalistadoCategorias.Columns[3].Width = 500;
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistado);
+            Bases.Multilinea(ref datalistadoCategorias);
         }
+        public void mostrarCategoria()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
 
+                da = new SqlDataAdapter("mostrarCategorias_parametros", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+              
+                da.Fill(dt);
+                datalistadoCategorias.DataSource = dt;
+                con.Close();
+
+                datalistadoCategorias.DataSource = dt;
+                datalistadoCategorias.Columns[2].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoCategorias);
+        }
         private void panelCategoria_Paint(object sender, PaintEventArgs e)
         {
             txtCategoriaAgregar.Focus();
             mostarCategoriaCompleta(txtCategoriaProductos.Text);
+            panelCategoriaAgregar.Visible = false;
 
         }
 
@@ -1363,7 +1401,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             departamentoCategoria = (datalistadoCategorias.SelectedCells[4].Value.ToString());
 
             txtCategoriaAgregar.Text = descripcionCategoria;
-            txtDepartamentoAgregar.Text = descripcionCategoria;
+            txtDepartamentoAgregar.Text = departamentoCategoria;
         }
         private void datalistadoCategorias_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -1417,9 +1455,13 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            mostrarCategoria();
+           
+            panelCategoria.BringToFront();
             panelCategoria.Visible = true;
-            panelCategoria.Location = new Point(167, 31);
-            panelCategoria.Size = new Size(925, 452);
+            panelCategoria.Location = new Point(387, 110);
+            panelCategoria.Size = new Size(467, 365);
+            txtCategoriaProductos.Focus();
         }
 
         private void txtCategoria_TextChanged(object sender, EventArgs e)
@@ -1477,6 +1519,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         int idCategoria;
         string descripcion;
         string departamento;
+        private int idUnidadVenta;
+        private int idClaveSatVenta;
+
         private void obtenerCategoriaDepartamento()
         {
             idCategoriaAgregar = Convert.ToInt32(datalistadoCategoriasInformacionBasica.SelectedCells[0].Value);
@@ -1491,9 +1536,40 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void PClaveSAT_DoubleClick(object sender, EventArgs e)
         {
             panelClaveUnidadSat.Visible = true;
-
+            panelUnidad.Visible = true;
+            panelClaveUnidadSat.Location = new Point(387, 80);
+            panelClaveUnidadSat.Size = new Size(670, 362);
+            panelClaveUnidadSat.BringToFront();
+            mostrarClavesSAT();
         }
+        public void mostrarClavesSAT()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
 
+                da = new SqlDataAdapter("mostrarClavesSat", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtUnidadBuscar.Text + "");
+                da.Fill(dt);
+                datalistadoUnidadesSAT.DataSource = dt;
+                con.Close();
+
+                datalistadoUnidadesSAT.DataSource = dt;
+                datalistadoUnidadesSAT.Columns[0].Visible = false;
+                datalistadoUnidadesSAT.Columns[2].Width = 300;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoUnidadesSAT);
+        }
         private void btnGuardarMedida_Click(object sender, EventArgs e)
         {
             LUnidadProductos parametros = new LUnidadProductos();
@@ -1530,7 +1606,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 datalistadoUnidadesSAT.DataSource = dt;
                 datalistadoUnidadesSAT.Columns[0].Visible = false;
-                datalistadoUnidadesSAT.Columns[2].Width = 300;
+               // datalistadoUnidadesSAT.AutoResizeColumns = true;
+                //datalistadoUnidadesSAT.Columns[2].Width = 300;
             }
             catch (Exception ex)
             {
@@ -1569,7 +1646,10 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void btnAbrirPanelUnidad_Click(object sender, EventArgs e)
         {
-            panelInformacionBasica.Enabled = false;
+            panelUnidad.Visible = true;
+            panelUnidad.Location = new Point(387, 110);
+            panelUnidad.Size = new Size(300, 329);
+            panelUnidad.BringToFront();
             panelUnidad.Visible = true;
             txtUnidadVenta.Focus();
         }
@@ -1587,8 +1667,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             if (txtUnidadCompra.TextLength > 0)
             {
                 datalistadoUnidadCompraPanel.BringToFront();
-                datalistadoUnidadCompraPanel.Location = new Point(487, 298);
-                datalistadoUnidadCompraPanel.Size = new Size(174, 121);
+                datalistadoUnidadCompraPanel.Location = new Point(491, 208);
+                datalistadoUnidadCompraPanel.Size = new Size(174, 72);
                 mostrarUnidadesCompra();
                 datalistadoUnidadCompraPanel.Visible = true;
             }
@@ -1618,7 +1698,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 datalistadoUnidadCompra.DataSource = dt;
                 datalistadoUnidadCompra.Columns[0].Visible = false;
                 datalistadoUnidadCompra.Columns[1].Visible = false;
-                datalistadoUnidadCompra.Columns[2].Width = 150;
+                datalistadoUnidadCompra.Columns[2].Width = 400;
             }
             catch (Exception ex)
             {
@@ -1631,18 +1711,92 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void panelInformacionBasica_Paint(object sender, PaintEventArgs e)
         {
             datalistadoUnidadCompraPanel.Visible = false;
+            panelUnidadVenta.Visible = false;
+
         }
 
         private void datalistadoUnidadCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             idUnidadCompra = Convert.ToInt32(datalistadoUnidadCompra.SelectedCells[0].Value);
-            idClaveSat = Convert.ToInt32(datalistadoUnidadCompra.SelectedCells[1].Value);
+            idClaveSatCompra = Convert.ToInt32(datalistadoUnidadCompra.SelectedCells[1].Value);
             txtUnidadCompra.Text = datalistadoUnidadCompra.SelectedCells[2].Value.ToString();
             datalistadoUnidadCompraPanel.Visible = false;
             txtUnidadDeVenta.Text = txtUnidadCompra.Text;
             UnidadMultiplicada1.Text = txtUnidadCompra.Text;
             UnidadMultiplicada2.Text = txtUnidadCompra.Text;
+            //UnidadMultiplicada3.Text = txtUnidadCompra.Text;
+        }
+
+        private void txtUnidadDeVenta_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnidadDeVenta.TextLength > 0)
+            {
+                panelUnidadVenta.BringToFront();
+                panelUnidadVenta.Location = new Point(732, 322);
+                panelUnidadVenta.Size = new Size(174, 72);
+                mostrarUnidadesVenta();
+                panelUnidadVenta.Visible = true;
+            }
+            else
+            {
+                mostrarUnidadesVenta();
+                panelUnidadVenta.SendToBack();
+                panelUnidadVenta.Visible = false;
+            }
+        }
+        public void mostrarUnidadesVenta()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrarUnidades", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtUnidadVenta.Text);
+                da.Fill(dt);
+                con.Close();
+                datalistadoUnidadVenta.DataSource = dt;
+                datalistadoUnidadVenta.Columns[0].Visible = false;
+                datalistadoUnidadVenta.Columns[1].Visible = false;
+                datalistadoUnidadVenta.Columns[2].Width = 400;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoUnidadVenta);
+        }
+
+        private void datalistadoUnidadVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idUnidadVenta = Convert.ToInt32(datalistadoUnidadCompra.SelectedCells[0].Value);
+            idClaveSatVenta = Convert.ToInt32(datalistadoUnidadCompra.SelectedCells[1].Value);
+            txtUnidadVenta.Text = datalistadoUnidadCompra.SelectedCells[2].Value.ToString();
+            datalistadoUnidadCompraPanel.Visible = false;
+            
+           
             UnidadMultiplicada3.Text = txtUnidadCompra.Text;
+        }
+
+        private void PANELINFOR_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void PANELREGISTRO_Paint(object sender, PaintEventArgs e)
+        {
+            panelInformacionBasica.Visible = true;
+            panelInformacionBasica.Location = new Point(36, 1);
+            panelInformacionBasica.Size = new Size(979, 634);
+    }
+
+        private void btnCancelarRegistro_Click(object sender, EventArgs e)
+        {
+            PANELREGISTRO.Visible = false;
         }
     }
 }
