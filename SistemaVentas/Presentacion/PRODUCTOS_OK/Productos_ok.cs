@@ -107,7 +107,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void Productos_ok_Load(object sender, EventArgs e)
         {
-           // datalistado
+            // datalistado
+           // PClaveSAT.Enabled = false;
+            panelClaveUnidadSat.Visible = false;
             txtDepartamento.Enabled = false;
             panelCategoriaAgregar.Visible = false;
             PANELREGISTRO.Visible = false;
@@ -1199,6 +1201,10 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelProveedor.Visible = false;
             panelUnidad.Visible = false;
             panelCategoria.Visible = false;
+            //PanelInformacionAdicional.add = DockStyle.Fill;
+            PanelInformacionAdicional.Location = new Point(36, 1);
+            PanelInformacionAdicional.Size = new Size(979, 634);
+
 
         }
 
@@ -1409,6 +1415,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            panelCategoria.Visible = true;
             panelCategoria.Location = new Point(167, 31);
             panelCategoria.Size = new Size(925, 452);
         }
@@ -1477,6 +1484,17 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             txtCategoria.Text = descripcion;
             txtDepartamento.Text = departamento;
             datalistadoCategoriasInformacionBasicaPanel.Visible = false;
+        }
+
+        private void PClaveSAT_DoubleClick(object sender, EventArgs e)
+        {
+            panelClaveUnidadSat.Visible = true;
+
+        }
+
+        private void PClaveSAT_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
