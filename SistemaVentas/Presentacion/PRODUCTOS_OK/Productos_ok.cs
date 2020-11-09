@@ -56,13 +56,13 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             btnNuevoGrupo.Visible = true;
             mostrar_grupos();*/
 
-           /* txtapartirde.Text = "0";
-            txtstock2.ReadOnly = false;
-            Panel25.Enabled = true;
-            Panel21.Visible = false;
-            Panel22.Visible = false;
-            Panel18.Visible = false;
-            TXTIDPRODUCTOOk.Text = "0";*/
+            /* txtapartirde.Text = "0";
+             txtstock2.ReadOnly = false;
+             Panel25.Enabled = true;
+             Panel21.Visible = false;
+             Panel22.Visible = false;
+             Panel18.Visible = false;
+             TXTIDPRODUCTOOk.Text = "0";*/
 
             //PANELINVENTARIO.Visible = true;
 
@@ -112,6 +112,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void Productos_ok_Load(object sender, EventArgs e)
         {
+            ObtenerImpuestos();
+           mostrarImpuestos();
             PANELREGISTRO.Visible = false;
             panelProveedor.Visible = false;
             datalistadoCategoriasInformacionBasicaPanel.Visible = false;
@@ -122,7 +124,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             txtDepartamento.Enabled = false;
             panelCategoriaAgregar.Visible = false;
             PANELINFOR.Visible = false;
-            
+
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
             Obtener_datos.Obtener_id_caja_PorSerial(ref idcaja);
 
@@ -151,32 +153,32 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void mostrar_grupos()
         {
             //PANELCATEGORIASELECT.Visible = true;
-           /* try
-            {
-                DataTable dt = new DataTable();
-                SqlDataAdapter da;
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                con.Open();
+            /* try
+             {
+                 DataTable dt = new DataTable();
+                 SqlDataAdapter da;
+                 SqlConnection con = new SqlConnection();
+                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                 con.Open();
 
-                da = new SqlDataAdapter("mostrar_grupos", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@buscar", txtgrupo.Text);
-                da.Fill(dt);
-                datalistadoCategorias.DataSource = dt;
-                con.Close();
+                 da = new SqlDataAdapter("mostrar_grupos", con);
+                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                 da.SelectCommand.Parameters.AddWithValue("@buscar", txtgrupo.Text);
+                 da.Fill(dt);
+                 datalistadoCategorias.DataSource = dt;
+                 con.Close();
 
-                datalistadoCategorias.DataSource = dt;
-                datalistadoCategorias.Columns[2].Visible = false;
-                datalistadoCategorias.Columns[3].Width = 500;
+                 datalistadoCategorias.DataSource = dt;
+                 datalistadoCategorias.Columns[2].Visible = false;
+                 datalistadoCategorias.Columns[3].Width = 500;
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show(ex.Message);
+             }
 
-            Bases.Multilinea(ref datalistado);*/
+             Bases.Multilinea(ref datalistado);*/
         }
 
         private void btnGuardar_grupo_Click_1(object sender, EventArgs e)
@@ -434,8 +436,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 con.Close();
                 PANELDEPARTAMENTO.Visible = false;
                 //txtbusca.Text = txtdescripcion.Text;
-                txtbusca.Focus();
-                buscar();
+                //txtbusca.Focus();
+               // buscar();
             }
             catch (Exception ex)
             {
@@ -743,7 +745,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void txtbusca_TextChanged(object sender, EventArgs e)
         {
-            buscar();
+           // buscar();
         }
 
         private void TGUARDARCAMBIOS_Click_1(object sender, EventArgs e)
@@ -1263,8 +1265,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void txtCategoriaProductos_TextChanged(object sender, EventArgs e)
         {
-            if(txtCategoriaProductos.Text != "")
-            mostarCategoriaCompleta(txtCategoriaProductos.Text);
+            if (txtCategoriaProductos.Text != "")
+                mostarCategoriaCompleta(txtCategoriaProductos.Text);
         }
 
 
@@ -1348,7 +1350,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 datalistadoCategorias.DataSource = dt;
                 datalistadoCategorias.Columns[2].Visible = false;
-                
+
             }
             catch (Exception ex)
             {
@@ -1369,7 +1371,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 da = new SqlDataAdapter("mostrarCategorias_parametros", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-              
+
                 da.Fill(dt);
                 datalistadoCategorias.DataSource = dt;
                 con.Close();
@@ -1456,7 +1458,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             mostrarCategoria();
-           
+
             panelCategoria.BringToFront();
             panelCategoria.Visible = true;
             panelCategoria.Location = new Point(387, 110);
@@ -1467,7 +1469,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void txtCategoria_TextChanged(object sender, EventArgs e)
         {
             //MessageBox.Show(txtCategoria.TextLength.ToString());
-            if(txtCategoria.TextLength > 0)
+            if (txtCategoria.TextLength > 0)
             {
                 datalistadoCategoriasInformacionBasicaPanel.BringToFront();
                 datalistadoCategoriasInformacionBasicaPanel.Location = new Point(61, 209);
@@ -1501,7 +1503,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 datalistadoCategoriasInformacionBasica.DataSource = dt;
                 datalistadoCategoriasInformacionBasica.Columns[0].Visible = false;
                 datalistadoCategoriasInformacionBasica.Columns[2].Visible = false;
-                datalistadoCategoriasInformacionBasica.Columns[1].Width = 150;
+                datalistadoCategoriasInformacionBasica.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             }
             catch (Exception ex)
             {
@@ -1561,7 +1564,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 datalistadoUnidadesSAT.DataSource = dt;
                 datalistadoUnidadesSAT.Columns[0].Visible = false;
-                datalistadoUnidadesSAT.Columns[2].Width = 300;
+                datalistadoUnidadesSAT.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             }
             catch (Exception ex)
             {
@@ -1579,7 +1583,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             parametros.descripcion = txtUnidadVenta.Text;
             parametros.idClaveSat = idClaveSat;
 
-            if(insertar.insertarUnidad(parametros) == true){
+            if (insertar.insertarUnidad(parametros) == true)
+            {
                 panelUnidad.Visible = false;
                 txtUnidadCompra.Text = txtUnidadVenta.Text;
                 txtUnidadDeVenta.Text = txtUnidadVenta.Text;
@@ -1606,8 +1611,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 datalistadoUnidadesSAT.DataSource = dt;
                 datalistadoUnidadesSAT.Columns[0].Visible = false;
-               // datalistadoUnidadesSAT.AutoResizeColumns = true;
-                //datalistadoUnidadesSAT.Columns[2].Width = 300;
+                datalistadoUnidadesSAT.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             }
             catch (Exception ex)
             {
@@ -1664,7 +1669,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void txtUnidadCompra_TextChanged(object sender, EventArgs e)
         {
-            if (txtUnidadCompra.TextLength > 0)
+            if (txtUnidadCompra.Text != "")
             {
                 datalistadoUnidadCompraPanel.BringToFront();
                 datalistadoUnidadCompraPanel.Location = new Point(491, 208);
@@ -1674,7 +1679,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
             else
             {
-                mostrarUnidadesCompra();
                 datalistadoUnidadCompraPanel.SendToBack();
                 datalistadoUnidadCompraPanel.Visible = false;
             }
@@ -1698,7 +1702,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 datalistadoUnidadCompra.DataSource = dt;
                 datalistadoUnidadCompra.Columns[0].Visible = false;
                 datalistadoUnidadCompra.Columns[1].Visible = false;
-                datalistadoUnidadCompra.Columns[2].Width = 400;
+                datalistadoUnidadCompra.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             }
             catch (Exception ex)
             {
@@ -1722,14 +1727,14 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             txtUnidadCompra.Text = datalistadoUnidadCompra.SelectedCells[2].Value.ToString();
             datalistadoUnidadCompraPanel.Visible = false;
             txtUnidadDeVenta.Text = txtUnidadCompra.Text;
-            UnidadMultiplicada1.Text = txtUnidadCompra.Text;
-            UnidadMultiplicada2.Text = txtUnidadCompra.Text;
+            UnidadMultiplicada1.Text = "x " + txtUnidadCompra.Text;
+            UnidadMultiplicada2.Text = "x " + txtUnidadCompra.Text;
             //UnidadMultiplicada3.Text = txtUnidadCompra.Text;
         }
 
         private void txtUnidadDeVenta_TextChanged(object sender, EventArgs e)
         {
-            if (txtUnidadDeVenta.TextLength > 0)
+            if (txtUnidadDeVenta.Text != "")
             {
                 panelUnidadVenta.BringToFront();
                 panelUnidadVenta.Location = new Point(732, 322);
@@ -1739,7 +1744,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
             else
             {
-                mostrarUnidadesVenta();
+
+                //mostrarUnidadesVenta();
                 panelUnidadVenta.SendToBack();
                 panelUnidadVenta.Visible = false;
             }
@@ -1762,7 +1768,10 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 datalistadoUnidadVenta.DataSource = dt;
                 datalistadoUnidadVenta.Columns[0].Visible = false;
                 datalistadoUnidadVenta.Columns[1].Visible = false;
-                datalistadoUnidadVenta.Columns[2].Width = 400;
+                // datalistadoUnidadVenta.Columns[2].Width = 800;
+                datalistadoUnidadVenta.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                datalistadoUnidadVenta.AutoResizeColumns();
             }
             catch (Exception ex)
             {
@@ -1770,17 +1779,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
 
             Bases.Multilinea(ref datalistadoUnidadVenta);
-        }
-
-        private void datalistadoUnidadVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            idUnidadVenta = Convert.ToInt32(datalistadoUnidadCompra.SelectedCells[0].Value);
-            idClaveSatVenta = Convert.ToInt32(datalistadoUnidadCompra.SelectedCells[1].Value);
-            txtUnidadVenta.Text = datalistadoUnidadCompra.SelectedCells[2].Value.ToString();
-            datalistadoUnidadCompraPanel.Visible = false;
-            
-           
-            UnidadMultiplicada3.Text = txtUnidadCompra.Text;
         }
 
         private void PANELINFOR_Paint(object sender, PaintEventArgs e)
@@ -1792,11 +1790,118 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelInformacionBasica.Visible = true;
             panelInformacionBasica.Location = new Point(36, 1);
             panelInformacionBasica.Size = new Size(979, 634);
-    }
+        }
 
         private void btnCancelarRegistro_Click(object sender, EventArgs e)
         {
             PANELREGISTRO.Visible = false;
+        }
+
+        private void datalistadoUnidadVenta_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void datalistadoUnidadVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idUnidadVenta = Convert.ToInt32(datalistadoUnidadVenta.SelectedCells[0].Value);
+            idClaveSatVenta = Convert.ToInt32(datalistadoUnidadVenta.SelectedCells[1].Value);
+            txtUnidadDeVenta.Text = datalistadoUnidadVenta.SelectedCells[2].Value.ToString();
+
+
+            UnidadMultiplicada3.Text = "x " + txtUnidadDeVenta.Text;
+            panelUnidadVenta.Visible = false;
+        }
+
+        private void cerrarPANELCLAVESAT_Click(object sender, EventArgs e)
+        {
+            cerrarPANELCLAVESAT.Visible = false;
+        }
+
+        private void ObtenerImpuestos()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+                da = new SqlDataAdapter("mostrarImpuestos", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                con.Close();
+                datalistadoImpuestos.DataSource = dt;
+                datalistadoImpuestos.Columns[0].Visible = false;
+               datalistadoImpuestos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                datalistadoImpuestos.Columns[4].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoImpuestos);
+        }
+        private void mostrarImpuestos()
+        {
+            chkListaItbis.Items.Clear();
+            string nombreImpuesto;
+            foreach (DataGridViewRow fila in datalistadoImpuestos.Rows)
+            {
+                nombreImpuesto = Convert.ToString(fila.Cells["nombre"].Value);
+                chkListaItbis.Items.Add(nombreImpuesto);
+            }
+        }
+
+        private void chkListaItbis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void chkListaItbis_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int indice = chkListaItbis.SelectedIndex;
+
+            if (indice != -1)
+            {
+                if (chkListaItbis.GetItemChecked(indice) == true)
+                {
+                   // MessageBox.Show(chkListaItbis.Items[indice].ToString());
+                }
+
+                foreach(string s in chkListaItbis.CheckedItems)
+                {
+                    //MessageBox.Show(s);
+                    ObtenerImpuestos(s);
+                }
+            }
+        }
+
+        private void ObtenerImpuestos(string nombreImpuesto)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+                da = new SqlDataAdapter("buscarImpuesto", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@cadena", nombreImpuesto);
+                da.Fill(dt);
+                con.Close();
+                datalistadoImpuestosObtenidos.DataSource = dt;
+                datalistadoImpuestosObtenidos.Columns[0].Visible = false;
+                datalistadoImpuestosObtenidos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoImpuestosObtenidos);
         }
     }
 }
