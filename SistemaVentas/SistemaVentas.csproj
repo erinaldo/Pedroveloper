@@ -119,6 +119,7 @@
     <Compile Include="Logica\Bases.cs" />
     <Compile Include="Logica\Direcciones.cs" />
     <Compile Include="Logica\Lcaja.cs" />
+    <Compile Include="Logica\LCategoria.cs" />
     <Compile Include="Logica\Lcontrolcobros.cs" />
     <Compile Include="Logica\LCotizacion.cs" />
     <Compile Include="Logica\LdetalleFactura.cs" />

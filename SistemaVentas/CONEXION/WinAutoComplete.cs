@@ -8,14 +8,13 @@ namespace SistemaVentas.CONEXION
     {
         public static DataTable LoadDataTable()
         {
-           
             DataTable dt = new DataTable();
             SqlDataAdapter da;
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             con.Open();
 
-            da = new SqlDataAdapter("SELECT TOP 100 Descripcion FROM Producto1", con);
+            da = new SqlDataAdapter("SELECT TOP 100 Descripcion FROM Producto", con);
         
             da.Fill(dt);
          

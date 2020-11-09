@@ -177,7 +177,47 @@ namespace SistemaVentas.Datos
                 return false;
             }
         }
+        public bool InsertarCategoria(LCategoria parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarCategoria", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Descripcion);
+                cmd.Parameters.AddWithValue("@departamento", parametros.Departamento);
+                cmd.Parameters.AddWithValue("@estado", parametros.Estado);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
 
+            }
+        }
+
+        public bool editarCategoria(LCategoria parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarCategoria", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCategoria", parametros.idCategoria);
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Descripcion);
+                cmd.Parameters.AddWithValue("@departamento", parametros.Departamento);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+
+            }
+        }
 
 
         public bool insertarCalle(LDireccion parametros)
