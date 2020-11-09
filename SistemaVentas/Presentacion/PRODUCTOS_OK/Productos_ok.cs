@@ -1496,5 +1496,44 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
 
         }
+
+        private void btnGuardarMedida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUnidadBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrarClavesSat", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtUnidadBuscar.Text + "");
+                da.Fill(dt);
+                datalistadoUnidadesSAT.DataSource = dt;
+                con.Close();
+
+                datalistadoUnidadesSAT.DataSource = dt;
+                datalistadoUnidadesSAT.Columns[0].Visible = false;
+                datalistadoUnidadesSAT.Columns[2].Width = 300;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistado);
+        }
+
+        private void panelClaveUnidadSat_Paint(object sender, PaintEventArgs e)
+        {
+        }
     }
 }

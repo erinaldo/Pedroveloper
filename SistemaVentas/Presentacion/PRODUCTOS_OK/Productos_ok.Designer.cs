@@ -376,8 +376,7 @@
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.datalistadoUnidadesSAT = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn8 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel44 = new System.Windows.Forms.Panel();
             this.Panel3.SuspendLayout();
             this.panelUnidad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -542,6 +541,7 @@
             this.btnGuardarMedida.TabIndex = 621;
             this.btnGuardarMedida.Text = "Guardar";
             this.btnGuardarMedida.UseVisualStyleBackColor = false;
+            this.btnGuardarMedida.Click += new System.EventHandler(this.btnGuardarMedida_Click);
             // 
             // pictureBox13
             // 
@@ -4268,6 +4268,7 @@
             // panelClaveUnidadSat
             // 
             this.panelClaveUnidadSat.BackColor = System.Drawing.Color.White;
+            this.panelClaveUnidadSat.Controls.Add(this.panel44);
             this.panelClaveUnidadSat.Controls.Add(this.datalistadoUnidadesSAT);
             this.panelClaveUnidadSat.Controls.Add(this.panel46);
             this.panelClaveUnidadSat.Controls.Add(this.panel45);
@@ -4275,6 +4276,7 @@
             this.panelClaveUnidadSat.Name = "panelClaveUnidadSat";
             this.panelClaveUnidadSat.Size = new System.Drawing.Size(671, 515);
             this.panelClaveUnidadSat.TabIndex = 614;
+            this.panelClaveUnidadSat.Paint += new System.Windows.Forms.PaintEventHandler(this.panelClaveUnidadSat_Paint);
             // 
             // panel45
             // 
@@ -4357,6 +4359,7 @@
             this.txtUnidadBuscar.Name = "txtUnidadBuscar";
             this.txtUnidadBuscar.Size = new System.Drawing.Size(272, 22);
             this.txtUnidadBuscar.TabIndex = 534;
+            this.txtUnidadBuscar.TextChanged += new System.EventHandler(this.txtUnidadBuscar_TextChanged);
             // 
             // menuStrip8
             // 
@@ -4416,9 +4419,6 @@
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.datalistadoUnidadesSAT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.datalistadoUnidadesSAT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datalistadoUnidadesSAT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn7,
-            this.dataGridViewImageColumn8});
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4427,8 +4427,10 @@
             dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.datalistadoUnidadesSAT.DefaultCellStyle = dataGridViewCellStyle19;
+            this.datalistadoUnidadesSAT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datalistadoUnidadesSAT.EnableHeadersVisualStyles = false;
-            this.datalistadoUnidadesSAT.Location = new System.Drawing.Point(326, 250);
+            this.datalistadoUnidadesSAT.GridColor = System.Drawing.Color.White;
+            this.datalistadoUnidadesSAT.Location = new System.Drawing.Point(0, 98);
             this.datalistadoUnidadesSAT.Name = "datalistadoUnidadesSAT";
             this.datalistadoUnidadesSAT.ReadOnly = true;
             dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -4449,25 +4451,17 @@
             this.datalistadoUnidadesSAT.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.datalistadoUnidadesSAT.RowTemplate.Height = 40;
             this.datalistadoUnidadesSAT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadoUnidadesSAT.Size = new System.Drawing.Size(19, 15);
+            this.datalistadoUnidadesSAT.Size = new System.Drawing.Size(671, 417);
             this.datalistadoUnidadesSAT.TabIndex = 626;
             // 
-            // dataGridViewImageColumn7
+            // panel44
             // 
-            this.dataGridViewImageColumn7.HeaderText = "";
-            this.dataGridViewImageColumn7.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn7.Image")));
-            this.dataGridViewImageColumn7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
-            this.dataGridViewImageColumn7.ReadOnly = true;
-            this.dataGridViewImageColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dataGridViewImageColumn8
-            // 
-            this.dataGridViewImageColumn8.HeaderText = "";
-            this.dataGridViewImageColumn8.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn8.Image")));
-            this.dataGridViewImageColumn8.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn8.Name = "dataGridViewImageColumn8";
-            this.dataGridViewImageColumn8.ReadOnly = true;
+            this.panel44.BackColor = System.Drawing.Color.Black;
+            this.panel44.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel44.Location = new System.Drawing.Point(0, 98);
+            this.panel44.Name = "panel44";
+            this.panel44.Size = new System.Drawing.Size(671, 1);
+            this.panel44.TabIndex = 627;
             // 
             // Productos_ok
             // 
@@ -4944,8 +4938,6 @@
         private System.Windows.Forms.Panel panel43;
         private System.Windows.Forms.Panel panelClaveUnidadSat;
         internal System.Windows.Forms.DataGridView datalistadoUnidadesSAT;
-        internal System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn7;
-        internal System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn8;
         private System.Windows.Forms.Panel panel46;
         internal System.Windows.Forms.Panel panel47;
         internal System.Windows.Forms.TextBox txtUnidadBuscar;
@@ -4956,5 +4948,6 @@
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.Button button12;
         internal System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Panel panel44;
     }
 }

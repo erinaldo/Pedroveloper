@@ -219,6 +219,25 @@ namespace SistemaVentas.Datos
             }
         }
 
+        public bool insertarClavesSat(LUnidadesMedida parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("InsertarClavesSat", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@clave", parametros.Clave);
+                cmd.Parameters.AddWithValue("@nombre", parametros.nombre);
+                cmd.Parameters.AddWithValue("@descripcion", parametros.descripcion);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+            }
+        }
 
         public bool insertarCalle(LDireccion parametros)
         {

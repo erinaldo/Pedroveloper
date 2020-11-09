@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 using System.Management;
 using SistemaVentas.Logica;
 using SistemaVentas.CONEXION;
-
+using SistemaVentas.Datos;
 namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 {
     public partial class REGISTRO_DE_EMPRESA : Form
@@ -508,6 +508,97 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 MessageBox.Show(EX.Message);
 
             }
+        }
+
+        public void insertarUnidadesCompra()
+        {
+            LUnidadesMedida parametros = new LUnidadesMedida();
+            Insertar_datos insertar = new Insertar_datos();
+
+            parametros.Clave = "H87";
+            parametros.descripcion = "Unidad de conteo que define el numero de piezas";
+            parametros.nombre = "Pieza (pza)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "KGM";
+            parametros.descripcion = "Una unidad de masa igual a mil gramos";
+            parametros.nombre = "Kilogramo (kg)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "MTR";
+            parametros.descripcion = "El metro (Simbolo m) es la principal unidad de logitud del sistema";
+            parametros.nombre = "Metro (m)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "CMT";
+            parametros.descripcion = "Una unidad de longitud. Es el segundo submultiplo del metro";
+            parametros.nombre = "Centímetro (cm)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "INH";
+            parametros.descripcion = "Una unidad de longitud antropométrica que equivale al ancho de la primera falange del pulgar";
+            parametros.nombre = "Pulgada (plg)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "FOT";
+            parametros.descripcion = "Una unidad de longitud en los sistemas de medida anglosajones";
+            parametros.nombre = "Pie (pe)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "YRD";
+            parametros.descripcion = "Una unidad de medida de longitud del sistema inglés que equivale a 91,4 centímetros.";
+            parametros.nombre = "Yarda (yd)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "SMI";
+            parametros.descripcion = "Lo habitual es que se trate de una unidad de longitud que equivale a 1609 metros";
+            parametros.nombre = "Milla (mi)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "MTK";
+            parametros.descripcion = "Medida de longitud, especialmente utilizada por el Sistema internacional de unidades";
+            parametros.nombre = "Métro cuadrado (m2)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "CMK";
+            parametros.descripcion = "Una unidad básica de superficie en el Sistema internacional unidades";
+            parametros.nombre = "Centimetro cuadrado (cm2)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "MTQ";
+            parametros.descripcion = "Una unidad sinonimo de Métro Cúbico";
+            parametros.nombre = "Métro cubico (m3)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "LTR";
+            parametros.descripcion = "Una unidad de de volumen equivalente a un decímetro cúbico (1 dm3)";
+            parametros.nombre = "Litro (lt)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "GLI";
+            parametros.descripcion = "Es una unidad de volumen que se emplea en los países anglófonos (especialmente Estados Unidos)";
+            parametros.nombre = "Galón (UK)";
+
+            insertar.insertarClavesSat(parametros);
+
+            parametros.Clave = "CJA";
+            parametros.descripcion = "Objeto utilizado para representar la compra o venta de cajas x producto";
+            parametros.nombre = "CAJA";
+
+            insertar.insertarClavesSat(parametros);
+
         }
 
 
