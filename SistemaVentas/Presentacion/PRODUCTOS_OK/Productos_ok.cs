@@ -26,7 +26,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             InitializeComponent();
         }
         public static int idcaja;
-
+        private int idUnidadCompra;
+        public int idClaveSat;
         private void PictureBox2_Click(object sender, EventArgs e)
         {
             datalistadoCategoriasInformacionBasicaPanel.Visible = false;
@@ -107,6 +108,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void Productos_ok_Load(object sender, EventArgs e)
         {
+            panelUnidad.Visible = false;
             // datalistado
            // PClaveSAT.Enabled = false;
             panelClaveUnidadSat.Visible = false;
@@ -1464,7 +1466,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistado);
+            Bases.Multilinea(ref datalistadoCategoriasInformacionBasica);
         }
 
         private void datalistadoCategoriasInformacionBasica_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1492,14 +1494,20 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         }
 
-        private void PClaveSAT_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnGuardarMedida_Click(object sender, EventArgs e)
         {
+            LUnidadProductos parametros = new LUnidadProductos();
+            Insertar_datos insertar = new Insertar_datos();
+            panelInformacionBasica.Enabled = true;
 
+            parametros.descripcion = txtUnidadVenta.Text;
+            parametros.idClaveSat = idClaveSat;
+
+            if(insertar.insertarUnidad(parametros) == true){
+                panelUnidad.Visible = false;
+                txtUnidadCompra.Text = txtUnidadVenta.Text;
+                txtUnidadDeVenta.Text = txtUnidadVenta.Text;
+            }
         }
 
         private void txtUnidadBuscar_TextChanged(object sender, EventArgs e)
@@ -1529,11 +1537,112 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistado);
+            Bases.Multilinea(ref datalistadoUnidadesSAT);
         }
 
         private void panelClaveUnidadSat_Paint(object sender, PaintEventArgs e)
         {
+            txtUnidadBuscar.Focus();
+
+        }
+
+        private void PClaveSAT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = false;
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnAbrirPanelUnidad_Click(object sender, EventArgs e)
+        {
+            panelInformacionBasica.Enabled = false;
+            panelUnidad.Visible = true;
+            txtUnidadVenta.Focus();
+        }
+
+        private void datalistadoUnidadesSAT_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            panelClaveUnidadSat.Visible = false;
+            idClaveSat = Convert.ToInt32(datalistadoUnidadesSAT.SelectedCells[0].Value.ToString());
+            PClaveSAT.Text = datalistadoUnidadesSAT.SelectedCells[2].Value.ToString();
+            txtUnidadVenta.Focus();
+        }
+
+        private void txtUnidadCompra_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnidadCompra.TextLength > 0)
+            {
+                datalistadoUnidadCompraPanel.BringToFront();
+                datalistadoUnidadCompraPanel.Location = new Point(487, 298);
+                datalistadoUnidadCompraPanel.Size = new Size(174, 121);
+                mostrarUnidadesCompra();
+                datalistadoUnidadCompraPanel.Visible = true;
+            }
+            else
+            {
+                mostrarUnidadesCompra();
+                datalistadoUnidadCompraPanel.SendToBack();
+                datalistadoUnidadCompraPanel.Visible = false;
+            }
+        }
+
+        public void mostrarUnidadesCompra()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrarUnidades", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtUnidadCompra.Text);
+                da.Fill(dt);
+                con.Close();
+                datalistadoUnidadCompra.DataSource = dt;
+                datalistadoUnidadCompra.Columns[0].Visible = false;
+                datalistadoUnidadCompra.Columns[1].Visible = false;
+                datalistadoUnidadCompra.Columns[2].Width = 150;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoUnidadCompra);
+        }
+
+        private void panelInformacionBasica_Paint(object sender, PaintEventArgs e)
+        {
+            datalistadoUnidadCompraPanel.Visible = false;
+        }
+
+        private void datalistadoUnidadCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idUnidadCompra = Convert.ToInt32(datalistadoUnidadCompra.SelectedCells[0].Value);
+            idClaveSat = Convert.ToInt32(datalistadoUnidadCompra.SelectedCells[1].Value);
+            txtUnidadCompra.Text = datalistadoUnidadCompra.SelectedCells[2].Value.ToString();
+            datalistadoUnidadCompraPanel.Visible = false;
+            txtUnidadDeVenta.Text = txtUnidadCompra.Text;
+            UnidadMultiplicada1.Text = txtUnidadCompra.Text;
+            UnidadMultiplicada2.Text = txtUnidadCompra.Text;
+            UnidadMultiplicada3.Text = txtUnidadCompra.Text;
         }
     }
 }
