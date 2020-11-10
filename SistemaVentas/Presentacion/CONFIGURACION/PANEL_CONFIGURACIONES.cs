@@ -161,5 +161,11 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
             Vehiculos.Vehiculos frm = new Vehiculos.Vehiculos();
             frm.ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Impuestos.Impuestos frm = new Impuestos.Impuestos();
+            frm.ShowDialog();
+        }
     }
 }

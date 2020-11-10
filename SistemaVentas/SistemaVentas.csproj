@@ -127,6 +127,7 @@
     <Compile Include="Logica\LDocumentos.cs" />
     <Compile Include="Logica\LEmpleados.cs" />
     <Compile Include="Logica\LHorario.cs" />
+    <Compile Include="Logica\LImpuesto.cs" />
     <Compile Include="Logica\LKardex.cs" />
     <Compile Include="Logica\Lmail.cs" />
     <Compile Include="Logica\Lmcaja.cs" />
@@ -373,6 +374,12 @@
     </Compile>
     <Compile Include="Presentacion\Impresoras\Admin_impresoras.Designer.cs">
       <DependentUpon>Admin_impresoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Impuestos\Impuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Impuestos\Impuestos.Designer.cs">
+      <DependentUpon>Impuestos.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Ingresos_varios\IngresosVarios.cs">
       <SubType>Form</SubType>
@@ -713,6 +720,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Impresoras\Admin_impresoras.resx">
       <DependentUpon>Admin_impresoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Impuestos\Impuestos.resx">
+      <DependentUpon>Impuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Ingresos_varios\IngresosVarios.resx">
       <DependentUpon>IngresosVarios.cs</DependentUpon>

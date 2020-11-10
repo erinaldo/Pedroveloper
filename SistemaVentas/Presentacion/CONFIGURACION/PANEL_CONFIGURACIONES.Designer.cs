@@ -33,64 +33,67 @@
             this.Panel5 = new System.Windows.Forms.Panel();
             this.FlowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel6 = new System.Windows.Forms.Panel();
+            this.btnRespaldos = new System.Windows.Forms.Button();
             this.Label5 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
             this.Panel3 = new System.Windows.Forms.Panel();
             this.btnEnvios_a_correo = new System.Windows.Forms.Button();
             this.FlowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel7 = new System.Windows.Forms.Panel();
+            this.btncorreo = new System.Windows.Forms.Button();
             this.Label2 = new System.Windows.Forms.Label();
             this.Label38 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.btnBalanza = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.FlowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnimpresoras = new System.Windows.Forms.Button();
             this.Label4 = new System.Windows.Forms.Label();
             this.Label30 = new System.Windows.Forms.Label();
             this.Panel38 = new System.Windows.Forms.Panel();
             this.FlowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel40 = new System.Windows.Forms.Panel();
+            this.btndiseñador = new System.Windows.Forms.Button();
             this.Label31 = new System.Windows.Forms.Label();
             this.Label35 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel16 = new System.Windows.Forms.Panel();
+            this.Logo_empresa = new System.Windows.Forms.PictureBox();
             this.Label47 = new System.Windows.Forms.Label();
             this.Panel35 = new System.Windows.Forms.Panel();
+            this.btnusuarios = new System.Windows.Forms.Button();
             this.Label26 = new System.Windows.Forms.Label();
             this.Panel36 = new System.Windows.Forms.Panel();
+            this.Button3 = new System.Windows.Forms.Button();
             this.Label27 = new System.Windows.Forms.Label();
             this.Panel37 = new System.Windows.Forms.Panel();
+            this.Button4 = new System.Windows.Forms.Button();
             this.Label29 = new System.Windows.Forms.Label();
             this.LBLEstado_correo = new System.Windows.Forms.Label();
             this.Panel9 = new System.Windows.Forms.Panel();
+            this.Button6 = new System.Windows.Forms.Button();
             this.Label3 = new System.Windows.Forms.Label();
             this.Panel10 = new System.Windows.Forms.Panel();
+            this.Button8 = new System.Windows.Forms.Button();
             this.Label7 = new System.Windows.Forms.Label();
             this.Panel11 = new System.Windows.Forms.Panel();
+            this.btnproveedores = new System.Windows.Forms.Button();
             this.Label8 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
             this.ToolStrip1 = new System.Windows.Forms.MenuStrip();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
             this.btnadministrar = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRespaldos = new System.Windows.Forms.Button();
-            this.btncorreo = new System.Windows.Forms.Button();
-            this.btnBalanza = new System.Windows.Forms.Button();
-            this.btnimpresoras = new System.Windows.Forms.Button();
-            this.btndiseñador = new System.Windows.Forms.Button();
-            this.Logo_empresa = new System.Windows.Forms.PictureBox();
-            this.btnusuarios = new System.Windows.Forms.Button();
-            this.Button3 = new System.Windows.Forms.Button();
-            this.Button4 = new System.Windows.Forms.Button();
-            this.Button6 = new System.Windows.Forms.Button();
-            this.Button8 = new System.Windows.Forms.Button();
-            this.btnproveedores = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.Panel5.SuspendLayout();
             this.FlowLayoutPanel5.SuspendLayout();
@@ -108,6 +111,7 @@
             this.panel2.SuspendLayout();
             this.FlowLayoutPanel1.SuspendLayout();
             this.Panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo_empresa)).BeginInit();
             this.Panel35.SuspendLayout();
             this.Panel36.SuspendLayout();
             this.Panel37.SuspendLayout();
@@ -115,9 +119,9 @@
             this.Panel10.SuspendLayout();
             this.Panel11.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.ToolStrip1.SuspendLayout();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Logo_empresa)).BeginInit();
+            this.ToolStrip1.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -129,7 +133,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(72, 91);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(890, 520);
+            this.panel1.Size = new System.Drawing.Size(917, 564);
             this.panel1.TabIndex = 0;
             // 
             // Panel5
@@ -137,7 +141,7 @@
             this.Panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.Panel5.Controls.Add(this.FlowLayoutPanel5);
             this.Panel5.Controls.Add(this.Label6);
-            this.Panel5.Location = new System.Drawing.Point(502, 324);
+            this.Panel5.Location = new System.Drawing.Point(505, 395);
             this.Panel5.Name = "Panel5";
             this.Panel5.Size = new System.Drawing.Size(385, 147);
             this.Panel5.TabIndex = 597;
@@ -161,6 +165,21 @@
             this.Panel6.Name = "Panel6";
             this.Panel6.Size = new System.Drawing.Size(157, 94);
             this.Panel6.TabIndex = 590;
+            // 
+            // btnRespaldos
+            // 
+            this.btnRespaldos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRespaldos.BackgroundImage")));
+            this.btnRespaldos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRespaldos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRespaldos.FlatAppearance.BorderSize = 0;
+            this.btnRespaldos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRespaldos.ForeColor = System.Drawing.Color.White;
+            this.btnRespaldos.Location = new System.Drawing.Point(0, 0);
+            this.btnRespaldos.Name = "btnRespaldos";
+            this.btnRespaldos.Size = new System.Drawing.Size(157, 47);
+            this.btnRespaldos.TabIndex = 5;
+            this.btnRespaldos.UseVisualStyleBackColor = true;
+            this.btnRespaldos.Click += new System.EventHandler(this.btnRespaldos_Click);
             // 
             // Label5
             // 
@@ -191,7 +210,7 @@
             this.Panel3.Controls.Add(this.btnEnvios_a_correo);
             this.Panel3.Controls.Add(this.FlowLayoutPanel4);
             this.Panel3.Controls.Add(this.Label38);
-            this.Panel3.Location = new System.Drawing.Point(304, 324);
+            this.Panel3.Location = new System.Drawing.Point(307, 395);
             this.Panel3.Name = "Panel3";
             this.Panel3.Size = new System.Drawing.Size(193, 147);
             this.Panel3.TabIndex = 596;
@@ -230,6 +249,21 @@
             this.Panel7.Size = new System.Drawing.Size(157, 94);
             this.Panel7.TabIndex = 590;
             // 
+            // btncorreo
+            // 
+            this.btncorreo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btncorreo.BackgroundImage")));
+            this.btncorreo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btncorreo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btncorreo.FlatAppearance.BorderSize = 0;
+            this.btncorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncorreo.ForeColor = System.Drawing.Color.White;
+            this.btncorreo.Location = new System.Drawing.Point(0, 0);
+            this.btncorreo.Name = "btncorreo";
+            this.btncorreo.Size = new System.Drawing.Size(157, 47);
+            this.btncorreo.TabIndex = 5;
+            this.btncorreo.UseVisualStyleBackColor = true;
+            this.btncorreo.Click += new System.EventHandler(this.btncorreo_Click);
+            // 
             // Label2
             // 
             this.Label2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -259,7 +293,7 @@
             this.panel4.Controls.Add(this.panel12);
             this.panel4.Controls.Add(this.FlowLayoutPanel3);
             this.panel4.Controls.Add(this.Label30);
-            this.panel4.Location = new System.Drawing.Point(20, 324);
+            this.panel4.Location = new System.Drawing.Point(23, 395);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(278, 147);
             this.panel4.TabIndex = 595;
@@ -274,6 +308,21 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(118, 106);
             this.panel12.TabIndex = 590;
+            // 
+            // btnBalanza
+            // 
+            this.btnBalanza.BackgroundImage = global::SistemaVentas.Properties.Resources.balanza;
+            this.btnBalanza.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBalanza.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBalanza.FlatAppearance.BorderSize = 0;
+            this.btnBalanza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBalanza.ForeColor = System.Drawing.Color.White;
+            this.btnBalanza.Location = new System.Drawing.Point(0, 0);
+            this.btnBalanza.Name = "btnBalanza";
+            this.btnBalanza.Size = new System.Drawing.Size(118, 87);
+            this.btnBalanza.TabIndex = 5;
+            this.btnBalanza.UseVisualStyleBackColor = true;
+            this.btnBalanza.Click += new System.EventHandler(this.btnBalanza_Click);
             // 
             // label9
             // 
@@ -307,6 +356,21 @@
             this.panel8.Size = new System.Drawing.Size(100, 94);
             this.panel8.TabIndex = 590;
             // 
+            // btnimpresoras
+            // 
+            this.btnimpresoras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnimpresoras.BackgroundImage")));
+            this.btnimpresoras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnimpresoras.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnimpresoras.FlatAppearance.BorderSize = 0;
+            this.btnimpresoras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnimpresoras.ForeColor = System.Drawing.Color.White;
+            this.btnimpresoras.Location = new System.Drawing.Point(0, 0);
+            this.btnimpresoras.Name = "btnimpresoras";
+            this.btnimpresoras.Size = new System.Drawing.Size(100, 75);
+            this.btnimpresoras.TabIndex = 5;
+            this.btnimpresoras.UseVisualStyleBackColor = true;
+            this.btnimpresoras.Click += new System.EventHandler(this.btnimpresoras_Click);
+            // 
             // Label4
             // 
             this.Label4.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -336,7 +400,7 @@
             this.Panel38.Controls.Add(this.FlowLayoutPanel2);
             this.Panel38.Controls.Add(this.Label35);
             this.Panel38.ForeColor = System.Drawing.Color.Black;
-            this.Panel38.Location = new System.Drawing.Point(20, 152);
+            this.Panel38.Location = new System.Drawing.Point(23, 223);
             this.Panel38.Name = "Panel38";
             this.Panel38.Size = new System.Drawing.Size(867, 166);
             this.Panel38.TabIndex = 593;
@@ -360,6 +424,21 @@
             this.Panel40.Name = "Panel40";
             this.Panel40.Size = new System.Drawing.Size(115, 92);
             this.Panel40.TabIndex = 590;
+            // 
+            // btndiseñador
+            // 
+            this.btndiseñador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btndiseñador.BackgroundImage")));
+            this.btndiseñador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btndiseñador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btndiseñador.FlatAppearance.BorderSize = 0;
+            this.btndiseñador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btndiseñador.ForeColor = System.Drawing.Color.White;
+            this.btndiseñador.Location = new System.Drawing.Point(0, 0);
+            this.btndiseñador.Name = "btndiseñador";
+            this.btndiseñador.Size = new System.Drawing.Size(115, 51);
+            this.btndiseñador.TabIndex = 603;
+            this.btndiseñador.UseVisualStyleBackColor = true;
+            this.btndiseñador.Click += new System.EventHandler(this.btndiseñador_Click);
             // 
             // Label31
             // 
@@ -391,7 +470,7 @@
             this.panel2.Controls.Add(this.Label1);
             this.panel2.Location = new System.Drawing.Point(20, 19);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(867, 127);
+            this.panel2.Size = new System.Drawing.Size(867, 198);
             this.panel2.TabIndex = 0;
             // 
             // FlowLayoutPanel1
@@ -405,10 +484,11 @@
             this.FlowLayoutPanel1.Controls.Add(this.Panel11);
             this.FlowLayoutPanel1.Controls.Add(this.panel13);
             this.FlowLayoutPanel1.Controls.Add(this.panel14);
+            this.FlowLayoutPanel1.Controls.Add(this.panel15);
             this.FlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
             this.FlowLayoutPanel1.Location = new System.Drawing.Point(17, 44);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
-            this.FlowLayoutPanel1.Size = new System.Drawing.Size(853, 78);
+            this.FlowLayoutPanel1.Size = new System.Drawing.Size(853, 151);
             this.FlowLayoutPanel1.TabIndex = 603;
             // 
             // Panel16
@@ -421,6 +501,20 @@
             this.Panel16.Name = "Panel16";
             this.Panel16.Size = new System.Drawing.Size(81, 70);
             this.Panel16.TabIndex = 1;
+            // 
+            // Logo_empresa
+            // 
+            this.Logo_empresa.BackColor = System.Drawing.Color.Transparent;
+            this.Logo_empresa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Logo_empresa.BackgroundImage")));
+            this.Logo_empresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Logo_empresa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Logo_empresa.Location = new System.Drawing.Point(0, 0);
+            this.Logo_empresa.Name = "Logo_empresa";
+            this.Logo_empresa.Size = new System.Drawing.Size(81, 51);
+            this.Logo_empresa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Logo_empresa.TabIndex = 588;
+            this.Logo_empresa.TabStop = false;
+            this.Logo_empresa.Click += new System.EventHandler(this.Logo_empresa_Click);
             // 
             // Label47
             // 
@@ -445,6 +539,21 @@
             this.Panel35.Size = new System.Drawing.Size(81, 70);
             this.Panel35.TabIndex = 590;
             // 
+            // btnusuarios
+            // 
+            this.btnusuarios.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnusuarios.BackgroundImage")));
+            this.btnusuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnusuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnusuarios.FlatAppearance.BorderSize = 0;
+            this.btnusuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnusuarios.ForeColor = System.Drawing.Color.White;
+            this.btnusuarios.Location = new System.Drawing.Point(0, 0);
+            this.btnusuarios.Name = "btnusuarios";
+            this.btnusuarios.Size = new System.Drawing.Size(81, 51);
+            this.btnusuarios.TabIndex = 5;
+            this.btnusuarios.UseVisualStyleBackColor = true;
+            this.btnusuarios.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // Label26
             // 
             this.Label26.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -467,6 +576,21 @@
             this.Panel36.Name = "Panel36";
             this.Panel36.Size = new System.Drawing.Size(81, 70);
             this.Panel36.TabIndex = 592;
+            // 
+            // Button3
+            // 
+            this.Button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button3.BackgroundImage")));
+            this.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Button3.FlatAppearance.BorderSize = 0;
+            this.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button3.ForeColor = System.Drawing.Color.White;
+            this.Button3.Location = new System.Drawing.Point(0, 0);
+            this.Button3.Name = "Button3";
+            this.Button3.Size = new System.Drawing.Size(81, 51);
+            this.Button3.TabIndex = 5;
+            this.Button3.UseVisualStyleBackColor = true;
+            this.Button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // Label27
             // 
@@ -491,6 +615,21 @@
             this.Panel37.Name = "Panel37";
             this.Panel37.Size = new System.Drawing.Size(96, 70);
             this.Panel37.TabIndex = 593;
+            // 
+            // Button4
+            // 
+            this.Button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button4.BackgroundImage")));
+            this.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Button4.FlatAppearance.BorderSize = 0;
+            this.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button4.ForeColor = System.Drawing.Color.White;
+            this.Button4.Location = new System.Drawing.Point(0, 0);
+            this.Button4.Name = "Button4";
+            this.Button4.Size = new System.Drawing.Size(96, 51);
+            this.Button4.TabIndex = 5;
+            this.Button4.UseVisualStyleBackColor = true;
+            this.Button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // Label29
             // 
@@ -523,6 +662,21 @@
             this.Panel9.Size = new System.Drawing.Size(81, 70);
             this.Panel9.TabIndex = 594;
             // 
+            // Button6
+            // 
+            this.Button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button6.BackgroundImage")));
+            this.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Button6.FlatAppearance.BorderSize = 0;
+            this.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button6.ForeColor = System.Drawing.Color.White;
+            this.Button6.Location = new System.Drawing.Point(0, 0);
+            this.Button6.Name = "Button6";
+            this.Button6.Size = new System.Drawing.Size(81, 51);
+            this.Button6.TabIndex = 5;
+            this.Button6.UseVisualStyleBackColor = true;
+            this.Button6.Click += new System.EventHandler(this.Button6_Click);
+            // 
             // Label3
             // 
             this.Label3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -544,6 +698,21 @@
             this.Panel10.Name = "Panel10";
             this.Panel10.Size = new System.Drawing.Size(81, 70);
             this.Panel10.TabIndex = 595;
+            // 
+            // Button8
+            // 
+            this.Button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button8.BackgroundImage")));
+            this.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Button8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Button8.FlatAppearance.BorderSize = 0;
+            this.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button8.ForeColor = System.Drawing.Color.White;
+            this.Button8.Location = new System.Drawing.Point(0, 0);
+            this.Button8.Name = "Button8";
+            this.Button8.Size = new System.Drawing.Size(81, 51);
+            this.Button8.TabIndex = 5;
+            this.Button8.UseVisualStyleBackColor = true;
+            this.Button8.Click += new System.EventHandler(this.Button8_Click);
             // 
             // Label7
             // 
@@ -568,6 +737,21 @@
             this.Panel11.Size = new System.Drawing.Size(98, 70);
             this.Panel11.TabIndex = 596;
             // 
+            // btnproveedores
+            // 
+            this.btnproveedores.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnproveedores.BackgroundImage")));
+            this.btnproveedores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnproveedores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnproveedores.FlatAppearance.BorderSize = 0;
+            this.btnproveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnproveedores.ForeColor = System.Drawing.Color.White;
+            this.btnproveedores.Location = new System.Drawing.Point(0, 0);
+            this.btnproveedores.Name = "btnproveedores";
+            this.btnproveedores.Size = new System.Drawing.Size(98, 51);
+            this.btnproveedores.TabIndex = 5;
+            this.btnproveedores.UseVisualStyleBackColor = true;
+            this.btnproveedores.Click += new System.EventHandler(this.btnproveedores_Click);
+            // 
             // Label8
             // 
             this.Label8.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -590,6 +774,21 @@
             this.panel13.Size = new System.Drawing.Size(98, 70);
             this.panel13.TabIndex = 597;
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::SistemaVentas.Properties.Resources.employee_3_icon_icons_com_76973;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 51);
+            this.button1.TabIndex = 5;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // label10
             // 
             this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -600,6 +799,43 @@
             this.label10.TabIndex = 3;
             this.label10.Text = "Empleados";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Transparent;
+            this.panel14.Controls.Add(this.button2);
+            this.panel14.Controls.Add(this.label11);
+            this.panel14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel14.Location = new System.Drawing.Point(748, 3);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(98, 70);
+            this.panel14.TabIndex = 599;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::SistemaVentas.Properties.Resources.camion_de_reparto;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(98, 51);
+            this.button2.TabIndex = 5;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label11
+            // 
+            this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label11.Location = new System.Drawing.Point(0, 51);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(98, 19);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Vehiculos";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Label1
             // 
@@ -627,28 +863,6 @@
             this.ToolStrip1.TabIndex = 598;
             this.ToolStrip1.Text = "MenuStrip6";
             // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.Transparent;
-            this.panel14.Controls.Add(this.button2);
-            this.panel14.Controls.Add(this.label11);
-            this.panel14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel14.Location = new System.Drawing.Point(748, 3);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(98, 70);
-            this.panel14.TabIndex = 599;
-            // 
-            // label11
-            // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label11.Location = new System.Drawing.Point(0, 51);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(98, 19);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Vehiculos";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnadministrar
             // 
             this.btnadministrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -660,214 +874,42 @@
             this.btnadministrar.Text = "Volver al Administrador";
             this.btnadministrar.Click += new System.EventHandler(this.ToolStripButton22_Click);
             // 
-            // btnRespaldos
+            // panel15
             // 
-            this.btnRespaldos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRespaldos.BackgroundImage")));
-            this.btnRespaldos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRespaldos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRespaldos.FlatAppearance.BorderSize = 0;
-            this.btnRespaldos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRespaldos.ForeColor = System.Drawing.Color.White;
-            this.btnRespaldos.Location = new System.Drawing.Point(0, 0);
-            this.btnRespaldos.Name = "btnRespaldos";
-            this.btnRespaldos.Size = new System.Drawing.Size(157, 47);
-            this.btnRespaldos.TabIndex = 5;
-            this.btnRespaldos.UseVisualStyleBackColor = true;
-            this.btnRespaldos.Click += new System.EventHandler(this.btnRespaldos_Click);
+            this.panel15.BackColor = System.Drawing.Color.Transparent;
+            this.panel15.Controls.Add(this.button5);
+            this.panel15.Controls.Add(this.label12);
+            this.panel15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel15.Location = new System.Drawing.Point(3, 79);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(98, 70);
+            this.panel15.TabIndex = 600;
             // 
-            // btncorreo
+            // button5
             // 
-            this.btncorreo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btncorreo.BackgroundImage")));
-            this.btncorreo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btncorreo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btncorreo.FlatAppearance.BorderSize = 0;
-            this.btncorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncorreo.ForeColor = System.Drawing.Color.White;
-            this.btncorreo.Location = new System.Drawing.Point(0, 0);
-            this.btncorreo.Name = "btncorreo";
-            this.btncorreo.Size = new System.Drawing.Size(157, 47);
-            this.btncorreo.TabIndex = 5;
-            this.btncorreo.UseVisualStyleBackColor = true;
-            this.btncorreo.Click += new System.EventHandler(this.btncorreo_Click);
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(0, 0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(98, 51);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // btnBalanza
+            // label12
             // 
-            this.btnBalanza.BackgroundImage = global::SistemaVentas.Properties.Resources.balanza;
-            this.btnBalanza.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBalanza.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBalanza.FlatAppearance.BorderSize = 0;
-            this.btnBalanza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBalanza.ForeColor = System.Drawing.Color.White;
-            this.btnBalanza.Location = new System.Drawing.Point(0, 0);
-            this.btnBalanza.Name = "btnBalanza";
-            this.btnBalanza.Size = new System.Drawing.Size(118, 87);
-            this.btnBalanza.TabIndex = 5;
-            this.btnBalanza.UseVisualStyleBackColor = true;
-            this.btnBalanza.Click += new System.EventHandler(this.btnBalanza_Click);
-            // 
-            // btnimpresoras
-            // 
-            this.btnimpresoras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnimpresoras.BackgroundImage")));
-            this.btnimpresoras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnimpresoras.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnimpresoras.FlatAppearance.BorderSize = 0;
-            this.btnimpresoras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnimpresoras.ForeColor = System.Drawing.Color.White;
-            this.btnimpresoras.Location = new System.Drawing.Point(0, 0);
-            this.btnimpresoras.Name = "btnimpresoras";
-            this.btnimpresoras.Size = new System.Drawing.Size(100, 75);
-            this.btnimpresoras.TabIndex = 5;
-            this.btnimpresoras.UseVisualStyleBackColor = true;
-            this.btnimpresoras.Click += new System.EventHandler(this.btnimpresoras_Click);
-            // 
-            // btndiseñador
-            // 
-            this.btndiseñador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btndiseñador.BackgroundImage")));
-            this.btndiseñador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btndiseñador.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btndiseñador.FlatAppearance.BorderSize = 0;
-            this.btndiseñador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndiseñador.ForeColor = System.Drawing.Color.White;
-            this.btndiseñador.Location = new System.Drawing.Point(0, 0);
-            this.btndiseñador.Name = "btndiseñador";
-            this.btndiseñador.Size = new System.Drawing.Size(115, 51);
-            this.btndiseñador.TabIndex = 603;
-            this.btndiseñador.UseVisualStyleBackColor = true;
-            this.btndiseñador.Click += new System.EventHandler(this.btndiseñador_Click);
-            // 
-            // Logo_empresa
-            // 
-            this.Logo_empresa.BackColor = System.Drawing.Color.Transparent;
-            this.Logo_empresa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Logo_empresa.BackgroundImage")));
-            this.Logo_empresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Logo_empresa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Logo_empresa.Location = new System.Drawing.Point(0, 0);
-            this.Logo_empresa.Name = "Logo_empresa";
-            this.Logo_empresa.Size = new System.Drawing.Size(81, 51);
-            this.Logo_empresa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Logo_empresa.TabIndex = 588;
-            this.Logo_empresa.TabStop = false;
-            this.Logo_empresa.Click += new System.EventHandler(this.Logo_empresa_Click);
-            // 
-            // btnusuarios
-            // 
-            this.btnusuarios.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnusuarios.BackgroundImage")));
-            this.btnusuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnusuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnusuarios.FlatAppearance.BorderSize = 0;
-            this.btnusuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnusuarios.ForeColor = System.Drawing.Color.White;
-            this.btnusuarios.Location = new System.Drawing.Point(0, 0);
-            this.btnusuarios.Name = "btnusuarios";
-            this.btnusuarios.Size = new System.Drawing.Size(81, 51);
-            this.btnusuarios.TabIndex = 5;
-            this.btnusuarios.UseVisualStyleBackColor = true;
-            this.btnusuarios.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // Button3
-            // 
-            this.Button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button3.BackgroundImage")));
-            this.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Button3.FlatAppearance.BorderSize = 0;
-            this.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button3.ForeColor = System.Drawing.Color.White;
-            this.Button3.Location = new System.Drawing.Point(0, 0);
-            this.Button3.Name = "Button3";
-            this.Button3.Size = new System.Drawing.Size(81, 51);
-            this.Button3.TabIndex = 5;
-            this.Button3.UseVisualStyleBackColor = true;
-            this.Button3.Click += new System.EventHandler(this.Button3_Click);
-            // 
-            // Button4
-            // 
-            this.Button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button4.BackgroundImage")));
-            this.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Button4.FlatAppearance.BorderSize = 0;
-            this.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button4.ForeColor = System.Drawing.Color.White;
-            this.Button4.Location = new System.Drawing.Point(0, 0);
-            this.Button4.Name = "Button4";
-            this.Button4.Size = new System.Drawing.Size(96, 51);
-            this.Button4.TabIndex = 5;
-            this.Button4.UseVisualStyleBackColor = true;
-            this.Button4.Click += new System.EventHandler(this.Button4_Click);
-            // 
-            // Button6
-            // 
-            this.Button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button6.BackgroundImage")));
-            this.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Button6.FlatAppearance.BorderSize = 0;
-            this.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button6.ForeColor = System.Drawing.Color.White;
-            this.Button6.Location = new System.Drawing.Point(0, 0);
-            this.Button6.Name = "Button6";
-            this.Button6.Size = new System.Drawing.Size(81, 51);
-            this.Button6.TabIndex = 5;
-            this.Button6.UseVisualStyleBackColor = true;
-            this.Button6.Click += new System.EventHandler(this.Button6_Click);
-            // 
-            // Button8
-            // 
-            this.Button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button8.BackgroundImage")));
-            this.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Button8.FlatAppearance.BorderSize = 0;
-            this.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button8.ForeColor = System.Drawing.Color.White;
-            this.Button8.Location = new System.Drawing.Point(0, 0);
-            this.Button8.Name = "Button8";
-            this.Button8.Size = new System.Drawing.Size(81, 51);
-            this.Button8.TabIndex = 5;
-            this.Button8.UseVisualStyleBackColor = true;
-            this.Button8.Click += new System.EventHandler(this.Button8_Click);
-            // 
-            // btnproveedores
-            // 
-            this.btnproveedores.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnproveedores.BackgroundImage")));
-            this.btnproveedores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnproveedores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnproveedores.FlatAppearance.BorderSize = 0;
-            this.btnproveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnproveedores.ForeColor = System.Drawing.Color.White;
-            this.btnproveedores.Location = new System.Drawing.Point(0, 0);
-            this.btnproveedores.Name = "btnproveedores";
-            this.btnproveedores.Size = new System.Drawing.Size(98, 51);
-            this.btnproveedores.TabIndex = 5;
-            this.btnproveedores.UseVisualStyleBackColor = true;
-            this.btnproveedores.Click += new System.EventHandler(this.btnproveedores_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::SistemaVentas.Properties.Resources.employee_3_icon_icons_com_76973;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 51);
-            this.button1.TabIndex = 5;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::SistemaVentas.Properties.Resources.camion_de_reparto;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 51);
-            this.button2.TabIndex = 5;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label12.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label12.Location = new System.Drawing.Point(0, 51);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(98, 19);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Impuestos";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PANEL_CONFIGURACIONES
             // 
@@ -906,6 +948,7 @@
             this.panel2.PerformLayout();
             this.FlowLayoutPanel1.ResumeLayout(false);
             this.Panel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Logo_empresa)).EndInit();
             this.Panel35.ResumeLayout(false);
             this.Panel36.ResumeLayout(false);
             this.Panel37.ResumeLayout(false);
@@ -914,10 +957,10 @@
             this.Panel10.ResumeLayout(false);
             this.Panel11.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
             this.ToolStrip1.ResumeLayout(false);
             this.ToolStrip1.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Logo_empresa)).EndInit();
+            this.panel15.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -985,5 +1028,8 @@
         internal System.Windows.Forms.Panel panel14;
         internal System.Windows.Forms.Button button2;
         internal System.Windows.Forms.Label label11;
+        internal System.Windows.Forms.Panel panel15;
+        internal System.Windows.Forms.Button button5;
+        internal System.Windows.Forms.Label label12;
     }
 }

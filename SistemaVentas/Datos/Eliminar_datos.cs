@@ -85,6 +85,26 @@ namespace SistemaVentas.Datos
 
         }
 
+        public static void eliminarImpuesto(int idImpuesto)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("eliminarImpuesto", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idImpuesto", idImpuesto);
+
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+        }
+
+
 
         public static void eliminar_ingreso(int idingreso)
         {

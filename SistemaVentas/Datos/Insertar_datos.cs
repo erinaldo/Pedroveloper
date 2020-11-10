@@ -96,6 +96,26 @@ namespace SistemaVentas.Datos
             }
         }
 
+        public bool insertarImpuesto(LImpuesto parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarImpuesto", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", parametros.nombre);
+                cmd.Parameters.AddWithValue("@Impuesto", parametros.impuesto);
+                cmd.Parameters.AddWithValue("@Tipo", parametros.Tipo);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+        }
+
 
         public bool insertarTipoTelefono(LTelefono parametros)
         {

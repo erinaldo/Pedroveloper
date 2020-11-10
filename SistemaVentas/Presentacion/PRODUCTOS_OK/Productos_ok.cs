@@ -37,7 +37,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
             PANELREGISTRO.Visible = true;
             PANELINFOR.Visible = true;
-            correcto.Visible = false;
             LIMPIAR();
             //PANELDEPARTAMENTO.Visible = true;
             /* CheckInventarios.Checked = true;
@@ -1878,8 +1877,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void cuadrado_Click(object sender, EventArgs e)
         {
-            cuadrado.Visible = false;
-            correcto.Visible = true;
             txtPrecioCompra.Focus();
             txtPrecioCompra.SelectAll();
             chkImpuestos.Checked = true;
@@ -1889,9 +1886,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             txtPrecioCompra.Focus();
             txtPrecioCompra.SelectAll();
-            cuadrado.Visible = true;
             chkImpuestos.Checked = false;
-            correcto.Visible = false;
         }
 
       /*  if(chkImpuestos.Checked == true)
@@ -1959,7 +1954,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void timerCalcularItbis_Tick(object sender, EventArgs e)
         {
-            
 
         }
 

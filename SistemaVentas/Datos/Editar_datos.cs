@@ -49,6 +49,30 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
+        public bool editarImpuestos(LImpuesto parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarEmpleado", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idImpuesto", parametros.idImpuesto);
+                cmd.Parameters.AddWithValue("@nombre", parametros.nombre);
+                cmd.Parameters.AddWithValue("@impuesto", parametros.impuesto);
+                cmd.Parameters.AddWithValue("@tipoImpuesto", parametros.Tipo);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return true;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
         public bool editarVehiculos(LVehiculos parametros)
         {
             try

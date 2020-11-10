@@ -40,12 +40,29 @@ namespace SistemaVentas.Datos
         }
         
 
+        public static void mostrarImpuestos(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarImpuestos", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
+
         public static void buscarDireccion(ref DataTable dt, string buscador)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("buscarDireccion", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("buscarImpuestos", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letra", buscador);
                 da.Fill(dt);
@@ -57,6 +74,7 @@ namespace SistemaVentas.Datos
 
             }
         }
+
         public static void buscarTipoTelefono(ref DataTable dt, string buscador)
         {
             try
@@ -1048,6 +1066,22 @@ namespace SistemaVentas.Datos
             {
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("buscar_clientes", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@letra", buscador);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+        public static void buscarImpuestos(ref DataTable dt, string buscador)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("buscarImpuestos", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letra", buscador);
                 da.Fill(dt);
