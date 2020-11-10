@@ -29,12 +29,15 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private int idUnidadCompra;
         private int idClaveSatCompra;
         public int idClaveSat;
+        double itbis;
+
+        bool banderaItbis = false;
         private void PictureBox2_Click(object sender, EventArgs e)
         {
 
             PANELREGISTRO.Visible = true;
             PANELINFOR.Visible = true;
-
+            correcto.Visible = false;
             LIMPIAR();
             //PANELDEPARTAMENTO.Visible = true;
             /* CheckInventarios.Checked = true;
@@ -93,7 +96,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             txtidproducto.Text = "";
             txtdescripcion.Text = "";
-            txtcosto.Text = "0";
+            txtPrecioCompra.Text = "0";
             TXTPRECIODEVENTA2.Text = "0";
             // txtpreciomayoreo.Text = "0";
             txtCategoria.Text = "";
@@ -112,8 +115,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void Productos_ok_Load(object sender, EventArgs e)
         {
+            //chkListaItbis.CheckOnClick = true;
             ObtenerImpuestos();
-           mostrarImpuestos();
             PANELREGISTRO.Visible = false;
             panelProveedor.Visible = false;
             datalistadoCategoriasInformacionBasicaPanel.Visible = false;
@@ -242,20 +245,20 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void TGUARDAR_Click_1(object sender, EventArgs e)
         {
-            /*TextBox[] array = {  txtdescripcion, txtcodigodebarras, txtcosto, TXTPRECIODEVENTA2, txtgrupo };
+            /*TextBox[] array = {  txtdescripcion, txtcodigodebarras, txtPrecioCompra, TXTPRECIODEVENTA2, txtgrupo };
              if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
              {
-                 if(txtstock2.Text != "0" && txtcosto.Text !="0" && TXTPRECIODEVENTA2.Text != "0")
+                 if(txtstock2.Text != "0" && txtPrecioCompra.Text !="0" && TXTPRECIODEVENTA2.Text != "0")
                  {
                     // double txtpreciomayoreoV = Convert.ToDouble(txtpreciomayoreo.Text);
                      double txtapartirdeV = Convert.ToDouble(txtapartirde.Text);
-                     double txtcostoV = Convert.ToDouble(txtcosto.Text);
+                     double txtPrecioCompraV = Convert.ToDouble(txtPrecioCompra.Text);
                      double TXTPRECIODEVENTA2V = Convert.ToDouble(TXTPRECIODEVENTA2.Text);
                     // if (txtpreciomayoreo.Text == "") txtpreciomayoreo.Text = "0";
                      if (txtapartirde.Text == "") txtapartirde.Text = "0";
                     // if ((txtpreciomayoreoV > 0 & Convert.ToDouble(txtapartirde.Text) > 0) | (txtpreciomayoreoV == 0 & txtapartirdeV == 0))
                     // {
-                         if (txtcostoV >= TXTPRECIODEVENTA2V)
+                         if (txtPrecioCompraV >= TXTPRECIODEVENTA2V)
                          {
 
                              DialogResult result;
@@ -267,9 +270,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                                  TXTPRECIODEVENTA2.SelectAll();
                              }
                          }
-                         else if (txtcostoV < TXTPRECIODEVENTA2V)
+                         else if (txtPrecioCompraV < TXTPRECIODEVENTA2V)
                          {
-                             if(Convert.ToDouble(txtpreciomayoreo.Text) <= Convert.ToDouble(txtcosto.Text) && 
+                             if(Convert.ToDouble(txtpreciomayoreo.Text) <= Convert.ToDouble(txtPrecioCompra.Text) && 
                                  (Convert.ToDouble(txtpreciomayoreo.Text) != 0 || Convert.ToDouble(txtpreciomayoreo.Text) != 0.00))
                              {
 
@@ -317,7 +320,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                      cmd.CommandType = CommandType.StoredProcedure;
                      cmd.Parameters.AddWithValue("@Descripcion", txtdescripcion.Text);
                      cmd.Parameters.AddWithValue("@Imagen", ".");
-                     cmd.Parameters.AddWithValue("@Precio_de_compra", txtcosto.Text);
+                     cmd.Parameters.AddWithValue("@Precio_de_compra", txtPrecioCompra.Text);
                      cmd.Parameters.AddWithValue("@precio_de_factura", TXTPRECIODEVENTA2.Text);
                      cmd.Parameters.AddWithValue("@Codigo", txtcodigodebarras.Text);
                      cmd.Parameters.AddWithValue("@A_partir_de", txtapartirde.Text);
@@ -392,7 +395,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 cmd.Parameters.AddWithValue("@Descripcion", txtdescripcion.Text);
                 cmd.Parameters.AddWithValue("@Imagen", ".");
 
-                cmd.Parameters.AddWithValue("@Precio_de_compra", txtcosto.Text);
+                cmd.Parameters.AddWithValue("@Precio_de_compra", txtPrecioCompra.Text);
                 cmd.Parameters.AddWithValue("@precio_de_factura", TXTPRECIODEVENTA2.Text);
                 cmd.Parameters.AddWithValue("@Codigo", txtcodigodebarras.Text);
                 cmd.Parameters.AddWithValue("@A_partir_de", txtapartirde.Text);
@@ -447,7 +450,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void buscar()
         {
-            try
+            /*try
             {
                 DataTable dt = new DataTable();
                 SqlDataAdapter da;
@@ -476,7 +479,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
 
             Bases.Multilinea(ref datalistado);
-            sumar_costo_de_inventario_CONTAR_PRODUCTOS();
+            sumar_costo_de_inventario_CONTAR_PRODUCTOS();*/
         }
         internal void sumar_costo_de_inventario_CONTAR_PRODUCTOS()
         {
@@ -680,7 +683,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void txtdescripcion_TextChanged_1(object sender, EventArgs e)
         {
 
-            mostrar_descripcion_produco_sin_repetir();
+           /* mostrar_descripcion_produco_sin_repetir();
             contar();
 
 
@@ -695,7 +698,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             if (TGUARDAR.Visible == false)
             {
                 DATALISTADO_PRODUCTOS_OKA.Visible = false;
-            }
+            }*/
         }
 
         private void DATALISTADO_PRODUCTOS_OKA_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -720,11 +723,11 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 #pragma warning disable CS0414 // El campo 'Productos_ok.SECUENCIA' está asignado pero su valor nunca se usa
         bool SECUENCIA = true;
 #pragma warning restore CS0414 // El campo 'Productos_ok.SECUENCIA' está asignado pero su valor nunca se usa
-        private void txtcosto_TextChanged_1(object sender, EventArgs e)
+        private void txtPrecioCompra_TextChanged_1(object sender, EventArgs e)
         {
             //if (SECUENCIA == true)
             //{
-            //    txtcosto .Text = txtcosto.Text + ".";
+            //    txtPrecioCompra .Text = txtPrecioCompra.Text + ".";
             //    SECUENCIA = false;
             //}
             //else
@@ -738,7 +741,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void txtcosto_KeyPress_1(object sender, KeyPressEventArgs e)
         {
 
-            Bases.Separador_de_Numeros(txtcosto, e);
+            Bases.Separador_de_Numeros(txtPrecioCompra, e);
 
         }
 
@@ -753,12 +756,12 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             /*TextBox[] array = { txtpreciomayoreo, txtdescripcion, txtcodigodebarras, txtcosto, TXTPRECIODEVENTA2, txtpreciomayoreo, txtgrupo };
              if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
              {
-                 if (txtstock2.Text != "0" && txtcosto.Text != "0" && TXTPRECIODEVENTA2.Text != "0")
+                 if (txtstock2.Text != "0" && txtPrecioCompra.Text != "0" && TXTPRECIODEVENTA2.Text != "0")
                  {
                      double txtpreciomayoreoV = Convert.ToDouble(txtpreciomayoreo.Text);
 
                      double txtapartirdeV = Convert.ToDouble(txtapartirde.Text);
-                     double txtcostoV = Convert.ToDouble(txtcosto.Text);
+                     double txtPrecioCompraV = Convert.ToDouble(txtPrecioCompra.Text);
                      double TXTPRECIODEVENTA2V = Convert.ToDouble(TXTPRECIODEVENTA2.Text);
                      if (txtpreciomayoreo.Text == "") txtpreciomayoreo.Text = "0";
                      if (txtapartirde.Text == "") txtapartirde.Text = "0";
@@ -766,7 +769,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                      //TXTPRECIODEVENTA2.Text = System.String.Format(((decimal)TXTPRECIODEVENTA2.Text), "##0.00");
                      if ((txtpreciomayoreoV > 0 & Convert.ToDouble(txtapartirde.Text) > 0) | (txtpreciomayoreoV == 0 & txtapartirdeV == 0))
                      {
-                         if (txtcostoV >= TXTPRECIODEVENTA2V)
+                         if (txtPrecioCompraV >= TXTPRECIODEVENTA2V)
                          {
 
                              DialogResult result;
@@ -778,9 +781,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                                  TXTPRECIODEVENTA2.SelectAll();
                              }
                          }
-                         else if (txtcostoV < TXTPRECIODEVENTA2V)
+                         else if (txtPrecioCompraV < TXTPRECIODEVENTA2V)
                          {
-                             if (Convert.ToDouble(txtpreciomayoreo.Text) <= Convert.ToDouble(txtcosto.Text) &&
+                             if (Convert.ToDouble(txtpreciomayoreo.Text) <= Convert.ToDouble(txtPrecioCompra.Text) &&
                                  (Convert.ToDouble(txtpreciomayoreo.Text) != 0 || Convert.ToDouble(txtpreciomayoreo.Text) != 0.00))
                              {
 
@@ -856,7 +859,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
 
 
-                txtcosto.Text = datalistado.SelectedCells[8].Value.ToString();
+                txtPrecioCompra.Text = datalistado.SelectedCells[8].Value.ToString();
                 //txtpreciomayoreo.Text = datalistado.SelectedCells[9].Value.ToString();
                 LBLSEVENDEPOR.Text = datalistado.SelectedCells[10].Value.ToString();
                 if (LBLSEVENDEPOR.Text == "Unidad")
@@ -885,9 +888,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                     double TotalVentaVariabledouble;
                     double TXTPRECIODEVENTA2V = Convert.ToDouble(TXTPRECIODEVENTA2.Text);
-                    double txtcostov = Convert.ToDouble(txtcosto.Text);
+                    double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
 
-                    TotalVentaVariabledouble = ((TXTPRECIODEVENTA2V - txtcostov) / (txtcostov)) * 100;
+                    TotalVentaVariabledouble = ((TXTPRECIODEVENTA2V - txtPrecioComprav) / (txtPrecioComprav)) * 100;
 
                     if (TotalVentaVariabledouble > 0)
                     {
@@ -1064,9 +1067,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 double TotalVentaVariabledouble;
                 double TXTPRECIODEVENTA2V = Convert.ToDouble(TXTPRECIODEVENTA2.Text);
-                double txtcostov = Convert.ToDouble(txtcosto.Text);
+                double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
 
-                TotalVentaVariabledouble = ((TXTPRECIODEVENTA2V - txtcostov) / (txtcostov)) * 100;
+                TotalVentaVariabledouble = ((TXTPRECIODEVENTA2V - txtPrecioComprav) / (txtPrecioComprav)) * 100;
 
                 if (TotalVentaVariabledouble > 0)
                 {
@@ -1094,10 +1097,10 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             try
             {
                 double TotalVentaVariabledouble;
-                double txtcostov = Convert.ToDouble(txtcosto.Text);
+                double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
                 double txtPorcentajeGananciav = Convert.ToDouble(txtPorcentajeGanancia.Text);
 
-                TotalVentaVariabledouble = txtcostov + ((txtcostov * txtPorcentajeGananciav) / 100);
+                TotalVentaVariabledouble = txtPrecioComprav + ((txtPrecioComprav * txtPorcentajeGananciav) / 100);
 
                 if (TotalVentaVariabledouble > 0 & txtPorcentajeGanancia.Focused == true)
                 {
@@ -1790,6 +1793,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelInformacionBasica.Visible = true;
             panelInformacionBasica.Location = new Point(36, 1);
             panelInformacionBasica.Size = new Size(979, 634);
+            CalcularItbis();
         }
 
         private void btnCancelarRegistro_Click(object sender, EventArgs e)
@@ -1833,7 +1837,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 con.Close();
                 datalistadoImpuestos.DataSource = dt;
                 datalistadoImpuestos.Columns[0].Visible = false;
-               datalistadoImpuestos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                datalistadoImpuestos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 datalistadoImpuestos.Columns[4].Visible = false;
             }
             catch (Exception ex)
@@ -1843,41 +1847,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
             Bases.Multilinea(ref datalistadoImpuestos);
         }
-        private void mostrarImpuestos()
-        {
-            chkListaItbis.Items.Clear();
-            string nombreImpuesto;
-            foreach (DataGridViewRow fila in datalistadoImpuestos.Rows)
-            {
-                nombreImpuesto = Convert.ToString(fila.Cells["nombre"].Value);
-                chkListaItbis.Items.Add(nombreImpuesto);
-            }
-        }
 
-        private void chkListaItbis_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void chkListaItbis_SelectedValueChanged(object sender, EventArgs e)
-        {
-            int indice = chkListaItbis.SelectedIndex;
-
-            if (indice != -1)
-            {
-                if (chkListaItbis.GetItemChecked(indice) == true)
-                {
-                   // MessageBox.Show(chkListaItbis.Items[indice].ToString());
-                }
-
-                foreach(string s in chkListaItbis.CheckedItems)
-                {
-                    //MessageBox.Show(s);
-                    ObtenerImpuestos(s);
-                }
-            }
-        }
-
+        /*
         private void ObtenerImpuestos(string nombreImpuesto)
         {
             try
@@ -1901,7 +1872,102 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistadoImpuestosObtenidos);
+           Bases.Multilinea(ref datalistadoImpuestosObtenidos);
+        }
+    */
+
+        private void cuadrado_Click(object sender, EventArgs e)
+        {
+            cuadrado.Visible = false;
+            correcto.Visible = true;
+            txtPrecioCompra.Focus();
+            txtPrecioCompra.SelectAll();
+            chkImpuestos.Checked = true;
+        }
+
+        private void correcto_Click(object sender, EventArgs e)
+        {
+            txtPrecioCompra.Focus();
+            txtPrecioCompra.SelectAll();
+            cuadrado.Visible = true;
+            chkImpuestos.Checked = false;
+            correcto.Visible = false;
+        }
+
+      /*  if(chkImpuestos.Checked == true)
+            {
+                try
+                {
+                    double totalImpuesto;
+        double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
+        totalImpuesto = txtPrecioComprav* itbis;
+        MessageBox.Show(totalImpuesto.ToString());
+                    if (totalImpuesto > 0 && txtPrecioCompra.Focused == true)
+                    {
+                        txtPrecioCompra.Text = Convert.ToString(totalImpuesto);
+                    }
+                    else
+                    {
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+      MessageBox.Show("1");
+            timerCalcularItbis.Start();
+            
+            timerCalcularItbis.Stop();
+       try
+            {
+
+                double TotalVentaVariabledouble;
+                double TXTPRECIODEVENTA2V = Convert.ToDouble(TXTPRECIODEVENTA2.Text);
+                double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
+
+                TotalVentaVariabledouble = ((TXTPRECIODEVENTA2V - txtPrecioComprav) / (txtPrecioComprav)) * 100;
+
+                if (TotalVentaVariabledouble > 0)
+                {
+                    this.txtPorcentajeGanancia.Text = Convert.ToString(TotalVentaVariabledouble);
+                }
+                else
+                {
+                    //Me.txtPorcentajeGanancia.Text = 0
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+      */
+        private void txtPrecioCompra_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CalcularItbis()
+        {
+            foreach (DataGridViewRow row in datalistadoImpuestos.Rows)
+            {
+                itbis += Convert.ToDouble(row.Cells["Itbis"].Value);
+            }
+        }
+
+        private void timerCalcularItbis_Tick(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void TXTPRECIODEVENTA2_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }
+ 
+ 
