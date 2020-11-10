@@ -252,7 +252,7 @@ namespace SistemaVentas.Presentacion.Impuestos
         {
             LImpuesto parametros = new LImpuesto();
             parametros.idImpuesto = idImpuesto;
-            Eliminar_datos.eliminarEmpleado(idImpuesto);
+            Eliminar_datos.eliminarImpuesto(idImpuesto);
             mostrar();
         }
 

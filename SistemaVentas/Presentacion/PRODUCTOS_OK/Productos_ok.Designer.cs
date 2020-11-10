@@ -237,8 +237,8 @@
             this.UnidadMultiplicada1 = new System.Windows.Forms.Label();
             this.UnidadMultiplicada3 = new System.Windows.Forms.Label();
             this.UnidadMultiplicada2 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtVenta = new System.Windows.Forms.TextBox();
+            this.txtPrecioCompraImpuestos = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.txtPrecioCompra = new System.Windows.Forms.TextBox();
@@ -400,6 +400,7 @@
             this.ToolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label59 = new System.Windows.Forms.Label();
             this.Panel3.SuspendLayout();
             this.Panel27.SuspendLayout();
             this.PANELDEPARTAMENTO.SuspendLayout();
@@ -2589,12 +2590,14 @@
             // 
             // panel12
             // 
+            this.panel12.Controls.Add(this.label59);
+            this.panel12.Controls.Add(this.chkImpuestos);
             this.panel12.Controls.Add(this.label22);
             this.panel12.Controls.Add(this.UnidadMultiplicada1);
             this.panel12.Controls.Add(this.UnidadMultiplicada3);
             this.panel12.Controls.Add(this.UnidadMultiplicada2);
-            this.panel12.Controls.Add(this.textBox6);
-            this.panel12.Controls.Add(this.textBox5);
+            this.panel12.Controls.Add(this.txtVenta);
+            this.panel12.Controls.Add(this.txtPrecioCompraImpuestos);
             this.panel12.Controls.Add(this.label19);
             this.panel12.Controls.Add(this.Label2);
             this.panel12.Controls.Add(this.txtPrecioCompra);
@@ -2602,7 +2605,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 245);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(919, 140);
+            this.panel12.Size = new System.Drawing.Size(919, 147);
             this.panel12.TabIndex = 624;
             // 
             // label22
@@ -2652,29 +2655,29 @@
             this.UnidadMultiplicada2.TabIndex = 660;
             this.UnidadMultiplicada2.Text = "x PZA";
             // 
-            // textBox6
+            // txtVenta
             // 
-            this.textBox6.BackColor = System.Drawing.Color.White;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.ForeColor = System.Drawing.Color.Black;
-            this.textBox6.Location = new System.Drawing.Point(485, 94);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(149, 26);
-            this.textBox6.TabIndex = 659;
-            this.textBox6.Text = "0";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtVenta.BackColor = System.Drawing.Color.White;
+            this.txtVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtVenta.ForeColor = System.Drawing.Color.Black;
+            this.txtVenta.Location = new System.Drawing.Point(485, 94);
+            this.txtVenta.Name = "txtVenta";
+            this.txtVenta.Size = new System.Drawing.Size(149, 26);
+            this.txtVenta.TabIndex = 659;
+            this.txtVenta.Text = "0";
+            this.txtVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox5
+            // txtPrecioCompraImpuestos
             // 
-            this.textBox5.BackColor = System.Drawing.Color.White;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.ForeColor = System.Drawing.Color.Black;
-            this.textBox5.Location = new System.Drawing.Point(263, 94);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(149, 26);
-            this.textBox5.TabIndex = 658;
-            this.textBox5.Text = "0";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPrecioCompraImpuestos.BackColor = System.Drawing.Color.White;
+            this.txtPrecioCompraImpuestos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrecioCompraImpuestos.ForeColor = System.Drawing.Color.Black;
+            this.txtPrecioCompraImpuestos.Location = new System.Drawing.Point(263, 94);
+            this.txtPrecioCompraImpuestos.Name = "txtPrecioCompraImpuestos";
+            this.txtPrecioCompraImpuestos.Size = new System.Drawing.Size(149, 26);
+            this.txtPrecioCompraImpuestos.TabIndex = 658;
+            this.txtPrecioCompraImpuestos.Text = "0";
+            this.txtPrecioCompraImpuestos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label19
             // 
@@ -2682,7 +2685,7 @@
             this.label19.BackColor = System.Drawing.Color.White;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Gray;
-            this.label19.Location = new System.Drawing.Point(321, 73);
+            this.label19.Location = new System.Drawing.Point(262, 73);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(187, 15);
             this.label19.TabIndex = 656;
@@ -2783,7 +2786,6 @@
             // 
             // panel213
             // 
-            this.panel213.Controls.Add(this.chkImpuestos);
             this.panel213.Controls.Add(this.datalistadoImpuestos);
             this.panel213.Controls.Add(this.panel2);
             this.panel213.Controls.Add(this.panel14);
@@ -2812,13 +2814,13 @@
             // 
             // chkImpuestos
             // 
-            this.chkImpuestos.AutoSize = true;
-            this.chkImpuestos.Location = new System.Drawing.Point(230, 36);
+            this.chkImpuestos.Location = new System.Drawing.Point(42, 57);
             this.chkImpuestos.Name = "chkImpuestos";
-            this.chkImpuestos.Size = new System.Drawing.Size(106, 24);
+            this.chkImpuestos.Size = new System.Drawing.Size(152, 32);
             this.chkImpuestos.TabIndex = 627;
-            this.chkImpuestos.Text = "checkBox4";
+            this.chkImpuestos.Text = "AplicarImpuestos";
             this.chkImpuestos.UseVisualStyleBackColor = true;
+            this.chkImpuestos.CheckedChanged += new System.EventHandler(this.chkImpuestos_CheckedChanged);
             // 
             // datalistadoImpuestos
             // 
@@ -4750,6 +4752,18 @@
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
             // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.BackColor = System.Drawing.Color.White;
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.ForeColor = System.Drawing.Color.Gray;
+            this.label59.Location = new System.Drawing.Point(262, 123);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(191, 15);
+            this.label59.TabIndex = 665;
+            this.label59.Text = "Precio de Compra Con Impuestos";
+            // 
             // Productos_ok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5097,8 +5111,8 @@
         private System.Windows.Forms.Panel panel12;
         internal System.Windows.Forms.Label UnidadMultiplicada3;
         internal System.Windows.Forms.Label UnidadMultiplicada2;
-        internal System.Windows.Forms.TextBox textBox6;
-        internal System.Windows.Forms.TextBox textBox5;
+        internal System.Windows.Forms.TextBox txtVenta;
+        internal System.Windows.Forms.TextBox txtPrecioCompraImpuestos;
         internal System.Windows.Forms.Label label19;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.TextBox txtPrecioCompra;
@@ -5250,5 +5264,6 @@
         private System.Windows.Forms.Label label21;
         internal System.Windows.Forms.Label label22;
         private System.Windows.Forms.CheckBox chkImpuestos;
+        internal System.Windows.Forms.Label label59;
     }
 }

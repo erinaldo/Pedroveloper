@@ -38,6 +38,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             PANELREGISTRO.Visible = true;
             PANELINFOR.Visible = true;
             LIMPIAR();
+            chkImpuestos.Checked = true;
             //PANELDEPARTAMENTO.Visible = true;
             /* CheckInventarios.Checked = true;
              PANELINVENTARIO.Visible = true;*/
@@ -116,6 +117,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             //chkListaItbis.CheckOnClick = true;
             ObtenerImpuestos();
+            
+            //Visible
             PANELREGISTRO.Visible = false;
             panelProveedor.Visible = false;
             datalistadoCategoriasInformacionBasicaPanel.Visible = false;
@@ -123,10 +126,13 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelCategoria.Visible = false;
             panelUnidad.Visible = false;
             panelClaveUnidadSat.Visible = false;
-            txtDepartamento.Enabled = false;
             panelCategoriaAgregar.Visible = false;
             PANELINFOR.Visible = false;
 
+            //Enabled
+            txtDepartamento.Enabled = false;
+            txtVenta.Enabled = false;
+            txtPrecioCompraImpuestos.Enabled = false;
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
             Obtener_datos.Obtener_id_caja_PorSerial(ref idcaja);
 
@@ -1889,17 +1895,78 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             chkImpuestos.Checked = false;
         }
 
-      /*  if(chkImpuestos.Checked == true)
+
+        private void txtPrecioCompra_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPrecioCompra.Text != "")
+            {
+                if (chkImpuestos.Checked == true)
+                {
+                    try
+                    {
+                        double totalImpuesto;
+                        double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
+                        totalImpuesto = txtPrecioComprav * itbis;
+
+                        if (totalImpuesto >= 0 && txtPrecioCompra.Focused == true)
+                        {
+                            double total = totalImpuesto + Convert.ToDouble(txtPrecioCompra.Text);
+                            txtPrecioCompraImpuestos.Text = total.ToString();
+                            txtVenta.Text = txtPrecioCompraImpuestos.Text;
+                        }
+                        else
+                        {
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                txtPrecioCompraImpuestos.Text = txtPrecioCompra.Text;
+            }
+        }
+
+        private void CalcularItbis()
+        {
+            foreach (DataGridViewRow row in datalistadoImpuestos.Rows)
+            {
+                itbis += Convert.ToDouble(row.Cells["Itbis"].Value);
+            }
+        }
+
+        private void timerCalcularItbis_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TXTPRECIODEVENTA2_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void chkImpuestos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkImpuestos.Checked == false)
+            {
+                txtPrecioCompraImpuestos.Text = txtPrecioCompra.Text;
+            }
+            else if(chkImpuestos.Checked == true)
             {
                 try
                 {
                     double totalImpuesto;
-        double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
-        totalImpuesto = txtPrecioComprav* itbis;
-        MessageBox.Show(totalImpuesto.ToString());
-                    if (totalImpuesto > 0 && txtPrecioCompra.Focused == true)
+                    double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
+                    totalImpuesto = txtPrecioComprav * itbis;
+
+                    if (totalImpuesto >= 0)
                     {
-                        txtPrecioCompra.Text = Convert.ToString(totalImpuesto);
+                        double total = totalImpuesto + Convert.ToDouble(txtPrecioCompra.Text);
+                        txtPrecioCompraImpuestos.Text = total.ToString();
+                        txtVenta.Text = txtPrecioCompraImpuestos.Text;
                     }
                     else
                     {
@@ -1910,6 +1977,10 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                     MessageBox.Show(ex.Message);
                 }
             }
+
+            /*  if(chkImpuestos.Checked == true)
+            {
+               
       MessageBox.Show("1");
             timerCalcularItbis.Start();
             
@@ -1939,27 +2010,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
             }
       */
-        private void txtPrecioCompra_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void CalcularItbis()
-        {
-            foreach (DataGridViewRow row in datalistadoImpuestos.Rows)
-            {
-                itbis += Convert.ToDouble(row.Cells["Itbis"].Value);
-            }
-        }
-
-        private void timerCalcularItbis_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TXTPRECIODEVENTA2_TextChanged(object sender, EventArgs e)
-        {
-           
         }
     }
 }
