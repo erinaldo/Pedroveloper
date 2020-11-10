@@ -54,7 +54,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("editarEmpleado", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("editarImpuesto", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idImpuesto", parametros.idImpuesto);
                 cmd.Parameters.AddWithValue("@nombre", parametros.nombre);

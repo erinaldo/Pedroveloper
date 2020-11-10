@@ -36,7 +36,7 @@ namespace SistemaVentas.Presentacion.Impuestos
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -52,7 +52,6 @@ namespace SistemaVentas.Presentacion.Impuestos
             TextBox[] array = { txtnombre, txtImpuesto};
             if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
-
                 insertar();
                 rellenarCamposVacios();
             }
@@ -69,18 +68,25 @@ namespace SistemaVentas.Presentacion.Impuestos
 
         public void insertarImpuestos()
         {
+            double porciento = calcularPorciento();
             LImpuesto parametros = new LImpuesto();
             Insertar_datos funcion = new Insertar_datos();
 
             parametros.nombre = txtnombre.Text;
-            parametros.impuesto = Convert.ToDouble(txtImpuesto.Text);
+            parametros.impuesto = porciento;
             parametros.Tipo = txtTipo.Text;
-
-            if (funcion.insertarImpuesto(parametros) == true)
+            if (porciento > 0.00 && porciento < 20.00)
             {
-                mostrar();
+                if (funcion.insertarImpuesto(parametros) == true)
+                {
+                    mostrar();
+                }
             }
-
+            else
+            {
+                MessageBox.Show("Favor escribir un porcentaje de impuesto valido", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         
@@ -107,14 +113,11 @@ namespace SistemaVentas.Presentacion.Impuestos
             datalistado.Columns[2].Visible = false;
         }
 
-
-        private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == datalistado.Columns["Editar"].Index)
+        /*if (e.ColumnIndex == datalistado.Columns["EditarImpuestoG"].Index)
             {
                 obtenerDatos();
             }
-            if (e.ColumnIndex == datalistado.Columns["Eliminar"].Index)
+            if (e.ColumnIndex == datalistado.Columns["EliminarImpuesto"].Index)
             {
                 obtenerId_estado();
                 if (estado == "ACTIVO")
@@ -125,7 +128,10 @@ namespace SistemaVentas.Presentacion.Impuestos
                         eliminar();
                     }
                 }
-            }
+            }*/
+        private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
 
 
@@ -163,23 +169,11 @@ namespace SistemaVentas.Presentacion.Impuestos
             try
             {
                 idImpuesto = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                idImpuesto1 = idImpuesto;
                 txtnombre.Text = datalistado.SelectedCells[3].Value.ToString();
                 txtImpuesto.Text = datalistado.SelectedCells[4].Value.ToString();
-               
-                estado = datalistado.SelectedCells[5].Value.ToString();
-                if (estado == "ELIMINADO")
-                {
-                    DialogResult result = MessageBox.Show("Este Impuesto se Elimino. ¿Desea Volver a Habilitarlo?", "Restaurando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (result == System.Windows.Forms.DialogResult.OK)
-                    {
-                        prepararEdicion();
-                    }
-                }
-                else
-                {
-                    prepararEdicion();
-                }
+                txtTipo.Text= datalistado.SelectedCells[5].Value.ToString();
+                estado = datalistado.SelectedCells[6].Value.ToString();
+                prepararEdicion();
             }
             catch (Exception ex)
             {
@@ -202,45 +196,56 @@ namespace SistemaVentas.Presentacion.Impuestos
         private void button1_Click(object sender, EventArgs e)
         {
             TextBox[] array = { txtnombre, txtImpuesto };
+           
             if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
-                obtenerId_estado();
-                rellenarCamposVacios();
-                editar();
+                if (txtTipo.Text != "")
+                {
+                    obtenerId_estado();
+                    rellenarCamposVacios();
+                    editar();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un Tipo de Impuesto", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+              
             }
             else
             {
-                MessageBox.Show("Seleccione una del Empleado", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Favor llenar los campos correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        int idImpuesto1;
-        private void obtenerDatosID()
-        {
-            try
-            {
-                idImpuesto1 = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.StackTrace);
-            }
-        }
+     
         public void editar()
         {
-            obtenerDatosID();
+            //obtenerDatosID();
             editarImpuesto();
         }
         public void editarImpuesto()
         {
-            LImpuesto parametrosEmpleado = new LImpuesto();
+            LImpuesto parametros = new LImpuesto();
             Editar_datos funcion = new Editar_datos();
 
-            if (funcion.editarImpuestos(parametrosEmpleado) == true)
+            double porciento = calcularPorciento();
+            parametros.idImpuesto = idImpuesto;
+            parametros.nombre = txtnombre.Text;
+            parametros.impuesto = porciento;
+            parametros.Tipo = txtTipo.Text;
+
+            if(porciento > 0.00 && porciento < 20.00)
             {
-                mostrar();
+                if (funcion.editarImpuestos(parametros) == true)
+                {
+                    mostrar();
+                }
             }
+            else
+            {
+                MessageBox.Show("Favor escribir un porcentaje de impuesto valido", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void eliminar()
@@ -272,22 +277,8 @@ namespace SistemaVentas.Presentacion.Impuestos
             txtbuscar.Clear();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -335,9 +326,16 @@ namespace SistemaVentas.Presentacion.Impuestos
 
         private void txtApellido_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
+        private double calcularPorciento()
+        {
+            double porciento;
+            porciento = Convert.ToDouble(txtImpuesto.Text);
+            porciento = porciento / 100;
+            return porciento;
+        }
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
@@ -352,8 +350,48 @@ namespace SistemaVentas.Presentacion.Impuestos
         {
         }
 
-      
-      
+        private void datalistado_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == datalistado.Columns["EditarG"].Index)
+            {
+                obtenerDatos();
+            }
+            if (e.ColumnIndex == datalistado.Columns["EliminarG"].Index)
+            {
+                obtenerId_estado();
+
+                idImpuesto =  Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                if (estado == "ACTIVO")
+                {
+                    DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (result == System.Windows.Forms.DialogResult.OK)
+                    {
+                        eliminar();
+                    }
+                }
+            }
+        }
+
+        private void txtImpuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = false;
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
     }
 
 }

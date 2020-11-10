@@ -101,7 +101,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("insertarImpuesto", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("insertarImpuestos", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", parametros.nombre);
                 cmd.Parameters.AddWithValue("@Impuesto", parametros.impuesto);
