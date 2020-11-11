@@ -69,7 +69,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertarSector();
                         InsertarDocumento();
                         insertarDireccion();
-
+                        insertarImpuesto();
                         Ingresar_Persona();
                         insertarEmpleado();
                         insertar_clientes();
@@ -96,6 +96,25 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
 
               
+        }
+        public bool insertarImpuesto()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarImpuestosgeneral", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", "Ventas");
+                cmd.Parameters.AddWithValue("@Impuesto", 18/100);
+                cmd.Parameters.AddWithValue("@Tipo", "IVA");
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
         }
         private void Ingresar_caja()
         {

@@ -38,20 +38,18 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
               txtdescripcion.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
               txtdescripcion.AutoCompleteSource = AutoCompleteSource.CustomSource;*/
 
-                 
+
 
         }
         internal void LIMPIAR()
         {
 
-            txtidproducto.Text = "";
             txtdescripcion.Text = "";
-            
+
 
             agranel.Checked = false;
             txtstockminimo.Text = "0";
             txtstock2.Text = "0";
-            lblEstadoCodigo.Text = "NUEVO";
 
 
             txtUnidadCompra.Text = "";
@@ -94,7 +92,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             //chkListaItbis.CheckOnClick = true;
             ObtenerImpuestos();
-            
+
             //Visible
             PANELREGISTRO.Visible = false;
             panelProveedor.Visible = false;
@@ -113,7 +111,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             txtPorcentajeGanancia3.Enabled = false;
             txtPorcentajeGanancia4.Enabled = false;
 
-            panelPrecios.Enabled = false ;
+            panelPrecios.Enabled = false;
             txtDepartamento.Enabled = false;
             txtVenta.Enabled = false;
             txtPrecioCompraImpuestos.Enabled = false;
@@ -138,15 +136,15 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         }
 
-       
+
 
         private void btnGuardar_grupo_Click_1(object sender, EventArgs e)
         {
-         
+
         }
         private void btnNuevoGrupo_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void txtgrupo_TextChanged(object sender, EventArgs e)
@@ -157,11 +155,11 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void BtnCancelar_Click_1(object sender, EventArgs e)
         {
         }
-        
+
         private void editar_productos()
         {
-            /*if (txtpreciomayoreo.Text == "0" | txtpreciomayoreo.Text == "") txtapartirde.Text = "0";*/
-
+            /* /*if (txtpreciomayoreo.Text == "0" | txtpreciomayoreo.Text == "") txtapartirde.Text = "0";*/
+            /*
             try
             {
                 SqlConnection con = new SqlConnection();
@@ -219,14 +217,14 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 PANELDEPARTAMENTO.Visible = false;
                 //txtbusca.Text = txtdescripcion.Text;
                 //txtbusca.Focus();
-               // buscar();
-            }
+                // buscar();
+                
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-
+            }*/
         }
+
         private void datalistadoMostrarDescuentoCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             idDescuentoAgregar = Convert.ToInt32(datalistadoMostrarDescuentoCategoria.SelectedCells[0].Value);
@@ -357,54 +355,11 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
 
 
-            if (TXTIDPRODUCTOOk.Text != "0" & Convert.ToDouble(txtstock2.Text) > 0)
-            {
-                if (CheckInventarios.Checked == false)
-                {
-                    MessageBox.Show("Hay Aun En Stock, Dirijete al Modulo Inventarios para Ajustar el Inventario a cero", "Stock Existente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    PANELINVENTARIO.Visible = true;
-                    CheckInventarios.Checked = true;
-                }
-            }
-
-            if (TXTIDPRODUCTOOk.Text != "0" & Convert.ToDouble(txtstock2.Text) == 0)
-            {
-                if (CheckInventarios.Checked == false)
-                {
-                    PANELINVENTARIO.Visible = false;
-
-                }
-            }
-
-            if (TXTIDPRODUCTOOk.Text == "0")
-            {
-                if (CheckInventarios.Checked == false)
-                {
-                    PANELINVENTARIO.Visible = false;
-
-                }
-            }
-
-            if (CheckInventarios.Checked == true)
-            {
-
-                PANELINVENTARIO.Visible = true;
-            }
-
         }
 
-        private void PANELINVENTARIO_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void datalistadoGrupos_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         private void GENERAR_CODIGO_DE_BARRAS_AUTOMATICO()
         {
-            Double resultado;
+           /* Double resultado;
             string queryMoneda;
             queryMoneda = "SELECT max(Id_Producto1)  FROM Producto1";
             SqlConnection con = new SqlConnection();
@@ -436,11 +391,11 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             catch (Exception ex)
 #pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
-            }
+            }*/
         }
         private void mostrar_descripcion_produco_sin_repetir()
         {
-            try
+          /*  try
             {
                 DataTable dt = new DataTable();
                 SqlDataAdapter da;
@@ -463,76 +418,41 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             {
                 MessageBox.Show(ex.Message);
 
-            }
+            }*/
 
 
 
         }
         private void contar()
         {
-            int x;
+           /* int x;
 
             x = DATALISTADO_PRODUCTOS_OKA.Rows.Count;
-            txtcontador = (x);
+            txtcontador = (x);*/
 
         }
         private void txtdescripcion_TextChanged_1(object sender, EventArgs e)
         {
 
-           /* mostrar_descripcion_produco_sin_repetir();
-            contar();
+            /* mostrar_descripcion_produco_sin_repetir();
+             contar();
 
 
-            if (txtcontador == 0)
-            {
-                DATALISTADO_PRODUCTOS_OKA.Visible = false;
-            }
-            if (txtcontador > 0)
-            {
-                DATALISTADO_PRODUCTOS_OKA.Visible = true;
-            }
-            if (TGUARDAR.Visible == false)
-            {
-                DATALISTADO_PRODUCTOS_OKA.Visible = false;
-            }*/
+             if (txtcontador == 0)
+             {
+                 DATALISTADO_PRODUCTOS_OKA.Visible = false;
+             }
+             if (txtcontador > 0)
+             {
+                 DATALISTADO_PRODUCTOS_OKA.Visible = true;
+             }
+             if (TGUARDAR.Visible == false)
+             {
+                 DATALISTADO_PRODUCTOS_OKA.Visible = false;
+             }*/
         }
 
-        private void DATALISTADO_PRODUCTOS_OKA_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void DATALISTADO_PRODUCTOS_OKA_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                txtdescripcion.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString();
-                DATALISTADO_PRODUCTOS_OKA.Visible = false;
-            }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            {
-
-            }
-        }
-#pragma warning disable CS0414 // El campo 'Productos_ok.SECUENCIA' está asignado pero su valor nunca se usa
-        bool SECUENCIA = true;
-#pragma warning restore CS0414 // El campo 'Productos_ok.SECUENCIA' está asignado pero su valor nunca se usa
-        private void txtPrecioCompra_TextChanged_1(object sender, EventArgs e)
-        {
-            //if (SECUENCIA == true)
-            //{
-            //    txtPrecioCompra .Text = txtPrecioCompra.Text + ".";
-            //    SECUENCIA = false;
-            //}
-            //else
-            //{
-            //    return;
-
-            //}
-        }
-
+      
 
         private void txtcosto_KeyPress_1(object sender, KeyPressEventArgs e)
         {
@@ -544,12 +464,12 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void txtbusca_TextChanged(object sender, EventArgs e)
         {
-           // buscar();
+            // buscar();
         }
 
         private void TGUARDARCAMBIOS_Click_1(object sender, EventArgs e)
         {
-           
+
         }
 
         private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -558,126 +478,95 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         internal void proceso_para_obtener_datos_de_productos()
         {
-            try
-            {
+            /* try
+             {
 
-                Panel25.Enabled = true;
-                DATALISTADO_PRODUCTOS_OKA.Visible = false;
+                 Panel25.Enabled = true;
+                 DATALISTADO_PRODUCTOS_OKA.Visible = false;
 
-                Panel6.Visible = false;
-                //TGUARDAR.Visible = false;
-                PANELDEPARTAMENTO.Visible = true;
-
-
-                btnNuevoGrupo.Visible = true;
-                TXTIDPRODUCTOOk.Text = datalistado.SelectedCells[2].Value.ToString();
-                lblEstadoCodigo.Text = "EDITAR";
-                //PANELCATEGORIASELECT.Visible = false;
-                BtnGuardarCambios.Visible = false;
-                btnGuardar_grupo.Visible = false;
-                BtnCancelar.Visible = false;
-                btnNuevoGrupo.Visible = true;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            try
-            {
-
-                txtidproducto.Text = datalistado.SelectedCells[2].Value.ToString();
-                txtcodigodebarras.Text = datalistado.SelectedCells[3].Value.ToString();
-                txtCategoria.Text = datalistado.SelectedCells[4].Value.ToString();
-
-                txtdescripcion.Text = datalistado.SelectedCells[5].Value.ToString();
-                txtnumeroigv.Text = datalistado.SelectedCells[6].Value.ToString();
-                lblIdGrupo.Text = datalistado.SelectedCells[15].Value.ToString();
+                 Panel6.Visible = false;
+                 //TGUARDAR.Visible = false;
+                 PANELDEPARTAMENTO.Visible = true;
 
 
-                LBL_ESSERVICIO.Text = datalistado.SelectedCells[7].Value.ToString();
+                 btnNuevoGrupo.Visible = true;
+                 TXTIDPRODUCTOOk.Text = datalistado.SelectedCells[2].Value.ToString();
+                 lblEstadoCodigo.Text = "EDITAR";
+                 //PANELCATEGORIASELECT.Visible = false;
+                 BtnGuardarCambios.Visible = false;
+                 btnGuardar_grupo.Visible = false;
+                 BtnCancelar.Visible = false;
+                 btnNuevoGrupo.Visible = true;
+
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show(ex.Message);
+             }
+
+             try
+             {
+
+                 txtcodigodebarras.Text = datalistado.SelectedCells[3].Value.ToString();
+                 txtCategoria.Text = datalistado.SelectedCells[4].Value.ToString();
+
+                 txtdescripcion.Text = datalistado.SelectedCells[5].Value.ToString();
+                 txtnumeroigv.Text = datalistado.SelectedCells[6].Value.ToString();
+                 lblIdGrupo.Text = datalistado.SelectedCells[15].Value.ToString();
 
 
 
-                txtPrecioCompra.Text = datalistado.SelectedCells[8].Value.ToString();
-                //txtpreciomayoreo.Text = datalistado.SelectedCells[9].Value.ToString();
-                LBLSEVENDEPOR.Text = datalistado.SelectedCells[10].Value.ToString();
-                if (LBLSEVENDEPOR.Text == "Unidad")
-                {
-                    porunidad.Checked = true;
-                }
-                if (LBLSEVENDEPOR.Text == "Granel")
-                {
-                    agranel.Checked = true;
-                }
-                txtstockminimo.Text = datalistado.SelectedCells[11].Value.ToString();
-                lblfechasvenci.Text = datalistado.SelectedCells[12].Value.ToString();
-                if (lblfechasvenci.Text == "NO APLICA")
-                {
-                    No_aplica_fecha.Checked = true;
-                }
-                if (lblfechasvenci.Text != "NO APLICA")
-                {
-                    No_aplica_fecha.Checked = false;
-                }
-                txtstock2.Text = datalistado.SelectedCells[13].Value.ToString();
-                txtPrecioVentaPrecio1.Text = datalistado.SelectedCells[14].Value.ToString();
-                try
-                {
-
-                    double TotalVentaVariabledouble;
-                    double TXTPRECIODEVENTA2V = Convert.ToDouble(txtPrecioVentaPrecio1.Text);
-                    double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
-
-                    TotalVentaVariabledouble = ((TXTPRECIODEVENTA2V - txtPrecioComprav) / (txtPrecioComprav)) * 100;
-
-                    if (TotalVentaVariabledouble > 0)
-                    {
-                        this.txtPorcentajeGanancia.Text = Convert.ToString(TotalVentaVariabledouble);
-                    }
-                    else
-                    {
-                        //Me.txtPorcentajeGanancia.Text = 0
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-
-                }
-                if (LBL_ESSERVICIO.Text == "SI")
-                {
-
-                    PANELINVENTARIO.Visible = true;
-                    PANELINVENTARIO.Visible = true;
-                    txtstock2.ReadOnly = true;
-                    CheckInventarios.Checked = true;
-
-                }
-                if (LBL_ESSERVICIO.Text == "NO")
-                {
-                    CheckInventarios.Checked = false;
-
-                    PANELINVENTARIO.Visible = false;
-                    PANELINVENTARIO.Visible = false;
-                    txtstock2.ReadOnly = true;
-                    txtstock2.Text = "0";
-                    txtstockminimo.Text = "0";
-                    No_aplica_fecha.Checked = true;
-                    txtstock2.ReadOnly = false;
-                }
-                txtUnidadMayoreo1.Text = datalistado.SelectedCells[16].Value.ToString();
 
 
-                //PANELCATEGORIASELECT.Visible = false;
+                 txtPrecioCompra.Text = datalistado.SelectedCells[8].Value.ToString();
+                 //txtpreciomayoreo.Text = datalistado.SelectedCells[9].Value.ToString();
+                 txtstockminimo.Text = datalistado.SelectedCells[11].Value.ToString();
+                 txtstock2.Text = datalistado.SelectedCells[13].Value.ToString();
+                 txtPrecioVentaPrecio1.Text = datalistado.SelectedCells[14].Value.ToString();
+                 try
+                 {
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                     double TotalVentaVariabledouble;
+                     double TXTPRECIODEVENTA2V = Convert.ToDouble(txtPrecioVentaPrecio1.Text);
+                     double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
+
+                     TotalVentaVariabledouble = ((TXTPRECIODEVENTA2V - txtPrecioComprav) / (txtPrecioComprav)) * 100;
+
+                     if (TotalVentaVariabledouble > 0)
+                     {
+                         this.txtPorcentajeGanancia.Text = Convert.ToString(TotalVentaVariabledouble);
+                     }
+                     else
+                     {
+                         //Me.txtPorcentajeGanancia.Text = 0
+                     }
+
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show(ex.Message);
+
+                 }
+                 txtstock2.ReadOnly = true;
+                 CheckInventarios.Checked = true;
+
+             }
+                     CheckInventarios.Checked = false;
+             txtstock2.ReadOnly = true;
+             txtstock2.Text = "0";
+             txtstockminimo.Text = "0";
+             No_aplica_fecha.Checked = true;
+             txtstock2.ReadOnly = false;
+
+
+
+             //PANELCATEGORIASELECT.Visible = false;
+
+         }
+             catch (Exception ex)
+             {
+                 MessageBox.Show(ex.Message);
+             }*/
         }
         private void datalistado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -752,47 +641,16 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void txtstock2_MouseClick_1(object sender, MouseEventArgs e)
         {
-            try
-            {
-                if (TXTIDPRODUCTOOk.Text != "0")
-                {
-                    Tmensajes.SetToolTip(txtstock2, "Para modificar el Stock Hazlo desde el Modulo de Inventarios");
-                    Tmensajes.ToolTipTitle = "Accion denegada";
-                    Tmensajes.ToolTipIcon = ToolTipIcon.Info;
-
-                }
-            }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            {
-
-            }
+            
         }
 
         private void ToolStripMenuItem11_Click(object sender, EventArgs e)
         {
-            DATALISTADO_PRODUCTOS_OKA.Visible = false;
         }
 
         private void btnGenerarCodigo_Click_1(object sender, EventArgs e)
         {
             GENERAR_CODIGO_DE_BARRAS_AUTOMATICO();
-        }
-
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            PANELDEPARTAMENTO.Visible = false;
-        }
-
-        private void Panel25_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtPorcentajeGanancia_TextChanged_1(object sender, EventArgs e)
-        {
-             
         }
 
         
@@ -818,7 +676,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void txtPorcentajeGanancia_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             // Bases.Separador_de_Numeros(txtPorcentajeGanancia, e);
-
         }
 
         private void TXTPRECIODEVENTA2_KeyPress_1(object sender, KeyPressEventArgs e)
@@ -929,8 +786,21 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-          
-         
+            panelAlmacenAtras.BringToFront();
+            panelAlmacenAtras.Visible = true;
+            panelAlmacenAtras.Location = new Point(36, 1);
+            panelAlmacenAtras.Size = new Size(979, 634);
+            panelAlmacenAtras.Dock = DockStyle.Fill;
+            panelAlmacenAtras.Dock = DockStyle.Fill;
+
+            panelInformacionAdicionalATRAS.Visible = false;
+            PanelInformacionBasicaATRAS.Visible = false;
+            panelProveedorATRAS.Visible = false;
+
+            panelInfoAduana.Visible = false;
+            panelProveedor.Visible = false;
+            panelUnidad.Visible = false;
+            panelCategoria.Visible = false;
         }
 
         private void btnAgregarCategoriaForm_Click(object sender, EventArgs e)
@@ -1572,7 +1442,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrarImpuestos", con);
+                da = new SqlDataAdapter("mostrarImpuestoGeneral", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 con.Close();
@@ -1647,6 +1517,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void chkImpuestos_CheckedChanged(object sender, EventArgs e)
         {
+            ObtenerImpuestos();
             if (chkImpuestos.Checked == false)
             {
                 txtPrecioCompraImpuestos.Text = txtPrecioCompra.Text;
@@ -1806,7 +1677,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void TimerCalcular_precio_venta_Tick(object sender, EventArgs e)
         {
-            //TimerCalcular_precio_venta.Stop();
+          /*  //TimerCalcular_precio_venta.Stop();
             try
             {
                 double totalPrecioVenta1;
@@ -1827,7 +1698,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             catch (Exception ex)
             {
 
-            }
+            }*/
         }
 
         private void TimerCalcular_precio_venta2(object sender, EventArgs e)
@@ -2347,6 +2218,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         int idProveedorPreciosSelect;
         int idProductoSelect;
+        private int idAlmacenSelect;
+
         private void btnUltimosPreciosCompraAgregar_Click(object sender, EventArgs e)
         {
             
@@ -2653,5 +2526,85 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             panelImpuestosAgregar.Visible = false;
         }
+
+        private void textBox1_DoubleClick(object sender, EventArgs e)
+        {
+            Presentacion.Almacenes.Almacenes frm = new Presentacion.Almacenes.Almacenes();
+            frm.ShowDialog();
+        }
+
+        private void txtAlmacen_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAlmacen.Text != "")
+            {
+                panelAlmacenBuscar.BringToFront();
+                panelAlmacenBuscar.Location = new Point(22, 124);
+                panelAlmacenBuscar.Size = new Size(210, 64);
+                mostrarAlmacen();
+                panelAlmacenBuscar.Visible = true;
+            }
+            else
+            {
+                mostarCategoria();
+                panelAlmacenBuscar.SendToBack();
+                panelAlmacenBuscar.Visible = false;
+            }
+        }
+
+        private void mostrarAlmacen()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrarAlmacenBuscar", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtUnidadCompra.Text);
+                da.Fill(dt);
+                con.Close();
+                datalistadoAlmacenBuscar.DataSource = dt;
+                datalistadoAlmacenBuscar.Columns[0].Visible = false;
+                datalistadoAlmacenBuscar.Columns[3].Visible = false;
+                datalistadoAlmacenBuscar.Columns[4].Visible = false;
+                datalistadoAlmacenBuscar.Columns[5].Visible = false;
+                datalistadoAlmacenBuscar.Columns[6].Visible = false;
+                datalistadoAlmacenBuscar.Columns[7].Visible = false;
+                datalistadoAlmacenBuscar.Columns[1].Visible = false;
+
+                datalistadoAlmacenBuscar.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoAlmacenBuscar);
+        }
+
+        private void datalistadoAlmacenBuscar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idAlmacenSelect = Convert.ToInt32(datalistadoAlmacenBuscar.SelectedCells[0].Value);
+            txtAlmacen.Text = datalistadoAlmacenBuscar.SelectedCells[2].Value.ToString();
+            panelAlmacenBuscar.SendToBack();
+            panelAlmacenBuscar.Visible = false;
+        }
+
+        private void pictureBox22_Click(object sender, EventArgs e)
+        {
+            Presentacion.Impuestos.Impuestos frm = new Presentacion.Impuestos.Impuestos();
+            frm.ShowDialog();
+            chkImpuestos.Checked = false;
+        }
+
+        private void panelInformacionBasica_Click(object sender, EventArgs e)
+        {
+            ObtenerImpuestos();
+        }
     }
 }
+ 
