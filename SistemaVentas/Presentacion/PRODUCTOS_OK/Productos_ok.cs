@@ -2164,6 +2164,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void panelProveedorATRAS_Paint(object sender, PaintEventArgs e)
         {
+            txtPreciosProveedor.Text = "";
             PanelUltimosPreciosAgregados.Visible = false;
             try
             {
@@ -2196,7 +2197,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             PanelUltimosPreciosAgregados.Visible = true;
             PanelUltimosPreciosAgregados.BringToFront();
-            PanelUltimosPreciosAgregados.Location = new Point(249, 86);
+            PanelUltimosPreciosAgregados.Location = new Point(291, 116);
             PanelUltimosPreciosAgregados.Size = new Size(410, 313);
             txtProveedorPreciosArticulo.Text = "";
             txtPreciodeCompraPrecios.Text = "";
@@ -2342,5 +2343,111 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             PanelUltimosPreciosAgregados.Visible = false;
         }
+
+        private void txtDescuentosCategoria_DoubleClick(object sender, EventArgs e)
+        {
+            panelDescuentos.Visible = true;
+            panelDescuentos.BringToFront();
+            panelDescuentos.Location = new Point(7 , 6);
+            panelDescuentos.Size = new Size(337, 311);
+        }
+
+
+        private void btnDescuentoAgregar_Click(object sender, EventArgs e)
+        {
+            TextBox[] array = { txtDescuentoAgregar};
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+                try
+                {
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                    con.Open();
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarDescuento", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Descuento", Convert.ToDouble(txtDescuentoAgregar.Text));
+                    cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento de Categoria");
+                    cmd.ExecuteNonQuery();
+                    CONEXIONMAESTRA.cerrar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                panelDescuentos.Visible = false;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void panelCategoriaAgregar_Paint(object sender, PaintEventArgs e)
+        {
+            panelDescuentos.Visible = false;
+            panelMostrarDescuentoCategoria.Visible = false;
+
+            
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            panelDescuentos.Visible = false;
+        }
+
+        private void txtDescuentosCategoria_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDescuentosCategoria.Text != "")
+            {
+                panelMostrarDescuentoCategoria.BringToFront();
+                panelMostrarDescuentoCategoria.Location = new Point(18, 223);
+                panelMostrarDescuentoCategoria.Size = new Size(228, 52);
+                buscarDescientosCategoria();
+                panelMostrarDescuentoCategoria.Visible = true;
+            }
+            else
+            {
+
+                buscarDescientosCategoria();
+                panelMostrarDescuentoCategoria.SendToBack();
+                panelMostrarDescuentoCategoria.Visible = false;
+            }
+
+            
+        }
+
+        private void buscarDescientosCategoria()
+        {
+            
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("buscarDescuentosCategoria", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtDescuentosCategoria.Text + "");
+                da.Fill(dt);
+                datalistadoUnidadesSAT.DataSource = dt;
+                con.Close();
+
+                datalistadoMostrarDescuentoCategoria.DataSource = dt;
+                datalistadoMostrarDescuentoCategoria.Columns[0].Visible = false;
+                datalistadoMostrarDescuentoCategoria.Columns[2].Visible = false;
+                datalistadoMostrarDescuentoCategoria.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoUnidadesSAT);
+        }
+
     }
 }
