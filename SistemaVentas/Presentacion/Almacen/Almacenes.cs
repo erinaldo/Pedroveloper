@@ -132,6 +132,10 @@ namespace SistemaVentas.Presentacion.Almacenes
             { txtDescripcionAlmacen.Text = "-"; };
             if (string.IsNullOrEmpty(txtDescripcionAlmacen.Text)) { txtDescripcionAlmacen.Text = "-"; };
             if (string.IsNullOrEmpty(txtStockMinimo.Text)) { txtStockMinimo.Text = "-"; };
+            if (string.IsNullOrEmpty(txtDireccion.Text)) { txtDireccion.Text = "-"; };
+            if (string.IsNullOrEmpty(txtLocalizacion.Text)) { txtLocalizacion.Text = "-"; };
+            if (string.IsNullOrEmpty(txtZona.Text)) { txtZona.Text = "-"; };
+            if (string.IsNullOrEmpty(txtAnaquel.Text)) { txtAnaquel.Text = "-"; };
         }
 
         private void mostrar()
@@ -146,12 +150,6 @@ namespace SistemaVentas.Presentacion.Almacenes
         {
             Bases.Multilinea(ref datalistado);
             datalistado.Columns[2].Visible = false;
-        }
-
-      
-        private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
 
@@ -188,10 +186,14 @@ namespace SistemaVentas.Presentacion.Almacenes
         {
             try
             {
-                idImpuesto = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                txtDescripcionAlmacen.Text = datalistado.SelectedCells[3].Value.ToString();
-                txtStockMinimo.Text = datalistado.SelectedCells[4].Value.ToString();
-                estado = datalistado.SelectedCells[6].Value.ToString();
+                idAlmacen = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                idLocalizacion = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                txtDescripcionAlmacen.Text = datalistado.SelectedCells[4].Value.ToString();
+                txtStockMinimo.Text = datalistado.SelectedCells[5].Value.ToString();
+                txtZona.Text = datalistado.SelectedCells[6].Value.ToString();
+                txtAnaquel.Text = datalistado.SelectedCells[7].Value.ToString();
+                txtLocalizacion.Text = datalistado.SelectedCells[8].Value.ToString();
+                txtDireccion.Text = datalistado.SelectedCells[9].Value.ToString();
                 prepararEdicion();
             }
             catch (Exception ex)
@@ -202,7 +204,6 @@ namespace SistemaVentas.Presentacion.Almacenes
 
         private void prepararEdicion()
         {
-           
             panelRegistros.Visible = true;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.BringToFront();
@@ -214,50 +215,60 @@ namespace SistemaVentas.Presentacion.Almacenes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TextBox[] array = { txtDescripcionAlmacen, txtStockMinimo };
-           
+            TextBox[] array = { txtDescripcionAlmacen, txtStockMinimo, txtAnaquel, txtDireccion, txtLocalizacion, txtZona };
             if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
-                    obtenerId_estado();
-                    rellenarCamposVacios();
-                    editar();
-                    MessageBox.Show("Seleccione un Tipo de Impuesto", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-              
+                obtenerId_estado();
+                rellenarCamposVacios();
+                editar();
             }
             else
             {
-                MessageBox.Show("Favor llenar los campos correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Canmpos vacios\n Llene correctamente los campos", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+          
         }
 
      
         public void editar()
         {
-            //obtenerDatosID();
             editarImpuesto();
         }
         public void editarImpuesto()
         {
-            LImpuesto parametros = new LImpuesto();
-            Editar_datos funcion = new Editar_datos();
-
-            double porciento = calcularPorciento();
-            parametros.idImpuesto = idImpuesto;
-            parametros.nombre = txtDescripcionAlmacen.Text;
-            parametros.impuesto = porciento;
-
-            if(porciento > 0.00 && porciento < 20.00)
+            if (idDireccion != 0)
             {
-                if (funcion.editarImpuestos(parametros) == true)
+                Insertar_datos insertar = new Insertar_datos();
+                LAlmacen almacen = new LAlmacen();
+                almacen.idAlmacen = idAlmacen;
+                almacen.idLocalizacion = idLocalizacion;
+                almacen.almacen = txtDescripcionAlmacen.Text;
+                almacen.localizaicon = txtLocalizacion.Text;
+                almacen.Anaquel = txtAnaquel.Text;
+                almacen.idDireccion = idDireccion;
+                almacen.stockminimo = Convert.ToDouble(txtStockMinimo.Text);
+                almacen.Zona = txtZona.Text;
+
+                if (Convert.ToDouble(txtStockMinimo.Text) > 0.00)
                 {
-                    mostrar();
+                    if (insertar.editarLocalizacion(almacen) == true)
+                    {
+                        if (insertar.editarAlmacen(almacen) == true)
+                        {
+                            mostrar();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Favor escribir un porcentaje de impuesto valido", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Favor escribir un porcentaje de impuesto valido", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Favor seleccionar una dirección", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
+          
         }
 
         private void eliminar()
@@ -287,6 +298,10 @@ namespace SistemaVentas.Presentacion.Almacenes
             txtDescripcionAlmacen.Clear();
             txtStockMinimo.Clear();
             txtbuscar.Clear();
+            txtAnaquel.Clear();
+            txtDireccion.Clear();
+            txtLocalizacion.Clear();
+            txtZona.Clear();
         }
 
 
@@ -341,13 +356,7 @@ namespace SistemaVentas.Presentacion.Almacenes
            
         }
 
-        private double calcularPorciento()
-        {
-            double porciento;
-            porciento = Convert.ToDouble(txtStockMinimo.Text);
-            porciento = porciento / 100;
-            return porciento;
-        }
+   
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
