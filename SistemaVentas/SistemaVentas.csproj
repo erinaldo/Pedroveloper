@@ -118,6 +118,7 @@
     <Compile Include="Datos\Obtener_datos.cs" />
     <Compile Include="Logica\Bases.cs" />
     <Compile Include="Logica\Direcciones.cs" />
+    <Compile Include="Logica\LAlmacen.cs" />
     <Compile Include="Logica\Lcaja.cs" />
     <Compile Include="Logica\LCategoria.cs" />
     <Compile Include="Logica\Lcontrolcobros.cs" />

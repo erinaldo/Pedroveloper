@@ -156,8 +156,88 @@ namespace SistemaVentas.Datos
                 return true;
             }
         }
+        public bool insertarAlmacen(LAlmacen parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarAlmacen", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@almacen", parametros.almacen);
+                cmd.Parameters.AddWithValue("@idlocalizacion", parametros.idLocalizacion);
+                cmd.Parameters.AddWithValue("@stockminimo", parametros.stockminimo); 
+                cmd.Parameters.AddWithValue("@idDireccion", parametros.idDireccion);
 
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+        }
+        public bool editarAlmacen(LAlmacen parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarAlmacen", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idAlmacen", parametros.idAlmacen);
+                cmd.Parameters.AddWithValue("@almacen", parametros.almacen);
+                cmd.Parameters.AddWithValue("@idlocalizacion", parametros.idLocalizacion);
+                cmd.Parameters.AddWithValue("@stockminimo", parametros.stockminimo);
+                cmd.Parameters.AddWithValue("@idDireccion", parametros.idDireccion);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+        }
+        public bool insertarLozalizacion(LAlmacen parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarLocalizacion", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@localizacion", parametros.localizaicon);
+                cmd.Parameters.AddWithValue("@Anaquel", parametros.Anaquel);
+                cmd.Parameters.AddWithValue("@Zona", parametros.Zona);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+        }
 
+        public bool editarLocalizacion(LAlmacen parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarLocalizacion", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idLocalizacion", parametros.idLocalizacion);
+                cmd.Parameters.AddWithValue("@localizacion", parametros.localizaicon);
+                cmd.Parameters.AddWithValue("@Anaquel", parametros.Anaquel);
+                cmd.Parameters.AddWithValue("@Zona", parametros.Zona);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return true;
+            }
+        }
         public bool insertarTipoTelefono(LTelefono parametros)
         {
             try

@@ -56,6 +56,22 @@ namespace SistemaVentas.Datos
 
             }
         }
+        public static void mostrarAlmacen(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarAlmacen", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
 
         public static void buscarDireccion(ref DataTable dt, string buscador)
         {
