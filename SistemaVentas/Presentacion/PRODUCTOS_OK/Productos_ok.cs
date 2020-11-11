@@ -22,12 +22,12 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         public int idClaveSat;
         double itbis;
         int idMayoreo;
+        int idImpuestoAgregar;
+        int idDescuentoAgregar;
 
-        bool banderaItbis = false;
         private void PictureBox2_Click(object sender, EventArgs e)
         {
             PANELREGISTRO.Visible = true;
-            PanelInformacionBasicaATRAS.Visible = true;
             PANELINFOR.Visible = true;
             chkImpuestos.Checked = true;
             LIMPIAR();
@@ -105,6 +105,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelClaveUnidadSat.Visible = false;
             panelCategoriaAgregar.Visible = false;
             PANELINFOR.Visible = false;
+            panelImpuestosAgregar.Visible = false;
 
             //Enabled
             txtPorcentajeGanancia1.Enabled = false;
@@ -226,6 +227,23 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
 
         }
+        private void datalistadoMostrarDescuentoCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idDescuentoAgregar = Convert.ToInt32(datalistadoMostrarDescuentoCategoria.SelectedCells[0].Value);
+            txtDescuentosCategoria.Text = datalistadoMostrarDescuentoCategoria.SelectedCells[1].Value.ToString();
+            panelMostrarDescuentoCategoria.Visible = false;
+
+            MessageBox.Show(idDescuentoAgregar.ToString());
+        }
+
+        private void datalistadiImpuestosCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idImpuestoAgregar = Convert.ToInt32(datalistadiImpuestosCategoria.SelectedCells[0].Value);
+            txtImpuestosCategoria.Text = datalistadiImpuestosCategoria.SelectedCells[1].Value.ToString();
+            panelImpuestosCategoria.Visible = false;
+
+        }
+
         private void buscar()
         {
             /*try
@@ -866,6 +884,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelInformacionBasica.Dock = DockStyle.Fill;
 
             panelInformacionAdicionalATRAS.Visible = false;
+            panelProveedorATRAS.Visible = false;
 
             panelInfoAduana.Visible = false;
             panelProveedor.Visible = false;
@@ -875,6 +894,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
+            panelInformacionAdicionalATRAS.Visible = false;
+            panelProveedorATRAS.Visible = false;
+            PanelInformacionBasicaATRAS.Visible = false;
 
             panelProveedorATRAS.Location = new Point(36, 1);
             panelProveedorATRAS.Size = new Size(979, 634);
@@ -913,9 +935,11 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void btnAgregarCategoriaForm_Click(object sender, EventArgs e)
         {
+            txtImpuestosCategoria.Clear();
+            txtDescuentosCategoria.Clear();
             panelCategoriaAgregar.Visible = true;
             panelCategoriaAgregar.Location = new Point(93, 106);
-            panelCategoriaAgregar.Size = new Size(276, 249);
+            panelCategoriaAgregar.Size = new Size(256, 410);
             inhabilitarCategoria();
             txtCategoriaAgregar.Clear();
             txtDepartamentoAgregar.Clear();
@@ -924,7 +948,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             txtCategoriaProductos.Enabled = false;
             datalistadoCategorias.Enabled = false;
-            btnAgregarCategoriaForm.Enabled = false;
         }
         private void habilitarCategoria()
         {
@@ -941,11 +964,13 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void button10_Click(object sender, EventArgs e)
         {
-            if ((!string.IsNullOrEmpty(txtCategoriaAgregar.Text)) && (!string.IsNullOrEmpty(txtDepartamentoAgregar.Text)))
+            if ((!string.IsNullOrEmpty(txtCategoriaAgregar.Text)) && (!string.IsNullOrEmpty(txtDepartamentoAgregar.Text)) && (!string.IsNullOrEmpty(txtImpuestosCategoria.Text)) && (!string.IsNullOrEmpty(txtDescuentosCategoria.Text)))
             {
                 LCategoria parametros = new LCategoria();
                 Insertar_datos funcion = new Insertar_datos();
 
+                parametros.idDescuento = idDescuentoAgregar;
+                parametros.idImpuesto = idImpuestoAgregar;
                 parametros.Descripcion = txtCategoriaAgregar.Text;
                 parametros.Departamento = txtDepartamentoAgregar.Text;
                 parametros.Estado = "ACTIVO";
@@ -953,11 +978,12 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 if (lblBanderaCategoria.Text == "TRUE")
                 {
                     parametros.idCategoria = idCategoriaAgregar;
+                    parametros.idDescuento = idDescuentoAgregar;
+                    parametros.idImpuesto = idImpuestoAgregar;
                     lblBanderaCategoria.Text = "FALSE";
                     if (funcion.editarCategoria(parametros) == true)
                     {
                         mostrarCategoriaAgregar();
-
                     }
                 }
                 else
@@ -967,12 +993,12 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                         mostrarCategoriaAgregar();
                     }
                 }
-
             }
             else
             {
                 MessageBox.Show("Introduzca los campos correctamente", "Categorias", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void btnCancelarCategorias_Click(object sender, EventArgs e)
@@ -1010,9 +1036,37 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
 
-                da = new SqlDataAdapter("mostrarCategorias", con);
+                da = new SqlDataAdapter("mostrarCategorias2", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@buscar", categoria);
+                da.Fill(dt);
+                datalistadoCategorias.DataSource = dt;
+                con.Close();
+
+                datalistadoCategorias.DataSource = dt;
+                datalistadoCategorias.Columns[2].Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoCategorias);
+        }
+
+        private void mostarCategoria(string categoria)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrarCategorias", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 datalistadoCategorias.DataSource = dt;
                 con.Close();
@@ -1038,14 +1092,13 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
 
-                da = new SqlDataAdapter("mostrarCategorias_parametros", con);
+                da = new SqlDataAdapter("mostrarCategorias", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 da.Fill(dt);
                 datalistadoCategorias.DataSource = dt;
                 con.Close();
 
-                datalistadoCategorias.DataSource = dt;
                 datalistadoCategorias.Columns[2].Visible = false;
             }
             catch (Exception ex)
@@ -1057,6 +1110,12 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void panelCategoria_Paint(object sender, PaintEventArgs e)
         {
+            mostarCategoria();
+            panelImpuestosCategoria.Visible = false;
+            panelImpuestosAgregar.Visible = false;
+            panelImpuestosAgregar.SendToBack();
+            panelDescuentos.Visible = false;
+
             txtCategoriaAgregar.Focus();
             mostarCategoriaCompleta(txtCategoriaProductos.Text);
             panelCategoriaAgregar.Visible = false;
@@ -1070,6 +1129,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             idCategoriaAgregar = Convert.ToInt32(datalistadoCategorias.SelectedCells[2].Value);
             descripcionCategoria = (datalistadoCategorias.SelectedCells[3].Value.ToString());
             departamentoCategoria = (datalistadoCategorias.SelectedCells[4].Value.ToString());
+            txtImpuestosCategoria.Text = (datalistadoCategorias.SelectedCells[5].Value.ToString());
+            txtDescuentosCategoria.Text = (datalistadoCategorias.SelectedCells[6].Value.ToString());
 
             txtCategoriaAgregar.Text = descripcionCategoria;
             txtDepartamentoAgregar.Text = departamentoCategoria;
@@ -1081,6 +1142,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 lblBanderaCategoria.Text = "TRUE";
                 obtenerDatosCategoriaAgregar();
                 panelCategoriaAgregar.Visible = true;
+
             }
 
 
@@ -1126,22 +1188,21 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            mostrarCategoria();
+            panelImpuestosCategoria.Visible = false; mostrarCategoria();
 
             panelCategoria.BringToFront();
             panelCategoria.Visible = true;
             panelCategoria.Location = new Point(387, 110);
-            panelCategoria.Size = new Size(467, 365);
+            panelCategoria.Size = new Size(481, 530);
             txtCategoriaProductos.Focus();
         }
 
         private void txtCategoria_TextChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show(txtCategoria.TextLength.ToString());
-            if (txtCategoria.TextLength > 0)
+            if (txtCategoria.Text !="")
             {
                 datalistadoCategoriasInformacionBasicaPanel.BringToFront();
-                datalistadoCategoriasInformacionBasicaPanel.Location = new Point(61, 209);
+                datalistadoCategoriasInformacionBasicaPanel.Location = new Point(19, 201);
                 datalistadoCategoriasInformacionBasicaPanel.Size = new Size(174, 72);
                 mostarCategoria();
                 datalistadoCategoriasInformacionBasicaPanel.Visible = true;
@@ -1164,7 +1225,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
 
-                da = new SqlDataAdapter("mostrarCategorias", con);
+                da = new SqlDataAdapter("mostrarCategorias2", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@buscar", txtCategoria.Text);
                 da.Fill(dt);
@@ -1172,6 +1233,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 datalistadoCategoriasInformacionBasica.DataSource = dt;
                 datalistadoCategoriasInformacionBasica.Columns[0].Visible = false;
                 datalistadoCategoriasInformacionBasica.Columns[2].Visible = false;
+                datalistadoCategoriasInformacionBasica.Columns[3].Visible = false;
+                datalistadoCategoriasInformacionBasica.Columns[4].Visible = false;
                 datalistadoCategoriasInformacionBasica.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             }
@@ -1193,6 +1256,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         string departamento;
         private int idUnidadVenta;
         private int idClaveSatVenta;
+        
 
         private void obtenerCategoriaDepartamento()
         {
@@ -1341,7 +1405,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             if (txtUnidadCompra.Text != "")
             {
                 datalistadoUnidadCompraPanel.BringToFront();
-                datalistadoUnidadCompraPanel.Location = new Point(491, 208);
+                datalistadoUnidadCompraPanel.Location = new Point(449, 201);
                 datalistadoUnidadCompraPanel.Size = new Size(174, 72);
                 mostrarUnidadesCompra();
                 datalistadoUnidadCompraPanel.Visible = true;
@@ -1405,7 +1469,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             if (txtUnidadDeVenta.Text != "")
             {
                 panelUnidadVenta.BringToFront();
-                panelUnidadVenta.Location = new Point(732, 322);
+                panelUnidadVenta.Location = new Point(674, 201);
                 panelUnidadVenta.Size = new Size(174, 72);
                 mostrarUnidadesVenta();
                 panelUnidadVenta.Visible = true;
@@ -1438,8 +1502,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 datalistadoUnidadVenta.Columns[1].Visible = false;
                 // datalistadoUnidadVenta.Columns[2].Width = 800;
                 datalistadoUnidadVenta.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-                datalistadoUnidadVenta.AutoResizeColumns();
+                  
             }
             catch (Exception ex)
             {
@@ -1451,15 +1514,26 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void PANELINFOR_Paint(object sender, PaintEventArgs e)
         {
+           
         }
 
         private void PANELREGISTRO_Paint(object sender, PaintEventArgs e)
         {
+            PanelInformacionBasicaATRAS.BringToFront();
+            PanelInformacionBasicaATRAS.Visible = true;
+            PanelInformacionBasicaATRAS.Location = new Point(36, 1);
+            PanelInformacionBasicaATRAS.Size = new Size(979, 634);
+            PanelInformacionBasicaATRAS.Dock = DockStyle.Fill;
+            panelInformacionBasica.Dock = DockStyle.Fill;
+
             panelInformacionAdicionalATRAS.Visible = false;
             panelProveedorATRAS.Visible = false;
 
-            panelInformacionBasica.BringToFront();
-            panelInformacionBasica.Visible = true;
+            panelInfoAduana.Visible = false;
+            panelProveedor.Visible = false;
+            panelUnidad.Visible = false;
+            panelCategoria.Visible = false;
+
             CalcularItbis();
         }
 
@@ -2348,7 +2422,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             panelDescuentos.Visible = true;
             panelDescuentos.BringToFront();
-            panelDescuentos.Location = new Point(7 , 6);
+            panelDescuentos.Location = new Point(72, 114);
             panelDescuentos.Size = new Size(337, 311);
         }
 
@@ -2385,10 +2459,11 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void panelCategoriaAgregar_Paint(object sender, PaintEventArgs e)
         {
-            panelDescuentos.Visible = false;
-            panelMostrarDescuentoCategoria.Visible = false;
+            //panelMostrarDescuentoCategoria.Visible = false;
+            /* panelDescuentos.Visible = false;
+             panelImpuestosAgregar.Visible = false;*/
 
-            
+
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -2401,14 +2476,13 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             if (txtDescuentosCategoria.Text != "")
             {
                 panelMostrarDescuentoCategoria.BringToFront();
-                panelMostrarDescuentoCategoria.Location = new Point(18, 223);
-                panelMostrarDescuentoCategoria.Size = new Size(228, 52);
+                panelMostrarDescuentoCategoria.Location = new Point(20, 228);
+                panelMostrarDescuentoCategoria.Size = new Size(72, 114);
                 buscarDescientosCategoria();
                 panelMostrarDescuentoCategoria.Visible = true;
             }
             else
             {
-
                 buscarDescientosCategoria();
                 panelMostrarDescuentoCategoria.SendToBack();
                 panelMostrarDescuentoCategoria.Visible = false;
@@ -2430,7 +2504,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 da = new SqlDataAdapter("buscarDescuentosCategoria", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@buscar", txtDescuentosCategoria.Text + "");
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtDescuentosCategoria.Text);
                 da.Fill(dt);
                 datalistadoUnidadesSAT.DataSource = dt;
                 con.Close();
@@ -2446,8 +2520,138 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistadoUnidadesSAT);
+            Bases.Multilinea(ref datalistadoMostrarDescuentoCategoria);
         }
 
+        private void txtImpuestoAgregar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnImpuestoAgregar_Click(object sender, EventArgs e)
+        {
+            TextBox[] array = { txtNombreImpuestoAgregar, txtImpuestoAgregar };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+                try
+                {
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                    con.Open();
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarImpuestosCategoria", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@nombre", txtNombreImpuestoAgregar.Text);
+                    cmd.Parameters.AddWithValue("@Impuesto", Convert.ToDouble(txtImpuestoAgregar.Text));
+                    cmd.Parameters.AddWithValue("@tipo", "Impuesto Categoria");
+                    cmd.ExecuteNonQuery();
+                    CONEXIONMAESTRA.cerrar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                panelImpuestosAgregar.Visible = false;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void txtImpuestosCategoria_DoubleClick(object sender, EventArgs e)
+        {
+            panelImpuestosAgregar.Visible = true;
+            panelImpuestosAgregar.BringToFront();
+            panelImpuestosAgregar.Location = new Point(93, 123);
+            panelImpuestosAgregar.Size = new Size(337, 311);
+        }
+
+        private void txtImpuestoAgregar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtImpuestoAgregar, e);
+        }
+
+        private void txtDescuentoAgregar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtDescuentoAgregar, e);
+        }
+
+        private void txtDescuentosCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtDescuentosCategoria, e);
+        }
+
+        private void txtImpuestosCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtImpuestosCategoria, e);
+        }
+
+        private void txtImpuestosCategoria_TextChanged(object sender, EventArgs e)
+        {
+            if (txtImpuestosCategoria.Text != "")
+            {
+                panelImpuestosCategoria.BringToFront();
+                panelImpuestosCategoria.Location = new Point(18, 320);
+                panelImpuestosCategoria.Size = new Size(228, 52);
+                buscarImpuestosCategoria();
+                panelImpuestosCategoria.Visible = true;
+            }
+            else
+            {
+
+                buscarDescientosCategoria();
+                panelImpuestosCategoria.SendToBack();
+                panelImpuestosCategoria.Visible = false;
+            }
+        }
+
+        private void buscarImpuestosCategoria()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("buscarImpuestosCategoria", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtImpuestosCategoria.Text + "");
+                da.Fill(dt);
+                datalistadoUnidadesSAT.DataSource = dt;
+                con.Close();
+
+                datalistadiImpuestosCategoria.DataSource = dt;
+                datalistadiImpuestosCategoria.Columns[0].Visible = false;
+                datalistadiImpuestosCategoria.Columns[2].Visible = false;
+                datalistadiImpuestosCategoria.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoMostrarDescuentoCategoria);
+        }
+
+        
+        private void PanelInformacionBasicaATRAS_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PANELINFOR_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            panelImpuestosAgregar.Visible = false;
+        }
     }
 }

@@ -267,6 +267,8 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarCategoria", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idDescuento", parametros.idDescuento);
+                cmd.Parameters.AddWithValue("@idItbis", parametros.idImpuesto);
                 cmd.Parameters.AddWithValue("@descripcion", parametros.Descripcion);
                 cmd.Parameters.AddWithValue("@departamento", parametros.Departamento);
                 cmd.Parameters.AddWithValue("@estado", parametros.Estado);
@@ -289,6 +291,8 @@ namespace SistemaVentas.Datos
                 SqlCommand cmd = new SqlCommand("editarCategoria", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idCategoria", parametros.idCategoria);
+                cmd.Parameters.AddWithValue("@idImpuesto", parametros.idImpuesto);
+                cmd.Parameters.AddWithValue("@idDescuento", parametros.idDescuento);
                 cmd.Parameters.AddWithValue("@descripcion", parametros.Descripcion);
                 cmd.Parameters.AddWithValue("@departamento", parametros.Departamento);
                 cmd.ExecuteNonQuery();
