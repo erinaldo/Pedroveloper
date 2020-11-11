@@ -167,5 +167,23 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
             Impuestos.Impuestos frm = new Impuestos.Impuestos();
             frm.ShowDialog();
         }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            Impuestos.Impuestos frm = new Impuestos.Impuestos();
+            frm.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Almacenes.Almacenes frm = new Almacenes.Almacenes();
+            frm.ShowDialog();
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+            Almacenes.Almacenes frm = new Almacenes.Almacenes();
+            frm.ShowDialog();
+        }
     }
 }
