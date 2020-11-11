@@ -29,6 +29,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             InitializeComponent();
         }
 
+        double ImpuestoProducto;
+        double ImpuestoCategoria;
+        double DescuentoCategoria;
+        double DescuentoProducto;
         string itbis;
         double descuento;
         int contador_stock_detalle_de_venta;
@@ -44,6 +48,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         public static double total;
         public static int Id_caja;
         string SerialPC;
+        private string unidadVenta;
         string sevendePor;
         public static string txtventagenerada;
         double txtprecio_unitario;
@@ -90,10 +95,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             ValidarTemaCaja();
             Limpiar_para_venta_nueva();
             ObtenerIpLocal();
-
-
             panelNotificacionEspera.Visible = true;
         }
+
         private void ObtenerIpLocal()
         {
 
@@ -343,7 +347,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 DATALISTADO_PRODUCTOS_OKA.Columns[8].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[9].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[10].Visible = false;
-
+                DATALISTADO_PRODUCTOS_OKA.Columns[11].Visible = false;
+                DATALISTADO_PRODUCTOS_OKA.Columns[12].Visible = false;
             }
             catch (Exception ex)
             {
@@ -410,13 +415,61 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
 
         }
+        int txtcontador;
 
+        private void mostrar_descripcion_produco_sin_repetir()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrar_descripcion_produco_sin_repetir", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtbuscar.Text);
+                da.Fill(dt);
+                DATALISTADO_PRODUCTOS_OKA.DataSource = dt;
+                con.Close();
+
+                DATALISTADO_PRODUCTOS_OKA.Columns[1].Width = 500;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+        private void contar()
+        {
+            int x;
+
+            x = DATALISTADO_PRODUCTOS_OKA.Rows.Count;
+            txtcontador = (x);
+
+        }
 
 
         private void txtbuscar_TextChanged(object sender, EventArgs e)
         {
+           // mostrar_descripcion_produco_sin_repetir();
+            contar();
+
+
+            if (txtcontador == 0)
+            {
+                DATALISTADO_PRODUCTOS_OKA.Visible = false;
+            }
+            if (txtcontador > 0)
+            {
+                DATALISTADO_PRODUCTOS_OKA.Visible = true;
+            }
+
             if (Tipo_de_busqueda == "LECTORA")
             {
+
                 ValidarVentasNuevas();
                 lbltipodebusqueda2.Visible = false;
                 TimerBUSCADORcodigodebarras.Start();
@@ -465,9 +518,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void DATALISTADO_PRODUCTOS_OKA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-          //  MessageBox.Show(" txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();");
+            MessageBox.Show(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             ValidarVentasNuevas();
-            txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();
+            txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString();
             idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             vender_por_teclado();
 
@@ -489,7 +542,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             if (contador_stock_detalle_de_venta == 0)
             {
                 // Si es producto no esta agregado a las ventas se tomara el Stock de la tabla Productos
-                lblStock_de_Productos = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString());
+                lblStock_de_Productos = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[3].Value.ToString());
                // MessageBox.Show("contador_stock_detalle_de_venta");
 
             }
@@ -499,13 +552,37 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 lblStock_de_Productos = Convert.ToDouble(datalistado_stock_detalle_venta.SelectedCells[1].Value.ToString());
             }
             //Extraemos los datos del producto de la tabla Productos directamente
-            usainventarios = DATALISTADO_PRODUCTOS_OKA.SelectedCells[3].Value.ToString();
-            lbldescripcion.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[9].Value.ToString();
-            lblcodigo.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();
+            lbldescripcion.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
+            lblcodigo.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
-            sevendePor = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
+            unidadVenta = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
+            sevendePor = "Granel";
+
             txtprecio_unitario = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
-            lblItbis.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[11].Value.ToString();
+
+            ImpuestoProducto = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[9].Value);
+            DescuentoProducto = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value);
+            ImpuestoCategoria  = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[11].Value);
+            DescuentoCategoria  = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[12].Value);
+            // 9 - 10 - 11 - 12
+            if (ImpuestoCategoria > 0)
+            {
+                lblItbis.Text = ImpuestoCategoria.ToString();
+            }
+            else
+            {
+                lblItbis.Text = ImpuestoProducto.ToString();
+            }
+
+            if (DescuentoCategoria > 0)
+            {
+                lblDescuento_.Text = DescuentoCategoria.ToString();
+            }
+            else
+            {
+                lblDescuento_.Text = DescuentoProducto.ToString();
+            }
+
             //Preguntamos que tipo de producto sera el que se agrege al detalle de venta
             if (sevendePor == "Granel")
             {
@@ -514,7 +591,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             else if (sevendePor == "Unidad")
             {
               //  MessageBox.Show("sevendePor == Unidad");
-
                 txtpantalla = 1;
                 vender_por_unidad();
             }
@@ -527,8 +603,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             frm.preciounitario = txtprecio_unitario;
             frm.FormClosing += Frm_FormClosing;
             frm.ShowDialog();
-
-
         }
 
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)
@@ -758,7 +832,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
                 datalistadoDetalleVenta.Columns[18].Visible = false;
-                datalistadoDetalleVenta.Columns[20].Visible = false;
                 if (Tema == "Redentor")
                 {
                     Bases.Multilinea(ref datalistadoDetalleVenta);

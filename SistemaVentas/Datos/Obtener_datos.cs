@@ -1536,7 +1536,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("select count(Id_Producto) from Producto", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("select count(idProducto) from Producto", CONEXIONMAESTRA.conectar);
                 Cantidad = Convert.ToInt32(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }

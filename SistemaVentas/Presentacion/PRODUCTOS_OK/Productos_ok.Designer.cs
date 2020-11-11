@@ -95,12 +95,12 @@
             this.Panel24 = new System.Windows.Forms.Panel();
             this.datalistado_empresa = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Panel13 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Label44 = new System.Windows.Forms.Label();
             this.MenuStrip4 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.Label20 = new System.Windows.Forms.Label();
+            this.Panel13 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Label44 = new System.Windows.Forms.Label();
             this.datalistadoImpuestos = new System.Windows.Forms.DataGridView();
             this.datalistado = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -382,8 +382,8 @@
             this.MenuStrip1.SuspendLayout();
             this.Panel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado_empresa)).BeginInit();
-            this.Panel13.SuspendLayout();
             this.MenuStrip4.SuspendLayout();
+            this.Panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoImpuestos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
             this.Panel4.SuspendLayout();
@@ -631,6 +631,44 @@
             this.DataGridViewCheckBoxColumn9.ReadOnly = true;
             this.DataGridViewCheckBoxColumn9.Visible = false;
             // 
+            // MenuStrip4
+            // 
+            this.MenuStrip4.AutoSize = false;
+            this.MenuStrip4.BackColor = System.Drawing.Color.White;
+            this.MenuStrip4.Dock = System.Windows.Forms.DockStyle.None;
+            this.MenuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem15});
+            this.MenuStrip4.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.MenuStrip4.Location = new System.Drawing.Point(364, 51);
+            this.MenuStrip4.Name = "MenuStrip4";
+            this.MenuStrip4.ShowItemToolTips = true;
+            this.MenuStrip4.Size = new System.Drawing.Size(215, 36);
+            this.MenuStrip4.TabIndex = 428;
+            this.MenuStrip4.Text = "MenuStrip4";
+            // 
+            // ToolStripMenuItem15
+            // 
+            this.ToolStripMenuItem15.BackColor = System.Drawing.Color.White;
+            this.ToolStripMenuItem15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.ToolStripMenuItem15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(198)))), ((int)(((byte)(91)))));
+            this.ToolStripMenuItem15.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripMenuItem15.Image")));
+            this.ToolStripMenuItem15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ToolStripMenuItem15.Name = "ToolStripMenuItem15";
+            this.ToolStripMenuItem15.Size = new System.Drawing.Size(204, 32);
+            this.ToolStripMenuItem15.Text = "&Importar desde EXCEL";
+            this.ToolStripMenuItem15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ToolStripMenuItem15.Click += new System.EventHandler(this.ToolStripMenuItem15_Click);
+            // 
+            // Label20
+            // 
+            this.Label20.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Label20.Location = new System.Drawing.Point(65, 167);
+            this.Label20.Name = "Label20";
+            this.Label20.Size = new System.Drawing.Size(165, 20);
+            this.Label20.TabIndex = 216;
+            this.Label20.Text = "Buscar seleccione en la lupa>>";
+            // 
             // Panel13
             // 
             this.Panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(63)))), ((int)(((byte)(67)))));
@@ -670,44 +708,6 @@
             this.Label44.TabIndex = 334;
             this.Label44.Text = "Productos";
             this.Label44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // MenuStrip4
-            // 
-            this.MenuStrip4.AutoSize = false;
-            this.MenuStrip4.BackColor = System.Drawing.Color.White;
-            this.MenuStrip4.Dock = System.Windows.Forms.DockStyle.None;
-            this.MenuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem15});
-            this.MenuStrip4.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.MenuStrip4.Location = new System.Drawing.Point(364, 51);
-            this.MenuStrip4.Name = "MenuStrip4";
-            this.MenuStrip4.ShowItemToolTips = true;
-            this.MenuStrip4.Size = new System.Drawing.Size(215, 36);
-            this.MenuStrip4.TabIndex = 428;
-            this.MenuStrip4.Text = "MenuStrip4";
-            // 
-            // ToolStripMenuItem15
-            // 
-            this.ToolStripMenuItem15.BackColor = System.Drawing.Color.White;
-            this.ToolStripMenuItem15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.ToolStripMenuItem15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(198)))), ((int)(((byte)(91)))));
-            this.ToolStripMenuItem15.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripMenuItem15.Image")));
-            this.ToolStripMenuItem15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToolStripMenuItem15.Name = "ToolStripMenuItem15";
-            this.ToolStripMenuItem15.Size = new System.Drawing.Size(204, 32);
-            this.ToolStripMenuItem15.Text = "&Importar desde EXCEL";
-            this.ToolStripMenuItem15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToolStripMenuItem15.Click += new System.EventHandler(this.ToolStripMenuItem15_Click);
-            // 
-            // Label20
-            // 
-            this.Label20.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Label20.Location = new System.Drawing.Point(65, 167);
-            this.Label20.Name = "Label20";
-            this.Label20.Size = new System.Drawing.Size(165, 20);
-            this.Label20.TabIndex = 216;
-            this.Label20.Text = "Buscar seleccione en la lupa>>";
             // 
             // datalistadoImpuestos
             // 
@@ -1066,9 +1066,9 @@
             this.PANELREGISTRO.BackColor = System.Drawing.Color.White;
             this.PANELREGISTRO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PANELREGISTRO.BackgroundImage")));
             this.PANELREGISTRO.Controls.Add(this.PANELINFOR);
-            this.PANELREGISTRO.Location = new System.Drawing.Point(0, 93);
+            this.PANELREGISTRO.Location = new System.Drawing.Point(0, 269);
             this.PANELREGISTRO.Name = "PANELREGISTRO";
-            this.PANELREGISTRO.Size = new System.Drawing.Size(1259, 702);
+            this.PANELREGISTRO.Size = new System.Drawing.Size(1259, 526);
             this.PANELREGISTRO.TabIndex = 630;
             this.PANELREGISTRO.Paint += new System.Windows.Forms.PaintEventHandler(this.PANELREGISTRO_Paint);
             // 
@@ -4495,9 +4495,9 @@
             this.MenuStrip1.PerformLayout();
             this.Panel24.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistado_empresa)).EndInit();
-            this.Panel13.ResumeLayout(false);
             this.MenuStrip4.ResumeLayout(false);
             this.MenuStrip4.PerformLayout();
+            this.Panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoImpuestos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
             this.Panel4.ResumeLayout(false);

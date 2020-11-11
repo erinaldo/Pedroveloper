@@ -316,6 +316,7 @@
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblDescuento_ = new System.Windows.Forms.Label();
             this.PanelC1.SuspendLayout();
             this.panel_granel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtComprobantes)).BeginInit();
@@ -377,6 +378,7 @@
             // PanelC1
             // 
             this.PanelC1.BackColor = System.Drawing.Color.White;
+            this.PanelC1.Controls.Add(this.lblDescuento_);
             this.PanelC1.Controls.Add(this.panel_granel);
             this.PanelC1.Controls.Add(this.pictureBox5);
             this.PanelC1.Controls.Add(this.BTNTECLADO);
@@ -421,13 +423,13 @@
             this.panel_granel.Controls.Add(this.Label38);
             this.panel_granel.Location = new System.Drawing.Point(736, 16);
             this.panel_granel.Name = "panel_granel";
-            this.panel_granel.Size = new System.Drawing.Size(10, 10);
+            this.panel_granel.Size = new System.Drawing.Size(179, 23);
             this.panel_granel.TabIndex = 535;
             // 
             // lblItbis
             // 
             this.lblItbis.AutoSize = true;
-            this.lblItbis.Location = new System.Drawing.Point(36, 5);
+            this.lblItbis.Location = new System.Drawing.Point(61, 4);
             this.lblItbis.Name = "lblItbis";
             this.lblItbis.Size = new System.Drawing.Size(32, 13);
             this.lblItbis.TabIndex = 632;
@@ -3906,6 +3908,15 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.ToolTipText = "Opcional \"Supr\" para Eliminar";
             // 
+            // lblDescuento_
+            // 
+            this.lblDescuento_.AutoSize = true;
+            this.lblDescuento_.Location = new System.Drawing.Point(733, 17);
+            this.lblDescuento_.Name = "lblDescuento_";
+            this.lblDescuento_.Size = new System.Drawing.Size(32, 13);
+            this.lblDescuento_.TabIndex = 633;
+            this.lblDescuento_.Text = "Itbisa";
+            // 
             // VENTAS_MENU_PRINCIPALOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4270,5 +4281,6 @@
         internal System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label lblItbis;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label lblDescuento_;
     }
 }

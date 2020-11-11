@@ -332,7 +332,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
             string conteoresultado;
             string querycontar;
-            querycontar = "select count(Id_Producto ) from Producto ";
+            querycontar = "select count(idProducto) from Producto ";
             SqlCommand comcontar = new SqlCommand(querycontar, con);
             try
             {
@@ -393,7 +393,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void mostrar_descripcion_produco_sin_repetir()
         {
-          /*  try
+            try
             {
                 DataTable dt = new DataTable();
                 SqlDataAdapter da;
@@ -405,7 +405,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@buscar", txtdescripcion.Text);
                 da.Fill(dt);
-                DATALISTADO_PRODUCTOS_OKA.DataSource = dt;
+                //DATALISTADO_PRODUCTOS_OKA.DataSource = dt;
                 con.Close();
 
                 datalistado.Columns[1].Width = 500;
@@ -416,7 +416,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             {
                 MessageBox.Show(ex.Message);
 
-            }*/
+            }
 
 
 
@@ -447,7 +447,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
              if (TGUARDAR.Visible == false)
              {
                  DATALISTADO_PRODUCTOS_OKA.Visible = false;
-             }*/
+             }
+           */
         }
 
       
