@@ -1,4 +1,5 @@
-﻿using SistemaVentas.Datos;
+﻿using SistemaVentas.CONEXION;
+using SistemaVentas.Datos;
 using SistemaVentas.Logica;
 using System;
 using System.Data;
@@ -857,6 +858,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
+            PanelInformacionBasicaATRAS.BringToFront();
             PanelInformacionBasicaATRAS.Visible = true;
             PanelInformacionBasicaATRAS.Location = new Point(36, 1);
             PanelInformacionBasicaATRAS.Size = new Size(979, 634);
@@ -878,6 +880,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelProveedorATRAS.Size = new Size(979, 634);
             panelProveedorATRAS.Visible = true;
             panelProveedorATRAS.Dock = DockStyle.Fill;
+            panelProveedorATRAS.BringToFront();
             panelProveedor.Dock = DockStyle.Fill;
 
             panelProveedor.Visible = true;
@@ -2193,18 +2196,20 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             PanelUltimosPreciosAgregados.Visible = true;
             PanelUltimosPreciosAgregados.BringToFront();
-            PanelUltimosPreciosAgregados.Location = new Point(81, 25);
-            PanelUltimosPreciosAgregados.Size = new Size(882, 454);
+            PanelUltimosPreciosAgregados.Location = new Point(249, 86);
+            PanelUltimosPreciosAgregados.Size = new Size(410, 313);
+            txtProveedorPreciosArticulo.Text = "";
+            txtPreciodeCompraPrecios.Text = "";
         }
 
         private void btnUltimosPreciosAgregar_Click(object sender, EventArgs e)
         {
-            UltimosPreciosAgregarAgregar.Visible = true;
+           // UltimosPreciosAgregarAgregar.Visible = true;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            PanelUltimosPreciosAgregados.Visible = false;
         }
 
         private void txtProveedorPreciosArticulo_TextChanged(object sender, EventArgs e)
@@ -2212,15 +2217,15 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             if (txtProveedorPreciosArticulo.Text != "")
             {
                 panelMostrarProveedor.BringToFront();
-                panelMostrarProveedor.Location = new Point(732, 322);
-                panelMostrarProveedor.Size = new Size(174, 72);
+                panelMostrarProveedor.Location = new Point(19, 82);
+                panelMostrarProveedor.Size = new Size(133,45);
                 buscarProveedores();
                 panelMostrarProveedor.Visible = true;
             }
             else
             {
 
-                //mostrarUnidadesVenta();
+                buscarProveedores();
                 panelMostrarProveedor.SendToBack();
                 panelMostrarProveedor.Visible = false;
             }
@@ -2228,7 +2233,114 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void buscarProveedores()
         {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
 
+                da = new SqlDataAdapter("Buscar_proveedores", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@letra", txtPreciosProveedor.Text);
+                da.Fill(dt);
+                con.Close();
+                datalistadoProveedorPrecios.DataSource = dt;
+                datalistadoProveedorPrecios.Columns[0].Visible = false;
+                datalistadoProveedorPrecios.Columns[2].Visible = false;
+                datalistadoProveedorPrecios.Columns[3].Visible = false;
+                datalistadoProveedorPrecios.Columns[4].Visible = false;
+                datalistadoProveedorPrecios.Columns[5].Visible = false;
+                datalistadoProveedorPrecios.Columns[6].Visible = false;
+                datalistadoProveedorPrecios.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                datalistadoProveedorPrecios.AutoResizeColumns();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoProveedorPrecios);
+        }
+
+        private void txtPreciodeCompraPrecios_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtPreciosProveedor, e);
+        }
+
+        int idProveedorPreciosSelect;
+        int idProductoSelect;
+        private void btnUltimosPreciosCompraAgregar_Click(object sender, EventArgs e)
+        {
+            
+             TextBox[] array = {txtPreciodeCompraPrecios, txtProveedorPreciosArticulo};
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+                try
+                {
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                    con.Open();
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarPreciosProveedor", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idProveedor", idProveedorPreciosSelect);
+                    ObteneridproductoUltimo();
+                    //idProductoSelect
+                    cmd.Parameters.AddWithValue("@idProducto", 1);
+
+                    cmd.Parameters.AddWithValue("@PrecioCompra", Convert.ToDouble(txtPreciodeCompraPrecios.Text));
+                    cmd.Parameters.AddWithValue("@FechaCompra", txtFechaUltimosPrecios.Value.Date);
+                    cmd.ExecuteNonQuery();
+                    CONEXIONMAESTRA.cerrar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                PanelUltimosPreciosAgregados.Visible = false;
+                panelMostrarProveedor.Visible = true;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void datalistadoProveedorPrecios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idProveedorPreciosSelect = Convert.ToInt32(datalistadoProveedorPrecios.SelectedCells[0].Value);
+            txtProveedorPreciosArticulo.Text = datalistadoProveedorPrecios.SelectedCells[1].Value.ToString();
+            panelMostrarProveedor.SendToBack();
+            panelMostrarProveedor.Visible = false;
+
+
+            // MessageBox.Show(idProveedorPreciosSelect.ToString());
+        }
+
+        private void ObteneridproductoUltimo()
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+            SqlCommand com = new SqlCommand("SELECT idProducto FROM Producto WHERE idProducto = (SELECT Max(idProducto) FROM Producto)", con);
+            try
+            {
+                con.Open();
+                idProductoSelect = Convert.ToInt32(com.ExecuteScalar());
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+
+        private void button7_Click_2(object sender, EventArgs e)
+        {
+            PanelUltimosPreciosAgregados.Visible = false;
         }
     }
 }
