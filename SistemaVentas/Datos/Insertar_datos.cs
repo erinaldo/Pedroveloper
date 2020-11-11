@@ -49,8 +49,49 @@ namespace SistemaVentas.Datos
             }
         }
 
-
-
+        public bool insertarMayoreo(Mayoreo mayoreo)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarMayoreo", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@unidades_1", mayoreo.mayoreo1);
+                cmd.Parameters.AddWithValue("@unidades_2", mayoreo.mayoreo2);
+                cmd.Parameters.AddWithValue("@unidades_3", mayoreo.mayoreo3);
+                cmd.Parameters.AddWithValue("@unidades_4", mayoreo.mayoreo4);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool insertarPrecios(Precios precios)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarListaPrecio", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idMayoreo", precios.idMayoreo);
+                cmd.Parameters.AddWithValue("@Precio_1", precios.precio1);
+                cmd.Parameters.AddWithValue("@Precio_2", precios.precio2);
+                cmd.Parameters.AddWithValue("@Precio_3", precios.precio3);
+                cmd.Parameters.AddWithValue("@Precio_4", precios.precio4);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
         public bool insertarUnidad(LUnidadProductos parametros)
         {
             try

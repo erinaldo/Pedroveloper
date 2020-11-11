@@ -20,12 +20,13 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private int idClaveSatCompra;
         public int idClaveSat;
         double itbis;
+        int idMayoreo;
 
         bool banderaItbis = false;
         private void PictureBox2_Click(object sender, EventArgs e)
         {
-
             PANELREGISTRO.Visible = true;
+            PanelInformacionBasicaATRAS.Visible = true;
             PANELINFOR.Visible = true;
             chkImpuestos.Checked = true;
             LIMPIAR();
@@ -410,7 +411,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             try
             {
 
-                txtcodigodebarras.Text = resultado + Palabra[0].Substring(0, 2) + 369;
+                txtcodigodebarras.Text = resultado + Palabra[0].Substring(0, 2) + 321;
             }
 #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
@@ -546,7 +547,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 Panel6.Visible = false;
                 //TGUARDAR.Visible = false;
-                TGUARDARCAMBIOS.Visible = true;
                 PANELDEPARTAMENTO.Visible = true;
 
 
@@ -587,7 +587,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 if (LBLSEVENDEPOR.Text == "Unidad")
                 {
                     porunidad.Checked = true;
-
                 }
                 if (LBLSEVENDEPOR.Text == "Granel")
                 {
@@ -858,11 +857,15 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            panelInformacionBasica.Location = new Point(36, 1);
-            panelInformacionBasica.Size = new Size(979, 634);
-            panelInformacionBasica.Visible = true;
+            PanelInformacionBasicaATRAS.Visible = true;
+            PanelInformacionBasicaATRAS.Location = new Point(36, 1);
+            PanelInformacionBasicaATRAS.Size = new Size(979, 634);
+            PanelInformacionBasicaATRAS.Dock = DockStyle.Fill;
+            panelInformacionBasica.Dock = DockStyle.Fill;
+
+            panelInformacionAdicionalATRAS.Visible = false;
+
             panelInfoAduana.Visible = false;
-            PanelInformacionAdicional.Visible = false;
             panelProveedor.Visible = false;
             panelUnidad.Visible = false;
             panelCategoria.Visible = false;
@@ -870,39 +873,39 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            //PanelInformacionAdicional.Location = new Point((Width - panelInformacionBasica.Width) / 2, (Height - panelInformacionBasica.Height) / 2);
-            //PanelInformacionAdicional.Size = 1040; 634;
-            panelInformacionBasica.Visible = false;
-            panelInfoAduana.Visible = false;
-            PanelInformacionAdicional.Visible = true;
-            panelProveedor.Visible = false;
-            panelUnidad.Visible = false;
-            panelCategoria.Visible = false;
-            //PanelInformacionAdicional.add = DockStyle.Fill;
-            PanelInformacionAdicional.Location = new Point(36, 1);
-            PanelInformacionAdicional.Size = new Size(979, 634);
 
+            panelProveedorATRAS.Location = new Point(36, 1);
+            panelProveedorATRAS.Size = new Size(979, 634);
+            panelProveedorATRAS.Visible = true;
+            panelProveedorATRAS.Dock = DockStyle.Fill;
+            panelProveedor.Dock = DockStyle.Fill;
+
+            panelProveedor.Visible = true;
 
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            panelInformacionBasica.Visible = false;
+            PanelInformacionBasicaATRAS.Visible = false;
+
             panelInfoAduana.Visible = false;
-            PanelInformacionAdicional.Visible = false;
-            panelProveedor.Visible = true;
+            panelProveedor.Visible = false;
             panelUnidad.Visible = false;
             panelCategoria.Visible = false;
+
+            panelInformacionAdicionalATRAS.Location = new Point(36, 1);
+            panelInformacionAdicionalATRAS.Size = new Size(979, 634);
+            panelInformacionAdicionalATRAS.BringToFront();
+            panelInformacionAdicionalATRAS.Dock = DockStyle.Fill;
+            panelInformacionAdicionalATRAS.Visible = true;
+
+            PanelInformacionAdicional.Visible = true;
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            panelInformacionBasica.Visible = false;
-            panelInfoAduana.Visible = true;
-            PanelInformacionAdicional.Visible = false;
-            panelProveedor.Visible = false;
-            panelUnidad.Visible = false;
-            panelCategoria.Visible = false;
+          
+         
         }
 
         private void btnAgregarCategoriaForm_Click(object sender, EventArgs e)
@@ -1392,7 +1395,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             txtUnidadDeVenta.Text = txtUnidadCompra.Text;
             UnidadMultiplicada1.Text = "x " + txtUnidadCompra.Text;
             UnidadMultiplicada2.Text = "x " + txtUnidadCompra.Text;
-            //UnidadMultiplicada3.Text = txtUnidadCompra.Text;
         }
 
         private void txtUnidadDeVenta_TextChanged(object sender, EventArgs e)
@@ -1450,9 +1452,11 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void PANELREGISTRO_Paint(object sender, PaintEventArgs e)
         {
+            panelInformacionAdicionalATRAS.Visible = false;
+            panelProveedorATRAS.Visible = false;
+
+            panelInformacionBasica.BringToFront();
             panelInformacionBasica.Visible = true;
-            panelInformacionBasica.Location = new Point(36, 1);
-            panelInformacionBasica.Size = new Size(979, 634);
             CalcularItbis();
         }
 
@@ -1507,49 +1511,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
             Bases.Multilinea(ref datalistadoImpuestos);
         }
-
-        /*
-        private void ObtenerImpuestos(string nombreImpuesto)
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                SqlDataAdapter da;
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                con.Open();
-                da = new SqlDataAdapter("buscarImpuesto", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@cadena", nombreImpuesto);
-                da.Fill(dt);
-                con.Close();
-                datalistadoImpuestosObtenidos.DataSource = dt;
-                datalistadoImpuestosObtenidos.Columns[0].Visible = false;
-                datalistadoImpuestosObtenidos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-           Bases.Multilinea(ref datalistadoImpuestosObtenidos);
-        }
-    */
-
-        private void cuadrado_Click(object sender, EventArgs e)
-        {
-            txtPrecioCompra.Focus();
-            txtPrecioCompra.SelectAll();
-            chkImpuestos.Checked = true;
-        }
-
-        private void correcto_Click(object sender, EventArgs e)
-        {
-            txtPrecioCompra.Focus();
-            txtPrecioCompra.SelectAll();
-            chkImpuestos.Checked = false;
-        }
-
 
         private void txtPrecioCompra_TextChanged(object sender, EventArgs e)
         {
@@ -1944,7 +1905,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                         && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio3.Text))
                         && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio4.Text))) > 0)
                     {
-                        insertar_productos();
+                        insertarMayoreo();
                     }
                     else
                     {
@@ -1958,8 +1919,58 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
         }
 
+        private void insertarMayoreo()
+        {
+            Insertar_datos insertar = new Insertar_datos();
+            Mayoreo mayoreo = new Mayoreo();
+
+            mayoreo.mayoreo1 = Convert.ToDouble(txtUnidadMayoreo1.Text);
+            mayoreo.mayoreo2 = Convert.ToDouble(txtUnidadMayoreo2.Text);
+            mayoreo.mayoreo3 = Convert.ToDouble(txtUnidadMayoreo3.Text);
+            mayoreo.mayoreo4 = Convert.ToDouble(txtUnidadMayoreo4.Text);
+
+            if(insertar.insertarMayoreo(mayoreo) == true)
+            {
+                insertarPrecios();
+            }
+        }
+
+        private void ObteneridMayoreo()
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+            SqlCommand com = new SqlCommand("SELECT idMayoreo FROM VentasMayoreo WHERE idMayoreo = (SELECT Max(idMayoreo) FROM VentasMayoreo)", con);
+            try
+            {
+                con.Open();
+                idMayoreo = Convert.ToInt32(com.ExecuteScalar());
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+        private void insertarPrecios()
+        {
+            Insertar_datos insertar = new Insertar_datos();
+            Precios precios = new Precios();
+
+            ObteneridMayoreo();
+            precios.idMayoreo = idMayoreo;
+            precios.precio1 = Convert.ToDouble(txtPrecioVentaPrecio1.Text);
+            precios.precio2 = Convert.ToDouble(txtPrecioVentaPrecio2.Text);
+            precios.precio3 = Convert.ToDouble(txtPrecioVentaPrecio3.Text);
+            precios.precio4 = Convert.ToDouble(txtPrecioVentaPrecio4.Text);
+             
+            if (insertar.insertarPrecios(precios) == true)
+            {
+               // insertarPrecios();
+            }
+        }
         private void insertar_productos()
         {
+
             /* double itbis;
              if (txtpreciomayoreo.Text == "0" | txtpreciomayoreo.Text == "") txtapartirde.Text = "0";
 
@@ -2103,6 +2114,121 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                     MessageBox.Show("Los datos estan incorrectos, el formato es:" + "\nPrecio costo = 100\nPrecio articulo mayor a 100\n%Ganancia puede ser 0", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 }
             }*/
+        }
+
+        private void panelInformacionAdicionalATRAS_Paint(object sender, PaintEventArgs e)
+        {
+            PanelInformacionAdicional.Dock = DockStyle.Fill;
+        }
+
+        private void txtPreciosProveedor_TextChanged(object sender, EventArgs e)
+        {
+            if(txtPreciosProveedor.Text != "")
+            {
+                buscarPreciosProveedor();
+            }
+        }
+
+        private void buscarPreciosProveedor()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("buscarPreciosCompra", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtPreciosProveedor.Text + "");
+                da.Fill(dt);
+                datalistadoPreciosProveedor.DataSource = dt;
+                con.Close();
+
+                datalistadoPreciosProveedor.DataSource = dt;
+                datalistadoPreciosProveedor.Columns[0].Visible = false;
+                datalistadoPreciosProveedor.Columns[1].Visible = false;
+                datalistadoPreciosProveedor.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoPreciosProveedor);
+        }
+
+        private void panelProveedorATRAS_Paint(object sender, PaintEventArgs e)
+        {
+            PanelUltimosPreciosAgregados.Visible = false;
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("mostrarPreciosCompra", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                datalistadoPreciosProveedor.DataSource = dt;
+                con.Close();
+
+                datalistadoPreciosProveedor.DataSource = dt;
+                datalistadoPreciosProveedor.Columns[0].Visible = false;
+                datalistadoPreciosProveedor.Columns[1].Visible = false;
+                datalistadoPreciosProveedor.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoPreciosProveedor);
+        }
+
+        private void btnAgregarPreciosProveedor_Click(object sender, EventArgs e)
+        {
+            PanelUltimosPreciosAgregados.Visible = true;
+            PanelUltimosPreciosAgregados.BringToFront();
+            PanelUltimosPreciosAgregados.Location = new Point(81, 25);
+            PanelUltimosPreciosAgregados.Size = new Size(882, 454);
+        }
+
+        private void btnUltimosPreciosAgregar_Click(object sender, EventArgs e)
+        {
+            UltimosPreciosAgregarAgregar.Visible = true;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProveedorPreciosArticulo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtProveedorPreciosArticulo.Text != "")
+            {
+                panelMostrarProveedor.BringToFront();
+                panelMostrarProveedor.Location = new Point(732, 322);
+                panelMostrarProveedor.Size = new Size(174, 72);
+                buscarProveedores();
+                panelMostrarProveedor.Visible = true;
+            }
+            else
+            {
+
+                //mostrarUnidadesVenta();
+                panelMostrarProveedor.SendToBack();
+                panelMostrarProveedor.Visible = false;
+            }
+        }
+
+        private void buscarProveedores()
+        {
+
         }
     }
 }

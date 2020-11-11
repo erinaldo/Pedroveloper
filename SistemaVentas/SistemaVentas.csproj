@@ -146,7 +146,9 @@
     <Compile Include="Logica\LUnidadesMedida.cs" />
     <Compile Include="Logica\LVehiculos.cs" />
     <Compile Include="Logica\Lventas.cs" />
+    <Compile Include="Logica\Mayoreo.cs" />
     <Compile Include="Logica\Pedidos.cs" />
+    <Compile Include="Logica\Precios.cs" />
     <Compile Include="Presentacion\Admin_nivel_dios\DASHBOARD_PRINCIPAL.cs">
       <SubType>Form</SubType>
     </Compile>
