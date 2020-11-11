@@ -43,12 +43,16 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void BtnCerrar_turno_Click(object sender, EventArgs e)
         {
-            VENTAS_MENU_PRINCIPALOK.txtpantalla=Convert.ToDouble (txtcantidad.Text) ;
+            
+            VENTAS_MENU_PRINCIPALOK.txtpantalla =Convert.ToDouble(txtcantidad.Text);
             Dispose();
         }
 
         private void CANTIDAD_A_GRANEL_Load(object sender, EventArgs e)
         {
+            txtcantidad.Focus();
+            txtprecio_unitario.Enabled = false;
+            txtProducto.Text =  VENTAS_MENU_PRINCIPALOK.txtdescripcion;
             txtprecio_unitario.Text = Convert.ToString(preciounitario);
             mostrarPuertos();
         }

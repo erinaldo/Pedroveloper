@@ -317,6 +317,7 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblDescuento_ = new System.Windows.Forms.Label();
+            this.lblitbis_ = new System.Windows.Forms.Label();
             this.PanelC1.SuspendLayout();
             this.panel_granel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtComprobantes)).BeginInit();
@@ -400,6 +401,7 @@
             // panel_granel
             // 
             this.panel_granel.BackColor = System.Drawing.Color.Transparent;
+            this.panel_granel.Controls.Add(this.lblitbis_);
             this.panel_granel.Controls.Add(this.lblItbis);
             this.panel_granel.Controls.Add(this.lblCantidad_de_numeros);
             this.panel_granel.Controls.Add(this.dtComprobantes);
@@ -3917,6 +3919,15 @@
             this.lblDescuento_.TabIndex = 633;
             this.lblDescuento_.Text = "Itbisa";
             // 
+            // lblitbis_
+            // 
+            this.lblitbis_.AutoSize = true;
+            this.lblitbis_.Location = new System.Drawing.Point(82, 4);
+            this.lblitbis_.Name = "lblitbis_";
+            this.lblitbis_.Size = new System.Drawing.Size(32, 13);
+            this.lblitbis_.TabIndex = 633;
+            this.lblitbis_.Text = "Itbisa";
+            // 
             // VENTAS_MENU_PRINCIPALOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4282,5 +4293,6 @@
         private System.Windows.Forms.Label lblItbis;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label lblDescuento_;
+        private System.Windows.Forms.Label lblitbis_;
     }
 }

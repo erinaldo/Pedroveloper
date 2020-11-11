@@ -29,6 +29,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             InitializeComponent();
         }
 
+        public static string txtdescripcion;
         double ImpuestoProducto;
         double ImpuestoCategoria;
         double DescuentoCategoria;
@@ -518,7 +519,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void DATALISTADO_PRODUCTOS_OKA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
+            txtdescripcion = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
+            // MessageBox.Show(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             ValidarVentasNuevas();
             txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString();
             idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
@@ -567,11 +569,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             // 9 - 10 - 11 - 12
             if (ImpuestoCategoria > 0)
             {
-                lblItbis.Text = ImpuestoCategoria.ToString();
+                lblitbis_.Text = ImpuestoCategoria.ToString();
             }
             else
             {
-                lblItbis.Text = ImpuestoProducto.ToString();
+                lblitbis_.Text = ImpuestoProducto.ToString();
             }
 
             if (DescuentoCategoria > 0)
@@ -591,8 +593,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             else if (sevendePor == "Unidad")
             {
               //  MessageBox.Show("sevendePor == Unidad");
-                txtpantalla = 1;
                 vender_por_unidad();
+                txtpantalla = 1;
             }
 
         }
@@ -727,7 +729,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             try
             {
-
                 if (txtbuscar.Text == DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString())
                 {
                     DATALISTADO_PRODUCTOS_OKA.Visible = true;
@@ -768,14 +769,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     cmd.Parameters.AddWithValue("@montototal", 0);
                     cmd.Parameters.AddWithValue("@Tipo_de_pago", 0);
                     cmd.Parameters.AddWithValue("@estado", "EN ESPERA");
-                    cmd.Parameters.AddWithValue("@IGV", 0);
                     cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text);
                     cmd.Parameters.AddWithValue("@id_usuario", idusuario_que_inicio_sesion);
                     cmd.Parameters.AddWithValue("@Fecha_de_pago", DateTime.Today);
                     cmd.Parameters.AddWithValue("@ACCION", "Factura");
                     cmd.Parameters.AddWithValue("@Saldo", 0);
                     cmd.Parameters.AddWithValue("@Pago_con", 0);
-                    cmd.Parameters.AddWithValue("@Porcentaje_IGV", 0);
                     cmd.Parameters.AddWithValue("@Id_caja", Id_caja);
                     cmd.Parameters.AddWithValue("@Referencia_tarjeta", 0);
                     cmd.ExecuteNonQuery();
@@ -831,7 +830,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoDetalleVenta.Columns[15].Visible = false;
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
-                datalistadoDetalleVenta.Columns[18].Visible = false;
+               /* datalistadoDetalleVenta.Columns[18].Visible = false;
+                datalistadoDetalleVenta.Columns[19].Visible = false;*/
                 if (Tema == "Redentor")
                 {
                     Bases.Multilinea(ref datalistadoDetalleVenta);
@@ -854,8 +854,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             try
             {
-                if (usainventarios == "SI")
-                {
                     if (lblStock_de_Productos >= txtpantalla)
                     {
                         insertar_detalle_venta_Validado();
@@ -864,12 +862,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     {
                         TimerLABEL_STOCK.Start();
                     }
-                }
-
-                else if (usainventarios == "NO")
-                {
                     insertar_detalle_venta_SIN_VALIDAR();
-                }
 
             }
             catch (Exception ex)
@@ -894,17 +887,16 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
                 cmd.Parameters.AddWithValue("@moneda", "DOP");
-                cmd.Parameters.AddWithValue("@Descuento", 0.00);
+                cmd.Parameters.AddWithValue("@Descuento", Convert.ToDouble(lblDescuento_.Text));
                 cmd.Parameters.AddWithValue("@unidades", "Unidad");
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Estado", "EN ESPERA");
                 cmd.Parameters.AddWithValue("@Descripcion", lbldescripcion.Text);
                 cmd.Parameters.AddWithValue("@Codigo", lblcodigo.Text);
                 cmd.Parameters.AddWithValue("@Stock", lblStock_de_Productos);
-                cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
-                cmd.Parameters.AddWithValue("@Usa_inventarios", usainventarios);
+                cmd.Parameters.AddWithValue("@Se_vende_a", unidadVenta);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
-                cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblItbis.Text));
+                cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblitbis_.Text));
                 cmd.ExecuteNonQuery();
                 con.Close();
                 disminuir_stock_en_detalle_de_venta();
@@ -930,15 +922,16 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_unitario);
                 cmd.Parameters.AddWithValue("@moneda", 0);
+                cmd.Parameters.AddWithValue("@Descuento", Convert.ToDouble(lblDescuento_.Text));
                 cmd.Parameters.AddWithValue("@unidades", "Unidad");
                 cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Estado", "EN ESPERA");
                 cmd.Parameters.AddWithValue("@Descripcion", lbldescripcion.Text);
                 cmd.Parameters.AddWithValue("@Codigo", lblcodigo.Text);
                 cmd.Parameters.AddWithValue("@Stock", lblStock_de_Productos);
-                cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
-                cmd.Parameters.AddWithValue("@Usa_inventarios", usainventarios);
+                cmd.Parameters.AddWithValue("@Se_vende_a", unidadVenta);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
+                cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblitbis_.Text));
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -1051,7 +1044,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 iddetalleventa = Convert.ToInt32(datalistadoDetalleVenta.SelectedCells[9].Value.ToString());
                 idproducto = Convert.ToInt32(datalistadoDetalleVenta.SelectedCells[8].Value.ToString());
-                sevendePor = datalistadoDetalleVenta.SelectedCells[17].Value.ToString();
+                unidadVenta = datalistadoDetalleVenta.SelectedCells[17].Value.ToString();
                 usainventarios = datalistadoDetalleVenta.SelectedCells[16].Value.ToString();
                 cantidad = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
             }
@@ -1372,7 +1365,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
                     txtprecio_unitario = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
 
-                    sevendePor = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
+                    unidadVenta = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
                     if (sevendePor == "Unidad")
                     {
                         txtpantalla = 1;
@@ -1431,7 +1424,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     if (datalistadoDetalleVenta.RowCount > 0)
                     {
 
-                        if (sevendePor == "Unidad")
+                        /*if (sevendePor == "Unidad")
                         {
                             string cadena = txtmonto.Text;
                             if (cadena.Contains("."))
@@ -1442,8 +1435,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                             {
                                 BotonCantidad();
                             }
-                        }
-                        else if (sevendePor == "Granel")
+                        }*/
+                        if (sevendePor == "Granel")
                         {
                             BotonCantidad();
                         }
