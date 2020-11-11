@@ -337,6 +337,12 @@
     <Compile Include="Presentacion\Cotizacion\CotizacionAgranel.Designer.cs">
       <DependentUpon>CotizacionAgranel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Descuentos\Descuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Descuentos\Descuento.Designer.cs">
+      <DependentUpon>Descuento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Direccion\Direcciones.cs">
       <SubType>Form</SubType>
     </Compile>

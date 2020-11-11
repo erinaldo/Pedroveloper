@@ -116,8 +116,8 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
         {
             Lproductos parametros = new Lproductos();
             Editar_datos funcion = new Editar_datos();
-            parametros.Id_Producto1 = Idproducto;
-            parametros.Stock = txtagregar.Text;
+           /* parametros.Id_Producto1 = Idproducto;
+            parametros.Stock = txtagregar.Text;*/
             if (funcion.disminuir_stock(parametros) == true)
             {
                 insertar_KARDEX_SALIDA();

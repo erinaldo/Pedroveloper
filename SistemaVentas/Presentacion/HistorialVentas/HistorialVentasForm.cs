@@ -230,8 +230,8 @@ namespace SistemaVentas.Presentacion.HistorialVentas
         {
             Lproductos parametros = new Lproductos();
             Editar_datos funcion = new Editar_datos();
-            parametros.Id_Producto1 = idproducto;
-            parametros.Stock = txtcantidad.Text;
+        /*    parametros.Id_Producto1 = idproducto;
+            parametros.Stock = txtcantidad.Text;*/
             funcion.aumentarStock(parametros);
         }
         private void AumentarStockDetalle()

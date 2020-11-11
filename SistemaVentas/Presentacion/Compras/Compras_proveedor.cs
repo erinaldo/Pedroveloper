@@ -1514,9 +1514,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                     double precioVentaNuevo_;
                     precioVentaNuevo = precioCompra - precioVenta;
                     precioVentaNuevo_ = precioVentaNuevo + precioCompra;
-                    parametrosProductos.Id_Producto1 = idproducto;
-                    parametrosProductos.Precio_de_venta = precioVentaNuevo_;
-                    parametrosProductos.Precio_de_compra = precioCompra;
+                   
                    // if (precioCompra != precioVenta)
                     //{
                         if (funcion.Editarpreciosproductoscompra(parametrosProductos) == true)

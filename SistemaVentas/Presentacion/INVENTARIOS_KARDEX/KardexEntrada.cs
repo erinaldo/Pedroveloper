@@ -101,11 +101,11 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
         {
             Lproductos parametros = new Lproductos();
             Editar_datos funcion = new Editar_datos();
-            parametros.Id_Producto1 = Idproducto;
+            /*parametros.Id_Producto1 = Idproducto;
             parametros.Precio_de_venta =Convert.ToDouble ( txtprecio_venta.Text) ;
             parametros.Precio_de_compra = CostoNuevo;
             parametros.Precio_mayoreo =Convert.ToDouble( txtpreciomayoreo.Text);
-            parametros.Stock = txtagregar.Text; 
+            parametros.Stock = txtagregar.Text; */
             if (funcion.EditarPreciosProductos (parametros)==true)
             {
                 insertar_KARDEX_Entrada();

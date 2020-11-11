@@ -990,7 +990,7 @@ namespace SistemaVentas.Datos
                 SqlCommand cmd = new SqlCommand("aumentar_stock_en_detalle_de_factura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Id_Producto1", parametros.Id_producto);
+                cmd.Parameters.AddWithValue("@idProducto", parametros.Id_producto);
                 cmd.Parameters.AddWithValue("@cantidad", parametros.cantidad);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -1015,7 +1015,7 @@ namespace SistemaVentas.Datos
                 SqlCommand cmd = new SqlCommand("disminuir_stock_en_detalle_de_compra", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Id_Producto1", parametros.Id_producto);
+                cmd.Parameters.AddWithValue("@idProducto", parametros.Id_producto);
                 cmd.Parameters.AddWithValue("@cantidad", parametros.cantidad);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -1041,7 +1041,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("aumentarStock", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idproducto", parametros.Id_Producto1);
+                cmd.Parameters.AddWithValue("@idproducto", parametros.idProducto);
                 cmd.Parameters.AddWithValue("@cantidad", parametros.Stock);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -1065,7 +1065,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("disminuir_stock", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idproducto", parametros.Id_Producto1);
+                cmd.Parameters.AddWithValue("@idproducto", parametros.idProducto);
                 cmd.Parameters.AddWithValue("@cantidad", parametros.Stock);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -1085,16 +1085,16 @@ namespace SistemaVentas.Datos
 
         public bool EditarPreciosProductos(Lproductos parametros)
         {
-            try
+           try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("EditarPreciosProductos", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idproducto", parametros.Id_Producto1);
+                /*cmd.Parameters.AddWithValue("@idproducto", parametros.idProducto);
                 cmd.Parameters.AddWithValue("@precioventa", parametros.Precio_de_venta);
                 cmd.Parameters.AddWithValue("@costo", parametros.Precio_de_compra);    
                 cmd.Parameters.AddWithValue("@preciomayoreo", parametros.Precio_mayoreo);
-                cmd.Parameters.AddWithValue("@cantidadAgregada", parametros.Stock);              
+                cmd.Parameters.AddWithValue("@cantidadAgregada", parametros.Stock);  */           
                 cmd.ExecuteNonQuery();
                 return true;
 
@@ -1116,11 +1116,11 @@ namespace SistemaVentas.Datos
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("Editarpreciosproductoscompra", CONEXIONMAESTRA.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idproducto", parametros.Id_Producto1);
+               /* cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idproducto", parametros.idProducto);
                 cmd.Parameters.AddWithValue("@precioventa", parametros.Precio_de_venta);
                 cmd.Parameters.AddWithValue("@costo", parametros.Precio_de_compra);
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();*/
                 return true;
 
             }

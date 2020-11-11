@@ -443,6 +443,46 @@ namespace SistemaVentas.Datos
 
             }
         }
+
+        public bool insertarProducto(Lproductos productos, LKardex kardex, UnidadesProductos unidadesProductos)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarProducto", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //Productos
+                cmd.Parameters.AddWithValue("@idCategoria", productos.idCategoria);
+                cmd.Parameters.AddWithValue("@Codigo", productos.Codigo);
+                cmd.Parameters.AddWithValue("@Descripcion", productos.Descripcion);
+                cmd.Parameters.AddWithValue("@PrecioCompra", productos.Preciodecompra);
+                cmd.Parameters.AddWithValue("@Stock", productos.Stock);
+                cmd.Parameters.AddWithValue("@idImpuesto", productos.idImpuesto);
+                cmd.Parameters.AddWithValue("@idDescuento", productos.idDescuento);
+
+                //Kardex
+                cmd.Parameters.AddWithValue("@Fecha", kardex.Fecha);
+                cmd.Parameters.AddWithValue("@Motivo", kardex.Motivo);
+                cmd.Parameters.AddWithValue("@Cantidad", kardex.Cantidad);
+                cmd.Parameters.AddWithValue("@Id_usuario", kardex.Id_usuario);
+                cmd.Parameters.AddWithValue("@Tipo", kardex.Tipo);
+                cmd.Parameters.AddWithValue("@Estado", kardex.Estado);
+                cmd.Parameters.AddWithValue("@Id_caja", kardex.Id_caja);
+
+                //UnidadesProductos
+                cmd.Parameters.AddWithValue("@idUnidadCompra", unidadesProductos.idUnidadCompra);
+                cmd.Parameters.AddWithValue("@idUnidadVenta", unidadesProductos.idUnidadVenta);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+
+            }
+        }
         public bool insertarMunicipio(LDireccion parametros)
         {
             try

@@ -24,6 +24,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         int idMayoreo;
         int idImpuestoAgregar;
         int idDescuentoAgregar;
+        double precioCompra;
 
         private void PictureBox2_Click(object sender, EventArgs e)
         {
@@ -90,6 +91,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void Productos_ok_Load(object sender, EventArgs e)
         {
+            mostrarProductos();
             //chkListaItbis.CheckOnClick = true;
             ObtenerImpuestos();
 
@@ -166,9 +168,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("editar_Producto1", con);
+                cmd = new SqlCommand("editar_Producto", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Id_Producto1", TXTIDPRODUCTOOk.Text);
+                cmd.Parameters.AddWithValue("@Id_Producto", TXTIDPRODUCTOOk.Text);
                 cmd.Parameters.AddWithValue("@Descripcion", txtdescripcion.Text);
                 cmd.Parameters.AddWithValue("@Imagen", ".");
 
@@ -310,7 +312,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
             string importe;
             string query;
-            query = "SELECT      CONVERT(NUMERIC(18,2),sum(Producto1.Precio_de_compra * Stock )) as suma FROM  Producto1 where  Usa_inventarios ='SI'";
+            query = "SELECT      CONVERT(NUMERIC(18,2),sum(Producto.Precio_de_compra * Stock )) as suma FROM  Producto where  Usa_inventarios ='SI'";
 
             SqlCommand com = new SqlCommand(query, con);
             try
@@ -330,7 +332,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
             string conteoresultado;
             string querycontar;
-            querycontar = "select count(Id_Producto1 ) from Producto1 ";
+            querycontar = "select count(Id_Producto ) from Producto ";
             SqlCommand comcontar = new SqlCommand(querycontar, con);
             try
             {
@@ -358,9 +360,10 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void GENERAR_CODIGO_DE_BARRAS_AUTOMATICO()
         {
-           /* Double resultado;
+            
+            Double resultado;
             string queryMoneda;
-            queryMoneda = "SELECT max(Id_Producto1)  FROM Producto1";
+            queryMoneda = "SELECT max(idProducto) FROM Producto";
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             SqlCommand comMoneda = new SqlCommand(queryMoneda, con);
@@ -370,9 +373,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 resultado = Convert.ToDouble(comMoneda.ExecuteScalar()) + 1;
                 con.Close();
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 resultado = 1;
             }
@@ -386,11 +387,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 txtcodigodebarras.Text = resultado + Palabra[0].Substring(0, 2) + 321;
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
-            }*/
+            }
         }
         private void mostrar_descripcion_produco_sin_repetir()
         {
@@ -424,7 +423,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         }
         private void contar()
         {
-           /* int x;
+          /* int x;
 
             x = DATALISTADO_PRODUCTOS_OKA.Rows.Count;
             txtcontador = (x);*/
@@ -433,7 +432,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void txtdescripcion_TextChanged_1(object sender, EventArgs e)
         {
 
-            /* mostrar_descripcion_produco_sin_repetir();
+           /* mostrar_descripcion_produco_sin_repetir();
              contar();
 
 
@@ -592,7 +591,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                                     SqlConnection con = new SqlConnection();
                                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                                     con.Open();
-                                    cmd = new SqlCommand("eliminar_Producto1", con);
+                                    cmd = new SqlCommand("eliminar_Producto", con);
                                     cmd.CommandType = CommandType.StoredProcedure;
 
                                     cmd.Parameters.AddWithValue("@id", onekey);
@@ -649,7 +648,14 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void btnGenerarCodigo_Click_1(object sender, EventArgs e)
         {
-            GENERAR_CODIGO_DE_BARRAS_AUTOMATICO();
+            if (idCategoria != 0)
+            {
+                GENERAR_CODIGO_DE_BARRAS_AUTOMATICO();
+            }
+            else
+            {
+                MessageBox.Show("No se puede generar el Código de barras\nSeleccione una Categoria");
+            }
         }
 
         
@@ -1129,7 +1135,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void obtenerCategoriaDepartamento()
         {
-            idCategoriaAgregar = Convert.ToInt32(datalistadoCategoriasInformacionBasica.SelectedCells[0].Value);
+            idCategoria = Convert.ToInt32(datalistadoCategoriasInformacionBasica.SelectedCells[0].Value);
             descripcion = (datalistadoCategoriasInformacionBasica.SelectedCells[1].Value.ToString());
             departamento = (datalistadoCategoriasInformacionBasica.SelectedCells[2].Value.ToString());
 
@@ -1544,39 +1550,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                     MessageBox.Show(ex.Message);
                 }
             }
-
-            /*  if(chkImpuestos.Checked == true)
-            {
-               
-      MessageBox.Show("1");
-            timerCalcularItbis.Start();
-            
-            timerCalcularItbis.Stop();
-       try
-            {
-
-                double TotalVentaVariabledouble;
-                double TXTPRECIODEVENTA2V = Convert.ToDouble(TXTPRECIODEVENTA2.Text);
-                double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
-
-                TotalVentaVariabledouble = ((TXTPRECIODEVENTA2V - txtPrecioComprav) / (txtPrecioComprav)) * 100;
-
-                if (TotalVentaVariabledouble > 0)
-                {
-                    this.txtPorcentajeGanancia.Text = Convert.ToString(TotalVentaVariabledouble);
-                }
-                else
-                {
-                    //Me.txtPorcentajeGanancia.Text = 0
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-
-            }
-      */
         }
 
         private void txtPrecioCompraImpuestos_KeyPress(object sender, KeyPressEventArgs e)
@@ -1676,7 +1649,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void TimerCalcular_precio_venta_Tick(object sender, EventArgs e)
         {
-          /*  //TimerCalcular_precio_venta.Stop();
+            TimerCalcular_precio_venta.Stop();
             try
             {
                 double totalPrecioVenta1;
@@ -1685,7 +1658,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
                 totalPrecioVenta1 = txtpreciocompra1 + ((txtpreciocompra1 * porcentaje1) / 100);
 
-                if (totalPrecioVenta1 > 0 & txtPorcentajeGanancia.Focused == true)
+                if (totalPrecioVenta1 > 0 & txtPorcentajeGanancia1.Focused == true)
                 {
                     this.txtPrecioVentaPrecio1.Text = Convert.ToString(totalPrecioVenta1);
                 }
@@ -1697,7 +1670,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             catch (Exception ex)
             {
 
-            }*/
+            }
         }
 
         private void TimerCalcular_precio_venta2(object sender, EventArgs e)
@@ -1841,28 +1814,35 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void btnGuardarInformacionBasica_Click(object sender, EventArgs e)
         {
             TextBox[] array = {  txtdescripcion, txtcodigodebarras, txtCategoria, txtUnidadCompra, txtUnidadDeVenta, txtPrecioCompra, txtPrecioCompraImpuestos, txtStock};
-            
-            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
-             {
-                if (txtPrecioVentaPrecio1.Text != "0" && txtPrecioVentaPrecio2.Text != "0" && txtPrecioVentaPrecio3.Text != "0" && txtPrecioVentaPrecio4.Text != "0" &&
-                   txtPrecioCompra.Text != "0" && txtUnidadDeVenta.Text != "0" && txtUnidadVenta.Text != "0")
+
+            if (idDescuento != 0 && idCategoria != 0 && idUnidadVenta != 0 && idUnidadCompra != 0) {
+                if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
                 {
-                    if (Convert.ToDouble((Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio1.Text))
-                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio2.Text))
-                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio3.Text))
-                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio4.Text))) > 0)
+                    if (txtPrecioVentaPrecio1.Text != "0" && txtPrecioVentaPrecio2.Text != "0" && txtPrecioVentaPrecio3.Text != "0" && txtPrecioVentaPrecio4.Text != "0" &&
+                       txtPrecioCompra.Text != "0" && txtUnidadDeVenta.Text != "0" && txtUnidadVenta.Text != "0")
                     {
-                        insertarMayoreo();
+                        if (Convert.ToDouble((Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio1.Text))
+                            && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio2.Text))
+                            && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio3.Text))
+                            && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio4.Text))) > 0)
+                        {
+                            insertarMayoreo();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Los datos estan incorrectos.\n El formato es Precio de Compra > Precio de venta(1,2,3,4)", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Los datos estan incorrectos.\n El formato es Precio de Compra > Precio de venta(1,2,3,4)", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                        MessageBox.Show("Los datos estan incorrectos\nExisten campos con 0", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Los datos estan incorrectos, verifica los campos con valor 0", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Los datos estan incorrectos\n Selecciona todos los campos correctamente ", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
 
@@ -1920,36 +1900,115 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void insertarProductos()
         {
+            if (idDescuento == 0 || idUnidadCompra == 0 || idUnidadVenta == 0) { 
+                MessageBox.Show("ASD");
+        }
             UnidadesProductos parametros = new UnidadesProductos();
+            LKardex kardex = new LKardex();
             Lproductos lproductos = new Lproductos();
             Insertar_datos insertar = new Insertar_datos();
 
+            lproductos.idCategoria = idCategoria;   
+            
+            lproductos.Codigo = txtcodigodebarras.Text;
+            lproductos.Descripcion = txtdescripcion.Text;
+            lproductos.Stock = Convert.ToDouble(txtStock.Text);
+            lproductos.Preciodecompra = Convert.ToDouble(txtPrecioCompraImpuestos.Text);
+            lproductos.idImpuesto = 1;
+            lproductos.idDescuento = idDescuento;
+            
+            kardex.Fecha = DateTime.Today;
+            kardex.Motivo = "Registro inicial de Producto";
+            kardex.Cantidad = Convert.ToDouble(txtStock.Text);
+            kardex.Id_usuario = idusuario;
+            kardex.Id_caja = idcaja;
+            kardex.Tipo = "ENTRADA";
+            kardex.Estado = "CONFIRMADO";
+            kardex.Id_caja = idcaja;
+
             parametros.idUnidadVenta = idUnidadVenta;
             parametros.idUnidadCompra = idUnidadCompra;
-            /*parametros.idProducto = idProducto;
 
-            if(insertar.insertarUnidadProductos(parametros) == true)
+            if(insertar.insertarProducto(lproductos, kardex, parametros) == true)
             {
-                
-            }*/
+                PANELREGISTRO.Visible = false;
+                mostrarProductos();
+            }
 
         }
 
 
-        private void insertarUnidadesVSProductos()
+     /*   private void buscar()
         {
-            UnidadesProductos parametros = new UnidadesProductos();
-            Insertar_datos insertar = new Insertar_datos();
-
-            parametros.idUnidadVenta = idUnidadVenta;
-            parametros.idUnidadCompra = idUnidadCompra;
-            /*parametros.idProducto = idProducto;
-
-            if(insertar.insertarUnidadProductos(parametros) == true)
+            try
             {
-                
-            }*/
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
 
+                da = new SqlDataAdapter("buscar_producto_por_descripcion", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@letra", txtbusca.Text);
+                da.Fill(dt);
+                datalistado.DataSource = dt;
+                con.Close();
+
+                datalistado.Columns[2].Visible = false;
+                datalistado.Columns[7].Visible = false;
+                datalistado.Columns[10].Visible = false;
+                datalistado.Columns[15].Visible = false;
+                datalistado.Columns[16].Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+     
+            Bases.Multilinea(ref datalistado);
+            sumar_costo_de_inventario_CONTAR_PRODUCTOS();
+        }
+     */
+        private void mostrarProductos()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("Mostrarprodutos", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                da.Fill(dt);
+                datalistado.DataSource = dt;
+                con.Close();
+
+                datalistado.Columns[2].Visible = false;
+                datalistado.Columns[3].Visible = false;
+                datalistado.Columns[4].Visible = false;
+                datalistado.Columns[9].Visible = false;
+                datalistado.Columns[10].Visible = false;
+                datalistado.Columns[13].Visible = false;
+                datalistado.Columns[15].Visible = false;
+                datalistado.Columns[16].Visible = false;
+                datalistado.Columns[17].Visible = false;
+                datalistado.Columns[18].Visible = false;
+                datalistado.Columns[19].Visible = false;
+                datalistado.Columns[20].Visible = false;
+                datalistado.Columns[21].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistado);
         }
 
         private void insertar_productos()
