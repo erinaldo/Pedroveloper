@@ -231,7 +231,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             txtDescuentosCategoria.Text = datalistadoMostrarDescuentoCategoria.SelectedCells[1].Value.ToString();
             panelMostrarDescuentoCategoria.Visible = false;
 
-            MessageBox.Show(idDescuentoAgregar.ToString());
         }
 
         private void datalistadiImpuestosCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1867,6 +1866,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
         }
 
+
+     
         private void insertarMayoreo()
         {
             Insertar_datos insertar = new Insertar_datos();
@@ -1913,9 +1914,44 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
              
             if (insertar.insertarPrecios(precios) == true)
             {
-               // insertarPrecios();
+                insertarProductos();
             }
         }
+
+        private void insertarProductos()
+        {
+            UnidadesProductos parametros = new UnidadesProductos();
+            Lproductos lproductos = new Lproductos();
+            Insertar_datos insertar = new Insertar_datos();
+
+            parametros.idUnidadVenta = idUnidadVenta;
+            parametros.idUnidadCompra = idUnidadCompra;
+            /*parametros.idProducto = idProducto;
+
+            if(insertar.insertarUnidadProductos(parametros) == true)
+            {
+                
+            }*/
+
+        }
+
+
+        private void insertarUnidadesVSProductos()
+        {
+            UnidadesProductos parametros = new UnidadesProductos();
+            Insertar_datos insertar = new Insertar_datos();
+
+            parametros.idUnidadVenta = idUnidadVenta;
+            parametros.idUnidadCompra = idUnidadCompra;
+            /*parametros.idProducto = idProducto;
+
+            if(insertar.insertarUnidadProductos(parametros) == true)
+            {
+                
+            }*/
+
+        }
+
         private void insertar_productos()
         {
 
@@ -2219,6 +2255,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         int idProveedorPreciosSelect;
         int idProductoSelect;
         private int idAlmacenSelect;
+        private int idDescuento;
 
         private void btnUltimosPreciosCompraAgregar_Click(object sender, EventArgs e)
         {
@@ -2604,6 +2641,67 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void panelInformacionBasica_Click(object sender, EventArgs e)
         {
             ObtenerImpuestos();
+        }
+
+        private void txtDescuento_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDescuento.Text != "")
+            {
+                panelDescuentoBasico.BringToFront();
+                panelDescuentoBasico.Location = new Point(485, 311);
+                panelDescuentoBasico.Size = new Size(72, 114);
+                buscarDescuentos();
+                panelDescuentoBasico.Visible = true;
+            }
+            else
+            {
+                buscarDescuentos();
+                panelDescuentoBasico.SendToBack();
+                panelDescuentoBasico.Visible = false;
+            }
+        }
+        private void buscarDescuentos()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("buscarDescuentos", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtDescuento.Text);
+                da.Fill(dt);
+                datalistadoUnidadesSAT.DataSource = dt;
+                con.Close();
+
+                datalistadoDescuentoBasico.DataSource = dt;
+                datalistadoDescuentoBasico.Columns[0].Visible = false;
+                datalistadoDescuentoBasico.Columns[2].Visible = false;
+                datalistadoDescuentoBasico.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoMostrarDescuentoCategoria);
+        }
+
+        private void datalistadoDescuentoBasico_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idDescuento = Convert.ToInt32(datalistadoDescuentoBasico.SelectedCells[0].Value);
+            txtDescuento.Text = datalistadoDescuentoBasico.SelectedCells[1].Value.ToString();
+            panelDescuentoBasico.Visible = false;
+
         }
     }
 }

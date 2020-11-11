@@ -150,6 +150,7 @@
     <Compile Include="Logica\Mayoreo.cs" />
     <Compile Include="Logica\Pedidos.cs" />
     <Compile Include="Logica\Precios.cs" />
+    <Compile Include="Logica\UnidadesProductos.cs" />
     <Compile Include="Presentacion\Admin_nivel_dios\DASHBOARD_PRINCIPAL.cs">
       <SubType>Form</SubType>
     </Compile>
