@@ -24,7 +24,7 @@ namespace SistemaVentas
             // Presentacion.PRODUCTOS_OK.Productos_ok frm = new Presentacion.PRODUCTOS_OK.Productos_ok();
            // Presentacion.INVENTARIOS_KARDEX.INVENTARIO_MENU frm = new Presentacion.INVENTARIOS_KARDEX.INVENTARIO_MENU();
             frm.FormClosed += Frm_FormClosed;
-            frm.ShowDialog();
+            frm.ShowDialog();  
             Application.Run();
         }
         private static void Frm_FormClosed(object sender, FormClosedEventArgs e)
