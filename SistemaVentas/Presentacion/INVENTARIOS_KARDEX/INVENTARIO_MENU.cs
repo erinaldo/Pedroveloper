@@ -45,7 +45,7 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
                 con.Close();
 
 
-                /*DATALISTADO_PRODUCTOS_Movimientos.Columns[1].Visible = false;
+                DATALISTADO_PRODUCTOS_Movimientos.Columns[1].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[3].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[4].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[5].Visible = false;
@@ -55,11 +55,13 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[9].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[10].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[11].Visible = false;
-                DATALISTADO_PRODUCTOS_Movimientos.Columns[12].Visible = false;*/
-               /* DATALISTADO_PRODUCTOS_Movimientos.Columns[13].Visible = false;
-                DATALISTADO_PRODUCTOS_Movimientos.Columns[14].Visible = false;
-                DATALISTADO_PRODUCTOS_Movimientos.Columns[15].Visible = false;
-                DATALISTADO_PRODUCTOS_Movimientos.Columns[16].Visible = false;*/
+                DATALISTADO_PRODUCTOS_Movimientos.Columns[12].Visible = false;
+                DATALISTADO_PRODUCTOS_Movimientos.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                /* DATALISTADO_PRODUCTOS_Movimientos.Columns[13].Visible = false;
+                 DATALISTADO_PRODUCTOS_Movimientos.Columns[14].Visible = false;
+                 DATALISTADO_PRODUCTOS_Movimientos.Columns[15].Visible = false;
+                 DATALISTADO_PRODUCTOS_Movimientos.Columns[16].Visible = false;*/
 
                 Bases.Multilinea(ref DATALISTADO_PRODUCTOS_Movimientos);
 
@@ -517,7 +519,7 @@ buscar_MOVIMIENTOS_FILTROS();
 
             string conteoresultado;
             string querycontar;
-            querycontar = "select count(Id_Producto1 ) from Producto1 ";
+            querycontar = "select count(idProducto) from Producto";
             SqlCommand comcontar = new SqlCommand(querycontar, con);
             try
             {
@@ -801,6 +803,9 @@ buscar_MOVIMIENTOS_FILTROS();
             else
             {
                 buscar_productos_kardex();
+                DATALISTADO_PRODUCTOS_Kardex.Location = new Point(48, 41);
+                //DATALISTADO_PRODUCTOS_Kardex.Size = new Size(133, 45);
+                //48; 41
             }
             
         }
@@ -833,10 +838,12 @@ buscar_MOVIMIENTOS_FILTROS();
                 DATALISTADO_PRODUCTOS_Kardex.Columns[10].Visible = false;
                 DATALISTADO_PRODUCTOS_Kardex.Columns[11].Visible = false;
                 DATALISTADO_PRODUCTOS_Kardex.Columns[12].Visible = false;
-                DATALISTADO_PRODUCTOS_Kardex.Columns[13].Visible = false;
+                DATALISTADO_PRODUCTOS_Kardex.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                /*DATALISTADO_PRODUCTOS_Kardex.Columns[13].Visible = false;
                 DATALISTADO_PRODUCTOS_Kardex.Columns[14].Visible = false;
                 DATALISTADO_PRODUCTOS_Kardex.Columns[15].Visible = false;
-                DATALISTADO_PRODUCTOS_Kardex.Columns[16].Visible = false;
+                DATALISTADO_PRODUCTOS_Kardex.Columns[16].Visible = false;*/
                 DATALISTADO_PRODUCTOS_Kardex.Visible  = true;
                 Bases.Multilinea(ref DATALISTADO_PRODUCTOS_Kardex);
 

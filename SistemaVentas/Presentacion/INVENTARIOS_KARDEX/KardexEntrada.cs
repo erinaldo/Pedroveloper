@@ -46,10 +46,7 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
             DatalistadoProductos.Columns[10].Visible = false;
             DatalistadoProductos.Columns[11].Visible = false;
             DatalistadoProductos.Columns[12].Visible = false;
-            DatalistadoProductos.Columns[13].Visible = false;
-            DatalistadoProductos.Columns[14].Visible = false;
-            DatalistadoProductos.Columns[15].Visible = false;
-            DatalistadoProductos.Columns[16].Visible = false;
+          
 
             Bases.Multilinea(ref DatalistadoProductos);
 

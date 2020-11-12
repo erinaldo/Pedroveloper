@@ -774,7 +774,7 @@
             this.dataGridViewImageColumn2});
             this.DATALISTADO_PRODUCTOS_Movimientos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DATALISTADO_PRODUCTOS_Movimientos.EnableHeadersVisualStyles = false;
-            this.DATALISTADO_PRODUCTOS_Movimientos.Location = new System.Drawing.Point(288, 45);
+            this.DATALISTADO_PRODUCTOS_Movimientos.Location = new System.Drawing.Point(48, 41);
             this.DATALISTADO_PRODUCTOS_Movimientos.MultiSelect = false;
             this.DATALISTADO_PRODUCTOS_Movimientos.Name = "DATALISTADO_PRODUCTOS_Movimientos";
             this.DATALISTADO_PRODUCTOS_Movimientos.ReadOnly = true;
@@ -785,7 +785,7 @@
             this.DATALISTADO_PRODUCTOS_Movimientos.RowTemplate.Height = 40;
             this.DATALISTADO_PRODUCTOS_Movimientos.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.DATALISTADO_PRODUCTOS_Movimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DATALISTADO_PRODUCTOS_Movimientos.Size = new System.Drawing.Size(231, 61);
+            this.DATALISTADO_PRODUCTOS_Movimientos.Size = new System.Drawing.Size(350, 64);
             this.DATALISTADO_PRODUCTOS_Movimientos.TabIndex = 614;
             this.DATALISTADO_PRODUCTOS_Movimientos.Visible = false;
             this.DATALISTADO_PRODUCTOS_Movimientos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DATALISTADO_PRODUCTOS_Movimientos_CellClick);
@@ -1389,7 +1389,7 @@
             this.DataGridViewCheckBoxColumn4});
             this.DATALISTADO_PRODUCTOS_Kardex.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DATALISTADO_PRODUCTOS_Kardex.EnableHeadersVisualStyles = false;
-            this.DATALISTADO_PRODUCTOS_Kardex.Location = new System.Drawing.Point(198, 42);
+            this.DATALISTADO_PRODUCTOS_Kardex.Location = new System.Drawing.Point(231, 50);
             this.DATALISTADO_PRODUCTOS_Kardex.MultiSelect = false;
             this.DATALISTADO_PRODUCTOS_Kardex.Name = "DATALISTADO_PRODUCTOS_Kardex";
             this.DATALISTADO_PRODUCTOS_Kardex.ReadOnly = true;
@@ -1400,7 +1400,7 @@
             this.DATALISTADO_PRODUCTOS_Kardex.RowTemplate.Height = 40;
             this.DATALISTADO_PRODUCTOS_Kardex.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.DATALISTADO_PRODUCTOS_Kardex.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DATALISTADO_PRODUCTOS_Kardex.Size = new System.Drawing.Size(458, 238);
+            this.DATALISTADO_PRODUCTOS_Kardex.Size = new System.Drawing.Size(318, 82);
             this.DATALISTADO_PRODUCTOS_Kardex.TabIndex = 611;
             this.DATALISTADO_PRODUCTOS_Kardex.Visible = false;
             this.DATALISTADO_PRODUCTOS_Kardex.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DATALISTADO_PRODUCTOS_Kardex_CellClick);
