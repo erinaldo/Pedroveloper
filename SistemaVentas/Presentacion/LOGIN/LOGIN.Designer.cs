@@ -991,7 +991,7 @@
             this.PanelRestaurarCuenta.Controls.Add(this.Label1);
             this.PanelRestaurarCuenta.Controls.Add(this.Label5);
             this.PanelRestaurarCuenta.Controls.Add(this.Label6);
-            this.PanelRestaurarCuenta.Location = new System.Drawing.Point(974, 28);
+            this.PanelRestaurarCuenta.Location = new System.Drawing.Point(722, 29);
             this.PanelRestaurarCuenta.Name = "PanelRestaurarCuenta";
             this.PanelRestaurarCuenta.Size = new System.Drawing.Size(473, 287);
             this.PanelRestaurarCuenta.TabIndex = 617;
@@ -1015,6 +1015,7 @@
             this.button3.TabIndex = 620;
             this.button3.Text = "Enviar correo";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // txtcorreo
             // 

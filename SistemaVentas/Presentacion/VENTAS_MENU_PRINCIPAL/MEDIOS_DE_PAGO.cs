@@ -1549,7 +1549,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                datalistadoempleado.Visible = false;
                 label7.Visible = false;
-
             }
         }
 

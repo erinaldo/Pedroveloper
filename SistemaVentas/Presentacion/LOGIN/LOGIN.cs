@@ -518,17 +518,14 @@ namespace SistemaVentas.Presentacion
         }
         //enviarCorreo();
 
-        private void Button3_Click(object sender, EventArgs e)
-        {
-            enviarCorreo();
-        }
+
         private void enviarCorreo()
         {
             mostrar_usuarios_por_correo();
             richTextBox1.Text = richTextBox1.Text.Replace("@pass", lblResultadoContraseña.Text );
-            Bases.enviarCorreo("francisco.udemy.2020@gmail.com","asdasdasd", richTextBox1.Text, "Solicitud de Contraseña",  txtcorreo.Text, "");
-
+            Bases.enviarCorreo("pedrocode29@gmail.com","asdasdasd", richTextBox1.Text, "Solicitud de Contraseña",  txtcorreo.Text, "");
         }
+
         private void MOSTRAR_CAJA_POR_SERIAL()
         {
             try
@@ -550,11 +547,9 @@ namespace SistemaVentas.Presentacion
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
-
-
         }
+
         string INDICADOR;
         private void mostrar_usuarios_registrados()
         {
@@ -820,6 +815,11 @@ namespace SistemaVentas.Presentacion
         {
             PanelRestaurarCuenta.Visible = true;
             PanelRestaurarCuenta.BringToFront();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            enviarCorreo();
         }
     }
 }

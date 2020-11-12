@@ -301,13 +301,13 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
         private void DATALISTADO_PRODUCTOS_OKA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtdescripcion = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
+            idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             ValidarVentasNuevas();
-            txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();
-            idproducto = Convert.ToInt32 ( DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
-            //MessageBox.Show("producto:", idproducto.ToString());
+            txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             vender_por_teclado();
-
         }
+
         public void ValidarVentasNuevas()
         {
            if (datalistadoDetalleVenta.RowCount ==0)

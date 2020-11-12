@@ -854,10 +854,6 @@ namespace SistemaVentas.Presentacion.Cotizacion
             datalistadoclientes3.Visible = false;
         }
 
-        private void Envio_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
         private void txtclientesolicitabnte3_TextChanged(object sender, EventArgs e)
         {
             buscarclientes3();
@@ -919,6 +915,58 @@ namespace SistemaVentas.Presentacion.Cotizacion
         private void datalistadoclientes2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Envio_CheckedChanged(object sender, EventArgs e)
+        {
+
+
+            if (Envio.Checked == true)
+            {
+
+                // Verificacion disponibilidad de Personal. ---------------GOOD-------------
+                // Verificar vehiculos disponibles
+                // Determinar disponibilidad: Asignar personal para el envio.
+                // Verificar personal capacitado.
+                /* if (txtclientesolicitabnte3.TextLength > 0)
+                 {
+                     if (VerificarEstadoPersonal() && verificarCliente() && VerificarEstadoVehiculos())
+                     {
+                         label7.Visible = true;
+                         datalistadoempleado.Visible = true;
+                         if (Envio.Checked == false)
+                         {
+                             datalistadoempleado.Visible = false;
+                             label7.Visible = false;
+
+                         }
+                         ObtenerVehiculo();
+
+                     }
+                     else
+                     {
+                         MessageBox.Show("Verifica el Estado del Personal, Clientes o Vehiculos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                     }
+
+                 }
+                 else
+                 {
+                     MessageBox.Show("Seleccione un cliente correctamente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 }
+             }
+             else
+             {
+                 datalistadoempleado.Visible = false;
+                 label7.Visible = false;
+
+            */
+            }
         }
     }
 }

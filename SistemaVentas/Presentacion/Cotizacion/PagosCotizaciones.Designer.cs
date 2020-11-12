@@ -100,6 +100,20 @@
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.datalistadoclientes2 = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Envio = new UIDC.UI_MaterialToggle();
+            this.PanelEnviarCorreo = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.txtcorreo = new System.Windows.Forms.ComboBox();
+            this.Panel7 = new System.Windows.Forms.Panel();
+            this.txtpassenvi = new System.Windows.Forms.Label();
+            this.lblEstado_de_envio = new System.Windows.Forms.Label();
+            this.Button4 = new System.Windows.Forms.Button();
+            this.Panel12 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.PanelregistroClientes.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -116,6 +130,9 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.PanelEnviarCorreo.SuspendLayout();
+            this.Panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // TXTTOTAL
@@ -132,6 +149,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.PanelEnviarCorreo);
             this.panel1.Controls.Add(this.PanelregistroClientes);
             this.panel1.Location = new System.Drawing.Point(21, 91);
             this.panel1.Name = "panel1";
@@ -331,6 +349,7 @@
             // panelGuardado_de_datos
             // 
             this.panelGuardado_de_datos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.panelGuardado_de_datos.Controls.Add(this.panel6);
             this.panelGuardado_de_datos.Controls.Add(this.btnGuardarImprimirdirecto);
             this.panelGuardado_de_datos.Controls.Add(this.TGuardarSinImprimir);
             this.panelGuardado_de_datos.Controls.Add(this.panelClienteFactura);
@@ -931,6 +950,182 @@
             this.DataGridViewCheckBoxColumn4.ReadOnly = true;
             this.DataGridViewCheckBoxColumn4.Visible = false;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.Envio);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 569);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(509, 51);
+            this.panel6.TabIndex = 617;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(162, 51);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Enviar factura al correo";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // Envio
+            // 
+            this.Envio.AutoSize = true;
+            this.Envio.EllipseBorderColor = "#3b73d1";
+            this.Envio.EllipseColor = "#508ef5";
+            this.Envio.Location = new System.Drawing.Point(163, 18);
+            this.Envio.Name = "Envio";
+            this.Envio.Size = new System.Drawing.Size(47, 19);
+            this.Envio.TabIndex = 0;
+            this.Envio.Text = "uI_MaterialToggle1";
+            this.Envio.UseVisualStyleBackColor = true;
+            this.Envio.CheckedChanged += new System.EventHandler(this.Envio_CheckedChanged);
+            // 
+            // PanelEnviarCorreo
+            // 
+            this.PanelEnviarCorreo.Controls.Add(this.button3);
+            this.PanelEnviarCorreo.Controls.Add(this.txtcorreo);
+            this.PanelEnviarCorreo.Controls.Add(this.Panel7);
+            this.PanelEnviarCorreo.Controls.Add(this.Button4);
+            this.PanelEnviarCorreo.Controls.Add(this.Panel12);
+            this.PanelEnviarCorreo.Controls.Add(this.label7);
+            this.PanelEnviarCorreo.Controls.Add(this.label8);
+            this.PanelEnviarCorreo.Controls.Add(this.label9);
+            this.PanelEnviarCorreo.Location = new System.Drawing.Point(26, 57);
+            this.PanelEnviarCorreo.Name = "PanelEnviarCorreo";
+            this.PanelEnviarCorreo.Size = new System.Drawing.Size(473, 287);
+            this.PanelEnviarCorreo.TabIndex = 633;
+            this.PanelEnviarCorreo.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(156, 164);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(231, 52);
+            this.button3.TabIndex = 620;
+            this.button3.Text = "Enviar correo";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // txtcorreo
+            // 
+            this.txtcorreo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtcorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcorreo.FormattingEnabled = true;
+            this.txtcorreo.Location = new System.Drawing.Point(156, 99);
+            this.txtcorreo.Name = "txtcorreo";
+            this.txtcorreo.Size = new System.Drawing.Size(318, 26);
+            this.txtcorreo.TabIndex = 616;
+            // 
+            // Panel7
+            // 
+            this.Panel7.Controls.Add(this.txtpassenvi);
+            this.Panel7.Controls.Add(this.lblEstado_de_envio);
+            this.Panel7.Location = new System.Drawing.Point(50, 151);
+            this.Panel7.Name = "Panel7";
+            this.Panel7.Size = new System.Drawing.Size(10, 10);
+            this.Panel7.TabIndex = 615;
+            // 
+            // txtpassenvi
+            // 
+            this.txtpassenvi.AutoSize = true;
+            this.txtpassenvi.BackColor = System.Drawing.Color.Transparent;
+            this.txtpassenvi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpassenvi.ForeColor = System.Drawing.Color.White;
+            this.txtpassenvi.Location = new System.Drawing.Point(21, 26);
+            this.txtpassenvi.Name = "txtpassenvi";
+            this.txtpassenvi.Size = new System.Drawing.Size(142, 20);
+            this.txtpassenvi.TabIndex = 602;
+            this.txtpassenvi.Text = "Correo electronico:";
+            // 
+            // lblEstado_de_envio
+            // 
+            this.lblEstado_de_envio.AutoSize = true;
+            this.lblEstado_de_envio.BackColor = System.Drawing.Color.Transparent;
+            this.lblEstado_de_envio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado_de_envio.ForeColor = System.Drawing.Color.White;
+            this.lblEstado_de_envio.Location = new System.Drawing.Point(21, 13);
+            this.lblEstado_de_envio.Name = "lblEstado_de_envio";
+            this.lblEstado_de_envio.Size = new System.Drawing.Size(142, 20);
+            this.lblEstado_de_envio.TabIndex = 602;
+            this.lblEstado_de_envio.Text = "Correo electronico:";
+            // 
+            // Button4
+            // 
+            this.Button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button4.FlatAppearance.BorderSize = 0;
+            this.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button4.ForeColor = System.Drawing.Color.White;
+            this.Button4.Location = new System.Drawing.Point(12, 239);
+            this.Button4.Name = "Button4";
+            this.Button4.Size = new System.Drawing.Size(106, 35);
+            this.Button4.TabIndex = 614;
+            this.Button4.Text = "Cerrar";
+            this.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button4.UseVisualStyleBackColor = false;
+            // 
+            // Panel12
+            // 
+            this.Panel12.BackColor = System.Drawing.Color.Silver;
+            this.Panel12.Location = new System.Drawing.Point(156, 131);
+            this.Panel12.Name = "Panel12";
+            this.Panel12.Size = new System.Drawing.Size(318, 1);
+            this.Panel12.TabIndex = 604;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(473, 37);
+            this.label7.TabIndex = 602;
+            this.label7.Text = "Enviar cotización por Correo";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label8.Location = new System.Drawing.Point(153, 138);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(179, 15);
+            this.label8.TabIndex = 602;
+            this.label8.Text = "Con el que registraste tu cuenta";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(8, 101);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(142, 20);
+            this.label9.TabIndex = 602;
+            this.label9.Text = "Correo electronico:";
+            // 
             // PagosCotizaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -972,6 +1167,12 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.PanelEnviarCorreo.ResumeLayout(false);
+            this.PanelEnviarCorreo.PerformLayout();
+            this.Panel7.ResumeLayout(false);
+            this.Panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1040,5 +1241,19 @@
         internal System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         internal System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         internal System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label6;
+        private UIDC.UI_MaterialToggle Envio;
+        internal System.Windows.Forms.Panel PanelEnviarCorreo;
+        internal System.Windows.Forms.Button button3;
+        internal System.Windows.Forms.ComboBox txtcorreo;
+        internal System.Windows.Forms.Panel Panel7;
+        internal System.Windows.Forms.Label txtpassenvi;
+        internal System.Windows.Forms.Label lblEstado_de_envio;
+        internal System.Windows.Forms.Button Button4;
+        internal System.Windows.Forms.Panel Panel12;
+        internal System.Windows.Forms.Label label7;
+        internal System.Windows.Forms.Label label8;
+        internal System.Windows.Forms.Label label9;
     }
 }
