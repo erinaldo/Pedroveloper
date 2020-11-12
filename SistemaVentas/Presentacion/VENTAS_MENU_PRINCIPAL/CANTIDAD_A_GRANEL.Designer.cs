@@ -36,11 +36,11 @@
             this.txttotal = new System.Windows.Forms.TextBox();
             this.Label27 = new System.Windows.Forms.Label();
             this.Label14 = new System.Windows.Forms.Label();
-            this.txtprecio_unitario = new System.Windows.Forms.Label();
             this.Label38 = new System.Windows.Forms.Label();
             this.BtnCerrar_turno = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.puertos = new System.IO.Ports.SerialPort(this.components);
+            this.txtprecio_unitario = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblcantidadAumentar
@@ -107,17 +107,6 @@
             this.Label14.TabIndex = 545;
             this.Label14.Text = "Cantidad:";
             // 
-            // txtprecio_unitario
-            // 
-            this.txtprecio_unitario.AutoSize = true;
-            this.txtprecio_unitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.txtprecio_unitario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(63)))));
-            this.txtprecio_unitario.Location = new System.Drawing.Point(251, 177);
-            this.txtprecio_unitario.Name = "txtprecio_unitario";
-            this.txtprecio_unitario.Size = new System.Drawing.Size(30, 31);
-            this.txtprecio_unitario.TabIndex = 548;
-            this.txtprecio_unitario.Text = "0";
-            // 
             // Label38
             // 
             this.Label38.AutoSize = true;
@@ -170,14 +159,25 @@
             // 
             this.puertos.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.puertos_DataReceived);
             // 
+            // txtprecio_unitario
+            // 
+            this.txtprecio_unitario.AutoSize = true;
+            this.txtprecio_unitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.txtprecio_unitario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(63)))));
+            this.txtprecio_unitario.Location = new System.Drawing.Point(263, 177);
+            this.txtprecio_unitario.Name = "txtprecio_unitario";
+            this.txtprecio_unitario.Size = new System.Drawing.Size(30, 31);
+            this.txtprecio_unitario.TabIndex = 603;
+            this.txtprecio_unitario.Text = "0";
+            // 
             // CANTIDAD_A_GRANEL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 229);
+            this.Controls.Add(this.txtprecio_unitario);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnCerrar_turno);
-            this.Controls.Add(this.txtprecio_unitario);
             this.Controls.Add(this.Label38);
             this.Controls.Add(this.txtcantidad);
             this.Controls.Add(this.txttotal);
@@ -206,10 +206,10 @@
         internal System.Windows.Forms.TextBox txttotal;
         internal System.Windows.Forms.Label Label27;
         internal System.Windows.Forms.Label Label14;
-        internal System.Windows.Forms.Label txtprecio_unitario;
         internal System.Windows.Forms.Label Label38;
         internal System.Windows.Forms.Button BtnCerrar_turno;
         internal System.Windows.Forms.Button button1;
         private System.IO.Ports.SerialPort puertos;
+        internal System.Windows.Forms.Label txtprecio_unitario;
     }
 }

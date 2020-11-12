@@ -1606,7 +1606,6 @@ namespace SistemaVentas.Datos
             {
 
                 MessageBox.Show(ex.StackTrace);
-
             }
         }
         public static void BUSCAR_PRODUCTOS_KARDEX(ref DataTable dt,string buscador)

@@ -72,6 +72,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
+            PANELGRANEL.Visible = false;
             MOSTRAR_comprobante_serializado_POR_DEFECTO();
             validar_tipos_de_comprobantes();
             Bases.Cambiar_idioma_regional();
@@ -145,21 +146,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             }
         }
-        private void validarLicencia()
-        {
-            DLicencias funcion = new DLicencias();
-            funcion.ValidarLicencias(ref ResultadoLicencia, ref FechaFinal);
-            if (ResultadoLicencia == "VENCIDA")
-            {
-                funcion.EditarMarcanVencidas();
-                Dispose();
-                LICENCIAS_MENBRESIAS.MembresiasNuevo frm = new LICENCIAS_MENBRESIAS.MembresiasNuevo();
-                frm.ShowDialog();
-            }
+       
 
-
-
-        }
         private void Limpiar_para_venta_nueva()
         {
             idVenta = 0;
@@ -338,7 +326,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 DATALISTADO_PRODUCTOS_OKA.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
                 DATALISTADO_PRODUCTOS_OKA.Columns[0].Visible = false;
-                DATALISTADO_PRODUCTOS_OKA.Columns[1].Visible = false;
+               DATALISTADO_PRODUCTOS_OKA.Columns[1].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[2].Width = 600;
                 DATALISTADO_PRODUCTOS_OKA.Columns[3].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[4].Visible = false;
@@ -522,7 +510,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtdescripcion = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
             // MessageBox.Show(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             ValidarVentasNuevas();
-            txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString();
+            txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             vender_por_teclado();
 
@@ -555,8 +543,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             //Extraemos los datos del producto de la tabla Productos directamente
             lbldescripcion.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
-            lblcodigo.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
+            lblcodigo.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             unidadVenta = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
             sevendePor = "Granel";
 
@@ -601,10 +589,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void vender_a_granel()
         {
 
-            CANTIDAD_A_GRANEL frm = new CANTIDAD_A_GRANEL();
-            frm.preciounitario = txtprecio_unitario;
-            frm.FormClosing += Frm_FormClosing;
-            frm.ShowDialog();
+            PANELGRANEL.Visible = true;
+             //= txtprecio_unitario;
         }
 
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)
@@ -615,16 +601,16 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         public void ejecutar_ventas_a_granel()
         {
+            MessageBox.Show(txtpantalla.ToString() + "ejecutar_ventas_a_granel");
 
             ejecutar_insertar_ventas();
             if (txtventagenerada == "FACTURA GENERADA")
             {
-                //MessageBox.Show("(txtventagenerada == FACTURA GENERADA2");
+                MessageBox.Show(txtpantalla.ToString() + "txtventagenerada");
                 insertar_detalle_venta();
                 Listarproductosagregados();
                 txtbuscar.Text = "";
                 txtbuscar.Focus();
-
             }
 
         }
@@ -856,7 +842,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                     if (lblStock_de_Productos >= txtpantalla)
                     {
-                        insertar_detalle_venta_Validado();
+                    MessageBox.Show(txtpantalla.ToString() + "insertar_detalle_venta vvv");
+
+                    insertar_detalle_venta_Validado();
                     }
                     else
                     {
@@ -874,6 +862,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void insertar_detalle_venta_Validado()
         {
+            MessageBox.Show(txtpantalla.ToString() + "insertar_detalle_venta_Validado");
+
             try
             {
                 SqlConnection con = new SqlConnection();
@@ -889,12 +879,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@moneda", "DOP");
                 cmd.Parameters.AddWithValue("@Descuento", Convert.ToDouble(lblDescuento_.Text));
                 cmd.Parameters.AddWithValue("@unidades", "Unidad");
-                cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Estado", "EN ESPERA");
                 cmd.Parameters.AddWithValue("@Descripcion", lbldescripcion.Text);
                 cmd.Parameters.AddWithValue("@Codigo", lblcodigo.Text);
                 cmd.Parameters.AddWithValue("@Stock", lblStock_de_Productos);
-                cmd.Parameters.AddWithValue("@Se_vende_a", unidadVenta);
+                cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
                 cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblitbis_.Text));
                 cmd.ExecuteNonQuery();
@@ -924,12 +913,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@moneda", 0);
                 cmd.Parameters.AddWithValue("@Descuento", Convert.ToDouble(lblDescuento_.Text));
                 cmd.Parameters.AddWithValue("@unidades", "Unidad");
-                cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Estado", "EN ESPERA");
                 cmd.Parameters.AddWithValue("@Descripcion", lbldescripcion.Text);
                 cmd.Parameters.AddWithValue("@Codigo", lblcodigo.Text);
                 cmd.Parameters.AddWithValue("@Stock", lblStock_de_Productos);
-                cmd.Parameters.AddWithValue("@Se_vende_a", unidadVenta);
+                cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
                 cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblitbis_.Text));
                 cmd.ExecuteNonQuery();
@@ -982,7 +970,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_producto", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
-                cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Id_factura", idVenta);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -1007,7 +994,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_producto", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
-                cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Id_factura", idVenta);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -1044,7 +1030,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 iddetalleventa = Convert.ToInt32(datalistadoDetalleVenta.SelectedCells[9].Value.ToString());
                 idproducto = Convert.ToInt32(datalistadoDetalleVenta.SelectedCells[8].Value.ToString());
-                unidadVenta = datalistadoDetalleVenta.SelectedCells[17].Value.ToString();
+                sevendePor = datalistadoDetalleVenta.SelectedCells[17].Value.ToString();
                 usainventarios = datalistadoDetalleVenta.SelectedCells[16].Value.ToString();
                 cantidad = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
             }
@@ -1126,7 +1112,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@iddetalle_factura", iddetalleventa);
                 cmd.Parameters.AddWithValue("cantidad", txtpantalla);
-                cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtpantalla);
                 cmd.Parameters.AddWithValue("@Id_producto", idproducto);
                 cmd.Parameters.AddWithValue("@Id_factura", idVenta);
                 cmd.ExecuteNonQuery();
@@ -1365,7 +1350,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
                     txtprecio_unitario = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
 
-                    unidadVenta = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
+                    sevendePor = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
                     if (sevendePor == "Unidad")
                     {
                         txtpantalla = 1;
@@ -1397,7 +1382,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_producto", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtmonto.Text);
-                cmd.Parameters.AddWithValue("@Cantidad_mostrada", txtmonto.Text);
                 cmd.Parameters.AddWithValue("@Id_factura", idVenta);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -2041,6 +2025,41 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             Compras_proveedor.Compras_proveedor frm = new Compras_proveedor.Compras_proveedor();
             frm.ShowDialog();
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            txtProductoGranel.Text = txtProducto.Text;
+            txtpantalla = Convert.ToDouble(txtCantidad.Text);
+            txtprecio_unitario = Convert.ToDouble(txttotal.Text);
+            PANELGRANEL.Visible = false;
+            ejecutar_ventas_a_granel();
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            calcularTotal();
+        }
+        private void calcularTotal()
+        {
+            try
+            {
+                double total;
+                double cantidad;
+                cantidad = Convert.ToDouble(txtCantidad.Text);
+                total = txtprecio_unitario * cantidad;
+                txttotal.Text = Convert.ToString(total);
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        private void PANELGRANEL_Paint(object sender, PaintEventArgs e)
+        {
+            txtprecio_unitario2.Text = Convert.ToString(txtprecio_unitario);
         }
     }
 }

@@ -26,25 +26,24 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         string estadoPuerto;
         private void AccesoForm(string accion)
         {
-            BufeerRespuesta = accion;
-            txtcantidad.Text = BufeerRespuesta;
+           // BufeerRespuesta = accion;
+           // txtcantidad.Text = BufeerRespuesta;
         }
         private void accesoInterrupcion(string accion)
         {
-            DelegadoAcceso Var_delagadoacceso;
+           /* DelegadoAcceso Var_delagadoacceso;
             Var_delagadoacceso = new DelegadoAcceso(AccesoForm);
             Object[] arg = { accion };
-            base.Invoke(Var_delagadoacceso, arg);
+            base.Invoke(Var_delagadoacceso, arg);*/
         }
         private void puertos_DataReceived(Object sender, SerialDataReceivedEventArgs e)
         {
-            accesoInterrupcion(puertos.ReadExisting());
+            //accesoInterrupcion(puertos.ReadExisting());
         }
 
         private void BtnCerrar_turno_Click(object sender, EventArgs e)
         {
-            
-            VENTAS_MENU_PRINCIPALOK.txtpantalla =Convert.ToDouble(txtcantidad.Text);
+            VENTAS_MENU_PRINCIPALOK.txtpantalla = Convert.ToDouble(txtcantidad.Text);
             Dispose();
         }
 
@@ -54,11 +53,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtprecio_unitario.Enabled = false;
             txtProducto.Text =  VENTAS_MENU_PRINCIPALOK.txtdescripcion;
             txtprecio_unitario.Text = Convert.ToString(preciounitario);
-            mostrarPuertos();
+            //mostrarPuertos();
         }
         private void abrirPuertosBalanza()
         {
-            puertos.Close();
+         /*   puertos.Close();
             try
             {
                 puertos.BaudRate = 9600;
@@ -79,7 +78,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }*/
         }
         private void mostrarPuertos()
         {

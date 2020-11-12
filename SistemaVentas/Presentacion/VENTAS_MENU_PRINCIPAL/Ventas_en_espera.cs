@@ -66,7 +66,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             Obtener_datos.mostrar_productos_agregados_a_ventas_en_espera(ref dt, idFactura);
             datalistadodetalledeventasarestaurar.DataSource = dt;
             datalistadodetalledeventasarestaurar.Columns[6].Visible = false;
-
         }
 
         private void btneliminar_Click(object sender, EventArgs e)

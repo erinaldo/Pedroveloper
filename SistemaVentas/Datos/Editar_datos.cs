@@ -943,7 +943,6 @@ namespace SistemaVentas.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@iddetalle", parametros.iddetalle_factura);
                 cmd.Parameters.AddWithValue("@cantidad", parametros.cantidad);
-                cmd.Parameters.AddWithValue("@cantidadMostrada", parametros.Cantidad_mostrada);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -967,7 +966,6 @@ namespace SistemaVentas.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@iddetalle", parametros.iddetalle_factura);
                 cmd.Parameters.AddWithValue("@cantidad", parametros.cantidad);
-                cmd.Parameters.AddWithValue("@cantidadMostrada", parametros.Cantidad_mostrada);
                 cmd.ExecuteNonQuery();
                 return true;
             }
