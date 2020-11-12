@@ -13,7 +13,6 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             Telerik.Reporting.TableGroup tableGroup2 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup3 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup4 = new Telerik.Reporting.TableGroup();
-            Telerik.Reporting.Barcodes.QRCodeEncoder qrCodeEncoder1 = new Telerik.Reporting.Barcodes.QRCodeEncoder();
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             this.textBox2 = new Telerik.Reporting.TextBox();
             this.textBox12 = new Telerik.Reporting.TextBox();
@@ -52,7 +51,6 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox29 = new Telerik.Reporting.TextBox();
             this.textBox30 = new Telerik.Reporting.TextBox();
             this.textBox31 = new Telerik.Reporting.TextBox();
-            this.barcode2 = new Telerik.Reporting.Barcode();
             this.textBox32 = new Telerik.Reporting.TextBox();
             this.textBox33 = new Telerik.Reporting.TextBox();
             this.textBox34 = new Telerik.Reporting.TextBox();
@@ -256,7 +254,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // reportHeaderSection1
             // 
-            this.reportHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Cm(10.096D);
+            this.reportHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Cm(6.306D);
             this.reportHeaderSection1.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.table1,
             this.TextBox16,
@@ -271,7 +269,6 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox29,
             this.textBox30,
             this.textBox31,
-            this.barcode2,
             this.textBox32,
             this.textBox33,
             this.textBox34});
@@ -455,19 +452,9 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox31.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox31.Value = "*****************************************************************";
             // 
-            // barcode2
-            // 
-            this.barcode2.Encoder = qrCodeEncoder1;
-            this.barcode2.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(2.294D), Telerik.Reporting.Drawing.Unit.Cm(5.8D));
-            this.barcode2.Name = "barcode2";
-            this.barcode2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.39D), Telerik.Reporting.Drawing.Unit.Cm(3.39D));
-            this.barcode2.Stretch = true;
-            this.barcode2.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
-            this.barcode2.Value = "=Fields.Empresa + \'|\' + Fields.Identificador_fiscal + \'|\' + Fields.Monto_total";
-            // 
             // textBox32
             // 
-            this.textBox32.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(9.19D));
+            this.textBox32.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(5.8D));
             this.textBox32.Name = "textBox32";
             this.textBox32.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.081D), Telerik.Reporting.Drawing.Unit.Cm(0.506D));
             this.textBox32.Style.Font.Bold = false;
@@ -558,7 +545,6 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
         internal Telerik.Reporting.TextBox textBox29;
         internal Telerik.Reporting.TextBox textBox30;
         internal Telerik.Reporting.TextBox textBox31;
-        private Telerik.Reporting.Barcode barcode2;
         internal Telerik.Reporting.TextBox textBox32;
         public Telerik.Reporting.PageHeaderSection pageHeaderSection1;
         public Telerik.Reporting.Table table1;

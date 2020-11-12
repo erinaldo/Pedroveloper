@@ -190,7 +190,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Descripcion", descripcion);
                     cmd.Parameters.AddWithValue("@Imagen", ".");
-                    cmd.Parameters.AddWithValue("@Usa_inventarios", "SI");
                     cmd.Parameters.AddWithValue("@Stock", 0);
                     cmd.Parameters.AddWithValue("@Precio_de_compra", 0);
                     cmd.Parameters.AddWithValue("@Fecha_de_vencimiento", "NO APLICA");

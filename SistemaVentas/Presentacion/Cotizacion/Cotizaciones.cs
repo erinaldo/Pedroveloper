@@ -543,7 +543,6 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 cmd.Parameters.AddWithValue("@Codigo", lblcodigo.Text);
                 cmd.Parameters.AddWithValue("@Stock", lblStock_de_Productos);
                 cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
-                cmd.Parameters.AddWithValue("@Usa_inventarios", usainventarios);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -577,7 +576,6 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 cmd.Parameters.AddWithValue("@Codigo", lblcodigo.Text);
                 cmd.Parameters.AddWithValue("@Stock", lblStock_de_Productos);
                 cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
-                cmd.Parameters.AddWithValue("@Usa_inventarios", usainventarios);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();

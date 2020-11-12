@@ -827,7 +827,6 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 cmd.Parameters.AddWithValue("@Codigo", lblcodigo.Text);
                 cmd.Parameters.AddWithValue("@Stock", lblStock_de_Productos);
                 cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
-                cmd.Parameters.AddWithValue("@Usa_inventarios", usainventarios);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
                 cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblItbis.Text));
                 cmd.ExecuteNonQuery();
@@ -862,7 +861,6 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 cmd.Parameters.AddWithValue("@Codigo", lblcodigo.Text);
                 cmd.Parameters.AddWithValue("@Stock", lblStock_de_Productos);
                 cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
-                cmd.Parameters.AddWithValue("@Usa_inventarios", usainventarios);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();

@@ -1262,15 +1262,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idFactura", idFactura);
                 cmd.Parameters.AddWithValue("@montototal", total);
-                cmd.Parameters.AddWithValue("@IGV", 0);
                 cmd.Parameters.AddWithValue("@Saldo", vuelto);
                 cmd.Parameters.AddWithValue("@Tipo_de_pago",txttipo );
                 cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
-            //    MessageBox.Show(idcliente.ToString());
                 cmd.Parameters.AddWithValue("@idcliente", idcliente);
                 cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
                 cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text ));
-               // MessageBox.Show(txtserie.Text + "-" + lblCorrelativoconCeros.Text);
                 cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ACCION", "Factura");
                 cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value );

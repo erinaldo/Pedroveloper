@@ -281,15 +281,11 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             {
                 foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
                 {
-                    ControlStock = row.Cells["Usa_inventarios"].Value.ToString();
-                    if (ControlStock =="SI")
-                    {
                         idproducto=Convert.ToInt32 ( row.Cells["Id_producto"].Value);
                         txtcantidad.Text = row.Cells["Cantidad"].Value.ToString();
                         disminuirSTOCK();
                         disminuirSTOCKDETALLE();
                         insertar_KARDEX_SALIDA();
-                    }
                 }
                         TotalNuevo = 0;
                         EliminarFacturas();

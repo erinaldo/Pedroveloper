@@ -37,7 +37,7 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
 
-                da = new SqlDataAdapter("BUSCAR_PRODUCTOS_KARDEX", con);
+                da = new SqlDataAdapter("Buscar_productos_kardex", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letrab", txtbuscarMovimiento.Text);
                 da.Fill(dt);
@@ -45,7 +45,7 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
                 con.Close();
 
 
-                DATALISTADO_PRODUCTOS_Movimientos.Columns[1].Visible = false;
+                /*DATALISTADO_PRODUCTOS_Movimientos.Columns[1].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[3].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[4].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[5].Visible = false;
@@ -55,11 +55,11 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[9].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[10].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[11].Visible = false;
-                DATALISTADO_PRODUCTOS_Movimientos.Columns[12].Visible = false;
-                DATALISTADO_PRODUCTOS_Movimientos.Columns[13].Visible = false;
+                DATALISTADO_PRODUCTOS_Movimientos.Columns[12].Visible = false;*/
+               /* DATALISTADO_PRODUCTOS_Movimientos.Columns[13].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[14].Visible = false;
                 DATALISTADO_PRODUCTOS_Movimientos.Columns[15].Visible = false;
-                DATALISTADO_PRODUCTOS_Movimientos.Columns[16].Visible = false;
+                DATALISTADO_PRODUCTOS_Movimientos.Columns[16].Visible = false;*/
 
                 Bases.Multilinea(ref DATALISTADO_PRODUCTOS_Movimientos);
 
@@ -106,19 +106,15 @@ namespace SistemaVentas.Presentacion.INVENTARIOS_KARDEX
 
         private void txtbuscarMovimiento_TextChanged(object sender, EventArgs e)
         {
-            if (txtbuscarMovimiento.Text == "Buscar producto"  | txtbuscarMovimiento.Text == "")
-                {
+            if (txtbuscarMovimiento.Text == "Buscar producto" || txtbuscarMovimiento.Text == "")
+            {
                 DATALISTADO_PRODUCTOS_Movimientos.Visible = false;
-
             }
-        else
-                {
+            else
+            {
                 DATALISTADO_PRODUCTOS_Movimientos.Visible = true;
                 buscar_productos_movimientos();
             }
-            
-
-        
         }
 
         private void DATALISTADO_PRODUCTOS_Movimientos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -501,7 +497,7 @@ buscar_MOVIMIENTOS_FILTROS();
 
             string importe;
             string query;
-            query = "SELECT      CONVERT(NUMERIC(18,2),sum(Producto1.Precio_de_compra * Stock )) as suma FROM  Producto1 where  Usa_inventarios ='SI'";
+            query = "SELECT      CONVERT(NUMERIC(18,2),sum(Producto.PrecioCompra * Stock )) as suma FROM  Producto";
 
             SqlCommand com = new SqlCommand(query, con);
             try

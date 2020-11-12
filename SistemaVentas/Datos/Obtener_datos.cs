@@ -1588,7 +1588,6 @@ namespace SistemaVentas.Datos
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.StackTrace);
 
             }

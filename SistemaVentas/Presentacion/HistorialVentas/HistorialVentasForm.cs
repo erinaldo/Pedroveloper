@@ -85,7 +85,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
         private void MostrarDetalleCompra()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.MostrarDetalleCompra(ref dt, idFactura);
+            Obtener_datos.MostrarDetalleVenta(ref dt, idFactura);
             datalistadoDetalleVenta.DataSource = dt;
             datalistadoDetalleVenta.Columns[6].Visible = false;
             datalistadoDetalleVenta.Columns[7].Visible = false;
@@ -95,7 +95,6 @@ namespace SistemaVentas.Presentacion.HistorialVentas
             datalistadoDetalleVenta.Columns[11].Visible = false;
             datalistadoDetalleVenta.Columns[12].Visible = false;
             datalistadoDetalleVenta.Columns[13].Visible = false;
-            datalistadoDetalleVenta.Columns[14].Visible = false;
             datalistadoDetalleVenta.Columns[15].Visible = false;
             datalistadoDetalleVenta.Columns[16].Visible = false;
             Bases.Multilinea(ref datalistadoDetalleVenta);
@@ -230,10 +229,11 @@ namespace SistemaVentas.Presentacion.HistorialVentas
         {
             Lproductos parametros = new Lproductos();
             Editar_datos funcion = new Editar_datos();
-        /*    parametros.Id_Producto1 = idproducto;
-            parametros.Stock = txtcantidad.Text;*/
+            parametros.idProducto = idproducto;
+            parametros.Stock = Convert.ToDouble(txtcantidad.Text);
             funcion.aumentarStock(parametros);
         }
+
         private void AumentarStockDetalle()
         {
             LdetalleFactura parametros = new LdetalleFactura();
@@ -269,17 +269,11 @@ namespace SistemaVentas.Presentacion.HistorialVentas
             {
                 foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
                 {
-                    ControlStock = row.Cells["Usa_inventarios"].Value.ToString();
-                    if (ControlStock =="SI")
-                    {
-                        idproducto=Convert.ToInt32 ( row.Cells["Id_producto"].Value);
+                        idproducto=Convert.ToInt32 ( row.Cells["Id_Producto"].Value);
                         txtcantidad.Text = row.Cells["Cantidad"].Value.ToString();
                         aumentarStock();
                         AumentarStockDetalle();
                         insertar_KARDEX_Entrada();
-                       
-                        
-                    }
                 }
                         TotalNuevo = 0;
                         EliminarFacturas();
@@ -380,6 +374,11 @@ namespace SistemaVentas.Presentacion.HistorialVentas
         private void txtcantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txtcantidad, e);
+
+        }
+
+        private void menuStrip5_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
         }
     }
