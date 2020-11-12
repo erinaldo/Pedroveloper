@@ -1390,5 +1390,12 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
             calcularTotal();
         }
+
+        private void btnCancelarGRANEL_Click(object sender, EventArgs e)
+        {
+            PANELGRANEL.Visible = false;
+            txtbuscar.Focus();
+            txtbuscar.SelectAll();
+        }
     }
 }

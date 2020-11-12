@@ -71,10 +71,17 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            Eliminar_datos.eliminar_factura(idFactura);
-            idFactura = 0;
-            mostrar_ventas_en_espera_con_fecha_y_monto();
-            mostrar_detalle_venta();
+            if (idFactura == 0)
+            {
+                MessageBox.Show("Seleccione una Cotización a Eliminar");
+            }
+            else
+            {
+                Eliminar_datos.eliminar_factura(idFactura);
+                idFactura = 0;
+                mostrar_ventas_en_espera_con_fecha_y_monto();
+                mostrar_detalle_venta();
+            }
         }
 
         private void datalistado_ventas_en_espera_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -94,7 +101,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 VENTAS_MENU_PRINCIPALOK.txtventagenerada = "Factura GENERADA";
                 Editar_datos.cambio_de_Caja(idcaja, idFactura);
                 Dispose();
-
             }
 
         }

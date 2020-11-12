@@ -2031,6 +2031,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             stockgranel.Text = Convert.ToString(lblStock_de_Productos);
         }
 
-
+        private void btnCancelarGRANEL_Click(object sender, EventArgs e)
+        {
+            PANELGRANEL.Visible = false;
+            txtbuscar.Focus();
+            txtbuscar.SelectAll();
+        }
     }
 }
