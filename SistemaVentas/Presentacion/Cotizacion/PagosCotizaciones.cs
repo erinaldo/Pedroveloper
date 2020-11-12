@@ -65,10 +65,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             Obtener_id_de_venta();
             mostrar_impresora();
             cargar_impresoras_del_equipo();
-
-            
             validarPedidodeCliente();
-
         }
 
         
@@ -695,8 +692,8 @@ namespace SistemaVentas.Presentacion.Cotizacion
             {
                 MessageBox.Show(ex.StackTrace);
             }
-
         }
+
         void CONFIRMAR_VENTA_EFECTIVO()
         {
             try
@@ -706,10 +703,8 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idFactura", idcotizacion);
                 cmd.Parameters.AddWithValue("@montototal", total);
-                cmd.Parameters.AddWithValue("@IGV", 0);
-
                 cmd.Parameters.AddWithValue("@Saldo", vuelto);
-                cmd.Parameters.AddWithValue("@Tipo_de_pago","EFECTIVO" );
+                cmd.Parameters.AddWithValue("@Tipo_de_pago","EFECTIVO");
                 cmd.Parameters.AddWithValue("@Estado", "EN ESPERA");
                 cmd.Parameters.AddWithValue("@idcliente", idcliente);
                 cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
