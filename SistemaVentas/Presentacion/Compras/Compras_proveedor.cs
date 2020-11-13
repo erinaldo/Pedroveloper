@@ -205,30 +205,10 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 double descuento = 0;
                 foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
                 {
-                    // MessageBox.Show(fila.Cells.IndexOf(fila.Cells["Itbis"]).ToString());
-                    /*itbis1 += Convert.ToDouble(fila.Cells["Itbis"].Value);
-                     if (itbis1 == 0.18)
-                     {
-                         MessageBox.Show(itbis1.ToString());
-                         preciounitario += Convert.ToDouble(fila.Cells["PrecioUnidad"].Value);
-                         cantidad += Convert.ToInt32(fila.Cells["Cantidad"].Value);
-
-                         descuento += Convert.ToDouble(fila.Cells["Descuento"].Value);
-
-                         totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
-
-                         total += (((preciounitario * cantidad) - descuento) * itbis1);
-                         lblItbiss.Text = Convert.ToString(total);
-                         txt_total_suma.Text = Convert.ToString(totalpagar + total);
-                     }
-                     else
-                     {*/
-                    // MessageBox.Show(itbis1.ToString());
+                   
                     totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
                     txt_total_suma.Text = Convert.ToString(totalpagar + Convert.ToDouble(lblItbiss.Text));
 
-                    /* }*/
-                    // lblsubtotal.Text += Convert.ToString(totalpagar - total);
                 }
             }
             catch (Exception ex)
@@ -516,20 +496,20 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             DescuentoCategoria = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[12].Value);
             if (ImpuestoCategoria > 0)
             {
-                lblItbis_.Text = ImpuestoCategoria.ToString();
+                lblItbis_.Text = "0.00";
             }
             else
             {
-                lblItbis_.Text = ImpuestoProducto.ToString();
+                lblItbis_.Text = "0.00";
             }
 
             if (DescuentoCategoria > 0)
             {
-                lblDescuento_.Text = DescuentoCategoria.ToString();
+                lblDescuento_.Text = "0.00";
             }
             else
             {
-                lblDescuento_.Text = DescuentoProducto.ToString();
+                lblDescuento_.Text = "0.00";
             }
 
             //Preguntamos que tipo de producto sera el que se agrege al detalle de venta
@@ -548,6 +528,10 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
         {
 
             PANELGRANEL.Visible = true;
+            
+            PANELGRANEL.BringToFront();
+            PANELGRANEL.Visible = true;
+            PANELGRANEL.Location = new Point(527, 211);
         }
 
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)

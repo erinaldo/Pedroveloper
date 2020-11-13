@@ -469,6 +469,12 @@
     <Compile Include="Presentacion\REPORTES\Impresion_de_comprobantes\Factura_report.Designer.cs">
       <DependentUpon>Factura_report.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\REPORTES\Impresion_de_comprobantes\Compra_report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentacion\REPORTES\Impresion_de_comprobantes\Compra_report.Designer.cs">
+      <DependentUpon>Compra_report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\REPORTES\Impresion_de_comprobantes\Ticket_report.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -775,6 +781,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\PRODUCTOS_OK\Productos_ok.resx">
       <DependentUpon>Productos_ok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\REPORTES\Impresion_de_comprobantes\Compra_report.resx">
+      <DependentUpon>Compra_report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\REPORTES\Impresion_de_comprobantes\Factura_report.resx">
       <DependentUpon>Factura_report.cs</DependentUpon>

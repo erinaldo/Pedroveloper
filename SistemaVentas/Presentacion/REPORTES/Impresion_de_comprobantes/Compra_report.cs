@@ -8,11 +8,11 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
     using Telerik.Reporting.Drawing;
 
     /// <summary>
-    /// Summary description for Report1.
+    /// Summary description for Ticket_report.
     /// </summary>
-    public partial class Report1 : Telerik.Reporting.Report
+    public partial class Compra_report : Telerik.Reporting.Report
     {
-        public Report1()
+        public Compra_report()
         {
             //
             // Required for telerik Reporting designer support

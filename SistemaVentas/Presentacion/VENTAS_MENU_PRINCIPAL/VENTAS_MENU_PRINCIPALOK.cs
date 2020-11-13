@@ -2037,5 +2037,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtbuscar.Focus();
             txtbuscar.SelectAll();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            PRODUCTOS_OK.Productos_ok frm = new PRODUCTOS_OK.Productos_ok();
+            frm.ShowDialog();
+        }
     }
 }

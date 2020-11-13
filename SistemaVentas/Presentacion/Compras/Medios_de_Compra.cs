@@ -544,77 +544,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             idProveedor = Convert.ToInt32(datalistadoProveedores.SelectedCells[1].Value.ToString());
             txtProveedorCredito.Text = datalistadoProveedores.SelectedCells[2].Value.ToString();
             datalistadoProveedores.Visible = false;
-        }
-
-        private void ToolStripMenuItem9_Click(object sender, EventArgs e)
-        {
-        }
-
-        /* void insertar_cliente()
-         {
-             if (txtnombrecliente.Text != "")
-             {
-
-                 if (txtdirecciondefactura.Text == "")
-                 {
-                     txtdirecciondefactura.Text = "0";
-                 }
-                 if (txtrucdefactura.Text == "")
-                 {
-                     txtrucdefactura.Text = "0";
-                 }
-                 if (txtcelular.Text == "")
-                 {
-                     txtcelular.Text = "0";
-                 }
-
-
-                 try
-                 {
-                     SqlConnection con = new SqlConnection();
-                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                     con.Open();
-                     SqlCommand cmd = new SqlCommand();
-                     cmd = new SqlCommand("insertar_clientes", con);
-                     cmd.CommandType = CommandType.StoredProcedure;
-                     cmd.Parameters.AddWithValue("@Nombre", txtnombrecliente.Text);
-                     cmd.Parameters.AddWithValue("@Direccion", txtdirecciondefactura.Text);
-                     cmd.Parameters.AddWithValue("@IdentificadorFiscal", txtrucdefactura.Text);
-                     cmd.Parameters.AddWithValue("@Celular", txtcelular.Text);
-                     cmd.Parameters.AddWithValue("@Estado", "SI");
-                     //cmd.Parameters.AddWithValue("@Proveedor", "NO");
-                     //cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
-                     cmd.Parameters.AddWithValue("@Saldo", 0);
-                     cmd.ExecuteNonQuery();
-                     con.Close();
-
-                 }
-                 catch (Exception ex)
-                 {
-                     MessageBox.Show(ex.Message);
-                 }
-             }
-         }
-        */
-        private void txtefectivo2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txttarjeta2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtcredito2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TGuardarSinImprimir_Click(object sender, EventArgs e)
-        {
-
-        }
+        }       
 
         void INGRESAR_LOS_DATOS()
         {
@@ -682,7 +612,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 disminuir_stock_productos();
                 INSERTAR_KARDEX_SALIDA();
                 //aumentar_monto_a_cliente();
-                //validar_tipo_de_impresion();
+                validar_tipo_de_impresion();
             }
         }
         void INSERTAR_KARDEX_SALIDA()
@@ -790,14 +720,9 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (indicador == "VISTA PREVIA")
             {
-                // MessageBox.Show(tipoImpresion);
-                if (tipoImpresion == "FACTURA")
+                if (tipoImpresion == "COMPRA")
                 {
-                    //mostrar_factura_impresa_VISTA_PREVIA();
-                }
-                else if (tipoImpresion == "TICKET")
-                {
-                    //mostrar_ticket_impreso_VISTA_PREVIA();
+                    mostrar_compra_impresa_VISTA_PREVIA();
                 }
             }
             else if (indicador == "DIRECTO")
@@ -942,25 +867,25 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             }
 
         }
-        void mostrar_factura_impresa_VISTA_PREVIA()
+        void mostrar_compra_impresa_VISTA_PREVIA()
         {
             PanelImpresionvistaprevia.Visible = true;
             PanelImpresionvistaprevia.Dock = DockStyle.Fill;
             panelGuardado_de_datos.Dock = DockStyle.None;
             panelGuardado_de_datos.Visible = false;
 
-            Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report();
+            Presentacion.REPORTES.Impresion_de_comprobantes.Compra_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Compra_report();
             DataTable dt = new DataTable();
             try
             {
                 asdasd();
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_factura_impreso", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrar_compra_impreso", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Id_Compra", idCompra);
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idCompra);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
                 da.Fill(dt);
-                rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report();
+                rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Compra_report();
                 rpt.table1.DataSource = dt;
                 rpt.DataSource = dt;
 #pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
@@ -983,9 +908,9 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 DataTable dt = new DataTable();
                 SqlDataAdapter da;
                 CONEXION.CONEXIONMAESTRA.abrir();
-                da = new SqlDataAdapter("mostrar_factura_impreso", CONEXION.CONEXIONMAESTRA.conectar);
+                da = new SqlDataAdapter("mostrar_compra_impreso", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Id_Compra", idCompra);
+                da.SelectCommand.Parameters.AddWithValue("@Id_Factura", idCompra);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
                 da.Fill(dt);
                 datalistadoprueba.DataSource = dt;
