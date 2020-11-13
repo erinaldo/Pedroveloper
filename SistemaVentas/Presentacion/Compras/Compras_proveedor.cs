@@ -343,7 +343,6 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 DATALISTADO_PRODUCTOS_OKA.Columns[10].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[11].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[12].Visible = false;
-
             }
             catch (Exception ex)
             {
@@ -465,12 +464,11 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         private void DATALISTADO_PRODUCTOS_OKA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //  MessageBox.Show(" txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();");
+            txtdescripcion = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
             ValidarVentasNuevas();
-            txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value.ToString();
+            txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             vender_por_teclado();
-
         }
         public void ValidarVentasNuevas()
         {
@@ -503,9 +501,10 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
             lblcodigo.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             unidadVenta = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
+            txtprecio_compra = Convert.ToDouble(lblcosto.Text);
+            precioVenta = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
             sevendePor = "Granel";
 
-            txtprecio_unitario = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
 
             ImpuestoProducto = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[9].Value);
             DescuentoProducto = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value);
@@ -514,11 +513,11 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             // 9 - 10 - 11 - 12
             if (ImpuestoCategoria > 0)
             {
-                lblitbis_.Text = ImpuestoCategoria.ToString();
+                lblItbis_.Text = ImpuestoCategoria.ToString();
             }
             else
             {
-                lblitbis_.Text = ImpuestoProducto.ToString();
+                lblItbis_.Text = ImpuestoProducto.ToString();
             }
 
             if (DescuentoCategoria > 0)
@@ -755,7 +754,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();
-                /*datalistadoDetalleVenta.Columns[0].Width = 50;
+                datalistadoDetalleVenta.Columns[0].Width = 50;
                 datalistadoDetalleVenta.Columns[1].Width = 50;
                 datalistadoDetalleVenta.Columns[2].Width = 50;
                 datalistadoDetalleVenta.Columns[3].Visible = false;
@@ -775,7 +774,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
                 datalistadoDetalleVenta.Columns[18].Visible = false;
-                datalistadoDetalleVenta.Columns[20].Visible = false;*/
+                datalistadoDetalleVenta.Columns[20].Visible = false;
                 if (datalistadoDetalleVenta.Rows.Count > 0)
                 {
 
@@ -842,7 +841,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 cmd.Parameters.AddWithValue("@Stock", lblStock_de_Productos);
                 cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
-                cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblItbis.Text));
+                cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblItbis_.Text));
                 cmd.ExecuteNonQuery();
                 con.Close();
                 disminuir_stock_en_detalle_de_venta();
@@ -876,6 +875,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 cmd.Parameters.AddWithValue("@Stock", lblStock_de_Productos);
                 cmd.Parameters.AddWithValue("@Se_vende_a", sevendePor);
                 cmd.Parameters.AddWithValue("@Costo", lblcosto.Text);
+                cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblItbis_.Text));
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
