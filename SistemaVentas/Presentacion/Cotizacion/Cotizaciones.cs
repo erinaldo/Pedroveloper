@@ -45,6 +45,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
+            txttotal.Enabled = false;
             MOSTRAR_comprobante_serializado_POR_DEFECTO();
             PANELGRANEL.Visible = false;
 
@@ -301,10 +302,12 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
         private void DATALISTADO_PRODUCTOS_OKA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtProductoGranel.Text = txtdescripcion;
             txtdescripcion = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
-            idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
+            // MessageBox.Show(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             ValidarVentasNuevas();
             txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
+            idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             vender_por_teclado();
         }
 
@@ -1356,9 +1359,33 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            txtpantalla = Convert.ToDouble(txtCantidad.Text);
+            string numero;
+            bool entero = true;
+
+
+            numero = txtCantidad.Text;
+
+            char[] test = numero.ToCharArray();
+
+            for (int i = 0; i < test.Length; i++)
+            {
+                if (test[i] == '.')
+                {
+                    entero = false;
+                }
+            }
+
+            if (entero)
+            {
+                txtpantalla = Convert.ToInt32(numero);
+            }
+            else
+            {
+                txtpantalla = Convert.ToDouble(numero);
+            }
             PANELGRANEL.Visible = false;
             PANELGRANEL.BringToFront();
+            txtCantidad.Focus();
             DATALISTADO_PRODUCTOS_OKA.Visible = false;
             ejecutar_ventas_a_granel();
         }
@@ -1382,6 +1409,10 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
         private void PANELGRANEL_Paint(object sender, PaintEventArgs e)
         {
+            txtCantidad.Clear();
+            txttotal.Clear();
+            txtprecio_unitario2.Text = "0";
+            stockgranel.Text = "0";
             txtprecio_unitario2.Text = Convert.ToString(txtprecio_unitario);
             stockgranel.Text = Convert.ToString(lblStock_de_Productos);
         }
@@ -1396,6 +1427,12 @@ namespace SistemaVentas.Presentacion.Cotizacion
             PANELGRANEL.Visible = false;
             txtbuscar.Focus();
             txtbuscar.SelectAll();
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtCantidad, e);
+
         }
     }
 }

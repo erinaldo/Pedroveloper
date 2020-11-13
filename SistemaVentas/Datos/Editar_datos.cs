@@ -26,7 +26,7 @@ namespace SistemaVentas.Datos
         public static void cambio_de_Cajacotizacion(int idcaja, int idFactura)
         {
             CONEXIONMAESTRA.abrir();
-            SqlCommand cmd = new SqlCommand("cambio_de_CajaCompra", CONEXIONMAESTRA.conectar);
+            SqlCommand cmd = new SqlCommand("cambio_de_CajaCotizacion", CONEXIONMAESTRA.conectar);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@idcaja", idcaja);
             cmd.Parameters.AddWithValue("@idCotizacion", idFactura);

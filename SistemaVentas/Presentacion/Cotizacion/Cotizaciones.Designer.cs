@@ -3241,6 +3241,7 @@
             this.txtCantidad.Size = new System.Drawing.Size(163, 45);
             this.txtCantidad.TabIndex = 608;
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txttotal
             // 

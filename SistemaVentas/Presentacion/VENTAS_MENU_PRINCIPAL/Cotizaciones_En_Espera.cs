@@ -99,7 +99,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 VENTAS_MENU_PRINCIPALOK.idVenta = idFactura;
                 VENTAS_MENU_PRINCIPALOK.txtventagenerada = "Factura GENERADA";
-                Editar_datos.cambio_de_Caja(idcaja, idFactura);
+                Editar_datos.cambio_de_Cajacotizacion(idcaja, idFactura);
                 Dispose();
             }
 

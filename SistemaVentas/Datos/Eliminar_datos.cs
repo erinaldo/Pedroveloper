@@ -103,8 +103,6 @@ namespace SistemaVentas.Datos
 
         }
 
-
-
         public static void eliminar_ingreso(int idingreso)
         {
             try
