@@ -497,14 +497,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void DATALISTADO_PRODUCTOS_OKA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtProductoGranel.Text = txtdescripcion;
             txtdescripcion = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
             // MessageBox.Show(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             ValidarVentasNuevas();
             txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             vender_por_teclado();
-
         }
+
         public void ValidarVentasNuevas()
         {
             if (datalistadoDetalleVenta.RowCount == 0)
@@ -579,7 +580,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
 
             PANELGRANEL.Visible = true;
-            txtProductoGranel.Text = txtProducto.Text;
+            
+            PANELGRANEL.BringToFront();
+            PANELGRANEL.Visible = true;
+            PANELGRANEL.Location = new Point(527, 211);
         }
 
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)
@@ -1996,15 +2000,40 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            txtpantalla = Convert.ToDouble(txtCantidad.Text);
+            string numero;
+            bool entero = true;
+
+
+            numero = txtCantidad.Text;
+
+            char[] test = numero.ToCharArray();
+
+            for (int i = 0; i < test.Length; i++)
+            {
+                if (test[i] == '.')
+                {
+                    entero = false;
+                }
+            }
+
+            if (entero)
+            {
+                txtpantalla = Convert.ToInt32(numero);
+            }
+            else
+            {
+                txtpantalla = Convert.ToDouble(numero);
+            }
             PANELGRANEL.Visible = false;
             PANELGRANEL.BringToFront();
+            txtCantidad.Focus();
             DATALISTADO_PRODUCTOS_OKA.Visible = false;
             ejecutar_ventas_a_granel();
         }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
         {
+
             calcularTotal();
         }
         private void calcularTotal()
@@ -2027,6 +2056,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void PANELGRANEL_Paint(object sender, PaintEventArgs e)
         {
+            txtCantidad.Clear();
+            txttotal.Clear();
+            txtprecio_unitario2.Text = "0";
+            stockgranel.Text = "0";
             txtprecio_unitario2.Text = Convert.ToString(txtprecio_unitario);
             stockgranel.Text = Convert.ToString(lblStock_de_Productos);
         }
@@ -2042,6 +2075,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             PRODUCTOS_OK.Productos_ok frm = new PRODUCTOS_OK.Productos_ok();
             frm.ShowDialog();
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtCantidad, e);
+
         }
     }
 }
