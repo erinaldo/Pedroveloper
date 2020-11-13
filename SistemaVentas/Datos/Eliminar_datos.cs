@@ -34,7 +34,6 @@ namespace SistemaVentas.Datos
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("Eliminar_compra", CONEXIONMAESTRA.conectar);
-                MessageBox.Show(idFactura.ToString());
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idCompra", idFactura);
                 cmd.ExecuteNonQuery();

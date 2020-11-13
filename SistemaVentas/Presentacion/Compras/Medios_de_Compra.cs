@@ -676,7 +676,6 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             {
                 int idproducto = Convert.ToInt32(row.Cells["Id_producto"].Value);
                 double cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
-                MessageBox.Show(idproducto.ToString() + " " + cantidad.ToString());
                 try
                 {
                     //MessageBox.Show("entramos");

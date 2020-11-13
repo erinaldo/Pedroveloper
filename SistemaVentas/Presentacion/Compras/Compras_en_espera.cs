@@ -50,7 +50,6 @@ namespace SistemaVentas.Presentacion.Compras
             try
             {
                 idFactura = Convert.ToInt32(datalistado_ventas_en_espera.SelectedCells[1].Value);
-                MessageBox.Show(idFactura.ToString());
                 mostrar_detalle_venta();
             }
             catch (Exception ex)

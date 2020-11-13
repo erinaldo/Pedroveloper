@@ -257,7 +257,6 @@ namespace SistemaVentas.Datos
         }
         public static void ingresar_nombre_a_venta_en_espera(int idFactura, string nombre)
         {
-            MessageBox.Show("asd");
             try
             {
                 CONEXIONMAESTRA.abrir();
@@ -276,7 +275,6 @@ namespace SistemaVentas.Datos
         }
         public static void ingresar_nombre_a_compra_en_espera(int idFactura, string nombre)
         {
-            MessageBox.Show("asd");
             try
             {
                 CONEXIONMAESTRA.abrir();
@@ -941,6 +939,29 @@ namespace SistemaVentas.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idDetalleFactura", parametros.iddetalle_factura);
                 cmd.Parameters.AddWithValue("@Descuento", parametros.Descuento);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+                return false;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
+        public bool editarImpuestosFactura(LdetalleFactura parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarItbisFactura", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@iddetallefactura", parametros.iddetalle_compra);
+                cmd.Parameters.AddWithValue("@Itbis", parametros.Itbis);
                 cmd.ExecuteNonQuery();
                 return true;
             }

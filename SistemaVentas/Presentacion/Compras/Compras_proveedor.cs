@@ -754,8 +754,10 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 datalistadoDetalleVenta.Columns[15].Visible = false;
                 datalistadoDetalleVenta.Columns[16].Visible = false;
                 datalistadoDetalleVenta.Columns[17].Visible = false;
-                datalistadoDetalleVenta.Columns[18].Visible = false;
+                //datalistadoDetalleVenta.Columns[18].Visible = false;
+               // datalistadoDetalleVenta.Columns[19].Visible = false;
                 datalistadoDetalleVenta.Columns[20].Visible = false;
+
                 if (datalistadoDetalleVenta.Rows.Count > 0)
                 {
 
@@ -1463,7 +1465,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
         private void Frm_FormClosing1(object sender, FormClosingEventArgs e)
         {
             Listarproductosagregados();
-            mostrar_panel_de_Cobro();
+            //mostrar_panel_de_Cobro();
         }
 
         private void btneliminar_Click(object sender, EventArgs e)
@@ -1911,8 +1913,30 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            double cant = Convert.ToDouble(txtCantidad.Text);
-            txtpantalla = cant;
+            string numero;
+            bool entero = true;
+
+
+            numero = txtCantidad.Text;
+
+            char[] test = numero.ToCharArray();
+
+            for (int i = 0; i < test.Length; i++)
+            {
+                if (test[i] == '.')
+                {
+                    entero = false;
+                }
+            }
+
+            if (entero)
+            {
+                txtpantalla = Convert.ToInt32(numero);
+            }
+            else
+            {
+                txtpantalla = Convert.ToDouble(numero);
+            }
             PANELGRANEL.Visible = false;
             PANELGRANEL.BringToFront();
             txtCantidad.Focus();
@@ -1962,6 +1986,41 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txtCantidad, e);
+        }
+
+        private void BTNCANTITBIS_Click(object sender, EventArgs e)
+        {
+
+            if (iddetalleventa == 0)
+            {
+                MessageBox.Show("Seleccione un producto para aplicarle impuestos", "Editar impuestos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                double precio = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[6].Value);
+                //MessageBox.Show(precio.ToString());
+                if (!string.IsNullOrEmpty(txtmonto.Text))
+                {
+                    if ((Convert.ToDouble(txtmonto.Text) < 0.19))
+                    {
+                        LdetalleFactura parametros = new LdetalleFactura();
+                        Editar_datos funcion = new Editar_datos();
+                        parametros.iddetalle_compra = iddetalleventa;
+                        parametros.Itbis = Convert.ToDouble(txtmonto.Text);
+                        if (funcion.editarImpuestosFactura(parametros) == true)
+                        {
+                            Listarproductosagregados();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asigne un Impuesto menor o igual a 0.18", "Editar impuestos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                iddetalleventa = 0;
+                txtmonto.Focus();
+                txtmonto.Clear();
+            }
         }
     }
 }

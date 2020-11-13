@@ -39,13 +39,13 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             DataTable dt = new DataTable();
             Obtener_datos.BuscarCompra(ref dt, txtbusca.Text);
             datalistadoVentas.DataSource = dt;
-            datalistadoVentas.Columns[1].Visible = false;
+            /*datalistadoVentas.Columns[1].Visible = false;
             datalistadoVentas.Columns[4].Visible = false;
             datalistadoVentas.Columns[5].Visible = false;
             datalistadoVentas.Columns[6].Visible = false;
             datalistadoVentas.Columns[8].Visible = false;
             datalistadoVentas.Columns[9].Visible = false;
-            datalistadoVentas.Columns[10].Visible = false;
+            datalistadoVentas.Columns[10].Visible = false;*/
 
             Bases.Multilinea(ref datalistadoVentas);
         }
@@ -88,7 +88,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             DataTable dt = new DataTable();
             Obtener_datos.MostrarDetalleCompra(ref dt, idFactura);
             datalistadoDetalleVenta.DataSource = dt;
-            datalistadoDetalleVenta.Columns[6].Visible = false;
+            /*datalistadoDetalleVenta.Columns[6].Visible = false;
             datalistadoDetalleVenta.Columns[7].Visible = false;
             datalistadoDetalleVenta.Columns[8].Visible = false;
             datalistadoDetalleVenta.Columns[9].Visible = false;
@@ -99,7 +99,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             datalistadoDetalleVenta.Columns[14].Visible = false;
             datalistadoDetalleVenta.Columns[15].Visible = false;
             datalistadoDetalleVenta.Columns[16].Visible = false;
-            datalistadoDetalleVenta.Columns[17].Visible = false;
+            datalistadoDetalleVenta.Columns[17].Visible = false;*/
 
             Bases.Multilinea(ref datalistadoDetalleVenta);
 
@@ -362,13 +362,13 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             DataTable dt = new DataTable();
             Obtener_datos.buscarComprasPorFechas(ref dt, fi.Value, ff.Value);
             datalistadoVentas.DataSource = dt;
-            datalistadoVentas.Columns[1].Visible = false;
+           /* datalistadoVentas.Columns[1].Visible = false;
             datalistadoVentas.Columns[4].Visible = false;
             datalistadoVentas.Columns[5].Visible = false;
             datalistadoVentas.Columns[6].Visible = false;
             datalistadoVentas.Columns[8].Visible = false;
             datalistadoVentas.Columns[9].Visible = false;
-            datalistadoVentas.Columns[10].Visible = false;
+            datalistadoVentas.Columns[10].Visible = false;*/
 
             Bases.Multilinea(ref datalistadoVentas);
         }

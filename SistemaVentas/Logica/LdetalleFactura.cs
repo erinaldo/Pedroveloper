@@ -8,6 +8,8 @@ namespace SistemaVentas.Logica
    public  class LdetalleFactura
     {
         public int iddetalle_factura { get; set; }
+        public int iddetalle_compra { get; set; }
+
         public int idFactura { get; set; }
         public int Id_producto { get; set; }
         public double  cantidad { get; set; }
@@ -24,6 +26,7 @@ namespace SistemaVentas.Logica
         public string Usa_inventarios { get; set; }
         public double  Costo { get; set; }
         public double  Ganancia { get; set; }
+        public double Itbis { get; set; }
         public double Descuento { get; set; }
     }
 }
