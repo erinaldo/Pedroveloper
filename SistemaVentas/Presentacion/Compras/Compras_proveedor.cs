@@ -63,6 +63,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
+            txttotal.Enabled = false;
             PANELGRANEL.Visible = false;
             MOSTRAR_comprobante_serializado_POR_DEFECTO();
             validar_tipos_de_comprobantes();
@@ -160,10 +161,6 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             txtventagenerada = "COMPRA NUEVA";
             lblsubtotal.Text = "0.00";
             lbldescuento.Text = "0.00";
-            txtCantidad.Clear();
-            txttotal.Clear();
-            txtprecio_unitario2.Text = "0";
-            stockgranel.Text = "0";
             txt_total_suma.Text = "0.00";
             sumarItbis();
             sumar();
@@ -542,7 +539,6 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         public void ejecutar_ventas_a_granel()
         {
-
             ejecutar_insertar_ventas();
             if (txtventagenerada == "COMPRA GENERADA")
             {
@@ -551,7 +547,6 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 Listarproductosagregados();
                 txtbuscar.Text = "";
                 txtbuscar.Focus();
-
             }
 
         }
@@ -787,14 +782,9 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
         {
             try
             {
-                if (lblStock_de_Productos >= txtpantalla)
-                {
+               
                     insertar_detalle_venta_Validado();
-                }
-                else
-                {
-                    TimerLABEL_STOCK.Start();
-                }
+              
 
             }
             catch (Exception ex)
@@ -830,7 +820,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 cmd.Parameters.AddWithValue("@itbis_calculado", Convert.ToDecimal(lblItbis_.Text));
                 cmd.ExecuteNonQuery();
                 con.Close();
-                disminuir_stock_en_detalle_de_venta();
+                //disminuir_stock_en_detalle_de_venta();
             }
             catch (Exception ex)
             {
@@ -989,17 +979,9 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
         {
 
 
-            lblStock_de_Productos = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[15].Value.ToString());
-            if (lblStock_de_Productos > 0)
-            {
-
                 ejecutar_editar_detalle_venta_sumar();
                 //disminuir_stock_en_detalle_de_venta();
-            }
-            else
-            {
-                TimerLABEL_STOCK.Start();
-            }
+           
             Listarproductosagregados();
         }
         private void editar_detalle_venta_restar()
@@ -1007,7 +989,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
 
             ejecutar_editar_detalle_venta_restar();
-            aumentar_stock_en_detalle_de_venta();
+            //aumentar_stock_en_detalle_de_venta();
 
             Listarproductosagregados();
         }
@@ -1088,7 +1070,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                     cmd.ExecuteNonQuery();
                     con.Close();
                     txtpantalla = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
-                    aumentar_stock_en_detalle_de_venta();
+                   // aumentar_stock_en_detalle_de_venta();
                 }
                 catch (Exception ex)
                 {
@@ -1334,12 +1316,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 {
                     if (datalistadoDetalleVenta.RowCount > 0)
                     {
-
-
-                        if (sevendePor == "Granel")
-                        {
                             BotonCantidad();
-                        }
                     }
                     else
                     {
@@ -1363,18 +1340,12 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             double condicional;
             string ControlStock;
             ControlStock = datalistadoDetalleVenta.SelectedCells[16].Value.ToString();
-            if (ControlStock == "SI")
-            {
+           
                 stock = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[11].Value);
                 condicional = Cantidad + stock;
-                MessageBox.Show("Stock: " + stock.ToString() + " Condicional: " + cantidad.ToString() + " + " + stock.ToString() + "\nMontoIngrsar" + MontoaIngresar.ToString());
+                MessageBox.Show("Stock: " + stock.ToString() + " Condicional: " + cantidad.ToString() + " + " + stock.ToString() + "\nMontoIngresar" + MontoaIngresar.ToString());
 
                 BotonCantidadEjecuta();
-            }
-            else
-            {
-                BotonCantidadEjecuta();
-            }
         }
 
         private void BotonDescuento()
@@ -1387,23 +1358,11 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             double condicional;
             string ControlStock;
             ControlStock = datalistadoDetalleVenta.SelectedCells[16].Value.ToString();
-            if (ControlStock == "SI")
-            {
-                stock = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[11].Value);
-                condicional = Cantidad + stock;
-                if (condicional >= MontoaIngresar)
-                {
-                    BotonCantidadEjecuta();
-                }
-                else
-                {
-                    TimerLABEL_STOCK.Start();
-                }
-            }
-            else
-            {
-                BotonCantidadEjecuta();
-            }
+
+            stock = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[11].Value);
+            condicional = Cantidad + stock;
+
+            BotonCantidadEjecuta();
 
 
         }
@@ -1453,7 +1412,6 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 LABEL_STOCK.Visible = false;
                 LABEL_STOCK.Dock = DockStyle.None;
                 ProgressBarETIQUETA_STOCK.Value = 0;
-                TimerLABEL_STOCK.Stop();
             }
         }
         private void befectivo_Click_1(object sender, EventArgs e)
@@ -1953,7 +1911,8 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            txtpantalla = Convert.ToDouble(txtCantidad.Text);
+            double cant = Convert.ToDouble(txtCantidad.Text);
+            txtpantalla = cant;
             PANELGRANEL.Visible = false;
             PANELGRANEL.BringToFront();
             txtCantidad.Focus();
@@ -1963,6 +1922,10 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         private void PANELGRANEL_Paint(object sender, PaintEventArgs e)
         {
+           /* txtCantidad.Clear();
+            txttotal.Clear();
+            txtprecio_unitario2.Text = "0";
+            stockgranel.Text = "0";*/
             txtprecio_unitario2.Text = Convert.ToString(txtprecio_unitario);
             stockgranel.Text = Convert.ToString(lblStock_de_Productos);
         }
@@ -1994,6 +1957,11 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
             }
 
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtCantidad, e);
         }
     }
 }

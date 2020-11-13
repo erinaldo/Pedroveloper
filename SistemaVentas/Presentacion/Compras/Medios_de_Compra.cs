@@ -20,9 +20,9 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         string moneda;
         int idProveedor;
         int idProveedorasignado;
-
-        int idCompra;
         double total;
+        int idCompra;
+        double totalcalculado;
         double vuelto = 0;
         double efectivo_calculado = 0;
         double restante = 0;
@@ -73,6 +73,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             validarPedidodeProveedor();
             // datalistadoempleado.Visible = false;
             //label7.Visible = false;
+
         }
 
         void calcular_restante()
@@ -990,6 +991,8 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             try
             {
                 TXTTOTAL.Text = Convert.ToString(total);
+                totalcalculado = Convert.ToDouble(TXTTOTAL.Text);
+
                 TXTTOTAL.Text = decimal.Parse(TXTTOTAL.Text).ToString("##0.00");
                 int numero = Convert.ToInt32(Math.Floor(Convert.ToDouble(total)));
                 TXTTOTAL_STRING = CONEXION.total_en_letras.Num2Text(numero);
@@ -1456,6 +1459,23 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             {
                 MessageBox.Show(ex.StackTrace);
             }
+        }
+
+        private void txtefectivo2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtefectivo2, e);
+        }
+            double result;
+
+        private void txtefectivo2_TextChanged_1(object sender, EventArgs e)
+        {
+            result = Convert.ToDouble(txtMonto.Text) + Convert.ToDouble(txtefectivo2.Text);
+            calculototal();
+        }
+
+        private void calculototal()
+        {
+            TXTTOTAL.Text = Convert.ToString(result);
         }
     }
 }
