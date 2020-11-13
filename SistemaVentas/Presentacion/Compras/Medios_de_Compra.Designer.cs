@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Medios_de_Compra));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,9 +40,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Medios_de_Compra));
             this.TXTTOTAL = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn0 = new System.Windows.Forms.Button();
             this.chkCredito = new System.Windows.Forms.CheckBox();
             this.pcredito = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -119,7 +120,6 @@
             this.DATALISTADOVERIFICAR = new System.Windows.Forms.DataGridView();
             this.lblCantidad_de_numeros = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btn0 = new System.Windows.Forms.Button();
             this.lblcomprobantecompra = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pcredito.SuspendLayout();
@@ -178,6 +178,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(613, 515);
             this.panel1.TabIndex = 3;
+            // 
+            // btn0
+            // 
+            this.btn0.BackColor = System.Drawing.Color.Transparent;
+            this.btn0.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn0.BackgroundImage")));
+            this.btn0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn0.FlatAppearance.BorderSize = 0;
+            this.btn0.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn0.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn0.Font = new System.Drawing.Font("Calibri", 21F, System.Drawing.FontStyle.Bold);
+            this.btn0.ForeColor = System.Drawing.Color.White;
+            this.btn0.Image = ((System.Drawing.Image)(resources.GetObject("btn0.Image")));
+            this.btn0.Location = new System.Drawing.Point(392, 236);
+            this.btn0.Name = "btn0";
+            this.btn0.Size = new System.Drawing.Size(65, 66);
+            this.btn0.TabIndex = 638;
+            this.btn0.Text = "0";
+            this.btn0.UseVisualStyleBackColor = false;
+            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
             // chkCredito
             // 
@@ -1352,27 +1373,6 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.ToolTipText = "Opcional \"Supr\" para Eliminar";
-            // 
-            // btn0
-            // 
-            this.btn0.BackColor = System.Drawing.Color.Transparent;
-            this.btn0.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn0.BackgroundImage")));
-            this.btn0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn0.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn0.FlatAppearance.BorderSize = 0;
-            this.btn0.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn0.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn0.Font = new System.Drawing.Font("Calibri", 21F, System.Drawing.FontStyle.Bold);
-            this.btn0.ForeColor = System.Drawing.Color.White;
-            this.btn0.Image = ((System.Drawing.Image)(resources.GetObject("btn0.Image")));
-            this.btn0.Location = new System.Drawing.Point(392, 236);
-            this.btn0.Name = "btn0";
-            this.btn0.Size = new System.Drawing.Size(65, 66);
-            this.btn0.TabIndex = 638;
-            this.btn0.Text = "0";
-            this.btn0.UseVisualStyleBackColor = false;
-            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
             // lblcomprobantecompra
             // 

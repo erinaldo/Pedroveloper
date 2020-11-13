@@ -22,6 +22,27 @@ namespace SistemaVentas.Datos
             cmd.ExecuteNonQuery();
             CONEXIONMAESTRA.cerrar();
         }
+
+        public static void cambio_de_Cajacotizacion(int idcaja, int idFactura)
+        {
+            CONEXIONMAESTRA.abrir();
+            SqlCommand cmd = new SqlCommand("cambio_de_CajaCompra", CONEXIONMAESTRA.conectar);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@idcaja", idcaja);
+            cmd.Parameters.AddWithValue("@idCotizacion", idFactura);
+            cmd.ExecuteNonQuery();
+            CONEXIONMAESTRA.cerrar();
+        }
+        public static void cambio_de_Cajacompra(int idcaja, int idFactura)
+        {
+            CONEXIONMAESTRA.abrir();
+            SqlCommand cmd = new SqlCommand("cambio_de_Cajacompra", CONEXIONMAESTRA.conectar);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@idcaja", idcaja);
+            cmd.Parameters.AddWithValue("@idFactura", idFactura);
+            cmd.ExecuteNonQuery();
+            CONEXIONMAESTRA.cerrar();
+        }
         public bool editarEmpleado(LEmpleados parametros)
         {
             try

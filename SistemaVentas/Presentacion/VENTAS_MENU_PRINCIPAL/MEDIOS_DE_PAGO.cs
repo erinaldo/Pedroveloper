@@ -879,8 +879,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     int Id_producto = Convert.ToInt32(row.Cells["Id_producto"].Value);
                     double cantidad = Convert.ToDouble(row.Cells["Cantidad"].Value);
                     string STOCK = Convert.ToString(row.Cells["Stock"].Value);
-                    if (STOCK != "Ilimitado")
-                    {
+                  
                         CONEXION.CONEXIONMAESTRA.abrir();
                         SqlCommand cmd = new SqlCommand("insertar_KARDEX_SALIDA", CONEXION.CONEXIONMAESTRA.conectar );
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -895,7 +894,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         cmd.ExecuteNonQuery();
                         CONEXION.CONEXIONMAESTRA.cerrar();
 
-                    }
+                    
 
                 }
             }

@@ -160,6 +160,10 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             txtventagenerada = "COMPRA NUEVA";
             lblsubtotal.Text = "0.00";
             lbldescuento.Text = "0.00";
+            txtCantidad.Clear();
+            txttotal.Clear();
+            txtprecio_unitario2.Text = "0";
+            stockgranel.Text = "0";
             txt_total_suma.Text = "0.00";
             sumarItbis();
             sumar();
@@ -452,24 +456,24 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
         }
         private void ocultar_mostrar_productos()
         {
-
             panel_mostrador_de_productos.Visible = false;
             DATALISTADO_PRODUCTOS_OKA.Visible = false;
             lbltipodebusqueda2.Visible = true;
         }
         private void DATALISTADO_PRODUCTOS_OKA_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void DATALISTADO_PRODUCTOS_OKA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtdescripcion = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
+            txtProductoGranel.Text = txtdescripcion;
             ValidarVentasNuevas();
             txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             vender_por_teclado();
         }
+
         public void ValidarVentasNuevas()
         {
             if (datalistadoDetalleVenta.RowCount == 0)
@@ -504,13 +508,12 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             txtprecio_compra = Convert.ToDouble(lblcosto.Text);
             precioVenta = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
             sevendePor = "Granel";
-
+            txtprecio_unitario = txtprecio_compra;
 
             ImpuestoProducto = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[9].Value);
             DescuentoProducto = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[10].Value);
             ImpuestoCategoria = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[11].Value);
             DescuentoCategoria = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[12].Value);
-            // 9 - 10 - 11 - 12
             if (ImpuestoCategoria > 0)
             {
                 lblItbis_.Text = ImpuestoCategoria.ToString();
@@ -545,7 +548,6 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
         {
 
             PANELGRANEL.Visible = true;
-            txtProductoGranel.Text = txtProducto.Text;
         }
 
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)
@@ -1478,39 +1480,37 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             }
             else
             {
-
                 Editar_datos funcion = new Editar_datos();
                 Lproductos parametrosProductos = new Lproductos();
-                foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
-                {
+                /* foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
+                 {
 
-                    idproducto = Convert.ToInt32(fila.Cells["Id_producto"].Value);
-                    precioCompra = Convert.ToDouble(fila.Cells["PrecioUnidad"].Value);
-                    precioVenta = Convert.ToDouble(fila.Cells["Costo"].Value);
-                    double precioVentaNuevo;
-                    double precioVentaNuevo_;
-                    precioVentaNuevo = precioCompra - precioVenta;
-                    precioVentaNuevo_ = precioVentaNuevo + precioCompra;
+                     idproducto = Convert.ToInt32(fila.Cells["Id_producto"].Value);
+                     precioCompra = Convert.ToDouble(fila.Cells["PrecioUnidad"].Value);
+                     precioVenta = Convert.ToDouble(fila.Cells["Costo"].Value);
+                     double precioVentaNuevo;
+                     double precioVentaNuevo_;
+                     precioVentaNuevo = precioCompra - precioVenta;
+                     precioVentaNuevo_ = precioVentaNuevo + precioCompra;
 
-                    // if (precioCompra != precioVenta)
-                    //{
-                    if (funcion.Editarpreciosproductoscompra(parametrosProductos) == true)
-                    {
-                        MessageBox.Show("id:" + idproducto.ToString() + " prventa:" + precioVenta.ToString() +
-                    "prcompra:" + precioCompra.ToString() + " prventaN:" + precioVentaNuevo.ToString());
-                    }
-                    // }
+                     // if (precioCompra != precioVenta)
+                     //{
+                     if (funcion.Editarpreciosproductoscompra(parametrosProductos) == true)
+                     {
+                         MessageBox.Show("id:" + idproducto.ToString() + " prventa:" + precioVenta.ToString() +
+                     "prcompra:" + precioCompra.ToString() + " prventaN:" + precioVentaNuevo.ToString());
+                     }
+                     // }
+                */
 
-
-                    total = Convert.ToDouble(txt_total_suma.Text);
-                    Medios_de_Compra.Medios_de_Compra frm = new Medios_de_Compra.Medios_de_Compra();
-                    frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
-                    frm.ShowDialog();
-                }
+                total = Convert.ToDouble(txt_total_suma.Text);
+                Medios_de_Compra.Medios_de_Compra frm = new Medios_de_Compra.Medios_de_Compra();
+                frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
+                frm.ShowDialog();
             }
-
         }
 
+        
         private void btnrestaurar_Click_1(object sender, EventArgs e)
         {
             Compras_en_espera frm = new Compras_en_espera();
@@ -1528,7 +1528,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
         {
             if (datalistadoDetalleVenta.RowCount > 0)
             {
-                DialogResult pregunta = MessageBox.Show("¿Realmente desea eliminar esta Venta?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult pregunta = MessageBox.Show("¿Realmente desea eliminar esta Compra?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (pregunta == DialogResult.OK)
                 {
                     Eliminar_datos.eliminar_factura(idVenta);
@@ -1972,6 +1972,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             txtpantalla = Convert.ToDouble(txtCantidad.Text);
             PANELGRANEL.Visible = false;
             PANELGRANEL.BringToFront();
+            txtCantidad.Focus();
             DATALISTADO_PRODUCTOS_OKA.Visible = false;
             ejecutar_ventas_a_granel();
         }

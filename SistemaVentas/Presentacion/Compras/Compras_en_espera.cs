@@ -100,7 +100,7 @@ namespace SistemaVentas.Presentacion.Compras
             {
                 Compras_proveedor.Compras_proveedor.idVenta = idFactura;
                 Compras_proveedor.Compras_proveedor.txtventagenerada = "COMPRA GENERADA";
-                Editar_datos.cambio_de_Caja(idcaja, idFactura);
+                Editar_datos.cambio_de_Cajacompra(idcaja, idFactura);
                 Dispose();
             }
             

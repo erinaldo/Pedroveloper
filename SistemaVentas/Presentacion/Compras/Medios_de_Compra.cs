@@ -694,23 +694,22 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                     int Id_producto = Convert.ToInt32(row.Cells["Id_producto"].Value);
                     double cantidad = Convert.ToDouble(row.Cells["Cantidad"].Value);
                     string STOCK = Convert.ToString(row.Cells["Stock"].Value);
-                    if (STOCK != "Ilimitado")
-                    {
-                        CONEXION.CONEXIONMAESTRA.abrir();
-                        SqlCommand cmd = new SqlCommand("Insertar_kardex_entrada", CONEXION.CONEXIONMAESTRA.conectar);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@Motivo", "Compra #" + lblComprobante.Text + " " + lblCorrelativoconCeros.Text);
-                        cmd.Parameters.AddWithValue("@Cantidad ", cantidad);
-                        cmd.Parameters.AddWithValue("@Id_producto", Id_producto);
-                        cmd.Parameters.AddWithValue("@Id_usuario", Compras_proveedor.Compras_proveedor.idusuario_que_inicio_sesion);
-                        cmd.Parameters.AddWithValue("@Tipo", "ENTRADA");
-                        cmd.Parameters.AddWithValue("@Estado", "ATENCION CONFIRMADA");
-                        cmd.Parameters.AddWithValue("@Id_caja", Compras_proveedor.Compras_proveedor.Id_caja);
-                        cmd.ExecuteNonQuery();
-                        CONEXION.CONEXIONMAESTRA.cerrar();
 
-                    }
+                    CONEXION.CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("Insertar_kardex_entrada", CONEXION.CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Motivo", "Compra #" + lblComprobante.Text + " " + lblCorrelativoconCeros.Text);
+                    cmd.Parameters.AddWithValue("@Cantidad ", cantidad);
+                    cmd.Parameters.AddWithValue("@Id_producto", Id_producto);
+                    cmd.Parameters.AddWithValue("@Id_usuario", Compras_proveedor.Compras_proveedor.idusuario_que_inicio_sesion);
+                    cmd.Parameters.AddWithValue("@Tipo", "ENTRADA");
+                    cmd.Parameters.AddWithValue("@Estado", "ATENCION CONFIRMADA");
+                    cmd.Parameters.AddWithValue("@Id_caja", Compras_proveedor.Compras_proveedor.Id_caja);
+                    cmd.ExecuteNonQuery();
+                    CONEXION.CONEXIONMAESTRA.cerrar();
+
+
 
                 }
             }
@@ -1013,7 +1012,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
                 cmd.Parameters.AddWithValue("@idProveedor", idProveedor);
                 cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text);
-                cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text));
+                cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "--" + lblCorrelativoconCeros.Text));
                 cmd.Parameters.AddWithValue("@fecha_compra", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ACCION", "COMPRA");
                 cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value);
@@ -1176,13 +1175,19 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             if (chkContado.Checked || chkCredito.Checked)
             {
-                if (!string.IsNullOrEmpty(txtTransferencia.Text))
+                if (chkTrans.Checked)
                 {
-                    ImprimirDirecto();
+                    if (!string.IsNullOrEmpty(txtTransferencia.Text)){
+                        GuardarSinImprimir();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asigne el numero de transferencia", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Asigne el numero de transferencia", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    GuardarSinImprimir();
                 }
             }
             else
@@ -1209,13 +1214,19 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
             if (chkContado.Checked || chkCredito.Checked)
             {
-                if (!string.IsNullOrEmpty(txtTransferencia.Text))
+                if (chkTrans.Checked)
                 {
-                    GuardarSinImprimir();
+                    if (!string.IsNullOrEmpty(txtTransferencia.Text)){
+                        GuardarSinImprimir();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asigne el numero de transferencia", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Asigne el numero de transferencia", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    GuardarSinImprimir();
                 }
             }
             else
