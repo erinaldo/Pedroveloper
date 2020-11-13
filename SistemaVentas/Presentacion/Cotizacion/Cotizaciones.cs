@@ -619,7 +619,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_detalle_factura", con);
+                cmd = new SqlCommand("insertar_detalle_factura2", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idFactura", idCotizacion);
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);

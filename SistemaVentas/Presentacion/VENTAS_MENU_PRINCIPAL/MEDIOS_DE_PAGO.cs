@@ -1520,11 +1520,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 // Verificar vehiculos disponibles
                 // Determinar disponibilidad: Asignar personal para el envio.
                 // Verificar personal capacitado.
-                if ( txtclientesolicitabnte3.TextLength > 0)
+                if (txtclientesolicitabnte3.TextLength > 0)
                 {
                     if (VerificarEstadoPersonal() && verificarCliente() && VerificarEstadoVehiculos())
                     {
-            label7.Visible = true;
+                        label7.Visible = true;
                         datalistadoempleado.Visible = true;
                         if (Envio.Checked == false)
                         {
@@ -1533,21 +1533,23 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
                         }
                         ObtenerVehiculo();
-                        
-                    } else
+
+                    }
+                    else
                     {
                         MessageBox.Show("Verifica el Estado del Personal, Clientes o Vehiculos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        
+
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione un cliente correctamente", "ADVERTENCIA" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Seleccione un cliente correctamente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } else
+            }
+            else
             {
-               datalistadoempleado.Visible = false;
+                datalistadoempleado.Visible = false;
                 label7.Visible = false;
             }
         }
@@ -1592,6 +1594,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             nombreEmpleado = datalistadoempleado.SelectedCells[1].Value.ToString();
             departamentoEmpleado = datalistadoempleado.SelectedCells[2].Value.ToString();
             estadoEmpleado = datalistadoempleado.SelectedCells[3].Value.ToString();
+            MessageBox.Show("El Empleado " + nombreEmpleado + " llevara el pedido", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void ObtenerVehiculo()
@@ -1709,6 +1712,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
             frm.ShowDialog();
+        }
+
+        private void datalistadoclientes3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

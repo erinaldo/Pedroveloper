@@ -40,26 +40,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TXTTOTAL = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.PanelregistroClientes = new System.Windows.Forms.Panel();
-            this.lblcp = new System.Windows.Forms.Label();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.BtnVolver = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtrucdefactura = new System.Windows.Forms.TextBox();
-            this.Label14 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtdirecciondefactura = new System.Windows.Forms.TextBox();
-            this.txtcelular = new System.Windows.Forms.TextBox();
-            this.txtnombrecliente = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblprueba = new System.Windows.Forms.Label();
             this.panelGuardado_de_datos = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.btnGuardarImprimirdirecto = new System.Windows.Forms.Button();
             this.TGuardarSinImprimir = new System.Windows.Forms.Button();
             this.panelClienteFactura = new System.Windows.Forms.Panel();
@@ -100,24 +83,6 @@
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.datalistadoclientes2 = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Envio = new UIDC.UI_MaterialToggle();
-            this.PanelEnviarCorreo = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.txtcorreo = new System.Windows.Forms.ComboBox();
-            this.Panel7 = new System.Windows.Forms.Panel();
-            this.txtpassenvi = new System.Windows.Forms.Label();
-            this.lblEstado_de_envio = new System.Windows.Forms.Label();
-            this.Button4 = new System.Windows.Forms.Button();
-            this.Panel12 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.PanelregistroClientes.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.panelGuardado_de_datos.SuspendLayout();
             this.panelClienteFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes3)).BeginInit();
@@ -130,9 +95,6 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).BeginInit();
-            this.panel6.SuspendLayout();
-            this.PanelEnviarCorreo.SuspendLayout();
-            this.Panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // TXTTOTAL
@@ -146,193 +108,6 @@
             this.TXTTOTAL.TabIndex = 2;
             this.TXTTOTAL.Text = "$ 50";
             this.TXTTOTAL.Click += new System.EventHandler(this.TXTTOTAL_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.PanelEnviarCorreo);
-            this.panel1.Controls.Add(this.PanelregistroClientes);
-            this.panel1.Location = new System.Drawing.Point(21, 91);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(633, 496);
-            this.panel1.TabIndex = 3;
-            // 
-            // PanelregistroClientes
-            // 
-            this.PanelregistroClientes.BackColor = System.Drawing.Color.White;
-            this.PanelregistroClientes.Controls.Add(this.lblcp);
-            this.PanelregistroClientes.Controls.Add(this.flowLayoutPanel4);
-            this.PanelregistroClientes.Controls.Add(this.groupBox1);
-            this.PanelregistroClientes.Controls.Add(this.panel5);
-            this.PanelregistroClientes.Controls.Add(this.panel4);
-            this.PanelregistroClientes.Controls.Add(this.panel2);
-            this.PanelregistroClientes.Controls.Add(this.txtdirecciondefactura);
-            this.PanelregistroClientes.Controls.Add(this.txtcelular);
-            this.PanelregistroClientes.Controls.Add(this.txtnombrecliente);
-            this.PanelregistroClientes.Controls.Add(this.label4);
-            this.PanelregistroClientes.Controls.Add(this.label3);
-            this.PanelregistroClientes.Controls.Add(this.label2);
-            this.PanelregistroClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PanelregistroClientes.Location = new System.Drawing.Point(669, 364);
-            this.PanelregistroClientes.Name = "PanelregistroClientes";
-            this.PanelregistroClientes.Size = new System.Drawing.Size(10, 10);
-            this.PanelregistroClientes.TabIndex = 632;
-            this.PanelregistroClientes.Visible = false;
-            // 
-            // lblcp
-            // 
-            this.lblcp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(63)))), ((int)(((byte)(67)))));
-            this.lblcp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblcp.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.lblcp.ForeColor = System.Drawing.Color.White;
-            this.lblcp.Location = new System.Drawing.Point(0, 0);
-            this.lblcp.Name = "lblcp";
-            this.lblcp.Size = new System.Drawing.Size(10, 47);
-            this.lblcp.TabIndex = 624;
-            this.lblcp.Text = "NUEVO CLIENTE";
-            this.lblcp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.btnGuardar);
-            this.flowLayoutPanel4.Controls.Add(this.BtnVolver);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(33, 274);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(524, 45);
-            this.flowLayoutPanel4.TabIndex = 9;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(63)))), ((int)(((byte)(67)))));
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(3, 3);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(138, 38);
-            this.btnGuardar.TabIndex = 8;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // BtnVolver
-            // 
-            this.BtnVolver.BackColor = System.Drawing.Color.White;
-            this.BtnVolver.FlatAppearance.BorderSize = 0;
-            this.BtnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVolver.Location = new System.Drawing.Point(147, 3);
-            this.BtnVolver.Name = "BtnVolver";
-            this.BtnVolver.Size = new System.Drawing.Size(138, 38);
-            this.BtnVolver.TabIndex = 8;
-            this.BtnVolver.Text = "Volver";
-            this.BtnVolver.UseVisualStyleBackColor = false;
-            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtrucdefactura);
-            this.groupBox1.Controls.Add(this.Label14);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(33, 169);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(524, 99);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos de FACTURACION (Opcional)";
-            // 
-            // txtrucdefactura
-            // 
-            this.txtrucdefactura.Location = new System.Drawing.Point(12, 63);
-            this.txtrucdefactura.Name = "txtrucdefactura";
-            this.txtrucdefactura.Size = new System.Drawing.Size(506, 26);
-            this.txtrucdefactura.TabIndex = 338;
-            // 
-            // Label14
-            // 
-            this.Label14.AutoSize = true;
-            this.Label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label14.ForeColor = System.Drawing.Color.Black;
-            this.Label14.Location = new System.Drawing.Point(9, 31);
-            this.Label14.Name = "Label14";
-            this.Label14.Size = new System.Drawing.Size(142, 20);
-            this.Label14.TabIndex = 337;
-            this.Label14.Text = "Identificador Fiscal";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(198)))), ((int)(((byte)(91)))));
-            this.panel5.Location = new System.Drawing.Point(139, 125);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(387, 1);
-            this.panel5.TabIndex = 6;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(198)))), ((int)(((byte)(91)))));
-            this.panel4.Location = new System.Drawing.Point(138, 157);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(387, 1);
-            this.panel4.TabIndex = 6;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(198)))), ((int)(((byte)(91)))));
-            this.panel2.Location = new System.Drawing.Point(139, 93);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(387, 1);
-            this.panel2.TabIndex = 6;
-            // 
-            // txtdirecciondefactura
-            // 
-            this.txtdirecciondefactura.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtdirecciondefactura.Location = new System.Drawing.Point(139, 132);
-            this.txtdirecciondefactura.Name = "txtdirecciondefactura";
-            this.txtdirecciondefactura.Size = new System.Drawing.Size(386, 19);
-            this.txtdirecciondefactura.TabIndex = 5;
-            // 
-            // txtcelular
-            // 
-            this.txtcelular.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtcelular.Location = new System.Drawing.Point(138, 100);
-            this.txtcelular.Name = "txtcelular";
-            this.txtcelular.Size = new System.Drawing.Size(388, 19);
-            this.txtcelular.TabIndex = 4;
-            // 
-            // txtnombrecliente
-            // 
-            this.txtnombrecliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtnombrecliente.Location = new System.Drawing.Point(138, 66);
-            this.txtnombrecliente.Name = "txtnombrecliente";
-            this.txtnombrecliente.Size = new System.Drawing.Size(387, 19);
-            this.txtnombrecliente.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(54, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Direccion:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(42, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Celular/ Tel: ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre:";
             // 
             // lblprueba
             // 
@@ -357,10 +132,18 @@
             this.panelGuardado_de_datos.Controls.Add(this.txtImpresora);
             this.panelGuardado_de_datos.Controls.Add(this.Label1);
             this.panelGuardado_de_datos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelGuardado_de_datos.Location = new System.Drawing.Point(660, 0);
+            this.panelGuardado_de_datos.Location = new System.Drawing.Point(462, 0);
             this.panelGuardado_de_datos.Name = "panelGuardado_de_datos";
-            this.panelGuardado_de_datos.Size = new System.Drawing.Size(509, 620);
+            this.panelGuardado_de_datos.Size = new System.Drawing.Size(707, 620);
             this.panelGuardado_de_datos.TabIndex = 4;
+            // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 569);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(707, 51);
+            this.panel6.TabIndex = 617;
             // 
             // btnGuardarImprimirdirecto
             // 
@@ -373,7 +156,7 @@
             this.btnGuardarImprimirdirecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarImprimirdirecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarImprimirdirecto.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarImprimirdirecto.Location = new System.Drawing.Point(17, 103);
+            this.btnGuardarImprimirdirecto.Location = new System.Drawing.Point(111, 123);
             this.btnGuardarImprimirdirecto.Name = "btnGuardarImprimirdirecto";
             this.btnGuardarImprimirdirecto.Size = new System.Drawing.Size(201, 55);
             this.btnGuardarImprimirdirecto.TabIndex = 615;
@@ -392,7 +175,7 @@
             this.TGuardarSinImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TGuardarSinImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TGuardarSinImprimir.ForeColor = System.Drawing.Color.White;
-            this.TGuardarSinImprimir.Location = new System.Drawing.Point(244, 102);
+            this.TGuardarSinImprimir.Location = new System.Drawing.Point(338, 122);
             this.TGuardarSinImprimir.Name = "TGuardarSinImprimir";
             this.TGuardarSinImprimir.Size = new System.Drawing.Size(201, 57);
             this.TGuardarSinImprimir.TabIndex = 614;
@@ -407,7 +190,7 @@
             this.panelClienteFactura.Controls.Add(this.lblindicador_de_factura_1);
             this.panelClienteFactura.Controls.Add(this.txtclientesolicitabnte3);
             this.panelClienteFactura.Controls.Add(this.MenuStrip10);
-            this.panelClienteFactura.Location = new System.Drawing.Point(16, 335);
+            this.panelClienteFactura.Location = new System.Drawing.Point(110, 355);
             this.panelClienteFactura.Name = "panelClienteFactura";
             this.panelClienteFactura.Size = new System.Drawing.Size(429, 174);
             this.panelClienteFactura.TabIndex = 610;
@@ -442,6 +225,7 @@
             this.datalistadoclientes3.Size = new System.Drawing.Size(420, 94);
             this.datalistadoclientes3.TabIndex = 454;
             this.datalistadoclientes3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoclientes3_CellClick);
+            this.datalistadoclientes3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoclientes3_CellContentClick);
             // 
             // DataGridViewCheckBoxColumn2
             // 
@@ -458,9 +242,9 @@
             this.lblindicador_de_factura_1.ForeColor = System.Drawing.Color.DimGray;
             this.lblindicador_de_factura_1.Location = new System.Drawing.Point(10, 9);
             this.lblindicador_de_factura_1.Name = "lblindicador_de_factura_1";
-            this.lblindicador_de_factura_1.Size = new System.Drawing.Size(157, 20);
+            this.lblindicador_de_factura_1.Size = new System.Drawing.Size(174, 20);
             this.lblindicador_de_factura_1.TabIndex = 0;
-            this.lblindicador_de_factura_1.Text = "Cliente: (Opcional)";
+            this.lblindicador_de_factura_1.Text = "Cliente: (Obligatorio)";
             // 
             // txtclientesolicitabnte3
             // 
@@ -501,7 +285,7 @@
             // 
             // FlowLayoutPanel3
             // 
-            this.FlowLayoutPanel3.Location = new System.Drawing.Point(16, 208);
+            this.FlowLayoutPanel3.Location = new System.Drawing.Point(110, 228);
             this.FlowLayoutPanel3.Name = "FlowLayoutPanel3";
             this.FlowLayoutPanel3.Size = new System.Drawing.Size(429, 121);
             this.FlowLayoutPanel3.TabIndex = 609;
@@ -511,7 +295,7 @@
             this.txtImpresora.BackColor = System.Drawing.Color.White;
             this.txtImpresora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtImpresora.FormattingEnabled = true;
-            this.txtImpresora.Location = new System.Drawing.Point(16, 32);
+            this.txtImpresora.Location = new System.Drawing.Point(110, 52);
             this.txtImpresora.Name = "txtImpresora";
             this.txtImpresora.Size = new System.Drawing.Size(429, 28);
             this.txtImpresora.TabIndex = 580;
@@ -521,7 +305,7 @@
             this.Label1.AutoSize = true;
             this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.Label1.ForeColor = System.Drawing.Color.Gray;
-            this.Label1.Location = new System.Drawing.Point(12, 9);
+            this.Label1.Location = new System.Drawing.Point(106, 29);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(95, 20);
             this.Label1.TabIndex = 579;
@@ -654,9 +438,9 @@
             this.PanelImpresionvistaprevia.Controls.Add(this.pictureBox1);
             this.PanelImpresionvistaprevia.Controls.Add(this.label5);
             this.PanelImpresionvistaprevia.Controls.Add(this.reportViewer1);
-            this.PanelImpresionvistaprevia.Location = new System.Drawing.Point(323, 9);
+            this.PanelImpresionvistaprevia.Location = new System.Drawing.Point(324, 10);
             this.PanelImpresionvistaprevia.Name = "PanelImpresionvistaprevia";
-            this.PanelImpresionvistaprevia.Size = new System.Drawing.Size(96, 34);
+            this.PanelImpresionvistaprevia.Size = new System.Drawing.Size(65, 52);
             this.PanelImpresionvistaprevia.TabIndex = 6;
             this.PanelImpresionvistaprevia.Visible = false;
             // 
@@ -664,9 +448,9 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = global::SistemaVentas.Properties.Resources.LogoNegro;
-            this.pictureBox1.Location = new System.Drawing.Point(478, 200);
+            this.pictureBox1.Location = new System.Drawing.Point(478, 87);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(0, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(0, 59);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -678,9 +462,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Location = new System.Drawing.Point(478, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 200);
+            this.label5.Size = new System.Drawing.Size(0, 87);
             this.label5.TabIndex = 1;
-            this.label5.Text = "COTIZACION REALIZADA CORRECTAMENTE";
+            this.label5.Text = "COTIZACIÓN REALIZADA CORRECTAMENTE";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // reportViewer1
@@ -689,7 +473,7 @@
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Left;
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(478, 34);
+            this.reportViewer1.Size = new System.Drawing.Size(478, 52);
             this.reportViewer1.TabIndex = 0;
             // 
             // txttotaldecimal
@@ -950,182 +734,6 @@
             this.DataGridViewCheckBoxColumn4.ReadOnly = true;
             this.DataGridViewCheckBoxColumn4.Visible = false;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.Envio);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 569);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(509, 51);
-            this.panel6.TabIndex = 617;
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(162, 51);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Enviar factura al correo";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // Envio
-            // 
-            this.Envio.AutoSize = true;
-            this.Envio.EllipseBorderColor = "#3b73d1";
-            this.Envio.EllipseColor = "#508ef5";
-            this.Envio.Location = new System.Drawing.Point(163, 18);
-            this.Envio.Name = "Envio";
-            this.Envio.Size = new System.Drawing.Size(47, 19);
-            this.Envio.TabIndex = 0;
-            this.Envio.Text = "uI_MaterialToggle1";
-            this.Envio.UseVisualStyleBackColor = true;
-            this.Envio.CheckedChanged += new System.EventHandler(this.Envio_CheckedChanged);
-            // 
-            // PanelEnviarCorreo
-            // 
-            this.PanelEnviarCorreo.Controls.Add(this.button3);
-            this.PanelEnviarCorreo.Controls.Add(this.txtcorreo);
-            this.PanelEnviarCorreo.Controls.Add(this.Panel7);
-            this.PanelEnviarCorreo.Controls.Add(this.Button4);
-            this.PanelEnviarCorreo.Controls.Add(this.Panel12);
-            this.PanelEnviarCorreo.Controls.Add(this.label7);
-            this.PanelEnviarCorreo.Controls.Add(this.label8);
-            this.PanelEnviarCorreo.Controls.Add(this.label9);
-            this.PanelEnviarCorreo.Location = new System.Drawing.Point(26, 57);
-            this.PanelEnviarCorreo.Name = "PanelEnviarCorreo";
-            this.PanelEnviarCorreo.Size = new System.Drawing.Size(473, 287);
-            this.PanelEnviarCorreo.TabIndex = 633;
-            this.PanelEnviarCorreo.Visible = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(156, 164);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(231, 52);
-            this.button3.TabIndex = 620;
-            this.button3.Text = "Enviar correo";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // txtcorreo
-            // 
-            this.txtcorreo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtcorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcorreo.FormattingEnabled = true;
-            this.txtcorreo.Location = new System.Drawing.Point(156, 99);
-            this.txtcorreo.Name = "txtcorreo";
-            this.txtcorreo.Size = new System.Drawing.Size(318, 26);
-            this.txtcorreo.TabIndex = 616;
-            // 
-            // Panel7
-            // 
-            this.Panel7.Controls.Add(this.txtpassenvi);
-            this.Panel7.Controls.Add(this.lblEstado_de_envio);
-            this.Panel7.Location = new System.Drawing.Point(50, 151);
-            this.Panel7.Name = "Panel7";
-            this.Panel7.Size = new System.Drawing.Size(10, 10);
-            this.Panel7.TabIndex = 615;
-            // 
-            // txtpassenvi
-            // 
-            this.txtpassenvi.AutoSize = true;
-            this.txtpassenvi.BackColor = System.Drawing.Color.Transparent;
-            this.txtpassenvi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpassenvi.ForeColor = System.Drawing.Color.White;
-            this.txtpassenvi.Location = new System.Drawing.Point(21, 26);
-            this.txtpassenvi.Name = "txtpassenvi";
-            this.txtpassenvi.Size = new System.Drawing.Size(142, 20);
-            this.txtpassenvi.TabIndex = 602;
-            this.txtpassenvi.Text = "Correo electronico:";
-            // 
-            // lblEstado_de_envio
-            // 
-            this.lblEstado_de_envio.AutoSize = true;
-            this.lblEstado_de_envio.BackColor = System.Drawing.Color.Transparent;
-            this.lblEstado_de_envio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado_de_envio.ForeColor = System.Drawing.Color.White;
-            this.lblEstado_de_envio.Location = new System.Drawing.Point(21, 13);
-            this.lblEstado_de_envio.Name = "lblEstado_de_envio";
-            this.lblEstado_de_envio.Size = new System.Drawing.Size(142, 20);
-            this.lblEstado_de_envio.TabIndex = 602;
-            this.lblEstado_de_envio.Text = "Correo electronico:";
-            // 
-            // Button4
-            // 
-            this.Button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Button4.FlatAppearance.BorderSize = 0;
-            this.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button4.ForeColor = System.Drawing.Color.White;
-            this.Button4.Location = new System.Drawing.Point(12, 239);
-            this.Button4.Name = "Button4";
-            this.Button4.Size = new System.Drawing.Size(106, 35);
-            this.Button4.TabIndex = 614;
-            this.Button4.Text = "Cerrar";
-            this.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Button4.UseVisualStyleBackColor = false;
-            // 
-            // Panel12
-            // 
-            this.Panel12.BackColor = System.Drawing.Color.Silver;
-            this.Panel12.Location = new System.Drawing.Point(156, 131);
-            this.Panel12.Name = "Panel12";
-            this.Panel12.Size = new System.Drawing.Size(318, 1);
-            this.Panel12.TabIndex = 604;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(473, 37);
-            this.label7.TabIndex = 602;
-            this.label7.Text = "Enviar cotización por Correo";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label8.Location = new System.Drawing.Point(153, 138);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(179, 15);
-            this.label8.TabIndex = 602;
-            this.label8.Text = "Con el que registraste tu cuenta";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(8, 101);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(142, 20);
-            this.label9.TabIndex = 602;
-            this.label9.Text = "Correo electronico:";
-            // 
             // PagosCotizaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1136,7 +744,6 @@
             this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.PanelImpresionvistaprevia);
             this.Controls.Add(this.panelGuardado_de_datos);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.TXTTOTAL);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1144,12 +751,6 @@
             this.Name = "PagosCotizaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.MEDIOS_DE_PAGO_Load);
-            this.panel1.ResumeLayout(false);
-            this.PanelregistroClientes.ResumeLayout(false);
-            this.PanelregistroClientes.PerformLayout();
-            this.flowLayoutPanel4.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panelGuardado_de_datos.ResumeLayout(false);
             this.panelGuardado_de_datos.PerformLayout();
             this.panelClienteFactura.ResumeLayout(false);
@@ -1167,12 +768,6 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes2)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.PanelEnviarCorreo.ResumeLayout(false);
-            this.PanelEnviarCorreo.PerformLayout();
-            this.Panel7.ResumeLayout(false);
-            this.Panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1181,7 +776,6 @@
         #endregion
 
         internal System.Windows.Forms.Label TXTTOTAL;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelGuardado_de_datos;
         internal System.Windows.Forms.ComboBox txtImpresora;
         internal System.Windows.Forms.Label Label1;
@@ -1199,23 +793,6 @@
         internal System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.Panel PanelregistroClientes;
-        internal System.Windows.Forms.Label lblcp;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button BtnVolver;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtrucdefactura;
-        internal System.Windows.Forms.Label Label14;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtdirecciondefactura;
-        private System.Windows.Forms.TextBox txtcelular;
-        private System.Windows.Forms.TextBox txtnombrecliente;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel PanelImpresionvistaprevia;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
@@ -1242,18 +819,5 @@
         internal System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         internal System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label6;
-        private UIDC.UI_MaterialToggle Envio;
-        internal System.Windows.Forms.Panel PanelEnviarCorreo;
-        internal System.Windows.Forms.Button button3;
-        internal System.Windows.Forms.ComboBox txtcorreo;
-        internal System.Windows.Forms.Panel Panel7;
-        internal System.Windows.Forms.Label txtpassenvi;
-        internal System.Windows.Forms.Label lblEstado_de_envio;
-        internal System.Windows.Forms.Button Button4;
-        internal System.Windows.Forms.Panel Panel12;
-        internal System.Windows.Forms.Label label7;
-        internal System.Windows.Forms.Label label8;
-        internal System.Windows.Forms.Label label9;
     }
 }

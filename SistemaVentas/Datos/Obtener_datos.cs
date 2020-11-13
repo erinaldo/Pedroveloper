@@ -366,6 +366,26 @@ namespace SistemaVentas.Datos
                 return true;
             }
         }
+        public bool Mostrar_ticket_impresos(ref DataTable dt,int idFactura, string total_en_letras2)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Mostrar_ticket_impreso", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idFactura);
+                da.SelectCommand.Parameters.AddWithValue("@total_en_letras", total_en_letras2);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return true;
+            }
+        }
+
         public static int ObtenerMunicipio()
         {
             int idMunicipio;

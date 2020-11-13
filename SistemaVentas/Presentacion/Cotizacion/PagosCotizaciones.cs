@@ -19,6 +19,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         }
         private PrintDocument DOCUMENTO;
         string moneda;
+        string correoCliente;
         int idcliente;
         int idcotizacion;
         double total;
@@ -55,6 +56,8 @@ namespace SistemaVentas.Presentacion.Cotizacion
         string lblSerialPC;
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
+            
+            //PanelEnviarCorreo.Visible = false;
             cambiar_el_formato_de_separador_de_decimales();
             MOSTRAR_comprobante_serializado_POR_DEFECTO();
             validar_tipos_de_comprobantes();
@@ -278,93 +281,12 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
         }
 
-        private void ToolStripMenuItem9_Click(object sender, EventArgs e)
-        {
-            PanelregistroClientes.Visible = true;
-            PanelregistroClientes.Dock = DockStyle.Fill;
-            PanelregistroClientes.BringToFront();
-            limpiar_datos_de_registrodeclientes();
-
-        }
+        
         void limpiar_datos_de_registrodeclientes()
         {
-            txtnombrecliente.Clear();
-            txtdirecciondefactura.Clear();
-            txtcelular.Clear();
-            txtrucdefactura.Clear();
-        }
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            insertar_cliente(); 
-            PanelregistroClientes.Visible = false;
-        }
-        void insertar_cliente()
-        {
-            if (txtnombrecliente.Text != "")
-            {
-
-                if (txtdirecciondefactura.Text == "")
-                {
-                    txtdirecciondefactura.Text = "0";
-                }
-                if (txtrucdefactura.Text == "")
-                {
-                    txtrucdefactura.Text = "0";
-                }
-                if (txtcelular.Text == "")
-                {
-                    txtcelular.Text = "0";
-                }
-
-
-                try
-                {
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand();
-                    cmd = new SqlCommand("insertar_clientes", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Nombre", txtnombrecliente.Text);
-                    cmd.Parameters.AddWithValue("@Direccion", txtdirecciondefactura.Text);
-                    cmd.Parameters.AddWithValue("@IdentificadorFiscal", txtrucdefactura.Text);
-                    cmd.Parameters.AddWithValue("@Celular", txtcelular.Text);
-                    cmd.Parameters.AddWithValue("@Estado", "SI");
-                    //cmd.Parameters.AddWithValue("@Proveedor", "NO");
-                    //cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
-                    cmd.Parameters.AddWithValue("@Saldo", 0);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
         }
 
-        private void BtnVolver_Click(object sender, EventArgs e)
-        {
-            PanelregistroClientes.Visible = false;
-        }
-
-
-        private void txttarjeta2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtcredito2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TGuardarSinImprimir_Click(object sender, EventArgs e)
-        {
-          
-        }
- 
+       
         void INGRESAR_LOS_DATOS()
         {
             CONVERTIR_TOTAL_A_LETRAS();
@@ -433,36 +355,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 MessageBox.Show(ex.Message);
             }
         }
-        /*
-        // No disminuir stock
-        void disminuir_stock_productos()
-        {
-            mostrar_productos_agregados_a_factura();
-            foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
-            {
-                int idproducto = Convert.ToInt32(row.Cells["Id_producto"].Value);
-                double cantidad = Convert.ToInt32(row.Cells["Cant"].Value);
-                try
-                  {
-                    //MessageBox.Show("entramos");
-                     CONEXION.CONEXIONMAESTRA.abrir();
-                     SqlCommand cmd = new SqlCommand("disminuir_stock", CONEXION.CONEXIONMAESTRA.conectar);
-                     cmd.CommandType = CommandType.StoredProcedure;
-                     cmd.Parameters.AddWithValue("@idproducto", idproducto);
-                     cmd.Parameters.AddWithValue("@cantidad", cantidad);
-                     cmd.ExecuteNonQuery(); 
-                     CONEXION.CONEXIONMAESTRA.cerrar();
-                  }
-                   catch (Exception ex)
-                  {
-                    CONEXION.CONEXIONMAESTRA.cerrar();
-                    MessageBox.Show(ex.Message);
-                  }
-            }
-          
-
-        }
-        */
+   
         void actualizar_serie_mas_uno()
         {
             try
@@ -485,6 +378,20 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
         void mostrar_factura_impresa_VISTA_PREVIA()
         {
+           /* if (idcotizacion != 0)
+            {
+                bool estado;
+                ReemplazarHtml();
+                estado = Bases.enviarCorreo(correobase, contraseña, htmldeEnvio.Text, "Cotizacion", txtCorreo.Text, "");
+                if (estado == true)
+                {
+                    MessageBox.Show("FacturaEnviada");
+                }
+                else
+                {
+                   // MessageBox.Show("Error de envio al correo");
+                }
+            }*/
             PanelImpresionvistaprevia.Visible = true;
             PanelImpresionvistaprevia.Dock = DockStyle.Fill;
             panelGuardado_de_datos.Dock = DockStyle.None;
@@ -545,6 +452,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 // MessageBox.Show(tipoImpresion);
                 if (tipoImpresion == "FACTURA")
                 {
+                   
                     mostrar_factura_impresa_VISTA_PREVIA();
                 }
                 else if (tipoImpresion == "TICKET")
@@ -771,10 +679,6 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 indicador_de_tipo_de_pago_string = "EFECTIVO";
         }
 
-        private void btnGuardarImprimirdirecto_Click(object sender, EventArgs e)
-        {
-            
-        }
         void editar_eleccion_de_impresora()
         {
             try
@@ -791,11 +695,6 @@ namespace SistemaVentas.Presentacion.Cotizacion
             {
                 MessageBox.Show(ex.StackTrace);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
         }
 
         private void TXTTOTAL_Click(object sender, EventArgs e)
@@ -841,17 +740,13 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
         private void btnagregarCliente_Click(object sender, EventArgs e)
         {
-            PanelregistroClientes.Visible = true;
-            PanelregistroClientes.Dock = DockStyle.Fill;
-            PanelregistroClientes.BringToFront();
+            
             limpiar_datos_de_registrodeclientes();
         }
 
         private void datalistadoclientes3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtclientesolicitabnte3.Text = datalistadoclientes3.SelectedCells[2].Value.ToString();
-            idcliente = Convert.ToInt32(datalistadoclientes3.SelectedCells[1].Value.ToString());
-            datalistadoclientes3.Visible = false;
+            
         }
 
         private void txtclientesolicitabnte3_TextChanged(object sender, EventArgs e)
@@ -866,16 +761,15 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
         try
         {
-
-
             DataTable dt = new DataTable();
             Obtener_datos.buscar_clientes(ref dt, txtclientesolicitabnte3.Text);
             datalistadoclientes2.DataSource = dt;
-            datalistadoclientes2.Columns[1].Visible = false;
-            datalistadoclientes2.Columns[3].Visible = false;
-            datalistadoclientes2.Columns[4].Visible = false;
-            datalistadoclientes2.Columns[5].Visible = false;
-            datalistadoclientes2.Columns[2].Width = 420;
+                /* datalistadoclientes2.Columns[1].Visible = false;
+                 datalistadoclientes2.Columns[3].Visible = false;
+                 datalistadoclientes2.Columns[4].Visible = false;
+                 datalistadoclientes2.Columns[5].Visible = false;
+                datalistadoclientes3.Columns[6].Visible = false;*/
+                datalistadoclientes2.Columns[2].Width = 420;
             CONEXION.CONEXIONMAESTRA.cerrar();
         }
 #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
@@ -892,10 +786,11 @@ namespace SistemaVentas.Presentacion.Cotizacion
             DataTable dt = new DataTable();
             Obtener_datos.buscar_clientes(ref dt, txtclientesolicitabnte3.Text);
             datalistadoclientes3.DataSource = dt;
-            datalistadoclientes3.Columns[1].Visible = false;
+            /*datalistadoclientes3.Columns[1].Visible = false;
             datalistadoclientes3.Columns[3].Visible = false;
             datalistadoclientes3.Columns[4].Visible = false;
             datalistadoclientes3.Columns[5].Visible = false;
+            datalistadoclientes3.Columns[6].Visible = false;*/
             datalistadoclientes3.Columns[2].Width = 420;
             CONEXION.CONEXIONMAESTRA.cerrar();
         }
@@ -907,66 +802,63 @@ namespace SistemaVentas.Presentacion.Cotizacion
         }
     }
 
-        private void datalistadoclientes2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void datalistadoclientes2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Envio_CheckedChanged(object sender, EventArgs e)
+        void mostrarDatos(int idcot)
         {
+            /*DataTable dt = new DataTable();
+            Obtener_datos obtener = new Obtener_datos();
+            if(obtener.Mostrar_ticket_impresos(ref dt,idcot, Convert.ToString(txtnumeroconvertidoenletra)) == true)*/
+        }
 
+        public void ReemplazarHtml()
+        {
+           /* htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Producto", datalistadoticket.SelectedCells[1].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Cant", datalistadoticket.SelectedCells[2].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@P_Unit", datalistadoticket.SelectedCells[3].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Direccion", datalistadoticket.SelectedCells[10].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@fecha", datalistadoticket.SelectedCells[18].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Impuesto", datalistadoticket.SelectedCells[19].Value.ToString());
 
-            if (Envio.Checked == true)
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Subtotal_Impuesto", datalistadoticket.SelectedCells[20].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Importe", datalistadoticket.SelectedCells[21].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@usuario", datalistadoticket.SelectedCells[22].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Nombre", datalistadoticket.SelectedCells[26].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Descuento", datalistadoticket.SelectedCells[28].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Descuentos", datalistadoticket.SelectedCells[29].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Numero_de_doc", datalistadoticket.SelectedCells[31].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@DescripcionDireccion", datalistadoticket.SelectedCells[32].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Calle", datalistadoticket.SelectedCells[33].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Municipio", datalistadoticket.SelectedCells[34].Value.ToString());
+            htmldeEnvio.Text = htmldeEnvio.Text.Replace("@Telefono", datalistadoticket.SelectedCells[35].Value.ToString()); 
+           */
+        }
+        string estado;
+        string correobase;
+        string contraseña;
+        private void mostrarCorreoBase()
+        {
+            DataTable dt = new DataTable();
+            Obtener_datos.mostrarCorreoBase(ref dt);
+            foreach (DataRow row in dt.Rows)
             {
-
-                // Verificacion disponibilidad de Personal. ---------------GOOD-------------
-                // Verificar vehiculos disponibles
-                // Determinar disponibilidad: Asignar personal para el envio.
-                // Verificar personal capacitado.
-                /* if (txtclientesolicitabnte3.TextLength > 0)
-                 {
-                     if (VerificarEstadoPersonal() && verificarCliente() && VerificarEstadoVehiculos())
-                     {
-                         label7.Visible = true;
-                         datalistadoempleado.Visible = true;
-                         if (Envio.Checked == false)
-                         {
-                             datalistadoempleado.Visible = false;
-                             label7.Visible = false;
-
-                         }
-                         ObtenerVehiculo();
-
-                     }
-                     else
-                     {
-                         MessageBox.Show("Verifica el Estado del Personal, Clientes o Vehiculos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                     }
-
-                 }
-                 else
-                 {
-                     MessageBox.Show("Seleccione un cliente correctamente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 }
-             }
-             else
-             {
-                 datalistadoempleado.Visible = false;
-                 label7.Visible = false;
-
-            */
+                estado = Bases.Desencriptar(row["EstadoEnvio"].ToString());
+                correobase = Bases.Desencriptar(row["Correo"].ToString());
+                contraseña = Bases.Desencriptar(row["Password"].ToString());
             }
         }
+        private void datalistadoclientes3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtclientesolicitabnte3.Text = datalistadoclientes3.SelectedCells[2].Value.ToString();
+            idcliente = Convert.ToInt32(datalistadoclientes3.SelectedCells[1].Value.ToString());
+            correoCliente = datalistadoclientes3.SelectedCells[8].Value.ToString();
+            //txtCorreo.Text = correoCliente;
+            datalistadoclientes3.Visible = false;
+        }
+
+
     }
 }
