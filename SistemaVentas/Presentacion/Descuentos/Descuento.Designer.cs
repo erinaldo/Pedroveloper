@@ -29,49 +29,55 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Descuento));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Descuento));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtbuscar = new System.Windows.Forms.TextBox();
-            this.PictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.txtImpuesto = new System.Windows.Forms.TextBox();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnGuardarCambios = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtnombre = new System.Windows.Forms.TextBox();
-            this.Label8 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dlg = new System.Windows.Forms.OpenFileDialog();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.tiempoBuscador = new System.Windows.Forms.Timer(this.components);
             this.datalistado = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnGuardarCambios = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.EliminarG = new System.Windows.Forms.DataGridViewImageColumn();
             this.EditarG = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label19 = new System.Windows.Forms.Label();
+            this.PictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panelRegistros.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -109,7 +115,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 47);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Impuestos";
+            this.label1.Text = "Descuentos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -134,24 +140,10 @@
             this.txtbuscar.TabIndex = 0;
             this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
             // 
-            // PictureBox2
-            // 
-            this.PictureBox2.BackColor = System.Drawing.Color.White;
-            this.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PictureBox2.Image = global::SistemaVentas.Properties.Resources._1486485587_add_create_new_maths_math_signs_plus_81172;
-            this.PictureBox2.Location = new System.Drawing.Point(378, 0);
-            this.PictureBox2.Name = "PictureBox2";
-            this.PictureBox2.Size = new System.Drawing.Size(47, 47);
-            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox2.TabIndex = 360;
-            this.PictureBox2.TabStop = false;
-            this.PictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
             this.menuStrip1.BackColor = System.Drawing.Color.White;
-            this.menuStrip1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuStrip1.BackgroundImage")));
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
@@ -164,10 +156,8 @@
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.BackgroundImage")));
-            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(28, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 22);
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // panelRegistros
@@ -185,74 +175,59 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.pictureBox14);
+            this.panel5.Controls.Add(this.label70);
+            this.panel5.Controls.Add(this.pictureBox13);
+            this.panel5.Controls.Add(this.label60);
             this.panel5.Controls.Add(this.label19);
-            this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.txtTipo);
             this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.txtImpuesto);
+            this.panel5.Controls.Add(this.txtDescuento);
             this.panel5.Controls.Add(this.panel4);
-            this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.btnGuardarCambios);
             this.panel5.Controls.Add(this.btnGuardar);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.txtnombre);
-            this.panel5.Controls.Add(this.Label8);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(652, 315);
             this.panel5.TabIndex = 605;
             // 
-            // label2
+            // label19
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(388, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 20);
-            this.label2.TabIndex = 657;
-            this.label2.Text = "Tipos de Impuestos";
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.White;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Gray;
+            this.label19.Location = new System.Drawing.Point(52, 163);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(97, 15);
+            this.label19.TabIndex = 658;
+            this.label19.Text = "Ejemplo: 100.00";
             // 
             // txtTipo
             // 
             this.txtTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTipo.FormattingEnabled = true;
             this.txtTipo.Items.AddRange(new object[] {
-            "IVA"});
-            this.txtTipo.Location = new System.Drawing.Point(392, 57);
+            "Descuento de Categoria",
+            "Descuento de Productos"});
+            this.txtTipo.Location = new System.Drawing.Point(366, 59);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(237, 28);
             this.txtTipo.TabIndex = 656;
             // 
-            // button3
+            // txtDescuento
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImage = global::SistemaVentas.Properties.Resources.negro;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(443, 224);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(186, 43);
-            this.button3.TabIndex = 620;
-            this.button3.Text = "Volver";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // txtImpuesto
-            // 
-            this.txtImpuesto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtImpuesto.Location = new System.Drawing.Point(55, 138);
-            this.txtImpuesto.Name = "txtImpuesto";
-            this.txtImpuesto.Size = new System.Drawing.Size(237, 19);
-            this.txtImpuesto.TabIndex = 628;
-            this.txtImpuesto.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
-            this.txtImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImpuesto_KeyPress);
+            this.txtDescuento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescuento.Location = new System.Drawing.Point(55, 138);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(237, 19);
+            this.txtDescuento.TabIndex = 628;
+            this.txtDescuento.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImpuesto_KeyPress);
             // 
             // panel4
             // 
@@ -262,57 +237,6 @@
             this.panel4.Size = new System.Drawing.Size(237, 1);
             this.panel4.TabIndex = 627;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(51, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 20);
-            this.label3.TabIndex = 626;
-            this.label3.Text = "Impuesto";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // btnGuardarCambios
-            // 
-            this.btnGuardarCambios.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardarCambios.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
-            this.btnGuardarCambios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuardarCambios.FlatAppearance.BorderSize = 0;
-            this.btnGuardarCambios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnGuardarCambios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarCambios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarCambios.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarCambios.Location = new System.Drawing.Point(227, 224);
-            this.btnGuardarCambios.Name = "btnGuardarCambios";
-            this.btnGuardarCambios.Size = new System.Drawing.Size(185, 43);
-            this.btnGuardarCambios.TabIndex = 619;
-            this.btnGuardarCambios.Text = "Guardar Cambios";
-            this.btnGuardarCambios.UseVisualStyleBackColor = false;
-            this.btnGuardarCambios.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
-            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(55, 224);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(157, 43);
-            this.btnGuardar.TabIndex = 618;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // panel6
             // 
@@ -331,18 +255,6 @@
             this.txtnombre.Size = new System.Drawing.Size(233, 19);
             this.txtnombre.TabIndex = 605;
             this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
-            // 
-            // Label8
-            // 
-            this.Label8.AutoSize = true;
-            this.Label8.BackColor = System.Drawing.Color.Transparent;
-            this.Label8.ForeColor = System.Drawing.Color.Black;
-            this.Label8.Location = new System.Drawing.Point(51, 36);
-            this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(65, 20);
-            this.Label8.TabIndex = 600;
-            this.Label8.Text = "Nombre";
-            this.Label8.Click += new System.EventHandler(this.Label8_Click);
             // 
             // dataGridViewImageColumn1
             // 
@@ -437,6 +349,78 @@
             this.datalistado.TabIndex = 367;
             this.datalistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistado_CellContentClick_1);
             // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::SistemaVentas.Properties.Resources.advertencia;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.HeaderText = "";
+            this.dataGridViewImageColumn3.Image = global::SistemaVentas.Properties.Resources.lapiz;
+            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImage = global::SistemaVentas.Properties.Resources.negro;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(443, 224);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(186, 43);
+            this.button3.TabIndex = 620;
+            this.button3.Text = "Volver";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnGuardarCambios
+            // 
+            this.btnGuardarCambios.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuardarCambios.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
+            this.btnGuardarCambios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuardarCambios.FlatAppearance.BorderSize = 0;
+            this.btnGuardarCambios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnGuardarCambios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarCambios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarCambios.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarCambios.Location = new System.Drawing.Point(227, 224);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(185, 43);
+            this.btnGuardarCambios.TabIndex = 619;
+            this.btnGuardarCambios.Text = "Guardar Cambios";
+            this.btnGuardarCambios.UseVisualStyleBackColor = false;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(55, 224);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(157, 43);
+            this.btnGuardar.TabIndex = 618;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // EliminarG
             // 
             this.EliminarG.HeaderText = "";
@@ -454,19 +438,73 @@
             this.EditarG.Name = "EditarG";
             this.EditarG.ReadOnly = true;
             // 
-            // label19
+            // PictureBox2
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.White;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Gray;
-            this.label19.Location = new System.Drawing.Point(52, 163);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(83, 15);
-            this.label19.TabIndex = 658;
-            this.label19.Text = "Ejemplo: 0,18";
+            this.PictureBox2.BackColor = System.Drawing.Color.White;
+            this.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBox2.Image = global::SistemaVentas.Properties.Resources._1486485587_add_create_new_maths_math_signs_plus_81172;
+            this.PictureBox2.Location = new System.Drawing.Point(378, 0);
+            this.PictureBox2.Name = "PictureBox2";
+            this.PictureBox2.Size = new System.Drawing.Size(47, 47);
+            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox2.TabIndex = 360;
+            this.PictureBox2.TabStop = false;
+            this.PictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
-            // Impuestos
+            // pictureBox14
+            // 
+            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Location = new System.Drawing.Point(54, 34);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(24, 19);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox14.TabIndex = 672;
+            this.pictureBox14.TabStop = false;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label70.ForeColor = System.Drawing.Color.Black;
+            this.label70.Location = new System.Drawing.Point(84, 34);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(96, 20);
+            this.label70.TabIndex = 671;
+            this.label70.Text = "Descuento";
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(54, 113);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(24, 19);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 670;
+            this.pictureBox13.TabStop = false;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label60.ForeColor = System.Drawing.Color.Black;
+            this.label60.Location = new System.Drawing.Point(84, 112);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(96, 20);
+            this.label60.TabIndex = 669;
+            this.label60.Text = "Descuento";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(362, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(153, 20);
+            this.label3.TabIndex = 673;
+            this.label3.Text = "Tipos Descuentos";
+            // 
+            // Descuento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -476,20 +514,22 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Impuestos";
+            this.Name = "Descuento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmpleadosOK";
             this.Load += new System.EventHandler(this.EmpleadosOK_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelRegistros.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -510,21 +550,25 @@
         internal System.Windows.Forms.DataGridViewImageColumn Eliminar;
         internal System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtImpuesto;
+        private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.Panel panel4;
-        internal System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Button button3;
         internal System.Windows.Forms.Button btnGuardarCambios;
         internal System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txtnombre;
-        internal System.Windows.Forms.Label Label8;
         private System.Windows.Forms.Timer tiempoBuscador;
-        internal System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox txtTipo;
         internal System.Windows.Forms.DataGridView datalistado;
         private System.Windows.Forms.DataGridViewImageColumn EliminarG;
         private System.Windows.Forms.DataGridViewImageColumn EditarG;
         internal System.Windows.Forms.Label label19;
+        internal System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        internal System.Windows.Forms.Label label70;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        internal System.Windows.Forms.Label label60;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
     }
 }

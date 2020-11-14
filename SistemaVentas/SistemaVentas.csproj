@@ -123,6 +123,7 @@
     <Compile Include="Logica\LCategoria.cs" />
     <Compile Include="Logica\Lcontrolcobros.cs" />
     <Compile Include="Logica\LCotizacion.cs" />
+    <Compile Include="Logica\LDescuento.cs" />
     <Compile Include="Logica\LdetalleFactura.cs" />
     <Compile Include="Logica\LDireccion.cs" />
     <Compile Include="Logica\LDocumentos.cs" />
@@ -571,6 +572,12 @@
     <Compile Include="Presentacion\SERIALIZACION_DE_COMPROBANTES\SERIALIZACION.Designer.cs">
       <DependentUpon>SERIALIZACION.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Unidades\Unidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Unidades\Unidades.Designer.cs">
+      <DependentUpon>Unidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\USUARIOS_Y_PERMISOS\usuariosok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -722,6 +729,9 @@
     <EmbeddedResource Include="Presentacion\Cotizacion\PagosCotizaciones.resx">
       <DependentUpon>PagosCotizaciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Descuentos\Descuento.resx">
+      <DependentUpon>Descuento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Direccion\Direcciones.resx">
       <DependentUpon>Direcciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -832,6 +842,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\SERIALIZACION_DE_COMPROBANTES\SERIALIZACION.resx">
       <DependentUpon>SERIALIZACION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Unidades\Unidades.resx">
+      <DependentUpon>Unidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\USUARIOS_Y_PERMISOS\usuariosok.resx">
       <DependentUpon>usuariosok.cs</DependentUpon>

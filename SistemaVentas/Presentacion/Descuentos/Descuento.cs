@@ -19,7 +19,7 @@ namespace SistemaVentas.Presentacion.Descuento
         {
             InitializeComponent();
         }
-        int idImpuesto;
+        int idDescuento;
         string estado;
         private void PictureBox2_Click(object sender, EventArgs e)
         {
@@ -49,7 +49,7 @@ namespace SistemaVentas.Presentacion.Descuento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            TextBox[] array = { txtnombre, txtImpuesto};
+            TextBox[] array = { txtnombre, txtDescuento};
             if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
                 insertar();
@@ -63,30 +63,21 @@ namespace SistemaVentas.Presentacion.Descuento
 
         private void insertar()
         {
-          insertarImpuestos();
+          insertarDescuento();
         }
 
-        public void insertarImpuestos()
+        public void insertarDescuento()
         {
-            double porciento = calcularPorciento();
-            LImpuesto parametros = new LImpuesto();
+            LDescuento parametros = new LDescuento();
             Insertar_datos funcion = new Insertar_datos();
 
             parametros.nombre = txtnombre.Text;
-            parametros.impuesto = porciento;
+            parametros.descuento = txtDescuento.Text;
             parametros.Tipo = txtTipo.Text;
-            if (porciento > 0.00 && porciento < 20.00)
-            {
                 if (funcion.insertarImpuesto(parametros) == true)
                 {
                     mostrar();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Favor escribir un porcentaje de impuesto valido", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            
         }
 
         
@@ -96,7 +87,7 @@ namespace SistemaVentas.Presentacion.Descuento
             { txtnombre.Text = "-"; };
             if (string.IsNullOrEmpty(txtnombre.Text)) { txtnombre.Text = "-"; };
             if (string.IsNullOrEmpty(txtTipo.Text)) { txtTipo.Text = "-"; };
-            if (string.IsNullOrEmpty(txtImpuesto.Text)) { txtImpuesto.Text = "-"; };
+            if (string.IsNullOrEmpty(txtDescuento.Text)) { txtDescuento.Text = "-"; };
         }
 
         private void mostrar()
@@ -156,7 +147,7 @@ namespace SistemaVentas.Presentacion.Descuento
         {
             try
             {
-                idImpuesto = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                idDescuento = Convert.ToInt32(datalistado.SelectedCells[2].Value);
                 estado = datalistado.SelectedCells[6].Value.ToString();
             }
             catch (Exception)
@@ -168,9 +159,9 @@ namespace SistemaVentas.Presentacion.Descuento
         {
             try
             {
-                idImpuesto = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                idDescuento = Convert.ToInt32(datalistado.SelectedCells[2].Value);
                 txtnombre.Text = datalistado.SelectedCells[3].Value.ToString();
-                txtImpuesto.Text = datalistado.SelectedCells[4].Value.ToString();
+                txtDescuento.Text = datalistado.SelectedCells[4].Value.ToString();
                 txtTipo.Text= datalistado.SelectedCells[5].Value.ToString();
                 estado = datalistado.SelectedCells[6].Value.ToString();
                 prepararEdicion();
@@ -195,7 +186,7 @@ namespace SistemaVentas.Presentacion.Descuento
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TextBox[] array = { txtnombre, txtImpuesto };
+            TextBox[] array = { txtnombre, txtDescuento };
            
             if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
@@ -225,11 +216,11 @@ namespace SistemaVentas.Presentacion.Descuento
         }
         public void editarImpuesto()
         {
-            LImpuesto parametros = new LImpuesto();
+            LDescuento parametros = new LDescuento();
             Editar_datos funcion = new Editar_datos();
 
             double porciento = calcularPorciento();
-            parametros.idImpuesto = idImpuesto;
+            parametros.idDescuento = idDescuento;
             parametros.nombre = txtnombre.Text;
             parametros.impuesto = porciento;
             parametros.Tipo = txtTipo.Text;
@@ -250,9 +241,7 @@ namespace SistemaVentas.Presentacion.Descuento
 
         private void eliminar()
         {
-            LImpuesto parametros = new LImpuesto();
-            parametros.idImpuesto = idImpuesto;
-            Eliminar_datos.eliminarImpuesto(idImpuesto);
+            Eliminar_datos.eliminarDescuento(idDescuento);
             mostrar();
         }
 
@@ -273,7 +262,7 @@ namespace SistemaVentas.Presentacion.Descuento
         private void limpiar()
         {
             txtnombre.Clear();
-            txtImpuesto.Clear();
+            txtDescuento.Clear();
             txtbuscar.Clear();
         }
 
@@ -332,7 +321,7 @@ namespace SistemaVentas.Presentacion.Descuento
         private double calcularPorciento()
         {
             double porciento;
-            porciento = Convert.ToDouble(txtImpuesto.Text);
+            porciento = Convert.ToDouble(txtDescuento.Text);
             porciento = porciento / 100;
             return porciento;
         }
@@ -360,7 +349,7 @@ namespace SistemaVentas.Presentacion.Descuento
             {
                 obtenerId_estado();
 
-                idImpuesto =  Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                idDescuento =  Convert.ToInt32(datalistado.SelectedCells[2].Value);
                 if (estado == "ACTIVO")
                 {
                     DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);

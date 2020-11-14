@@ -56,6 +56,39 @@ namespace SistemaVentas.Datos
 
             }
         }
+        public static void buscarUnidades(ref DataTable dt, string buscador)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("buscarUnidades", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", buscador);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)    {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
+        public static void mostrarUnidades(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarUnidades", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
+
         public static void mostrarAlmacen(ref DataTable dt)
         {
             try

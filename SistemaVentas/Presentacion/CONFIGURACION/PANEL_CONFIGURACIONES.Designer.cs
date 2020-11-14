@@ -88,15 +88,18 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
             this.ToolStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnadministrar = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.Panel5.SuspendLayout();
             this.FlowLayoutPanel5.SuspendLayout();
@@ -123,9 +126,10 @@
             this.Panel11.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.panel15.SuspendLayout();
             this.ToolStrip1.SuspendLayout();
-            this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -490,6 +494,7 @@
             this.FlowLayoutPanel1.Controls.Add(this.panel14);
             this.FlowLayoutPanel1.Controls.Add(this.panel17);
             this.FlowLayoutPanel1.Controls.Add(this.panel15);
+            this.FlowLayoutPanel1.Controls.Add(this.panel18);
             this.FlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
             this.FlowLayoutPanel1.Location = new System.Drawing.Point(17, 44);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
@@ -842,6 +847,44 @@
             this.label11.Text = "Vehiculos";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.Transparent;
+            this.panel17.Controls.Add(this.button7);
+            this.panel17.Controls.Add(this.label13);
+            this.panel17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel17.Location = new System.Drawing.Point(3, 79);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(81, 70);
+            this.panel17.TabIndex = 601;
+            // 
+            // button7
+            // 
+            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(0, 0);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(81, 51);
+            this.button7.TabIndex = 5;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label13
+            // 
+            this.label13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label13.Location = new System.Drawing.Point(0, 51);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 19);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Almacen";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.Transparent;
@@ -917,43 +960,43 @@
             this.btnadministrar.Text = "Volver al Administrador";
             this.btnadministrar.Click += new System.EventHandler(this.ToolStripButton22_Click);
             // 
-            // panel17
+            // panel18
             // 
-            this.panel17.BackColor = System.Drawing.Color.Transparent;
-            this.panel17.Controls.Add(this.button7);
-            this.panel17.Controls.Add(this.label13);
-            this.panel17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel17.Location = new System.Drawing.Point(3, 79);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(81, 70);
-            this.panel17.TabIndex = 601;
+            this.panel18.BackColor = System.Drawing.Color.Transparent;
+            this.panel18.Controls.Add(this.button9);
+            this.panel18.Controls.Add(this.label14);
+            this.panel18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel18.Location = new System.Drawing.Point(194, 79);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(98, 70);
+            this.panel18.TabIndex = 602;
             // 
-            // button7
+            // button9
             // 
-            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(0, 0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(81, 51);
-            this.button7.TabIndex = 5;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(0, 0);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(98, 51);
+            this.button9.TabIndex = 5;
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // label13
+            // label14
             // 
-            this.label13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label13.Location = new System.Drawing.Point(0, 51);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 19);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Almacen";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label13.Click += new System.EventHandler(this.label13_Click);
+            this.label14.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label14.Location = new System.Drawing.Point(0, 51);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 19);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Impuestos";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // PANEL_CONFIGURACIONES
             // 
@@ -1002,10 +1045,11 @@
             this.Panel11.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.ToolStrip1.ResumeLayout(false);
             this.ToolStrip1.PerformLayout();
-            this.panel17.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1079,5 +1123,8 @@
         internal System.Windows.Forms.Panel panel17;
         internal System.Windows.Forms.Button button7;
         internal System.Windows.Forms.Label label13;
+        internal System.Windows.Forms.Panel panel18;
+        internal System.Windows.Forms.Button button9;
+        internal System.Windows.Forms.Label label14;
     }
 }

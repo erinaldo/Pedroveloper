@@ -185,5 +185,17 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
             Almacenes.Almacenes frm = new Almacenes.Almacenes();
             frm.ShowDialog();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Unidades.Unidades frm = new Unidades.Unidades();
+            frm.ShowDialog();
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            Unidades.Unidades frm = new Unidades.Unidades();
+            frm.ShowDialog();
+        }
     }
 }

@@ -43,6 +43,29 @@ namespace SistemaVentas.Datos
             cmd.ExecuteNonQuery();
             CONEXIONMAESTRA.cerrar();
         }
+        public bool editarUnidad(LUnidadProductos parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarUnidades", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idUnidad", parametros.idUnidad);
+                cmd.Parameters.AddWithValue("@idClaveSat", parametros.idClaveSat);
+                cmd.Parameters.AddWithValue("@unidad", parametros.descripcion);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return true;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
         public bool editarEmpleado(LEmpleados parametros)
         {
             try

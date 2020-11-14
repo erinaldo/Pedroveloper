@@ -102,6 +102,42 @@ namespace SistemaVentas.Datos
             }
 
         }
+        public static void eliminarDescuento(int idDescuento)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("eliminarDescuento", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idDescuento", idDescuento);
+
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+        }
+        public static void eliminarUnidad(int idImpuesto)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("eliminarUnidad", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idUnidad", idImpuesto);
+
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+        }
 
         public static void eliminar_ingreso(int idingreso)
         {
