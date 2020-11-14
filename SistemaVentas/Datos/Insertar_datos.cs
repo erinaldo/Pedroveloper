@@ -136,10 +136,14 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("insertarUnidad", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("insertarCategoria", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Descripcion", parametros.descripcion);
-                cmd.Parameters.AddWithValue("@idClaveSat", parametros.idClaveSat);
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Descripcion);
+                cmd.Parameters.AddWithValue("@idItbis", parametros.idImpuesto);
+                cmd.Parameters.AddWithValue("@idDescuento", parametros.idDescuento);
+                cmd.Parameters.AddWithValue("@Departamento", parametros.Departamento);
+                cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
+
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
                 return true;

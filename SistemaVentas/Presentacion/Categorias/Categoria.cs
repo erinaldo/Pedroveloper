@@ -1,4 +1,5 @@
-﻿using SistemaVentas.Datos;
+﻿using SistemaVentas.CONEXION;
+using SistemaVentas.Datos;
 using SistemaVentas.Logica;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,9 @@ namespace SistemaVentas.Presentacion.Categoria
 
         private void EmpleadosOK_Load(object sender, EventArgs e)
         {
-           // txtClaveSat.Enabled = false;
+            panelImpuestosAgregar.Visible = false;
+            panelDescuentos.Visible = false;
+            // txtClaveSat.Enabled = false;
             panelClaveUnidadSat.Visible = false;
             panelRegistros.Visible = false;
             mostrar();
@@ -82,8 +85,8 @@ namespace SistemaVentas.Presentacion.Categoria
             parametros.idDescuento = idDescuento;
             parametros.idImpuesto = idImpuesto;
 
-            if (insertar.insertarCategoria(parametros)
-        {
+            if (insertar.insertarCategoria(parametros) == true)
+            {
                 mostrar();
             }
 
@@ -457,6 +460,88 @@ namespace SistemaVentas.Presentacion.Categoria
             }
 
             Bases.Multilinea(ref datalistadoUnidadesSAT);
+        }
+
+        private void txtidDescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtidDescuento, e);
+                }
+
+        private void txtidImpuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtidImpuesto, e);
+        }
+
+        private void txtidDescuento_DoubleClick(object sender, EventArgs e)
+        {
+            panelDescuentos.Visible = true;
+        }
+
+        private void btnDescuentoAgregar_Click(object sender, EventArgs e)
+        {
+            TextBox[] array = { txtDescuentoAgregar };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+                try
+                {
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                    con.Open();
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarDescuento", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Descuento", Convert.ToDouble(txtDescuentoAgregar.Text));
+                    cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento de Categoria");
+                    cmd.ExecuteNonQuery();
+                    CONEXIONMAESTRA.cerrar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                panelDescuentos.Visible = false;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void txtDescuentoAgregar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Bases.Separador_de_Numeros(txtDescuentoAgregar, e);
+        }
+
+        private void btnImpuestoAgregar_Click(object sender, EventArgs e)
+        {
+            TextBox[] array = { txtNombreImpuestoAgregar, txtImpuestoAgregar };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+                try
+                {
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                    con.Open();
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarImpuestosCategoria", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@nombre", txtNombreImpuestoAgregar.Text);
+                    cmd.Parameters.AddWithValue("@Impuesto", Convert.ToDouble(txtImpuestoAgregar.Text));
+                    cmd.Parameters.AddWithValue("@tipo", "Impuesto Categoria");
+                    cmd.ExecuteNonQuery();
+                    CONEXIONMAESTRA.cerrar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                panelImpuestosAgregar.Visible = false;
+            }
+            else
+            {
+
+            }
         }
     }
 

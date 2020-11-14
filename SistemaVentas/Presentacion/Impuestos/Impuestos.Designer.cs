@@ -232,8 +232,8 @@
             this.txtTipo.FormattingEnabled = true;
             this.txtTipo.Items.AddRange(new object[] {
             "IVA",
-            "Impuestos por Categoria",
-            "Impuestos por Productos"});
+            "Impuesto Categoria",
+            "Impuesto Productos"});
             this.txtTipo.Location = new System.Drawing.Point(392, 57);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(237, 28);
