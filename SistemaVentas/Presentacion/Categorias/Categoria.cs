@@ -82,8 +82,8 @@ namespace SistemaVentas.Presentacion.Categoria
             parametros.idDescuento = idDescuento;
             parametros.idImpuesto = idImpuesto;
 
-            if (insertar.insertarUnidad(parametros) == true)
-            {
+            if (insertar.insertarCategoria(parametros)
+        {
                 mostrar();
             }
 

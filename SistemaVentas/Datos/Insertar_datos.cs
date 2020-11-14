@@ -131,6 +131,25 @@ namespace SistemaVentas.Datos
                 return false;
             }
         }
+        public bool insertarCategoria(LCategoria parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarUnidad", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Descripcion", parametros.descripcion);
+                cmd.Parameters.AddWithValue("@idClaveSat", parametros.idClaveSat);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
 
         public bool insertarPersona(LPersona parametros)
         {
