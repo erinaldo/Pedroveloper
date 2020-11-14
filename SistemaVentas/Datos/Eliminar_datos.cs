@@ -138,6 +138,24 @@ namespace SistemaVentas.Datos
             }
 
         }
+        public static void eliminarCategoria(int idCategoria)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("eliminarCategoria", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCategoria", idCategoria);
+
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+        }
 
         public static void eliminar_ingreso(int idingreso)
         {

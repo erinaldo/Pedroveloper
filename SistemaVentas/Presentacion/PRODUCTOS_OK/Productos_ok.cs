@@ -2605,7 +2605,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistadoMostrarDescuentoCategoria);
+            Bases.Multilinea(ref datalistadiImpuestosCategoria);
         }
 
         

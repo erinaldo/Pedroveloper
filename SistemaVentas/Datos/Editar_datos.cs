@@ -66,6 +66,31 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
+        public bool editarCategoria(LCategoria parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarCategoria", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCategoria", parametros.idCategoria);
+                cmd.Parameters.AddWithValue("@idImpuesto", parametros.idImpuesto);
+                cmd.Parameters.AddWithValue("@idDescuento", parametros.idDescuento);
+                cmd.Parameters.AddWithValue("@departamento", parametros.Departamento);
+                cmd.Parameters.AddWithValue("@descripcion", parametros.Descripcion);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return true;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
         public bool editarEmpleado(LEmpleados parametros)
         {
             try

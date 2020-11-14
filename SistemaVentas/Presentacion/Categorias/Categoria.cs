@@ -20,7 +20,7 @@ namespace SistemaVentas.Presentacion.Categoria
         {
             InitializeComponent();
         }
-        int idUnidad;
+        int idCategoria;
         string estado;
         private int idClaveSat;
         private int idDescuento;
@@ -34,6 +34,8 @@ namespace SistemaVentas.Presentacion.Categoria
 
         private void EmpleadosOK_Load(object sender, EventArgs e)
         {
+            panelDescuentoBasico.Visible = false;
+            panelImpuestosCategoria.Visible = false;
             panelImpuestosAgregar.Visible = false;
             panelDescuentos.Visible = false;
             // txtClaveSat.Enabled = false;
@@ -50,22 +52,29 @@ namespace SistemaVentas.Presentacion.Categoria
         private void button3_Click(object sender, EventArgs e)
         {
             panelRegistros.Visible = false;
-            
+
         }
 
-     
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            TextBox[] array = { txtCategoria, txtDepartamento};
-            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            if (idCategoria == 0 || idImpuesto == 0)
             {
-                insertar();
-                rellenarCamposVacios();
+                MessageBox.Show("Favor clickea correctamente en los impuestos o descuentos", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Canmpos vacios\n Llene correctamente los campos", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TextBox[] array = { txtCategoria, txtDepartamento };
+                if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+                {
+                    insertar();
+                    rellenarCamposVacios();
+                }
+                else
+                {
+                    MessageBox.Show("Canmpos vacios\n Llene correctamente los campos", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -78,7 +87,7 @@ namespace SistemaVentas.Presentacion.Categoria
         {
             LCategoria parametros = new LCategoria();
             Insertar_datos insertar = new Insertar_datos();
-            
+
 
             parametros.Descripcion = txtCategoria.Text;
             parametros.Departamento = txtDepartamento.Text;
@@ -92,7 +101,7 @@ namespace SistemaVentas.Presentacion.Categoria
 
         }
 
-        
+
         private void rellenarCamposVacios()
         {
             if (string.IsNullOrEmpty(txtCategoria.Text))
@@ -103,7 +112,7 @@ namespace SistemaVentas.Presentacion.Categoria
 
         private void mostrar()
         {
-            mostrarCat();   
+            mostrarCat();
             panelRegistros.Visible = false;
             pintarDatalistado();
         }
@@ -128,7 +137,7 @@ namespace SistemaVentas.Presentacion.Categoria
 
         private void buscar()
         {
-            
+
             mostarCategoriaCompleta(txtbuscar.Text);
         }
         private void mostarCategoriaCompleta(string categoria)
@@ -190,7 +199,7 @@ namespace SistemaVentas.Presentacion.Categoria
         {
             try
             {
-                idUnidad = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                idCategoria = Convert.ToInt32(datalistado.SelectedCells[2].Value);
             }
             catch (Exception)
             {
@@ -201,9 +210,11 @@ namespace SistemaVentas.Presentacion.Categoria
         {
             try
             {
-                idUnidad = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                txtCategoria.Text = datalistado.SelectedCells[4].Value.ToString();
-                txtDepartamento.Focus();
+                idCategoria = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                txtCategoria.Text = datalistado.SelectedCells[3].Value.ToString();
+                txtDepartamento.Text = datalistado.SelectedCells[4].Value.ToString();
+                txtidImpuesto.Text = datalistado.SelectedCells[5].Value.ToString();
+                txtidDescuento.Text = datalistado.SelectedCells[6].Value.ToString();
                 prepararEdicion();
             }
             catch (Exception ex)
@@ -214,7 +225,7 @@ namespace SistemaVentas.Presentacion.Categoria
 
         private void prepararEdicion()
         {
-           
+
             panelRegistros.Visible = true;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.BringToFront();
@@ -227,12 +238,12 @@ namespace SistemaVentas.Presentacion.Categoria
         private void button1_Click(object sender, EventArgs e)
         {
             TextBox[] array = { txtCategoria, txtDepartamento };
-           
+
             if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
-                    obtenerId_estado();
-                    rellenarCamposVacios();
-                    editar();
+                obtenerId_estado();
+                rellenarCamposVacios();
+                editar();
             }
             else
             {
@@ -240,31 +251,40 @@ namespace SistemaVentas.Presentacion.Categoria
             }
         }
 
-     
+
         public void editar()
         {
-            editarUnidad();
+            editarCategoria();
         }
-        public void editarUnidad()
+        public void editarCategoria()
         {
-            LUnidadProductos parametros = new LUnidadProductos();
-            Editar_datos insertar = new Editar_datos();
-
-
-            parametros.descripcion = txtCategoria.Text;
-            parametros.idClaveSat = idClaveSat;
-
-            if (insertar.editarUnidad(parametros) == true)
+            if (idCategoria == 0 || idImpuesto == 0)
             {
-                mostrar();
+                MessageBox.Show("Favor clickea correctamente en los impuestos o descuentos", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+
+                LCategoria parametros = new LCategoria();
+                Editar_datos insertar = new Editar_datos();
+
+                parametros.idCategoria = idCategoria;
+                parametros.Descripcion = txtCategoria.Text;
+                parametros.idDescuento = idDescuento;
+                parametros.idImpuesto = idImpuesto;
+                parametros.Departamento = txtDepartamento.Text;
+
+                if (insertar.editarCategoria(parametros) == true)
+                {
+                    mostrar();
+                }
+            }
+
         }
 
         private void eliminar()
         {
-            LUnidadProductos parametros = new LUnidadProductos();
-            parametros.idUnidad = idUnidad;
-            Eliminar_datos.eliminarUnidad(idUnidad);
+            Eliminar_datos.eliminarCategoria(idCategoria);
             mostrar();
         }
 
@@ -277,7 +297,7 @@ namespace SistemaVentas.Presentacion.Categoria
             txtCategoria.Focus();
             panelRegistros.Dock = DockStyle.Fill;
         }
-        
+
         private void limpiar()
         {
             txtCategoria.Clear();
@@ -307,14 +327,14 @@ namespace SistemaVentas.Presentacion.Categoria
 
         }
 
- 
+
 
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-   
+
 
         private void txtnombre_TextChanged(object sender, EventArgs e)
         {
@@ -329,7 +349,7 @@ namespace SistemaVentas.Presentacion.Categoria
 
         private void txtApellido_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -337,8 +357,8 @@ namespace SistemaVentas.Presentacion.Categoria
 
         }
 
-    
-     
+
+
         private void tiempoBuscador_Tick(object sender, EventArgs e)
         {
         }
@@ -351,7 +371,7 @@ namespace SistemaVentas.Presentacion.Categoria
             }
             if (e.ColumnIndex == datalistado.Columns["EliminarG"].Index)
             {
-                idUnidad = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                idCategoria = Convert.ToInt32(datalistado.SelectedCells[2].Value);
                 DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == System.Windows.Forms.DialogResult.OK)
                 {
@@ -362,23 +382,7 @@ namespace SistemaVentas.Presentacion.Categoria
 
         private void txtImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = false;
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsSeparator(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
+
         }
 
         private void txtClaveSat_DoubleClick(object sender, EventArgs e)
@@ -418,11 +422,13 @@ namespace SistemaVentas.Presentacion.Categoria
             }
 
             Bases.Multilinea(ref datalistadoUnidadesSAT);
-    }
+        }
 
         private void cerrarPANELCLAVESAT_Click(object sender, EventArgs e)
         {
             panelClaveUnidadSat.Visible = false;
+            panelClaveUnidadSat.BringToFront();
+
         }
 
         private void datalistadoUnidadesSAT_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -465,7 +471,7 @@ namespace SistemaVentas.Presentacion.Categoria
         private void txtidDescuento_KeyPress(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txtidDescuento, e);
-                }
+        }
 
         private void txtidImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -475,6 +481,7 @@ namespace SistemaVentas.Presentacion.Categoria
         private void txtidDescuento_DoubleClick(object sender, EventArgs e)
         {
             panelDescuentos.Visible = true;
+            panelDescuentos.BringToFront();
         }
 
         private void btnDescuentoAgregar_Click(object sender, EventArgs e)
@@ -491,7 +498,7 @@ namespace SistemaVentas.Presentacion.Categoria
                     SqlCommand cmd = new SqlCommand("insertarDescuento", CONEXIONMAESTRA.conectar);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Descuento", Convert.ToDouble(txtDescuentoAgregar.Text));
-                    cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento de Categoria");
+                    cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento Categoria");
                     cmd.ExecuteNonQuery();
                     CONEXIONMAESTRA.cerrar();
                 }
@@ -527,7 +534,7 @@ namespace SistemaVentas.Presentacion.Categoria
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@nombre", txtNombreImpuestoAgregar.Text);
-                    cmd.Parameters.AddWithValue("@Impuesto", Convert.ToDouble(txtImpuestoAgregar.Text));
+                    cmd.Parameters.AddWithValue("@Impuesto", Convert.ToDouble(txtImpuestoAgregar.Text) / 100);
                     cmd.Parameters.AddWithValue("@tipo", "Impuesto Categoria");
                     cmd.ExecuteNonQuery();
                     CONEXIONMAESTRA.cerrar();
@@ -543,6 +550,133 @@ namespace SistemaVentas.Presentacion.Categoria
 
             }
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            panelImpuestosAgregar.Visible = false;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            panelDescuentos.Visible = false;
+        }
+
+        private void txtidImpuesto_DoubleClick(object sender, EventArgs e)
+        {
+            panelImpuestosAgregar.Visible = true;
+            panelImpuestosAgregar.BringToFront();
+        }
+
+        private void txtidDescuento_TextChanged(object sender, EventArgs e)
+        {
+            if (txtidDescuento.Text != "")
+            {
+                panelDescuentoBasico.BringToFront();
+                buscarDescientosCategoria();
+                panelDescuentoBasico.Visible = true;
+            }
+            else
+            {
+                buscarDescientosCategoria();
+                panelDescuentoBasico.SendToBack();
+                panelDescuentoBasico.Visible = false;
+            }
+
+        }
+
+        private void txtidImpuesto_TextChanged(object sender, EventArgs e)
+        {
+            if (txtidImpuesto.Text != "")
+            {
+                panelImpuestosCategoria.BringToFront();
+                panelImpuestosCategoria.Size = new Size(228, 52);
+                buscarImpuestosCategoria();
+                panelImpuestosCategoria.Visible = true;
+            }
+            else
+            {
+
+                buscarDescientosCategoria();
+                panelImpuestosCategoria.SendToBack();
+                panelImpuestosCategoria.Visible = false;
+            }
+        }
+
+        private void buscarImpuestosCategoria()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("buscarImpuestosCategoria", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtidImpuesto.Text + "");
+                da.Fill(dt);
+                datalistadoUnidadesSAT.DataSource = dt;
+                con.Close();
+
+                datalistadiImpuestosCategoria.DataSource = dt;
+                datalistadiImpuestosCategoria.Columns[0].Visible = false;
+                datalistadiImpuestosCategoria.Columns[2].Visible = false;
+                datalistadiImpuestosCategoria.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadiImpuestosCategoria);
+
     }
 
+        private void buscarDescientosCategoria()
+        {
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("buscarDescuentosCategoria", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@buscar", txtidDescuento.Text);
+                da.Fill(dt);
+                datalistadoUnidadesSAT.DataSource = dt;
+                con.Close();
+
+                datalistadoDescuentoBasico.DataSource = dt;
+                datalistadoDescuentoBasico.Columns[0].Visible = false;
+                datalistadoDescuentoBasico.Columns[2].Visible = false;
+                datalistadoDescuentoBasico.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistadoDescuentoBasico); }
+
+        private void datalistadoDescuentoBasico_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idDescuento = Convert.ToInt32(datalistadoDescuentoBasico.SelectedCells[0].Value);
+            txtidDescuento.Text = datalistadoDescuentoBasico.SelectedCells[1].Value.ToString();
+            panelDescuentoBasico.Visible = false;
+        }
+
+        private void datalistadiImpuestosCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idImpuesto = Convert.ToInt32(datalistadiImpuestosCategoria.SelectedCells[0].Value);
+            txtidImpuesto.Text = datalistadiImpuestosCategoria.SelectedCells[1].Value.ToString();
+            panelImpuestosCategoria.Visible = false;
+        }
+    }
 }
