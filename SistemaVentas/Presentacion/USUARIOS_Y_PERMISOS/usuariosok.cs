@@ -95,18 +95,18 @@ namespace SistemaVentas
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            ICONO.Image.Save(ms, ICONO.Image.RawFormat);
+            if (ICONO.Image != null)
+            {
                 if (txtEmpleado.Text != "")
-
                 {
                     if (txtroles.Text != "")
                     {
-
                         if (LblAnuncioIcono.Visible == false)
-
                         {
                             try
                             {
-
                                 SqlConnection con = new SqlConnection();
                                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                                 con.Open();
@@ -115,9 +115,8 @@ namespace SistemaVentas
                                 cmd.CommandType = CommandType.StoredProcedure;
                                 cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
                                 cmd.Parameters.AddWithValue("@Login", txtlogin.Text);
-                                cmd.Parameters.AddWithValue("@Password",Bases.Encriptar (txtPassword.Text));
+                                cmd.Parameters.AddWithValue("@Password", Bases.Encriptar(txtPassword.Text));
                                 cmd.Parameters.AddWithValue("@idRol", Convert.ToInt32(txtroles.SelectedValue));
-                                System.IO.MemoryStream ms = new System.IO.MemoryStream();
                                 ICONO.Image.Save(ms, ICONO.Image.RawFormat);
                                 cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
                                 cmd.Parameters.AddWithValue("@Nombre_de_icono", lblnumeroIcono.Text);
@@ -146,6 +145,11 @@ namespace SistemaVentas
                 {
                     MessageBox.Show("Asegúrese de haber llenado todos los campos para poder continuar", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Asegúrese de haber seleccionado el icono", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         private void mostrarRoles()
         {
