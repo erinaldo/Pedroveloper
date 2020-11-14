@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usuariosok));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,7 +69,6 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.btnGuardar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGuardarCambios = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtrol = new System.Windows.Forms.ComboBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -269,7 +268,6 @@
             this.panel5.Controls.Add(this.ICONO);
             this.panel5.Controls.Add(this.btnVolver);
             this.panel5.Controls.Add(this.menuStrip2);
-            this.panel5.Controls.Add(this.txtrol);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel6);
@@ -310,11 +308,11 @@
             this.datalistadoEmpleado.AllowUserToAddRows = false;
             this.datalistadoEmpleado.AllowUserToDeleteRows = false;
             this.datalistadoEmpleado.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoEmpleado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoEmpleado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.datalistadoEmpleado.BackgroundColor = System.Drawing.Color.White;
             this.datalistadoEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datalistadoEmpleado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -328,8 +326,8 @@
             this.datalistadoEmpleado.ReadOnly = true;
             this.datalistadoEmpleado.RowHeadersVisible = false;
             this.datalistadoEmpleado.RowHeadersWidth = 9;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            this.datalistadoEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
@@ -576,20 +574,6 @@
             this.btnGuardarCambios.Text = "Guardar Cambios";
             this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
-            // txtrol
-            // 
-            this.txtrol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtrol.FormattingEnabled = true;
-            this.txtrol.Items.AddRange(new object[] {
-            "Solo Facturas (no esta autorizado para manejar dinero)",
-            "Cajero (Si esta autorizado para manejar dinero)",
-            "Administrador (Control total)"});
-            this.txtrol.Location = new System.Drawing.Point(132, 138);
-            this.txtrol.Name = "txtrol";
-            this.txtrol.Size = new System.Drawing.Size(301, 28);
-            this.txtrol.TabIndex = 607;
-            this.txtrol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Gray;
@@ -640,6 +624,7 @@
             this.txtEmpleado.Size = new System.Drawing.Size(237, 19);
             this.txtEmpleado.TabIndex = 605;
             this.txtEmpleado.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
+            this.txtEmpleado.DoubleClick += new System.EventHandler(this.txtEmpleado_DoubleClick);
             this.txtEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmpleado_KeyPress);
             // 
             // Label5
@@ -704,10 +689,11 @@
             "Solo Facturas (no esta autorizado para manejar dinero)",
             "Cajero (Si esta autorizado para manejar dinero)",
             "Administrador (Control total)"});
-            this.txtroles.Location = new System.Drawing.Point(132, 176);
+            this.txtroles.Location = new System.Drawing.Point(125, 141);
             this.txtroles.Name = "txtroles";
             this.txtroles.Size = new System.Drawing.Size(301, 28);
             this.txtroles.TabIndex = 655;
+            this.txtroles.SelectedIndexChanged += new System.EventHandler(this.txtroles_SelectedIndexChanged);
             // 
             // usuariosok
             // 
@@ -797,7 +783,6 @@
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem btnGuardar;
         private System.Windows.Forms.ToolStripMenuItem btnGuardarCambios;
-        private System.Windows.Forms.ComboBox txtrol;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtPassword;

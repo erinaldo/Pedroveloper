@@ -70,10 +70,9 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("eliminarEmpleado", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("Eliminar_empleados", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
-
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
             }

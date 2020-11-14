@@ -95,19 +95,15 @@ namespace SistemaVentas
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
-
-
                 if (txtEmpleado.Text != "")
 
                 {
-                    if (txtrol .Text != "")
+                    if (txtroles.Text != "")
                     {
 
                         if (LblAnuncioIcono.Visible == false)
 
                         {
-
                             try
                             {
 
@@ -120,15 +116,12 @@ namespace SistemaVentas
                                 cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
                                 cmd.Parameters.AddWithValue("@Login", txtlogin.Text);
                                 cmd.Parameters.AddWithValue("@Password",Bases.Encriptar (txtPassword.Text));
-                                cmd.Parameters.AddWithValue("@Rol", txtrol.Text);
+                                cmd.Parameters.AddWithValue("@idRol", Convert.ToInt32(txtroles.SelectedValue));
                                 System.IO.MemoryStream ms = new System.IO.MemoryStream();
                                 ICONO.Image.Save(ms, ICONO.Image.RawFormat);
-
-
                                 cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
                                 cmd.Parameters.AddWithValue("@Nombre_de_icono", lblnumeroIcono.Text);
                                 cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
-
                                 cmd.ExecuteNonQuery();
                                 con.Close();
                                 mostrar();
@@ -138,31 +131,21 @@ namespace SistemaVentas
                             {
                                 MessageBox.Show(ex.Message);
                             }
-
-
                         }
                         else
                         {
                             MessageBox.Show("Elija un Icono", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                         }
-
-
-
                     }
                     else
                     {
                         MessageBox.Show("Elija un Rol", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     }
-
                 }
                 else
                 {
                     MessageBox.Show("Asegúrese de haber llenado todos los campos para poder continuar", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-
         }
         private void mostrarRoles()
         {
@@ -317,7 +300,7 @@ namespace SistemaVentas
             txtlogin.Text = datalistado.SelectedCells[6].Value.ToString();
             txtPassword .Text = datalistado.SelectedCells[7].Value.ToString();
             ICONO.BackgroundImage = null;
-            txtrol.Text = datalistado.SelectedCells[8].Value.ToString();
+            txtroles.Text = datalistado.SelectedCells[8].Value.ToString();
             lblnumeroIcono.Text = datalistado.SelectedCells[9].Value.ToString();
             byte[] b = (Byte[])datalistado.SelectedCells[10].Value;
             MemoryStream ms = new MemoryStream(b);
@@ -352,11 +335,9 @@ namespace SistemaVentas
                     cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado1);
                     cmd.Parameters.AddWithValue("@Login", txtlogin.Text);
                     cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-                    cmd.Parameters.AddWithValue("@Rol", txtrol.Text);
+                    cmd.Parameters.AddWithValue("@idRol", Convert.ToInt32(txtroles.SelectedValue));
                     System.IO.MemoryStream ms = new System.IO.MemoryStream();
                     ICONO.Image.Save(ms, ICONO.Image.RawFormat);
-
-
                     cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
                     cmd.Parameters.AddWithValue("@Nombre_de_icono", lblnumeroIcono.Text);
                     cmd.ExecuteNonQuery();
@@ -426,7 +407,6 @@ namespace SistemaVentas
                                 {
                                     MessageBox.Show(ex.Message);
                                 }
-
                             }
                             catch (Exception ex)
                             {
@@ -566,7 +546,7 @@ namespace SistemaVentas
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
 
-                da = new SqlDataAdapter("buscarEmpleado", con);
+                da = new SqlDataAdapter("buscarEmpleado2", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letra", txtEmpleado.Text);
                 da.Fill(dt);
@@ -575,26 +555,25 @@ namespace SistemaVentas
 
                 datalistadoEmpleado.DataSource = dt;
                 pintardatalistadoEmpleado();
-                datalistadoEmpleado.Columns[1].Width = 500;
-
+                datalistadoEmpleado.Columns[0].Visible = false;
+                datalistadoEmpleado.Columns[1].Visible = false;
+                datalistadoEmpleado.Columns[3].Visible = false;
+                datalistadoEmpleado.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistado);
+            Bases.Multilinea(ref datalistadoEmpleado);
         }
         private void pintardatalistadoEmpleado()
         {
             Bases.Multilinea(ref datalistadoEmpleado);
-            datalistadoEmpleado.Columns[0].Visible = false;
-            datalistadoEmpleado.Columns[1].Visible = false;
         }
 
         private void datalistadoEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             idEmpleado = Convert.ToInt32(datalistadoEmpleado.SelectedCells[0].Value);
             idEmpleado1 = Convert.ToInt32(datalistadoEmpleado.SelectedCells[0].Value);
             idPersona = Convert.ToInt32(datalistadoEmpleado.SelectedCells[1].Value);
@@ -623,6 +602,22 @@ namespace SistemaVentas
 
                 }
             }
+        }
+
+        private void txtroles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // MessageBox.Show(txtroles.SelectedValue.ToString());
+        }
+
+        private void txtEmpleado_DoubleClick(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Desea agregar un nuevo Empleado?", "Empleado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
+                frm.ShowDialog();
+            }
+
         }
     }
 }

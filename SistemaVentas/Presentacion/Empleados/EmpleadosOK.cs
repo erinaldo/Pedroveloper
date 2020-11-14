@@ -38,7 +38,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void EmpleadosOK_Load(object sender, EventArgs e)
         {
-            
+            panelDataListadoDireccion.Visible = false;
             panelRegistros.Visible = false;
             mostrar();
         }
@@ -298,7 +298,7 @@ namespace SistemaVentas.Presentacion.Empleados
             LHorario parametrosHorario = new LHorario();
            
             parametrosHorario.Descripcion_TipoHorario = txtTipoHorario.Text;
-            MessageBox.Show(txtTipoHorario.Text);
+
             if(Insertar_datos.insertarTipoHorario(txtTipoHorario.Text) == true){
                 insertarHorario();
             }
@@ -326,21 +326,22 @@ namespace SistemaVentas.Presentacion.Empleados
             datalistado.DataSource = dt;
             panelRegistros.Visible = false;
             panelDataListadoDireccion.Visible = true;
-            pintarDatalistado();
-        }
-        private void pintarDatalistado()
-        {
-            Bases.Multilinea(ref datalistado);
             datalistado.Columns[2].Visible = false;
             datalistado.Columns[3].Visible = false;
             datalistado.Columns[4].Visible = false;
             datalistado.Columns[9].Visible = false;
+
             datalistado.Columns[11].Visible = false;
             datalistado.Columns[14].Visible = false;
             datalistado.Columns[16].Visible = false;
             datalistado.Columns[20].Visible = false;
             datalistado.Columns[25].Visible = false;
-            //datalistado.Columns[24].Visible = false;
+            pintarDatalistado();
+        }
+        private void pintarDatalistado()
+        {
+            Bases.Multilinea(ref datalistado);
+            
         }
         private void pintarDatalistadoDireccion()
         {
@@ -351,25 +352,21 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == datalistado.Columns["Editar"].Index)
+            if (e.ColumnIndex == datalistado.Columns["EditarEmpleado1"].Index)
             {
                 obtenerDatos();
             }
-            if (e.ColumnIndex == datalistado.Columns["Eliminar"].Index)
+            if (e.ColumnIndex == datalistado.Columns["EliminarEmpleado1"].Index)
             {
                 obtenerId_estado();
-                if (estado == "ACTIVO")
+                idEmpleado = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == System.Windows.Forms.DialogResult.OK)
                 {
-                    DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (result == System.Windows.Forms.DialogResult.OK)
-                    {
-                        eliminar();
-                    }
+                    eliminar();
                 }
+
             }
-
-
-            
         }
 
 
@@ -429,8 +426,8 @@ namespace SistemaVentas.Presentacion.Empleados
                 txtTelefono.Text = datalistado.SelectedCells[15].Value.ToString();
                 idTipoTelefono = Convert.ToInt32(datalistado.SelectedCells[16].Value);
                 txtTipoTelefono.Text = datalistado.SelectedCells[17].Value.ToString();
-                txtEntrada.Value = Convert.ToDecimal(datalistado.SelectedCells[18].Value);
-                txtSalida.Value = Convert.ToDecimal(datalistado.SelectedCells[19].Value);
+                txtEntrada.Maximum = Convert.ToDecimal(datalistado.SelectedCells[18].Value);
+                txtSalida.Minimum = Convert.ToDecimal(datalistado.SelectedCells[19].Value);
                 idTipoHorario = Convert.ToInt32(datalistado.SelectedCells[20].Value);
 
                 txtTipoHorario.Text = datalistado.SelectedCells[21].Value.ToString();
@@ -1160,6 +1157,7 @@ namespace SistemaVentas.Presentacion.Empleados
         {
             if(txtDireccion.Text != "")
             {
+                panelDataListadoDireccion.Visible = true;
                 mostrarDireccion();
             }
             else
@@ -1189,15 +1187,14 @@ namespace SistemaVentas.Presentacion.Empleados
 
                 datalistadoDireccion.DataSource = dt;
                 pintarDatalistadoDireccion();
-                datalistadoDireccion.Columns[1].Width = 500;
-                
+                datalistadoDireccion.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistado);
+            Bases.Multilinea(ref datalistadoDireccion);
         }
 
         private void datalistadoDireccion_CellContentClick(object sender, DataGridViewCellEventArgs e)
