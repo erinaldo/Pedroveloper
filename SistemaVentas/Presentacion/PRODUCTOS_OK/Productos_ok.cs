@@ -2411,7 +2411,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                     SqlCommand cmd = new SqlCommand("insertarDescuento", CONEXIONMAESTRA.conectar);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Descuento", Convert.ToDouble(txtDescuentoAgregar.Text));
-                    cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento de Categoria");
+                    cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento Categoria");
                     cmd.ExecuteNonQuery();
                     CONEXIONMAESTRA.cerrar();
                 }

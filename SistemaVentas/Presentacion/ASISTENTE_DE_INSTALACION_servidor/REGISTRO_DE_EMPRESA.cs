@@ -70,6 +70,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         InsertarDocumento();
                         insertarDireccion();
                         insertarImpuesto();
+                        insertarDescuento();
+                        InsertarCategoria();
                         Ingresar_Persona();
                         insertarEmpleado();
                         insertar_clientes();
@@ -97,7 +99,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
               
         }
-        public bool insertarImpuesto()
+        public void insertarImpuesto()
         {
             try
             {
@@ -108,12 +110,38 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@Impuesto", 18/100);
                 cmd.Parameters.AddWithValue("@Tipo", "IVA");
                 cmd.ExecuteNonQuery();
-                return true;
             }
             catch (Exception EX)
             {
                 MessageBox.Show(EX.Message);
-                return true;
+            }
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarImpuestosgeneral", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", "Generico");
+                cmd.Parameters.AddWithValue("@Impuesto", 18 / 100);
+                cmd.Parameters.AddWithValue("@Tipo", "Impuesto Productos");
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarImpuestosgeneral", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", "Ventas");
+                cmd.Parameters.AddWithValue("@Impuesto", 18 / 100);
+                cmd.Parameters.AddWithValue("@Tipo", "Impuesto Categoria");
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
             }
         }
         private void Ingresar_caja()
@@ -442,8 +470,58 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 MessageBox.Show(EX.Message);
             }
         }
+        public void insertarDescuento()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarDescuento", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Descuento", 0.00);
+                cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento Categoria");
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarDescuento", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Descuento", 0.00);
+                cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento Producto");
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        public void InsertarCategoria()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarCategoria", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idDescuento", 1);
+                cmd.Parameters.AddWithValue("@idItbis", 1);
+                cmd.Parameters.AddWithValue("@descripcion", "Generico");
+                cmd.Parameters.AddWithValue("@departamento", "Generico");
+                cmd.Parameters.AddWithValue("@estado", "Activo");
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+        }
 
         public void  insertarCalle( )
         {
