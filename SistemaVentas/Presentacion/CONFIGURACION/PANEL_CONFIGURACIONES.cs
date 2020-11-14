@@ -197,5 +197,11 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
             Unidades.Unidades frm = new Unidades.Unidades();
             frm.ShowDialog();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Descuento.Descuento frm = new Descuento.Descuento();
+            frm.ShowDialog();
+        }
     }
 }

@@ -49,7 +49,7 @@ namespace SistemaVentas.Presentacion.Descuento
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            TextBox[] array = { txtnombre, txtDescuento};
+            TextBox[] array = { txtDescuento};
             if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
                 insertar();
@@ -71,10 +71,9 @@ namespace SistemaVentas.Presentacion.Descuento
             LDescuento parametros = new LDescuento();
             Insertar_datos funcion = new Insertar_datos();
 
-            parametros.nombre = txtnombre.Text;
-            parametros.descuento = txtDescuento.Text;
-            parametros.Tipo = txtTipo.Text;
-                if (funcion.insertarImpuesto(parametros) == true)
+            parametros.descuento = Convert.ToDouble(txtDescuento.Text);
+            parametros.TipoDescuento = txtTipo.Text;
+                if (funcion.insertarDescuento(parametros) == true)
                 {
                     mostrar();
                 }
@@ -83,9 +82,6 @@ namespace SistemaVentas.Presentacion.Descuento
         
         private void rellenarCamposVacios()
         {
-            if (string.IsNullOrEmpty(txtnombre.Text))
-            { txtnombre.Text = "-"; };
-            if (string.IsNullOrEmpty(txtnombre.Text)) { txtnombre.Text = "-"; };
             if (string.IsNullOrEmpty(txtTipo.Text)) { txtTipo.Text = "-"; };
             if (string.IsNullOrEmpty(txtDescuento.Text)) { txtDescuento.Text = "-"; };
         }
@@ -93,7 +89,7 @@ namespace SistemaVentas.Presentacion.Descuento
         private void mostrar()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.mostrarImpuestos(ref dt);
+            Obtener_datos.mostrarDescuentos(ref dt);
             datalistado.DataSource = dt;
             panelRegistros.Visible = false;
             pintarDatalistado();
@@ -102,31 +98,8 @@ namespace SistemaVentas.Presentacion.Descuento
         {
             Bases.Multilinea(ref datalistado);
             datalistado.Columns[2].Visible = false;
+            datalistado.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-
-        /*if (e.ColumnIndex == datalistado.Columns["EditarImpuestoG"].Index)
-            {
-                obtenerDatos();
-            }
-            if (e.ColumnIndex == datalistado.Columns["EliminarImpuesto"].Index)
-            {
-                obtenerId_estado();
-                if (estado == "ACTIVO")
-                {
-                    DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (result == System.Windows.Forms.DialogResult.OK)
-                    {
-                        eliminar();
-                    }
-                }
-            }*/
-        private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-
-
 
         private void txtbuscar_TextChanged(object sender, EventArgs e)
         {
@@ -134,12 +107,16 @@ namespace SistemaVentas.Presentacion.Descuento
             {
                 buscar();
             }
+            else
+            {
+                mostrar();
+            }
         }
 
         private void buscar()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.buscarImpuestos(ref dt, txtbuscar.Text);
+            Obtener_datos.buscarDescuentos(ref dt, txtbuscar.Text);
             datalistado.DataSource = dt;
             pintarDatalistado();
         }
@@ -148,7 +125,6 @@ namespace SistemaVentas.Presentacion.Descuento
             try
             {
                 idDescuento = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                estado = datalistado.SelectedCells[6].Value.ToString();
             }
             catch (Exception)
             {
@@ -160,10 +136,8 @@ namespace SistemaVentas.Presentacion.Descuento
             try
             {
                 idDescuento = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                txtnombre.Text = datalistado.SelectedCells[3].Value.ToString();
-                txtDescuento.Text = datalistado.SelectedCells[4].Value.ToString();
-                txtTipo.Text= datalistado.SelectedCells[5].Value.ToString();
-                estado = datalistado.SelectedCells[6].Value.ToString();
+                txtDescuento.Text = datalistado.SelectedCells[3].Value.ToString();
+                txtTipo.Text= datalistado.SelectedCells[4].Value.ToString();
                 prepararEdicion();
             }
             catch (Exception ex)
@@ -178,7 +152,6 @@ namespace SistemaVentas.Presentacion.Descuento
             panelRegistros.Visible = true;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.BringToFront();
-            //datalistado.SendToBack();
             btnGuardar.Visible = false;
             btnGuardarCambios.Visible = true;
         }
@@ -186,19 +159,18 @@ namespace SistemaVentas.Presentacion.Descuento
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TextBox[] array = { txtnombre, txtDescuento };
+            TextBox[] array = { txtDescuento, txtDescuento };
            
             if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
                 if (txtTipo.Text != "")
                 {
-                    obtenerId_estado();
                     rellenarCamposVacios();
                     editar();
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione un Tipo de Impuesto", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Seleccione un Tipo de Descuento", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
               
             }
@@ -212,31 +184,21 @@ namespace SistemaVentas.Presentacion.Descuento
         public void editar()
         {
             //obtenerDatosID();
-            editarImpuesto();
+            editarDescuento();
         }
-        public void editarImpuesto()
+        public void editarDescuento()
         {
             LDescuento parametros = new LDescuento();
             Editar_datos funcion = new Editar_datos();
 
-            double porciento = calcularPorciento();
             parametros.idDescuento = idDescuento;
-            parametros.nombre = txtnombre.Text;
-            parametros.impuesto = porciento;
-            parametros.Tipo = txtTipo.Text;
+            parametros.descuento = Convert.ToDouble(txtDescuento.Text);
+            parametros.TipoDescuento = txtTipo.Text;
 
-            if(porciento > 0.00 && porciento < 20.00)
-            {
-                if (funcion.editarImpuestos(parametros) == true)
+                if (funcion.editarDescuentos(parametros) == true)
                 {
                     mostrar();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Favor escribir un porcentaje de impuesto valido", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
         }
 
         private void eliminar()
@@ -255,13 +217,12 @@ namespace SistemaVentas.Presentacion.Descuento
             limpiar();
             btnGuardar.Visible = true;
             btnGuardarCambios.Visible = false;
-            txtnombre.Focus();
+            txtDescuento.Focus();
             panelRegistros.Dock = DockStyle.Fill;
         }
         
         private void limpiar()
         {
-            txtnombre.Clear();
             txtDescuento.Clear();
             txtbuscar.Clear();
         }
@@ -289,25 +250,6 @@ namespace SistemaVentas.Presentacion.Descuento
 
  
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-   
-
-        private void txtnombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void Label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void dlg_FileOk(object sender, CancelEventArgs e)
         {
 
@@ -317,24 +259,11 @@ namespace SistemaVentas.Presentacion.Descuento
         {
            
         }
-
-        private double calcularPorciento()
-        {
-            double porciento;
-            porciento = Convert.ToDouble(txtDescuento.Text);
-            porciento = porciento / 100;
-            return porciento;
-        }
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-     
         private void tiempoBuscador_Tick(object sender, EventArgs e)
         {
         }
@@ -347,16 +276,12 @@ namespace SistemaVentas.Presentacion.Descuento
             }
             if (e.ColumnIndex == datalistado.Columns["EliminarG"].Index)
             {
-                obtenerId_estado();
+                idDescuento = Convert.ToInt32(datalistado.SelectedCells[2].Value);
 
-                idDescuento =  Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                if (estado == "ACTIVO")
+                DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == System.Windows.Forms.DialogResult.OK)
                 {
-                    DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (result == System.Windows.Forms.DialogResult.OK)
-                    {
-                        eliminar();
-                    }
+                    eliminar();
                 }
             }
         }

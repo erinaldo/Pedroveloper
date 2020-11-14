@@ -94,12 +94,15 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.Label1 = new System.Windows.Forms.Label();
-            this.ToolStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnadministrar = new System.Windows.Forms.ToolStripMenuItem();
             this.panel18 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
+            this.Label1 = new System.Windows.Forms.Label();
+            this.ToolStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnadministrar = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.Panel5.SuspendLayout();
             this.FlowLayoutPanel5.SuspendLayout();
@@ -128,8 +131,9 @@
             this.panel14.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.ToolStrip1.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.ToolStrip1.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -495,6 +499,7 @@
             this.FlowLayoutPanel1.Controls.Add(this.panel17);
             this.FlowLayoutPanel1.Controls.Add(this.panel15);
             this.FlowLayoutPanel1.Controls.Add(this.panel18);
+            this.FlowLayoutPanel1.Controls.Add(this.panel19);
             this.FlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
             this.FlowLayoutPanel1.Location = new System.Drawing.Point(17, 44);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
@@ -923,6 +928,44 @@
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.Transparent;
+            this.panel18.Controls.Add(this.button9);
+            this.panel18.Controls.Add(this.label14);
+            this.panel18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel18.Location = new System.Drawing.Point(194, 79);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(70, 70);
+            this.panel18.TabIndex = 602;
+            // 
+            // button9
+            // 
+            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(0, 0);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(70, 51);
+            this.button9.TabIndex = 5;
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label14
+            // 
+            this.label14.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label14.Location = new System.Drawing.Point(0, 51);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(70, 19);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Unidades";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
             // Label1
             // 
             this.Label1.AutoSize = true;
@@ -960,43 +1003,42 @@
             this.btnadministrar.Text = "Volver al Administrador";
             this.btnadministrar.Click += new System.EventHandler(this.ToolStripButton22_Click);
             // 
-            // panel18
+            // panel19
             // 
-            this.panel18.BackColor = System.Drawing.Color.Transparent;
-            this.panel18.Controls.Add(this.button9);
-            this.panel18.Controls.Add(this.label14);
-            this.panel18.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel18.Location = new System.Drawing.Point(194, 79);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(98, 70);
-            this.panel18.TabIndex = 602;
+            this.panel19.BackColor = System.Drawing.Color.Transparent;
+            this.panel19.Controls.Add(this.button10);
+            this.panel19.Controls.Add(this.label15);
+            this.panel19.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel19.Location = new System.Drawing.Point(270, 79);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(90, 70);
+            this.panel19.TabIndex = 603;
             // 
-            // button9
+            // button10
             // 
-            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(0, 0);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(98, 51);
-            this.button9.TabIndex = 5;
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button10.BackgroundImage")));
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(0, 0);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(90, 51);
+            this.button10.TabIndex = 5;
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // label14
+            // label15
             // 
-            this.label14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label14.Location = new System.Drawing.Point(0, 51);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 19);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Impuestos";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label14.Click += new System.EventHandler(this.label14_Click);
+            this.label15.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label15.Location = new System.Drawing.Point(0, 51);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(90, 19);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Descuentos";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PANEL_CONFIGURACIONES
             // 
@@ -1047,9 +1089,10 @@
             this.panel14.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
             this.ToolStrip1.ResumeLayout(false);
             this.ToolStrip1.PerformLayout();
-            this.panel18.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1126,5 +1169,8 @@
         internal System.Windows.Forms.Panel panel18;
         internal System.Windows.Forms.Button button9;
         internal System.Windows.Forms.Label label14;
+        internal System.Windows.Forms.Panel panel19;
+        internal System.Windows.Forms.Button button10;
+        internal System.Windows.Forms.Label label15;
     }
 }

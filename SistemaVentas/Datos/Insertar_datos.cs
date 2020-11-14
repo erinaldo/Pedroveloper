@@ -48,6 +48,26 @@ namespace SistemaVentas.Datos
                 return false;
             }
         }
+        public bool insertarDescuento(LDescuento parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarDescuento", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Descuento", parametros.descuento);
+                cmd.Parameters.AddWithValue("@TipoDescuento", parametros.TipoDescuento);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
 
         public bool insertarMayoreo(Mayoreo mayoreo)
         {

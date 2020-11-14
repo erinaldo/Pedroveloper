@@ -23,7 +23,8 @@ namespace SistemaVentas
             // Presentacion.Compras_proveedor.Compras_proveedor frm = new Presentacion.Compras_proveedor.Compras_proveedor();
             // Presentacion.PRODUCTOS_OK.Productos_ok frm = new Presentacion.PRODUCTOS_OK.Productos_ok();
             // Presentacion.INVENTARIOS_KARDEX.INVENTARIO_MENU frm = new Presentacion.INVENTARIOS_KARDEX.INVENTARIO_MENU();
-            Presentacion.Unidades.Unidades frm = new Presentacion.Unidades.Unidades();
+            //Presentacion.Unidades.Unidades frm = new Presentacion.Unidades.Unidades();
+            Presentacion.CONFIGURACION.PANEL_CONFIGURACIONES frm = new Presentacion.CONFIGURACION.PANEL_CONFIGURACIONES();
             frm.FormClosed += Frm_FormClosed;
             frm.ShowDialog();  
             Application.Run();

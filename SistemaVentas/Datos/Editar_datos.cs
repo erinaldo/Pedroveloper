@@ -117,6 +117,29 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
+        public bool editarDescuentos(LDescuento parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarDescuento", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idDescuento", parametros.idDescuento);
+                cmd.Parameters.AddWithValue("@Descuento", parametros.descuento);
+                cmd.Parameters.AddWithValue("@tipoDescuento", parametros.TipoDescuento);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return true;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
         public bool editarVehiculos(LVehiculos parametros)
         {
             try

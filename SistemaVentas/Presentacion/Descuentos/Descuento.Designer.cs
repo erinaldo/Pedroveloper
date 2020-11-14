@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Descuento));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Descuento));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,8 +48,6 @@
             this.txtTipo = new System.Windows.Forms.ComboBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.txtnombre = new System.Windows.Forms.TextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dlg = new System.Windows.Forms.OpenFileDialog();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -64,8 +62,6 @@
             this.EliminarG = new System.Windows.Forms.DataGridViewImageColumn();
             this.EditarG = new System.Windows.Forms.DataGridViewImageColumn();
             this.PictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.label70 = new System.Windows.Forms.Label();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.label60 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,7 +72,6 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,8 +151,9 @@
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(28, 22);
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // panelRegistros
@@ -176,8 +172,6 @@
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.pictureBox14);
-            this.panel5.Controls.Add(this.label70);
             this.panel5.Controls.Add(this.pictureBox13);
             this.panel5.Controls.Add(this.label60);
             this.panel5.Controls.Add(this.label19);
@@ -187,8 +181,6 @@
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Controls.Add(this.btnGuardarCambios);
             this.panel5.Controls.Add(this.btnGuardar);
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Controls.Add(this.txtnombre);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
@@ -201,7 +193,7 @@
             this.label19.BackColor = System.Drawing.Color.White;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Gray;
-            this.label19.Location = new System.Drawing.Point(52, 163);
+            this.label19.Location = new System.Drawing.Point(42, 85);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(97, 15);
             this.label19.TabIndex = 658;
@@ -222,7 +214,7 @@
             // txtDescuento
             // 
             this.txtDescuento.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescuento.Location = new System.Drawing.Point(55, 138);
+            this.txtDescuento.Location = new System.Drawing.Point(45, 60);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(237, 19);
             this.txtDescuento.TabIndex = 628;
@@ -232,29 +224,11 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Gray;
-            this.panel4.Location = new System.Drawing.Point(55, 159);
+            this.panel4.Location = new System.Drawing.Point(45, 81);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(237, 1);
             this.panel4.TabIndex = 627;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Gray;
-            this.panel6.Location = new System.Drawing.Point(55, 84);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(233, 1);
-            this.panel6.TabIndex = 606;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
-            // 
-            // txtnombre
-            // 
-            this.txtnombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtnombre.Location = new System.Drawing.Point(55, 59);
-            this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(233, 19);
-            this.txtnombre.TabIndex = 605;
-            this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
             // 
             // dataGridViewImageColumn1
             // 
@@ -451,31 +425,10 @@
             this.PictureBox2.TabStop = false;
             this.PictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(54, 34);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(24, 19);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox14.TabIndex = 672;
-            this.pictureBox14.TabStop = false;
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label70.ForeColor = System.Drawing.Color.Black;
-            this.label70.Location = new System.Drawing.Point(84, 34);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(96, 20);
-            this.label70.TabIndex = 671;
-            this.label70.Text = "Descuento";
-            // 
             // pictureBox13
             // 
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(54, 113);
+            this.pictureBox13.Location = new System.Drawing.Point(44, 35);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(24, 19);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -487,7 +440,7 @@
             this.label60.AutoSize = true;
             this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label60.ForeColor = System.Drawing.Color.Black;
-            this.label60.Location = new System.Drawing.Point(84, 112);
+            this.label60.Location = new System.Drawing.Point(74, 34);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(96, 20);
             this.label60.TabIndex = 669;
@@ -528,7 +481,6 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
 
@@ -555,8 +507,6 @@
         internal System.Windows.Forms.Button button3;
         internal System.Windows.Forms.Button btnGuardarCambios;
         internal System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Timer tiempoBuscador;
         private System.Windows.Forms.ComboBox txtTipo;
         internal System.Windows.Forms.DataGridView datalistado;
@@ -564,8 +514,6 @@
         private System.Windows.Forms.DataGridViewImageColumn EditarG;
         internal System.Windows.Forms.Label label19;
         internal System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        internal System.Windows.Forms.Label label70;
         private System.Windows.Forms.PictureBox pictureBox13;
         internal System.Windows.Forms.Label label60;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
