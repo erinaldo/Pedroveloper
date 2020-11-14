@@ -814,6 +814,23 @@ namespace SistemaVentas.Datos
                 MessageBox.Show(ex.StackTrace);
             }
         }
+        public static void obtenerAccesoUsuarios(ref int idUsuario)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("obtenerAccesoUsuarios", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+                idUsuario = Convert.ToInt32(cmd.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
 
         public static void mostrarUsuariosSesion(ref DataTable dt)
         {

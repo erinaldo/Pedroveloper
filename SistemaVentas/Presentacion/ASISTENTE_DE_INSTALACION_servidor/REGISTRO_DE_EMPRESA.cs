@@ -76,6 +76,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertarEmpleado();
                         insertar_clientes();
                         insertar_Proveedores();
+                        insertarModulos();
                         correo = txtcorreo.Text;
                         Dispose();
 
@@ -302,6 +303,59 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             finally
             {
                 CONEXIONMAESTRA.cerrar();
+            }
+        }
+
+        public void insertarModulos()
+        {
+            List<string> listaModulos = new List<string>()
+                {        "Impuestos",
+                        "Descuentos",
+                        "Ventas",
+                        "Reportes",
+                        "Configuracion",
+                        "Clientes",
+                        "Productos",
+                        "Empresa",
+                        "Proveedores",
+                        "Cajas",
+                        "Serializacion",
+                        "Categorias",
+                        "Almacen",
+                        "Comprobantes",
+                        "Impresoras",
+                        "Notificaciones",
+                        "BackUp",
+                        "Inventarios",
+                        "Cotizacion",
+                        "Compras",
+                        "Ingresos",
+                        "Egresos",
+                        "Cerrar turno",
+                        "Cobros creditos clientes",
+                        "PanelButtomVentas",
+                        "Dashboard" 
+            };
+
+            foreach(string modulo in listaModulos)
+            {
+                try
+                {
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarModulos", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Modulo", modulo);
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    CONEXIONMAESTRA.cerrar();
+                }
             }
         }
 

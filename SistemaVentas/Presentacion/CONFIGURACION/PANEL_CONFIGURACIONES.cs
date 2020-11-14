@@ -1,7 +1,10 @@
-﻿using System;
+﻿using SistemaVentas.Datos;
+using SistemaVentas.Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +19,12 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
         {
             InitializeComponent();
         }
+
+        int idRol;
+        string Rol;
+        string Operacion;
+        string modulo;
+        string Acceso;
 
         private void Button6_Click(object sender, EventArgs e)
         {
@@ -47,10 +56,38 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
             Configurar_empresa();
         }
 
+        public static int idusuario;
+        public bool AccesoUsuarios;
         private void PANEL_CONFIGURACIONES_Load(object sender, EventArgs e)
         {
+ 
+            Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("obtenerAccesoUsuarios", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idUsuario", idusuario);
+                da.Fill(dt);
+                datalistado.DataSource = dt;
+                con.Close();
+                datalistado.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Bases.Multilinea(ref datalistado);
 
         }
+
+       
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -58,9 +95,31 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
         }
         private void Usuarios()
         {
-            usuariosok frm = new usuariosok();
-            frm.ShowDialog();
+            foreach (DataGridViewRow row in datalistado.Rows)
+            {
 
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario == idusuarioBuscar)
+                {
+                    if(modulo == "Usuarios")
+                    {
+                        if(Operacion == "Acceso")
+                        {
+                            usuariosok frm = new usuariosok();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
         }
 
         private void Label26_Click(object sender, EventArgs e)
