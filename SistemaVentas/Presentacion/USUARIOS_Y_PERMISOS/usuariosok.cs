@@ -164,6 +164,11 @@ namespace SistemaVentas
 
 
         }
+        private void mostrarRoles()
+        {
+
+
+        }
         private void mostrar()
         {
             try
@@ -275,10 +280,15 @@ namespace SistemaVentas
 
         private void usuariosok_Load(object sender, EventArgs e)
         {
+            LRoles cat = new LRoles();
             panelDataListadoEmpleado.Visible = false;
             panelRegistros.Visible = false;
             panelICONO.Visible = false;
             mostrar();
+
+            txtroles.DataSource = cat.CargarCombo();
+            txtroles.DisplayMember = "Rol";
+            txtroles.ValueMember = "idRol";
         }
 
         private void PictureBox2_Click(object sender, EventArgs e)

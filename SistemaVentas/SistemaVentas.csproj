@@ -143,6 +143,7 @@
     <Compile Include="Logica\Lproductos.cs" />
     <Compile Include="Logica\Lproveedores.cs" />
     <Compile Include="Logica\LMarcan.cs" />
+    <Compile Include="Logica\LRoles.cs" />
     <Compile Include="Logica\LTelefono.cs" />
     <Compile Include="Logica\LUnidadProductos.cs" />
     <Compile Include="Logica\LUnidadesMedida.cs" />

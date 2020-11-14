@@ -305,6 +305,60 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             }
         }
 
+        public void insertarRol()
+        {
+            
+
+             try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarRol", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", "Administrador(Control total)");
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarRol", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", "Cajero(Si esta autorizado para manejar dinero)");
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarRol", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", "Solo Facturas(no esta autorizado para manejar dinero)");
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
+
         public bool insertar_clientes()
         {
             try
