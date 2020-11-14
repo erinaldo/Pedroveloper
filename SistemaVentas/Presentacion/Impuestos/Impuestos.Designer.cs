@@ -45,6 +45,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -64,7 +65,6 @@
             this.datalistado = new System.Windows.Forms.DataGridView();
             this.EliminarG = new System.Windows.Forms.DataGridViewImageColumn();
             this.EditarG = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
@@ -203,6 +203,18 @@
             this.panel5.Size = new System.Drawing.Size(652, 315);
             this.panel5.TabIndex = 605;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.White;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Gray;
+            this.label19.Location = new System.Drawing.Point(52, 163);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(252, 15);
+            this.label19.TabIndex = 658;
+            this.label19.Text = "Ejemplo: 18 | Sera dividido automáticamente";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -219,7 +231,9 @@
             this.txtTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTipo.FormattingEnabled = true;
             this.txtTipo.Items.AddRange(new object[] {
-            "IVA"});
+            "IVA",
+            "Impuestos por Categoria",
+            "Impuestos por Productos"});
             this.txtTipo.Location = new System.Drawing.Point(392, 57);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(237, 28);
@@ -453,18 +467,6 @@
             this.EditarG.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.EditarG.Name = "EditarG";
             this.EditarG.ReadOnly = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.White;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Gray;
-            this.label19.Location = new System.Drawing.Point(52, 163);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(83, 15);
-            this.label19.TabIndex = 658;
-            this.label19.Text = "Ejemplo: 0,18";
             // 
             // Impuestos
             // 

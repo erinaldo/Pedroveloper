@@ -203,5 +203,11 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
             Descuento.Descuento frm = new Descuento.Descuento();
             frm.ShowDialog();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Categoria.Categoria frm = new Categoria.Categoria();
+            frm.ShowDialog();
+        }
     }
 }

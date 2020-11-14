@@ -236,11 +236,11 @@
     <Compile Include="Presentacion\CAJA\Listado_gastos_ingresos.Designer.cs">
       <DependentUpon>Listado_gastos_ingresos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Categoria\CategoriaProductos.cs">
+    <Compile Include="Presentacion\Categorias\Categoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\Categoria\CategoriaProductos.Designer.cs">
-      <DependentUpon>CategoriaProductos.cs</DependentUpon>
+    <Compile Include="Presentacion\Categorias\Categoria.Designer.cs">
+      <DependentUpon>Categoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\CLIENTES_PROVEEDORES\ClientesOk.cs">
       <SubType>Form</SubType>
@@ -566,6 +566,12 @@
     <Compile Include="Presentacion\REPORTES\ReporteVentas\ResumenVentas.Designer.cs">
       <DependentUpon>ResumenVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Roles\Roles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Roles\Roles.Designer.cs">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\SERIALIZACION_DE_COMPROBANTES\SERIALIZACION.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -681,6 +687,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CAJA\Listado_gastos_ingresos.resx">
       <DependentUpon>Listado_gastos_ingresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Categorias\Categoria.resx">
+      <DependentUpon>Categoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CLIENTES_PROVEEDORES\ClientesOk.resx">
       <DependentUpon>ClientesOk.cs</DependentUpon>
