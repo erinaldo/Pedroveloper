@@ -78,6 +78,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertar_Proveedores();
                         insertarModulos();
                         insertarPermisos();
+                        insertarUnidadesCompra();
+                        insertarUnidadEstandar();
                         correo = txtcorreo.Text;
 
                         Dispose();
@@ -101,15 +103,15 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
               
         }
-        public void insertarImpuesto()
+         public void insertarUnidadEstandar()
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("insertarImpuestosgeneral", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("insertarUnidadEstandar", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", "Ventas");
-                cmd.Parameters.AddWithValue("@Impuesto", 18/100);
+                cmd.Parameters.AddWithValue("@Impuesto", 18 / 100);
                 cmd.Parameters.AddWithValue("@Tipo", "IVA");
                 cmd.ExecuteNonQuery();
             }
@@ -117,13 +119,16 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             {
                 MessageBox.Show(EX.Message);
             }
+        }
+        public void insertarImpuesto()
+        {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarImpuestosgeneral", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", "Generico");
-                cmd.Parameters.AddWithValue("@Impuesto", 18 / 100);
+                cmd.Parameters.AddWithValue("@Impuesto", 0.00);
                 cmd.Parameters.AddWithValue("@Tipo", "Impuesto Productos");
                 cmd.ExecuteNonQuery();
             }
@@ -137,7 +142,21 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 SqlCommand cmd = new SqlCommand("insertarImpuestosgeneral", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", "Ventas");
-                cmd.Parameters.AddWithValue("@Impuesto", 18 / 100);
+                cmd.Parameters.AddWithValue("@Impuesto", 0.18);
+                cmd.Parameters.AddWithValue("@Tipo", "IVA");
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarImpuestosgeneral", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", "Ventas");
+                cmd.Parameters.AddWithValue("@Impuesto", 0.18);
                 cmd.Parameters.AddWithValue("@Tipo", "Impuesto Categoria");
                 cmd.ExecuteNonQuery();
             }
@@ -189,7 +208,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@numeroinicio", 6);
                 cmd.Parameters.AddWithValue("@numerofin", 0);
                 cmd.Parameters.AddWithValue("@tipodoc", "TICKET");
-                cmd.Parameters.AddWithValue("@Destino", "FACTURAS");
+                cmd.Parameters.AddWithValue("@Destino", "facturaS");
                 cmd.Parameters.AddWithValue("@Por_defecto", "SI");
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -202,7 +221,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@numeroinicio", 6);
                 cmd.Parameters.AddWithValue("@numerofin", 0);
                 cmd.Parameters.AddWithValue("@tipodoc", "BOLETA");
-                cmd.Parameters.AddWithValue("@Destino", "FACTURAS");
+                cmd.Parameters.AddWithValue("@Destino", "facturaS");
                 cmd.Parameters.AddWithValue("@Por_defecto", "-");
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -214,8 +233,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@Serie", "F");
                 cmd.Parameters.AddWithValue("@numeroinicio", 6);
                 cmd.Parameters.AddWithValue("@numerofin", 0);
-                cmd.Parameters.AddWithValue("@tipodoc", "FACTURA");
-                cmd.Parameters.AddWithValue("@Destino", "FACTURAS");
+                cmd.Parameters.AddWithValue("@tipodoc", "factura");
+                cmd.Parameters.AddWithValue("@Destino", "facturaS");
                 cmd.Parameters.AddWithValue("@Por_defecto", "-");
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -461,7 +480,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarRol", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@descripcion", "Solo Facturas(no esta autorizado para manejar dinero)");
+                cmd.Parameters.AddWithValue("@descripcion", "Solo facturas(no esta autorizado para manejar dinero)");
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -865,6 +884,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
             insertar.insertarClavesSat(parametros);
 
+            parametros.Clave = "UND";
+            parametros.descripcion = "Unidad de compra\venta que se utiliza para vender o comprar por unidad";
+            parametros.nombre = "UNIDAD";
+
+            insertar.insertarClavesSat(parametros);
         }
 
 

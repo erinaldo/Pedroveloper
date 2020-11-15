@@ -12,34 +12,34 @@ namespace SistemaVentas.Datos
     public  class Editar_datos
     {
         int idcaja;
-        public static void cambio_de_Caja(int idcaja,int idFactura)
+        public static void cambio_de_Caja(int idcaja,int idfactura)
         {
             CONEXIONMAESTRA.abrir();
             SqlCommand cmd = new SqlCommand("cambio_de_Caja", CONEXIONMAESTRA.conectar);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@idcaja", idcaja);
-            cmd.Parameters.AddWithValue("@idFactura", idFactura);
+            cmd.Parameters.AddWithValue("@idfactura", idfactura);
             cmd.ExecuteNonQuery();
             CONEXIONMAESTRA.cerrar();
         }
 
-        public static void cambio_de_Cajacotizacion(int idcaja, int idFactura)
+        public static void cambio_de_Cajacotizacion(int idcaja, int idfactura)
         {
             CONEXIONMAESTRA.abrir();
             SqlCommand cmd = new SqlCommand("cambio_de_CajaCotizacion", CONEXIONMAESTRA.conectar);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@idcaja", idcaja);
-            cmd.Parameters.AddWithValue("@idCotizacion", idFactura);
+            cmd.Parameters.AddWithValue("@idCotizacion", idfactura);
             cmd.ExecuteNonQuery();
             CONEXIONMAESTRA.cerrar();
         }
-        public static void cambio_de_Cajacompra(int idcaja, int idFactura)
+        public static void cambio_de_Cajacompra(int idcaja, int idfactura)
         {
             CONEXIONMAESTRA.abrir();
             SqlCommand cmd = new SqlCommand("cambio_de_Cajacompra", CONEXIONMAESTRA.conectar);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@idcaja", idcaja);
-            cmd.Parameters.AddWithValue("@idFactura", idFactura);
+            cmd.Parameters.AddWithValue("@idfactura", idfactura);
             cmd.ExecuteNonQuery();
             CONEXIONMAESTRA.cerrar();
         }
@@ -326,14 +326,14 @@ namespace SistemaVentas.Datos
 
             }
         }
-        public static void ingresar_nombre_a_venta_en_espera(int idFactura, string nombre)
+        public static void ingresar_nombre_a_venta_en_espera(int idfactura, string nombre)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("ingresar_nombre_a_factura_en_espera", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idFactura", idFactura);
+                cmd.Parameters.AddWithValue("@idfactura", idfactura);
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
@@ -344,14 +344,14 @@ namespace SistemaVentas.Datos
                 MessageBox.Show(ex.StackTrace);
             }
         }
-        public static void ingresar_nombre_a_compra_en_espera(int idFactura, string nombre)
+        public static void ingresar_nombre_a_compra_en_espera(int idfactura, string nombre)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("ingresar_nombre_a_compra_en_espera", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idFactura", idFactura);
+                cmd.Parameters.AddWithValue("@idfactura", idfactura);
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
@@ -928,7 +928,7 @@ namespace SistemaVentas.Datos
         }
 
         //Detalleventa
-        public bool aplicar_precio_mayoreo(LdetalleFactura parametros)
+        public bool aplicar_precio_mayoreo(Ldetallefactura parametros)
         {
             try
             {
@@ -936,7 +936,7 @@ namespace SistemaVentas.Datos
                 SqlCommand cmd = new SqlCommand("aplicar_precio_mayoreo", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idproducto", parametros.Id_producto);
-                cmd.Parameters.AddWithValue("@idDetalleFactura", parametros.iddetalle_factura );
+                cmd.Parameters.AddWithValue("@idDetallefactura", parametros.iddetalle_factura );
                 cmd.ExecuteNonQuery();
                 return true;
 
@@ -953,14 +953,14 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        public bool editarPrecioVenta(LdetalleFactura parametros)
+        public bool editarPrecioVenta(Ldetallefactura parametros)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("editarPrecioFactura", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("editarPreciofactura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idDetalleFactura", parametros.iddetalle_factura);
+                cmd.Parameters.AddWithValue("@idDetallefactura", parametros.iddetalle_factura);
                 cmd.Parameters.AddWithValue("@precio", parametros.preciounitario);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -976,7 +976,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        public bool editarPrecioCompra(LdetalleFactura parametros)
+        public bool editarPrecioCompra(Ldetallefactura parametros)
         {
             try
             {
@@ -1001,14 +1001,14 @@ namespace SistemaVentas.Datos
             }
         }
 
-        public bool editarDescuentoFactura(LdetalleFactura parametros)
+        public bool editarDescuentofactura(Ldetallefactura parametros)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("editarDescuentoFactura", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("editarDescuentofactura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idDetalleFactura", parametros.iddetalle_factura);
+                cmd.Parameters.AddWithValue("@idDetallefactura", parametros.iddetalle_factura);
                 cmd.Parameters.AddWithValue("@Descuento", parametros.Descuento);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -1024,12 +1024,12 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        public bool editarImpuestosFactura(LdetalleFactura parametros)
+        public bool editarImpuestosfactura(Ldetallefactura parametros)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("editarItbisFactura", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("editarItbisfactura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@iddetallefactura", parametros.iddetalle_compra);
                 cmd.Parameters.AddWithValue("@Itbis", parametros.Itbis);
@@ -1047,7 +1047,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        public bool Detallefacturadevolucion(LdetalleFactura parametros)
+        public bool Detallefacturadevolucion(Ldetallefactura parametros)
         {
             try
             {
@@ -1070,7 +1070,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        public bool DetalleCompraDevolucion(LdetalleFactura parametros)
+        public bool DetalleCompraDevolucion(Ldetallefactura parametros)
         {
             try
             {
@@ -1093,7 +1093,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        public bool AumentarStockDetalle(LdetalleFactura parametros)
+        public bool AumentarStockDetalle(Ldetallefactura parametros)
         {
             try
             {
@@ -1118,7 +1118,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        public bool DISMINUIRSTOCKDETALLE(LdetalleFactura parametros)
+        public bool DISMINUIRSTOCKDETALLE(Ldetallefactura parametros)
         {
             try
             {
@@ -1247,7 +1247,7 @@ namespace SistemaVentas.Datos
             }
         }
 
-        //Facturas
+        //facturas
         public bool Editarfactura(Lventas parametros)
         {
             try
@@ -1255,7 +1255,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("Editarfactura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idFactura", parametros.idFactura);
+                cmd.Parameters.AddWithValue("@idfactura", parametros.idfactura);
                 cmd.Parameters.AddWithValue("@monto", parametros.Monto_total);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -1279,7 +1279,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("Editarcompra", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCompra", parametros.idFactura);
+                cmd.Parameters.AddWithValue("@idCompra", parametros.idfactura);
                 cmd.Parameters.AddWithValue("@monto", parametros.Monto_total);
                 cmd.ExecuteNonQuery();
                 return true;

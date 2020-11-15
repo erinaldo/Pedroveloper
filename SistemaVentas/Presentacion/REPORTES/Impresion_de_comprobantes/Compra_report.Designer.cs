@@ -218,7 +218,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox41.Style.Font.Name = "Franklin Gothic Medium";
             this.textBox41.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.textBox41.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
-            this.textBox41.Value = "N° DE FACTURA";
+            this.textBox41.Value = "N° DE factura";
             // 
             // textBox44
             // 

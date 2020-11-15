@@ -50,12 +50,12 @@ namespace SistemaVentas.Presentacion.DISEÑADOR_DE_COMPROBANTES
                 if (txttipo == "Ticket No Fiscal")
                 {
                     btnTicket.BackColor = Color.FromArgb(255, 204, 1);
-                    btnFacturaBoleta.BackColor = Color.White;
+                    btnfacturaBoleta.BackColor = Color.White;
                     txtAutorizacion_fiscal.Visible = false;
                 }
                 else
                 {
-                    btnFacturaBoleta.BackColor = Color.FromArgb(255, 204, 1);
+                    btnfacturaBoleta.BackColor = Color.FromArgb(255, 204, 1);
                     btnTicket.BackColor = Color.White;
                     txtAutorizacion_fiscal.Visible = true;
                 }
@@ -86,15 +86,15 @@ namespace SistemaVentas.Presentacion.DISEÑADOR_DE_COMPROBANTES
         {
             txttipo = "Ticket No Fiscal";
             btnTicket.BackColor = Color.FromArgb(255, 204, 1);
-        btnFacturaBoleta.BackColor = Color.White;
+        btnfacturaBoleta.BackColor = Color.White;
             txtAutorizacion_fiscal.Visible = false;
         }
 
-        private void btnFacturaBoleta_Click(object sender, EventArgs e)
+        private void btnfacturaBoleta_Click(object sender, EventArgs e)
         {
-            txttipo = "Factura-Boleta";
+            txttipo = "factura-Boleta";
             btnTicket.BackColor = Color.White;
-            btnFacturaBoleta.BackColor = Color.FromArgb(255, 204, 1);
+            btnfacturaBoleta.BackColor = Color.FromArgb(255, 204, 1);
             txtAutorizacion_fiscal.Visible = true ;
         }
 

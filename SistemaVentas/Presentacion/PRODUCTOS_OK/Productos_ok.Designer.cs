@@ -1031,9 +1031,9 @@
             this.PANELREGISTRO.BackColor = System.Drawing.Color.White;
             this.PANELREGISTRO.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PANELREGISTRO.BackgroundImage")));
             this.PANELREGISTRO.Controls.Add(this.PANELINFOR);
-            this.PANELREGISTRO.Location = new System.Drawing.Point(0, 167);
+            this.PANELREGISTRO.Location = new System.Drawing.Point(6, 102);
             this.PANELREGISTRO.Name = "PANELREGISTRO";
-            this.PANELREGISTRO.Size = new System.Drawing.Size(1259, 628);
+            this.PANELREGISTRO.Size = new System.Drawing.Size(1390, 777);
             this.PANELREGISTRO.TabIndex = 630;
             this.PANELREGISTRO.Paint += new System.Windows.Forms.PaintEventHandler(this.PANELREGISTRO_Paint);
             // 
@@ -1049,7 +1049,7 @@
             this.PANELINFOR.Controls.Add(this.panel30);
             this.PANELINFOR.Location = new System.Drawing.Point(15, 25);
             this.PANELINFOR.Name = "PANELINFOR";
-            this.PANELINFOR.Size = new System.Drawing.Size(1194, 671);
+            this.PANELINFOR.Size = new System.Drawing.Size(1358, 725);
             this.PANELINFOR.TabIndex = 373;
             this.PANELINFOR.Click += new System.EventHandler(this.PANELINFOR_Click);
             this.PANELINFOR.Paint += new System.Windows.Forms.PaintEventHandler(this.PANELINFOR_Paint);
@@ -2058,7 +2058,7 @@
             this.PanelInformacionBasicaATRAS.Controls.Add(this.panelCategoria);
             this.PanelInformacionBasicaATRAS.Location = new System.Drawing.Point(43, 7);
             this.PanelInformacionBasicaATRAS.Name = "PanelInformacionBasicaATRAS";
-            this.PanelInformacionBasicaATRAS.Size = new System.Drawing.Size(1014, 599);
+            this.PanelInformacionBasicaATRAS.Size = new System.Drawing.Size(1284, 644);
             this.PanelInformacionBasicaATRAS.TabIndex = 627;
             this.PanelInformacionBasicaATRAS.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelInformacionBasicaATRAS_Paint);
             // 
@@ -2071,9 +2071,9 @@
             this.panelInformacionBasica.Controls.Add(this.panel213);
             this.panelInformacionBasica.Controls.Add(this.panelPrecios);
             this.panelInformacionBasica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.panelInformacionBasica.Location = new System.Drawing.Point(32, 386);
+            this.panelInformacionBasica.Location = new System.Drawing.Point(32, 144);
             this.panelInformacionBasica.Name = "panelInformacionBasica";
-            this.panelInformacionBasica.Size = new System.Drawing.Size(848, 191);
+            this.panelInformacionBasica.Size = new System.Drawing.Size(967, 497);
             this.panelInformacionBasica.TabIndex = 372;
             this.panelInformacionBasica.Click += new System.EventHandler(this.panelInformacionBasica_Click);
             this.panelInformacionBasica.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInformacionBasica_Paint);
@@ -2099,7 +2099,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 245);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(848, 147);
+            this.panel12.Size = new System.Drawing.Size(967, 147);
             this.panel12.TabIndex = 624;
             // 
             // label5
@@ -2276,7 +2276,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 244);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(848, 1);
+            this.panel11.Size = new System.Drawing.Size(967, 1);
             this.panel11.TabIndex = 623;
             // 
             // panel8
@@ -2286,7 +2286,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 215);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(848, 29);
+            this.panel8.Size = new System.Drawing.Size(967, 29);
             this.panel8.TabIndex = 621;
             // 
             // panel10
@@ -2295,7 +2295,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(848, 29);
+            this.panel10.Size = new System.Drawing.Size(967, 29);
             this.panel10.TabIndex = 622;
             // 
             // label17
@@ -2342,7 +2342,7 @@
             this.panel213.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel213.Location = new System.Drawing.Point(0, 0);
             this.panel213.Name = "panel213";
-            this.panel213.Size = new System.Drawing.Size(848, 215);
+            this.panel213.Size = new System.Drawing.Size(967, 215);
             this.panel213.TabIndex = 620;
             // 
             // datalistadoImpuestos
@@ -2386,7 +2386,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(848, 1);
+            this.panel2.Size = new System.Drawing.Size(967, 1);
             this.panel2.TabIndex = 625;
             // 
             // panel14
@@ -2396,7 +2396,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(0, 0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(848, 29);
+            this.panel14.Size = new System.Drawing.Size(967, 29);
             this.panel14.TabIndex = 624;
             // 
             // label68
@@ -2660,9 +2660,9 @@
             this.panelPrecios.Controls.Add(this.label28);
             this.panelPrecios.Controls.Add(this.txtPorcentajeGanancia2);
             this.panelPrecios.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelPrecios.Location = new System.Drawing.Point(0, -13);
+            this.panelPrecios.Location = new System.Drawing.Point(0, 293);
             this.panelPrecios.Name = "panelPrecios";
-            this.panelPrecios.Size = new System.Drawing.Size(848, 204);
+            this.panelPrecios.Size = new System.Drawing.Size(967, 204);
             this.panelPrecios.TabIndex = 642;
             // 
             // txtUnidadMayoreo4
@@ -4312,16 +4312,16 @@
             this.panel42.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel42.Location = new System.Drawing.Point(33, 0);
             this.panel42.Name = "panel42";
-            this.panel42.Size = new System.Drawing.Size(1, 612);
+            this.panel42.Size = new System.Drawing.Size(1, 666);
             this.panel42.TabIndex = 377;
             // 
             // panel41
             // 
             this.panel41.BackColor = System.Drawing.Color.Black;
             this.panel41.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel41.Location = new System.Drawing.Point(33, 612);
+            this.panel41.Location = new System.Drawing.Point(33, 666);
             this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(1161, 1);
+            this.panel41.Size = new System.Drawing.Size(1325, 1);
             this.panel41.TabIndex = 376;
             // 
             // panel5
@@ -4330,9 +4330,9 @@
             this.panel5.Controls.Add(this.btnCancelarRegistro);
             this.panel5.Controls.Add(this.btnGuardarInformacionBasica);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(33, 613);
+            this.panel5.Location = new System.Drawing.Point(33, 667);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1161, 58);
+            this.panel5.Size = new System.Drawing.Size(1325, 58);
             this.panel5.TabIndex = 373;
             // 
             // btnGuardarCambiosInformacionBasica
@@ -4404,7 +4404,7 @@
             this.panel30.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel30.Location = new System.Drawing.Point(0, 0);
             this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(33, 671);
+            this.panel30.Size = new System.Drawing.Size(33, 725);
             this.panel30.TabIndex = 0;
             // 
             // pictureBox10

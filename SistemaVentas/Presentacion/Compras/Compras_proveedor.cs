@@ -1627,7 +1627,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
         {
             if (datalistadoDetalleVenta.Rows.Count > 0)
             {
-                LdetalleFactura parametros = new LdetalleFactura();
+                Ldetallefactura parametros = new Ldetallefactura();
                 Editar_datos funcion = new Editar_datos();
                 parametros.Id_producto = idproducto;
                 parametros.iddetalle_factura = iddetalleventa;
@@ -1656,7 +1656,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 if (!string.IsNullOrEmpty(txtmonto.Text))
                 {
 
-                    LdetalleFactura parametros = new LdetalleFactura();
+                    Ldetallefactura parametros = new Ldetallefactura();
                     Editar_datos funcion = new Editar_datos();
 
                     parametros.iddetalle_factura = iddetalleventa;
@@ -1689,11 +1689,11 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 {
                     if ((Convert.ToInt32(txtmonto.Text) < precio))
                     {
-                        LdetalleFactura parametros = new LdetalleFactura();
+                        Ldetallefactura parametros = new Ldetallefactura();
                         Editar_datos funcion = new Editar_datos();
                         parametros.iddetalle_factura = iddetalleventa;
                         parametros.Descuento = Convert.ToDouble(txtmonto.Text);
-                        if (funcion.editarDescuentoFactura(parametros) == true)
+                        if (funcion.editarDescuentofactura(parametros) == true)
                         {
                             Listarproductosagregados();
                         }
@@ -2003,11 +2003,11 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 {
                     if ((Convert.ToDouble(txtmonto.Text) < 0.19))
                     {
-                        LdetalleFactura parametros = new LdetalleFactura();
+                        Ldetallefactura parametros = new Ldetallefactura();
                         Editar_datos funcion = new Editar_datos();
                         parametros.iddetalle_compra = iddetalleventa;
                         parametros.Itbis = Convert.ToDouble(txtmonto.Text);
-                        if (funcion.editarImpuestosFactura(parametros) == true)
+                        if (funcion.editarImpuestosfactura(parametros) == true)
                         {
                             Listarproductosagregados();
                         }

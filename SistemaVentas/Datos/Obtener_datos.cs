@@ -415,14 +415,14 @@ namespace SistemaVentas.Datos
                 return true;
             }
         }
-        public bool Mostrar_ticket_impresos(ref DataTable dt,int idFactura, string total_en_letras2)
+        public bool Mostrar_ticket_impresos(ref DataTable dt,int idfactura, string total_en_letras2)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("Mostrar_ticket_impreso", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idFactura);
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idfactura);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", total_en_letras2);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
@@ -658,7 +658,7 @@ namespace SistemaVentas.Datos
 
             }
         }
-        public static void mostrar_productos_agregados_a_ventas_en_espera(ref DataTable dt, int idFactura)
+        public static void mostrar_productos_agregados_a_ventas_en_espera(ref DataTable dt, int idfactura)
         {
 
             try
@@ -666,7 +666,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_facturas_en_espera", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idFactura", idFactura);
+                da.SelectCommand.Parameters.AddWithValue("@idfactura", idfactura);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -676,7 +676,7 @@ namespace SistemaVentas.Datos
 
             }
         }
-        public static void mostrar_productos_agregados_a_compras_en_espera(ref DataTable dt, int idFactura)
+        public static void mostrar_productos_agregados_a_compras_en_espera(ref DataTable dt, int idfactura)
         {
 
             try
@@ -684,7 +684,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_compras_en_espera", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idCompra", idFactura);
+                da.SelectCommand.Parameters.AddWithValue("@idCompra", idfactura);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -694,7 +694,7 @@ namespace SistemaVentas.Datos
 
             }
         }
-        public static void mostrar_productos_agregados_a_cotizaciones_en_espera(ref DataTable dt, int idFactura)
+        public static void mostrar_productos_agregados_a_cotizaciones_en_espera(ref DataTable dt, int idfactura)
         {
 
             try
@@ -702,7 +702,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_cotizaciones_en_espera", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idFactura", idFactura);
+                da.SelectCommand.Parameters.AddWithValue("@idfactura", idfactura);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1326,13 +1326,13 @@ namespace SistemaVentas.Datos
         }
 
      
-        //Facturas
+        //facturas
         public static void mostrarVentasGrafica(ref DataTable dt)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrarFacturasGrafica", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrarfacturasGrafica", CONEXIONMAESTRA.conectar);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1346,7 +1346,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("mostrarFacturasGraficaFechas", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("mostrarfacturasGraficaFechas", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@fi", fi);
                 da.SelectCommand.Parameters.AddWithValue("@ff", ff);
@@ -1364,7 +1364,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("ReporteTotalFacturas", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("ReporteTotalfacturas", CONEXIONMAESTRA.conectar);
                 Monto = Convert.ToDouble(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
 
@@ -1379,7 +1379,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand  da = new SqlCommand("ReporteTotalFacturasFechas", CONEXIONMAESTRA.conectar);
+                SqlCommand  da = new SqlCommand("ReporteTotalfacturasFechas", CONEXIONMAESTRA.conectar);
                 da.CommandType = CommandType.StoredProcedure;
                 da.Parameters.AddWithValue("@fi", fi);
                 da.Parameters.AddWithValue("@ff", ff);
@@ -1398,7 +1398,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("BuscarFacturas", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("Buscarfacturas", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@busqueda", buscador);
                 da.Fill(dt);
@@ -1432,7 +1432,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("buscarFacturasPorFechas", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("buscarfacturasPorFechas", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@fi", fi);
                 da.SelectCommand.Parameters.AddWithValue("@ff", ff);
@@ -1470,7 +1470,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand da = new SqlCommand("contarFacturasEspera", CONEXIONMAESTRA.conectar);
+                SqlCommand da = new SqlCommand("contarfacturasEspera", CONEXIONMAESTRA.conectar);
                 Contador = Convert.ToInt32 ( da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1502,7 +1502,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenFacturasHoy", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("ReporteResumenfacturasHoy", CONEXIONMAESTRA.conectar);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1566,7 +1566,7 @@ namespace SistemaVentas.Datos
             }
         }
 
-        //Detalle Facturas
+        //Detalle facturas
         public static void ReporteGanancias(ref double Monto)
         {
             try
@@ -1601,14 +1601,14 @@ namespace SistemaVentas.Datos
                 Monto = 0;
             }
         }
-        public static void MostrarDetalleVenta(ref DataTable dt, int idFactura)
+        public static void MostrarDetalleVenta(ref DataTable dt, int idfactura)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_factura", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idFactura", idFactura );
+                da.SelectCommand.Parameters.AddWithValue("@idfactura", idfactura );
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1618,14 +1618,14 @@ namespace SistemaVentas.Datos
                 MessageBox.Show(ex.StackTrace);
             }
         }
-        public static void MostrarDetalleCompra (ref DataTable dt, int idFactura)
+        public static void MostrarDetalleCompra (ref DataTable dt, int idfactura)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("Mostrar_productos_agregados_a_compra", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idCompra", idFactura);
+                da.SelectCommand.Parameters.AddWithValue("@idCompra", idfactura);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1894,14 +1894,14 @@ namespace SistemaVentas.Datos
         }
 
         //Tickets
-        public static void mostrar_ticket_impreso(ref DataTable dt,int idFactura,string TotalLetras)
+        public static void mostrar_ticket_impreso(ref DataTable dt,int idfactura,string TotalLetras)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_ticket_impreso", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idFactura);
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idfactura);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", TotalLetras);
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();

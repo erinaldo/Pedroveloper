@@ -501,6 +501,7 @@ namespace SistemaVentas.Datos
                 cmd.Parameters.AddWithValue("@PrecioCompra", productos.Preciodecompra);
                 cmd.Parameters.AddWithValue("@Stock", productos.Stock);
                 cmd.Parameters.AddWithValue("@idImpuesto", productos.idImpuesto);
+                cmd.Parameters.AddWithValue("@idPrecios", productos.idPrecios);
                 cmd.Parameters.AddWithValue("@idDescuento", productos.idDescuento);
 
                 //Kardex
@@ -986,7 +987,7 @@ namespace SistemaVentas.Datos
                 SqlCommand cmd = new SqlCommand("insertar_pedido", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idCliente", parametros.idCliente);
-                cmd.Parameters.AddWithValue("@idFactura", parametros.idFactura);
+                cmd.Parameters.AddWithValue("@idfactura", parametros.idfactura);
                 cmd.Parameters.AddWithValue("@idEmpleado", parametros.idEmpleado);
                 cmd.Parameters.AddWithValue("@idVehiculo", parametros.idVehiculo);
                 cmd.Parameters.AddWithValue("@FechaEnvio", parametros.FechaEnvio);

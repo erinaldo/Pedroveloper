@@ -1303,9 +1303,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
 
-                da = new SqlDataAdapter("mostrarUnidades", con);
+                da = new SqlDataAdapter("mostrarUnidades2", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@buscar", txtUnidadCompra.Text);
+                da.SelectCommand.Parameters.AddWithValue("@letra", txtUnidadCompra.Text);
                 da.Fill(dt);
                 con.Close();
                 datalistadoUnidadCompra.DataSource = dt;
@@ -1368,9 +1368,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
 
-                da = new SqlDataAdapter("mostrarUnidades", con);
+                da = new SqlDataAdapter("mostrarUnidades2", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@buscar", txtUnidadVenta.Text);
+                da.SelectCommand.Parameters.AddWithValue("@letra", txtUnidadVenta.Text);
                 da.Fill(dt);
                 con.Close();
                 datalistadoUnidadVenta.DataSource = dt;
@@ -1448,7 +1448,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrarImpuestoGeneral", con);
+                da = new SqlDataAdapter("mostrarImpuestoGeneralProductos", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 con.Close();
@@ -1511,22 +1511,14 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
         }
 
-        private void timerCalcularItbis_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TXTPRECIODEVENTA2_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private void chkImpuestos_CheckedChanged(object sender, EventArgs e)
         {
             ObtenerImpuestos();
             if (chkImpuestos.Checked == false)
             {
                 txtPrecioCompraImpuestos.Text = txtPrecioCompra.Text;
+
+
             }
             else if(chkImpuestos.Checked == true)
             {
@@ -1898,81 +1890,73 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 insertarProductos();
             }
         }
-
-        private void insertarProductos()
+        private void ObteneridPrecio()
         {
-            if (idDescuento == 0 || idUnidadCompra == 0 || idUnidadVenta == 0) { 
-                MessageBox.Show("ASD");
-        }
-            UnidadesProductos parametros = new UnidadesProductos();
-            LKardex kardex = new LKardex();
-            Lproductos lproductos = new Lproductos();
-            Insertar_datos insertar = new Insertar_datos();
-
-            lproductos.idCategoria = idCategoria;   
-            
-            lproductos.Codigo = txtcodigodebarras.Text;
-            lproductos.Descripcion = txtdescripcion.Text;
-            lproductos.Stock = Convert.ToDouble(txtStock.Text);
-            lproductos.Preciodecompra = Convert.ToDouble(txtPrecioCompraImpuestos.Text);
-            lproductos.idImpuesto = 1;
-            lproductos.idDescuento = idDescuento;
-            
-            kardex.Fecha = DateTime.Today;
-            kardex.Motivo = "Registro inicial de Producto";
-            kardex.Cantidad = Convert.ToDouble(txtStock.Text);
-            kardex.Id_usuario = idusuario;
-            kardex.Id_caja = idcaja;
-            kardex.Tipo = "ENTRADA";
-            kardex.Estado = "CONFIRMADO";
-            kardex.Id_caja = idcaja;
-
-            parametros.idUnidadVenta = idUnidadVenta;
-            parametros.idUnidadCompra = idUnidadCompra;
-
-            if(insertar.insertarProducto(lproductos, kardex, parametros) == true)
-            {
-                PANELREGISTRO.Visible = false;
-                mostrarProductos();
-            }
-
-        }
-
-
-     /*   private void buscar()
-        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+            SqlCommand com = new SqlCommand("SELECT idPrecios FROM ListaPrecios WHERE idPrecios = (SELECT Max(idPrecios) FROM ListaPrecios)", con);
             try
             {
-                DataTable dt = new DataTable();
-                SqlDataAdapter da;
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-
-                da = new SqlDataAdapter("buscar_producto_por_descripcion", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@letra", txtbusca.Text);
-                da.Fill(dt);
-                datalistado.DataSource = dt;
+                idPrecios = Convert.ToInt32(com.ExecuteScalar());
                 con.Close();
-
-                datalistado.Columns[2].Visible = false;
-                datalistado.Columns[7].Visible = false;
-                datalistado.Columns[10].Visible = false;
-                datalistado.Columns[15].Visible = false;
-                datalistado.Columns[16].Visible = false;
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+
+        private void insertarProductos()
+        {
+            if (idDescuento == 0 || idUnidadCompra == 0 || idUnidadVenta == 0 || idImpuestoAgregar == 0) {
 
             }
-     
-            Bases.Multilinea(ref datalistado);
-            sumar_costo_de_inventario_CONTAR_PRODUCTOS();
+            
+            
+                Lproductos lproductos = new Lproductos();
+                if (chkImpuestos.Checked == true)
+                {
+                    lproductos.idImpuesto = 1;
+                }
+                else
+                {
+                    lproductos.idImpuesto = 2;
+                }
+                UnidadesProductos parametros = new UnidadesProductos();
+                    LKardex kardex = new LKardex();
+                    Insertar_datos insertar = new Insertar_datos();
+
+                    lproductos.idCategoria = idCategoria;
+
+                    lproductos.Codigo = txtcodigodebarras.Text;
+                    lproductos.Descripcion = txtdescripcion.Text;
+                    lproductos.Stock = Convert.ToDouble(txtStock.Text);
+                    lproductos.Preciodecompra = Convert.ToDouble(txtPrecioCompraImpuestos.Text);
+                    lproductos.idDescuento = idDescuento;
+                    ObteneridPrecio();
+                    lproductos.idPrecios = idPrecios;
+
+                    kardex.Fecha = DateTime.Today;
+                    kardex.Motivo = "Registro inicial de Producto";
+                    kardex.Cantidad = Convert.ToDouble(txtStock.Text);
+                    kardex.Id_usuario = idusuario;
+                    kardex.Id_caja = idcaja;
+                    kardex.Tipo = "ENTRADA";
+                    kardex.Estado = "CONFIRMADO";
+                    kardex.Id_caja = idcaja;
+
+                    parametros.idUnidadVenta = idUnidadVenta;
+                    parametros.idUnidadCompra = idUnidadCompra;
+
+                    if (insertar.insertarProducto(lproductos, kardex, parametros) == true)
+                    {
+                        PANELREGISTRO.Visible = false;
+                        mostrarProductos();
+                    }
+            
         }
-     */
+
         private void mostrarProductos()
         {
             try
@@ -2316,6 +2300,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         int idProductoSelect;
         private int idAlmacenSelect;
         private int idDescuento;
+        private int idPrecios;
 
         private void btnUltimosPreciosCompraAgregar_Click(object sender, EventArgs e)
         {
@@ -2763,6 +2748,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelDescuentoBasico.Visible = false;
 
         }
+
+
     }
 }
  

@@ -2754,7 +2754,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[detalle_factura](
 	[iddetalle_factura] [int] IDENTITY(1,1) NOT NULL,
-	[idFactura] [int] NULL,
+	[idfactura] [int] NULL,
 	[Id_producto] [int] NULL,
 	[cantidad] [numeric](18, 2) NULL,
 	[preciounitario] [numeric](18, 2) NULL,
@@ -2907,7 +2907,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[facturas](
-	[idFactura] [int] IDENTITY(1,1) NOT NULL,
+	[idfactura] [int] IDENTITY(1,1) NOT NULL,
 	[idclientev] [int] NULL,
 	[fecha_factura] [datetime] NULL,
 	[Numero_de_doc] [varchar](50) NULL,
@@ -2928,7 +2928,7 @@ CREATE TABLE [dbo].[facturas](
 	[Tarjeta] [numeric](18, 2) NULL,
  CONSTRAINT [PK_facturas] PRIMARY KEY CLUSTERED 
 (
-	[idFactura] ASC
+	[idfactura] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -3206,7 +3206,7 @@ GO
 CREATE TABLE [dbo].[Pedidos](
 	[idPedido] [int] IDENTITY(1,1) NOT NULL,
 	[idCliente] [int] NOT NULL,
-	[idFactura] [int] NOT NULL,
+	[idfactura] [int] NOT NULL,
 	[idEmpleado] [int] NOT NULL,
 	[idVehiculo] [int] NOT NULL,
 	[FechaEnvio] [datetime] NOT NULL,
@@ -3617,8 +3617,8 @@ REFERENCES [dbo].[Producto] ([idProducto])
 GO
 ALTER TABLE [dbo].[detalle_compra] CHECK CONSTRAINT [FK_detalle_compra_Producto1]
 GO
-ALTER TABLE [dbo].[detalle_factura]  WITH CHECK ADD  CONSTRAINT [FK_detalle_factura_facturas] FOREIGN KEY([idFactura])
-REFERENCES [dbo].[facturas] ([idFactura])
+ALTER TABLE [dbo].[detalle_factura]  WITH CHECK ADD  CONSTRAINT [FK_detalle_factura_facturas] FOREIGN KEY([idfactura])
+REFERENCES [dbo].[facturas] ([idfactura])
 ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[detalle_factura] CHECK CONSTRAINT [FK_detalle_factura_facturas]
@@ -3775,8 +3775,8 @@ REFERENCES [dbo].[Empleados] ([idEmpleado])
 GO
 ALTER TABLE [dbo].[Pedidos] CHECK CONSTRAINT [FK_Pedidos_Empleados]
 GO
-ALTER TABLE [dbo].[Pedidos]  WITH CHECK ADD  CONSTRAINT [FK_Pedidos_facturas] FOREIGN KEY([idFactura])
-REFERENCES [dbo].[facturas] ([idFactura])
+ALTER TABLE [dbo].[Pedidos]  WITH CHECK ADD  CONSTRAINT [FK_Pedidos_facturas] FOREIGN KEY([idfactura])
+REFERENCES [dbo].[facturas] ([idfactura])
 GO
 ALTER TABLE [dbo].[Pedidos] CHECK CONSTRAINT [FK_Pedidos_facturas]
 GO
@@ -4434,7 +4434,7 @@ AS
                + dbo.Serializacion.numerofin ) AS serie_completa
       FROM   dbo.Serializacion
       WHERE  Serializacion.tipodoc = @letra
-             AND dbo.Serializacion .Destino = 'FACTURAS'
+             AND dbo.Serializacion .Destino = 'facturaS'
   END
 
 GO
@@ -4480,7 +4480,7 @@ AS
                + dbo.Serializacion.numerofin ) AS serie_completa
       FROM   dbo.Serializacion
       WHERE  Serializacion.tipodoc = @letra
-             AND dbo.Serializacion .Destino = 'FACTURAS'
+             AND dbo.Serializacion .Destino = 'facturaS'
   END
 
 GO
@@ -4714,14 +4714,14 @@ AS
     WHERE  p.nombre + p.apellido LIKE '%' + @letra + '%'
 
 GO
-/****** Object:  StoredProcedure [dbo].[BuscarFacturas]    Script Date: 15/11/2020 08:32:55:AM ******/
+/****** Object:  StoredProcedure [dbo].[Buscarfacturas]    Script Date: 15/11/2020 08:32:55:AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROC [dbo].[BuscarFacturas] @busqueda VARCHAR(50)
+CREATE PROC [dbo].[Buscarfacturas] @busqueda VARCHAR(50)
 AS
-    SELECT Fact.idFactura,
+    SELECT Fact.idfactura,
            Fact.fecha_factura                         AS Fecha,
            ( Fact.Comprobante + ' '
              + Fact.Numero_de_doc )                     AS Comprobante,
@@ -4757,7 +4757,7 @@ GO
 CREATE PROC [dbo].[Buscarfacturasporfechas] @fi DATE,
                                           @ff DATE
 AS
-    SELECT dbo.facturas.idFactura,
+    SELECT dbo.facturas.idfactura,
            dbo.facturas.fecha_factura                         AS Fecha,
            ( dbo.facturas.Comprobante + ' '
              + facturas.Numero_de_doc )                     AS Comprobante,
@@ -4892,11 +4892,11 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROC [dbo].[Cambio_de_caja] @idcaja    INT,
-                                   @idFactura INT
+                                   @idfactura INT
 AS
     UPDATE facturas
     SET    Id_caja = @idcaja
-    WHERE  idFactura = @idFactura
+    WHERE  idfactura = @idfactura
 
 GO
 /****** Object:  StoredProcedure [dbo].[cambio_de_CajaCompra]    Script Date: 15/11/2020 08:32:55:AM ******/
@@ -4905,11 +4905,11 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 create PROC [dbo].[cambio_de_CajaCompra] @idcaja    INT,
-                                   @idFactura INT
+                                   @idfactura INT
 AS
     UPDATE compras
     SET    Id_caja = @idcaja
-    WHERE  idCompra = @idFactura
+    WHERE  idCompra = @idfactura
 
 GO
 /****** Object:  StoredProcedure [dbo].[cambio_de_Cajacotizacion]    Script Date: 15/11/2020 08:32:55:AM ******/
@@ -4918,11 +4918,11 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 create PROC [dbo].[cambio_de_Cajacotizacion] @idcaja    INT,
-                                   @idFactura INT
+                                   @idfactura INT
 AS
     UPDATE Cotizacion
     SET    Id_caja = @idcaja
-    WHERE  idCotizacion = @idFactura
+    WHERE  idCotizacion = @idfactura
 
 GO
 /****** Object:  StoredProcedure [dbo].[Cerrarcaja]    Script Date: 15/11/2020 08:32:55:AM ******/
@@ -5066,7 +5066,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[Confirmar_factura] @idFactura          INT,
+CREATE PROCEDURE [dbo].[Confirmar_factura] @idfactura          INT,
                                          @montototal         AS NUMERIC(18, 2),
                                          @Saldo              NUMERIC(18, 2),
                                          @Tipo_de_pago       VARCHAR(50),
@@ -5108,7 +5108,7 @@ AS
                    Efectivo = @Efectivo,
                    Credito = @Credito,
                    Tarjeta = @Tarjeta
-            WHERE  idFactura = @idFactura
+            WHERE  idfactura = @idfactura
         END
   END
 
@@ -5150,10 +5150,10 @@ GO
 
 CREATE PROC [dbo].[Contarcotizacionesespera]
 AS
-    SELECT Count (idFactura)
+    SELECT Count (idfactura)
     FROM   facturas
     WHERE  Estado = 'EN ESPERA'
-           AND ACCION &lt;&gt; 'FACTURA'
+           AND ACCION &lt;&gt; 'factura'
 GO
 /****** Object:  StoredProcedure [dbo].[Contarfacturasespera]    Script Date: 15/11/2020 08:32:55:AM ******/
 SET ANSI_NULLS ON
@@ -5163,7 +5163,7 @@ GO
 
 CREATE PROC [dbo].[Contarfacturasespera]
 AS
-    SELECT Count (idFactura)
+    SELECT Count (idfactura)
     FROM   facturas
     WHERE  Estado = 'EN ESPERA'
            AND ACCION &lt;&gt; 'COTIZACION'
@@ -5533,23 +5533,23 @@ AS
       SET    cantidad = @cantidad,
              Cantidad_mostrada = @Cantidad_mostrada
       WHERE  detalle_factura.Id_producto = @Id_producto
-             AND detalle_factura.idFactura = @Id_factura
+             AND detalle_factura.idfactura = @Id_factura
   END
 
   BEGIN
       IF EXISTS(SELECT Descripcion,
                        cantidad,
                        Id_producto,
-                       idFactura
+                       idfactura
                 FROM   detalle_factura
                 WHERE  cantidad &gt;= @APARTIR_DE
                        AND detalle_factura.Id_producto = @Id_producto
-                       AND detalle_factura.idFactura = @Id_factura
+                       AND detalle_factura.idfactura = @Id_factura
                        AND detalle_factura.Codigo &lt;&gt; '0')
         UPDATE detalle_factura
         SET    preciounitario = @Precio_pormayor
         WHERE  detalle_factura.Id_producto = @Id_producto
-               AND detalle_factura.idFactura = @Id_factura
+               AND detalle_factura.idfactura = @Id_factura
                AND @Precio_pormayor &gt; 0
                AND @APARTIR_DE &gt; 0
   END
@@ -5559,23 +5559,23 @@ AS
                 FROM   detalle_factura
                 WHERE  cantidad &lt; @APARTIR_DE
                        AND detalle_factura.Id_producto = @Id_producto
-                       AND detalle_factura.idFactura = @Id_factura
+                       AND detalle_factura.idfactura = @Id_factura
                        AND detalle_factura.Codigo &lt;&gt; '0')
         UPDATE detalle_factura
         SET    preciounitario = @Precio_normal
         WHERE  detalle_factura.Id_producto = @Id_producto
-               AND detalle_factura.idFactura = @Id_factura
+               AND detalle_factura.idfactura = @Id_factura
   END
 
   BEGIN
       IF EXISTS(SELECT cantidad
                 FROM   detalle_factura
-                WHERE  detalle_factura .idFactura = @Id_factura
+                WHERE  detalle_factura .idfactura = @Id_factura
                        AND detalle_factura.Codigo = '0')
         UPDATE detalle_factura
         SET    Codigo = 0
         WHERE  detalle_factura.Codigo = '0'
-               AND detalle_factura.idFactura = @Id_factura
+               AND detalle_factura.idfactura = @Id_factura
   END
 
 GO
@@ -5594,24 +5594,24 @@ AS
       UPDATE detalle_factura
       SET    cantidad = cantidad - @cantidad
       WHERE  detalle_factura.Id_producto = @Id_producto
-             AND detalle_factura.idFactura = @Id_factura
+             AND detalle_factura.idfactura = @Id_factura
   END
 
   BEGIN
       DELETE FROM detalle_factura
-      WHERE  detalle_factura.idFactura = @Id_factura
+      WHERE  detalle_factura.idfactura = @Id_factura
              AND cantidad &lt;= 0
   END
 
   BEGIN
       IF EXISTS(SELECT cantidad
                 FROM   detalle_factura
-                WHERE  detalle_factura .idFactura = @Id_factura
+                WHERE  detalle_factura .idfactura = @Id_factura
                        AND detalle_factura.Codigo = '0')
         UPDATE detalle_factura
         SET    Codigo = 0
         WHERE  detalle_factura.Codigo = '0'
-               AND detalle_factura.idFactura = @Id_factura
+               AND detalle_factura.idfactura = @Id_factura
   END
 
 GO
@@ -5629,18 +5629,18 @@ AS
       UPDATE detalle_factura
       SET    cantidad = cantidad + @cantidad
       WHERE  detalle_factura.Id_producto = @Id_producto
-             AND detalle_factura.idFactura = @Id_factura
+             AND detalle_factura.idfactura = @Id_factura
   END
 
   BEGIN
       IF EXISTS(SELECT cantidad
                 FROM   detalle_factura
-                WHERE  detalle_factura .idFactura = @Id_factura
+                WHERE  detalle_factura .idfactura = @Id_factura
                        AND detalle_factura.Codigo = '0')
         UPDATE detalle_factura
         SET    Codigo = 0
         WHERE  detalle_factura.Codigo = '0'
-               AND detalle_factura.idFactura = @Id_factura
+               AND detalle_factura.idfactura = @Id_factura
   END
 
 GO
@@ -6110,12 +6110,12 @@ AS
     WHERE  iddetalle_compra = @iddetallecompra
 
 GO
-/****** Object:  StoredProcedure [dbo].[editarDescuentoFactura]    Script Date: 15/11/2020 08:32:55:AM ******/
+/****** Object:  StoredProcedure [dbo].[editarDescuentofactura]    Script Date: 15/11/2020 08:32:55:AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create PROC [dbo].[editarDescuentoFactura]
+create PROC [dbo].[editarDescuentofactura]
 @iddetallefactura INT,                          
 @Descuento        NUMERIC(18, 2)
 AS
@@ -6185,16 +6185,16 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROC [dbo].[Editarfactura] @idFactura INT,
+CREATE PROC [dbo].[Editarfactura] @idfactura INT,
                                 @monto     NUMERIC(18, 2)
 AS
     IF @monto &lt;&gt; 0
       UPDATE facturas
       SET    Monto_total = @monto
-      WHERE  idFactura = @idFactura
+      WHERE  idfactura = @idfactura
     ELSE
       DELETE FROM facturas
-      WHERE  idFactura = @idFactura
+      WHERE  idfactura = @idfactura
 
 GO
 /****** Object:  StoredProcedure [dbo].[Editarhorario]    Script Date: 15/11/2020 08:32:55:AM ******/
@@ -6232,12 +6232,12 @@ AS
     WHERE  idImpuesto = @idImpuesto
 
 GO
-/****** Object:  StoredProcedure [dbo].[editarItbisFactura]    Script Date: 15/11/2020 08:32:55:AM ******/
+/****** Object:  StoredProcedure [dbo].[editarItbisfactura]    Script Date: 15/11/2020 08:32:55:AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROC [dbo].[editarItbisFactura]
+CREATE PROC [dbo].[editarItbisfactura]
 @iddetallefactura INT,                          
 @Itbis        NUMERIC(18, 2)
 AS
@@ -6631,10 +6631,10 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROC [dbo].[Eliminar_factura] @idFactura AS INTEGER
+CREATE PROC [dbo].[Eliminar_factura] @idfactura AS INTEGER
 AS
     DELETE FROM facturas
-    WHERE  idFactura = @idFactura
+    WHERE  idfactura = @idfactura
 
 GO
 /****** Object:  StoredProcedure [dbo].[Eliminar_gasto]    Script Date: 15/11/2020 08:32:55:AM ******/
@@ -6864,13 +6864,13 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-create PROC [dbo].[Ingresar_nombre_a_compra_en_espera] @idFactura INT,
+create PROC [dbo].[Ingresar_nombre_a_compra_en_espera] @idfactura INT,
                                                       @nombre    VARCHAR(50)
 AS
     UPDATE compras
     SET    Comprobante = @nombre,
            Estado = 'EN ESPERA'
-    WHERE  idCompra = @idFactura
+    WHERE  idCompra = @idfactura
 
 GO
 /****** Object:  StoredProcedure [dbo].[Ingresar_nombre_a_factura_en_espera]    Script Date: 15/11/2020 08:32:55:AM ******/
@@ -6879,13 +6879,13 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROC [dbo].[Ingresar_nombre_a_factura_en_espera] @idFactura INT,
+CREATE PROC [dbo].[Ingresar_nombre_a_factura_en_espera] @idfactura INT,
                                                       @nombre    VARCHAR(50)
 AS
     UPDATE facturas
     SET    Comprobante = @nombre,
            Estado = 'EN ESPERA'
-    WHERE  idFactura = @idFactura
+    WHERE  idfactura = @idfactura
 
 GO
 /****** Object:  StoredProcedure [dbo].[Insertar_caja]    Script Date: 15/11/2020 08:32:55:AM ******/
@@ -6989,7 +6989,7 @@ AS
     DECLARE @TotalPagado NUMERIC(18, 2)
     DECLARE @id_numero VARCHAR(50)
     SET @vuelto =0
-    SET @id_numero= (SELECT Max(idFactura) + 1
+    SET @id_numero= (SELECT Max(idfactura) + 1
                      FROM   facturas)
     INSERT INTO compras
     VALUES      (@idProveedor,
@@ -7320,7 +7320,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROC [dbo].[Insertar_detalle_factura] @idFactura                  AS INTEGER,
+CREATE PROC [dbo].[Insertar_detalle_factura] @idfactura                  AS INTEGER,
                                            @Id_presentacionfraccionada AS INT,
                                            @cantidad                   AS NUMERIC(18, 2),
                                            @preciounitario             AS NUMERIC(18, 2),
@@ -7338,12 +7338,12 @@ AS
   BEGIN
 						Set @cantidad = @cantidad / 2
       IF EXISTS (SELECT Id_producto,
-                        idFactura
+                        idfactura
                  FROM   detalle_factura
                         INNER JOIN Producto
                                 ON Producto.idProducto = detalle_factura.Id_producto
                  WHERE  Producto.idProducto = @Id_presentacionfraccionada
-                        AND idFactura = @idFactura)
+                        AND idfactura = @idfactura)
 
         UPDATE detalle_factura
         SET    cantidad = cantidad + @cantidad
@@ -7351,7 +7351,7 @@ AS
       ELSE
         BEGIN
             INSERT INTO detalle_factura
-            VALUES      (@idFactura,
+            VALUES      (@idfactura,
                          @Id_presentacionfraccionada,
                          @cantidad,
                          @preciounitario,
@@ -7374,7 +7374,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create PROC [dbo].[Insertar_detalle_factura2] @idFactura                  AS INTEGER,
+create PROC [dbo].[Insertar_detalle_factura2] @idfactura                  AS INTEGER,
                                            @Id_presentacionfraccionada AS INT,
                                            @cantidad                   AS NUMERIC(18, 2),
                                            @preciounitario             AS NUMERIC(18, 2),
@@ -7391,12 +7391,12 @@ create PROC [dbo].[Insertar_detalle_factura2] @idFactura                  AS INT
 AS
   BEGIN
       IF EXISTS (SELECT Id_producto,
-                        idFactura
+                        idfactura
                  FROM   detalle_factura
                         INNER JOIN Producto
                                 ON Producto.idProducto = detalle_factura.Id_producto
                  WHERE  Producto.idProducto = @Id_presentacionfraccionada
-                        AND idFactura = @idFactura)
+                        AND idfactura = @idfactura)
 
         UPDATE detalle_factura
         SET    cantidad = cantidad + @cantidad
@@ -7404,7 +7404,7 @@ AS
       ELSE
         BEGIN
             INSERT INTO detalle_factura
-            VALUES      (@idFactura,
+            VALUES      (@idfactura,
                          @Id_presentacionfraccionada,
                          @cantidad,
                          @preciounitario,
@@ -7525,7 +7525,7 @@ AS
 
     SET @vuelto =0
     SET @Efectivo =0
-    SET @id_numero= (SELECT Max(idFactura) + 1
+    SET @id_numero= (SELECT Max(idfactura) + 1
                      FROM   facturas)
     SET @Credito =0
     SET @Tarjeta =0
@@ -7785,7 +7785,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE PROC [dbo].[Insertar_pedido] @idcliente             INT,
-                                    @idFactura             INT,
+                                    @idfactura             INT,
                                     @idEmpleado            INT,
                                     @idVehiculo            INT,
                                     @FechaEnvio            DATETIME,
@@ -7793,14 +7793,14 @@ CREATE PROC [dbo].[Insertar_pedido] @idcliente             INT,
                                     @DireccionDestinatario VARCHAR(50),
                                     @Estado                VARCHAR(50)
 AS
-    IF EXISTS(SELECT idFactura
+    IF EXISTS(SELECT idfactura
               FROM   Pedidos
-              WHERE  idFactura = @idFactura)
+              WHERE  idfactura = @idfactura)
       RAISERROR('YA EXISTE UN PEDIDO EN CURSO',16,1)
     ELSE
       INSERT INTO Pedidos
       VALUES     (@idcliente,
-                  @idFactura,
+                  @idfactura,
                   @idEmpleado,
                   @idVehiculo,
                   @FechaEnvio,
@@ -9032,7 +9032,7 @@ AS
 	inner join Persona
 	on Proveedores.idPersona = Persona.idPersona
     WHERE  compras.Estado = 'EN ESPERA'
-           AND compras.ACCION &lt;&gt; 'FACTURA' and compras.ACCION &lt;&gt; 'COTIZACION'
+           AND compras.ACCION &lt;&gt; 'factura' and compras.ACCION &lt;&gt; 'COTIZACION'
 GO
 /****** Object:  StoredProcedure [dbo].[Mostrar_controlcobros]    Script Date: 15/11/2020 08:32:55:AM ******/
 SET ANSI_NULLS ON
@@ -9054,7 +9054,7 @@ GO
 
 CREATE PROC [dbo].[Mostrar_cotizaciones_en_espera_con_fecha_y_monto]
 AS
-    SELECT idFactura,
+    SELECT idfactura,
            Comprobante,
            fecha_factura AS Fecha,
            Id_caja,
@@ -9183,8 +9183,8 @@ AS
     SET @Descuento = (SELECT Sum (Descuento)
                                   FROM   detalle_factura
                                          INNER JOIN facturas
-                                                 ON facturas.idFactura = detalle_factura.idFactura
-                                  WHERE  detalle_factura.idFactura = @Id_factura)
+                                                 ON facturas.idfactura = detalle_factura.idfactura
+                                  WHERE  detalle_factura.idfactura = @Id_factura)
 
 	
     SELECT Det.Descripcion                                    AS Producto,
@@ -9221,7 +9221,7 @@ AS
 		   Sec.descripcion as Sector
     FROM   detalle_factura AS Det
            INNER JOIN facturas AS Ven
-                   ON DET.idFactura = Ven.idFactura
+                   ON DET.idfactura = Ven.idfactura
            INNER JOIN clientes AS Cli
                    ON Ven.idclientev = Cli.idclientev
            INNER JOIN usuario2 AS Usu
@@ -9242,7 +9242,7 @@ AS
                    ON Emp.idPersona = UsuN.idPersona
            CROSS JOIN EMPRESA
            CROSS JOIN Ticket
-    WHERE  Det.idFactura = @Id_factura
+    WHERE  Det.idfactura = @Id_factura
            AND Ven.Monto_total &gt; 0
     ORDER  BY Det.iddetalle_factura DESC
 GO
@@ -9270,8 +9270,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROC [dbo].[Mostrar_facturas_en_espera_con_fecha_y_monto]
 AS
-    SELECT idFactura,
-           Comprobante as NumFactura,
+    SELECT idfactura,
+           Comprobante as Numfactura,
            fecha_factura AS Fecha,
            Id_caja,
            ACCION
@@ -9364,7 +9364,7 @@ GO
 
 CREATE PROC [dbo].[Mostrar_id_factura_por_id_caja] @Id_caja INT
 AS
-    SELECT Max(idFactura)
+    SELECT Max(idfactura)
     FROM   facturas
     WHERE  Id_caja = @Id_caja
 
@@ -9742,7 +9742,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROC [dbo].[Mostrar_productos_agregados_a_cotizaciones_en_espera] @idFactura INT
+CREATE PROC [dbo].[Mostrar_productos_agregados_a_cotizaciones_en_espera] @idfactura INT
 AS
     SELECT dbo.detalle_factura.Descripcion       AS Producto,
            dbo.detalle_factura.cantidad AS Cantidad,
@@ -9751,8 +9751,8 @@ AS
            facturas.ACCION
     FROM   dbo.facturas
            INNER JOIN dbo.detalle_factura
-                   ON dbo.facturas.idFactura = dbo.detalle_factura.idFactura
-    WHERE  detalle_factura.idFactura = @idFactura
+                   ON dbo.facturas.idfactura = dbo.detalle_factura.idfactura
+    WHERE  detalle_factura.idfactura = @idfactura
            AND detalle_factura.cantidad &gt; 0
            AND facturas.ACCION = 'COTIZACION'
 
@@ -9762,7 +9762,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROC [dbo].[Mostrar_productos_agregados_a_factura] @idFactura AS INT
+CREATE PROC [dbo].[Mostrar_productos_agregados_a_factura] @idfactura AS INT
 AS
     SELECT detalle_factura . Codigo,
            ( detalle_factura .Descripcion )                           AS Producto,
@@ -9778,13 +9778,13 @@ AS
            detalle_factura .Stock,
            detalle_factura .Stock,
            Se_vende_a,
-           detalle_factura.idFactura,
+           detalle_factura.idfactura,
 		   detalle_factura.Descuento,
 		   detalle_factura.itbis_calculo as Itbis
     FROM   dbo.detalle_factura
            INNER JOIN facturas
-                   ON dbo.detalle_factura.idFactura = facturas.idFactura
-    WHERE  dbo.detalle_factura .idFactura = @idFactura
+                   ON dbo.detalle_factura.idfactura = facturas.idfactura
+    WHERE  dbo.detalle_factura .idfactura = @idfactura
            AND detalle_factura.cantidad &gt; 0
     ORDER  BY detalle_factura.iddetalle_factura DESC
 GO
@@ -9794,7 +9794,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROC [dbo].[Mostrar_productos_agregados_a_facturas_en_espera] @idFactura INT
+CREATE PROC [dbo].[Mostrar_productos_agregados_a_facturas_en_espera] @idfactura INT
 AS
     SELECT dbo.detalle_factura.Descripcion       AS Producto,
            dbo.detalle_factura.cantidad AS Cantidad,
@@ -9803,8 +9803,8 @@ AS
            facturas.ACCION
     FROM   dbo.facturas
            INNER JOIN dbo.detalle_factura
-                   ON dbo.facturas.idFactura = dbo.detalle_factura.idFactura
-    WHERE  detalle_factura.idFactura = @idFactura
+                   ON dbo.facturas.idfactura = dbo.detalle_factura.idfactura
+    WHERE  detalle_factura.idfactura = @idfactura
            AND detalle_factura.cantidad &gt; 0
            AND facturas.ACCION &lt;&gt; 'COTIZACION'
 
@@ -9938,7 +9938,7 @@ AS
            detalle_factura.Descripcion
     FROM   facturas
            INNER JOIN detalle_factura
-                   ON detalle_factura.idFactura = facturas.idFactura
+                   ON detalle_factura.idfactura = facturas.idfactura
     WHERE  facturas.Estado = 'EN ESPERA'
            AND detalle_factura.Id_producto = @Id_producto
 
@@ -9957,8 +9957,8 @@ AS
     SET @Descuento = (SELECT Sum (Descuento)
                                   FROM   detalle_factura
                                          INNER JOIN facturas
-                                                 ON facturas.idFactura = detalle_factura.idFactura
-                                  WHERE  detalle_factura.idFactura = @Id_factura)
+                                                 ON facturas.idfactura = detalle_factura.idfactura
+                                  WHERE  detalle_factura.idfactura = @Id_factura)
 
     
 
@@ -9993,7 +9993,7 @@ AS
 		   T.numero		 as Telefono
     FROM   detalle_factura AS Det
            INNER JOIN facturas AS Ven
-                   ON DET.idFactura = Ven.idFactura
+                   ON DET.idfactura = Ven.idfactura
            INNER JOIN clientes AS Cli
                    ON Ven.idclientev = Cli.idclientev
            INNER JOIN usuario2 AS Usu
@@ -10014,7 +10014,7 @@ AS
 		   on CliN.idTelefono = T.idTelefono
            CROSS JOIN EMPRESA
            CROSS JOIN Ticket
-    WHERE  Det.idFactura = @Id_factura
+    WHERE  Det.idfactura = @Id_factura
            AND Ven.Monto_total &gt; 0
     ORDER  BY Det.iddetalle_factura DESC 
 GO
@@ -10280,7 +10280,7 @@ AS
            dbo.facturas.Estado
     FROM   dbo.detalle_factura
            INNER JOIN dbo.facturas
-                   ON dbo.detalle_factura.idFactura = dbo.facturas.idFactura
+                   ON dbo.detalle_factura.idfactura = dbo.facturas.idfactura
     WHERE  facturas.idclientev = @idcliente
            AND facturas.Credito &gt; 0
 
@@ -10372,7 +10372,7 @@ CREATE PROC [dbo].[Mostrarpedidoespecifico] @idPedido AS INT
 AS
     SELECT idPedido              AS NumPedido,
            idCliente             AS Cliente,
-           idFactura             AS NumFactura,
+           idfactura             AS Numfactura,
            idEmpleado            AS Empleado,
            idVehiculo            AS Vehiculo,
            FechaEnvio            AS Fecha,
@@ -10393,7 +10393,7 @@ CREATE PROC [dbo].[Mostrarpedidosencurso]
 AS
     SELECT idPedido              AS NumPedido,
            idCliente             AS Cliente,
-           idFactura             AS NumFactura,
+           idfactura             AS Numfactura,
            idEmpleado            AS Empleado,
            idVehiculo            AS Vehiculo,
            FechaEnvio            AS Fecha,
@@ -10889,7 +10889,7 @@ AS
     SELECT CONVERT(NUMERIC(18, 2), Sum(Ganancia))
     FROM   detalle_factura
            INNER JOIN facturas
-                   ON facturas.idFactura = detalle_factura.idFactura
+                   ON facturas.idfactura = detalle_factura.idfactura
     WHERE  CONVERT (DATE, fecha_factura) &gt;= @fi
            AND CONVERT(DATE, fecha_factura) &lt;= @ff
 
@@ -11019,7 +11019,7 @@ AS
            Persona.nombre                                    AS Empleado
     FROM   facturas
            INNER JOIN detalle_factura
-                   ON detalle_factura.idFactura = facturas.idFactura
+                   ON detalle_factura.idfactura = facturas.idfactura
            INNER JOIN USUARIO2
                    ON USUARIO2.idUsuario = facturas.Id_usuario
            INNER JOIN Empleados
@@ -11056,7 +11056,7 @@ AS
            @empleado                                         AS Empleado
     FROM   facturas
            INNER JOIN detalle_factura
-                   ON detalle_factura.idFactura = facturas.idFactura
+                   ON detalle_factura.idfactura = facturas.idfactura
     WHERE  facturas.Monto_total &gt; 0
            AND ( CONVERT(DATE, facturas.fecha_factura) &gt;= @fi
                  AND CONVERT(DATE, facturas.fecha_factura) &lt;= @ff )
@@ -11092,7 +11092,7 @@ AS
            @empleado                                         AS Empleado
     FROM   facturas
            INNER JOIN detalle_factura
-                   ON detalle_factura.idFactura = facturas.idFactura
+                   ON detalle_factura.idfactura = facturas.idfactura
     WHERE  facturas.Monto_total &gt; 0
     GROUP  BY CONVERT(DATE, facturas.fecha_factura)
 
@@ -11122,7 +11122,7 @@ AS
            Persona.nombre                                    Empleado
     FROM   facturas
            INNER JOIN detalle_factura
-                   ON detalle_factura.idFactura = facturas.idFactura
+                   ON detalle_factura.idfactura = facturas.idfactura
            INNER JOIN USUARIO2
                    ON USUARIO2.idUsuario = facturas.Id_usuario
            INNER JOIN Empleados

@@ -5,12 +5,12 @@ using System.Text;
 
 namespace SistemaVentas.Logica
 {
-   public  class LdetalleFactura
+   public  class Ldetallefactura
     {
         public int iddetalle_factura { get; set; }
         public int iddetalle_compra { get; set; }
 
-        public int idFactura { get; set; }
+        public int idfactura { get; set; }
         public int Id_producto { get; set; }
         public double  cantidad { get; set; }
         public double preciounitario { get; set; }

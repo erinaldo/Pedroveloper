@@ -173,7 +173,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(360, 43);
             this.label1.TabIndex = 537;
-            this.label1.Text = "Facturas en Espera";
+            this.label1.Text = "facturas en Espera";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Panel29
@@ -350,7 +350,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 49);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Fecha de Factura:";
+            this.label2.Text = "Fecha de factura:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel4
@@ -375,7 +375,7 @@
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(167, 47);
             this.btneliminar.TabIndex = 3;
-            this.btneliminar.Text = "Eliminar Factura";
+            this.btneliminar.Text = "Eliminar factura";
             this.btneliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btneliminar.UseVisualStyleBackColor = true;
             this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
@@ -391,7 +391,7 @@
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(175, 47);
             this.btnRestaurar.TabIndex = 4;
-            this.btnRestaurar.Text = "Restaurar Factura";
+            this.btnRestaurar.Text = "Restaurar factura";
             this.btnRestaurar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRestaurar.UseVisualStyleBackColor = true;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);

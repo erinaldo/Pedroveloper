@@ -1,6 +1,6 @@
 namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
 {
-    partial class Factura_report
+    partial class factura_report
     {
         #region Component Designer generated code
         /// <summary>
@@ -15,7 +15,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             Telerik.Reporting.TableGroup tableGroup4 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup5 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup6 = new Telerik.Reporting.TableGroup();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Factura_report));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(factura_report));
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             this.textBox2 = new Telerik.Reporting.TextBox();
             this.textBox12 = new Telerik.Reporting.TextBox();
@@ -181,7 +181,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox37.Style.Font.Name = "Franklin Gothic Medium";
             this.textBox37.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(36D);
             this.textBox37.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
-            this.textBox37.Value = "FACTURA";
+            this.textBox37.Value = "factura";
             // 
             // textBox38
             // 
@@ -192,7 +192,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox38.Style.Font.Name = "Franklin Gothic Medium";
             this.textBox38.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.textBox38.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
-            this.textBox38.Value = "FACTURAR A";
+            this.textBox38.Value = "facturaR A";
             // 
             // TextBox3
             // 
@@ -213,7 +213,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox41.Style.Font.Name = "Franklin Gothic Medium";
             this.textBox41.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.textBox41.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
-            this.textBox41.Value = "N° DE FACTURA";
+            this.textBox41.Value = "N° DE factura";
             // 
             // textBox44
             // 
@@ -597,7 +597,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox47.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
             this.textBox47.Value = "Descuento";
             // 
-            // Factura_report
+            // factura_report
             // 
             this.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.pageHeaderSection1,

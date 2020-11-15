@@ -9,7 +9,7 @@ namespace SistemaVentas.Logica
     {
         public int idPedido { get; set; }
         public int idCliente { get; set; }
-        public int idFactura { get; set; }
+        public int idfactura { get; set; }
         public int idEmpleado { get; set; }
         public int idVehiculo { get; set; }
         public DateTime FechaEnvio { get; set; }

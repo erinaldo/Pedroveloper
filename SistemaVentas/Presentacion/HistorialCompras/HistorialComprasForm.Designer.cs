@@ -502,7 +502,7 @@
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.btnEliminar.Size = new System.Drawing.Size(126, 43);
-            this.btnEliminar.Text = "Cancelar Factura";
+            this.btnEliminar.Text = "Cancelar factura";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // PanelTICKET

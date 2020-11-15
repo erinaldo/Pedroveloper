@@ -85,7 +85,7 @@
             this.txtserie = new System.Windows.Forms.Label();
             this.lblCorrelativoconCeros = new System.Windows.Forms.Label();
             this.lblComprobante = new System.Windows.Forms.Label();
-            this.panelClienteFactura = new System.Windows.Forms.Panel();
+            this.panelClientefactura = new System.Windows.Forms.Panel();
             this.datalistadoclientes3 = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblindicador_de_factura_1 = new System.Windows.Forms.Label();
@@ -131,7 +131,7 @@
             this.FlowLayoutPanel2.SuspendLayout();
             this.panelGuardado_de_datos.SuspendLayout();
             this.FlowLayoutPanel1.SuspendLayout();
-            this.panelClienteFactura.SuspendLayout();
+            this.panelClientefactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes3)).BeginInit();
             this.MenuStrip10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtComprobantes)).BeginInit();
@@ -749,7 +749,7 @@
             this.panelGuardado_de_datos.Controls.Add(this.btnGuardarImprimirdirecto);
             this.panelGuardado_de_datos.Controls.Add(this.TGuardarSinImprimir);
             this.panelGuardado_de_datos.Controls.Add(this.FlowLayoutPanel1);
-            this.panelGuardado_de_datos.Controls.Add(this.panelClienteFactura);
+            this.panelGuardado_de_datos.Controls.Add(this.panelClientefactura);
             this.panelGuardado_de_datos.Controls.Add(this.FlowLayoutPanel3);
             this.panelGuardado_de_datos.Controls.Add(this.txtImpresora);
             this.panelGuardado_de_datos.Controls.Add(this.Label1);
@@ -845,17 +845,17 @@
             this.lblComprobante.TabIndex = 605;
             this.lblComprobante.Text = "Comprobante";
             // 
-            // panelClienteFactura
+            // panelClientefactura
             // 
-            this.panelClienteFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.panelClienteFactura.Controls.Add(this.datalistadoclientes3);
-            this.panelClienteFactura.Controls.Add(this.lblindicador_de_factura_1);
-            this.panelClienteFactura.Controls.Add(this.txtProveedor);
-            this.panelClienteFactura.Controls.Add(this.MenuStrip10);
-            this.panelClienteFactura.Location = new System.Drawing.Point(16, 335);
-            this.panelClienteFactura.Name = "panelClienteFactura";
-            this.panelClienteFactura.Size = new System.Drawing.Size(442, 174);
-            this.panelClienteFactura.TabIndex = 610;
+            this.panelClientefactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.panelClientefactura.Controls.Add(this.datalistadoclientes3);
+            this.panelClientefactura.Controls.Add(this.lblindicador_de_factura_1);
+            this.panelClientefactura.Controls.Add(this.txtProveedor);
+            this.panelClientefactura.Controls.Add(this.MenuStrip10);
+            this.panelClientefactura.Location = new System.Drawing.Point(16, 335);
+            this.panelClientefactura.Name = "panelClientefactura";
+            this.panelClientefactura.Size = new System.Drawing.Size(442, 174);
+            this.panelClientefactura.TabIndex = 610;
             // 
             // datalistadoclientes3
             // 
@@ -1453,8 +1453,8 @@
             this.panelGuardado_de_datos.PerformLayout();
             this.FlowLayoutPanel1.ResumeLayout(false);
             this.FlowLayoutPanel1.PerformLayout();
-            this.panelClienteFactura.ResumeLayout(false);
-            this.panelClienteFactura.PerformLayout();
+            this.panelClientefactura.ResumeLayout(false);
+            this.panelClientefactura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes3)).EndInit();
             this.MenuStrip10.ResumeLayout(false);
             this.MenuStrip10.PerformLayout();
@@ -1500,7 +1500,7 @@
         internal System.Windows.Forms.Label lblCorrelativoconCeros;
         internal System.Windows.Forms.Label txtserie;
         internal System.Windows.Forms.Label lblComprobante;
-        internal System.Windows.Forms.Panel panelClienteFactura;
+        internal System.Windows.Forms.Panel panelClientefactura;
         public System.Windows.Forms.DataGridView datalistadoclientes3;
         internal System.Windows.Forms.DataGridViewCheckBoxColumn DataGridViewCheckBoxColumn2;
         internal System.Windows.Forms.Label lblindicador_de_factura_1;

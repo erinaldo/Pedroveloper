@@ -160,7 +160,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                string query = "select tipodoc from Serializacion where Destino='FACTURAS'";
+                string query = "select tipodoc from Serializacion where Destino='facturaS'";
                 SqlCommand cmd = new SqlCommand(query, CONEXION.CONEXIONMAESTRA.conectar);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -199,35 +199,35 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
             
           
-          if (lblComprobante.Text =="FACTURA" && txttipo =="CREDITO")
+          if (lblComprobante.Text =="factura" && txttipo =="CREDITO")
             {
-                panelClienteFactura.Visible = false;
+                panelClientefactura.Visible = false;
             }
-            if (lblComprobante.Text == "FACTURA" && txttipo == "EFECTIVO")
+            if (lblComprobante.Text == "factura" && txttipo == "EFECTIVO")
             {
-                panelClienteFactura.Visible = true;
+                panelClientefactura.Visible = true;
                 lblindicador_de_factura_1.Text = "Cliente: (Obligatorio)";
                 lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
 
             }
-            else if (lblComprobante.Text != "FACTURA" && txttipo == "EFECTIVO")
+            else if (lblComprobante.Text != "factura" && txttipo == "EFECTIVO")
             {
-                panelClienteFactura.Visible = true;
+                panelClientefactura.Visible = true;
                 lblindicador_de_factura_1.Text = "Cliente: (Opcional)";
                 lblindicador_de_factura_1.ForeColor = Color.DimGray;
 
             }
 
-            if (lblComprobante.Text == "FACTURA" && txttipo == "TARJETA")
+            if (lblComprobante.Text == "factura" && txttipo == "TARJETA")
             {
-                panelClienteFactura.Visible = true;
+                panelClientefactura.Visible = true;
                 lblindicador_de_factura_1.Text = "Cliente: (Obligatorio)";
                 lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
 
             }
-            else if (lblComprobante.Text != "FACTURA" && txttipo == "TARJETA")
+            else if (lblComprobante.Text != "factura" && txttipo == "TARJETA")
             {
-                panelClienteFactura.Visible = true;
+                panelClientefactura.Visible = true;
                 lblindicador_de_factura_1.Text = "Cliente: (Opcional)";
                 lblindicador_de_factura_1.ForeColor = Color.DimGray;
             }
@@ -299,20 +299,20 @@ namespace SistemaVentas.Presentacion.Cotizacion
             {
                 MOSTRAR_cliente_standar();
             }
-            if (lblComprobante.Text == "FACTURA" && idcliente == 0 && txttipo != "CREDITO")
+            if (lblComprobante.Text == "factura" && idcliente == 0 && txttipo != "CREDITO")
             {
-                MessageBox.Show("Seleccione un Cliente, para Facturas es Obligatorio", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccione un Cliente, para facturas es Obligatorio", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (lblComprobante.Text == "FACTURA" && idcliente != 0)
+            else if (lblComprobante.Text == "factura" && idcliente != 0)
             {
                 procesar_venta_efectivo();
             }
 
-            else if (lblComprobante.Text != "FACTURA" && txttipo != "CREDITO")
+            else if (lblComprobante.Text != "factura" && txttipo != "CREDITO")
             {
                 procesar_venta_efectivo();
             }
-            else if (lblComprobante.Text != "FACTURA" && txttipo == "CREDITO")
+            else if (lblComprobante.Text != "factura" && txttipo == "CREDITO")
             {
                 procesar_venta_efectivo();
             }
@@ -343,7 +343,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 CONEXION.CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_productos_agregados_a_facturas", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idFactura", idcotizacion);
+                da.SelectCommand.Parameters.AddWithValue("@idfactura", idcotizacion);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
@@ -385,7 +385,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 estado = Bases.enviarCorreo(correobase, contraseña, htmldeEnvio.Text, "Cotizacion", txtCorreo.Text, "");
                 if (estado == true)
                 {
-                    MessageBox.Show("FacturaEnviada");
+                    MessageBox.Show("facturaEnviada");
                 }
                 else
                 {
@@ -397,7 +397,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             panelGuardado_de_datos.Dock = DockStyle.None;
             panelGuardado_de_datos.Visible = false;
 
-            Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report();
+            Presentacion.REPORTES.Impresion_de_comprobantes.factura_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.factura_report();
             DataTable dt = new DataTable();
             try
             {
@@ -408,7 +408,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 da.SelectCommand.Parameters.AddWithValue("@Id_factura", idcotizacion);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
                 da.Fill(dt);
-                rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Factura_report();
+                rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.factura_report();
                 rpt.table1.DataSource = dt;
                 rpt.DataSource = dt;
 #pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
@@ -450,7 +450,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             if (indicador == "VISTA PREVIA")
             {
                 // MessageBox.Show(tipoImpresion);
-                if (tipoImpresion == "FACTURA")
+                if (tipoImpresion == "factura")
                 {
                    
                     mostrar_factura_impresa_VISTA_PREVIA();
@@ -462,7 +462,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             }
             else if (indicador == "DIRECTO")
             {
-                if (tipoImpresion == "FACTURA")
+                if (tipoImpresion == "factura")
                 {
                     imprimir_directo_factura();
                 }
@@ -609,7 +609,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 CONEXION.CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("confirmar_factura", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idFactura", idcotizacion);
+                cmd.Parameters.AddWithValue("@idfactura", idcotizacion);
                 cmd.Parameters.AddWithValue("@montototal", total);
                 cmd.Parameters.AddWithValue("@Saldo", vuelto);
                 cmd.Parameters.AddWithValue("@Tipo_de_pago","EFECTIVO");

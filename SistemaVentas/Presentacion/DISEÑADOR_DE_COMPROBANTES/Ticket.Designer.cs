@@ -96,7 +96,7 @@
             this.datalistado_tickets = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Button4 = new System.Windows.Forms.Button();
-            this.btnFacturaBoleta = new System.Windows.Forms.Button();
+            this.btnfacturaBoleta = new System.Windows.Forms.Button();
             this.btnTicket = new System.Windows.Forms.Button();
             this.Label12 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -781,7 +781,7 @@
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.Button4);
-            this.panel2.Controls.Add(this.btnFacturaBoleta);
+            this.panel2.Controls.Add(this.btnfacturaBoleta);
             this.panel2.Controls.Add(this.btnTicket);
             this.panel2.Controls.Add(this.Label12);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -879,19 +879,19 @@
             this.Button4.UseVisualStyleBackColor = false;
             this.Button4.Click += new System.EventHandler(this.Button4_Click);
             // 
-            // btnFacturaBoleta
+            // btnfacturaBoleta
             // 
-            this.btnFacturaBoleta.BackColor = System.Drawing.Color.White;
-            this.btnFacturaBoleta.FlatAppearance.BorderSize = 0;
-            this.btnFacturaBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFacturaBoleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFacturaBoleta.Location = new System.Drawing.Point(212, 158);
-            this.btnFacturaBoleta.Name = "btnFacturaBoleta";
-            this.btnFacturaBoleta.Size = new System.Drawing.Size(183, 37);
-            this.btnFacturaBoleta.TabIndex = 602;
-            this.btnFacturaBoleta.Text = "Factura - Boleta";
-            this.btnFacturaBoleta.UseVisualStyleBackColor = false;
-            this.btnFacturaBoleta.Click += new System.EventHandler(this.btnFacturaBoleta_Click);
+            this.btnfacturaBoleta.BackColor = System.Drawing.Color.White;
+            this.btnfacturaBoleta.FlatAppearance.BorderSize = 0;
+            this.btnfacturaBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnfacturaBoleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnfacturaBoleta.Location = new System.Drawing.Point(212, 158);
+            this.btnfacturaBoleta.Name = "btnfacturaBoleta";
+            this.btnfacturaBoleta.Size = new System.Drawing.Size(183, 37);
+            this.btnfacturaBoleta.TabIndex = 602;
+            this.btnfacturaBoleta.Text = "factura - Boleta";
+            this.btnfacturaBoleta.UseVisualStyleBackColor = false;
+            this.btnfacturaBoleta.Click += new System.EventHandler(this.btnfacturaBoleta_Click);
             // 
             // btnTicket
             // 
@@ -1009,7 +1009,7 @@
         internal System.Windows.Forms.PictureBox PictureBox3;
         internal System.Windows.Forms.Label Label5;
         internal System.Windows.Forms.Button Button4;
-        internal System.Windows.Forms.Button btnFacturaBoleta;
+        internal System.Windows.Forms.Button btnfacturaBoleta;
         internal System.Windows.Forms.Button btnTicket;
         internal System.Windows.Forms.Label Label12;
         internal System.Windows.Forms.DataGridView datalistado_tickets;

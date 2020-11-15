@@ -10,9 +10,9 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
     /// <summary>
     /// Summary description for Ticket_report.
     /// </summary>
-    public partial class Factura_report : Telerik.Reporting.Report
+    public partial class factura_report : Telerik.Reporting.Report
     {
-        public Factura_report()
+        public factura_report()
         {
             //
             // Required for telerik Reporting designer support

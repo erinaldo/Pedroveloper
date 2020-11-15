@@ -17,9 +17,9 @@ namespace SistemaVentas.Presentacion.HistorialVentas
         {
             InitializeComponent();
         }
-        int idFactura;
+        int idfactura;
         double Total;
-        int idDetalleFactura;
+        int idDetallefactura;
         double Cantidad;
         string ControlStock;
         int idproducto;
@@ -63,7 +63,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
         {
             if (datalistadoVentas.RowCount >0)
             {
-                idFactura = Convert.ToInt32 ( datalistadoVentas.SelectedCells[1].Value);
+                idfactura = Convert.ToInt32 ( datalistadoVentas.SelectedCells[1].Value);
                 lblcomprobante.Text = datalistadoVentas.SelectedCells[3].Value.ToString();
                 lbltotal.Text = datalistadoVentas.SelectedCells[4].Value.ToString();
                 Total =Convert.ToDouble ( datalistadoVentas.SelectedCells[4].Value);
@@ -85,7 +85,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
         private void MostrarDetalleCompra()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.MostrarDetalleVenta(ref dt, idFactura);
+            Obtener_datos.MostrarDetalleVenta(ref dt, idfactura);
             datalistadoDetalleVenta.DataSource = dt;
             datalistadoDetalleVenta.Columns[6].Visible = false;
             datalistadoDetalleVenta.Columns[7].Visible = false;
@@ -115,7 +115,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
             Cantidad = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[3].Value);
             PrecioUnitario =Convert.ToDouble ( datalistadoDetalleVenta.SelectedCells[4].Value);
             idproducto = Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[6].Value);
-            idDetalleFactura =Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[7].Value);
+            idDetallefactura =Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[7].Value);
             ControlStock = datalistadoDetalleVenta.SelectedCells[14].Value.ToString();
            
             txtcantidad.Clear();
@@ -147,9 +147,9 @@ namespace SistemaVentas.Presentacion.HistorialVentas
                 {
                     if (CantidadDevolucion <=Cantidad)
                     {
-                      LdetalleFactura parametros = new LdetalleFactura();
+                      Ldetallefactura parametros = new Ldetallefactura();
                       Editar_datos funcion = new Editar_datos();
-                      parametros.iddetalle_factura = idDetalleFactura;
+                      parametros.iddetalle_factura = idDetallefactura;
                       parametros.cantidad = Convert.ToDouble (CantidadDevolucion);
                       parametros.Cantidad_mostrada  = Convert.ToDouble(CantidadDevolucion);
                        if (funcion.Detallefacturadevolucion (parametros)==true)
@@ -211,7 +211,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
         {
             Lventas parametros = new Lventas();
             Editar_datos funcion = new Editar_datos();
-            parametros.idFactura = idFactura;
+            parametros.idfactura = idfactura;
             parametros.Monto_total =TotalNuevo;
             funcion.Editarfactura(parametros);
         }
@@ -220,7 +220,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
             LKardex parametros = new LKardex();
             Insertar_datos funcion = new Insertar_datos();
             parametros.Fecha = DateTime.Now;
-            parametros.Motivo = "Devolucion de producto Factura #" + lblcomprobante.Text;
+            parametros.Motivo = "Devolucion de producto factura #" + lblcomprobante.Text;
             parametros.Cantidad =Convert.ToDouble ( txtcantidad.Text);
             parametros.Id_producto = idproducto;
             funcion.insertar_KARDEX_Entrada(parametros);
@@ -236,7 +236,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
 
         private void AumentarStockDetalle()
         {
-            LdetalleFactura parametros = new LdetalleFactura();
+            Ldetallefactura parametros = new Ldetallefactura();
             Editar_datos funcion = new Editar_datos();
             parametros.Id_producto = idproducto;
             parametros.cantidad =Convert.ToDouble (  txtcantidad.Text);
@@ -264,7 +264,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Estas seguro de Eliminar esta Factura?", "Eliminando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Estas seguro de Eliminar esta factura?", "Eliminando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK )
             {
                 foreach (DataGridViewRow row in datalistadoDetalleVenta.Rows )
@@ -276,17 +276,17 @@ namespace SistemaVentas.Presentacion.HistorialVentas
                         insertar_KARDEX_Entrada();
                 }
                         TotalNuevo = 0;
-                        EliminarFacturas();
+                        Eliminarfacturas();
                         ValidarPaneles();
                         Buscarfactura();
             }
         }
-        private void EliminarFacturas()
+        private void Eliminarfacturas()
         {
             Lventas parametros = new Lventas();
             Eliminar_datos funcion = new Eliminar_datos();
-            parametros.idFactura = idFactura;
-            funcion.EliminarFacturas(parametros);
+            parametros.idfactura = idfactura;
+            funcion.Eliminarfacturas(parametros);
         }
 
         private void btnReimprimir_Click(object sender, EventArgs e)
@@ -314,7 +314,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
         private void ReimprimirTicket()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.mostrar_ticket_impreso(ref dt, idFactura, TotalEnLetras);
+            Obtener_datos.mostrar_ticket_impreso(ref dt, idfactura, TotalEnLetras);
             REPORTES.Impresion_de_comprobantes.Ticket_report rpt = new REPORTES.Impresion_de_comprobantes.Ticket_report();
             rpt = new REPORTES.Impresion_de_comprobantes.Ticket_report();
             rpt.table1.DataSource = dt;

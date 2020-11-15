@@ -7,7 +7,7 @@ namespace SistemaVentas.Logica
 {
    public  class Lventas
     {
-        public int idFactura { get; set; }
+        public int idfactura { get; set; }
         public int idclientev { get; set; }
         public DateTime fecha_factura { get; set; }
         public string Numero_de_doc { get; set; }

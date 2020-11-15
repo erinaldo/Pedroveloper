@@ -48,7 +48,7 @@ namespace SistemaVentas.Presentacion.REPORTES.ReporteVentas
             this.textBox8.Style.Font.Bold = true;
             this.textBox8.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox8.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox8.Value = "Factura Bruta";
+            this.textBox8.Value = "factura Bruta";
             // 
             // textBox10
             // 
@@ -108,7 +108,7 @@ namespace SistemaVentas.Presentacion.REPORTES.ReporteVentas
             this.TextBox2.Style.Font.Bold = true;
             this.TextBox2.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.TextBox2.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.TextBox2.Value = "REPORTE DE RESUMEN DE Facturas";
+            this.TextBox2.Value = "REPORTE DE RESUMEN DE facturas";
             // 
             // panel1
             // 

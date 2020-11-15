@@ -572,7 +572,7 @@ namespace SistemaVentas.Presentacion.VentasCamiones
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-            SqlCommand com = new SqlCommand("mostrar_id_compra_por_Id_caja", con);
+            SqlCommand com = new SqlCommand("mostrar_id_factura_por_Id_caja", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@Id_caja", Id_caja);
             try
@@ -607,7 +607,7 @@ namespace SistemaVentas.Presentacion.VentasCamiones
             try
             {
                 CONEXION.CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("Buscar_tipo_de_documentos_para_insertar_en_compras", CONEXION.CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("Buscar_tipo_de_documentos_para_insertar_en_facturas", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letra", lblComprobante.Text);
                 //MessageBox.Show(lblComprobante.Text);
@@ -655,7 +655,7 @@ namespace SistemaVentas.Presentacion.VentasCamiones
                 {
                     DATALISTADO_PRODUCTOS_OKA.Visible = true;
                     ejecutar_insertar_ventas();
-                    if (txtventagenerada == "COMPRA GENERADA")
+                    if (txtventagenerada == "factura GENERADA")
                     {
                         //MessageBox.Show("(txtventagenerada == COMPRA GENERADA");
                         insertar_detalle_venta();
@@ -674,19 +674,19 @@ namespace SistemaVentas.Presentacion.VentasCamiones
         private void ejecutar_insertar_ventas()
         {
             //MessageBox.Show("ejecutar_insertar_ventas",txtventagenerada);
-            if (txtventagenerada == "COMPRA NUEVA")
+            if (txtventagenerada == "factura NUEVA")
             {
                 try
                 {
-                    // MessageBox.Show("insertar_compras");
+                    // MessageBox.Show("insertar_facturas");
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
-                    cmd = new SqlCommand("insertar_compras", con);
+                    cmd = new SqlCommand("insertar_facturas", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@idProveedor", idProveedorEstandar);
-                    cmd.Parameters.AddWithValue("@fecha_compra", DateTime.Today);
+                    cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Today);
                     cmd.Parameters.AddWithValue("@nume_documento", 0);
                     cmd.Parameters.AddWithValue("@montototal", 0);
                     cmd.Parameters.AddWithValue("@Tipo_de_pago", 0);
@@ -694,21 +694,21 @@ namespace SistemaVentas.Presentacion.VentasCamiones
                     cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text);
                     cmd.Parameters.AddWithValue("@id_usuario", idusuario_que_inicio_sesion);
                     cmd.Parameters.AddWithValue("@Fecha_de_pago", DateTime.Today);
-                    cmd.Parameters.AddWithValue("@ACCION", "COMPRA");
+                    cmd.Parameters.AddWithValue("@ACCION", "factura");
                     cmd.Parameters.AddWithValue("@Saldo", 0);
                     cmd.Parameters.AddWithValue("@Id_caja", Id_caja);
                     cmd.Parameters.AddWithValue("@Transferencia_Bancaria", "-");
                     cmd.ExecuteNonQuery();
                     con.Close();
                     Obtener_id_venta_recien_Creada();
-                    txtventagenerada = "COMPRA GENERADA";
+                    txtventagenerada = "factura GENERADA";
                     mostrar_panel_de_Cobro();
 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.StackTrace);
-                    MessageBox.Show("insertar_compra");
+                    MessageBox.Show("insertar_factura");
                 }
 
             }
@@ -727,10 +727,10 @@ namespace SistemaVentas.Presentacion.VentasCamiones
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-                da = new SqlDataAdapter("mostrar_productos_agregados_a_compra", con);
+                da = new SqlDataAdapter("mostrar_productos_agregados_a_factura", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //MessageBox.Show(idVenta.ToString());
-                da.SelectCommand.Parameters.AddWithValue("@idCompra", idVenta);
+                da.SelectCommand.Parameters.AddWithValue("@idfactura", idVenta);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 con.Close();
@@ -803,9 +803,9 @@ namespace SistemaVentas.Presentacion.VentasCamiones
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("insertar_detalle_compra", con);
+                cmd = new SqlCommand("insertar_detalle_factura", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCompra", idVenta);
+                cmd.Parameters.AddWithValue("@idfactura", idVenta);
                 cmd.Parameters.AddWithValue("@Id_presentacionfraccionada", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.Parameters.AddWithValue("@preciounitario", txtprecio_compra);
@@ -1626,7 +1626,7 @@ namespace SistemaVentas.Presentacion.VentasCamiones
         {
             if (datalistadoDetalleVenta.Rows.Count > 0)
             {
-                LdetalleFactura parametros = new LdetalleFactura();
+                Ldetallefactura parametros = new Ldetallefactura();
                 Editar_datos funcion = new Editar_datos();
                 parametros.Id_producto = idproducto;
                 parametros.iddetalle_factura = iddetalleventa;
@@ -1655,7 +1655,7 @@ namespace SistemaVentas.Presentacion.VentasCamiones
                 if (!string.IsNullOrEmpty(txtmonto.Text))
                 {
 
-                    LdetalleFactura parametros = new LdetalleFactura();
+                    Ldetallefactura parametros = new Ldetallefactura();
                     Editar_datos funcion = new Editar_datos();
 
                     parametros.iddetalle_factura = iddetalleventa;
@@ -1688,11 +1688,11 @@ namespace SistemaVentas.Presentacion.VentasCamiones
                 {
                     if ((Convert.ToInt32(txtmonto.Text) < precio))
                     {
-                        LdetalleFactura parametros = new LdetalleFactura();
+                        Ldetallefactura parametros = new Ldetallefactura();
                         Editar_datos funcion = new Editar_datos();
                         parametros.iddetalle_factura = iddetalleventa;
                         parametros.Descuento = Convert.ToDouble(txtmonto.Text);
-                        if (funcion.editarDescuentoFactura(parametros) == true)
+                        if (funcion.editarDescuentofactura(parametros) == true)
                         {
                             Listarproductosagregados();
                         }
@@ -2002,11 +2002,11 @@ namespace SistemaVentas.Presentacion.VentasCamiones
                 {
                     if ((Convert.ToDouble(txtmonto.Text) < 0.19))
                     {
-                        LdetalleFactura parametros = new LdetalleFactura();
+                        Ldetallefactura parametros = new Ldetallefactura();
                         Editar_datos funcion = new Editar_datos();
                         parametros.iddetalle_compra = iddetalleventa;
                         parametros.Itbis = Convert.ToDouble(txtmonto.Text);
-                        if (funcion.editarImpuestosFactura(parametros) == true)
+                        if (funcion.editarImpuestosfactura(parametros) == true)
                         {
                             Listarproductosagregados();
                         }

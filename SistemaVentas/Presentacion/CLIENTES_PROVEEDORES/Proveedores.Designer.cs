@@ -188,7 +188,7 @@
             this.groupBox1.Size = new System.Drawing.Size(595, 99);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos de FACTURACION (Opcional)";
+            this.groupBox1.Text = "Datos de facturaCION (Opcional)";
             // 
             // btnGuardar
             // 

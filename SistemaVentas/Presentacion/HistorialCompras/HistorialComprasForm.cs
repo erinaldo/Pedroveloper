@@ -17,9 +17,9 @@ namespace SistemaVentas.Presentacion.HistorialCompras
         {
             InitializeComponent();
         }
-        int idFactura;
+        int idfactura;
         double Total;
-        int idDetalleFactura;
+        int idDetallefactura;
         double Cantidad;
         string ControlStock;
         int idproducto;
@@ -64,7 +64,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
         {
             if (datalistadoVentas.RowCount >0)
             {
-                idFactura = Convert.ToInt32 ( datalistadoVentas.SelectedCells[1].Value);
+                idfactura = Convert.ToInt32 ( datalistadoVentas.SelectedCells[1].Value);
                 lblcomprobante.Text = datalistadoVentas.SelectedCells[3].Value.ToString();
                 lbltotal.Text = datalistadoVentas.SelectedCells[4].Value.ToString();
                 Total =Convert.ToDouble ( datalistadoVentas.SelectedCells[4].Value);
@@ -86,7 +86,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
         private void MostrarDetalleVenta()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.MostrarDetalleCompra(ref dt, idFactura);
+            Obtener_datos.MostrarDetalleCompra(ref dt, idfactura);
             datalistadoDetalleVenta.DataSource = dt;
             /*datalistadoDetalleVenta.Columns[6].Visible = false;
             datalistadoDetalleVenta.Columns[7].Visible = false;
@@ -119,7 +119,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             Cantidad = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[3].Value);
             PrecioUnitario =Convert.ToDouble ( datalistadoDetalleVenta.SelectedCells[4].Value);
             idproducto = Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[6].Value);
-            idDetalleFactura =Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[7].Value);
+            idDetallefactura =Convert.ToInt32 ( datalistadoDetalleVenta.SelectedCells[7].Value);
             ControlStock = datalistadoDetalleVenta.SelectedCells[14].Value.ToString();
             txtcantidad.Clear();
             txtcantidad.Focus();
@@ -150,9 +150,9 @@ namespace SistemaVentas.Presentacion.HistorialCompras
                 {
                     if (CantidadDevolucion <=Cantidad)
                     {
-                      LdetalleFactura parametros = new LdetalleFactura();
+                      Ldetallefactura parametros = new Ldetallefactura();
                       Editar_datos funcion = new Editar_datos();
-                      parametros.iddetalle_factura = idDetalleFactura;
+                      parametros.iddetalle_factura = idDetallefactura;
                       parametros.cantidad = Convert.ToDouble (CantidadDevolucion);
                       parametros.Cantidad_mostrada  = Convert.ToDouble(CantidadDevolucion);
                        if (funcion.DetalleCompraDevolucion(parametros)==true)
@@ -214,7 +214,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
         {
             Lventas parametros = new Lventas();
             Editar_datos funcion = new Editar_datos();
-            parametros.idFactura = idFactura;
+            parametros.idfactura = idfactura;
             parametros.Monto_total =TotalNuevo;
             funcion.EditarCompra(parametros);
         }
@@ -248,7 +248,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
         }
         private void disminuirSTOCKDETALLE()
         {
-            LdetalleFactura parametros = new LdetalleFactura();
+            Ldetallefactura parametros = new Ldetallefactura();
             Editar_datos funcion = new Editar_datos();
             parametros.Id_producto = idproducto;
             parametros.cantidad =Convert.ToDouble (  txtcantidad.Text);
@@ -288,16 +288,16 @@ namespace SistemaVentas.Presentacion.HistorialCompras
                         insertar_KARDEX_SALIDA();
                 }
                         TotalNuevo = 0;
-                        EliminarFacturas();
+                        Eliminarfacturas();
                         ValidarPaneles();
                         BuscarCompra();
             }
         }
-        private void EliminarFacturas()
+        private void Eliminarfacturas()
         {
             Lventas parametros = new Lventas();
             Eliminar_datos funcion = new Eliminar_datos();
-            parametros.idFactura = idFactura;
+            parametros.idfactura = idfactura;
             funcion.EliminarCompras(parametros);
         }
 
@@ -326,7 +326,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
         private void ReimprimirTicket()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.mostrar_ticket_impreso(ref dt, idFactura, TotalEnLetras);
+            Obtener_datos.mostrar_ticket_impreso(ref dt, idfactura, TotalEnLetras);
             REPORTES.Impresion_de_comprobantes.Ticket_report rpt = new REPORTES.Impresion_de_comprobantes.Ticket_report();
             rpt = new REPORTES.Impresion_de_comprobantes.Ticket_report();
             rpt.table1.DataSource = dt;

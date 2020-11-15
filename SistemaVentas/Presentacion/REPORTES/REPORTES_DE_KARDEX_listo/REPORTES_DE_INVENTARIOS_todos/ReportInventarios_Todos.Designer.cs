@@ -81,7 +81,7 @@ namespace SistemaVentas.Presentacion.REPORTES.REPORTES_DE_KARDEX_listo.REPORTES_
             this.textBox10.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox10.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
             this.textBox10.StyleName = "";
-            this.textBox10.Value = "P.Factura";
+            this.textBox10.Value = "P.factura";
             // 
             // textBox12
             // 

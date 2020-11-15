@@ -2131,7 +2131,7 @@
             this.txttipo.Name = "txttipo";
             this.txttipo.Size = new System.Drawing.Size(96, 17);
             this.txttipo.TabIndex = 0;
-            this.txttipo.Text = "F. de Factura:";
+            this.txttipo.Text = "F. de factura:";
             // 
             // txtmenuinterno
             // 

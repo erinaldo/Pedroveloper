@@ -11,14 +11,14 @@ namespace SistemaVentas.Datos
 {
     public class Eliminar_datos
     {
-        public static void eliminar_factura(int idFactura)
+        public static void eliminar_factura(int idfactura)
         {
             try
             {
             CONEXIONMAESTRA.abrir();
             SqlCommand cmd = new SqlCommand("eliminar_factura", CONEXIONMAESTRA.conectar);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@idFactura", idFactura);
+            cmd.Parameters.AddWithValue("@idfactura", idfactura);
             cmd.ExecuteNonQuery();
             CONEXIONMAESTRA.cerrar();
             }
@@ -28,14 +28,14 @@ namespace SistemaVentas.Datos
             }
            
         }
-        public static void eliminar_compra(int idFactura)
+        public static void eliminar_compra(int idfactura)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("Eliminar_compra", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCompra", idFactura);
+                cmd.Parameters.AddWithValue("@idCompra", idfactura);
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
             }
@@ -256,15 +256,15 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        //Facturas
-        public bool EliminarFacturas(Lventas parametros)
+        //facturas
+        public bool Eliminarfacturas(Lventas parametros)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("Eliminar_factura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idFactura", parametros.idFactura);
+                cmd.Parameters.AddWithValue("@idfactura", parametros.idfactura);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -285,7 +285,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("Eliminar_compra", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCompra", parametros.idFactura);
+                cmd.Parameters.AddWithValue("@idCompra", parametros.idfactura);
                 cmd.ExecuteNonQuery();
                 return true;
             }

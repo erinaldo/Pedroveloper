@@ -852,7 +852,7 @@
             this.txtDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtDepartamento.FormattingEnabled = true;
             this.txtDepartamento.Items.AddRange(new object[] {
-            "Departamento de Facturas",
+            "Departamento de facturas",
             "Departamento de Envios"});
             this.txtDepartamento.Location = new System.Drawing.Point(185, 424);
             this.txtDepartamento.Name = "txtDepartamento";

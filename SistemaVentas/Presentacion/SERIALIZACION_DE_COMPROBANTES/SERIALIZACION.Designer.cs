@@ -245,7 +245,7 @@
             this.TXTCOMPRO.Name = "TXTCOMPRO";
             this.TXTCOMPRO.Size = new System.Drawing.Size(210, 16);
             this.TXTCOMPRO.TabIndex = 615;
-            this.TXTCOMPRO.Text = "FACTURA";
+            this.TXTCOMPRO.Text = "factura";
             this.TXTCOMPRO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtnumerofin
@@ -446,7 +446,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(210, 16);
             this.textBox1.TabIndex = 615;
-            this.textBox1.Text = "FACTURA";
+            this.textBox1.Text = "factura";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SERIALIZACION

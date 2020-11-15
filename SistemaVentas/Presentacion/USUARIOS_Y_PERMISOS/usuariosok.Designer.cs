@@ -288,7 +288,7 @@
             this.txtroles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtroles.FormattingEnabled = true;
             this.txtroles.Items.AddRange(new object[] {
-            "Solo Facturas (no esta autorizado para manejar dinero)",
+            "Solo facturas (no esta autorizado para manejar dinero)",
             "Cajero (Si esta autorizado para manejar dinero)",
             "Administrador (Control total)"});
             this.txtroles.Location = new System.Drawing.Point(125, 141);

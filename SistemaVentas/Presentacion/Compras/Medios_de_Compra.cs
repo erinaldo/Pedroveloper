@@ -48,7 +48,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         string nombreCliente;
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
-            panelClienteFactura.Visible = true;
+            panelClientefactura.Visible = true;
             lblindicador_de_factura_1.Text = "Proveedor: (Obligatorio)";
             lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
             FlowLayoutPanel1.Visible = false;
@@ -240,7 +240,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             try
             {
                 /* CONEXION.CONEXIONMAESTRA.abrir();
-                 string query = "select tipodoc from Serializacion where Destino='FACTURAS'";
+                 string query = "select tipodoc from Serializacion where Destino='facturaS'";
                  SqlCommand cmd = new SqlCommand(query, CONEXION.CONEXIONMAESTRA.conectar);
                  SqlDataReader rdr = cmd.ExecuteReader();
                  while (rdr.Read())
@@ -280,25 +280,25 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         }
         private void validarPedidodeProveedor()
         {
-            if (lblComprobante.Text == "FACTURA" && txttipo == "CREDITO")
+            if (lblComprobante.Text == "factura" && txttipo == "CREDITO")
             {
-                panelClienteFactura.Visible = false;
+                panelClientefactura.Visible = false;
             }
-            if (lblComprobante.Text == "FACTURA" && txttipo == "CONTADO")
+            if (lblComprobante.Text == "factura" && txttipo == "CONTADO")
             {
-                panelClienteFactura.Visible = true;
+                panelClientefactura.Visible = true;
                 lblindicador_de_factura_1.Text = "Proveedor: (Obligatorio)";
                 lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
             }
-            else if (lblComprobante.Text != "FACTURA" && txttipo == "CONTADO - Transferencia bancaria")
+            else if (lblComprobante.Text != "factura" && txttipo == "CONTADO - Transferencia bancaria")
             {
-                panelClienteFactura.Visible = true;
+                panelClientefactura.Visible = true;
                 lblindicador_de_factura_1.Text = "Proveedor: (Obligatorio)";
                 lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
             }
-            else if (lblComprobante.Text == "FACTURA" && txttipo == "CONTADO - Transferencia bancaria")
+            else if (lblComprobante.Text == "factura" && txttipo == "CONTADO - Transferencia bancaria")
             {
-                panelClienteFactura.Visible = true;
+                panelClientefactura.Visible = true;
                 lblindicador_de_factura_1.Text = "Proveedor: (Obligatorio)";
                 lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
 
@@ -727,7 +727,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             }
             else if (indicador == "DIRECTO")
             {
-                if (tipoImpresion == "FACTURA")
+                if (tipoImpresion == "factura")
                 {
                     //imprimir_directo_factura();
                 }
@@ -910,7 +910,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 CONEXION.CONEXIONMAESTRA.abrir();
                 da = new SqlDataAdapter("mostrar_compra_impreso", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Id_Factura", idCompra);
+                da.SelectCommand.Parameters.AddWithValue("@Id_factura", idCompra);
                 da.SelectCommand.Parameters.AddWithValue("@total_en_letras", txtnumeroconvertidoenletra.Text);
                 da.Fill(dt);
                 datalistadoprueba.DataSource = dt;
@@ -1379,7 +1379,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             }
             else
             {
-                panelClienteFactura.Visible = true;
+                panelClientefactura.Visible = true;
                 AsignarTipoComprobante();
                 FlowLayoutPanel1.Visible = true;
                 pcredito.Visible = false;
@@ -1445,12 +1445,12 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
                 if (textocredito > 0)
                 {
                     pcredito.Visible = true;
-                    panelClienteFactura.Visible = false;
+                    panelClientefactura.Visible = false;
                 }
                 else
                 {
                     pcredito.Visible = false;
-                    panelClienteFactura.Visible = true;
+                    panelClientefactura.Visible = true;
                     idProveedor = 0;
                 }
             }

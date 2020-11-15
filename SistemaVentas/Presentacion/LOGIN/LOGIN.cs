@@ -36,7 +36,7 @@ namespace SistemaVentas.Presentacion
         string lblSerialPcLocal;
 #pragma warning restore CS0169 // El campo 'LOGIN.lblSerialPcLocal' nunca se usa
         string cajero= "Cajero (Si esta autorizado para manejar dinero)";
-        string vendedor= "Solo Facturas (no esta autorizado para manejar dinero)";
+        string vendedor= "Solo facturas (no esta autorizado para manejar dinero)";
         string administrador= "Administrador (Control total)";
         string lblRol;
         string txtlogin;

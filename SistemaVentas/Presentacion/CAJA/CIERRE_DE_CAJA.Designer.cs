@@ -243,7 +243,7 @@
             this.Label34.Name = "Label34";
             this.Label34.Size = new System.Drawing.Size(149, 20);
             this.Label34.TabIndex = 192;
-            this.Label34.Text = "Facturas Totales:";
+            this.Label34.Text = "facturas Totales:";
             // 
             // Panel7
             // 
@@ -517,7 +517,7 @@
             this.Label29.Name = "Label29";
             this.Label29.Size = new System.Drawing.Size(157, 20);
             this.Label29.TabIndex = 192;
-            this.Label29.Text = "Facturas en efectivo:";
+            this.Label29.Text = "facturas en efectivo:";
             // 
             // Label30
             // 
@@ -665,7 +665,7 @@
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(144, 20);
             this.Label9.TabIndex = 192;
-            this.Label9.Text = "Facturas Totales";
+            this.Label9.Text = "facturas Totales";
             // 
             // panel12
             // 

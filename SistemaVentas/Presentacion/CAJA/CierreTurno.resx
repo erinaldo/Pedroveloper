@@ -824,7 +824,7 @@
                     &lt;tr&gt;
                         &lt;td height="74" style="https: //mail.google.com/mail/u/4?ui=2&amp;amp;ik=b3dfb047a3&amp;amp;attid=0.1&amp;amp;permmsgid=msg-f:1622839612304203296&amp;amp;th=16857c077ad31e20&amp;amp;view=att&amp;amp;disp=inline;" width="40"&gt;
                             &lt;img alt="a" class="auto-style1" src="" /&gt; &lt;/td&gt;
-                        &lt;td style="font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, sans-serif; margin: 0px; border-collapse: collapse; font-size: 28px; color: rgb(255, 255, 255); text-align: center;" width="510"&gt;Sistema de Facturas&lt;/td&gt;
+                        &lt;td style="font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, sans-serif; margin: 0px; border-collapse: collapse; font-size: 28px; color: rgb(255, 255, 255); text-align: center;" width="510"&gt;Sistema de facturas&lt;/td&gt;
                     &lt;/tr&gt;
                 &lt;/table&gt;
             &lt;/td&gt;
@@ -884,7 +884,7 @@
                         &lt;td align="center" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse;"&gt;
                             &lt;table border="0" cellpadding="0" cellspacing="0" class="m_-4837111309844657692both" style="font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, sans-serif; font-size: 16px; line-height: 24px; color: rgb(61, 69, 76); text-align: left; padding: 0px 15px;"&gt;
                                 &lt;tr&gt;
-                                    &lt;td align="left" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse;" width="275"&gt;&lt;span style="font-weight: 500; font-size: 20px;"&gt;Facturas Totales&lt;/span&gt;&lt;/td&gt;
+                                    &lt;td align="left" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse;" width="275"&gt;&lt;span style="font-weight: 500; font-size: 20px;"&gt;facturas Totales&lt;/span&gt;&lt;/td&gt;
                                     &lt;td align="right" height="40" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse;" width="275"&gt;@ventas_totales&amp;nbsp;&lt;/td&gt;
                                 &lt;/tr&gt;
                                 &lt;tr&gt;
@@ -938,7 +938,7 @@
                                                 &lt;td bgcolor="#EBECED" colspan="2" height="1" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse; font-size: 0px; line-height: 0;"&gt;&lt;/td&gt;
                                             &lt;/tr&gt;
                                             &lt;tr&gt;
-                                                &lt;td align="left" height="40" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse;"&gt;&amp;nbsp;Facturas en Efectivo&lt;/td&gt;
+                                                &lt;td align="left" height="40" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse;"&gt;&amp;nbsp;facturas en Efectivo&lt;/td&gt;
                                                 &lt;td align="right" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse;"&gt;&lt;span style="color: green;"&gt;+ @ventas_efectivo&lt;/span&gt;&lt;/td&gt;
                                             &lt;/tr&gt;
                                             &lt;tr&gt;
@@ -991,7 +991,7 @@
                                                     &lt;div&gt;
                                                         &lt;table align="center" border="0" cellpadding="0" cellspacing="0"&gt;
                                                             &lt;tr&gt;
-                                                                &lt;td style="font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, sans-serif; margin: 0px; border-collapse: collapse; background: rgb(255, 255, 255); padding: 0px 16px; font-size: 21px; line-height: 21px; height: 40px; color: rgb(61, 69, 76); text-align: center;"&gt;Facturas&lt;/td&gt;
+                                                                &lt;td style="font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, sans-serif; margin: 0px; border-collapse: collapse; background: rgb(255, 255, 255); padding: 0px 16px; font-size: 21px; line-height: 21px; height: 40px; color: rgb(61, 69, 76); text-align: center;"&gt;facturas&lt;/td&gt;
                                                             &lt;/tr&gt;
                                                         &lt;/table&gt;
                                                     &lt;/div&gt;
@@ -1025,7 +1025,7 @@
                                                 &lt;td bgcolor="#EBECED" colspan="2" height="1" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse; font-size: 0px; line-height: 0;"&gt;&lt;/td&gt;
                                             &lt;/tr&gt;
                                             &lt;tr&gt;
-                                                &lt;td align="left" class="auto-style2" height="40" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse; font-weight: 600;"&gt;&amp;nbsp;Total de Facturas&lt;/td&gt;
+                                                &lt;td align="left" class="auto-style2" height="40" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse; font-weight: 600;"&gt;&amp;nbsp;Total de facturas&lt;/td&gt;
                                                 &lt;td align="right" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse; font-weight: 600;"&gt;@Tventas&lt;/td&gt;
                                             &lt;/tr&gt;
                                         &lt;/table&gt;
@@ -1039,9 +1039,9 @@
                 &lt;/table&gt;
                 &lt;table align="center" bgcolor="#f7f7f7" border="0" cellpadding="0" cellspacing="0" width="100%"&gt;
                     &lt;tr&gt;
-                        &lt;td align="center" style="font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, sans-serif; margin: 0px; border-collapse: collapse; font-size: 13px; line-height: 26px; color: rgb(95, 106, 124); text-align: center; padding: 24px 20px 0px;"&gt;Generado por&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;a data-saferedirecturl="https://www.google.com/url?q=http://www.eleventa.com/?utm_source%3Dreporte_de_corte&amp;amp;source=gmail&amp;amp;ust=1547613136310000&amp;amp;usg=AFQjCNGPvhRS4JonW7H6C9GqwJrLCR4r7Q" href="http://www.eleventa.com/?utm_source=reporte_de_corte" style="color: rgb(73, 98, 179); text-decoration: none;" target="_blank"&gt;&lt;span class="il"&gt;Sistema de Facturas&lt;/span&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;punto de Factura&lt;/a&gt;. Version 20&lt;span&gt;20&amp;nbsp;&lt;/span&gt;&lt;br /&gt;
+                        &lt;td align="center" style="font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, sans-serif; margin: 0px; border-collapse: collapse; font-size: 13px; line-height: 26px; color: rgb(95, 106, 124); text-align: center; padding: 24px 20px 0px;"&gt;Generado por&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;a data-saferedirecturl="https://www.google.com/url?q=http://www.eleventa.com/?utm_source%3Dreporte_de_corte&amp;amp;source=gmail&amp;amp;ust=1547613136310000&amp;amp;usg=AFQjCNGPvhRS4JonW7H6C9GqwJrLCR4r7Q" href="http://www.eleventa.com/?utm_source=reporte_de_corte" style="color: rgb(73, 98, 179); text-decoration: none;" target="_blank"&gt;&lt;span class="il"&gt;Sistema de facturas&lt;/span&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;punto de factura&lt;/a&gt;. Version 20&lt;span&gt;20&amp;nbsp;&lt;/span&gt;&lt;br /&gt;
                             2020 - 2024 Todos los derechos reservados.&lt;br /&gt;
-                            &lt;span style="font-size: 11px; color: rgb(151, 151, 151);"&gt;Si deseas dejar de recibir estos reportes por favor desactiva el envio desde&lt;span&gt;&amp;nbsp;Sistema de Facturas&lt;/span&gt;en el apartado de Configuracion &amp;gt; Corte&lt;/span&gt; &lt;/td&gt;
+                            &lt;span style="font-size: 11px; color: rgb(151, 151, 151);"&gt;Si deseas dejar de recibir estos reportes por favor desactiva el envio desde&lt;span&gt;&amp;nbsp;Sistema de facturas&lt;/span&gt;en el apartado de Configuracion &amp;gt; Corte&lt;/span&gt; &lt;/td&gt;
                     &lt;/tr&gt;
                     &lt;tr&gt;
                         &lt;td align="center" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; margin: 0px; border-collapse: collapse;"&gt;

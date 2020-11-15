@@ -238,10 +238,10 @@
             this.txttipocomprobante.FormattingEnabled = true;
             this.txttipocomprobante.Items.AddRange(new object[] {
             "SIN COMPROBANTE",
-            "FACTURA",
+            "factura",
             "BOLETA",
             "BOLETO DE VIAJE",
-            "TICKET DE FACTURA",
+            "TICKET DE factura",
             "Otro"});
             this.txttipocomprobante.Location = new System.Drawing.Point(190, 14);
             this.txttipocomprobante.Margin = new System.Windows.Forms.Padding(4);

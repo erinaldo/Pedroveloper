@@ -22,7 +22,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         int idcaja;
 
 
-        int idFactura;
+        int idfactura;
         private void Ventas_en_espera_Load(object sender, EventArgs e)
         {
             mostrar_ventas_en_espera_con_fecha_y_monto();
@@ -50,7 +50,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             try
             {
-                idFactura = Convert.ToInt32(datalistado_ventas_en_espera.SelectedCells[1].Value);
+                idfactura = Convert.ToInt32(datalistado_ventas_en_espera.SelectedCells[1].Value);
                 mostrar_detalle_venta();
             }
             catch (Exception ex)
@@ -63,7 +63,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void mostrar_detalle_venta()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.mostrar_productos_agregados_a_cotizaciones_en_espera(ref dt, idFactura);
+            Obtener_datos.mostrar_productos_agregados_a_cotizaciones_en_espera(ref dt, idfactura);
             datalistadodetalledeventasarestaurar.DataSource = dt;
             datalistadodetalledeventasarestaurar.Columns[6].Visible = false;
 
@@ -71,14 +71,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (idFactura == 0)
+            if (idfactura == 0)
             {
                 MessageBox.Show("Seleccione una Cotización a Eliminar");
             }
             else
             {
-                Eliminar_datos.eliminar_factura(idFactura);
-                idFactura = 0;
+                Eliminar_datos.eliminar_factura(idfactura);
+                idfactura = 0;
                 mostrar_ventas_en_espera_con_fecha_y_monto();
                 mostrar_detalle_venta();
             }
@@ -91,15 +91,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
-            if (idFactura == 0)
+            if (idfactura == 0)
             {
                 MessageBox.Show("Seleccione una Cotizacion a Restaurar");
             }
             else
             {
-                VENTAS_MENU_PRINCIPALOK.idVenta = idFactura;
-                VENTAS_MENU_PRINCIPALOK.txtventagenerada = "Factura GENERADA";
-                Editar_datos.cambio_de_Cajacotizacion(idcaja, idFactura);
+                VENTAS_MENU_PRINCIPALOK.idVenta = idfactura;
+                VENTAS_MENU_PRINCIPALOK.txtventagenerada = "factura GENERADA";
+                Editar_datos.cambio_de_Cajacotizacion(idcaja, idfactura);
                 Dispose();
             }
 
