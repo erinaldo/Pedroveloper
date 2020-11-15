@@ -329,7 +329,6 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         private void insertarPermisos()
         {
 
-            string modulo = "";
             int cant = 0;
             try
             {
@@ -341,7 +340,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             catch (Exception)
             {
             }
-
+            string operacion = "";
             for (int i = 0; i < cant; i++)
             {
                 try
@@ -363,15 +362,109 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 }
             }
 
-            for (int i = 0; i < cant; i++)
+            for (int i = 0; i <= cant; i++)
             {
+                switch (i)
+                {
+                    case 1: operacion = "SIN ACCESO";
+                        break;
+                    case 2: operacion = "SIN ACCESO";
+                        break;
+                    case 3:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 4:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 5:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 6:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 7:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 8:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 9:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 10:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 11:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 12:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 13:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 14:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 15:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 16:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 17:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 18:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 19:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 20:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 21:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 22:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 23:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 24:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 25:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 26:
+                        operacion = "ACCESO";
+                        break;
+                }
+
                 try
                 {
                     CONEXIONMAESTRA.abrir();
                     SqlCommand cmd = new SqlCommand("insertarOperaciones", CONEXIONMAESTRA.conectar);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Operacion", "SIN ACCESO");
-                    cmd.Parameters.AddWithValue("@idModulo", i + 1);
+                    cmd.Parameters.AddWithValue("@Operacion", operacion);
+                    cmd.Parameters.AddWithValue("@idModulo", i);
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
@@ -383,7 +476,6 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                     CONEXIONMAESTRA.cerrar();
                 }
             }
-
         }
 
         public void insertarModulos()

@@ -821,5 +821,137 @@ namespace SistemaVentas.Presentacion
         {
             enviarCorreo();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int cant = 0;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand da = new SqlCommand("select count(idModulo) from Modulo", CONEXIONMAESTRA.conectar);
+                cant = Convert.ToInt32(da.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception)
+            {
+            }
+            string operacion = "";
+            for (int i = 0; i <= cant; i++)
+            {
+                switch (i)
+                {
+                    case 1:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 2:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 3:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 4:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 5:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 6:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 7:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 8:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 9:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 10:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 11:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 12:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 13:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 14:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 15:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 16:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 17:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 18:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 19:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 20:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 21:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 22:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 23:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 24:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 25:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 26:
+                        operacion = "ACCESO";
+                        break;
+                }
+
+                try
+                {
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarOperaciones", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Operacion", operacion);
+                    cmd.Parameters.AddWithValue("@idModulo", i);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    CONEXIONMAESTRA.cerrar();
+                }
+            }
+        }
     }
 }
