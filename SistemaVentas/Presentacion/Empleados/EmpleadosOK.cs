@@ -47,14 +47,13 @@ namespace SistemaVentas.Presentacion.Empleados
         {
             int num;
             SqlConnection con = new SqlConnection();
+            con.Open();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             SqlCommand com = new SqlCommand("SELECT COUNT(idUsuario) from USUARIO2", con);
-
+            num = Convert.ToInt32(com.ExecuteScalar());
+            con.Close();
             try
             {
-                con.Open();
-                num = Convert.ToInt32(com.ExecuteScalar());
-                con.Close();
                 if (num == 0)
                 {
                     Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA();

@@ -107,7 +107,7 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
                 {
                     if(modulo == "Usuarios")
                     {
-                        if(Operacion == "Acceso")
+                        if(Operacion == "ControlTotal")
                         {
                             usuariosok frm = new usuariosok();
                             frm.ShowDialog();
@@ -133,9 +133,33 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
         }
         private void mostrar_cajas()
         {
-            Dispose();
-            CAJA.Cajas_form frm = new CAJA.Cajas_form();
-            frm.ShowDialog();
+            foreach (DataGridViewRow row in datalistado.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario == idusuarioBuscar)
+                {
+                    if (modulo == "Serializacion")
+                    {
+                        if (Operacion == "Acceso")
+                        {
+                            Dispose();
+                            CAJA.Cajas_form frm = new CAJA.Cajas_form();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+            
         }
 
         private void Label27_Click(object sender, EventArgs e)

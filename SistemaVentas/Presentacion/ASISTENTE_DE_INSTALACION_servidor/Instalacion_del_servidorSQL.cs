@@ -28,7 +28,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         {
             centrarPaneles();
             Reemplazar();
-            comprobar_si_ya_hay_servidor_instalado_SQL_EXPRESS();
+            //comprobar_si_ya_hay_servidor_instalado_SQL_EXPRESS();
+            ejecutar_scryt_ELIMINARBase();
+            ejecutar_scryt_crearBase();
             Conectar();
         }
         private void Conectar()
@@ -65,14 +67,14 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         private void comprobar_si_ya_hay_servidor_instalado_SQL_EXPRESS()
         {
             txtservidor.Text = @".\" + lblnombredeservicio.Text;
-            ejecutar_scryt_ELIMINARBase_comprobacion_de_inicio();
+           // ejecutar_scryt_ELIMINARBase_comprobacion_de_inicio();
             ejecutar_scryt_crearBase_comprobacion_De_inicio();
         }
 
         private void comprobar_si_ya_hay_servidor_instalado_SQL_NORMAL()
         {
             txtservidor.Text = ".";
-            ejecutar_scryt_ELIMINARBase_comprobacion_de_inicio();
+            //ejecutar_scryt_ELIMINARBase_comprobacion_de_inicio();
             ejecutar_scryt_crearBase_comprobacion_De_inicio();
         }
 
@@ -381,7 +383,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 seg.Text = Convert.ToString(segundos1);
 
                 milisegundo1 = 0;
-
+               
             }
 
             if (segundos1 == 60)
@@ -395,8 +397,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             if (minutos1 == 1)
             {
               
-                ejecutar_scryt_ELIMINARBase();
-                ejecutar_scryt_crearBase();
+               
 
             }
         }

@@ -151,9 +151,9 @@
             this.Panel2.Controls.Add(this.Panel4);
             this.Panel2.Controls.Add(this.Panel9);
             this.Panel2.Controls.Add(this.btnInstalarServidor);
-            this.Panel2.Location = new System.Drawing.Point(428, 127);
+            this.Panel2.Location = new System.Drawing.Point(385, 115);
             this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(485, 539);
+            this.Panel2.Size = new System.Drawing.Size(501, 555);
             this.Panel2.TabIndex = 617;
             // 
             // Panel4
@@ -164,9 +164,9 @@
             this.Panel4.Controls.Add(this.Label1);
             this.Panel4.Controls.Add(this.PictureBox1);
             this.Panel4.Controls.Add(this.Panel5);
-            this.Panel4.Location = new System.Drawing.Point(0, 97);
+            this.Panel4.Location = new System.Drawing.Point(3, 181);
             this.Panel4.Name = "Panel4";
-            this.Panel4.Size = new System.Drawing.Size(482, 556);
+            this.Panel4.Size = new System.Drawing.Size(482, 387);
             this.Panel4.TabIndex = 618;
             this.Panel4.Visible = false;
             // 
@@ -177,7 +177,7 @@
             this.PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox2.Image")));
             this.PictureBox2.Location = new System.Drawing.Point(0, 307);
             this.PictureBox2.Name = "PictureBox2";
-            this.PictureBox2.Size = new System.Drawing.Size(482, 249);
+            this.PictureBox2.Size = new System.Drawing.Size(482, 80);
             this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBox2.TabIndex = 617;
             this.PictureBox2.TabStop = false;
@@ -302,9 +302,9 @@
             // 
             this.Panel9.Controls.Add(this.lblbuscador_de_servidores);
             this.Panel9.Controls.Add(this.Panel1);
-            this.Panel9.Location = new System.Drawing.Point(16, 107);
+            this.Panel9.Location = new System.Drawing.Point(19, 101);
             this.Panel9.Name = "Panel9";
-            this.Panel9.Size = new System.Drawing.Size(452, 153);
+            this.Panel9.Size = new System.Drawing.Size(452, 74);
             this.Panel9.TabIndex = 619;
             // 
             // lblbuscador_de_servidores
@@ -315,7 +315,7 @@
             this.lblbuscador_de_servidores.ForeColor = System.Drawing.Color.White;
             this.lblbuscador_de_servidores.Location = new System.Drawing.Point(3, 0);
             this.lblbuscador_de_servidores.Name = "lblbuscador_de_servidores";
-            this.lblbuscador_de_servidores.Size = new System.Drawing.Size(449, 153);
+            this.lblbuscador_de_servidores.Size = new System.Drawing.Size(449, 74);
             this.lblbuscador_de_servidores.TabIndex = 614;
             this.lblbuscador_de_servidores.Text = "Buscando servidores instalados...";
             this.lblbuscador_de_servidores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -326,7 +326,7 @@
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.Panel1.Location = new System.Drawing.Point(0, 0);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(3, 153);
+            this.Panel1.Size = new System.Drawing.Size(3, 74);
             this.Panel1.TabIndex = 615;
             // 
             // btnInstalarServidor
@@ -337,9 +337,9 @@
             this.btnInstalarServidor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInstalarServidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold);
             this.btnInstalarServidor.ForeColor = System.Drawing.Color.White;
-            this.btnInstalarServidor.Location = new System.Drawing.Point(29, 19);
+            this.btnInstalarServidor.Location = new System.Drawing.Point(29, 10);
             this.btnInstalarServidor.Name = "btnInstalarServidor";
-            this.btnInstalarServidor.Size = new System.Drawing.Size(413, 84);
+            this.btnInstalarServidor.Size = new System.Drawing.Size(413, 93);
             this.btnInstalarServidor.TabIndex = 610;
             this.btnInstalarServidor.Text = "Instalar Servidor";
             this.btnInstalarServidor.UseVisualStyleBackColor = false;

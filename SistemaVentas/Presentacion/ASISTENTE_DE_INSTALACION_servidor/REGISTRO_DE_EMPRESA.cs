@@ -73,15 +73,15 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertarDescuento();
                         InsertarCategoria();
                         Ingresar_Persona();
-                        insertarEmpleado();
+                        insertarEmpleado(); insertarRol();
                         insertar_clientes();
                         insertar_Proveedores();
                         insertarModulos();
                         correo = txtcorreo.Text;
+
                         Dispose();
 
-                        Presentacion.Empleados.EmpleadosOK frm1 = new Presentacion.Empleados.EmpleadosOK();
-                        frm1.ShowDialog();
+                       
                         USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new USUARIOS_AUTORIZADOS_AL_SISTEMA();
                         frm.ShowDialog();
                     }

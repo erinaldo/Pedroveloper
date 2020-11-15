@@ -52,17 +52,16 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         System.IO.MemoryStream ms = new System.IO.MemoryStream();
                         PictureBox2.Image.Save(ms, PictureBox2.Image.RawFormat);
                         cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
-                        cmd.Parameters.AddWithValue("@Rol", "Administrador (Control total)");
+                        cmd.Parameters.AddWithValue("@idRol", 1);
                         cmd.Parameters.AddWithValue("@Nombre_de_icono", "Pedroveloper");
                         cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                         cmd.ExecuteNonQuery();
                         con.Close();
-                        Insertar_licencia_de_prueba_30_dias();
+                       // Insertar_licencia_de_prueba_30_dias();
                         insertar_cliente_standar();
-                        insertar_grupo_por_defecto();
                         insertar_inicio_De_sesion();
+                        insertarPermisos();
                         MessageBox.Show("!LISTO! RECUERDA que para Iniciar Sesión tu Usuario es: " + TXTUSUARIO.Text + " y tu Contraseña es: " + TXTCONTRASEÑA.Text, "Registro Exitoso", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
                         Dispose();
                         Presentacion.LOGIN frm = new Presentacion.LOGIN();
                         frm.ShowDialog();
@@ -125,6 +124,12 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void insertarPermisos()
+        {
+
+        }
+
         private void insertar_cliente_standar()
         {
             try
@@ -220,7 +225,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         private void buscar()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.buscar_empleados(ref dt, txtnombre.Text);
+            Obtener_datos.buscar_empleados2(ref dt, txtnombre.Text);
             datalistadoEmpleado.DataSource = dt;
             if(datalistadoEmpleado.Rows.Count > 0)
             {
@@ -238,19 +243,15 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             Bases.Multilinea(ref datalistadoEmpleado);
             datalistadoEmpleado.Columns[0].Visible = false;
             datalistadoEmpleado.Columns[1].Visible = false;
-            datalistadoEmpleado.Columns[2].Visible = false;
-            datalistadoEmpleado.Columns[7].Visible = false;
-            datalistadoEmpleado.Columns[9].Visible = false;
-            datalistadoEmpleado.Columns[12].Visible = false;
+            datalistadoEmpleado.Columns[3].Visible = false;
 
-            datalistadoEmpleado.Columns[14].Visible = false;
-            datalistadoEmpleado.Columns[18].Visible = false;
-            datalistadoEmpleado.Columns[23].Visible = false;
+            datalistadoEmpleado.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
         }
         private void datalistadoEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             idEmpleado = Convert.ToInt32(datalistadoEmpleado.SelectedCells[0].Value);
-            txtnombre.Text = datalistadoEmpleado.SelectedCells[3].Value.ToString();
+            txtnombre.Text = datalistadoEmpleado.SelectedCells[2].Value.ToString();
             panelDataListadoEmpleados.Visible = false;
         }
     }
