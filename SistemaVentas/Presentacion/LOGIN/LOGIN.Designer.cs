@@ -101,7 +101,6 @@
             this.Label6 = new System.Windows.Forms.Label();
             this.PdeCarga = new System.Windows.Forms.PictureBox();
             this.timerValidarRol = new System.Windows.Forms.Timer(this.components);
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
             this.PanelUsuarios.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -1141,33 +1140,12 @@
             this.timerValidarRol.Interval = 200;
             this.timerValidarRol.Tick += new System.EventHandler(this.timerValidarRol_Tick);
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(162, 14);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(252, 52);
-            this.button5.TabIndex = 620;
-            this.button5.Text = "Iniciar sesion";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // LOGIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1189, 733);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.PdeCarga);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.PanelIngreso_de_contraseña);
@@ -1282,6 +1260,5 @@
         private System.Windows.Forms.DateTimePicker txtfecha_inicio_licencia;
         private System.Windows.Forms.Label label4;
         internal System.Windows.Forms.Button button3;
-        internal System.Windows.Forms.Button button5;
     }
 }

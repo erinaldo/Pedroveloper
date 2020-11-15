@@ -13,18 +13,20 @@ using System.IO;
 using System.Threading;
 using System.Globalization;
 using SistemaVentas.Logica;
-using SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL;
+using SistemaVentas.Presentacion.VentasCamiones;
 using SistemaVentas.Datos;
 using System.Security.Cryptography.X509Certificates;
 using SistemaVentas.Presentacion.Admin_nivel_dios;
 using System.IO.Ports;
 using System.Drawing.Imaging;
 using SistemaVentas.Presentacion.Compras_proveedor;
-namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
+using SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL;
+
+namespace SistemaVentas.Presentacion.VentasCamiones
 {
-    public partial class VENTAS_MENU_PRINCIPALOK : Form
+    public partial class VentasCamiones : Form
     {
-        public VENTAS_MENU_PRINCIPALOK()
+        public VentasCamiones()
         {
             InitializeComponent();
         }
@@ -121,16 +123,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void ContarCotizacionesEnEspera()
         {
-            Obtener_datos.contarCotizacionesEspera(ref contadorCotizacionesEspera);
-            if (contadorCotizacionesEspera == 0)
-            {
-                panel3.Visible = false;
-            }
-            else
-            {
-                panel3.Visible = true;
-                CantidadCotizaciones.Text = contadorCotizacionesEspera.ToString();
-            }
+         
         }
         private void ValidarTemaCaja()
         {
@@ -1527,7 +1520,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             else
             {
                 total = Convert.ToDouble(txt_total_suma.Text);
-                MEDIOS_DE_PAGO frm = new MEDIOS_DE_PAGO();
+                MEDIOS_DE_PAGO_CAMIONES frm = new MEDIOS_DE_PAGO_CAMIONES();
                 frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
                 frm.ShowDialog();
             }
@@ -1840,7 +1833,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             label9.BackColor = Color.FromArgb(35, 35, 35);
             PanelC1.BackColor = Color.FromArgb(35, 35, 35);
             lblNombreSoftware.ForeColor = Color.White;
-            btnadmin.ForeColor = Color.White;
             txtbuscar.BackColor = Color.FromArgb(20, 20, 20);
             txtbuscar.ForeColor = Color.White;
             lbltipodebusqueda2.BackColor = Color.FromArgb(20, 20, 20);
@@ -1857,14 +1849,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             */
             //PanelC3
             PanelC3.BackColor = Color.FromArgb(35, 35, 35);
-            btnMayoreo.BackColor = Color.FromArgb(45, 45, 45);
-            btnMayoreo.ForeColor = Color.White;
             btnIngresosCaja.BackColor = Color.FromArgb(45, 45, 45);
             btnIngresosCaja.ForeColor = Color.White;
             btnGastos.BackColor = Color.FromArgb(45, 45, 45);
             btnGastos.ForeColor = Color.White;
-            BtnTecladoV.BackColor = Color.FromArgb(45, 45, 45);
-            BtnTecladoV.ForeColor = Color.White;
             //PanelC4 Pie de pagina
             panelC4.BackColor = Color.FromArgb(20, 20, 20);
             btnespera.BackColor = Color.FromArgb(20, 20, 20);
@@ -1873,10 +1861,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             btnrestaurar.ForeColor = Color.White;
             btneliminar.BackColor = Color.FromArgb(20, 20, 20);
             btneliminar.ForeColor = Color.White;
-            button7.BackColor = Color.FromArgb(20, 20, 20);
-            button7.ForeColor = Color.White;
-            button6.BackColor = Color.FromArgb(20, 20, 20);
-            button6.ForeColor = Color.White;
             btndevoluciones.BackColor = Color.FromArgb(20, 20, 20);
             btndevoluciones.ForeColor = Color.White;
             //PanelOperaciones
@@ -1885,8 +1869,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             //PanelBienvenida
             panelBienvenida.BackColor = Color.FromArgb(35, 35, 35);
             label8.ForeColor = Color.WhiteSmoke;
-            button4.BackColor = Color.FromArgb(45, 45, 45);
-            button4.ForeColor = Color.White;
             btn4.ForeColor = Color.WhiteSmoke;
             btn4.BackColor = Color.FromArgb(45, 45, 45);
             Listarproductosagregados();
@@ -1896,18 +1878,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void TemaClaro()
         {
-            button4.ForeColor = Color.Black;
-            button4.BackColor = Color.WhiteSmoke;
-            button6.ForeColor = Color.Black;
-            button6.BackColor = Color.Gainsboro;
-            button7.ForeColor = Color.Black;
-            button7.BackColor = Color.Gainsboro;
             //PanelC1 encabezado
             label9.ForeColor = Color.Black;
             label9.BackColor = Color.White;
             PanelC1.BackColor = Color.White;
             lblNombreSoftware.ForeColor = Color.Black;
-            btnadmin.ForeColor = Color.Black;
             txtbuscar.BackColor = Color.White;
             txtbuscar.ForeColor = Color.Black;
             lbltipodebusqueda2.BackColor = Color.White;
@@ -1928,14 +1903,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             //PanelC3
             PanelC3.BackColor = Color.White;
-            btnMayoreo.BackColor = Color.WhiteSmoke;
-            btnMayoreo.ForeColor = Color.Black;
             btnIngresosCaja.BackColor = Color.WhiteSmoke;
             btnIngresosCaja.ForeColor = Color.Black;
             btnGastos.BackColor = Color.WhiteSmoke;
             btnGastos.ForeColor = Color.Black;
-            BtnTecladoV.BackColor = Color.WhiteSmoke;
-            BtnTecladoV.ForeColor = Color.Black;
             //PanelC4 pie de pagina
             panelC4.BackColor = Color.Gainsboro;
             btnespera.BackColor = Color.Gainsboro;
@@ -1972,9 +1943,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Cotizaciones_En_Espera frm = new Cotizaciones_En_Espera();
-            frm.FormClosing += Frm_FormClosing1;
-            frm.ShowDialog();
         }
 
         private void datalistadocotizacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1984,8 +1952,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Pedidos_En_Espera frm = new Pedidos_En_Espera();
-            frm.ShowDialog();
         }
 
         private void button9_Click(object sender, EventArgs e)
