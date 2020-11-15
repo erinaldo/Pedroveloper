@@ -77,6 +77,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertar_clientes();
                         insertar_Proveedores();
                         insertarModulos();
+                        insertarPermisos();
                         correo = txtcorreo.Text;
 
                         Dispose();
@@ -304,6 +305,66 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             {
                 CONEXIONMAESTRA.cerrar();
             }
+        }
+
+        private void insertarPermisos()
+        {
+
+            string modulo = "";
+            int cant = 0;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand da = new SqlCommand("select count(idModulo) from Modulo", CONEXIONMAESTRA.conectar);
+                cant = Convert.ToInt32(da.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception)
+            {
+            }
+
+            for (int i = 0; i < cant; i++)
+            {
+                try
+                {
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarOperaciones", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Operacion", "ACCESO");
+                    cmd.Parameters.AddWithValue("@idModulo", i+1);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    CONEXIONMAESTRA.cerrar();
+                }
+            }
+
+            for (int i = 0; i < cant; i++)
+            {
+                try
+                {
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarOperaciones", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Operacion", "SIN ACCESO");
+                    cmd.Parameters.AddWithValue("@idModulo", i + 1);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    CONEXIONMAESTRA.cerrar();
+                }
+            }
+
         }
 
         public void insertarModulos()
