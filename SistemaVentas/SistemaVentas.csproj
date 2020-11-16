@@ -877,6 +877,9 @@
     <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\MEDIOS_DE_PAGO.resx">
       <DependentUpon>MEDIOS_DE_PAGO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\MEDIOS_DE_PAGO_CAMIONES.resx">
+      <DependentUpon>MEDIOS_DE_PAGO_CAMIONES.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\Pedidos_En_Espera.resx">
       <DependentUpon>Pedidos_En_Espera.cs</DependentUpon>
     </EmbeddedResource>

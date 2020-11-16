@@ -63,8 +63,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelC1 = new System.Windows.Forms.Panel();
-            this.lblDescuento_ = new System.Windows.Forms.Label();
             this.panel_granel = new System.Windows.Forms.Panel();
+            this.lblDescuento_ = new System.Windows.Forms.Label();
             this.lblitbis_ = new System.Windows.Forms.Label();
             this.lblItbis = new System.Windows.Forms.Label();
             this.lblCantidad_de_numeros = new System.Windows.Forms.Label();
@@ -395,15 +395,6 @@
             this.PanelC1.TabIndex = 507;
             this.PanelC1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel17_Paint);
             // 
-            // lblDescuento_
-            // 
-            this.lblDescuento_.AutoSize = true;
-            this.lblDescuento_.Location = new System.Drawing.Point(61, 7);
-            this.lblDescuento_.Name = "lblDescuento_";
-            this.lblDescuento_.Size = new System.Drawing.Size(32, 13);
-            this.lblDescuento_.TabIndex = 633;
-            this.lblDescuento_.Text = "Itbisa";
-            // 
             // panel_granel
             // 
             this.panel_granel.BackColor = System.Drawing.Color.Transparent;
@@ -434,6 +425,15 @@
             this.panel_granel.Name = "panel_granel";
             this.panel_granel.Size = new System.Drawing.Size(10, 10);
             this.panel_granel.TabIndex = 535;
+            // 
+            // lblDescuento_
+            // 
+            this.lblDescuento_.AutoSize = true;
+            this.lblDescuento_.Location = new System.Drawing.Point(61, 7);
+            this.lblDescuento_.Name = "lblDescuento_";
+            this.lblDescuento_.Size = new System.Drawing.Size(32, 13);
+            this.lblDescuento_.TabIndex = 633;
+            this.lblDescuento_.Text = "Itbisa";
             // 
             // lblitbis_
             // 

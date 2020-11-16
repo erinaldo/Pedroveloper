@@ -58,7 +58,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         cmd.ExecuteNonQuery();
                         con.Close();
                        // Insertar_licencia_de_prueba_30_dias();
-                        insertar_cliente_standar();
+                      //  insertar_cliente_standar();
                         insertar_inicio_De_sesion();
                         insertarPermisos();
                         MessageBox.Show("!LISTO! RECUERDA que para Iniciar Sesión tu Usuario es: " + TXTUSUARIO.Text + " y tu Contraseña es: " + TXTCONTRASEÑA.Text, "Registro Exitoso", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);

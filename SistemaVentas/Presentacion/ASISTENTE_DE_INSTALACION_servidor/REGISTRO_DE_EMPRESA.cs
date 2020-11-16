@@ -78,6 +78,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertar_Proveedores();
                         insertarModulos();
                         insertarPermisos();
+                        permisosrolfactura();
+                        insertarPermisosRol();
                         insertarUnidadesCompra();
                         insertarUnidadEstandar();
                         correo = txtcorreo.Text;
@@ -105,20 +107,20 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         }
          public void insertarUnidadEstandar()
         {
-            try
+           /* try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("insertarUnidadEstandar", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("insertarUnidad", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", "Ventas");
-                cmd.Parameters.AddWithValue("@Impuesto", 18 / 100);
+                cmd.Parameters.AddWithValue("@Impuesto", 0.00);
                 cmd.Parameters.AddWithValue("@Tipo", "IVA");
                 cmd.ExecuteNonQuery();
             }
             catch (Exception EX)
             {
                 MessageBox.Show(EX.Message);
-            }
+            }*/
         }
         public void insertarImpuesto()
         {
@@ -326,6 +328,82 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             }
         }
 
+        private void insertarPermisosRol()
+        {
+            int cant = 0;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand da = new SqlCommand("select count(idIOperacion) from Operaciones", CONEXIONMAESTRA.conectar);
+                cant = Convert.ToInt32(da.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception)
+            {
+            }
+            string operacion = "";
+            cant /= 3;
+            for (int i = 1; i <= cant; i++)
+            {
+                try
+                {
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarRolVsOperaciones", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idRol", 1);
+                    cmd.Parameters.AddWithValue("@idOperacion", i);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    CONEXIONMAESTRA.cerrar();
+                }
+            }
+            for (int i = 1; i <= cant; i++)
+            {
+                try
+                {
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarRolVsOperaciones", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idRol", 2);
+                    cmd.Parameters.AddWithValue("@idOperacion", i);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    CONEXIONMAESTRA.cerrar();
+                }
+            }
+            for (int i = 1; i <= cant; i++)
+            {
+                try
+                {
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarRolVsOperaciones", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idRol", 3);
+                    cmd.Parameters.AddWithValue("@idOperacion", i);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    CONEXIONMAESTRA.cerrar();
+                }
+            }
+        }
         private void insertarPermisos()
         {
 
@@ -341,7 +419,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             {
             }
             string operacion = "";
-            for (int i = 0; i < cant; i++)
+
+            for (int i = 1; i <= cant; i++)
             {
                 try
                 {
@@ -349,7 +428,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                     SqlCommand cmd = new SqlCommand("insertarOperaciones", CONEXIONMAESTRA.conectar);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Operacion", "ACCESO");
-                    cmd.Parameters.AddWithValue("@idModulo", i+1);
+                    cmd.Parameters.AddWithValue("@idModulo", i);
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
@@ -362,7 +441,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 }
             }
 
-            for (int i = 0; i <= cant; i++)
+            for (int i =1; i <= cant; i++)
             {
                 switch (i)
                 {
@@ -456,6 +535,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                     case 26:
                         operacion = "ACCESO";
                         break;
+                    case 27:
+                        operacion = "SIN ACCESO";
+                        break;
                 }
 
                 try
@@ -476,8 +558,137 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                     CONEXIONMAESTRA.cerrar();
                 }
             }
-        }
 
+        }
+        private void permisosrolfactura()
+        {
+            int cant = 0;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand da = new SqlCommand("select count(idModulo) from Modulo", CONEXIONMAESTRA.conectar);
+                cant = Convert.ToInt32(da.ExecuteScalar());
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception)
+            {
+            }
+            string operacion = "";
+            for (int i = 1; i <= cant; i++)
+            {
+                switch (i)
+                {
+                    case 1:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 2:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 3:
+                        operacion = "ACCESO";
+
+                        break;
+                    case 4:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 5:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 6:
+                        operacion = "SIN ACCESO";
+
+                        break;
+                    case 7:
+                        operacion = "SIN ACCESO";
+
+                        break;
+                    case 8:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 9:
+                        operacion = "SIN ACCESO";
+
+                        break;
+                    case 10:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 11:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 12:
+                        operacion = "SIN ACCESO";
+
+                        break;
+                    case 13:
+                        operacion = "SIN ACCESO";
+
+                        break;
+                    case 14:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 15:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 16:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 17:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 18:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 19:
+                        operacion = "SIN ACCESO";
+
+                        break;
+                    case 20:
+                        operacion = "SIN ACCESO";
+
+                        break;
+                    case 21:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 22:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 23:
+                        operacion = "SIN ACCESO";
+
+                        break;
+                    case 24:
+                        operacion = "SIN ACCESO";
+
+                        break;
+                    case 25:
+                        operacion = "SIN ACCESO";
+
+                        break;
+                    case 26:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 27:
+                        operacion = "SIN ACCESO";
+                        break;
+                }
+                try
+                {
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("insertarOperaciones", CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Operacion", operacion);
+                    cmd.Parameters.AddWithValue("@idModulo", i);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+               
+                    CONEXIONMAESTRA.cerrar();
+                
+            }
+        }
         public void insertarModulos()
         {
             List<string> listaModulos = new List<string>()
@@ -506,7 +717,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         "Cerrar turno",
                         "Cobros creditos clientes",
                         "PanelButtomVentas",
-                        "Dashboard" 
+                        "Dashboard",
+                        "Usuarios"
             };
 
             foreach(string modulo in listaModulos)
