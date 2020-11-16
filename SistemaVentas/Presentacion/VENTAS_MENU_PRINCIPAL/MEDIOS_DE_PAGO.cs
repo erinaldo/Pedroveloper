@@ -1756,5 +1756,16 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             datalistadoempleadosv.Columns[1].Visible = false;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
+            frm.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Presentacion.Vehiculos.Vehiculos frm = new Presentacion.Vehiculos.Vehiculos();
+        }
     }
 }
