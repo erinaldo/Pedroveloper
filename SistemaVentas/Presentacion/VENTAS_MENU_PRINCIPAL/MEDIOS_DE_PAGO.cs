@@ -1524,11 +1524,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 {
                     if(idEmpleado != 0)
                     {
-                        indicador = "VISTA PREVIA";
-                        identificar_el_tipo_de_pago();
-                        INGRESAR_LOS_DATOS();
-                        //AsignarPersonalEnvio();
-                        
+                        if(idvehiculo != 0)
+                        {
+                            indicador = "VISTA PREVIA";
+                            identificar_el_tipo_de_pago();
+                            INGRESAR_LOS_DATOS();
+                            //AsignarPersonalEnvio();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Selecciona un Vehículo", "Vehículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     } else
                     {
                         MessageBox.Show("Selecciona un Empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -1658,6 +1665,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             else
             {
+                Envio.Checked = false;
                 Envio.CheckState = CheckState.Unchecked;
                 panelVehiculos.Visible = false;
                 panelEmpleado.Visible = false;
