@@ -44,6 +44,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         string departamentoEmpleado;
         string estadoEmpleado;
         int idvehiculo;
+        private string marca;
         string estadovehiculo;
         string direccioncliente;
         string nombreCliente;
@@ -85,8 +86,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             calcular_restante();
             validarPedidodeCliente();
-            panelEmpleado.SendToBack();
-            panelVehiculos.SendToBack();
+            panelEmpleado.Visible = false;
+            panelVehiculos.Visible = false;
         }
 
         void calcular_restante()
@@ -1564,7 +1565,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void Envio_CheckedChanged(object sender, EventArgs e)
         {
-
             if (Envio.Checked == true)
             {
                 // Verificacion disponibilidad de Personal. ---------------GOOD-------------
@@ -1573,15 +1573,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 // Verificar personal capacitado.
                 if (idcliente !=0)
                 {
+                    panelEmpleado.Visible = true;
+
                     if (VerificarEstadoPersonal() == true)
                     {
                         if (verificarCliente() == true)
                         {
                             if (VerificarEstadoVehiculos() == true)
                             {
-                                panelVehiculos.BringToFront();
-                                panelEmpleado.BringToFront();
-                                ObtenerVehiculo();
+
                             }
                             else
                             {
@@ -1608,8 +1608,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             else
             {
-                panelVehiculos.SendToBack();
-                panelEmpleado.SendToBack();
+                panelVehiculos.Visible = false;
+                panelEmpleado.Visible = false;
             }
         }
 
@@ -1632,6 +1632,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             DataTable dt = new DataTable();
             Obtener_datos.EstadoVehiculos(ref dt);
             datalistadovehiculo.DataSource = dt;
+            datalistadovehiculo.Columns[0].Visible = false;
+            datalistadovehiculo.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Bases.Multilinea(ref datalistadovehiculo);
             if (datalistadovehiculo.Rows.Count > 0)
             {
                 return true;
@@ -1649,12 +1652,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             departamentoEmpleado = datalistadoempleado.SelectedCells[2].Value.ToString();
             estadoEmpleado = datalistadoempleado.SelectedCells[3].Value.ToString();
             MessageBox.Show("El Empleado " + nombreEmpleado + " llevara el pedido", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            panelVehiculos.Visible = true;
         }
 
         public void ObtenerVehiculo()
         {
-            idvehiculo = Convert.ToInt32(datalistadovehiculo.SelectedCells[0].Value);
-            estadovehiculo = datalistadovehiculo.SelectedCells[1].Value.ToString();
+          
         }
 
         public bool verificarCliente()
@@ -1818,19 +1821,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             mostrarVehiculos();
             mostrarEmpleados();
         }
-        
+
         private void mostrarVehiculos()
         {
-            DataTable dt = new DataTable();
+            /*DataTable dt = new DataTable();
             Obtener_datos datos = new Obtener_datos();
             if (datos.mostrarVehiculosV(ref dt) == true)
             {
                 datalistadovehiculosv.DataSource = dt;
             }
             datalistadovehiculosv.Columns[0].Visible = false;
-
+            */
         }
-
         private void mostrarEmpleados()
         {
             DataTable dt = new DataTable();
@@ -1915,6 +1917,154 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void buscarEmpleado_TextChanged(object sender, EventArgs e)
+        {
+            if (buscarEmpleado.Text != "")
+            {
+
+                try
+                {
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da;
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                    con.Open();
+
+                    da = new SqlDataAdapter("buscarEmpleadosV", con);
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@letra", buscarEmpleado);
+                    da.Fill(dt);
+                    datalistadoempleado.DataSource = dt;
+                    con.Close();
+                    datalistadoempleado.DataSource = dt;
+                    datalistadoempleado.Columns[0].Visible = false;
+                    datalistadoempleado.Columns[2].Visible = false;
+                    datalistadoempleado.Columns[3].Visible = false;
+
+                    Bases.Multilinea(ref datalistadoempleado);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                buscarEmpleado.Text = "";
+            }
+
+        }
+
+        private void buscarVehiculos_TextChanged(object sender, EventArgs e)
+        {
+            if (buscarVehiculos.Text != "")
+            {
+
+                try
+                {
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da;
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                    con.Open();
+
+                    da = new SqlDataAdapter("buscarVehiculosV", con);
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@letra", buscarVehiculos);
+                    da.Fill(dt);
+                    datalistadovehiculo.DataSource = dt;
+                    con.Close();
+                    datalistadovehiculo.DataSource = dt;
+                    datalistadovehiculo.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    Bases.Multilinea(ref datalistadovehiculo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                buscarVehiculos.Text = "";
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario == idusuarioBuscar)
+                {
+                    if (modulo == "Empleados")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Presentacion.Vehiculos.Vehiculos frm = new Presentacion.Vehiculos.Vehiculos();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario == idusuarioBuscar)
+                {
+                    if (modulo == "Empleados")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void datalistadovehiculo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idvehiculo = Convert.ToInt32(datalistadovehiculo.SelectedCells[0].Value);
+            marca = (datalistadovehiculo.SelectedCells[1].Value.ToString());
+            estadovehiculo = datalistadovehiculo.SelectedCells[1].Value.ToString();
         }
     }
 }
