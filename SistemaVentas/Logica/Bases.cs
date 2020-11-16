@@ -16,6 +16,8 @@ namespace SistemaVentas.Logica
    public  class Bases
     {
        
+      
+        
         public static void Obtener_serialPC(ref string serial)
         {
             ManagementObject serialPC = new ManagementObject("Win32_PhysicalMedia='\\\\.\\PHYSICALDRIVE0'");

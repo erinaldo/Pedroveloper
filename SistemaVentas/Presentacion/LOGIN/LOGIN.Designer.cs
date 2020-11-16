@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LOGIN));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PictureBox3 = new System.Windows.Forms.PictureBox();
             this.Label2 = new System.Windows.Forms.Label();
             this.PanelUsuarios = new System.Windows.Forms.Panel();
@@ -101,6 +106,8 @@
             this.Label6 = new System.Windows.Forms.Label();
             this.PdeCarga = new System.Windows.Forms.PictureBox();
             this.timerValidarRol = new System.Windows.Forms.Timer(this.components);
+            this.panelUnidadVenta = new System.Windows.Forms.Panel();
+            this.datalistadousuarios = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
             this.PanelUsuarios.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -119,6 +126,8 @@
             this.PanelRestaurarCuenta.SuspendLayout();
             this.Panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PdeCarga)).BeginInit();
+            this.panelUnidadVenta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadousuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // PictureBox3
@@ -162,6 +171,7 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(250, 251);
             this.flowLayoutPanel1.TabIndex = 616;
             this.flowLayoutPanel1.Click += new System.EventHandler(this.flowLayoutPanel1_Click);
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // Label8
             // 
@@ -213,9 +223,10 @@
             this.PanelIngreso_de_contraseña.Controls.Add(this.Label3);
             this.PanelIngreso_de_contraseña.Location = new System.Drawing.Point(17, 82);
             this.PanelIngreso_de_contraseña.Name = "PanelIngreso_de_contraseña";
-            this.PanelIngreso_de_contraseña.Size = new System.Drawing.Size(397, 740);
+            this.PanelIngreso_de_contraseña.Size = new System.Drawing.Size(405, 740);
             this.PanelIngreso_de_contraseña.TabIndex = 613;
             this.PanelIngreso_de_contraseña.Visible = false;
+            this.PanelIngreso_de_contraseña.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelIngreso_de_contraseña_Paint);
             // 
             // btncambioUsuario
             // 
@@ -298,7 +309,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 58);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(397, 51);
+            this.panel3.Size = new System.Drawing.Size(405, 51);
             this.panel3.TabIndex = 618;
             // 
             // MenuStrip15
@@ -643,7 +654,7 @@
             this.Label3.ForeColor = System.Drawing.Color.White;
             this.Label3.Location = new System.Drawing.Point(0, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(397, 58);
+            this.Label3.Size = new System.Drawing.Size(405, 58);
             this.Label3.TabIndex = 613;
             this.Label3.Text = "Inicio de Sesion";
             this.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -985,7 +996,6 @@
             // 
             this.PanelRestaurarCuenta.Controls.Add(this.button3);
             this.PanelRestaurarCuenta.Controls.Add(this.txtcorreo);
-            this.PanelRestaurarCuenta.Controls.Add(this.Panel7);
             this.PanelRestaurarCuenta.Controls.Add(this.Button4);
             this.PanelRestaurarCuenta.Controls.Add(this.Panel12);
             this.PanelRestaurarCuenta.Controls.Add(this.Label1);
@@ -1030,9 +1040,10 @@
             // 
             // Panel7
             // 
+            this.Panel7.Controls.Add(this.panelUnidadVenta);
             this.Panel7.Controls.Add(this.txtpassenvi);
             this.Panel7.Controls.Add(this.lblEstado_de_envio);
-            this.Panel7.Location = new System.Drawing.Point(50, 151);
+            this.Panel7.Location = new System.Drawing.Point(1099, 660);
             this.Panel7.Name = "Panel7";
             this.Panel7.Size = new System.Drawing.Size(10, 10);
             this.Panel7.TabIndex = 615;
@@ -1140,6 +1151,74 @@
             this.timerValidarRol.Interval = 200;
             this.timerValidarRol.Tick += new System.EventHandler(this.timerValidarRol_Tick);
             // 
+            // panelUnidadVenta
+            // 
+            this.panelUnidadVenta.Controls.Add(this.datalistadousuarios);
+            this.panelUnidadVenta.Location = new System.Drawing.Point(73, 13);
+            this.panelUnidadVenta.Name = "panelUnidadVenta";
+            this.panelUnidadVenta.Size = new System.Drawing.Size(10, 10);
+            this.panelUnidadVenta.TabIndex = 631;
+            // 
+            // datalistadousuarios
+            // 
+            this.datalistadousuarios.AllowUserToAddRows = false;
+            this.datalistadousuarios.AllowUserToDeleteRows = false;
+            this.datalistadousuarios.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadousuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.datalistadousuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.datalistadousuarios.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadousuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadousuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadousuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadousuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.datalistadousuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistadousuarios.ColumnHeadersVisible = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistadousuarios.DefaultCellStyle = dataGridViewCellStyle3;
+            this.datalistadousuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datalistadousuarios.EnableHeadersVisualStyles = false;
+            this.datalistadousuarios.GridColor = System.Drawing.Color.White;
+            this.datalistadousuarios.Location = new System.Drawing.Point(0, 0);
+            this.datalistadousuarios.Name = "datalistadousuarios";
+            this.datalistadousuarios.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadousuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.datalistadousuarios.RowHeadersVisible = false;
+            this.datalistadousuarios.RowHeadersWidth = 9;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadousuarios.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.datalistadousuarios.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.datalistadousuarios.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.datalistadousuarios.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            this.datalistadousuarios.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadousuarios.RowTemplate.Height = 40;
+            this.datalistadousuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadousuarios.Size = new System.Drawing.Size(10, 10);
+            this.datalistadousuarios.TabIndex = 627;
+            // 
             // LOGIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1148,6 +1227,7 @@
             this.ClientSize = new System.Drawing.Size(1189, 733);
             this.Controls.Add(this.PdeCarga);
             this.Controls.Add(this.panel5);
+            this.Controls.Add(this.Panel7);
             this.Controls.Add(this.PanelIngreso_de_contraseña);
             this.Controls.Add(this.PanelRestaurarCuenta);
             this.Controls.Add(this.PanelUsuarios);
@@ -1183,6 +1263,8 @@
             this.Panel7.ResumeLayout(false);
             this.Panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PdeCarga)).EndInit();
+            this.panelUnidadVenta.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadousuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1260,5 +1342,7 @@
         private System.Windows.Forms.DateTimePicker txtfecha_inicio_licencia;
         private System.Windows.Forms.Label label4;
         internal System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panelUnidadVenta;
+        internal System.Windows.Forms.DataGridView datalistadousuarios;
     }
 }

@@ -48,13 +48,35 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
         int año;
         private void DASHBOARD_PRINCIPAL_Load(object sender, EventArgs e)
         {
-            PictureBox16.Visible = false;
+           
+
+            Bases.Multilinea(ref datalistado); PictureBox16.Visible = false;
             PanelLicencia.Visible = false;
             btnLicencia.Visible = false;
             //validarLicencia();
             Bases.Obtener_serialPC(ref lblIDSERIAL);
             Obtener_datos.Obtener_id_caja_PorSerial(ref idcajavariable);
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuariovariable);
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("obtenerAccesoUsuarios", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idUsuario", idusuariovariable);
+                da.Fill(dt);
+                datalistadousuario.DataSource = dt;
+                con.Close();
+                datalistadousuario.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             mostrarMoneda();
             ReportePorCobrar();
             ReportePorPagar();
@@ -221,8 +243,38 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Presentacion.INVENTARIOS_KARDEX.INVENTARIO_MENU frm = new Presentacion.INVENTARIOS_KARDEX.INVENTARIO_MENU();
-            frm.ShowDialog();
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuariovariable == idusuarioBuscar)
+                {
+                    if (modulo == "Inventarios")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Presentacion.INVENTARIOS_KARDEX.INVENTARIO_MENU frm = new Presentacion.INVENTARIOS_KARDEX.INVENTARIO_MENU();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+
+           
         }
 
 
@@ -243,14 +295,72 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            Dispose();
-            CONFIGURACION.PANEL_CONFIGURACIONES frm = new CONFIGURACION.PANEL_CONFIGURACIONES();
-            frm.ShowDialog();
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuariovariable == idusuarioBuscar)
+                {
+                    if (modulo == "Configuracion")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Dispose();
+                            CONFIGURACION.PANEL_CONFIGURACIONES frm = new CONFIGURACION.PANEL_CONFIGURACIONES();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+            
         }
 
         private void btnvender_Click(object sender, EventArgs e)
         {
-            validar_aperturas_de_caja();
+
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuariovariable == idusuarioBuscar)
+                {
+                    if (modulo == "Ventas")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            validar_aperturas_de_caja();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
         }
         private void Listarcierres_de_caja()
         {
@@ -582,8 +692,38 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            REPORTES.MenuReportes frm = new REPORTES.MenuReportes() ;
-            frm.ShowDialog();
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+            
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuariovariable == idusuarioBuscar)
+                {
+                    if (modulo == "Reportes")
+                    {
+                        MessageBox.Show("Reportes");
+                        if (Operacion == "ACCESO")
+                        {
+                            REPORTES.MenuReportes frm = new REPORTES.MenuReportes();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+           
         }
 
         private void chartProductos_Click(object sender, EventArgs e)

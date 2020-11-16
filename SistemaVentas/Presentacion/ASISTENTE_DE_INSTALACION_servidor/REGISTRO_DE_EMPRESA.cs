@@ -342,15 +342,25 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             {
             }
             string operacion = "";
-            cant /= 3;
+            int res = cant / 3;
+            int idRol = 1;
+            int res2 = res * 2;
             for (int i = 1; i <= cant; i++)
             {
-                try
+                if (i == res + 1)
                 {
+                    idRol = 2;
+                }
+                if (i == res2 + 1)
+                {
+                    idRol = 3;
+                }
+            try
+            {
                     CONEXIONMAESTRA.abrir();
                     SqlCommand cmd = new SqlCommand("insertarRolVsOperaciones", CONEXIONMAESTRA.conectar);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@idRol", 1);
+                    cmd.Parameters.AddWithValue("@idRol", idRol);
                     cmd.Parameters.AddWithValue("@idOperacion", i);
                     cmd.ExecuteNonQuery();
                 }
@@ -363,46 +373,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                     CONEXIONMAESTRA.cerrar();
                 }
             }
-            for (int i = 1; i <= cant; i++)
-            {
-                try
-                {
-                    CONEXIONMAESTRA.abrir();
-                    SqlCommand cmd = new SqlCommand("insertarRolVsOperaciones", CONEXIONMAESTRA.conectar);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@idRol", 2);
-                    cmd.Parameters.AddWithValue("@idOperacion", i);
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    CONEXIONMAESTRA.cerrar();
-                }
-            }
-            for (int i = 1; i <= cant; i++)
-            {
-                try
-                {
-                    CONEXIONMAESTRA.abrir();
-                    SqlCommand cmd = new SqlCommand("insertarRolVsOperaciones", CONEXIONMAESTRA.conectar);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@idRol", 3);
-                    cmd.Parameters.AddWithValue("@idOperacion", i);
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    CONEXIONMAESTRA.cerrar();
-                }
-            }
+            
         }
         private void insertarPermisos()
         {
@@ -530,12 +501,26 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         break;
                     case 25:
                         operacion = "ACCESO";
-
                         break;
                     case 26:
                         operacion = "ACCESO";
                         break;
                     case 27:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 28:
+                        operacion = "ACCESO";
+                        break;
+                    case 29:
+                        operacion = "ACCESO";
+                        break;
+                    case 30:
+                        operacion = "ACCESO";
+                        break;
+                    case 31:
+                        operacion = "ACCESO";
+                        break;
+                    case 32:
                         operacion = "SIN ACCESO";
                         break;
                 }
@@ -670,6 +655,21 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                     case 27:
                         operacion = "SIN ACCESO";
                         break;
+                    case 28:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 29:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 30:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 31:
+                        operacion = "SIN ACCESO";
+                        break;
+                    case 32:
+                        operacion = "SIN ACCESO";
+                        break;
                 }
                 try
                 {
@@ -718,7 +718,12 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         "Cobros creditos clientes",
                         "PanelButtomVentas",
                         "Dashboard",
-                        "Usuarios"
+                        "Usuarios",
+                        "Empleados",
+                        "Unidades",
+                        "Proveedores",
+                        "Vehiculos",
+                        "Roles"
             };
 
             foreach(string modulo in listaModulos)

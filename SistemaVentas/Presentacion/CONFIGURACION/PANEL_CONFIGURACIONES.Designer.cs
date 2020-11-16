@@ -116,6 +116,7 @@
             this.btnadministrar = new System.Windows.Forms.ToolStripMenuItem();
             this.panelUnidadVenta = new System.Windows.Forms.Panel();
             this.datalistado = new System.Windows.Forms.DataGridView();
+            this.panel22 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.Panel5.SuspendLayout();
             this.FlowLayoutPanel5.SuspendLayout();
@@ -151,6 +152,7 @@
             this.ToolStrip1.SuspendLayout();
             this.panelUnidadVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
+            this.panel22.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -160,9 +162,9 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.Panel38);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(72, 91);
+            this.panel1.Location = new System.Drawing.Point(35, 94);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(917, 564);
+            this.panel1.Size = new System.Drawing.Size(977, 564);
             this.panel1.TabIndex = 0;
             // 
             // Panel5
@@ -172,7 +174,7 @@
             this.Panel5.Controls.Add(this.Label6);
             this.Panel5.Location = new System.Drawing.Point(505, 395);
             this.Panel5.Name = "Panel5";
-            this.Panel5.Size = new System.Drawing.Size(409, 147);
+            this.Panel5.Size = new System.Drawing.Size(469, 147);
             this.Panel5.TabIndex = 597;
             // 
             // FlowLayoutPanel5
@@ -322,9 +324,9 @@
             this.panel4.Controls.Add(this.panel12);
             this.panel4.Controls.Add(this.FlowLayoutPanel3);
             this.panel4.Controls.Add(this.Label30);
-            this.panel4.Location = new System.Drawing.Point(23, 395);
+            this.panel4.Location = new System.Drawing.Point(3, 395);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(278, 147);
+            this.panel4.Size = new System.Drawing.Size(298, 147);
             this.panel4.TabIndex = 595;
             // 
             // panel12
@@ -429,9 +431,9 @@
             this.Panel38.Controls.Add(this.FlowLayoutPanel2);
             this.Panel38.Controls.Add(this.Label35);
             this.Panel38.ForeColor = System.Drawing.Color.Black;
-            this.Panel38.Location = new System.Drawing.Point(23, 223);
+            this.Panel38.Location = new System.Drawing.Point(3, 223);
             this.Panel38.Name = "Panel38";
-            this.Panel38.Size = new System.Drawing.Size(891, 166);
+            this.Panel38.Size = new System.Drawing.Size(971, 166);
             this.Panel38.TabIndex = 593;
             // 
             // FlowLayoutPanel2
@@ -497,9 +499,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.panel2.Controls.Add(this.FlowLayoutPanel1);
             this.panel2.Controls.Add(this.Label1);
-            this.panel2.Location = new System.Drawing.Point(20, 19);
+            this.panel2.Location = new System.Drawing.Point(0, 19);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(891, 198);
+            this.panel2.Size = new System.Drawing.Size(974, 198);
             this.panel2.TabIndex = 0;
             // 
             // FlowLayoutPanel1
@@ -520,9 +522,9 @@
             this.FlowLayoutPanel1.Controls.Add(this.panel19);
             this.FlowLayoutPanel1.Controls.Add(this.panel20);
             this.FlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(17, 44);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(0, 44);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
-            this.FlowLayoutPanel1.Size = new System.Drawing.Size(871, 151);
+            this.FlowLayoutPanel1.Size = new System.Drawing.Size(977, 151);
             this.FlowLayoutPanel1.TabIndex = 603;
             // 
             // Panel16
@@ -624,6 +626,7 @@
             this.button12.Size = new System.Drawing.Size(81, 51);
             this.button12.TabIndex = 5;
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // label17
             // 
@@ -683,7 +686,7 @@
             this.Panel37.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Panel37.Location = new System.Drawing.Point(351, 3);
             this.Panel37.Name = "Panel37";
-            this.Panel37.Size = new System.Drawing.Size(81, 70);
+            this.Panel37.Size = new System.Drawing.Size(93, 70);
             this.Panel37.TabIndex = 593;
             // 
             // Button4
@@ -696,7 +699,7 @@
             this.Button4.ForeColor = System.Drawing.Color.White;
             this.Button4.Location = new System.Drawing.Point(0, 0);
             this.Button4.Name = "Button4";
-            this.Button4.Size = new System.Drawing.Size(81, 51);
+            this.Button4.Size = new System.Drawing.Size(93, 51);
             this.Button4.TabIndex = 5;
             this.Button4.UseVisualStyleBackColor = true;
             this.Button4.Click += new System.EventHandler(this.Button4_Click);
@@ -707,7 +710,7 @@
             this.Label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.Label29.Location = new System.Drawing.Point(0, 51);
             this.Label29.Name = "Label29";
-            this.Label29.Size = new System.Drawing.Size(81, 19);
+            this.Label29.Size = new System.Drawing.Size(93, 19);
             this.Label29.TabIndex = 3;
             this.Label29.Text = "Serialización";
             this.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -727,7 +730,7 @@
             this.Panel9.Controls.Add(this.Button6);
             this.Panel9.Controls.Add(this.Label3);
             this.Panel9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Panel9.Location = new System.Drawing.Point(438, 3);
+            this.Panel9.Location = new System.Drawing.Point(450, 3);
             this.Panel9.Name = "Panel9";
             this.Panel9.Size = new System.Drawing.Size(81, 70);
             this.Panel9.TabIndex = 594;
@@ -764,7 +767,7 @@
             this.Panel10.Controls.Add(this.Button8);
             this.Panel10.Controls.Add(this.Label7);
             this.Panel10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Panel10.Location = new System.Drawing.Point(525, 3);
+            this.Panel10.Location = new System.Drawing.Point(537, 3);
             this.Panel10.Name = "Panel10";
             this.Panel10.Size = new System.Drawing.Size(81, 70);
             this.Panel10.TabIndex = 595;
@@ -795,6 +798,7 @@
             this.Label7.TabIndex = 3;
             this.Label7.Text = "Clientes";
             this.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Label7.Click += new System.EventHandler(this.Label7_Click);
             // 
             // Panel11
             // 
@@ -802,7 +806,7 @@
             this.Panel11.Controls.Add(this.btnproveedores);
             this.Panel11.Controls.Add(this.Label8);
             this.Panel11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Panel11.Location = new System.Drawing.Point(612, 3);
+            this.Panel11.Location = new System.Drawing.Point(624, 3);
             this.Panel11.Name = "Panel11";
             this.Panel11.Size = new System.Drawing.Size(81, 70);
             this.Panel11.TabIndex = 596;
@@ -832,6 +836,7 @@
             this.Label8.TabIndex = 3;
             this.Label8.Text = "Proveedores";
             this.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Label8.Click += new System.EventHandler(this.Label8_Click);
             // 
             // panel13
             // 
@@ -839,9 +844,9 @@
             this.panel13.Controls.Add(this.button1);
             this.panel13.Controls.Add(this.label10);
             this.panel13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel13.Location = new System.Drawing.Point(699, 3);
+            this.panel13.Location = new System.Drawing.Point(711, 3);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(81, 70);
+            this.panel13.Size = new System.Drawing.Size(89, 70);
             this.panel13.TabIndex = 597;
             // 
             // button1
@@ -854,7 +859,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 51);
+            this.button1.Size = new System.Drawing.Size(89, 51);
             this.button1.TabIndex = 5;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -865,7 +870,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label10.Location = new System.Drawing.Point(0, 51);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 19);
+            this.label10.Size = new System.Drawing.Size(89, 19);
             this.label10.TabIndex = 3;
             this.label10.Text = "Empleados";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -876,7 +881,7 @@
             this.panel14.Controls.Add(this.button2);
             this.panel14.Controls.Add(this.label11);
             this.panel14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel14.Location = new System.Drawing.Point(786, 3);
+            this.panel14.Location = new System.Drawing.Point(806, 3);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(81, 70);
             this.panel14.TabIndex = 599;
@@ -913,7 +918,7 @@
             this.panel17.Controls.Add(this.button7);
             this.panel17.Controls.Add(this.label13);
             this.panel17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel17.Location = new System.Drawing.Point(3, 79);
+            this.panel17.Location = new System.Drawing.Point(893, 3);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(81, 70);
             this.panel17.TabIndex = 601;
@@ -951,7 +956,7 @@
             this.panel15.Controls.Add(this.button5);
             this.panel15.Controls.Add(this.label12);
             this.panel15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel15.Location = new System.Drawing.Point(90, 79);
+            this.panel15.Location = new System.Drawing.Point(3, 79);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(81, 70);
             this.panel15.TabIndex = 600;
@@ -989,7 +994,7 @@
             this.panel18.Controls.Add(this.button9);
             this.panel18.Controls.Add(this.label14);
             this.panel18.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel18.Location = new System.Drawing.Point(177, 79);
+            this.panel18.Location = new System.Drawing.Point(90, 79);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(81, 70);
             this.panel18.TabIndex = 602;
@@ -1027,7 +1032,7 @@
             this.panel19.Controls.Add(this.button10);
             this.panel19.Controls.Add(this.label15);
             this.panel19.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel19.Location = new System.Drawing.Point(264, 79);
+            this.panel19.Location = new System.Drawing.Point(177, 79);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(81, 70);
             this.panel19.TabIndex = 603;
@@ -1064,7 +1069,7 @@
             this.panel20.Controls.Add(this.button11);
             this.panel20.Controls.Add(this.label16);
             this.panel20.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel20.Location = new System.Drawing.Point(351, 79);
+            this.panel20.Location = new System.Drawing.Point(264, 79);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(81, 70);
             this.panel20.TabIndex = 604;
@@ -1135,9 +1140,9 @@
             // panelUnidadVenta
             // 
             this.panelUnidadVenta.Controls.Add(this.datalistado);
-            this.panelUnidadVenta.Location = new System.Drawing.Point(301, 12);
+            this.panelUnidadVenta.Location = new System.Drawing.Point(89, 3);
             this.panelUnidadVenta.Name = "panelUnidadVenta";
-            this.panelUnidadVenta.Size = new System.Drawing.Size(501, 61);
+            this.panelUnidadVenta.Size = new System.Drawing.Size(10, 10);
             this.panelUnidadVenta.TabIndex = 630;
             // 
             // datalistado
@@ -1197,8 +1202,16 @@
             this.datalistado.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.datalistado.RowTemplate.Height = 40;
             this.datalistado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistado.Size = new System.Drawing.Size(501, 61);
+            this.datalistado.Size = new System.Drawing.Size(10, 10);
             this.datalistado.TabIndex = 627;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.panelUnidadVenta);
+            this.panel22.Location = new System.Drawing.Point(583, 28);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(10, 10);
+            this.panel22.TabIndex = 631;
             // 
             // PANEL_CONFIGURACIONES
             // 
@@ -1206,7 +1219,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(1071, 694);
-            this.Controls.Add(this.panelUnidadVenta);
+            this.Controls.Add(this.panel22);
             this.Controls.Add(this.ToolStrip1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1258,6 +1271,7 @@
             this.ToolStrip1.PerformLayout();
             this.panelUnidadVenta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
+            this.panel22.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1345,5 +1359,6 @@
         internal System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panelUnidadVenta;
         internal System.Windows.Forms.DataGridView datalistado;
+        private System.Windows.Forms.Panel panel22;
     }
 }

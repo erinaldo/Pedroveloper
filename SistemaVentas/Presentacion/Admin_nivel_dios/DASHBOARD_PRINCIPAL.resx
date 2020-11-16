@@ -856,6 +856,12 @@
   <metadata name="DataGridViewCheckBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="DataGridViewCheckBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MenuStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>354, 56</value>
+  </metadata>
   <data name="PictureBox13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgUAAAIFCAYAAABCnI4NAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -1225,6 +1231,9 @@
   <metadata name="DataGridViewCheckBoxColumn7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="DataGridViewCheckBoxColumn7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="MenuStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>354, 56</value>
   </metadata>
@@ -1237,8 +1246,17 @@
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>469, 56</value>
   </metadata>
+  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>469, 56</value>
+  </metadata>
   <metadata name="DataGridViewCheckBoxColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="DataGridViewCheckBoxColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MenuStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>584, 56</value>
   </metadata>
   <metadata name="MenuStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>584, 56</value>
@@ -1836,6 +1854,9 @@
         fFw+Ph+n9/71cfv4fR7+Gtnn5fObGqcMoBL/9m//Hz2RrjsfBcnvAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="MenuStrip6.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>247, 95</value>
+  </metadata>
   <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAcwAAADBCAYAAABCMoDsAAAABGdBTUEAALGPC/xhBQAAFJNJREFUeF7t
@@ -2860,6 +2881,25 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDiHXbY/wdUPctdzbfpHgAAAABJRU5ErkJg
         gg==
+</value>
+  </data>
+  <data name="PictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAHIAAAByAbGGoRoAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAACxElEQVQ4T22SW0iTYRzGPwrLudy+bU1zuZOtbX6bO6hzrrGGeZhGOnE5JcTTUEihPGDdeCTQ2Uko
+        0LLAqF10YaIdIPNQ6kURRGBQiYUgouhNdVFSm9+/ve+abeILz8f/8Dw/vhMBAFj+w94XE++Ikuu7Irix
+        6f5+b8huD4PHMrLkoi5GDNeBvNs7dImS6V0xBTWLSYOv6dQna0D1jXvJdNuHA5RBxVOLE/km9bz+Uo0v
+        Y6wXTIMXaGGBZTFaJnZhAEMgMkvqetdTHi2B7sE8mOZ8CADpLzfhYFbJQqxF9yVn+iYgpfTWQebTq5A7
+        NwCKuqJ1hoBjJtiGzCnTrBdMM38grvgcKHpGQFx/GYMMzzYgsbkWB2TVp0DTVgUS5wnc5872A8+gnCL4
+        eRULyIxknPgBPGsRroMSlVdDxqgbSJUUzPdaA+F/EuQdWyA42RVLQbPm7luIVhkBvYfg7JCjLACgAoCc
+        qRvbAFaaepVgGvLfqYc3/gM05m1AfOtjmldop9HtJjY4QVKaBUK7BYf1nm6ISpJ/9H8QtpRprfwl92xA
+        yotNML7ygvZ8D1QVG8DTKPd5Go/4qkqVYGhwgGW4G6yT/UCN9QO/s+kbQZIS/BkjhAmpzDT7GqvE7RMX
+        1MN4BwX0Qy18H1Jjofp5hwLinTZglth9bNvxZc7FWvwvYEBQ/qN2ZfKWUeBznxIqrVwsVKMZ2vk9yrBM
+        aKPg78+dbpd5kflauQBGmiU4/Ol6AIB2Cfy9J0MzYYBkUWTZm/ajNDKv3lLBaIsU3GfiYOisMPAYzQm0
+        5nBkRWgmDOA/sT35gp/IPNMpA1cGFwvVaObUkb/9HnFYJrRBcujIiZU2FdD3tbAyQGGhmr6iA4eWnNzp
+        D2vwgCAiT2vJ2duFwq2vTRS8r1eC2ybYGnFJ7+z0Yv9uQyT/UWRTrK7iZE4Lgu7mAQDiL2XNNL3SacwT
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="PictureBox12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

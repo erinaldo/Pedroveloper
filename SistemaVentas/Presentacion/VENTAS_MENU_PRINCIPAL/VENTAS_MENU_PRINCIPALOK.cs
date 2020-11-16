@@ -82,7 +82,26 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             MOSTRAR_TIPO_DE_BUSQUEDA();
             Obtener_id_de_cliente_estandar();
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario_que_inicio_sesion);
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
 
+                da = new SqlDataAdapter("obtenerAccesoUsuarios", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idUsuario", idusuario_que_inicio_sesion);
+                da.Fill(dt);
+                datalistadousuario.DataSource = dt;
+                con.Close();
+                datalistadousuario.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             if (Tipo_de_busqueda == "TECLADO")
             {
                 lbltipodebusqueda2.Text = "Buscar con TECLADO";

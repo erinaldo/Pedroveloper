@@ -284,7 +284,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     
                     if (b.Text == lblComprobante.Text)
                     {
-                        
                         tipoImpresion = b.Text;
                         b.Visible = false;
                     }
