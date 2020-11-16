@@ -1207,38 +1207,92 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         void CONFIRMAR_VENTA_EFECTIVO()
         {
-            try
+            if (Envio.Checked == true)
             {
-                CONEXION.CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("confirmar_factura", CONEXION.CONEXIONMAESTRA.conectar );
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idfactura", idfactura);
-                cmd.Parameters.AddWithValue("@montototal", total);
-                cmd.Parameters.AddWithValue("@Saldo", vuelto);
-                cmd.Parameters.AddWithValue("@Tipo_de_pago",txttipo );
-                cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
-                cmd.Parameters.AddWithValue("@idcliente", idcliente);
-                cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text );
-                cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text ));
-                cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Now);
-                cmd.Parameters.AddWithValue("@ACCION", "factura");
-                cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value );
-                cmd.Parameters.AddWithValue("@Pago_con", txtefectivo2.Text);
-                cmd.Parameters.AddWithValue("@Referencia_tarjeta", "NULO");
-                cmd.Parameters.AddWithValue("@Vuelto", vuelto);
-                cmd.Parameters.AddWithValue("@Efectivo", efectivo_calculado);
-                cmd.Parameters.AddWithValue("@Credito", txtcredito2.Text);
-                cmd.Parameters.AddWithValue("@Tarjeta", txttarjeta2.Text);
-                cmd.ExecuteNonQuery();
-                CONEXION.CONEXIONMAESTRA.cerrar();
-                lblproceso = "PROCEDE";              
+
+                if (idvehiculo != 0 && idEmpleado != 0 && idcliente != 0)
+                {
+                    AsignarPersonalEnvio();
+                    actualizarVehiculo(idvehiculo);
+                    actualizarEmpleado(idEmpleado);
+                    try
+                    {
+
+                        CONEXION.CONEXIONMAESTRA.abrir();
+                        SqlCommand cmd = new SqlCommand("confirmar_factura", CONEXION.CONEXIONMAESTRA.conectar);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@idfactura", idfactura);
+                        cmd.Parameters.AddWithValue("@montototal", total);
+                        cmd.Parameters.AddWithValue("@Saldo", vuelto);
+                        cmd.Parameters.AddWithValue("@Tipo_de_pago", txttipo);
+                        cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
+                        cmd.Parameters.AddWithValue("@idcliente", idcliente);
+                        cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text);
+                        cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text));
+                        cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ACCION", "factura");
+                        cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value);
+                        cmd.Parameters.AddWithValue("@Pago_con", txtefectivo2.Text);
+                        cmd.Parameters.AddWithValue("@Referencia_tarjeta", "NULO");
+                        cmd.Parameters.AddWithValue("@Vuelto", vuelto);
+                        cmd.Parameters.AddWithValue("@Efectivo", efectivo_calculado);
+                        cmd.Parameters.AddWithValue("@Credito", txtcredito2.Text);
+                        cmd.Parameters.AddWithValue("@Tarjeta", txttarjeta2.Text);
+                        cmd.ExecuteNonQuery();
+                        CONEXION.CONEXIONMAESTRA.cerrar();
+                        lblproceso = "PROCEDE";
+                    }
+                    catch (Exception ex)
+                    {
+                        CONEXION.CONEXIONMAESTRA.cerrar();
+                        lblproceso = "NO PROCEDE";
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione de nuevo los datos especificados para realizar el envio del producto", "Medios de Pago", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                CONEXION.CONEXIONMAESTRA.cerrar();
-                lblproceso = "NO PROCEDE";
-                MessageBox.Show(ex.Message);
+                try
+                {
+
+                    CONEXION.CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("confirmar_factura", CONEXION.CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idfactura", idfactura);
+                    cmd.Parameters.AddWithValue("@montototal", total);
+                    cmd.Parameters.AddWithValue("@Saldo", vuelto);
+                    cmd.Parameters.AddWithValue("@Tipo_de_pago", txttipo);
+                    cmd.Parameters.AddWithValue("@Estado", "CONFIRMADO");
+                    cmd.Parameters.AddWithValue("@idcliente", idcliente);
+                    cmd.Parameters.AddWithValue("@Comprobante", lblComprobante.Text);
+                    cmd.Parameters.AddWithValue("@Numero_de_doc", (txtserie.Text + "-" + lblCorrelativoconCeros.Text));
+                    cmd.Parameters.AddWithValue("@fecha_factura", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@ACCION", "factura");
+                    cmd.Parameters.AddWithValue("@Fecha_de_pago", txtfecha_de_pago.Value);
+                    cmd.Parameters.AddWithValue("@Pago_con", txtefectivo2.Text);
+                    cmd.Parameters.AddWithValue("@Referencia_tarjeta", "NULO");
+                    cmd.Parameters.AddWithValue("@Vuelto", vuelto);
+                    cmd.Parameters.AddWithValue("@Efectivo", efectivo_calculado);
+                    cmd.Parameters.AddWithValue("@Credito", txtcredito2.Text);
+                    cmd.Parameters.AddWithValue("@Tarjeta", txttarjeta2.Text);
+                    cmd.ExecuteNonQuery();
+                    CONEXION.CONEXIONMAESTRA.cerrar();
+                    lblproceso = "PROCEDE";
+                }
+                catch (Exception ex)
+                {
+                    CONEXION.CONEXIONMAESTRA.cerrar();
+                    lblproceso = "NO PROCEDE";
+                    MessageBox.Show(ex.Message);
+                }
+
             }
+
+
         }
         void aumentar_monto_a_cliente()
         {
@@ -1427,9 +1481,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                             indicador = "DIRECTO";
                             identificar_el_tipo_de_pago();
                             INGRESAR_LOS_DATOS();
-                            AsignarPersonalEnvio();
-                            actualizarVehiculo(idvehiculo);
-                            actualizarEmpleado(idEmpleado);
                         }
                         else
                         {
@@ -1476,9 +1527,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         indicador = "VISTA PREVIA";
                         identificar_el_tipo_de_pago();
                         INGRESAR_LOS_DATOS();
-                        AsignarPersonalEnvio();
-                        actualizarVehiculo(idvehiculo);
-                        actualizarEmpleado(idEmpleado);
+                        //AsignarPersonalEnvio();
+                        
                     } else
                     {
                         MessageBox.Show("Selecciona un Empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -1608,6 +1658,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             else
             {
+                Envio.CheckState = CheckState.Unchecked;
                 panelVehiculos.Visible = false;
                 panelEmpleado.Visible = false;
             }
@@ -1618,8 +1669,13 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             DataTable dt = new DataTable();
             Obtener_datos.EstadoPersonal(ref dt);
             datalistadoempleado.DataSource = dt;
-            
-            if(datalistadoempleado.Rows.Count > 0)
+            datalistadoempleado.Columns[0].Visible = false;
+            datalistadoempleado.Columns[2].Visible = false;
+            datalistadoempleado.Columns[3].Visible = false;
+            Bases.Multilinea(ref datalistadoempleado);
+            datalistadoempleado.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            if (datalistadoempleado.Rows.Count > 0)
             {
                 return true;
             } else
@@ -1695,7 +1751,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void datalistadoempleado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerEmpleado();
-            
+            buscarEmpleado.Text = datalistadoempleado.SelectedCells[1].Value.ToString();
         }
 
         public void AsignarPersonalEnvio()
@@ -1824,15 +1880,21 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void mostrarVehiculos()
         {
-            /*DataTable dt = new DataTable();
+            DataTable dt = new DataTable();
             Obtener_datos datos = new Obtener_datos();
             if (datos.mostrarVehiculosV(ref dt) == true)
             {
+                /**if (datalistadovehiculosv.Rows.Count == 0)
+                {
+                    MessageBox.Show("No existen vehículos disponibles por el momento", "Vehículos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }*/
                 datalistadovehiculosv.DataSource = dt;
             }
             datalistadovehiculosv.Columns[0].Visible = false;
-            */
+            datalistadovehiculosv.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
         }
+
         private void mostrarEmpleados()
         {
             DataTable dt = new DataTable();
@@ -1840,8 +1902,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             if(datos.mostrarEmpleadosV(ref dt) == true)
             {
                 datalistadoempleadosv.DataSource = dt;
+               /* if (datalistadoempleadosv.Rows.Count == 0)
+                {
+                    MessageBox.Show("No existen Empleados disponibles por el momento", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }*/
             }
             datalistadoempleadosv.Columns[0].Visible = false;
+            datalistadoempleadosv.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -1934,7 +2002,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
                     da = new SqlDataAdapter("buscarEmpleadosV", con);
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    da.SelectCommand.Parameters.AddWithValue("@letra", buscarEmpleado);
+                    da.SelectCommand.Parameters.AddWithValue("@letra", buscarEmpleado.Text);
                     da.Fill(dt);
                     datalistadoempleado.DataSource = dt;
                     con.Close();
@@ -2064,7 +2132,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             idvehiculo = Convert.ToInt32(datalistadovehiculo.SelectedCells[0].Value);
             marca = (datalistadovehiculo.SelectedCells[1].Value.ToString());
+            buscarVehiculos.Text = marca;
             estadovehiculo = datalistadovehiculo.SelectedCells[1].Value.ToString();
+        }
+
+        private void panelVehiculos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelVerificar_PaddingChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -458,7 +458,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("Mostrarempleadosvehiculos", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("MostrarempleadosvehiculosV", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 CONEXIONMAESTRA.cerrar();

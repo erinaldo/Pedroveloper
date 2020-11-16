@@ -38,7 +38,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoPedidos.Columns[1].Visible = false;
                 datalistadoPedidos.Columns[3].Visible = false;
                 datalistadoPedidos.Columns[4].Visible = false;
-                datalistadoPedidos.Columns[7].Visible = false;
+                datalistadoPedidos.Columns[5].Visible = false;
                 Bases.Multilinea (ref datalistadoPedidos);
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             idVehiculo =Convert.ToInt32 ( datalistadoPedidos.SelectedCells[4].Value);
                 
 
-                mostrarPedidoAFinalizar();
+                mostrarPedidoAFinalizar(idPedido);
             }
             catch (Exception ex)
             {
@@ -65,17 +65,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             
 
         }
-        private void mostrarPedidoAFinalizar()
+        private void mostrarPedidoAFinalizar(int idPedido1)
         {
             DataTable dt = new DataTable();
-            Obtener_datos.mostrarPedidoEspecifico(ref dt, idPedido);
+            Obtener_datos.mostrarPedidoEspecifico(ref dt, idPedido1);
+            datalistadopedidocompleto.DataSource = dt;
+
             datalistadopedidocompleto.Columns[0].Visible = false;
-            /*datalistadopedidocompleto.Columns[1].Visible = false;
+            datalistadopedidocompleto.Columns[1].Visible = false;
             datalistadopedidocompleto.Columns[2].Visible = false;
             datalistadopedidocompleto.Columns[3].Visible = false;
-            datalistadopedidocompleto.Columns[4].Visible = false;*/
-
-            datalistadopedidocompleto.DataSource = dt;
+            datalistadopedidocompleto.Columns[4].Visible = false;
+            datalistadopedidocompleto.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void btneliminar_Click(object sender, EventArgs e)

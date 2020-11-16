@@ -1563,7 +1563,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             DataTable dt = new DataTable();
             Obtener_datos.EstadoPersonal(ref dt);
             datalistadoempleado.DataSource = dt;
-            
+            datalistadoempleado.Columns[0].Visible = false;
+            datalistadoempleado.Columns[2].Visible = false;
+            datalistadoempleado.Columns[3].Visible = false;
+
+            Bases.Multilinea(ref datalistadoempleado);
             if(datalistadoempleado.Rows.Count > 0)
             {
                 return true;
