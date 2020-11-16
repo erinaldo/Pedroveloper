@@ -52,7 +52,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             txtCrearUsuarioDb.Text = txtCrearUsuarioDb.Text.Replace("BASEDATOS", TXTbasededatos.Text);
             txtCrearUsuarioDb.Text = txtCrearUsuarioDb.Text.Replace("softwarereal", lblcontraseña.Text);
             //Adjuntando al texbox que contiene los procedimientos almacenados
-            txtCrear_procedimientos.Text = txtCrear_procedimientos.Text + Environment.NewLine + txtCrearUsuarioDb.Text;             
+            txtCrear_procedimientos.Text = txtCrear_procedimientos.Text + Environment.NewLine + txtCrearUsuarioDb.Text;
         }
         private void centrarPaneles()
         {

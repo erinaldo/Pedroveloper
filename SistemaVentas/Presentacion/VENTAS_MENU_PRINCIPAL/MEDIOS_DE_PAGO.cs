@@ -47,8 +47,31 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         string estadovehiculo;
         string direccioncliente;
         string nombreCliente;
+        int idusuario;
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
+            Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("obtenerAccesoUsuarios", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idUsuario", idusuario);
+                da.Fill(dt);
+                datalistadousuario.DataSource = dt;
+                con.Close();
+                datalistadousuario.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             panelVerificar.Visible = false;
             cambiar_el_formato_de_separador_de_decimales();
             MOSTRAR_comprobante_serializado_POR_DEFECTO();
@@ -62,8 +85,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             calcular_restante();
             validarPedidodeCliente();
-            datalistadoempleado.Visible = false;
-            label7.Visible = false;
+            panelEmpleado.SendToBack();
+            panelVehiculos.SendToBack();
         }
 
         void calcular_restante()
@@ -1498,8 +1521,37 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnagregarCliente_Click(object sender, EventArgs e)
         {
-            Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
-            frm.ShowDialog();
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario == idusuarioBuscar)
+                {
+                    if (modulo == "Clientes")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+           
         }
 
         private void datalistadoclientes3_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1519,27 +1571,35 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 // Verificar vehiculos disponibles
                 // Determinar disponibilidad: Asignar personal para el envio.
                 // Verificar personal capacitado.
-                if (txtclientesolicitabnte3.TextLength > 0)
+                if (idcliente !=0)
                 {
-                    if (VerificarEstadoPersonal() && verificarCliente() && VerificarEstadoVehiculos())
+                    if (VerificarEstadoPersonal() == true)
                     {
-                        label7.Visible = true;
-                        datalistadoempleado.Visible = true;
-                        if (Envio.Checked == false)
+                        if (verificarCliente() == true)
                         {
-                            datalistadoempleado.Visible = false;
-                            label7.Visible = false;
+                            if (VerificarEstadoVehiculos() == true)
+                            {
+                                panelVehiculos.BringToFront();
+                                panelEmpleado.BringToFront();
+                                ObtenerVehiculo();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Verifica el Estado del Vehiculo", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                btnVerificar.Visible = true;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Verifica el Cliente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         }
-                        ObtenerVehiculo();
-
                     }
                     else
                     {
-                        MessageBox.Show("Verifica el Estado del Personal, Clientes o Vehiculos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        MessageBox.Show("Verifica el Estado del Personal", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        btnVerificar.Visible = true;
                     }
-
                 }
                 else
                 {
@@ -1548,14 +1608,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             else
             {
-                datalistadoempleado.Visible = false;
-                label7.Visible = false;
+                panelVehiculos.SendToBack();
+                panelEmpleado.SendToBack();
             }
-        }
-
-        private void panelGuardado_de_datos_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         public bool VerificarEstadoPersonal()
@@ -1620,7 +1675,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 direccioncliente = DATALISTADOVERIFICAR.SelectedCells[2].Value.ToString();
 
                 CONEXION.CONEXIONMAESTRA.cerrar();
-                if (idclienteasignado > 1)
+                if (idclienteasignado!=0)
                 {
                     return true;
                 } else
@@ -1709,8 +1764,37 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
-            frm.ShowDialog();
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario == idusuarioBuscar)
+                {
+                    if (modulo == "Clientes")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+            
         }
 
         private void datalistadoclientes3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1726,6 +1810,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void button1_Click_1(object sender, EventArgs e)
         {
             panelVerificar.Visible = true;
+            panelVerificar.BringToFront();
         }
 
         private void panelVerificar_Paint(object sender, PaintEventArgs e)
@@ -1742,7 +1827,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 datalistadovehiculosv.DataSource = dt;
             }
-            datalistadovehiculosv.Columns[1].Visible = false;
+            datalistadovehiculosv.Columns[0].Visible = false;
 
         }
 
@@ -1754,18 +1839,82 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 datalistadoempleadosv.DataSource = dt;
             }
-            datalistadoempleadosv.Columns[1].Visible = false;
+            datalistadoempleadosv.Columns[0].Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
-            frm.ShowDialog();
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario == idusuarioBuscar)
+                {
+                    if (modulo == "Empleados")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Presentacion.Vehiculos.Vehiculos frm = new Presentacion.Vehiculos.Vehiculos();
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario == idusuarioBuscar)
+                {
+                    if (modulo == "Empleados")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Presentacion.Vehiculos.Vehiculos frm = new Presentacion.Vehiculos.Vehiculos();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
