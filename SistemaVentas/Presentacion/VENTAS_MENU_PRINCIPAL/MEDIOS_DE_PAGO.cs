@@ -49,6 +49,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         string nombreCliente;
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
+            panelVerificar.Visible = false;
             cambiar_el_formato_de_separador_de_decimales();
             MOSTRAR_comprobante_serializado_POR_DEFECTO();
             validar_tipos_de_comprobantes();
@@ -1715,6 +1716,45 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void datalistadoclientes3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panelVerificar.Visible = false;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            panelVerificar.Visible = true;
+        }
+
+        private void panelVerificar_Paint(object sender, PaintEventArgs e)
+        {
+            mostrarVehiculos();
+            mostrarEmpleados();
+        }
+        
+        private void mostrarVehiculos()
+        {
+            DataTable dt = new DataTable();
+            Obtener_datos datos = new Obtener_datos();
+            if (datos.mostrarVehiculosV(ref dt) == true)
+            {
+                datalistadovehiculosv.DataSource = dt;
+            }
+            datalistadovehiculosv.Columns[1].Visible = false;
+
+        }
+
+        private void mostrarEmpleados()
+        {
+            DataTable dt = new DataTable();
+            Obtener_datos datos = new Obtener_datos();
+            if(datos.mostrarEmpleadosV(ref dt) == true)
+            {
+                datalistadoempleadosv.DataSource = dt;
+            }
+            datalistadoempleadosv.Columns[1].Visible = false;
         }
     }
 }

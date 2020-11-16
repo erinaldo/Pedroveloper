@@ -117,6 +117,9 @@
             this.panelUnidadVenta = new System.Windows.Forms.Panel();
             this.datalistado = new System.Windows.Forms.DataGridView();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.Panel5.SuspendLayout();
             this.FlowLayoutPanel5.SuspendLayout();
@@ -153,6 +156,7 @@
             this.panelUnidadVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
             this.panel22.SuspendLayout();
+            this.panel23.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -521,6 +525,7 @@
             this.FlowLayoutPanel1.Controls.Add(this.panel18);
             this.FlowLayoutPanel1.Controls.Add(this.panel19);
             this.FlowLayoutPanel1.Controls.Add(this.panel20);
+            this.FlowLayoutPanel1.Controls.Add(this.panel23);
             this.FlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
             this.FlowLayoutPanel1.Location = new System.Drawing.Point(0, 44);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
@@ -1213,6 +1218,42 @@
             this.panel22.Size = new System.Drawing.Size(10, 10);
             this.panel22.TabIndex = 631;
             // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.Transparent;
+            this.panel23.Controls.Add(this.button13);
+            this.panel23.Controls.Add(this.label18);
+            this.panel23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel23.Location = new System.Drawing.Point(351, 79);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(81, 70);
+            this.panel23.TabIndex = 606;
+            // 
+            // button13
+            // 
+            this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
+            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.ForeColor = System.Drawing.Color.White;
+            this.button13.Location = new System.Drawing.Point(0, 0);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(81, 51);
+            this.button13.TabIndex = 5;
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label18.Location = new System.Drawing.Point(0, 51);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(81, 19);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "Perifericos";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // PANEL_CONFIGURACIONES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1272,6 +1313,7 @@
             this.panelUnidadVenta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
             this.panel22.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1360,5 +1402,8 @@
         private System.Windows.Forms.Panel panelUnidadVenta;
         internal System.Windows.Forms.DataGridView datalistado;
         private System.Windows.Forms.Panel panel22;
+        internal System.Windows.Forms.Panel panel23;
+        internal System.Windows.Forms.Button button13;
+        internal System.Windows.Forms.Label label18;
     }
 }

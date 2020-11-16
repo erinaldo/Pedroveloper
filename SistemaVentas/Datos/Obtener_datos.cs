@@ -435,6 +435,42 @@ namespace SistemaVentas.Datos
             }
         }
 
+        public bool mostrarVehiculosV(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarVehiculosV", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return true;
+            }
+        }
+
+        public bool mostrarEmpleadosV(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Mostrarempleadosvehiculos", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return true;
+            }
+        }
+
         public static int ObtenerMunicipio()
         {
             int idMunicipio;

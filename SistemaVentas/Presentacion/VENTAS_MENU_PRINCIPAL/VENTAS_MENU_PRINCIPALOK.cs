@@ -419,42 +419,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
 
 
-        private void btnTecladoVirtual_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRestaurar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void btnMaximizar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void MenuStrip9_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
+    
         int txtcontador;
 
         private void mostrar_descripcion_produco_sin_repetir()
@@ -2311,10 +2276,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void PANELGRANEL_Paint(object sender, PaintEventArgs e)
         {
-            txtCantidad.Clear();
-            txttotal.Clear();
-            txtprecio_unitario2.Text = "0";
-            stockgranel.Text = "0";
+            //txtCantidad.Clear();
+            //txttotal.Clear();
+           // txtprecio_unitario2.Text = "0";
+            //stockgranel.Text = "0";
             txtprecio_unitario2.Text = Convert.ToString(txtprecio_unitario);
             stockgranel.Text = Convert.ToString(lblStock_de_Productos);
         }

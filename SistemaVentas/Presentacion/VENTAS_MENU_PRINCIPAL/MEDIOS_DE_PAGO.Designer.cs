@@ -39,6 +39,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TXTTOTAL = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn0 = new System.Windows.Forms.Button();
@@ -123,6 +127,19 @@
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DATALISTADOVERIFICAR = new System.Windows.Forms.DataGridView();
             this.lblCantidad_de_numeros = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panelVerificar = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.datalistadovehiculosv = new System.Windows.Forms.DataGridView();
+            this.datalistadoempleadosv = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.FlowLayoutPanel2.SuspendLayout();
             this.pcredito.SuspendLayout();
@@ -144,6 +161,14 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).BeginInit();
+            this.panelVerificar.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadovehiculosv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoempleadosv)).BeginInit();
             this.SuspendLayout();
             // 
             // TXTTOTAL
@@ -762,6 +787,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.button1);
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.Envio);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1428,12 +1454,232 @@
             this.lblCantidad_de_numeros.TabIndex = 613;
             this.lblCantidad_de_numeros.Text = "Comprobante";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::SistemaVentas.Properties.Resources.Rojo;
+            this.button1.Location = new System.Drawing.Point(378, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 35);
+            this.button1.TabIndex = 616;
+            this.button1.Text = "Verificar estado de Vehiculos y Empleados";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // panelVerificar
+            // 
+            this.panelVerificar.Controls.Add(this.panel7);
+            this.panelVerificar.Controls.Add(this.panel5);
+            this.panelVerificar.Controls.Add(this.panel4);
+            this.panelVerificar.Location = new System.Drawing.Point(262, 70);
+            this.panelVerificar.Name = "panelVerificar";
+            this.panelVerificar.Size = new System.Drawing.Size(769, 417);
+            this.panelVerificar.TabIndex = 603;
+            this.panelVerificar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelVerificar_Paint);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(63)))), ((int)(((byte)(67)))));
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(769, 40);
+            this.panel4.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(706, 31);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Verificación del estado de los Vehículos y Empleados";
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.panel9);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Location = new System.Drawing.Point(16, 56);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(740, 150);
+            this.panel5.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.panel2);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Location = new System.Drawing.Point(16, 226);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(740, 150);
+            this.panel7.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 25);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Empleados";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 25);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Vehículos";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.datalistadoempleadosv);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 25);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(736, 118);
+            this.panel9.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(717, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(52, 40);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "X";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.datalistadovehiculosv);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(736, 118);
+            this.panel2.TabIndex = 6;
+            // 
+            // datalistadovehiculosv
+            // 
+            this.datalistadovehiculosv.AllowUserToAddRows = false;
+            this.datalistadovehiculosv.AllowUserToDeleteRows = false;
+            this.datalistadovehiculosv.AllowUserToResizeRows = false;
+            this.datalistadovehiculosv.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadovehiculosv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadovehiculosv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadovehiculosv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadovehiculosv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.datalistadovehiculosv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistadovehiculosv.DefaultCellStyle = dataGridViewCellStyle11;
+            this.datalistadovehiculosv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datalistadovehiculosv.EnableHeadersVisualStyles = false;
+            this.datalistadovehiculosv.GridColor = System.Drawing.Color.Gainsboro;
+            this.datalistadovehiculosv.Location = new System.Drawing.Point(0, 0);
+            this.datalistadovehiculosv.Name = "datalistadovehiculosv";
+            this.datalistadovehiculosv.ReadOnly = true;
+            this.datalistadovehiculosv.RowHeadersVisible = false;
+            this.datalistadovehiculosv.RowHeadersWidth = 9;
+            this.datalistadovehiculosv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.datalistadovehiculosv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datalistadovehiculosv.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.datalistadovehiculosv.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadovehiculosv.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadovehiculosv.RowTemplate.Height = 36;
+            this.datalistadovehiculosv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadovehiculosv.Size = new System.Drawing.Size(736, 118);
+            this.datalistadovehiculosv.TabIndex = 601;
+            // 
+            // datalistadoempleadosv
+            // 
+            this.datalistadoempleadosv.AllowUserToAddRows = false;
+            this.datalistadoempleadosv.AllowUserToDeleteRows = false;
+            this.datalistadoempleadosv.AllowUserToResizeRows = false;
+            this.datalistadoempleadosv.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadoempleadosv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadoempleadosv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadoempleadosv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadoempleadosv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.datalistadoempleadosv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistadoempleadosv.DefaultCellStyle = dataGridViewCellStyle13;
+            this.datalistadoempleadosv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datalistadoempleadosv.EnableHeadersVisualStyles = false;
+            this.datalistadoempleadosv.GridColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoempleadosv.Location = new System.Drawing.Point(0, 0);
+            this.datalistadoempleadosv.Name = "datalistadoempleadosv";
+            this.datalistadoempleadosv.ReadOnly = true;
+            this.datalistadoempleadosv.RowHeadersVisible = false;
+            this.datalistadoempleadosv.RowHeadersWidth = 9;
+            this.datalistadoempleadosv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.datalistadoempleadosv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datalistadoempleadosv.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.datalistadoempleadosv.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoempleadosv.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadoempleadosv.RowTemplate.Height = 36;
+            this.datalistadoempleadosv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadoempleadosv.Size = new System.Drawing.Size(736, 118);
+            this.datalistadoempleadosv.TabIndex = 601;
+            // 
             // MEDIOS_DE_PAGO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1169, 620);
+            this.Controls.Add(this.panelVerificar);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.PanelImpresionvistaprevia);
@@ -1476,6 +1722,17 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).EndInit();
+            this.panelVerificar.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadovehiculosv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoempleadosv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1567,5 +1824,18 @@
         internal System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         internal System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         internal System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
+        internal System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panelVerificar;
+        private System.Windows.Forms.Panel panel4;
+        internal System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel7;
+        internal System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel9;
+        internal System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel2;
+        internal System.Windows.Forms.DataGridView datalistadovehiculosv;
+        internal System.Windows.Forms.DataGridView datalistadoempleadosv;
     }
 }
