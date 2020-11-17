@@ -498,6 +498,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             this.Controls.Add(panel_mostrador_de_productos);
             panel_mostrador_de_productos.BringToFront();
+            
         }
         private void ocultar_mostrar_productos()
         {
@@ -520,6 +521,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
             vender_por_teclado();
+                PANELGRANEL.Location = new Point((Width - PANELGRANEL.Width) / 2, (Height - PANELGRANEL.Height) / 2);
+            
         }
 
         public void ValidarVentasNuevas()

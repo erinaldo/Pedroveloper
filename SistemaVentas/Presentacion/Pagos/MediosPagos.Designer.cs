@@ -68,7 +68,7 @@
             // 
             // pefectivo
             // 
-            this.pefectivo.BackColor = System.Drawing.Color.White;
+            this.pefectivo.BackColor = System.Drawing.SystemColors.Control;
             this.pefectivo.Controls.Add(this.MenuStrip4);
             this.pefectivo.Controls.Add(this.Label5);
             this.pefectivo.Controls.Add(this.MenuStrip6);
@@ -151,6 +151,7 @@
             // 
             // txttarjeta2
             // 
+            this.txttarjeta2.BackColor = System.Drawing.SystemColors.Control;
             this.txttarjeta2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttarjeta2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold);
             this.txttarjeta2.Location = new System.Drawing.Point(228, 110);
@@ -182,6 +183,7 @@
             // 
             // TXTVUELTO
             // 
+            this.TXTVUELTO.BackColor = System.Drawing.SystemColors.Control;
             this.TXTVUELTO.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TXTVUELTO.Enabled = false;
             this.TXTVUELTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold);
@@ -200,6 +202,7 @@
             // 
             // txtefectivo2
             // 
+            this.txtefectivo2.BackColor = System.Drawing.SystemColors.Control;
             this.txtefectivo2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtefectivo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold);
             this.txtefectivo2.Location = new System.Drawing.Point(228, 19);

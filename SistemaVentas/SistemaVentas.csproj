@@ -812,6 +812,9 @@
     <EmbeddedResource Include="Presentacion\NOTIFICACIONES\Notificaciones_form.resx">
       <DependentUpon>Notificaciones_form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Pagos\MediosPagos.resx">
+      <DependentUpon>MediosPagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Pagos\Pagos.resx">
       <DependentUpon>Pagos.cs</DependentUpon>
     </EmbeddedResource>

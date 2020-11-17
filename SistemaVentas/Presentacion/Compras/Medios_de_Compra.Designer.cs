@@ -259,7 +259,7 @@
             this.pcredito.Controls.Add(this.txtfecha_de_pago);
             this.pcredito.Controls.Add(this.Label21);
             this.pcredito.Controls.Add(this.txtProveedorCredito);
-            this.pcredito.Location = new System.Drawing.Point(16, 151);
+            this.pcredito.Location = new System.Drawing.Point(20, 287);
             this.pcredito.Name = "pcredito";
             this.pcredito.Size = new System.Drawing.Size(360, 145);
             this.pcredito.TabIndex = 564;

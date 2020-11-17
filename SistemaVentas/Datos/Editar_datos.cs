@@ -900,7 +900,29 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
+        public bool aumentarSaldoProveedor(Lproveedores parametros, double monto)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("aumentar_saldo_a_proveedor", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idProveedor", parametros.IdProveedor);
+                cmd.Parameters.AddWithValue("@Saldo", monto);
+                cmd.ExecuteNonQuery();
+                return true;
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
         //Caja
         public bool EditarBascula( Lcaja parametros)
         {

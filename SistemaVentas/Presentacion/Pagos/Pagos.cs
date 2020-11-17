@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using SistemaVentas.CONEXION;
 using SistemaVentas.Datos;
 using SistemaVentas.Logica;
 
@@ -97,7 +99,7 @@ namespace SistemaVentas.Presentacion.Pagos
         private void mostrarControlCobros()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.mostrar_ControlCobros(ref dt);
+            Obtener_datos.mostrarControlPago(ref dt);
             datalistadoMovimientos.DataSource = dt;
             Bases estilo = new Bases();
             estilo.MultilineaCobros(ref datalistadoMovimientos);
@@ -146,8 +148,11 @@ namespace SistemaVentas.Presentacion.Pagos
             txtproveedorc.SelectAll();
         }
 
+        int idControlPago;
         private void datalistadoMovimientos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            Lcontrolpagos parametros = new Lcontrolpagos();
+            idControlPago = Convert.ToInt32(datalistadoMovimientos.SelectedCells[1].Value);
             if (e.ColumnIndex == datalistadoMovimientos.Columns ["Eli"].Index )
             {
                 DialogResult result= MessageBox.Show("¿Realmente desea eliminar esta Abono?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -159,13 +164,12 @@ namespace SistemaVentas.Presentacion.Pagos
         }
         private void aumentarSaldo()
         {
-
             double monto;
             monto = Convert.ToDouble(datalistadoMovimientos.SelectedCells[2].Value);
-            Lclientes parametros = new Lclientes();
+            Lproveedores parametros = new Lproveedores();
             Editar_datos funcion = new Editar_datos();
-            parametros.idProveedor = idProveedor;
-            if (funcion.aumentarSaldocliente(parametros, monto) == true)
+            parametros.IdProveedor = idProveedor;
+            if (funcion.aumentarSaldoProveedor(parametros, monto) == true)
             {
                 eliminarControlCobros();
             }
@@ -173,18 +177,33 @@ namespace SistemaVentas.Presentacion.Pagos
         }
         private void eliminarControlCobros()
         {
-            Lcontrolpagos parametros = new Lcontrolpagos();
-            Eliminar_datos funcion = new Eliminar_datos();
-            parametros.IdcontrolCobro = Convert.ToInt32(datalistadoMovimientos.SelectedCells[1].Value);
-           if ( funcion.eliminarControlCobro (parametros )==true )
+            try
             {
-                buscar();
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("Eliminarcontrolpago", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idcontrol", idControlPago);
+                cmd.ExecuteNonQuery();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+            buscar();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void datalistadoProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

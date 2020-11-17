@@ -29,6 +29,9 @@ namespace SistemaVentas.Presentacion.MediosPagos
         double montoabonado;
         private void MediosCobros_Load(object sender, EventArgs e)
         {
+            label2.Visible = false;
+            label50.Visible = false;
+            txtTransferencia.Visible = false;
             saldo = Pagos.Pagos.saldo;
             lbltotal.Text = saldo.ToString();
             idProveedor = Pagos.Pagos.idProveedor;
@@ -121,8 +124,23 @@ namespace SistemaVentas.Presentacion.MediosPagos
            montoabonado = efectivoCalculado + tarjeta;
             if(montoabonado>0)
             {
-                insertarControlPago();
-                disminuirSaldoProveedor();
+                if(chkTrans.Checked == true)
+                {
+                    if(txtTransferencia.Text != "")
+                    {
+                        insertarControlPago();
+                        disminuirSaldoProveedor();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Indica el numero de transferencia usado en el campo desginado", "Transferencia bancaria",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    insertarControlPago();
+                    disminuirSaldoProveedor();
+                }
             }
             else
             {
@@ -132,6 +150,19 @@ namespace SistemaVentas.Presentacion.MediosPagos
         private void insertarControlPago()
         {
             Lcontrolpagos parametros = new Lcontrolpagos();
+            string codigoTrans;
+            if(chkTrans.Checked == true)
+            {
+                codigoTrans = txtTransferencia.Text;
+                parametros.Transferencia = codigoTrans;
+            }
+            else
+            {
+                codigoTrans = "-";
+                parametros.Transferencia = codigoTrans;
+
+            }
+
             Insertar_datos funcion = new Insertar_datos();
             parametros.Monto = efectivoCalculado + tarjeta;
             parametros.Fecha = DateTime.Now;
@@ -142,7 +173,6 @@ namespace SistemaVentas.Presentacion.MediosPagos
             parametros.Comprobante = "-";
             parametros.efectivo = efectivoCalculado;
             parametros.tarjeta = tarjeta;
-            parametros.Transferencia = txtTransferencia.Text;
             if (funcion.insertar_ControlPago(parametros)==true)
             {
                 Dispose();

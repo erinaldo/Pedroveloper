@@ -1324,16 +1324,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             }
         }
 
-        private void datalistadoempleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void MenuStrip9_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
+      
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Presentacion.CLIENTES_PROVEEDORES.Proveedores frm = new Presentacion.CLIENTES_PROVEEDORES.Proveedores();

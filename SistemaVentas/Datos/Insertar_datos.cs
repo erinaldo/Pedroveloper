@@ -893,7 +893,7 @@ namespace SistemaVentas.Datos
                 SqlCommand cmd = new SqlCommand("insertarControlPago", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Monto", parametros.Monto);
-                cmd.Parameters.AddWithValue("@Fecha", parametros.Fecha);
+                cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
                 cmd.Parameters.AddWithValue("@Detalle", parametros.Detalle);
                 cmd.Parameters.AddWithValue("@idProveedor", parametros.idProveedor);
                 cmd.Parameters.AddWithValue("@IdUsuario", parametros.IdUsuario);
@@ -901,7 +901,7 @@ namespace SistemaVentas.Datos
                 cmd.Parameters.AddWithValue("@Comprobante", parametros.Comprobante);
                 cmd.Parameters.AddWithValue("@efectivo", parametros.efectivo);
                 cmd.Parameters.AddWithValue("@tarjeta", parametros.tarjeta);
-                cmd.Parameters.AddWithValue("@TransferenciaBancario", parametros.Transferencia);
+                cmd.Parameters.AddWithValue("@TransferenciaBancaria", parametros.Transferencia);
                 cmd.ExecuteNonQuery();
                 return true;
             }

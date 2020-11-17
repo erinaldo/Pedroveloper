@@ -55,6 +55,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnhistorial = new System.Windows.Forms.Button();
             this.panelH = new System.Windows.Forms.Panel();
+            this.btnabonar = new System.Windows.Forms.Button();
             this.Panel19 = new System.Windows.Forms.Panel();
             this.Label4 = new System.Windows.Forms.Label();
             this.txttotal_saldo = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.Label14 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnabonar = new System.Windows.Forms.Button();
             this.PanelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoProveedores)).BeginInit();
             this.panelRegistros.SuspendLayout();
@@ -134,6 +134,7 @@
             this.datalistadoProveedores.TabIndex = 558;
             this.datalistadoProveedores.Visible = false;
             this.datalistadoProveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoClientes_CellClick);
+            this.datalistadoProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoProveedores_CellContentClick);
             // 
             // Eliminar
             // 
@@ -405,6 +406,27 @@
             this.panelH.TabIndex = 1;
             this.panelH.Visible = false;
             // 
+            // btnabonar
+            // 
+            this.btnabonar.BackColor = System.Drawing.Color.Transparent;
+            this.btnabonar.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
+            this.btnabonar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnabonar.FlatAppearance.BorderSize = 0;
+            this.btnabonar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnabonar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnabonar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnabonar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnabonar.ForeColor = System.Drawing.Color.White;
+            this.btnabonar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnabonar.Location = new System.Drawing.Point(14, 17);
+            this.btnabonar.Name = "btnabonar";
+            this.btnabonar.Size = new System.Drawing.Size(134, 47);
+            this.btnabonar.TabIndex = 608;
+            this.btnabonar.Text = "Abonar";
+            this.btnabonar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnabonar.UseVisualStyleBackColor = false;
+            this.btnabonar.Click += new System.EventHandler(this.btnabonar_Click);
+            // 
             // Panel19
             // 
             this.Panel19.BackColor = System.Drawing.Color.White;
@@ -525,27 +547,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(901, 35);
             this.panel4.TabIndex = 3;
-            // 
-            // btnabonar
-            // 
-            this.btnabonar.BackColor = System.Drawing.Color.Transparent;
-            this.btnabonar.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
-            this.btnabonar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnabonar.FlatAppearance.BorderSize = 0;
-            this.btnabonar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnabonar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnabonar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnabonar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnabonar.ForeColor = System.Drawing.Color.White;
-            this.btnabonar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnabonar.Location = new System.Drawing.Point(14, 17);
-            this.btnabonar.Name = "btnabonar";
-            this.btnabonar.Size = new System.Drawing.Size(134, 47);
-            this.btnabonar.TabIndex = 608;
-            this.btnabonar.Text = "Abonar";
-            this.btnabonar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnabonar.UseVisualStyleBackColor = false;
-            this.btnabonar.Click += new System.EventHandler(this.btnabonar_Click);
             // 
             // Pagos
             // 

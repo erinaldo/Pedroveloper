@@ -1333,6 +1333,21 @@ namespace SistemaVentas.Datos
                 MessageBox.Show(ex.StackTrace);
             }
         }
+        public static void mostrarControlPago(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarControlPagos", CONEXIONMAESTRA.conectar);
+                da.Fill(dt);
+
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
         public static void ReportePorCobrar(ref double Monto )
         {
             try

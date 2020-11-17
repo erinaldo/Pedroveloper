@@ -256,7 +256,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        //facturas
+   
         public bool Eliminarfacturas(Lventas parametros)
         {
             try
