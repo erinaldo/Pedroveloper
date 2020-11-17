@@ -38,7 +38,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialComprasForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.datalistadoVentas = new System.Windows.Forms.DataGridView();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Panel29 = new System.Windows.Forms.Panel();
             this.txtbusca = new System.Windows.Forms.TextBox();
@@ -151,8 +150,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.datalistadoVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.datalistadoVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datalistadoVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Eliminar});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -161,6 +158,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.datalistadoVentas.DefaultCellStyle = dataGridViewCellStyle3;
+            this.datalistadoVentas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datalistadoVentas.EnableHeadersVisualStyles = false;
             this.datalistadoVentas.Location = new System.Drawing.Point(0, 229);
             this.datalistadoVentas.Name = "datalistadoVentas";
@@ -186,15 +184,7 @@
             this.datalistadoVentas.Size = new System.Drawing.Size(365, 383);
             this.datalistadoVentas.TabIndex = 549;
             this.datalistadoVentas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoVentas_CellClick);
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar.Visible = false;
+            this.datalistadoVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoVentas_CellContentClick);
             // 
             // panel2
             // 
@@ -501,7 +491,7 @@
             this.btnEliminar.Image = global::SistemaVentas.Properties.Resources.advertencia;
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.btnEliminar.Size = new System.Drawing.Size(126, 43);
+            this.btnEliminar.Size = new System.Drawing.Size(125, 43);
             this.btnEliminar.Text = "Cancelar factura";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -1016,7 +1006,6 @@
         internal System.Windows.Forms.Label Label46;
         internal System.Windows.Forms.Label Label47;
         internal System.Windows.Forms.Label Label48;
-        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewButtonColumn Devolver;
         private System.Windows.Forms.Panel panelReporte;
         private Telerik.ReportViewer.WinForms.ReportViewer reportViewer1;

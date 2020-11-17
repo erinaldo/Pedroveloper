@@ -1946,10 +1946,10 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         private void PANELGRANEL_Paint(object sender, PaintEventArgs e)
         {
-           txtCantidad.Clear();
+           /*xtCantidad.Clear();
             txttotal.Clear();
             txtprecio_unitario2.Text = "0";
-            stockgranel.Text = "0";
+            stockgranel.Text = "0";*/
             txtprecio_unitario2.Text = Convert.ToString(txtprecio_unitario);
             stockgranel.Text = Convert.ToString(lblStock_de_Productos);
         }

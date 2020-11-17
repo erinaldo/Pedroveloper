@@ -2049,7 +2049,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
                     da = new SqlDataAdapter("buscarVehiculosV", con);
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    da.SelectCommand.Parameters.AddWithValue("@letra", buscarVehiculos);
+                    da.SelectCommand.Parameters.AddWithValue("@letra", buscarVehiculos.Text);
                     da.Fill(dt);
                     datalistadovehiculo.DataSource = dt;
                     con.Close();

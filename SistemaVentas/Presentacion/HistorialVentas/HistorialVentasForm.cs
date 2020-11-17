@@ -69,7 +69,8 @@ namespace SistemaVentas.Presentacion.HistorialVentas
                 Total =Convert.ToDouble ( datalistadoVentas.SelectedCells[4].Value);
                 lblcajero.Text = datalistadoVentas.SelectedCells[5].Value.ToString();
                 lblpagocon.Text = datalistadoVentas.SelectedCells[6].Value.ToString();
-                
+                lblcliente.Text = datalistadoVentas.SelectedCells[10].Value.ToString();
+
                 LBLTipodePagoOK.Text = datalistadoVentas.SelectedCells[8].Value.ToString();
                 lblvuelto.Text = datalistadoVentas.SelectedCells[9].Value.ToString();
                 PanelTICKET.Visible = true;
@@ -350,12 +351,12 @@ namespace SistemaVentas.Presentacion.HistorialVentas
             DataTable dt = new DataTable();
             Obtener_datos.buscarVentasPorFechas(ref dt, fi.Value, ff.Value);
             datalistadoVentas.DataSource = dt;
-            /*datalistadoVentas.Columns[1].Visible = false;
+            datalistadoVentas.Columns[1].Visible = false;
             datalistadoVentas.Columns[4].Visible = false;
             datalistadoVentas.Columns[5].Visible = false;
             datalistadoVentas.Columns[6].Visible = false;
             datalistadoVentas.Columns[8].Visible = false;
-            datalistadoVentas.Columns[9].Visible = false;*/
+            datalistadoVentas.Columns[9].Visible = false;
             Bases.Multilinea(ref datalistadoVentas);
         }
 
@@ -378,6 +379,11 @@ namespace SistemaVentas.Presentacion.HistorialVentas
         }
 
         private void menuStrip5_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void datalistadoVentas_CellBorderStyleChanged(object sender, EventArgs e)
         {
 
         }

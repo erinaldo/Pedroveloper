@@ -64,15 +64,15 @@ namespace SistemaVentas.Presentacion.HistorialCompras
         {
             if (datalistadoVentas.RowCount >0)
             {
-                idfactura = Convert.ToInt32 ( datalistadoVentas.SelectedCells[1].Value);
-                lblcomprobante.Text = datalistadoVentas.SelectedCells[3].Value.ToString();
-                lbltotal.Text = datalistadoVentas.SelectedCells[4].Value.ToString();
-                Total =Convert.ToDouble ( datalistadoVentas.SelectedCells[4].Value);
-                lblcajero.Text = datalistadoVentas.SelectedCells[5].Value.ToString();
-                lblpagocon.Text = datalistadoVentas.SelectedCells[6].Value.ToString();
-                lblcliente.Text = datalistadoVentas.SelectedCells[11].Value.ToString();
-                LBLTipodePagoOK.Text = datalistadoVentas.SelectedCells[8].Value.ToString();
-                lblvuelto.Text = datalistadoVentas.SelectedCells[9].Value.ToString();
+                idfactura = Convert.ToInt32 ( datalistadoVentas.SelectedCells[0].Value);
+                lblcomprobante.Text = datalistadoVentas.SelectedCells[2].Value.ToString();
+                lbltotal.Text = datalistadoVentas.SelectedCells[3].Value.ToString();
+                Total =Convert.ToDouble ( datalistadoVentas.SelectedCells[3].Value);
+                lblcajero.Text = datalistadoVentas.SelectedCells[4].Value.ToString();
+                lblpagocon.Text = datalistadoVentas.SelectedCells[5].Value.ToString();
+                lblcliente.Text = datalistadoVentas.SelectedCells[9].Value.ToString();
+                LBLTipodePagoOK.Text = datalistadoVentas.SelectedCells[6].Value.ToString();
+                lblvuelto.Text = datalistadoVentas.SelectedCells[7].Value.ToString();
                 PanelTICKET.Visible = true;
                 panelDetalle.Visible = true;
                 Pcancelado.Visible = false;
@@ -88,7 +88,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             DataTable dt = new DataTable();
             Obtener_datos.MostrarDetalleCompra(ref dt, idfactura);
             datalistadoDetalleVenta.DataSource = dt;
-            /*datalistadoDetalleVenta.Columns[6].Visible = false;
+            datalistadoDetalleVenta.Columns[6].Visible = false;
             datalistadoDetalleVenta.Columns[7].Visible = false;
             datalistadoDetalleVenta.Columns[8].Visible = false;
             datalistadoDetalleVenta.Columns[9].Visible = false;
@@ -99,7 +99,7 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             datalistadoDetalleVenta.Columns[14].Visible = false;
             datalistadoDetalleVenta.Columns[15].Visible = false;
             datalistadoDetalleVenta.Columns[16].Visible = false;
-            datalistadoDetalleVenta.Columns[17].Visible = false;*/
+            datalistadoDetalleVenta.Columns[17].Visible = false;
 
             Bases.Multilinea(ref datalistadoDetalleVenta);
 
@@ -362,13 +362,12 @@ namespace SistemaVentas.Presentacion.HistorialCompras
             DataTable dt = new DataTable();
             Obtener_datos.buscarComprasPorFechas(ref dt, fi.Value, ff.Value);
             datalistadoVentas.DataSource = dt;
-           /* datalistadoVentas.Columns[1].Visible = false;
+            datalistadoVentas.Columns[1].Visible = false;
             datalistadoVentas.Columns[4].Visible = false;
             datalistadoVentas.Columns[5].Visible = false;
             datalistadoVentas.Columns[6].Visible = false;
             datalistadoVentas.Columns[8].Visible = false;
             datalistadoVentas.Columns[9].Visible = false;
-            datalistadoVentas.Columns[10].Visible = false;*/
 
             Bases.Multilinea(ref datalistadoVentas);
         }
@@ -388,6 +387,11 @@ namespace SistemaVentas.Presentacion.HistorialCompras
         private void txtcantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txtcantidad, e);
+
+        }
+
+        private void datalistadoVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

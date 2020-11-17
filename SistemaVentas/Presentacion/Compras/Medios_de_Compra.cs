@@ -612,9 +612,31 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
             {
                 disminuir_stock_productos();
                 INSERTAR_KARDEX_SALIDA();
-                //aumentar_monto_a_cliente();
+                aumentar_monto_a_proveedor();
                 validar_tipo_de_impresion();
             }
+        }
+        void aumentar_monto_a_proveedor()
+        {
+            if (chkCredito.Checked == true)
+            {
+                try
+                {
+                    CONEXION.CONEXIONMAESTRA.abrir();
+                    SqlCommand cmd = new SqlCommand("aumentar_saldo_a_proveedor", CONEXION.CONEXIONMAESTRA.conectar);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Saldo", txtMonto.Text);
+                    cmd.Parameters.AddWithValue("@idProveedor", idProveedor);
+                    cmd.ExecuteNonQuery();
+                    CONEXION.CONEXIONMAESTRA.cerrar();
+                }
+                catch (Exception ex)
+                {
+                    CONEXION.CONEXIONMAESTRA.cerrar();
+                    MessageBox.Show(ex.StackTrace);
+                }
+            }
+
         }
         void INSERTAR_KARDEX_SALIDA()
         {
@@ -1468,13 +1490,20 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void txtefectivo2_TextChanged_1(object sender, EventArgs e)
         {
-            result = Convert.ToDouble(txtMonto.Text) + Convert.ToDouble(txtefectivo2.Text);
-            calculototal();
+            if(txtefectivo2.Text != "")
+            {
+                result = Convert.ToDouble(txtMonto.Text) + Convert.ToDouble(txtefectivo2.Text);
+                calculototal();
+            }
+            else
+            {
+                txtefectivo2.Text = "";
+            }
         }
 
         private void calculototal()
         {
-            TXTTOTAL.Text = Convert.ToString(result);
+            txtMonto.Text = Convert.ToString(result);
         }
     }
 }

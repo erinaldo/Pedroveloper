@@ -259,7 +259,7 @@
             this.pcredito.Controls.Add(this.txtfecha_de_pago);
             this.pcredito.Controls.Add(this.Label21);
             this.pcredito.Controls.Add(this.txtProveedorCredito);
-            this.pcredito.Location = new System.Drawing.Point(16, 197);
+            this.pcredito.Location = new System.Drawing.Point(16, 151);
             this.pcredito.Name = "pcredito";
             this.pcredito.Size = new System.Drawing.Size(360, 145);
             this.pcredito.TabIndex = 564;
@@ -420,7 +420,7 @@
             this.txtMonto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.txtMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtMonto.Location = new System.Drawing.Point(203, 197);
+            this.txtMonto.Location = new System.Drawing.Point(430, 367);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(177, 28);
             this.txtMonto.TabIndex = 637;
