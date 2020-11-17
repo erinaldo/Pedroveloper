@@ -1215,6 +1215,23 @@ namespace SistemaVentas.Datos
                 MessageBox.Show(ex.StackTrace);
             }
         }
+
+        public static void Buscar_proveedores_(ref DataTable dt, string buscador)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Buscar_proveedores_", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@letra", buscador);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
         public static void buscar_clientes(ref DataTable dt, string buscador)
         {
             try
@@ -1281,7 +1298,25 @@ namespace SistemaVentas.Datos
 
             }
         }
-      
+        public static void mostrarEstadosCuentaProveedor(ref DataTable dt, int idProveedor)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarEstadosCuentaProveedor", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idProveedor", idProveedor);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
+
         //controlCobros
         public static void mostrar_ControlCobros(ref DataTable dt)
         {

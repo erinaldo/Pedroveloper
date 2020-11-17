@@ -885,7 +885,36 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-
+        public bool insertar_ControlPago(Lcontrolpagos parametros)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarControlPago", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Monto", parametros.Monto);
+                cmd.Parameters.AddWithValue("@Fecha", parametros.Fecha);
+                cmd.Parameters.AddWithValue("@Detalle", parametros.Detalle);
+                cmd.Parameters.AddWithValue("@idProveedor", parametros.idProveedor);
+                cmd.Parameters.AddWithValue("@IdUsuario", parametros.IdUsuario);
+                cmd.Parameters.AddWithValue("@IdCaja", parametros.IdCaja);
+                cmd.Parameters.AddWithValue("@Comprobante", parametros.Comprobante);
+                cmd.Parameters.AddWithValue("@efectivo", parametros.efectivo);
+                cmd.Parameters.AddWithValue("@tarjeta", parametros.tarjeta);
+                cmd.Parameters.AddWithValue("@TransferenciaBancario", parametros.Transferencia);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return true;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
         //Kardex
         public bool insertar_KARDEX_Entrada(LKardex parametros)
         {

@@ -164,7 +164,7 @@
             this.Panel4.Controls.Add(this.Label1);
             this.Panel4.Controls.Add(this.PictureBox1);
             this.Panel4.Controls.Add(this.Panel5);
-            this.Panel4.Location = new System.Drawing.Point(3, 181);
+            this.Panel4.Location = new System.Drawing.Point(1, 189);
             this.Panel4.Name = "Panel4";
             this.Panel4.Size = new System.Drawing.Size(482, 387);
             this.Panel4.TabIndex = 618;
@@ -302,7 +302,7 @@
             // 
             this.Panel9.Controls.Add(this.lblbuscador_de_servidores);
             this.Panel9.Controls.Add(this.Panel1);
-            this.Panel9.Location = new System.Drawing.Point(19, 101);
+            this.Panel9.Location = new System.Drawing.Point(17, 109);
             this.Panel9.Name = "Panel9";
             this.Panel9.Size = new System.Drawing.Size(452, 74);
             this.Panel9.TabIndex = 619;

@@ -122,6 +122,7 @@
     <Compile Include="Logica\Lcaja.cs" />
     <Compile Include="Logica\LCategoria.cs" />
     <Compile Include="Logica\Lcontrolcobros.cs" />
+    <Compile Include="Logica\Lcontrolpagos.cs" />
     <Compile Include="Logica\LCotizacion.cs" />
     <Compile Include="Logica\LDescuento.cs" />
     <Compile Include="Logica\LdetalleFactura.cs" />
@@ -446,6 +447,18 @@
     </Compile>
     <Compile Include="Presentacion\NOTIFICACIONES\Notificaciones_form.Designer.cs">
       <DependentUpon>Notificaciones_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Pagos\MediosPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Pagos\MediosPagos.Designer.cs">
+      <DependentUpon>MediosPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Pagos\Pagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Pagos\Pagos.Designer.cs">
+      <DependentUpon>Pagos.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\PANEL_DE_ADMINISTRACION_DEL_SOFTWARE\CONEXION_MANUAL.cs">
       <SubType>Form</SubType>
@@ -798,6 +811,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\NOTIFICACIONES\Notificaciones_form.resx">
       <DependentUpon>Notificaciones_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Pagos\Pagos.resx">
+      <DependentUpon>Pagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\PANEL_DE_ADMINISTRACION_DEL_SOFTWARE\CONEXION_MANUAL.resx">
       <DependentUpon>CONEXION_MANUAL.cs</DependentUpon>

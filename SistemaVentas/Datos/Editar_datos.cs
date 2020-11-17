@@ -854,6 +854,29 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
+
+        public bool disminuirSaldoProveedores(Lproveedores parametros, double monto)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("disminuirSaldoProveedor", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idProveedor", parametros.IdProveedor);
+                cmd.Parameters.AddWithValue("@monto", monto);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                CONEXIONMAESTRA.cerrar();
+            }
+        }
         public bool aumentarSaldocliente(Lclientes parametros, double monto)
         {
             try

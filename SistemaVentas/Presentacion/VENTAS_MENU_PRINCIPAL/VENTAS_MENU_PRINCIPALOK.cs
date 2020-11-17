@@ -2331,5 +2331,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             Bases.Separador_de_Numeros(txtCantidad, e);
 
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Presentacion.Pagos.Pagos frm = new Presentacion.Pagos.Pagos();
+            frm.ShowDialog();
+        }
     }
 }
