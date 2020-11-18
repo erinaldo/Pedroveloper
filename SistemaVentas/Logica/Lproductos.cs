@@ -27,7 +27,7 @@ namespace SistemaVentas.Logica
         public string usointerno { get; set; }
         public string granel { get; set; }
         public string Peso { get; set; }
-        public DateTime FechaVencimiento { get; set; }
+        public string FechaVencimiento { get; set; }
 
     }
 }

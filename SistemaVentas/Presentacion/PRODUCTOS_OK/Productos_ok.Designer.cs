@@ -190,17 +190,17 @@
             this.label55 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txtPesoArt = new System.Windows.Forms.TextBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.label52 = new System.Windows.Forms.Label();
             this.txtAplicarFecha = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.chkObtenerPesoAuto = new System.Windows.Forms.CheckBox();
             this.txtFecha = new System.Windows.Forms.DateTimePicker();
-            this.chkObtenerPesoAuto = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.chkGranel = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.chkUsoInterno = new System.Windows.Forms.Label();
+            this.sssq = new System.Windows.Forms.Label();
+            this.chkGranel = new System.Windows.Forms.CheckBox();
+            this.asd = new System.Windows.Forms.Label();
+            this.chkUsoInterno = new System.Windows.Forms.CheckBox();
+            this.saddd = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.txtLocalizacion = new System.Windows.Forms.TextBox();
             this.panel36 = new System.Windows.Forms.Panel();
@@ -1650,17 +1650,17 @@
             this.PanelInformacionAdicional.Controls.Add(this.label55);
             this.PanelInformacionAdicional.Controls.Add(this.label54);
             this.PanelInformacionAdicional.Controls.Add(this.label53);
-            this.PanelInformacionAdicional.Controls.Add(this.textBox18);
+            this.PanelInformacionAdicional.Controls.Add(this.txtPesoArt);
             this.PanelInformacionAdicional.Controls.Add(this.pictureBox11);
             this.PanelInformacionAdicional.Controls.Add(this.label52);
             this.PanelInformacionAdicional.Controls.Add(this.txtAplicarFecha);
-            this.PanelInformacionAdicional.Controls.Add(this.checkBox3);
-            this.PanelInformacionAdicional.Controls.Add(this.txtFecha);
             this.PanelInformacionAdicional.Controls.Add(this.chkObtenerPesoAuto);
-            this.PanelInformacionAdicional.Controls.Add(this.checkBox2);
+            this.PanelInformacionAdicional.Controls.Add(this.txtFecha);
+            this.PanelInformacionAdicional.Controls.Add(this.sssq);
             this.PanelInformacionAdicional.Controls.Add(this.chkGranel);
-            this.PanelInformacionAdicional.Controls.Add(this.checkBox1);
+            this.PanelInformacionAdicional.Controls.Add(this.asd);
             this.PanelInformacionAdicional.Controls.Add(this.chkUsoInterno);
+            this.PanelInformacionAdicional.Controls.Add(this.saddd);
             this.PanelInformacionAdicional.Controls.Add(this.label45);
             this.PanelInformacionAdicional.Controls.Add(this.txtLocalizacion);
             this.PanelInformacionAdicional.Controls.Add(this.panel36);
@@ -1795,18 +1795,18 @@
             this.label53.TabIndex = 634;
             this.label53.Text = "KG";
             // 
-            // textBox18
+            // txtPesoArt
             // 
-            this.textBox18.BackColor = System.Drawing.Color.White;
-            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox18.ForeColor = System.Drawing.Color.Black;
-            this.textBox18.Location = new System.Drawing.Point(241, 215);
-            this.textBox18.Multiline = true;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(197, 26);
-            this.textBox18.TabIndex = 633;
-            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPesoArt.BackColor = System.Drawing.Color.White;
+            this.txtPesoArt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPesoArt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesoArt.ForeColor = System.Drawing.Color.Black;
+            this.txtPesoArt.Location = new System.Drawing.Point(241, 215);
+            this.txtPesoArt.Multiline = true;
+            this.txtPesoArt.Name = "txtPesoArt";
+            this.txtPesoArt.Size = new System.Drawing.Size(197, 26);
+            this.txtPesoArt.TabIndex = 633;
+            this.txtPesoArt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // pictureBox11
             // 
@@ -1841,17 +1841,17 @@
             this.txtAplicarFecha.Text = "No aplica";
             this.txtAplicarFecha.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chkObtenerPesoAuto
             // 
-            this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.chkObtenerPesoAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(8, 335);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 630;
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chkObtenerPesoAuto.AutoSize = true;
+            this.chkObtenerPesoAuto.Location = new System.Drawing.Point(8, 335);
+            this.chkObtenerPesoAuto.Name = "chkObtenerPesoAuto";
+            this.chkObtenerPesoAuto.Size = new System.Drawing.Size(15, 14);
+            this.chkObtenerPesoAuto.TabIndex = 630;
+            this.chkObtenerPesoAuto.UseVisualStyleBackColor = true;
             // 
             // txtFecha
             // 
@@ -1862,62 +1862,62 @@
             this.txtFecha.Size = new System.Drawing.Size(149, 26);
             this.txtFecha.TabIndex = 13;
             // 
-            // chkObtenerPesoAuto
+            // sssq
             // 
-            this.chkObtenerPesoAuto.AutoSize = true;
-            this.chkObtenerPesoAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.chkObtenerPesoAuto.ForeColor = System.Drawing.Color.Black;
-            this.chkObtenerPesoAuto.Location = new System.Drawing.Point(29, 334);
-            this.chkObtenerPesoAuto.Name = "chkObtenerPesoAuto";
-            this.chkObtenerPesoAuto.Size = new System.Drawing.Size(167, 20);
-            this.chkObtenerPesoAuto.TabIndex = 629;
-            this.chkObtenerPesoAuto.Text = "Obtener Peso Auto.";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(8, 302);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 628;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.sssq.AutoSize = true;
+            this.sssq.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.sssq.ForeColor = System.Drawing.Color.Black;
+            this.sssq.Location = new System.Drawing.Point(29, 334);
+            this.sssq.Name = "sssq";
+            this.sssq.Size = new System.Drawing.Size(167, 20);
+            this.sssq.TabIndex = 629;
+            this.sssq.Text = "Obtener Peso Auto.";
             // 
             // chkGranel
             // 
-            this.chkGranel.AutoSize = true;
-            this.chkGranel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.chkGranel.ForeColor = System.Drawing.Color.Black;
-            this.chkGranel.Location = new System.Drawing.Point(29, 301);
-            this.chkGranel.Name = "chkGranel";
-            this.chkGranel.Size = new System.Drawing.Size(63, 20);
-            this.chkGranel.TabIndex = 627;
-            this.chkGranel.Text = "Granel";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.chkGranel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(8, 266);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 621;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkGranel.AutoSize = true;
+            this.chkGranel.Location = new System.Drawing.Point(8, 302);
+            this.chkGranel.Name = "chkGranel";
+            this.chkGranel.Size = new System.Drawing.Size(15, 14);
+            this.chkGranel.TabIndex = 628;
+            this.chkGranel.UseVisualStyleBackColor = true;
+            // 
+            // asd
+            // 
+            this.asd.AutoSize = true;
+            this.asd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.asd.ForeColor = System.Drawing.Color.Black;
+            this.asd.Location = new System.Drawing.Point(29, 301);
+            this.asd.Name = "asd";
+            this.asd.Size = new System.Drawing.Size(63, 20);
+            this.asd.TabIndex = 627;
+            this.asd.Text = "Granel";
             // 
             // chkUsoInterno
             // 
+            this.chkUsoInterno.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chkUsoInterno.AutoSize = true;
-            this.chkUsoInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.chkUsoInterno.ForeColor = System.Drawing.Color.Black;
-            this.chkUsoInterno.Location = new System.Drawing.Point(29, 263);
+            this.chkUsoInterno.Location = new System.Drawing.Point(8, 266);
             this.chkUsoInterno.Name = "chkUsoInterno";
-            this.chkUsoInterno.Size = new System.Drawing.Size(104, 20);
-            this.chkUsoInterno.TabIndex = 620;
-            this.chkUsoInterno.Text = "Uso Interno";
+            this.chkUsoInterno.Size = new System.Drawing.Size(15, 14);
+            this.chkUsoInterno.TabIndex = 621;
+            this.chkUsoInterno.UseVisualStyleBackColor = true;
+            // 
+            // saddd
+            // 
+            this.saddd.AutoSize = true;
+            this.saddd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.saddd.ForeColor = System.Drawing.Color.Black;
+            this.saddd.Location = new System.Drawing.Point(29, 262);
+            this.saddd.Name = "saddd";
+            this.saddd.Size = new System.Drawing.Size(104, 20);
+            this.saddd.TabIndex = 620;
+            this.saddd.Text = "Uso Interno";
             // 
             // label45
             // 
@@ -4875,19 +4875,19 @@
         private System.Windows.Forms.Panel PanelInformacionAdicional;
         internal System.Windows.Forms.Label label34;
         internal System.Windows.Forms.Label label52;
-        private System.Windows.Forms.CheckBox checkBox3;
-        internal System.Windows.Forms.Label chkObtenerPesoAuto;
-        private System.Windows.Forms.CheckBox checkBox2;
-        internal System.Windows.Forms.Label chkGranel;
-        private System.Windows.Forms.CheckBox checkBox1;
-        internal System.Windows.Forms.Label chkUsoInterno;
+        private System.Windows.Forms.CheckBox chkObtenerPesoAuto;
+        internal System.Windows.Forms.Label sssq;
+        private System.Windows.Forms.CheckBox chkGranel;
+        internal System.Windows.Forms.Label asd;
+        private System.Windows.Forms.CheckBox chkUsoInterno;
+        internal System.Windows.Forms.Label saddd;
         internal System.Windows.Forms.Label label45;
         internal System.Windows.Forms.TextBox txtLocalizacion;
         private System.Windows.Forms.Panel panel36;
         private System.Windows.Forms.Panel panel35;
         internal System.Windows.Forms.Label label33;
         internal System.Windows.Forms.Label label53;
-        internal System.Windows.Forms.TextBox textBox18;
+        internal System.Windows.Forms.TextBox txtPesoArt;
         private System.Windows.Forms.PictureBox pictureBox11;
         internal System.Windows.Forms.Label UnidadMultiplicada1;
         private System.Windows.Forms.Panel panelCategoria;
