@@ -477,6 +477,11 @@ namespace SistemaVentas.Presentacion.Almacenes
             Presentacion.Direccion.Direcciones frm = new Presentacion.Direccion.Direcciones();
             frm.ShowDialog();
         }
+
+        private void txtLocalizacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

@@ -18,5 +18,16 @@ namespace SistemaVentas.Logica
         public double Stock { get; set; }
         public double Preciodecompra { get; set; }
 
+
+        // Detalle
+
+        public int idProveedor { get; set; }
+        public string Localizacion { get; set; }
+        public double StockMinimo { get; set; }
+        public string usointerno { get; set; }
+        public string granel { get; set; }
+        public string Peso { get; set; }
+        public DateTime FechaVencimiento { get; set; }
+
     }
 }

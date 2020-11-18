@@ -527,6 +527,34 @@ namespace SistemaVentas.Datos
 
             }
         }
+
+        public bool insertarDetalleProducto(Lproductos productos)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarDetalleProducto", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //Productos
+               // cmd.Parameters.AddWithValue("@idProducto", productos.idProducto);
+                cmd.Parameters.AddWithValue("@idProveedor", productos.idProveedor);
+                cmd.Parameters.AddWithValue("@Localizacion", productos.Localizacion);
+                cmd.Parameters.AddWithValue("@StockMinimo", productos.StockMinimo);
+                cmd.Parameters.AddWithValue("@UsoInterno", productos.usointerno);
+                cmd.Parameters.AddWithValue("@Granel", productos.granel);
+                cmd.Parameters.AddWithValue("@Peso", productos.Peso);
+                cmd.Parameters.AddWithValue("@FechaVencimiento", productos.FechaVencimiento);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+
+            }
+        }
         public bool insertarMunicipio(LDireccion parametros)
         {
             try

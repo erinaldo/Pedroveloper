@@ -1378,6 +1378,7 @@ namespace SistemaVentas.Datos
             }
         }
 
+      
     
         //Proveedores
         public static void ReportePorPagar(ref double Monto)
