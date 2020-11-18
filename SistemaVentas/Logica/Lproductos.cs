@@ -21,6 +21,7 @@ namespace SistemaVentas.Logica
 
         // Detalle
 
+        public int idDetalleProductos { get; set; }
         public int idProveedor { get; set; }
         public string Localizacion { get; set; }
         public double StockMinimo { get; set; }

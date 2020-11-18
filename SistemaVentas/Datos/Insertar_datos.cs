@@ -90,6 +90,28 @@ namespace SistemaVentas.Datos
                 return false;
             }
         }
+        public bool editarMayoreo(Mayoreo mayoreo)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarMayoreo", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idMayoreo", mayoreo.idMayoreo);
+                cmd.Parameters.AddWithValue("@unidades_1", mayoreo.mayoreo1);
+                cmd.Parameters.AddWithValue("@unidades_2", mayoreo.mayoreo2);
+                cmd.Parameters.AddWithValue("@unidades_3", mayoreo.mayoreo3);
+                cmd.Parameters.AddWithValue("@unidades_4", mayoreo.mayoreo4);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
         public bool insertarPrecios(Precios precios)
         {
             try
@@ -97,6 +119,29 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarListaPrecio", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idMayoreo", precios.idMayoreo);
+                cmd.Parameters.AddWithValue("@Precio_1", precios.precio1);
+                cmd.Parameters.AddWithValue("@Precio_2", precios.precio2);
+                cmd.Parameters.AddWithValue("@Precio_3", precios.precio3);
+                cmd.Parameters.AddWithValue("@Precio_4", precios.precio4);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool editarPrecios(Precios precios)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarListaPrecio", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idPrecios", precios.idPrecio);
                 cmd.Parameters.AddWithValue("@idMayoreo", precios.idMayoreo);
                 cmd.Parameters.AddWithValue("@Precio_1", precios.precio1);
                 cmd.Parameters.AddWithValue("@Precio_2", precios.precio2);
@@ -527,7 +572,38 @@ namespace SistemaVentas.Datos
 
             }
         }
+        public bool editarProductos(Lproductos productos, LKardex kardex, UnidadesProductos unidadesProductos)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("Editarproducto", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //Productos
+                cmd.Parameters.AddWithValue("@idProducto", productos.idProducto);
+                cmd.Parameters.AddWithValue("@idCategoria", productos.idCategoria);
+                cmd.Parameters.AddWithValue("@Codigo", productos.Codigo);
+                cmd.Parameters.AddWithValue("@Descripcion", productos.Descripcion);
+                cmd.Parameters.AddWithValue("@PrecioCompra", productos.Preciodecompra);
+                cmd.Parameters.AddWithValue("@Stock", productos.Stock);
+                cmd.Parameters.AddWithValue("@idImpuesto", productos.idImpuesto);
+                cmd.Parameters.AddWithValue("@idPrecios", productos.idPrecios);
+                cmd.Parameters.AddWithValue("@idDescuento", productos.idDescuento);
 
+                //UnidadesProductos
+                cmd.Parameters.AddWithValue("@idUnidadCompra", unidadesProductos.idUnidadCompra);
+                cmd.Parameters.AddWithValue("@idUnidadVenta", unidadesProductos.idUnidadVenta);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+
+            }
+        }
         public bool insertarDetalleProducto(Lproductos productos)
         {
             try
@@ -536,6 +612,35 @@ namespace SistemaVentas.Datos
                 SqlCommand cmd = new SqlCommand("insertarDetalleProducto", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 //Productos
+                cmd.Parameters.AddWithValue("@idProducto", productos.idProducto);
+                cmd.Parameters.AddWithValue("@idProveedor", productos.idProveedor);
+                cmd.Parameters.AddWithValue("@Localizacion", productos.Localizacion);
+                cmd.Parameters.AddWithValue("@StockMinimo", productos.StockMinimo);
+                cmd.Parameters.AddWithValue("@UsoInterno", productos.usointerno);
+                cmd.Parameters.AddWithValue("@Granel", productos.granel);
+                cmd.Parameters.AddWithValue("@Peso", productos.Peso + " KG");
+                cmd.Parameters.AddWithValue("@FechaVencimiento", productos.FechaVencimiento);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+
+            }
+        }
+        public bool editarDetalleProductos(Lproductos productos)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarDetalleProducto", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //Productos
+
+                cmd.Parameters.AddWithValue("@idDetalleProducto", productos.idDetalleProductos);
                 cmd.Parameters.AddWithValue("@idProducto", productos.idProducto);
                 cmd.Parameters.AddWithValue("@idProveedor", productos.idProveedor);
                 cmd.Parameters.AddWithValue("@Localizacion", productos.Localizacion);

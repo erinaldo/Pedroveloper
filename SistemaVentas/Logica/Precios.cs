@@ -7,6 +7,7 @@ namespace SistemaVentas.Logica
 {
    public  class Precios
     {
+        public int idPrecio { get; set; }
         public int idMayoreo { get; set; }
         public double precio1 { get; set; }
         public double precio2 { get; set; }
