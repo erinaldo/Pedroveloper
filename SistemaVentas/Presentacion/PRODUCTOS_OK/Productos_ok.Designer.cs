@@ -177,7 +177,7 @@
             this.btnAgregarPreciosProveedor = new System.Windows.Forms.PictureBox();
             this.panel39 = new System.Windows.Forms.Panel();
             this.label67 = new System.Windows.Forms.Label();
-            this.txtPeso = new System.Windows.Forms.Panel();
+            this.txtInformacionAdicionalAtras = new System.Windows.Forms.Panel();
             this.PanelInformacionAdicional = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
@@ -423,7 +423,7 @@
             this.menuStrip6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarPreciosProveedor)).BeginInit();
             this.panel39.SuspendLayout();
-            this.txtPeso.SuspendLayout();
+            this.txtInformacionAdicionalAtras.SuspendLayout();
             this.PanelInformacionAdicional.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -1060,7 +1060,7 @@
             // 
             this.PANELINFOR.Controls.Add(this.panelAlmacenAtras);
             this.PANELINFOR.Controls.Add(this.panelProveedorATRAS);
-            this.PANELINFOR.Controls.Add(this.txtPeso);
+            this.PANELINFOR.Controls.Add(this.txtInformacionAdicionalAtras);
             this.PANELINFOR.Controls.Add(this.PanelInformacionBasicaATRAS);
             this.PANELINFOR.Controls.Add(this.panel42);
             this.PANELINFOR.Controls.Add(this.panel41);
@@ -1625,14 +1625,14 @@
             this.label67.Text = "Precios Proveedor";
             this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtPeso
+            // txtInformacionAdicionalAtras
             // 
-            this.txtPeso.Controls.Add(this.PanelInformacionAdicional);
-            this.txtPeso.Location = new System.Drawing.Point(117, 62);
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(813, 461);
-            this.txtPeso.TabIndex = 628;
-            this.txtPeso.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInformacionAdicionalATRAS_Paint);
+            this.txtInformacionAdicionalAtras.Controls.Add(this.PanelInformacionAdicional);
+            this.txtInformacionAdicionalAtras.Location = new System.Drawing.Point(820, 82);
+            this.txtInformacionAdicionalAtras.Name = "txtInformacionAdicionalAtras";
+            this.txtInformacionAdicionalAtras.Size = new System.Drawing.Size(397, 441);
+            this.txtInformacionAdicionalAtras.TabIndex = 628;
+            this.txtInformacionAdicionalAtras.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInformacionAdicionalATRAS_Paint);
             // 
             // PanelInformacionAdicional
             // 
@@ -1667,9 +1667,9 @@
             this.PanelInformacionAdicional.Controls.Add(this.label34);
             this.PanelInformacionAdicional.Controls.Add(this.panel35);
             this.PanelInformacionAdicional.Controls.Add(this.txtStockMinimo);
-            this.PanelInformacionAdicional.Location = new System.Drawing.Point(0, 29);
+            this.PanelInformacionAdicional.Location = new System.Drawing.Point(45, 56);
             this.PanelInformacionAdicional.Name = "PanelInformacionAdicional";
-            this.PanelInformacionAdicional.Size = new System.Drawing.Size(955, 425);
+            this.PanelInformacionAdicional.Size = new System.Drawing.Size(734, 425);
             this.PanelInformacionAdicional.TabIndex = 373;
             // 
             // panel6
@@ -1949,7 +1949,7 @@
             this.panel36.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel36.Location = new System.Drawing.Point(0, 29);
             this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(955, 1);
+            this.panel36.Size = new System.Drawing.Size(734, 1);
             this.panel36.TabIndex = 622;
             // 
             // label34
@@ -1970,7 +1970,7 @@
             this.panel35.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel35.Location = new System.Drawing.Point(0, 0);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(955, 29);
+            this.panel35.Size = new System.Drawing.Size(734, 29);
             this.panel35.TabIndex = 623;
             // 
             // label33
@@ -2012,7 +2012,7 @@
             this.PanelInformacionBasicaATRAS.Controls.Add(this.panelCategoria);
             this.PanelInformacionBasicaATRAS.Location = new System.Drawing.Point(43, 7);
             this.PanelInformacionBasicaATRAS.Name = "PanelInformacionBasicaATRAS";
-            this.PanelInformacionBasicaATRAS.Size = new System.Drawing.Size(13, 17);
+            this.PanelInformacionBasicaATRAS.Size = new System.Drawing.Size(709, 600);
             this.PanelInformacionBasicaATRAS.TabIndex = 627;
             this.PanelInformacionBasicaATRAS.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelInformacionBasicaATRAS_Paint);
             // 
@@ -2175,6 +2175,7 @@
             this.txtVenta.Name = "txtVenta";
             this.txtVenta.Size = new System.Drawing.Size(149, 26);
             this.txtVenta.TabIndex = 659;
+            this.txtVenta.Text = "0";
             this.txtVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVenta_KeyPress);
             // 
@@ -2187,6 +2188,7 @@
             this.txtPrecioCompraImpuestos.Name = "txtPrecioCompraImpuestos";
             this.txtPrecioCompraImpuestos.Size = new System.Drawing.Size(149, 26);
             this.txtPrecioCompraImpuestos.TabIndex = 658;
+            this.txtPrecioCompraImpuestos.Text = "0";
             this.txtPrecioCompraImpuestos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPrecioCompraImpuestos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompraImpuestos_KeyPress);
             // 
@@ -2220,6 +2222,7 @@
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(149, 26);
             this.txtPrecioCompra.TabIndex = 5;
+            this.txtPrecioCompra.Text = "0";
             this.txtPrecioCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPrecioCompra.TextChanged += new System.EventHandler(this.txtPrecioCompra_TextChanged);
             this.txtPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcosto_KeyPress_1);
@@ -4682,7 +4685,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarPreciosProveedor)).EndInit();
             this.panel39.ResumeLayout(false);
             this.panel39.PerformLayout();
-            this.txtPeso.ResumeLayout(false);
+            this.txtInformacionAdicionalAtras.ResumeLayout(false);
             this.PanelInformacionAdicional.ResumeLayout(false);
             this.PanelInformacionAdicional.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
@@ -5001,7 +5004,7 @@
         internal System.Windows.Forms.Label label73;
         internal System.Windows.Forms.TextBox txtDescuentosCategoria;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Panel txtPeso;
+        private System.Windows.Forms.Panel txtInformacionAdicionalAtras;
         internal System.Windows.Forms.Label label74;
         internal System.Windows.Forms.TextBox txtImpuestosCategoria;
         private System.Windows.Forms.PictureBox pictureBox16;
