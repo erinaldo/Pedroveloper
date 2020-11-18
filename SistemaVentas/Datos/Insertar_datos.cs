@@ -25,11 +25,20 @@ namespace SistemaVentas.Datos
                     MessageBox.Show("RELLENE TODOS LOS CAMPOS CORRECTAMENTE", "Verificacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-
             }
             return true;
         }
-
+        public static bool ValidTextIsNotNullOrEmpty2(TextBox[] textBox)
+        {
+            for (int i = 0; i < textBox.Length; ++i)
+            {
+                if (string.IsNullOrEmpty(textBox[i].Text))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         public static bool insertar_Conceptos(string descripcion)
         {
             try
@@ -618,7 +627,7 @@ namespace SistemaVentas.Datos
                 cmd.Parameters.AddWithValue("@StockMinimo", productos.StockMinimo);
                 cmd.Parameters.AddWithValue("@UsoInterno", productos.usointerno);
                 cmd.Parameters.AddWithValue("@Granel", productos.granel);
-                cmd.Parameters.AddWithValue("@Peso", productos.Peso + " KG");
+                cmd.Parameters.AddWithValue("@Peso", productos.Peso);
                 cmd.Parameters.AddWithValue("@FechaVencimiento", productos.FechaVencimiento);
 
                 cmd.ExecuteNonQuery();
@@ -647,7 +656,7 @@ namespace SistemaVentas.Datos
                 cmd.Parameters.AddWithValue("@StockMinimo", productos.StockMinimo);
                 cmd.Parameters.AddWithValue("@UsoInterno", productos.usointerno);
                 cmd.Parameters.AddWithValue("@Granel", productos.granel);
-                cmd.Parameters.AddWithValue("@Peso", productos.Peso + " KG");
+                cmd.Parameters.AddWithValue("@Peso", productos.Peso);
                 cmd.Parameters.AddWithValue("@FechaVencimiento", productos.FechaVencimiento);
 
                 cmd.ExecuteNonQuery();

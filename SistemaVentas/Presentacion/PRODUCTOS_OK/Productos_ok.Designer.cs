@@ -4509,7 +4509,7 @@
             this.btnGuardarCambiosInformacionBasica.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarCambiosInformacionBasica.ForeColor = System.Drawing.Color.White;
             this.btnGuardarCambiosInformacionBasica.Image = global::SistemaVentas.Properties.Resources.negro;
-            this.btnGuardarCambiosInformacionBasica.Location = new System.Drawing.Point(524, 6);
+            this.btnGuardarCambiosInformacionBasica.Location = new System.Drawing.Point(708, 16);
             this.btnGuardarCambiosInformacionBasica.Name = "btnGuardarCambiosInformacionBasica";
             this.btnGuardarCambiosInformacionBasica.Size = new System.Drawing.Size(186, 43);
             this.btnGuardarCambiosInformacionBasica.TabIndex = 624;
@@ -4568,6 +4568,7 @@
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(33, 696);
             this.panel30.TabIndex = 0;
+            this.panel30.Paint += new System.Windows.Forms.PaintEventHandler(this.panel30_Paint);
             // 
             // pictureBox10
             // 
