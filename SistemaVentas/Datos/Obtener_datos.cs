@@ -38,7 +38,26 @@ namespace SistemaVentas.Datos
 
             }
         }
-        
+        public static void BuscarDetalleProducto(ref DataTable dt, int idProducto)
+        {
+
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter com = new SqlDataAdapter("MostrarprodutosDetalle", CONEXIONMAESTRA.conectar);
+                com.SelectCommand.CommandType = CommandType.StoredProcedure;
+                com.SelectCommand.Parameters.AddWithValue("@idProducto", idProducto);
+                com.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
+
+
 
         public static void mostrarImpuestos(ref DataTable dt)
         {

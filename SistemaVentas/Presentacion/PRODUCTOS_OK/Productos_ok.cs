@@ -28,12 +28,17 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         int idProveedorPreciosSelect;
         int idProductoSelect;
         private int idAlmacenSelect;
+        private int idImpuesto;
         private int idDescuento;
         private int idPrecios;
         private int idProveedor;
         private int idProductoUltimoPrecios;
         private int idProducto;
-
+        int idCategoria;
+        string descripcion;
+        string departamento;
+        private int idUnidadVenta;
+        private int idClaveSatVenta;
 
         private void PictureBox2_Click(object sender, EventArgs e)
         {
@@ -111,6 +116,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelCategoria.Visible = false;
             panelUnidad.Visible = false;
             panelClaveUnidadSat.Visible = false;
+            btnGuardarCambiosInformacionBasica.Visible = false;
             panelCategoriaAgregar.Visible = false;
             PANELINFOR.Visible = false;
             panelImpuestosAgregar.Visible = false;
@@ -422,98 +428,190 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
 
         }
-        internal void proceso_para_obtener_datos_de_productos()
+        internal void obtenerDatosProductos()
         {
-            /* try
-             {
 
-                 Panel25.Enabled = true;
-                 DATALISTADO_PRODUCTOS_OKA.Visible = false;
+            PANELREGISTRO.Visible = true;
+            PANELINFOR.Visible = true;
+            btnGuardarInformacionBasica.Visible = false;
+            btnGuardarCambiosInformacionBasica.Visible = true;
+            try
+            {
+                idProducto = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+                idCategoria = Convert.ToInt32(datalistado.SelectedCells[3].Value);
+                idPrecios = Convert.ToInt32(datalistado.SelectedCells[4].Value);
+                txtcodigodebarras.Text = datalistado.SelectedCells[5].Value.ToString();
+                txtdescripcion.Text = datalistado.SelectedCells[6].Value.ToString();
+                txtStock.Text = datalistado.SelectedCells[7].Value.ToString();
+                txtStock.ReadOnly = true;
+                txtPrecioCompra.Text = datalistado.SelectedCells[8].Value.ToString();
+                idImpuesto = Convert.ToInt32(datalistado.SelectedCells[9].Value);
+                idDescuento = Convert.ToInt32(datalistado.SelectedCells[10].Value);
+                
 
-                 Panel6.Visible = false;
-                 //TGUARDAR.Visible = false;
-                 PANELDEPARTAMENTO.Visible = true;
+                txtCategoria.Text = datalistado.SelectedCells[11].Value.ToString();
+                txtDepartamento.Text = datalistado.SelectedCells[12].Value.ToString();
+                idMayoreo = Convert.ToInt32(datalistado.SelectedCells[13].Value);
+                txtPrecioVentaPrecio1.Text = datalistado.SelectedCells[14].Value.ToString();
+                txtPrecioVentaPrecio2.Text = datalistado.SelectedCells[15].Value.ToString();
+                txtPrecioVentaPrecio3.Text = datalistado.SelectedCells[16].Value.ToString();
+                txtPrecioVentaPrecio4.Text = datalistado.SelectedCells[17].Value.ToString();
 
+                txtUnidadMayoreo1.Text = datalistado.SelectedCells[18].Value.ToString();
+                txtUnidadMayoreo2.Text = datalistado.SelectedCells[19].Value.ToString();
+                txtUnidadMayoreo3.Text = datalistado.SelectedCells[20].Value.ToString();
+                txtUnidadMayoreo4.Text = datalistado.SelectedCells[21].Value.ToString();
+                if (Convert.ToDouble(datalistado.SelectedCells[22].Value.ToString()) > 0.00)
+                {
+                    chkImpuestos.Checked = true;
+                }
+                else
+                {
+                    chkImpuestos.Checked = false;
+                }
 
-                 btnNuevoGrupo.Visible = true;
-                 TXTIDPRODUCTOOk.Text = datalistado.SelectedCells[2].Value.ToString();
-                 lblEstadoCodigo.Text = "EDITAR";
-                 //PANELCATEGORIASELECT.Visible = false;
-                 BtnGuardarCambios.Visible = false;
-                 btnGuardar_grupo.Visible = false;
-                 BtnCancelar.Visible = false;
-                 btnNuevoGrupo.Visible = true;
+                if (Convert.ToDouble(datalistado.SelectedCells[23].Value.ToString()) > 0.00)
+                {
+                    txtDescuento.Text = datalistado.SelectedCells[23].Value.ToString();
+                }
+                else
+                {
+                    txtDescuento.Text = "0.00";
+                }
+                txtUnidadCompra.Text = datalistado.SelectedCells[24].Value.ToString();
+                txtUnidadDeVenta.Text = datalistado.SelectedCells[25].Value.ToString();
 
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(ex.Message);
-             }
+                if (txtPrecioCompraImpuestos.Text == "")
+                {
+                    txtPrecioCompraImpuestos.Text = txtPrecioCompra.Text;
 
-             try
-             {
+                }
 
-                 txtcodigodebarras.Text = datalistado.SelectedCells[3].Value.ToString();
-                 txtCategoria.Text = datalistado.SelectedCells[4].Value.ToString();
-
-                 txtdescripcion.Text = datalistado.SelectedCells[5].Value.ToString();
-                 txtnumeroigv.Text = datalistado.SelectedCells[6].Value.ToString();
-                 lblIdGrupo.Text = datalistado.SelectedCells[15].Value.ToString();
-
-
-
-
-
-                 txtPrecioCompra.Text = datalistado.SelectedCells[8].Value.ToString();
-                 //txtpreciomayoreo.Text = datalistado.SelectedCells[9].Value.ToString();
-                 txtstockminimo.Text = datalistado.SelectedCells[11].Value.ToString();
-                 txtstock2.Text = datalistado.SelectedCells[13].Value.ToString();
-                 txtPrecioVentaPrecio1.Text = datalistado.SelectedCells[14].Value.ToString();
-                 try
-                 {
-
-                     double TotalVentaVariabledouble;
-                     double TXTPRECIODEVENTA2V = Convert.ToDouble(txtPrecioVentaPrecio1.Text);
-                     double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
-
-                     TotalVentaVariabledouble = ((TXTPRECIODEVENTA2V - txtPrecioComprav) / (txtPrecioComprav)) * 100;
-
-                     if (TotalVentaVariabledouble > 0)
-                     {
-                         this.txtPorcentajeGanancia.Text = Convert.ToString(TotalVentaVariabledouble);
-                     }
-                     else
-                     {
-                         //Me.txtPorcentajeGanancia.Text = 0
-                     }
-
-                 }
-                 catch (Exception ex)
-                 {
-                     MessageBox.Show(ex.Message);
-
-                 }
-                 txtstock2.ReadOnly = true;
-                 CheckInventarios.Checked = true;
-
-             }
-                     CheckInventarios.Checked = false;
-             txtstock2.ReadOnly = true;
-             txtstock2.Text = "0";
-             txtstockminimo.Text = "0";
-             No_aplica_fecha.Checked = true;
-             txtstock2.ReadOnly = false;
+                if ((Convert.ToDouble(txtPrecioCompra.Text) > 0) && (Convert.ToDouble(txtPrecioCompraImpuestos.Text) > 0))
+                {
+                    panelPrecios.Enabled = true;
+                    txtVenta.Text = txtPrecioVentaPrecio1.Text;
+                    if (txtPrecioVentaPrecio1.Text != "")
+                    {
+                        double precioVenta1;
+                        double precioCompra1;
+                        precioVenta1 = Convert.ToDouble(txtPrecioVentaPrecio1.Text);
+                        precioCompra1 = Convert.ToDouble(txtPrecioCompraImpuestos.Text);
+                        double total = ((precioVenta1 - precioCompra1) / (precioCompra1)) * 100;
+                        if (precioVenta1 > 0)
+                        {
+                            txtPorcentajeGanancia1.Text = Convert.ToString(Math.Round(total, 2));
+                        }
+                    }
+                }
 
 
+                if (txtPrecioCompraImpuestos.Text == "")
+                {
+                    txtPrecioCompraImpuestos.Text = txtPrecioCompra.Text;
 
-             //PANELCATEGORIASELECT.Visible = false;
+                }
 
-         }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(ex.Message);
-             }*/
+                if ((Convert.ToDouble(txtPrecioCompra.Text) > 0) && (Convert.ToDouble(txtPrecioCompraImpuestos.Text) > 0))
+                {
+                    panelPrecios.Enabled = true;
+                    if (txtPrecioVentaPrecio2.Text != "")
+                    {
+                        double precioVenta2;
+                        double precioCompra2;
+                        precioVenta2 = Convert.ToDouble(txtPrecioVentaPrecio2.Text);
+                        precioCompra2 = Convert.ToDouble(txtPrecioCompraImpuestos.Text);
+                        double total = ((precioVenta2 - precioCompra2) / (precioCompra2)) * 100;
+                        if (precioVenta2 > 0)
+                        {
+                            txtPorcentajeGanancia2.Text = Convert.ToString(Math.Round(total, 2));
+                        }
+                    }
+                }
+
+                if ((Convert.ToDouble(txtPrecioCompra.Text) > 0) && (Convert.ToDouble(txtPrecioCompraImpuestos.Text) > 0))
+                {
+                    panelPrecios.Enabled = true;
+                    if (txtPrecioVentaPrecio3.Text != "")
+                    {
+                        double precioVenta3;
+                        double precioCompra3;
+                        precioVenta3 = Convert.ToDouble(txtPrecioVentaPrecio3.Text);
+                        precioCompra3 = Convert.ToDouble(txtPrecioCompraImpuestos.Text);
+                        double total = ((precioVenta3 - precioCompra3) / (precioCompra3)) * 100;
+                        if (precioVenta3 > 0)
+                        {
+                            txtPorcentajeGanancia3.Text = Convert.ToString(Math.Round(total, 2));
+                        }
+                    }
+                }
+
+                if ((Convert.ToDouble(txtPrecioCompra.Text) > 0) && (Convert.ToDouble(txtPrecioCompraImpuestos.Text) > 0))
+                {
+                    panelPrecios.Enabled = true;
+                    if (txtPrecioVentaPrecio4.Text != "")
+                    {
+                        double precioVenta4;
+                        double precioCompra4;
+                        precioVenta4 = Convert.ToDouble(txtPrecioVentaPrecio4.Text);
+                        precioCompra4 = Convert.ToDouble(txtPrecioCompraImpuestos.Text);
+                        double total = ((precioVenta4 - precioCompra4) / (precioCompra4)) * 100;
+                        if (precioVenta4 > 0)
+                        {
+                            txtPorcentajeGanancia4.Text = Convert.ToString(Math.Round(total, 2));
+                        }
+                    }
+                }
+
+                DataTable dt = new DataTable();
+                Obtener_datos.BuscarDetalleProducto(ref dt, idProducto);
+                MessageBox.Show(idProducto.ToString());
+                datalistadoDetalleProducto.DataSource = dt;
+                Bases.Multilinea(ref datalistadoDetalleProducto);
+                if (datalistadoDetalleProducto.SelectedRows.Count > 0)
+                {
+
+                    idDetalleProducto = Convert.ToInt32(datalistadoDetalleProducto.SelectedCells[2].Value);
+                    idProveedor = Convert.ToInt32(datalistadoDetalleProducto.SelectedCells[4].Value);
+                    txtidProveedor.Text = datalistadoDetalleProducto.SelectedCells[5].Value.ToString();
+                    txtLocalizacion.Text = datalistadoDetalleProducto.SelectedCells[6].Value.ToString();
+                    txtStockMinimo.Text = datalistadoDetalleProducto.SelectedCells[7].Value.ToString();
+                    if (datalistadoDetalleProducto.SelectedCells[8].Value.ToString() == "Uso interno")
+                    {
+                        chkUsoInterno.Checked = true;
+                    }
+                    else
+                    {
+                        chkUsoInterno.Checked = false;
+
+                    }
+
+
+                    if (datalistadoDetalleProducto.SelectedCells[9].Value.ToString() == "Granel")
+                    {
+                        chkGranel.Checked = true;
+                    }
+                    else
+                    {
+                        chkGranel.Checked = false;
+
+                    }
+
+                    txtPesoArt.Text = datalistadoDetalleProducto.SelectedCells[10].Value.ToString();
+                    txtFecha.Value = Convert.ToDateTime(datalistadoDetalleProducto.SelectedCells[11].Value.ToString());
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+
+
+
         }
+
         private void datalistado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == this.datalistado.Columns["Eliminar"].Index)
@@ -580,8 +678,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
             if (e.ColumnIndex == this.datalistado.Columns["Editar"].Index)
             {
-                proceso_para_obtener_datos_de_productos();
-                idProducto = Convert.ToInt32(datalistado.SelectedCells[0].Value);
+                obtenerDatosProductos();
+                //idProducto = Convert.ToInt32(datalistado.SelectedCells[0].Value);
             }
 
         }
@@ -611,7 +709,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void datalistado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            proceso_para_obtener_datos_de_productos();
+            obtenerDatosProductos();
         }
 
         private void ToolStripMenuItem15_Click(object sender, EventArgs e)
@@ -627,22 +725,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             frm.ShowDialog();
         }
 
-        private void txtPorcentajeGanancia_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            // Bases.Separador_de_Numeros(txtPorcentajeGanancia, e);
-        }
+      
 
-        private void TXTPRECIODEVENTA2_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            Bases.Separador_de_Numeros(txtPrecioVentaPrecio1, e);
-
-        }
-
-        private void txtpreciomayoreo_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            //Bases.Separador_de_Numeros(txtpreciomayoreo, e);
-
-        }
 
         private void txtapartirde_KeyPress_1(object sender, KeyPressEventArgs e)
         {
@@ -674,6 +758,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         int idCategoriaAgregar;
         string descripcionCategoria;
         string departamentoCategoria;
+        private int idDetalleProducto;
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -1070,11 +1155,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             obtenerCategoriaDepartamento();
         }
 
-        int idCategoria;
-        string descripcion;
-        string departamento;
-        private int idUnidadVenta;
-        private int idClaveSatVenta;
+       
 
 
         private void obtenerCategoriaDepartamento()
@@ -1278,7 +1359,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             idClaveSatCompra = Convert.ToInt32(datalistadoUnidadCompra.SelectedCells[1].Value);
             txtUnidadCompra.Text = datalistadoUnidadCompra.SelectedCells[2].Value.ToString();
             datalistadoUnidadCompraPanel.Visible = false;
-            txtUnidadDeVenta.Text = txtUnidadCompra.Text;
+            txtUnidadVenta.Focus();
             UnidadMultiplicada1.Text = "x " + txtUnidadCompra.Text;
             UnidadMultiplicada2.Text = "x " + txtUnidadCompra.Text;
         }
@@ -1785,7 +1866,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             TextBox[] array2 = { txtLocalizacion, txtPesoArt, txtStockMinimo, txtidProveedor };
 
-            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array2) || idProveedor != 0)
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array2) && idProveedor != 0)
             {
                 return true;
             }
@@ -2005,6 +2086,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                         Lproductos lproductos = new Lproductos();
                         Insertar_datos insertar = new Insertar_datos();
 
+                        ObteneridproductoUltimo();
                         lproductos.idProducto = idProductoSelect;
                         lproductos.idProveedor = idProveedor;
                         lproductos.Peso = txtPesoArt.Text;
@@ -2801,7 +2883,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             {
                 panelDescuentoBasico.BringToFront();
                 panelDescuentoBasico.Location = new Point(485, 311);
-                panelDescuentoBasico.Size = new Size(72, 114);
+                panelDescuentoBasico.Size = new Size(151, 41);
                 buscarDescuentos();
                 panelDescuentoBasico.Visible = true;
             }
@@ -2840,7 +2922,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistadoMostrarDescuentoCategoria);
+            Bases.Multilinea(ref datalistadoDescuentoBasico);
         }
 
         private void datalistadoDescuentoBasico_CellContentClick(object sender, DataGridViewCellEventArgs e)
