@@ -112,31 +112,6 @@ namespace SistemaVentas.Presentacion.Impuestos
             Bases.Multilinea(ref datalistado);
             datalistado.Columns[2].Visible = false;
         }
-
-        /*if (e.ColumnIndex == datalistado.Columns["EditarImpuestoG"].Index)
-            {
-                obtenerDatos();
-            }
-            if (e.ColumnIndex == datalistado.Columns["EliminarImpuesto"].Index)
-            {
-                obtenerId_estado();
-                if (estado == "ACTIVO")
-                {
-                    DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (result == System.Windows.Forms.DialogResult.OK)
-                    {
-                        eliminar();
-                    }
-                }
-            }*/
-        private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-
-
-
         private void txtbuscar_TextChanged(object sender, EventArgs e)
         {
             if (txtbuscar.Text != "")
@@ -191,8 +166,6 @@ namespace SistemaVentas.Presentacion.Impuestos
             btnGuardar.Visible = false;
             btnGuardarCambios.Visible = true;
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             TextBox[] array = { txtnombre, txtImpuesto };
@@ -216,8 +189,6 @@ namespace SistemaVentas.Presentacion.Impuestos
                 MessageBox.Show("Favor llenar los campos correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-     
         public void editar()
         {
             //obtenerDatosID();
@@ -247,7 +218,6 @@ namespace SistemaVentas.Presentacion.Impuestos
             }
 
         }
-
         private void eliminar()
         {
             LImpuesto parametros = new LImpuesto();
@@ -256,10 +226,6 @@ namespace SistemaVentas.Presentacion.Impuestos
             mostrar();
         }
 
-        private void datalistado_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         private void Nuevo()
         {
             panelRegistros.Visible = true;

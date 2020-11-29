@@ -45,57 +45,40 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             PANELREGISTRO.Visible = true;
             PANELINFOR.Visible = true;
             LIMPIAR();
-
-
-            /* CheckInventarios.Checked = true;
-            /*  txtdescripcion.AutoCompleteCustomSource = CONEXION.DataHelper.LoadAutoComplete();
-              txtdescripcion.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-              txtdescripcion.AutoCompleteSource = AutoCompleteSource.CustomSource;*/
-
-
-
         }
         internal void LIMPIAR()
         {
 
             txtdescripcion.Text = "";
-
-
+            txtcodigodebarras.Text = "";
 
             txtStockMinimo.Text = "0";
 
-
             txtUnidadCompra.Text = "";
             txtUnidadVenta.Text = "";
+
             txtCategoria.Text = "";
             txtDepartamento.Text = "";
-            txtdescripcion.Text = "";
-            txtcodigodebarras.Text = "";
 
-            txtPrecioCompra.Text = "";
-            txtPrecioCompraImpuestos.Text = "";
+            txtPrecioCompra.Text = "0.00";
+            txtPrecioCompraImpuestos.Text = "0.00";
             txtVenta.Text = "";
             txtUnidadDeVenta.Text = "";
 
-            txtUnidadMayoreo1.Text = "";
-            txtUnidadMayoreo2.Text = "";
-            txtUnidadMayoreo3.Text = "";
-            txtUnidadMayoreo4.Text = "";
+            txtUnidadMayoreo1.Text = "0.00";
+            txtUnidadMayoreo2.Text = "0.00";
+            txtUnidadMayoreo3.Text = "0.00";
+            txtUnidadMayoreo4.Text = "0.00";
 
-            txtPrecioVentaPrecio1.Text = "";
-            txtPrecioVentaPrecio2.Text = "";
-            txtPrecioVentaPrecio3.Text = "";
-            txtPrecioVentaPrecio4.Text = "";
+            txtPorcentajeGanancia1.Text = "0.00";
+            txtPorcentajeGanancia2.Text = "0.00";
+            txtPorcentajeGanancia3.Text = "0.00";
+            txtPorcentajeGanancia4.Text = "0.00";
 
-            txtPorcentajeGanancia1.Text = "";
-            txtPorcentajeGanancia2.Text = "";
-            txtPorcentajeGanancia3.Text = "";
-            txtPorcentajeGanancia4.Text = "";
-
-            txtPrecioVentaPrecio1.Text = "";
-            txtPrecioVentaPrecio2.Text = "";
-            txtPrecioVentaPrecio3.Text = "";
-            txtPrecioVentaPrecio4.Text = "";
+            txtPrecioVentaPrecio1.Text = "0.00";
+            txtPrecioVentaPrecio2.Text = "0.00";
+            txtPrecioVentaPrecio3.Text = "0.00";
+            txtPrecioVentaPrecio4.Text = "0.00";
         }
 
         public static int idusuario;
@@ -149,100 +132,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             buscar();
             mostrar_grupos();
             */
-        }
-
-        private void BtnGuardarCambios_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void btnGuardar_grupo_Click_1(object sender, EventArgs e)
-        {
-
-        }
-        private void btnNuevoGrupo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtgrupo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnCancelar_Click_1(object sender, EventArgs e)
-        {
-        }
-
-        private void editar_productos()
-        {
-            /* /*if (txtpreciomayoreo.Text == "0" | txtpreciomayoreo.Text == "") txtapartirde.Text = "0";*/
-            /*
-            try
-            {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("editar_Producto", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Id_Producto", TXTIDPRODUCTOOk.Text);
-                cmd.Parameters.AddWithValue("@Descripcion", txtdescripcion.Text);
-                cmd.Parameters.AddWithValue("@Imagen", ".");
-
-                cmd.Parameters.AddWithValue("@Precio_de_compra", txtPrecioCompra.Text);
-                cmd.Parameters.AddWithValue("@precio_de_factura", txtPrecioVentaPrecio1.Text);
-                cmd.Parameters.AddWithValue("@Codigo", txtcodigodebarras.Text);
-                cmd.Parameters.AddWithValue("@A_partir_de", txtUnidadMayoreo1.Text);
-                cmd.Parameters.AddWithValue("@Impuesto", 0);
-                //cmd.Parameters.AddWithValue("@Precio_mayoreo", txtpreciomayoreo.Text);
-                if (porunidad.Checked == true) txtse_vende_a.Text = "Unidad";
-                if (agranel.Checked == true) txtse_vende_a.Text = "Granel";
-
-                cmd.Parameters.AddWithValue("@Se_vende_a", txtse_vende_a.Text);
-                cmd.Parameters.AddWithValue("@Id_grupo", lblIdGrupo.Text);
-                if (PANELINVENTARIO.Visible == true)
-                {
-                    cmd.Parameters.AddWithValue("@Usa_inventarios", "SI");
-                    cmd.Parameters.AddWithValue("@Stock_minimo", txtstockminimo.Text);
-                    cmd.Parameters.AddWithValue("@Stock", txtstock2.Text);
-
-                    if (No_aplica_fecha.Checked == true)
-                    {
-                        cmd.Parameters.AddWithValue("@Fecha_de_vencimiento", "NO APLICA");
-                    }
-
-                    if (No_aplica_fecha.Checked == false)
-                    {
-                        cmd.Parameters.AddWithValue("@Fecha_de_vencimiento", txtfechaoka.Text);
-                    }
-
-
-                }
-                if (PANELINVENTARIO.Visible == false)
-                {
-                    cmd.Parameters.AddWithValue("@Usa_inventarios", "NO");
-                    cmd.Parameters.AddWithValue("@Stock_minimo", 0);
-                    cmd.Parameters.AddWithValue("@Fecha_de_vencimiento", "NO APLICA");
-                    cmd.Parameters.AddWithValue("@Stock", "Ilimitado");
-
-                }
-
-                cmd.ExecuteNonQuery();
-
-
-                con.Close();
-                PANELDEPARTAMENTO.Visible = false;
-                //txtbusca.Text = txtdescripcion.Text;
-                //txtbusca.Focus();
-                // buscar();
-                
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }*/
         }
 
         private void datalistadoMostrarDescuentoCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -367,12 +256,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 conteoresultado = "";
                 lblcantidad_productos.Text = "0";
             }
-
-        }
-        private void CheckInventarios_CheckedChanged(object sender, EventArgs e)
-        {
-
-
 
         }
 
@@ -1372,7 +1255,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelUnidad.Size = new Size(300, 329);
             panelUnidad.BringToFront();
             panelUnidad.Visible = true;
-            txtUnidadVenta.Focus();
+            txtUnidadVenta.Clear();
+            txtUnidadVenta.Text = "";
+            PClaveSAT.Clear();
         }
 
         private void datalistadoUnidadesSAT_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1738,6 +1623,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 txtPrecioCompraImpuestos.Text = txtPrecioCompra.Text;
 
             }
+
             if ((Convert.ToDouble(txtPrecioCompra.Text) > 0) && (Convert.ToDouble(txtPrecioCompraImpuestos.Text) > 0))
             {
                 panelPrecios.Enabled = true;

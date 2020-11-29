@@ -77,6 +77,12 @@
     <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
     <Reference Include="SpreadsheetLight, Version=3.4.11.0, Culture=neutral, PublicKeyToken=32fbb46dc1730c57, processorArchitecture=MSIL">
       <HintPath>..\packages\SpreadsheetLight.3.4.11\lib\net40\SpreadsheetLight.dll</HintPath>
     </Reference>
@@ -118,6 +124,7 @@
     <Compile Include="Datos\Obtener_datos.cs" />
     <Compile Include="Logica\Bases.cs" />
     <Compile Include="Logica\Direcciones.cs" />
+    <Compile Include="Logica\Geolocalizacion.cs" />
     <Compile Include="Logica\LAlmacen.cs" />
     <Compile Include="Logica\Lcaja.cs" />
     <Compile Include="Logica\LCategoria.cs" />
@@ -375,6 +382,12 @@
     </Compile>
     <Compile Include="Presentacion\Gastos_varios\Gastos.Designer.cs">
       <DependentUpon>Gastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Geolocalizacion\Geolocalizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Geolocalizacion\Geolocalizacion.Designer.cs">
+      <DependentUpon>Geolocalizacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\HistorialCompras\HistorialComprasForm.cs">
       <SubType>Form</SubType>
@@ -775,6 +788,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Gastos_varios\Gastos.resx">
       <DependentUpon>Gastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Geolocalizacion\Geolocalizacion.resx">
+      <DependentUpon>Geolocalizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\HistorialCompras\HistorialComprasForm.resx">
       <DependentUpon>HistorialComprasForm.cs</DependentUpon>

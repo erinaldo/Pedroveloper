@@ -125,7 +125,7 @@ namespace SistemaVentas.Presentacion
             SqlCommand com = new SqlCommand("MostrarPermisosPorUsuario", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@idusuario", idusuariovariable);
-            MessageBox.Show(idusuariovariable.ToString());
+           // MessageBox.Show(idusuariovariable.ToString());
             try
             {
                 con.Open();
