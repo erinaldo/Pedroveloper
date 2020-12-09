@@ -1385,12 +1385,15 @@ namespace SistemaVentas.Datos
                 MessageBox.Show(ex.StackTrace);
             }
         }
-        public static void mostrarControlPagosFacturas(ref DataTable dt)
+        public static void mostrarControlPagosFacturas(ref DataTable dt, int numFact)
         {
+            MessageBox.Show(numFact.ToString());
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("Mostrar_controlcobros_fact", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@numFact", numFact);
                 da.Fill(dt);
 
                 CONEXIONMAESTRA.cerrar();

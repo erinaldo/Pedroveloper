@@ -77,6 +77,7 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.panelFacturas = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMov = new System.Windows.Forms.Button();
             this.txtFactura = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -106,7 +107,6 @@
             this.Label14 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.PanelContenedor.SuspendLayout();
             this.panelRegistro.SuspendLayout();
             this.panelProveedor.SuspendLayout();
@@ -175,9 +175,9 @@
             this.panelRegistro.Controls.Add(this.Label18);
             this.panelRegistro.Controls.Add(this.panel10);
             this.panelRegistro.Controls.Add(this.panel6);
-            this.panelRegistro.Location = new System.Drawing.Point(0, 401);
+            this.panelRegistro.Location = new System.Drawing.Point(0, 454);
             this.panelRegistro.Name = "panelRegistro";
-            this.panelRegistro.Size = new System.Drawing.Size(1097, 168);
+            this.panelRegistro.Size = new System.Drawing.Size(1107, 115);
             this.panelRegistro.TabIndex = 4;
             // 
             // txtTipo
@@ -353,7 +353,7 @@
             this.panel14.ForeColor = System.Drawing.Color.White;
             this.panel14.Location = new System.Drawing.Point(0, 1);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1097, 1);
+            this.panel14.Size = new System.Drawing.Size(1107, 1);
             this.panel14.TabIndex = 611;
             // 
             // panel15
@@ -363,7 +363,7 @@
             this.panel15.ForeColor = System.Drawing.Color.White;
             this.panel15.Location = new System.Drawing.Point(0, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(1097, 1);
+            this.panel15.Size = new System.Drawing.Size(1107, 1);
             this.panel15.TabIndex = 612;
             // 
             // label5
@@ -537,9 +537,9 @@
             this.panel10.BackColor = System.Drawing.Color.White;
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel10.ForeColor = System.Drawing.Color.White;
-            this.panel10.Location = new System.Drawing.Point(0, 166);
+            this.panel10.Location = new System.Drawing.Point(0, 113);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1097, 1);
+            this.panel10.Size = new System.Drawing.Size(1107, 1);
             this.panel10.TabIndex = 610;
             // 
             // panel6
@@ -547,9 +547,9 @@
             this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.ForeColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(0, 167);
+            this.panel6.Location = new System.Drawing.Point(0, 114);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1097, 1);
+            this.panel6.Size = new System.Drawing.Size(1107, 1);
             this.panel6.TabIndex = 610;
             // 
             // btnAgregar
@@ -637,6 +637,26 @@
             this.panelFacturas.Name = "panelFacturas";
             this.panelFacturas.Size = new System.Drawing.Size(504, 140);
             this.panelFacturas.TabIndex = 614;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Image = global::SistemaVentas.Properties.Resources.Rojo;
+            this.btnCerrar.Location = new System.Drawing.Point(276, 71);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(209, 43);
+            this.btnCerrar.TabIndex = 671;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnMov
             // 
@@ -1070,26 +1090,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1132, 35);
             this.panel4.TabIndex = 3;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Image = global::SistemaVentas.Properties.Resources.Rojo;
-            this.btnCerrar.Location = new System.Drawing.Point(276, 71);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(209, 43);
-            this.btnCerrar.TabIndex = 671;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // FacturasCredito
             // 

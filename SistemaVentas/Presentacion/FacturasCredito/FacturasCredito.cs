@@ -104,27 +104,6 @@ namespace SistemaVentas.Presentacion.FacturasCredito
         private void btnMovimientos_Click(object sender, EventArgs e)
         {
             //BuscarfactsProveedores
-            try
-            {
-                CONEXION.CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("BuscarfactsProveedores", CONEXION.CONEXIONMAESTRA.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@idProveedor", idProveedor);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                CONEXION.CONEXIONMAESTRA.cerrar();
-
-
-                txtFactura.DisplayMember = "NumFactura";
-                txtFactura.ValueMember = "idFactura";
-               
-                txtFactura.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
             panelFacturas.Visible = true;
             panelH.Visible = false;
             panelM.Visible = true;
@@ -136,20 +115,42 @@ namespace SistemaVentas.Presentacion.FacturasCredito
             panelHistorial.Dock = DockStyle.None;
 
             txttotal_saldo.Text = "0";
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("BuscarfactsProveedores", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idProveedor", Convert.ToInt32(idProveedor));
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+                
+                txtFactura.DisplayMember = "NumFactura";
+                txtFactura.ValueMember = "idFactura";
+               
+                txtFactura.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
        
         private void mostrarControlCobros()
         {
 
             DataTable dt = new DataTable();
-            Obtener_datos.mostrarControlPagosFacturas(ref dt);
+            Obtener_datos.mostrarControlPagosFacturas(ref dt,numFact);
             datalistadoMovimientos.DataSource = dt;
             Bases estilo = new Bases();
             estilo.MultilineaCobros(ref datalistadoMovimientos);
-            datalistadoMovimientos.Columns[1].Visible = false;
-            datalistadoMovimientos.Columns[5].Visible = false;
+            datalistadoMovimientos.Columns[2].Visible = false;
             datalistadoMovimientos.Columns[6].Visible = false;
             datalistadoMovimientos.Columns[7].Visible = false;
+            datalistadoMovimientos.Columns[8].Visible = false;
+            //Datagridview.Columns.Clear()
+            //datalistadoMovimientos.Columns[12].Visible = false;
 
         }
 
@@ -157,6 +158,7 @@ namespace SistemaVentas.Presentacion.FacturasCredito
         {
             mostrarEstadosCuentaCliente();
             panelFacturas.Visible = false;
+            datalistadoMovimientos.Columns.Clear();
             txtFactura.Text = "";
         }
 
@@ -392,6 +394,7 @@ namespace SistemaVentas.Presentacion.FacturasCredito
         {
            
            mostrarControlCobros();
+            panelFacturas.Visible = false;
                                     //            MessageBox.Show(txtFactura.Text. DisplayMember.ToString());
                                    //            MessageBox.Show(txtFactura.ValueMember.ToString());
         }
