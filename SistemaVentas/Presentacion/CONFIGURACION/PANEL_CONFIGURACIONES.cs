@@ -875,5 +875,17 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
 
             }
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            FacturasCredito.FacturasCredito frm = new FacturasCredito.FacturasCredito();
+            frm.ShowDialog();
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+            FacturasCredito.FacturasCredito frm = new FacturasCredito.FacturasCredito();
+            frm.ShowDialog();
+        }
     }
 }

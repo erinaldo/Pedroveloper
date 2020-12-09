@@ -306,6 +306,11 @@ namespace SistemaVentas.Presentacion.Descuento
                 e.Handled = true;
             }
         }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }

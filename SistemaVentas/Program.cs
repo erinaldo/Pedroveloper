@@ -16,7 +16,7 @@ namespace SistemaVentas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Presentacion.LOGIN frm = new Presentacion.LOGIN();
+            //Presentacion.LOGIN frm = new Presentacion.LOGIN();
             //Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA();
             //Presentacion.Vehiculos.Vehiculos frm = new Presentacion.Vehiculos.Vehiculos();
             // Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
@@ -25,10 +25,11 @@ namespace SistemaVentas
             //  Presentacion.PRODUCTOS_OK.Productos_ok frm = new Presentacion.PRODUCTOS_OK.Productos_ok();
             // Presentacion.INVENTARIOS_KARDEX.INVENTARIO_MENU frm = new Presentacion.INVENTARIOS_KARDEX.INVENTARIO_MENU();
             //Presentacion.Unidades.Unidades frm = new Presentacion.Unidades.Unidades();
-            //Presentacion.CONFIGURACION.PANEL_CONFIGURACIONES frm = new Presentacion.CONFIGURACION.PANEL_CONFIGURACIONES();
+           // Presentacion.CONFIGURACION.PANEL_CONFIGURACIONES frm = new Presentacion.CONFIGURACION.PANEL_CONFIGURACIONES();
             //Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA();
             // Presentacion.VentasCamiones.VentasCamiones frm = new Presentacion.VentasCamiones.VentasCamiones();
             //Presentacion.Geolocalizacion.Geolocalizacion frm = new Presentacion.Geolocalizacion.Geolocalizacion();
+            Presentacion.FacturasCredito.FacturasCredito frm = new Presentacion.FacturasCredito.FacturasCredito();
             frm.FormClosed += Frm_FormClosed;
             frm.ShowDialog();  
             Application.Run();

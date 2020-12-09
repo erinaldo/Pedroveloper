@@ -88,6 +88,7 @@
             this.txtLatitud.Name = "txtLatitud";
             this.txtLatitud.Size = new System.Drawing.Size(417, 19);
             this.txtLatitud.TabIndex = 673;
+            this.txtLatitud.TextChanged += new System.EventHandler(this.txtLatitud_TextChanged);
             // 
             // panel8
             // 
@@ -96,6 +97,7 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(417, 1);
             this.panel8.TabIndex = 672;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // label10
             // 
@@ -108,6 +110,7 @@
             this.label10.Size = new System.Drawing.Size(58, 20);
             this.label10.TabIndex = 671;
             this.label10.Text = "Latitud";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txtLongitud
             // 
@@ -117,6 +120,7 @@
             this.txtLongitud.Name = "txtLongitud";
             this.txtLongitud.Size = new System.Drawing.Size(417, 19);
             this.txtLongitud.TabIndex = 676;
+            this.txtLongitud.TextChanged += new System.EventHandler(this.txtLongitud_TextChanged);
             // 
             // panel1
             // 
@@ -125,6 +129,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(417, 1);
             this.panel1.TabIndex = 675;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -137,6 +142,7 @@
             this.label1.Size = new System.Drawing.Size(71, 20);
             this.label1.TabIndex = 674;
             this.label1.Text = "Longitud";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtDescripcion
             // 
@@ -146,6 +152,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(417, 19);
             this.txtDescripcion.TabIndex = 679;
+            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
             // panel2
             // 
@@ -154,6 +161,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(417, 1);
             this.panel2.TabIndex = 678;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // Label8
             // 
@@ -166,6 +174,7 @@
             this.Label8.Size = new System.Drawing.Size(92, 20);
             this.Label8.TabIndex = 677;
             this.Label8.Text = "Descripción";
+            this.Label8.Click += new System.EventHandler(this.Label8_Click);
             // 
             // btnAgregar
             // 
@@ -212,6 +221,7 @@
             this.panelDataListadoLocalizacion.Name = "panelDataListadoLocalizacion";
             this.panelDataListadoLocalizacion.Size = new System.Drawing.Size(311, 143);
             this.panelDataListadoLocalizacion.TabIndex = 682;
+            this.panelDataListadoLocalizacion.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDataListadoLocalizacion_Paint);
             // 
             // datalistadoLocalizacion
             // 

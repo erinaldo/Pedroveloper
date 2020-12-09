@@ -11,6 +11,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
     public partial class Productos_ok : Form
     {
         int txtcontador;
+        bool servicio = false;
 
         public Productos_ok()
         {
@@ -122,6 +123,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             Obtener_datos.Obtener_id_caja_PorSerial(ref idcaja);
             Bases.Cambiar_idioma_regional();
 
+            servicio = false;
+            Check.Visible = false;
 
             /*
 
@@ -3267,6 +3270,20 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         private void panel30_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Check_Click(object sender, EventArgs e)
+        {
+            servicio = false;
+            Uncheck.Visible = true;
+            Check.Visible = false;
+        }
+
+        private void Uncheck_Click(object sender, EventArgs e)
+        {
+            servicio = true;
+            Check.Visible = true;
+            Uncheck.Visible = false;
         }
     }
 }

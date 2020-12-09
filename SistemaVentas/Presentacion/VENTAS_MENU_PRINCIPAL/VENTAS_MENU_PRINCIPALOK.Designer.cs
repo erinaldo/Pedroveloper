@@ -2537,7 +2537,7 @@
             this.lbltipodebusqueda2.Name = "lbltipodebusqueda2";
             this.lbltipodebusqueda2.Size = new System.Drawing.Size(201, 18);
             this.lbltipodebusqueda2.TabIndex = 0;
-            this.lbltipodebusqueda2.Text = "Buscar por Codigo de Barras";
+            this.lbltipodebusqueda2.Text = "Buscar por Código de Barras";
             this.lbltipodebusqueda2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltipodebusqueda2.Click += new System.EventHandler(this.lbltipodebusqueda2_Click);
             // 
@@ -2560,9 +2560,9 @@
             this.lblNombreSoftware.ForeColor = System.Drawing.Color.Black;
             this.lblNombreSoftware.Location = new System.Drawing.Point(51, 11);
             this.lblNombreSoftware.Name = "lblNombreSoftware";
-            this.lblNombreSoftware.Size = new System.Drawing.Size(89, 25);
+            this.lblNombreSoftware.Size = new System.Drawing.Size(96, 25);
             this.lblNombreSoftware.TabIndex = 600;
-            this.lblNombreSoftware.Text = "facturas";
+            this.lblNombreSoftware.Text = "Facturas";
             // 
             // dtempresaok
             // 

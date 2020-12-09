@@ -1335,6 +1335,24 @@ namespace SistemaVentas.Datos
 
             }
         }
+        public static void mostrarEstadosFacturas(ref DataTable dt, int idProveedor)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("mostrarEstadosFacturas", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idProveedor", idProveedor);
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.StackTrace);
+
+            }
+        }
 
         //controlCobros
         public static void mostrar_ControlCobros(ref DataTable dt)
@@ -1358,6 +1376,21 @@ namespace SistemaVentas.Datos
             {
                 CONEXIONMAESTRA.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("mostrarControlPagos", CONEXIONMAESTRA.conectar);
+                da.Fill(dt);
+
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+        public static void mostrarControlPagosFacturas(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Mostrar_controlcobros_fact", CONEXIONMAESTRA.conectar);
                 da.Fill(dt);
 
                 CONEXIONMAESTRA.cerrar();

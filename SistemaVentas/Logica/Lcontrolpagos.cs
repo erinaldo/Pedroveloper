@@ -8,6 +8,7 @@ namespace SistemaVentas.Logica
     public class Lcontrolpagos
     {
         public int idControlPago { get; set; }
+        public int idFact { get; set; }
         public double Monto { get; set; }
         public DateTime Fecha { get; set; }
         public string Detalle { get; set; }

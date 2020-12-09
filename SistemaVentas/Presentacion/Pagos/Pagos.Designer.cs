@@ -93,7 +93,7 @@
             this.PanelContenedor.Location = new System.Drawing.Point(39, 41);
             this.PanelContenedor.Name = "PanelContenedor";
             this.PanelContenedor.Padding = new System.Windows.Forms.Padding(10);
-            this.PanelContenedor.Size = new System.Drawing.Size(840, 502);
+            this.PanelContenedor.Size = new System.Drawing.Size(823, 544);
             this.PanelContenedor.SizeShadow = 10;
             this.PanelContenedor.TabIndex = 0;
             this.PanelContenedor.TypeShadowPanel = UIDC.UI_ShadowPanel.ShadowsPanel.Center;
@@ -117,7 +117,7 @@
             this.datalistadoProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
             this.datalistadoProveedores.EnableHeadersVisualStyles = false;
-            this.datalistadoProveedores.Location = new System.Drawing.Point(579, 23);
+            this.datalistadoProveedores.Location = new System.Drawing.Point(561, 59);
             this.datalistadoProveedores.Name = "datalistadoProveedores";
             this.datalistadoProveedores.ReadOnly = true;
             this.datalistadoProveedores.RowHeadersVisible = false;
@@ -154,9 +154,9 @@
             this.panelRegistros.Controls.Add(this.Label4);
             this.panelRegistros.Controls.Add(this.txttotal_saldo);
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelRegistros.Location = new System.Drawing.Point(10, 91);
+            this.panelRegistros.Location = new System.Drawing.Point(10, 133);
             this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(820, 401);
+            this.panelRegistros.Size = new System.Drawing.Size(803, 401);
             this.panelRegistros.TabIndex = 614;
             this.panelRegistros.Visible = false;
             // 
@@ -182,7 +182,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 186);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(820, 215);
+            this.panel1.Size = new System.Drawing.Size(803, 215);
             this.panel1.TabIndex = 613;
             // 
             // panelMovimientos
@@ -333,7 +333,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(820, 46);
+            this.panel2.Size = new System.Drawing.Size(803, 46);
             this.panel2.TabIndex = 0;
             // 
             // panel5
@@ -518,7 +518,7 @@
             this.Label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Label14.Location = new System.Drawing.Point(10, 10);
             this.Label14.Name = "Label14";
-            this.Label14.Size = new System.Drawing.Size(820, 39);
+            this.Label14.Size = new System.Drawing.Size(803, 39);
             this.Label14.TabIndex = 192;
             this.Label14.Text = "PAGOS";
             this.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

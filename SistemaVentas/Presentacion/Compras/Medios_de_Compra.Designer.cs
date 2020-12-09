@@ -420,7 +420,7 @@
             this.txtMonto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.txtMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtMonto.Location = new System.Drawing.Point(430, 367);
+            this.txtMonto.Location = new System.Drawing.Point(200, 197);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(177, 28);
             this.txtMonto.TabIndex = 637;

@@ -514,15 +514,13 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void DATALISTADO_PRODUCTOS_OKA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtProductoGranel.Text = txtdescripcion;
-            txtdescripcion = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
-            // MessageBox.Show(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
-            ValidarVentasNuevas();
-            txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             idproducto = Convert.ToInt32(DATALISTADO_PRODUCTOS_OKA.SelectedCells[1].Value.ToString());
+            txtdescripcion = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
+            txtProductoGranel.Text = txtdescripcion;
+            txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
+            PANELGRANEL.Location = new Point((Width - PANELGRANEL.Width) / 2, (Height - PANELGRANEL.Height) / 2);
             vender_por_teclado();
-                PANELGRANEL.Location = new Point((Width - PANELGRANEL.Width) / 2, (Height - PANELGRANEL.Height) / 2);
-            
+            ValidarVentasNuevas();
         }
 
         public void ValidarVentasNuevas()

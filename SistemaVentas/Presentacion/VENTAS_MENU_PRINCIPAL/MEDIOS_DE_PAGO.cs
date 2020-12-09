@@ -8,6 +8,13 @@ using Telerik.Reporting.Processing;
 using Telerik.Reporting.Drawing;
 using SistemaVentas.Logica;
 using SistemaVentas.Datos;
+using GMap.NET.WindowsForms;
+using GMap.NET;
+using System.Collections.Generic;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET.MapProviders;
+using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using System.IO;
 
 namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 {
@@ -49,6 +56,20 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         string direccioncliente;
         string nombreCliente;
         int idusuario;
+
+        GMarkerGoogle marker;
+        GMapOverlay markerOverlay;
+        DataTable dt;
+
+        bool trazarRuta = false;
+        int ContadorIndicadoresRuta = 0;
+       // PointLatLng inicio;
+       // PointLatLng final;
+
+        int filaSeleccionada = 0;
+        double LatInicial = 19.5663208725355;
+        double LngInicial = -70.876225233078;
+
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
@@ -88,6 +109,48 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             validarPedidodeCliente();
             panelEmpleado.Visible = false;
             panelVehiculos.Visible = false;
+
+            GMapProviders.GoogleMap.ApiKey = @"AIzaSyAv4Lhhah38GEMDVCunk-o1ZmfDkQfy3CM";
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
+            Mapa.CacheLocation = @"cache";
+            Mapa.DragButton = MouseButtons.Left;
+            Mapa.MapProvider = GMapProviders.GoogleMap;
+            Mapa.ShowCenter = false;
+            //
+            dt = new DataTable();
+            dt.Columns.Add(new DataColumn("Descripcion", typeof(string)));
+            dt.Columns.Add(new DataColumn("Lat", typeof(double)));
+            dt.Columns.Add(new DataColumn("Long", typeof(double)));
+
+            dt.Rows.Add("Ubicacion 1", LatInicial, LngInicial);
+            datalistadoLocalizacion.DataSource = dt;
+            Bases.Multilinea(ref datalistadoLocalizacion);
+            datalistadoLocalizacion.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            datalistadoLocalizacion.AutoResizeColumns();
+
+            datalistadoLocalizacion.Columns[1].Visible = false;
+            datalistadoLocalizacion.Columns[2].Visible = false;
+
+            Mapa.DragButton = MouseButtons.Left;
+            Mapa.CanDragMap = true;
+            Mapa.MapProvider = GMapProviders.GoogleMap;
+            Mapa.Position = new PointLatLng(LatInicial, LngInicial);
+            Mapa.MinZoom = 0;
+            Mapa.MaxZoom = 24;
+            Mapa.Zoom = 9;
+            Mapa.AutoScroll = true;
+
+            // Marcador
+            markerOverlay = new GMapOverlay("Marcador");
+            marker = new GMarkerGoogle(new PointLatLng(LatInicial, LngInicial), GMarkerGoogleType.green);
+            markerOverlay.Markers.Add(marker);
+
+            // tooltip
+            marker.ToolTipMode = MarkerTooltipMode.Always;
+            marker.ToolTipText = string.Format("Ubicacion: \n Latitud:{0} \n Longitud: {1}", LatInicial, LngInicial);
+
+            // agregar overlay en el mapa control
+            Mapa.Overlays.Add(markerOverlay);
         }
 
         void calcular_restante()
@@ -1458,11 +1521,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void TXTTOTAL_Click(object sender, EventArgs e)
         {
         }
@@ -2153,5 +2211,136 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
 
         }
+
+        private void Mapa_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mapa_MouseClick(object sender, MouseEventArgs e)
+        {
+            double lat = Mapa.FromLocalToLatLng(e.X, e.Y).Lat;
+            double lng = Mapa.FromLocalToLatLng(e.X, e.Y).Lng;
+
+            txtLatitud.Text = lat.ToString();
+            txtLongitud.Text = lng.ToString();
+
+            //Bitmap bmpMarker = Image.FromFile("img/")
+
+            marker.Position = new PointLatLng(lat, lng);
+            marker.ToolTipText = string.Format("Ubicación: \n Latitud: {0} \n Longitud:{1}", lat, lng);
+         //   CrearDireccionTrazarRuta(lat, lng);
+        }
+
+        private void datalistadoLocalizacion_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            filaSeleccionada = e.RowIndex; // No. fila
+            // Recuperar los datos del grid y los asignamos a los textbox
+
+            txtDescripcion.Text = datalistadoLocalizacion.Rows[filaSeleccionada].Cells[0].Value.ToString();
+            txtLatitud.Text = datalistadoLocalizacion.Rows[filaSeleccionada].Cells[1].Value.ToString();
+            txtLongitud.Text = datalistadoLocalizacion.Rows[filaSeleccionada].Cells[2].Value.ToString();
+
+            marker.Position = new PointLatLng(Convert.ToDouble(txtLatitud.Text), Convert.ToDouble(txtLongitud.Text));
+
+            Mapa.Position = marker.Position;
+        }
+
+        private void panelGeolocalizacion_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            dt.Rows.Add(txtDescripcion.Text, txtLatitud.Text, txtLongitud.Text);
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            datalistadoLocalizacion.Rows.RemoveAt(filaSeleccionada);
+
+        }
+
+        private void btnPoligono_Click(object sender, EventArgs e)
+        {
+            GMapOverlay Poligono = new GMapOverlay("Poligono");
+            List<PointLatLng> puntos = new List<PointLatLng>();
+            double lng, lat;
+
+            for (int filas = 0; filas < datalistadoLocalizacion.Rows.Count; filas++)
+            {
+                lat = Convert.ToDouble(datalistadoLocalizacion.Rows[filas].Cells[1].Value);
+                lng = Convert.ToDouble(datalistadoLocalizacion.Rows[filas].Cells[2].Value);
+                puntos.Add(new PointLatLng(lat, lng));
+            }
+
+            GMapPolygon poligonoPuntos = new GMapPolygon(puntos, "Plogino");
+            Poligono.Polygons.Add(poligonoPuntos);
+            Mapa.Overlays.Add(Poligono);
+            Mapa.Zoom = Mapa.Zoom + 1;
+            Mapa.Zoom = Mapa.Zoom - 1;
+        }
+
+        private void btnRuta_Click(object sender, EventArgs e)
+        {
+            GMapOverlay Ruta = new GMapOverlay("Poligono");
+            List<PointLatLng> puntos = new List<PointLatLng>();
+            double lng, lat;
+
+            for (int filas = 0; filas < datalistadoLocalizacion.Rows.Count; filas++)
+            {
+                lat = Convert.ToDouble(datalistadoLocalizacion.Rows[filas].Cells[1].Value);
+                lng = Convert.ToDouble(datalistadoLocalizacion.Rows[filas].Cells[2].Value);
+                puntos.Add(new PointLatLng(lat, lng));
+            }
+
+            GMapRoute poligonoRutas = new GMapRoute(puntos, "Ruta");
+            Ruta.Routes.Add(poligonoRutas);
+            Mapa.Overlays.Add(Ruta);
+            Mapa.Zoom = Mapa.Zoom + 1;
+            Mapa.Zoom = Mapa.Zoom - 1;
+        }
+
+        public const double EarthRadius = 6371;
+        public static double GetDistance()
+        {
+            double distance = 0;
+            double Lat = (19.5235528916917 - 19.5663208725355) * (Math.PI / 180);
+            double Lon = ((-71.0842895507813) - (-70.876225233078)) * (Math.PI / 180);
+            double a = Math.Sin(Lat / 2) * Math.Sin(Lat / 2) + Math.Cos(19.5663208725355 * (Math.PI / 180)) * Math.Cos(19.5235528916917 * (Math.PI / 180)) * Math.Sin(Lon / 2) * Math.Sin(Lon / 2);
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            distance = EarthRadius * c;
+            return distance;
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void comboBox1_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "Google Maps Satélite")
+                Mapa.MapProvider = GMapProviders.GoogleSatelliteMap;
+            if (comboBox1.Text == "Google Maps Callejero")
+                Mapa.MapProvider = GMapProviders.GoogleMap;
+            if (comboBox1.Text == "Google Maps Híbrido")
+                Mapa.MapProvider = GMapProviders.GoogleHybridMap;
+            if (comboBox1.Text == "OpenStreetMap")
+                Mapa.MapProvider = GMapProviders.OpenStreetMap;
+            if (comboBox1.Text == "OpenClycleMap")
+                Mapa.MapProvider = GMapProviders.OpenCycleMap;
+
+            Mapa.Refresh();
+        }
+
+        /*private void button2_Click(object sender, EventArgs e)
+        {
+            Double result = GetDistance() / 1000;
+            MessageBox.Show(result.ToString());
+        }*/
+
     }
 }

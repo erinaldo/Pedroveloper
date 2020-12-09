@@ -37,7 +37,7 @@ namespace SistemaVentas.Presentacion.Geolocalizacion
 
         private void Geolocalizacion_Load(object sender, EventArgs e)
         {
-            GMapProviders.GoogleMap.ApiKey = @"AIzaSyAv4Lhhah38GEMDVCunk-o1ZmfDkQfy3CM";
+            GMapProviders.GoogleMap.ApiKey = @"AIzaSyAv4Lhhah38GEMDVCunk-sadsadsad";
             GMaps.Instance.Mode = AccessMode.ServerAndCache;
             Mapa.CacheLocation = @"cache";
             Mapa.DragButton = MouseButtons.Left;
@@ -69,7 +69,7 @@ namespace SistemaVentas.Presentacion.Geolocalizacion
 
             // Marcador
             markerOverlay = new GMapOverlay("Marcador");
-            marker =new  GMarkerGoogle(new PointLatLng(LatInicial, LngInicial), GMarkerGoogleType.green);
+            marker = new GMarkerGoogle(new PointLatLng(LatInicial, LngInicial), GMarkerGoogleType.green);
             markerOverlay.Markers.Add(marker);
 
             // tooltip
@@ -171,14 +171,7 @@ namespace SistemaVentas.Presentacion.Geolocalizacion
 
         public void CrearDireccionTrazarRuta(double lat, double lng)
         {
-           /* var route = GoogleMapProvider.Instance.GetRoute(lat, lng, false, false, 14);
-            var r = new GMapRoute(route.Points, "Ruta");
-
-            var routes = new GMapOverlay("routes");
-            routes.Routes.Add(r);
-            Mapa.Overlays.Add(routes);
-           */
-            
+          
             if (trazarRuta)
             {
                 switch (ContadorIndicadoresRuta)
@@ -193,7 +186,7 @@ namespace SistemaVentas.Presentacion.Geolocalizacion
                         GDirections direccion1;
 
                         var RutasDireccion = GMapProviders.GoogleMap.GetDirections(out direccion1, inicio, final, false,false, false, false, false);
-                        GMapRoute RutaObtenida = new GMapRoute(direccion1.Route, "Ruta ubicación");
+                        GMapRoute RutaObtenida = new GMapRoute(direccion1.Route, "Ruta");
                         GMapOverlay CapaRutas = new GMapOverlay("Ruta");
                         CapaRutas.Routes.Add(RutaObtenida);
                         Mapa.Overlays.Add(CapaRutas);
@@ -228,6 +221,56 @@ namespace SistemaVentas.Presentacion.Geolocalizacion
         {
             Double result = GetDistance() / 1000;
             MessageBox.Show(result.ToString());
+        }
+
+        private void panelDataListadoLocalizacion_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLongitud_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLatitud_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
