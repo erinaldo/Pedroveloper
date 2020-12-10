@@ -45,13 +45,11 @@
             this.panelRegistro = new System.Windows.Forms.Panel();
             this.txtTipo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.Volver = new System.Windows.Forms.Button();
             this.panelProveedor = new System.Windows.Forms.Panel();
             this.datalistadoProveedor = new System.Windows.Forms.DataGridView();
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.GuardarFactura = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -72,20 +70,16 @@
             this.Label18 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnAgregar = new System.Windows.Forms.PictureBox();
             this.datalistadoProveedores = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.panelFacturas = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnMov = new System.Windows.Forms.Button();
             this.txtFactura = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Label21 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelMovimientos = new System.Windows.Forms.Panel();
             this.datalistadoMovimientos = new System.Windows.Forms.DataGridView();
-            this.Eli = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelHistorial = new System.Windows.Forms.Panel();
             this.datalistadoHistorial = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -96,7 +90,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnhistorial = new System.Windows.Forms.Button();
             this.panelH = new System.Windows.Forms.Panel();
-            this.btnabonar = new System.Windows.Forms.Button();
             this.Panel19 = new System.Windows.Forms.Panel();
             this.Label4 = new System.Windows.Forms.Label();
             this.txttotal_saldo = new System.Windows.Forms.Label();
@@ -107,12 +100,19 @@
             this.Label14 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Volver = new System.Windows.Forms.Button();
+            this.GuardarFactura = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnMov = new System.Windows.Forms.Button();
+            this.btnabonar = new System.Windows.Forms.Button();
+            this.Eli = new System.Windows.Forms.DataGridViewImageColumn();
             this.PanelContenedor.SuspendLayout();
             this.panelRegistro.SuspendLayout();
             this.panelProveedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoProveedor)).BeginInit();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoProveedores)).BeginInit();
             this.panelRegistros.SuspendLayout();
             this.panelFacturas.SuspendLayout();
@@ -126,6 +126,7 @@
             this.panel3.SuspendLayout();
             this.MenuStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelContenedor
@@ -204,26 +205,6 @@
             this.label7.TabIndex = 666;
             this.label7.Text = "Tipo de Factura";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Volver
-            // 
-            this.Volver.BackColor = System.Drawing.Color.Transparent;
-            this.Volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Volver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Volver.FlatAppearance.BorderSize = 0;
-            this.Volver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Volver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Volver.ForeColor = System.Drawing.Color.White;
-            this.Volver.Image = global::SistemaVentas.Properties.Resources.negro;
-            this.Volver.Location = new System.Drawing.Point(786, 120);
-            this.Volver.Name = "Volver";
-            this.Volver.Size = new System.Drawing.Size(189, 43);
-            this.Volver.TabIndex = 665;
-            this.Volver.Text = "Volver";
-            this.Volver.UseVisualStyleBackColor = false;
-            this.Volver.Click += new System.EventHandler(this.Volver_Click);
             // 
             // panelProveedor
             // 
@@ -325,26 +306,6 @@
             this.label6.TabIndex = 661;
             this.label6.Text = "Proveedor";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // GuardarFactura
-            // 
-            this.GuardarFactura.BackColor = System.Drawing.Color.Transparent;
-            this.GuardarFactura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.GuardarFactura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GuardarFactura.FlatAppearance.BorderSize = 0;
-            this.GuardarFactura.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.GuardarFactura.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.GuardarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GuardarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuardarFactura.ForeColor = System.Drawing.Color.White;
-            this.GuardarFactura.Image = global::SistemaVentas.Properties.Resources.negro;
-            this.GuardarFactura.Location = new System.Drawing.Point(785, 62);
-            this.GuardarFactura.Name = "GuardarFactura";
-            this.GuardarFactura.Size = new System.Drawing.Size(189, 43);
-            this.GuardarFactura.TabIndex = 660;
-            this.GuardarFactura.Text = "Guardar Factura";
-            this.GuardarFactura.UseVisualStyleBackColor = false;
-            this.GuardarFactura.Click += new System.EventHandler(this.GuardarFactura_Click);
             // 
             // panel14
             // 
@@ -552,19 +513,6 @@
             this.panel6.Size = new System.Drawing.Size(1107, 1);
             this.panel6.TabIndex = 610;
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.Image = global::SistemaVentas.Properties.Resources._1486485587_add_create_new_maths_math_signs_plus_81172;
-            this.btnAgregar.Location = new System.Drawing.Point(506, 40);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(66, 51);
-            this.btnAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAgregar.TabIndex = 615;
-            this.btnAgregar.TabStop = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // datalistadoProveedores
             // 
             this.datalistadoProveedores.AllowUserToAddRows = false;
@@ -637,46 +585,6 @@
             this.panelFacturas.Name = "panelFacturas";
             this.panelFacturas.Size = new System.Drawing.Size(504, 140);
             this.panelFacturas.TabIndex = 614;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Image = global::SistemaVentas.Properties.Resources.Rojo;
-            this.btnCerrar.Location = new System.Drawing.Point(276, 71);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(209, 43);
-            this.btnCerrar.TabIndex = 671;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnMov
-            // 
-            this.btnMov.BackColor = System.Drawing.Color.Transparent;
-            this.btnMov.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMov.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMov.FlatAppearance.BorderSize = 0;
-            this.btnMov.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMov.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnMov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMov.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMov.ForeColor = System.Drawing.Color.White;
-            this.btnMov.Image = global::SistemaVentas.Properties.Resources.negro;
-            this.btnMov.Location = new System.Drawing.Point(33, 71);
-            this.btnMov.Name = "btnMov";
-            this.btnMov.Size = new System.Drawing.Size(209, 43);
-            this.btnMov.TabIndex = 670;
-            this.btnMov.Text = "Buscar Movimientos";
-            this.btnMov.UseVisualStyleBackColor = false;
-            this.btnMov.Click += new System.EventHandler(this.btnMov_Click);
             // 
             // txtFactura
             // 
@@ -788,15 +696,6 @@
             this.datalistadoMovimientos.Size = new System.Drawing.Size(545, 163);
             this.datalistadoMovimientos.TabIndex = 411;
             this.datalistadoMovimientos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoMovimientos_CellClick);
-            // 
-            // Eli
-            // 
-            this.Eli.DataPropertyName = "Eli";
-            this.Eli.HeaderText = "";
-            this.Eli.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eli.Name = "Eli";
-            this.Eli.ReadOnly = true;
-            this.Eli.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // panelHistorial
             // 
@@ -948,27 +847,6 @@
             this.panelH.TabIndex = 1;
             this.panelH.Visible = false;
             // 
-            // btnabonar
-            // 
-            this.btnabonar.BackColor = System.Drawing.Color.Transparent;
-            this.btnabonar.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
-            this.btnabonar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnabonar.FlatAppearance.BorderSize = 0;
-            this.btnabonar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnabonar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnabonar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnabonar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnabonar.ForeColor = System.Drawing.Color.White;
-            this.btnabonar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnabonar.Location = new System.Drawing.Point(14, 17);
-            this.btnabonar.Name = "btnabonar";
-            this.btnabonar.Size = new System.Drawing.Size(134, 47);
-            this.btnabonar.TabIndex = 608;
-            this.btnabonar.Text = "Abonar";
-            this.btnabonar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnabonar.UseVisualStyleBackColor = false;
-            this.btnabonar.Click += new System.EventHandler(this.btnabonar_Click);
-            // 
             // Panel19
             // 
             this.Panel19.BackColor = System.Drawing.Color.White;
@@ -1090,6 +968,139 @@
             this.panel4.Size = new System.Drawing.Size(1132, 35);
             this.panel4.TabIndex = 3;
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "Eli";
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::SistemaVentas.Properties.Resources.advertencia;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Volver
+            // 
+            this.Volver.BackColor = System.Drawing.Color.Transparent;
+            this.Volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Volver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Volver.FlatAppearance.BorderSize = 0;
+            this.Volver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Volver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Volver.ForeColor = System.Drawing.Color.White;
+            this.Volver.Image = global::SistemaVentas.Properties.Resources.negro;
+            this.Volver.Location = new System.Drawing.Point(786, 120);
+            this.Volver.Name = "Volver";
+            this.Volver.Size = new System.Drawing.Size(189, 43);
+            this.Volver.TabIndex = 665;
+            this.Volver.Text = "Volver";
+            this.Volver.UseVisualStyleBackColor = false;
+            this.Volver.Click += new System.EventHandler(this.Volver_Click);
+            // 
+            // GuardarFactura
+            // 
+            this.GuardarFactura.BackColor = System.Drawing.Color.Transparent;
+            this.GuardarFactura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.GuardarFactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GuardarFactura.FlatAppearance.BorderSize = 0;
+            this.GuardarFactura.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.GuardarFactura.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.GuardarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GuardarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GuardarFactura.ForeColor = System.Drawing.Color.White;
+            this.GuardarFactura.Image = global::SistemaVentas.Properties.Resources.negro;
+            this.GuardarFactura.Location = new System.Drawing.Point(785, 62);
+            this.GuardarFactura.Name = "GuardarFactura";
+            this.GuardarFactura.Size = new System.Drawing.Size(189, 43);
+            this.GuardarFactura.TabIndex = 660;
+            this.GuardarFactura.Text = "Guardar Factura";
+            this.GuardarFactura.UseVisualStyleBackColor = false;
+            this.GuardarFactura.Click += new System.EventHandler(this.GuardarFactura_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.Image = global::SistemaVentas.Properties.Resources._1486485587_add_create_new_maths_math_signs_plus_81172;
+            this.btnAgregar.Location = new System.Drawing.Point(506, 40);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(66, 51);
+            this.btnAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAgregar.TabIndex = 615;
+            this.btnAgregar.TabStop = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Image = global::SistemaVentas.Properties.Resources.Rojo;
+            this.btnCerrar.Location = new System.Drawing.Point(276, 71);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(209, 43);
+            this.btnCerrar.TabIndex = 671;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnMov
+            // 
+            this.btnMov.BackColor = System.Drawing.Color.Transparent;
+            this.btnMov.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMov.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMov.FlatAppearance.BorderSize = 0;
+            this.btnMov.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMov.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnMov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMov.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMov.ForeColor = System.Drawing.Color.White;
+            this.btnMov.Image = global::SistemaVentas.Properties.Resources.negro;
+            this.btnMov.Location = new System.Drawing.Point(33, 71);
+            this.btnMov.Name = "btnMov";
+            this.btnMov.Size = new System.Drawing.Size(209, 43);
+            this.btnMov.TabIndex = 670;
+            this.btnMov.Text = "Buscar Movimientos";
+            this.btnMov.UseVisualStyleBackColor = false;
+            this.btnMov.Click += new System.EventHandler(this.btnMov_Click);
+            // 
+            // btnabonar
+            // 
+            this.btnabonar.BackColor = System.Drawing.Color.Transparent;
+            this.btnabonar.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
+            this.btnabonar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnabonar.FlatAppearance.BorderSize = 0;
+            this.btnabonar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnabonar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnabonar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnabonar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnabonar.ForeColor = System.Drawing.Color.White;
+            this.btnabonar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnabonar.Location = new System.Drawing.Point(14, 17);
+            this.btnabonar.Name = "btnabonar";
+            this.btnabonar.Size = new System.Drawing.Size(134, 47);
+            this.btnabonar.TabIndex = 608;
+            this.btnabonar.Text = "Abonar";
+            this.btnabonar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnabonar.UseVisualStyleBackColor = false;
+            this.btnabonar.Click += new System.EventHandler(this.btnabonar_Click);
+            // 
+            // Eli
+            // 
+            this.Eli.DataPropertyName = "Eli";
+            this.Eli.HeaderText = "";
+            this.Eli.Image = global::SistemaVentas.Properties.Resources.remove__1_;
+            this.Eli.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eli.Name = "Eli";
+            this.Eli.ReadOnly = true;
+            this.Eli.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // FacturasCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1110,7 +1121,6 @@
             this.panelProveedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoProveedor)).EndInit();
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoProveedores)).EndInit();
             this.panelRegistros.ResumeLayout(false);
             this.panelRegistros.PerformLayout();
@@ -1127,6 +1137,7 @@
             this.MenuStrip1.ResumeLayout(false);
             this.MenuStrip1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1155,7 +1166,6 @@
         private System.Windows.Forms.Panel panelH;
         private System.Windows.Forms.Panel panelMovimientos;
         internal System.Windows.Forms.DataGridView datalistadoMovimientos;
-        internal System.Windows.Forms.DataGridViewImageColumn Eli;
         private System.Windows.Forms.Panel panelHistorial;
         internal System.Windows.Forms.DataGridView datalistadoHistorial;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
@@ -1199,5 +1209,7 @@
         internal System.Windows.Forms.Label label8;
         internal System.Windows.Forms.Button btnMov;
         internal System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.DataGridViewImageColumn Eli;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }

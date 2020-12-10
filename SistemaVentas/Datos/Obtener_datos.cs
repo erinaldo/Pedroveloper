@@ -1387,7 +1387,7 @@ namespace SistemaVentas.Datos
         }
         public static void mostrarControlPagosFacturas(ref DataTable dt, string numFact)
         {
-            MessageBox.Show(numFact.ToString());
+           // MessageBox.Show(numFact.ToString());
             try
             {
                 CONEXIONMAESTRA.abrir();

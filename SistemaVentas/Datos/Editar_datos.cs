@@ -881,6 +881,7 @@ namespace SistemaVentas.Datos
         {
             try
             {
+                MessageBox.Show(parametros.numFact.ToString() + " " + parametros.monto.ToString());
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("Disminuirsaldofactura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -945,15 +946,15 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        public bool aumentarSaldoFactura(Lproveedores parametros, double monto)
+        public bool aumentarSaldoFactura(LSaldo parametros)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("aumentar_saldo_a_factura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idFactura", parametros.idFactura);
-                cmd.Parameters.AddWithValue("@Saldo", monto);
+                cmd.Parameters.AddWithValue("@numFact", parametros.numFact);
+                cmd.Parameters.AddWithValue("@Saldo", parametros.monto);
                 cmd.ExecuteNonQuery();
                 return true;
 

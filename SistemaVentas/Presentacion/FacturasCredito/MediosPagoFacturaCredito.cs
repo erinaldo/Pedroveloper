@@ -152,9 +152,9 @@ namespace SistemaVentas.Presentacion.MediosPagoFacturaCredito
             Lcontrolpagos parametros2 = new Lcontrolpagos();
 
             Editar_datos funcion = new Editar_datos();
-            numFact = FacturasCredito.FacturasCredito.numFact;
-            parametros.numFact = numFact;
-            parametros.monto = parametros2.Monto;
+            
+            parametros.numFact = FacturasCredito.FacturasCredito.numFact;
+            parametros.monto = efectivoCalculado + tarjeta;
             funcion.disminuirSaldoFactura(parametros);
         }
 

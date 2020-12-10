@@ -25,6 +25,7 @@ namespace SistemaVentas.Presentacion.FacturasCredito
         public static  string numFact;
         public static    double saldo;
         private int idProveedor_;
+        public string numFactMov;
         private void Label21_Click(object sender, EventArgs e)
         {
 
@@ -127,16 +128,19 @@ namespace SistemaVentas.Presentacion.FacturasCredito
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+              //  MessageBox.Show(ex.Message);
             }
-            
+            if (datalistadoMovimientos.Rows.Count > 0)
+                datalistadoMovimientos.Visible = false;
+            //datalistadoMovimientos.Rows.Clear();
+            //datalistadoMovimientos.Refresh();
         }
        
         private void mostrarControlCobros()
         {
 
             DataTable dt = new DataTable();
-            Obtener_datos.mostrarControlPagosFacturas(ref dt,numFact);
+            Obtener_datos.mostrarControlPagosFacturas(ref dt, numFactMov);
             datalistadoMovimientos.DataSource = dt;
             Bases estilo = new Bases();
             estilo.MultilineaCobros(ref datalistadoMovimientos);
@@ -153,23 +157,29 @@ namespace SistemaVentas.Presentacion.FacturasCredito
         {
             mostrarEstadosCuentaCliente();
             panelFacturas.Visible = false;
-            datalistadoMovimientos.Columns.Clear();
+
+            if (datalistadoMovimientos.Rows.Count > 0)
+                datalistadoMovimientos.Visible = false;
+            //datalistadoMovimientos.Columns.Clear();
+            //datalistadoMovimientos.Refresh();
+
             txtFactura.Text = "";
         }
 
         private void btnabonar_Click(object sender, EventArgs e)
         {
-            if (saldo >0 )
+            if (saldo > 0)
             {
-            MediosPagoFacturaCredito.MediosPagoFacturaCredito frm = new MediosPagoFacturaCredito.MediosPagoFacturaCredito();
-            frm.FormClosing += Frm_FormClosing;
-            frm.ShowDialog();
+                txttotal_saldo.Text = "0";
+                MediosPagoFacturaCredito.MediosPagoFacturaCredito frm = new MediosPagoFacturaCredito.MediosPagoFacturaCredito();
+                frm.FormClosing += Frm_FormClosing;
+                frm.ShowDialog();
             }
             else
             {
                 MessageBox.Show("El saldo actual es 0");
             }
-           
+
         }
 
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)
@@ -205,12 +215,13 @@ namespace SistemaVentas.Presentacion.FacturasCredito
 
         private void aumentarSaldo()
         {
+            LSaldo lsaldo = new LSaldo();
             double monto;
-            monto = Convert.ToDouble(datalistadoMovimientos.SelectedCells[2].Value);
-            Lproveedores parametros = new Lproveedores();
+            monto = Convert.ToDouble(datalistadoMovimientos.SelectedCells[4].Value);
             Editar_datos funcion = new Editar_datos();
-            parametros.idFactura = idFact;
-            if (funcion.aumentarSaldoFactura(parametros, monto) == true)
+            lsaldo.numFact = numFact;
+            lsaldo.monto = monto;
+            if (funcion.aumentarSaldoFactura(lsaldo) == true)
             {
                 eliminarControlCobros();
             }
@@ -253,6 +264,8 @@ namespace SistemaVentas.Presentacion.FacturasCredito
             if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
                 insertarFactura();
+                txtproveedorc.SelectAll();
+                txtproveedorc.Focus();
             }
         }
 
@@ -382,12 +395,13 @@ namespace SistemaVentas.Presentacion.FacturasCredito
         private void txtFactura_SelectedIndexChanged(object sender, EventArgs e)
         {
            // numFact = Convert.ToInt32(txtFactura.DisplayMember.ToString());
-            MessageBox.Show(txtFactura.Text);
+            //MessageBox.Show(txtFactura.Text);
         }
 
         private void btnMov_Click(object sender, EventArgs e)
         {
-            numFact = txtFactura.Text;
+            datalistadoMovimientos.Visible = true;
+            numFactMov = txtFactura.Text;
             mostrarControlCobros();
             panelFacturas.Visible = false;
                                     //            MessageBox.Show(txtFactura.Text. DisplayMember.ToString());
