@@ -8,6 +8,7 @@ namespace SistemaVentas.Logica
    public  class Lproveedores
     {
         public int idFactura { get; set; }
+        public string numFact { get; set; }
         public int IdProveedor { set; get; }
         public int idPersona { set; get; }
 

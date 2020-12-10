@@ -20,6 +20,7 @@ namespace SistemaVentas.Presentacion.MediosPagoFacturaCredito
         int idProveedor;
         int idcaja;
         int idFact;
+        string numFact;
         int idusuario;
         //
         double efectivo;
@@ -36,7 +37,8 @@ namespace SistemaVentas.Presentacion.MediosPagoFacturaCredito
             saldo = FacturasCredito.FacturasCredito.saldo;
             lbltotal.Text = saldo.ToString();
             idProveedor = FacturasCredito.FacturasCredito.idProveedor;
-            idFact = FacturasCredito.FacturasCredito.idProveedor;
+            idFact = FacturasCredito.FacturasCredito.idFact;
+            numFact = FacturasCredito.FacturasCredito.numFact;
             Obtener_datos.Obtener_id_caja_PorSerial(ref idcaja);
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
         }
@@ -128,6 +130,7 @@ namespace SistemaVentas.Presentacion.MediosPagoFacturaCredito
 
             Insertar_datos funcion = new Insertar_datos();
             parametros.idFact = idFact;
+            parametros.numFact = numFact;
             parametros.Monto = efectivoCalculado + tarjeta;
             parametros.Fecha = DateTime.Now;
             parametros.Detalle = "Abono|Pago Factura";
@@ -137,6 +140,7 @@ namespace SistemaVentas.Presentacion.MediosPagoFacturaCredito
             parametros.Comprobante = "-";
             parametros.efectivo = efectivoCalculado;
             parametros.tarjeta = tarjeta;
+
             if (funcion.insertar_ControlPagoFacturaExterna(parametros) == true)
             {
                 Dispose();
@@ -144,11 +148,14 @@ namespace SistemaVentas.Presentacion.MediosPagoFacturaCredito
         }
         private void disminuirSaldoFactura()
         {
-            Lproveedores parametros = new Lproveedores();
-            Editar_datos funcion = new Editar_datos();
-            parametros.idFactura = idFact;
-            funcion.disminuirSaldoFactura(parametros, montoabonado);
+            LSaldo parametros = new LSaldo();
+            Lcontrolpagos parametros2 = new Lcontrolpagos();
 
+            Editar_datos funcion = new Editar_datos();
+            numFact = FacturasCredito.FacturasCredito.numFact;
+            parametros.numFact = numFact;
+            parametros.monto = parametros2.Monto;
+            funcion.disminuirSaldoFactura(parametros);
         }
 
         private void btncobrar_Click_1(object sender, EventArgs e)
@@ -160,6 +167,8 @@ namespace SistemaVentas.Presentacion.MediosPagoFacturaCredito
                 {
                     if (txtTransferencia.Text != "")
                     {
+                        numFact = FacturasCredito.FacturasCredito.numFact;
+                        
                         insertarControlPago();
                         disminuirSaldoFactura();
                     }
@@ -170,6 +179,7 @@ namespace SistemaVentas.Presentacion.MediosPagoFacturaCredito
                 }
                 else
                 {
+                    numFact = FacturasCredito.FacturasCredito.numFact;
                     insertarControlPago();
                     disminuirSaldoFactura();
                 }

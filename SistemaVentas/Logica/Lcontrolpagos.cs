@@ -12,6 +12,7 @@ namespace SistemaVentas.Logica
         public double Monto { get; set; }
         public DateTime Fecha { get; set; }
         public string Detalle { get; set; }
+        public string numFact { get; set; }
         public int idProveedor { get; set; }
         public int IdUsuario { get; set; }
         public int IdCaja { get; set; }

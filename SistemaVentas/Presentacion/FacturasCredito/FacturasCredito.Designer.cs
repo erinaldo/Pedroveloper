@@ -859,7 +859,6 @@
             this.datalistadoHistorial.Size = new System.Drawing.Size(746, 164);
             this.datalistadoHistorial.TabIndex = 411;
             this.datalistadoHistorial.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoHistorial_CellClick);
-            this.datalistadoHistorial.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoHistorial_CellContentClick);
             // 
             // dataGridViewCheckBoxColumn1
             // 

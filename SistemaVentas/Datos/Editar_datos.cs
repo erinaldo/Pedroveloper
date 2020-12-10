@@ -877,15 +877,15 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.cerrar();
             }
         }
-        public bool disminuirSaldoFactura(Lproveedores parametros, double monto)
+        public bool disminuirSaldoFactura(LSaldo parametros)
         {
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("Disminuirsaldofactura", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idFactura", parametros.idFactura);
-                cmd.Parameters.AddWithValue("@monto", monto);
+                cmd.Parameters.AddWithValue("@numFact", parametros.numFact);
+                cmd.Parameters.AddWithValue("@monto", parametros.monto);
                 cmd.ExecuteNonQuery();
                 return true;
             }

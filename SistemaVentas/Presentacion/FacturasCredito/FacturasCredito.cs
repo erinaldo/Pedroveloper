@@ -20,10 +20,9 @@ namespace SistemaVentas.Presentacion.FacturasCredito
             InitializeComponent();
         
         }
-        public int numFact;
-
         public static  int idProveedor;
         public static  int idFact;
+        public static  string numFact;
         public static    double saldo;
         private int idProveedor_;
         private void Label21_Click(object sender, EventArgs e)
@@ -59,25 +58,21 @@ namespace SistemaVentas.Presentacion.FacturasCredito
 
         private void datalistadoClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            idProveedor =(int)datalistadoProveedores.SelectedCells[1].Value;
+            idProveedor = (int)datalistadoProveedores.SelectedCells[1].Value;
             txtproveedorc.Text = datalistadoProveedores.SelectedCells[2].Value.ToString(); 
             datalistadoProveedores.Visible = false;
             panelRegistros.Visible = true;
             mostrarEstadosCuentaCliente();
-            obtenerSaldo();
-
         }
-        private void obtenerSaldo()
-        {
-          
-        }
+     
             
         private void mostrarEstadosCuentaCliente()
         {
             DataTable dt = new DataTable();
             Obtener_datos.mostrarEstadosFacturas(ref dt, idProveedor);
             datalistadoHistorial.DataSource = dt;
-            datalistadoHistorial.Columns[7].Visible = false;
+            datalistadoHistorial.Columns[1].Visible = false;
+            datalistadoHistorial.Columns[9].Visible = false;
             Bases estilo = new Bases();
             estilo.MultilineaCobros (ref datalistadoHistorial); 
             panelH.Visible = true;
@@ -180,7 +175,6 @@ namespace SistemaVentas.Presentacion.FacturasCredito
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)
         {
             buscar();
-            obtenerSaldo();
             mostrarControlCobros();
         }
 
@@ -375,9 +369,10 @@ namespace SistemaVentas.Presentacion.FacturasCredito
         private void datalistadoHistorial_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             idFact = Convert.ToInt32(datalistadoHistorial.SelectedCells[1].Value.ToString());
-            txttotal_saldo.Text = datalistadoHistorial.SelectedCells[5].Value.ToString();
+            numFact = datalistadoHistorial.SelectedCells[2].Value.ToString();
+            txttotal_saldo.Text = datalistadoHistorial.SelectedCells[8].Value.ToString();
             saldo = Convert.ToDouble(txttotal_saldo.Text);
-        }
+        }   
 
         private void datalistadoHistorial_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -386,14 +381,14 @@ namespace SistemaVentas.Presentacion.FacturasCredito
 
         private void txtFactura_SelectedIndexChanged(object sender, EventArgs e)
         {
-            numFact = Convert.ToInt32(txtFactura.SelectedValue.ToString());
-            MessageBox.Show(numFact.ToString());
+           // numFact = Convert.ToInt32(txtFactura.DisplayMember.ToString());
+            MessageBox.Show(txtFactura.Text);
         }
 
         private void btnMov_Click(object sender, EventArgs e)
         {
-           
-           mostrarControlCobros();
+            numFact = txtFactura.Text;
+            mostrarControlCobros();
             panelFacturas.Visible = false;
                                     //            MessageBox.Show(txtFactura.Text. DisplayMember.ToString());
                                    //            MessageBox.Show(txtFactura.ValueMember.ToString());

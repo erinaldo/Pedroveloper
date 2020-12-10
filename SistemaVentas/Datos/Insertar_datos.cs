@@ -1064,9 +1064,10 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarFacturaExterna", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NumFact", parametros.numFact);
                 cmd.Parameters.AddWithValue("@Monto", parametros.Monto);
-                cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
                 cmd.Parameters.AddWithValue("@Detalle", parametros.Detalle);
+                cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
                 cmd.Parameters.AddWithValue("@idProveedor", parametros.idProveedor);
                 cmd.Parameters.AddWithValue("@IdUsuario", parametros.IdUsuario);
                 cmd.Parameters.AddWithValue("@IdCaja", parametros.IdCaja);
