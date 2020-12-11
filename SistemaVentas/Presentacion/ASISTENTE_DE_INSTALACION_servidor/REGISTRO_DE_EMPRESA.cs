@@ -775,6 +775,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 CONEXIONMAESTRA.cerrar();
             }
         }
+
+        #region Insertar Correo Stored Procedure
         public void IngresarCorreoEmpresa()
         {
             try
@@ -805,6 +807,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 MessageBox.Show(EX.Message);
             }
         }
+        #endregion
 
         private void Ingresar_Persona()
         {
@@ -1678,6 +1681,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         InsertarDocumento();
                         insertarDescuento();
                         InsertarCategoria();
+
 
                         Ingresar_Persona();
                         insertarEmpleado();

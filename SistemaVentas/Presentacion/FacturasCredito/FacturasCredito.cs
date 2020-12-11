@@ -400,6 +400,7 @@ namespace SistemaVentas.Presentacion.FacturasCredito
 
         private void btnMov_Click(object sender, EventArgs e)
         {
+
             datalistadoMovimientos.Visible = true;
             numFactMov = txtFactura.Text;
             mostrarControlCobros();

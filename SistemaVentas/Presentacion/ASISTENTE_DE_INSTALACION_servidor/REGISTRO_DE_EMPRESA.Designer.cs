@@ -330,11 +330,10 @@
             this.ToolStripButton22.BackColor = System.Drawing.Color.White;
             this.ToolStripButton22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.ToolStripButton22.ForeColor = System.Drawing.Color.Black;
-            this.ToolStripButton22.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButton22.Image")));
             this.ToolStripButton22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ToolStripButton22.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton22.Name = "ToolStripButton22";
-            this.ToolStripButton22.Size = new System.Drawing.Size(37, 46);
+            this.ToolStripButton22.Size = new System.Drawing.Size(23, 46);
             this.ToolStripButton22.Text = "+";
             this.ToolStripButton22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ToolStripButton22.ToolTipText = "Buscar Ruta";
@@ -541,7 +540,6 @@
             // 
             // pictureBox24
             // 
-            this.pictureBox24.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox24.Image")));
             this.pictureBox24.Location = new System.Drawing.Point(0, 0);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(298, 51);
@@ -733,7 +731,7 @@
             this.bunifuSeparator27.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator27.ForeColor = System.Drawing.Color.White;
             this.bunifuSeparator27.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bunifuSeparator27.LineThickness = 3;
+            this.bunifuSeparator27.LineThickness = 5;
             this.bunifuSeparator27.Location = new System.Drawing.Point(412, 43);
             this.bunifuSeparator27.Margin = new System.Windows.Forms.Padding(8);
             this.bunifuSeparator27.Name = "bunifuSeparator27";
@@ -747,7 +745,7 @@
             this.bunifuSeparator14.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator14.Dock = System.Windows.Forms.DockStyle.Top;
             this.bunifuSeparator14.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuSeparator14.LineThickness = 157;
+            this.bunifuSeparator14.LineThickness = 242;
             this.bunifuSeparator14.Location = new System.Drawing.Point(0, 272);
             this.bunifuSeparator14.Margin = new System.Windows.Forms.Padding(8);
             this.bunifuSeparator14.Name = "bunifuSeparator14";
@@ -907,7 +905,7 @@
             // 
             this.bunifuSeparator22.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator22.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuSeparator22.LineThickness = 242;
+            this.bunifuSeparator22.LineThickness = 372;
             this.bunifuSeparator22.Location = new System.Drawing.Point(617, 372);
             this.bunifuSeparator22.Margin = new System.Windows.Forms.Padding(797, 372, 797, 372);
             this.bunifuSeparator22.Name = "bunifuSeparator22";
@@ -1042,7 +1040,7 @@
             // 
             this.bunifuSeparator12.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator12.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuSeparator12.LineThickness = 242;
+            this.bunifuSeparator12.LineThickness = 372;
             this.bunifuSeparator12.Location = new System.Drawing.Point(1458, 109);
             this.bunifuSeparator12.Margin = new System.Windows.Forms.Padding(103, 66, 103, 66);
             this.bunifuSeparator12.Name = "bunifuSeparator12";
@@ -1195,7 +1193,6 @@
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
             this.pictureBox11.Location = new System.Drawing.Point(110, 40);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(391, 34);
@@ -1205,7 +1202,6 @@
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
             this.pictureBox12.Location = new System.Drawing.Point(110, 86);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(391, 34);
@@ -1215,7 +1211,6 @@
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
             this.pictureBox14.Location = new System.Drawing.Point(161, 133);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(340, 34);
@@ -1225,7 +1220,6 @@
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
             this.pictureBox13.Location = new System.Drawing.Point(161, 177);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(343, 34);
@@ -1235,7 +1229,6 @@
             // 
             // pictureBox15
             // 
-            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
             this.pictureBox15.Location = new System.Drawing.Point(161, 217);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(116, 34);
@@ -1245,7 +1238,6 @@
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
             this.pictureBox16.Location = new System.Drawing.Point(404, 217);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(100, 34);
@@ -1255,7 +1247,6 @@
             // 
             // pictureBox17
             // 
-            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
             this.pictureBox17.Location = new System.Drawing.Point(697, 40);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(417, 34);
@@ -1265,7 +1256,6 @@
             // 
             // pictureBox18
             // 
-            this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
             this.pictureBox18.Location = new System.Drawing.Point(697, 86);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(417, 34);
@@ -1275,7 +1265,6 @@
             // 
             // pictureBox19
             // 
-            this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
             this.pictureBox19.Location = new System.Drawing.Point(697, 133);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(417, 34);
@@ -1285,7 +1274,6 @@
             // 
             // pictureBox20
             // 
-            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
             this.pictureBox20.Location = new System.Drawing.Point(697, 173);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(197, 34);
@@ -1295,7 +1283,6 @@
             // 
             // pictureBox21
             // 
-            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
             this.pictureBox21.Location = new System.Drawing.Point(957, 173);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(157, 34);
@@ -1305,7 +1292,6 @@
             // 
             // pictureBox22
             // 
-            this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
             this.pictureBox22.Location = new System.Drawing.Point(957, 213);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(157, 34);
@@ -1315,7 +1301,6 @@
             // 
             // pictureBox23
             // 
-            this.pictureBox23.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox23.Image")));
             this.pictureBox23.Location = new System.Drawing.Point(697, 213);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(197, 34);
@@ -1606,7 +1591,6 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(145, 19);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(400, 34);
@@ -1616,7 +1600,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(634, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(251, 34);
@@ -1626,7 +1609,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(634, 64);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(251, 34);
@@ -1636,7 +1618,6 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(634, 107);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(251, 34);
@@ -1646,7 +1627,6 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(990, 19);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(231, 34);
@@ -1656,7 +1636,6 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(991, 64);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(230, 34);
@@ -1666,7 +1645,6 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(991, 107);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(230, 34);
@@ -1676,7 +1654,6 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(219, 107);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(326, 34);
@@ -1686,7 +1663,6 @@
             // 
             // pictureBox25
             // 
-            this.pictureBox25.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox25.Image")));
             this.pictureBox25.Location = new System.Drawing.Point(193, 64);
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.Size = new System.Drawing.Size(174, 34);
@@ -1696,7 +1672,6 @@
             // 
             // pictureBox26
             // 
-            this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
             this.pictureBox26.Location = new System.Drawing.Point(455, 64);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.Size = new System.Drawing.Size(89, 34);
@@ -2382,7 +2357,6 @@
             // Restaurar
             // 
             this.Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("Restaurar.Image")));
             this.Restaurar.Location = new System.Drawing.Point(1155, 18);
             this.Restaurar.Name = "Restaurar";
             this.Restaurar.Size = new System.Drawing.Size(30, 30);
@@ -2407,7 +2381,6 @@
             // Maximizar
             // 
             this.Maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Maximizar.Image = ((System.Drawing.Image)(resources.GetObject("Maximizar.Image")));
             this.Maximizar.Location = new System.Drawing.Point(1155, 18);
             this.Maximizar.Name = "Maximizar";
             this.Maximizar.Size = new System.Drawing.Size(30, 30);

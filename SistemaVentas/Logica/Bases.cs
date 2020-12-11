@@ -227,7 +227,7 @@ namespace SistemaVentas.Logica
             }
             catch (Exception )
             {
-                MessageBox.Show("ERROR, revisa tu correo Electronico", "Restauracion de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("ERROR, revisa tu correo Electronico\n", "Restauracion de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 

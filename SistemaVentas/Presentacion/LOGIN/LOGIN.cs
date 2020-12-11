@@ -24,6 +24,9 @@ namespace SistemaVentas.Presentacion
     public partial class LOGIN : Form
     {
 
+        //Var login;
+        private string log;
+
         int contador;
         int contadorCajas;
         int contador_Movimientos_de_caja;
@@ -202,6 +205,7 @@ namespace SistemaVentas.Presentacion
         }
         private void LOGIN_Load(object sender, EventArgs e)
         {
+
 
             PdeCarga2.Visible = false;
             Bases.Multilinea(ref datalistado);
@@ -572,7 +576,7 @@ namespace SistemaVentas.Presentacion
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 SqlCommand da = new SqlCommand("buscar_USUARIO_por_correo", con);
                 da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@correo", txtcorreo.Text);
+                da.Parameters.AddWithValue("@log", log);
 
                 con.Open();
                 lblResultadoContraseña.Text = Convert.ToString(da.ExecuteScalar());
@@ -597,7 +601,7 @@ namespace SistemaVentas.Presentacion
         {
             mostrar_usuarios_por_correo();
             richTextBox1.Text = richTextBox1.Text.Replace("@pass", lblResultadoContraseña.Text);
-            Bases.enviarCorreo("pedrocode29@gmail.com", "asdasdasd", richTextBox1.Text, "Solicitud de Contraseña", txtcorreo.Text, "");
+            Bases.enviarCorreo("pedrocode29@gmail.com", "Juandejesus29", richTextBox1.Text, "Solicitud de Contraseña", txtcorreo.Text, "");
         }
 
         private void MOSTRAR_CAJA_POR_SERIAL()
@@ -938,6 +942,7 @@ namespace SistemaVentas.Presentacion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            log = txtcorreo.Text;
             enviarCorreo();
 
         }

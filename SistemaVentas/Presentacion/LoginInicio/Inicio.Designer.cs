@@ -31,35 +31,13 @@ namespace SistemaVentas.Presentacion.LoginInicio
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
-            this.label20 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.progressbar = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.CurvaPanelInfoDetallada = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label20 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label20.Location = new System.Drawing.Point(275, 295);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(258, 20);
-            this.label20.TabIndex = 635;
-            this.label20.Text = "© 2020-2021 Pedro Solutions S.A";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label1.Location = new System.Drawing.Point(2, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 15);
-            this.label1.TabIndex = 636;
-            this.label1.Text = "Cargando...";
             // 
             // label2
             // 
@@ -103,6 +81,28 @@ namespace SistemaVentas.Presentacion.LoginInicio
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label20.Location = new System.Drawing.Point(275, 295);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(258, 20);
+            this.label20.TabIndex = 635;
+            this.label20.Text = "© 2020-2021 Pedro Solutions S.A";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label1.Location = new System.Drawing.Point(2, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 15);
+            this.label1.TabIndex = 636;
+            this.label1.Text = "Cargando...";
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,12 +124,11 @@ namespace SistemaVentas.Presentacion.LoginInicio
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private Bunifu.Framework.UI.BunifuCircleProgressbar progressbar;
         private Bunifu.Framework.UI.BunifuElipse CurvaPanelInfoDetallada;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label20;
     }
 }

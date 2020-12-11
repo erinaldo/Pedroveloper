@@ -50,9 +50,7 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
         {
            
 
-            Bases.Multilinea(ref datalistado); PictureBox16.Visible = false;
-            PanelLicencia.Visible = false;
-            btnLicencia.Visible = false;
+            Bases.Multilinea(ref datalistado); 
             //validarLicencia();
             Bases.Obtener_serialPC(ref lblIDSERIAL);
             Obtener_datos.Obtener_id_caja_PorSerial(ref idcajavariable);
@@ -217,13 +215,9 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
             funcion.ValidarLicencias(ref ResultadoLicencia, ref FechaFinal);
             if (ResultadoLicencia == "?ACTIVO?")
             {
-                lblestadoLicencia.Text = "Licencia de Prueba Activada hasta el: " + FechaFinal;
-                btnLicencia.Visible = true;
             }
             if (ResultadoLicencia == "?ACTIVADO PRO?")
             {
-                lblestadoLicencia.Text = "Licencia PROFESIONAL Activada hasta el: " + FechaFinal;
-                btnLicencia.Visible = false;
             }
             if (ResultadoLicencia == "VENCIDA")
 
@@ -332,35 +326,6 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
         private void btnvender_Click(object sender, EventArgs e)
         {
 
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuariovariable == idusuarioBuscar)
-                {
-                    if (modulo == "Ventas")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            validar_aperturas_de_caja();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
         }
         private void Listarcierres_de_caja()
         {
@@ -528,15 +493,8 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
          
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            CopiasBd.CrearCopiaBd frm = new CopiasBd.CrearCopiaBd();
-            frm.ShowDialog();
-        }
-
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
-            RestaurarBdExpress();
         }
         private void RestaurarBdExpress()
         {
@@ -728,7 +686,85 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
 
         private void chartProductos_Click(object sender, EventArgs e)
         {
+        }
 
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void Restaurar_Click(object sender, EventArgs e)
+        {
+
+            WindowState = FormWindowState.Normal;
+            Restaurar.Visible = false;
+            Maximizar.Visible = true;
+        }
+
+        private void Maximizar_Click(object sender, EventArgs e)
+        {
+
+            WindowState = FormWindowState.Maximized;
+            Maximizar.Visible = false;
+            Restaurar.Visible = true;
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void gunaAdvenceButton1_Click(object sender, EventArgs e)
+        {
+            CopiasBd.CrearCopiaBd frm = new CopiasBd.CrearCopiaBd();
+            frm.ShowDialog();
+        }
+
+        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRestaurarBD_Click(object sender, EventArgs e)
+        {
+            RestaurarBdExpress();
+
+        }
+
+        private void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuariovariable == idusuarioBuscar)
+                {
+                    if (modulo == "Ventas")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            validar_aperturas_de_caja();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
         }
     }  
     
