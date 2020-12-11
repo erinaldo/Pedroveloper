@@ -32,62 +32,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
         private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-           
-=======
-            if (txtnombre.Text != "" && TXTCONTRASEÑA.Text != "" && TXTUSUARIO.Text != "")
-              {
-                if (TXTCONTRASEÑA.Text == txtconfirmarcontraseña.Text)
-                    {
-                    string contraseña_encryptada;
-                    contraseña_encryptada = Bases.Encriptar(this.TXTCONTRASEÑA.Text.Trim());
-                    try
-                    {
-                        SqlConnection con = new SqlConnection();
-                        con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand();
-                        cmd = new SqlCommand("insertar_usuario", con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
-                        cmd.Parameters.AddWithValue("@Login", TXTUSUARIO.Text);
-                        cmd.Parameters.AddWithValue("@Password", contraseña_encryptada);
-                        System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                        PictureBox2.Image.Save(ms, PictureBox2.Image.RawFormat);
-                        cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
-                        cmd.Parameters.AddWithValue("@idRol", 1);
-                        cmd.Parameters.AddWithValue("@Nombre_de_icono", "Pedroveloper");
-                        cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                       // Insertar_licencia_de_prueba_30_dias();
-                      //  insertar_cliente_standar();
-                        insertar_inicio_De_sesion();
-                        insertarPermisos();
-                        MessageBox.Show("!LISTO! RECUERDA que para Iniciar Sesión tu Usuario es: " + TXTUSUARIO.Text + " y tu Contraseña es: " + TXTCONTRASEÑA.Text, "Registro Exitoso", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                        Dispose();
-                        Presentacion.LOGIN frm = new Presentacion.LOGIN();
-                        frm.ShowDialog();
-                    }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                    catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                    {
-                        //MessageBox.Show(ex.Message);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Las contraseñas no Coinciden", "Contraseñas Incompatibles", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-                }
-            }
-            else
-            {
-                MessageBox.Show("Falta ingresar Datos", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
-            }
->>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
         }
         private void Insertar_licencia_de_prueba_30_dias()
         {
@@ -176,7 +121,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Grupo", "General");
                 cmd.Parameters.AddWithValue("@Por_defecto", "Si");
-               
+
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -231,7 +176,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             DataTable dt = new DataTable();
             Obtener_datos.buscar_empleados2(ref dt, txtnombre.Text);
             datalistadoEmpleado.DataSource = dt;
-            if(datalistadoEmpleado.Rows.Count > 0)
+            if (datalistadoEmpleado.Rows.Count > 0)
             {
                 pintarDatalistado();
             }
@@ -258,7 +203,6 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             txtnombre.Text = datalistadoEmpleado.SelectedCells[2].Value.ToString();
             panelDataListadoEmpleados.Visible = false;
         }
-<<<<<<< HEAD
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (txtnombre.Text != "" && TXTCONTRASEÑA.Text != "" && TXTUSUARIO.Text != "")
@@ -339,7 +283,5 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             Maximizar.Visible = false;
             Restaurar.Visible = true;
         }
-=======
->>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
     }
 }

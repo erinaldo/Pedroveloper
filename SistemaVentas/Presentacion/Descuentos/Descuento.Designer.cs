@@ -65,10 +65,7 @@
             this.EditarG = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-<<<<<<< HEAD
             this.doubleBitmapControl1 = new BunifuAnimatorNS.DoubleBitmapControl();
-=======
->>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
@@ -462,7 +459,6 @@
             this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             // 
-<<<<<<< HEAD
             // doubleBitmapControl1
             // 
             this.doubleBitmapControl1.Location = new System.Drawing.Point(836, 160);
@@ -472,17 +468,12 @@
             this.doubleBitmapControl1.Text = "doubleBitmapControl1";
             this.doubleBitmapControl1.Visible = false;
             // 
-=======
->>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             // Descuento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 655);
-<<<<<<< HEAD
             this.Controls.Add(this.doubleBitmapControl1);
-=======
->>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             this.Controls.Add(this.panelRegistros);
             this.Controls.Add(this.datalistado);
             this.Controls.Add(this.panel2);
@@ -539,9 +530,6 @@
         internal System.Windows.Forms.Label label60;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
-<<<<<<< HEAD
         private BunifuAnimatorNS.DoubleBitmapControl doubleBitmapControl1;
-=======
->>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
     }
 }

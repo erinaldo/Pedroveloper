@@ -49,7 +49,7 @@ namespace SistemaVentas.Presentacion.Empleados
             SqlConnection con = new SqlConnection();
             con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
             SqlCommand com = new SqlCommand("SELECT COUNT(idUsuario) from USUARIO2", con);
-            
+
             try
             {
                 con.Open();
@@ -68,13 +68,13 @@ namespace SistemaVentas.Presentacion.Empleados
             {
                 MessageBox.Show(ex.StackTrace);
             }
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             panelRegistros.Visible = false;
-            
+
         }
 
         private void LblAnuncioIcono_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono,  txtDireccion, txtCuentaBanco,  txtTipoTelefono};
+            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtCuentaBanco, txtTipoTelefono };
             if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
             {
                 System.IO.MemoryStream ms = new System.IO.MemoryStream();
@@ -110,11 +110,7 @@ namespace SistemaVentas.Presentacion.Empleados
                     }
                     else
                     {
-<<<<<<< HEAD
                         if (txtNumeracion.Text.Length == 12)
-=======
-                        if (txtNumeracion.Text.Length == 13)
->>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                         {
                             if (txtCuentaBanco.Text.Length == 9)
                             {
@@ -174,9 +170,9 @@ namespace SistemaVentas.Presentacion.Empleados
         }
         private void insertar()
         {
-            if(idTipoTelefono != 0)
+            if (idTipoTelefono != 0)
             {
-                if(idDireccion != 0)
+                if (idDireccion != 0)
                 {
                     insertarTipoHorario();
                 }
@@ -216,8 +212,8 @@ namespace SistemaVentas.Presentacion.Empleados
 
         public void insertarPersona()
         {
-            
-            MessageBox.Show("idTelefono"+ idTelefono.ToString());
+
+            MessageBox.Show("idTelefono" + idTelefono.ToString());
             idTelefono = Obtener_datos.obtenerTelefono();
             idDocumento = Obtener_datos.obtenerDocumento();
 
@@ -231,7 +227,7 @@ namespace SistemaVentas.Presentacion.Empleados
             parametrosPersona.idDireccion = idDireccion;
             parametrosPersona.idDocumento = idDocumento;
             parametrosPersona.idTelefono = idTelefono;
-            
+
             if (funcion.insertarPersona(parametrosPersona) == true)
             {
                 insertarEmpleado();
@@ -249,7 +245,8 @@ namespace SistemaVentas.Presentacion.Empleados
 
             int idTipoTelefono1 = Obtener_datos.obtenerTipoTelefono();
 
-            if(funcion.insertarTelefono(parametros, idTipoTelefono1) == true){
+            if (funcion.insertarTelefono(parametros, idTipoTelefono1) == true)
+            {
                 insertarDocumento();
             }
 
@@ -275,7 +272,8 @@ namespace SistemaVentas.Presentacion.Empleados
             parametrosDocumentos.tipo = txtTipoDocumento.Text;
             parametrosDocumentos.numeracion = txtNumeracion.Text;
 
-            if (funcion.InsertarDocumento(parametrosDocumentos) == true){
+            if (funcion.InsertarDocumento(parametrosDocumentos) == true)
+            {
                 insertarPersona();
             }
 
@@ -292,7 +290,8 @@ namespace SistemaVentas.Presentacion.Empleados
             parametrosHorario.horaEntrada = hEntrada;
             parametrosHorario.horaSalida = hSalida;
 
-            if (funcion.insertarHorario(parametrosHorario, idTipoHorario) == true){
+            if (funcion.insertarHorario(parametrosHorario, idTipoHorario) == true)
+            {
                 insertarTipoTelefono();
             }
 
@@ -300,16 +299,17 @@ namespace SistemaVentas.Presentacion.Empleados
         public void insertarTipoHorario()
         {
             LHorario parametrosHorario = new LHorario();
-           
+
             parametrosHorario.Descripcion_TipoHorario = txtTipoHorario.Text;
 
-            if(Insertar_datos.insertarTipoHorario(txtTipoHorario.Text) == true){
+            if (Insertar_datos.insertarTipoHorario(txtTipoHorario.Text) == true)
+            {
                 insertarHorario();
             }
 
         }
 
-        
+
         private void rellenarCamposVacios()
         {
             if (string.IsNullOrEmpty(txtnombre.Text))
@@ -345,7 +345,7 @@ namespace SistemaVentas.Presentacion.Empleados
         private void pintarDatalistado()
         {
             Bases.Multilinea(ref datalistado);
-            
+
         }
         private void pintarDatalistadoDireccion()
         {
@@ -466,7 +466,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void prepararEdicion()
         {
-           
+
             panelRegistros.Visible = true;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.BringToFront();
@@ -481,7 +481,7 @@ namespace SistemaVentas.Presentacion.Empleados
             LEmpleados parametros = new LEmpleados();
             Editar_datos funcion = new Editar_datos();
             parametros.idEmpleado = idEmpleado;
-            if(funcion.restaurar_empleados(parametros) == true)
+            if (funcion.restaurar_empleados(parametros) == true)
             {
                 mostrar();
             }
@@ -642,7 +642,7 @@ namespace SistemaVentas.Presentacion.Empleados
             parametrosPersona.idDireccion = idDireccion1;
             parametrosPersona.idDocumento = idDocumento1;
             parametrosPersona.idTelefono = idTelefon1o;
-            
+
             if (funcion.editarPersona(parametrosPersona) == true)
             {
                 editarEmpleado();
@@ -738,7 +738,7 @@ namespace SistemaVentas.Presentacion.Empleados
             panelRegistros.Dock = DockStyle.Fill;
 
         }
-        
+
         private void limpiar()
         {
             txtnombre.Clear();
@@ -976,7 +976,7 @@ namespace SistemaVentas.Presentacion.Empleados
         {
             mostrarTipos();
             btnGuardar_grupo.Visible = true;
-            MenuStrip9.Visible =true;
+            MenuStrip9.Visible = true;
             //MenuStrip9.BringToFront;
         }
 
@@ -1014,7 +1014,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void btnGuardar_grupo_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
                 SqlConnection con = new SqlConnection();
@@ -1044,12 +1044,12 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void btnNuevoGrupo_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            
+
             panelDatalistado.Visible = false;
             btnGuardar_grupo.Visible = false;
             BtnCancelar.Visible = false;
@@ -1148,7 +1148,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void btnNuevoGrupo_Click_1(object sender, EventArgs e)
         {
-           
+
             txtTipoTelefono.SelectAll();
             txtTipoTelefono.Focus();
             panelDatalistado.Visible = false;
@@ -1159,7 +1159,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void txtDireccion_TextChanged(object sender, EventArgs e)
         {
-            if(txtDireccion.Text != "")
+            if (txtDireccion.Text != "")
             {
                 panelDataListadoDireccion.Visible = true;
                 mostrarDireccion();
@@ -1167,7 +1167,7 @@ namespace SistemaVentas.Presentacion.Empleados
             else
             {
                 panelDataListadoDireccion.Visible = false;
-                
+
             }
         }
 
@@ -1216,12 +1216,12 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void txtDireccion_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void txtDireccion_DragEnter(object sender, DragEventArgs e)
         {
-            
+
 
         }
 

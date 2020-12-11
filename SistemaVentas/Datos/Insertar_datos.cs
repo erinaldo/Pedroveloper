@@ -99,8 +99,6 @@ namespace SistemaVentas.Datos
                 return false;
             }
         }
-<<<<<<< HEAD
-        
         public bool insertarDatosFiscales(LDatosFiscales d)
         {
             try
@@ -132,8 +130,6 @@ namespace SistemaVentas.Datos
             }
         }
 
-=======
->>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
         public bool editarMayoreo(Mayoreo mayoreo)
         {
             try
@@ -455,11 +451,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-<<<<<<< HEAD
                 SqlCommand cmd = new SqlCommand("insertarDireccion", CONEXIONMAESTRA.conectar);
-=======
-                SqlCommand cmd = new SqlCommand("insertar_Direccion", CONEXIONMAESTRA.conectar);
->>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@descripcion", parametros.desDireccion);
                 cmd.Parameters.AddWithValue("@idRegion", idRegion);
