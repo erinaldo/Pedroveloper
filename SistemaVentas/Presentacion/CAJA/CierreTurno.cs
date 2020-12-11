@@ -48,7 +48,7 @@ namespace SistemaVentas.Presentacion.CAJA
             Obtener_datos.mostrar_empresa(ref dt);
             foreach (DataRow row in dt.Rows)
             {
-                correoReceptor = row["Correo_para_envio_de_reportes"].ToString();
+             ////   correoReceptor = row["Correo_para_envio_de_reportes"].ToString();
                 txtcorreo.Text = correoReceptor;
             }
         }

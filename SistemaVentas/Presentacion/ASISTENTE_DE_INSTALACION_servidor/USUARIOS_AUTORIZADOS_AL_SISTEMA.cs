@@ -205,56 +205,65 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text != "" && TXTCONTRASEÑA.Text != "" && TXTUSUARIO.Text != "")
+            if (idEmpleado > 0)
             {
-                if (TXTCONTRASEÑA.Text == txtconfirmarcontraseña.Text)
+
+                if (txtnombre.Text != "" && TXTCONTRASEÑA.Text != "" && TXTUSUARIO.Text != "")
                 {
-                    string contraseña_encryptada;
-                    contraseña_encryptada = Bases.Encriptar(this.TXTCONTRASEÑA.Text.Trim());
-                    try
+                    if (TXTCONTRASEÑA.Text == txtconfirmarcontraseña.Text)
                     {
-                        SqlConnection con = new SqlConnection();
-                        con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand();
-                        cmd = new SqlCommand("insertar_usuario", con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
-                        cmd.Parameters.AddWithValue("@Login", TXTUSUARIO.Text);
-                        cmd.Parameters.AddWithValue("@Password", contraseña_encryptada);
-                        System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                        ImagenAdmin.Image.Save(ms, ImagenAdmin.Image.RawFormat);
-                        cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
-                        cmd.Parameters.AddWithValue("@idRol", 1);
-                        cmd.Parameters.AddWithValue("@Nombre_de_icono", "Pedroveloper");
-                        cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        // Insertar_licencia_de_prueba_30_dias();
-                        //  insertar_cliente_standar();
-                        insertar_inicio_De_sesion();
-                        insertarPermisos();
-                        MessageBox.Show("!LISTO! RECUERDA que para Iniciar Sesión tu Usuario es: " + TXTUSUARIO.Text + " y tu Contraseña es: " + TXTCONTRASEÑA.Text, "Registro Exitoso", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                        Dispose();
-                        Presentacion.LOGIN frm = new Presentacion.LOGIN();
-                        frm.ShowDialog();
-                    }
+                        string contraseña_encryptada;
+                        contraseña_encryptada = Bases.Encriptar(this.TXTCONTRASEÑA.Text.Trim());
+                        try
+                        {
+                            SqlConnection con = new SqlConnection();
+                            con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                            con.Open();
+                            SqlCommand cmd = new SqlCommand();
+                            cmd = new SqlCommand("insertar_usuario", con);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
+                            cmd.Parameters.AddWithValue("@Login", TXTUSUARIO.Text);
+                            cmd.Parameters.AddWithValue("@Password", contraseña_encryptada);
+                            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                            ImagenAdmin.Image.Save(ms, ImagenAdmin.Image.RawFormat);
+                            cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
+                            cmd.Parameters.AddWithValue("@idRol", 1);
+                            cmd.Parameters.AddWithValue("@Nombre_de_icono", "Pedroveloper");
+                            cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            // Insertar_licencia_de_prueba_30_dias();
+                            //  insertar_cliente_standar();
+                            insertar_inicio_De_sesion();
+                            insertarPermisos();
+                            MessageBox.Show("!LISTO! RECUERDA que para Iniciar Sesión tu Usuario es: " + TXTUSUARIO.Text + " y tu Contraseña es: " + TXTCONTRASEÑA.Text, "Registro Exitoso", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                            Dispose();
+                            Presentacion.LOGIN frm = new Presentacion.LOGIN();
+                            frm.ShowDialog();
+                        }
 #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                    catch (Exception ex)
+                        catch (Exception ex)
 #pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+                        {
+                            //MessageBox.Show(ex.Message);
+                        }
+                    }
+                    else
                     {
-                        //MessageBox.Show(ex.Message);
+                        MessageBox.Show("Las contraseñas no Coinciden", "Contraseñas Incompatibles", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Las contraseñas no Coinciden", "Contraseñas Incompatibles", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    MessageBox.Show("Falta ingresar Datos", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
                 }
             }
             else
             {
-                MessageBox.Show("Falta ingresar Datos", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                MessageBox.Show("Selecciona el empleado que sera el administrador", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
             }
         }

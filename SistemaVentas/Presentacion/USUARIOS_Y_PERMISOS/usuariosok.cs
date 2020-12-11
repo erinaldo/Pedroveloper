@@ -286,7 +286,7 @@ namespace SistemaVentas
         {
             panelRegistros.Visible = true;
             panelRegistros.Dock = DockStyle.Fill;
-            panelNuevo.Visible = false;
+
             LblAnuncioIcono.Visible = true;
             txtEmpleado.Text = "";
             txtlogin.Text = "";
@@ -316,7 +316,7 @@ namespace SistemaVentas
             LblAnuncioIcono.Visible = false;
             panelRegistros.Visible = true;
             panelRegistros.Dock = DockStyle.Fill;
-            panelNuevo.Visible = false;
+            //panelNuevo.Visible = false;
             btnGuardar.Visible = false;
             btnGuardarCambios.Visible = true;
         }
@@ -324,7 +324,6 @@ namespace SistemaVentas
         private void btnVolver_Click(object sender, EventArgs e)
         {
             panelRegistros.Visible = false;
-            panelNuevo.Visible = true;
         }
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
@@ -473,13 +472,14 @@ namespace SistemaVentas
                 da.SelectCommand.Parameters.AddWithValue("@letra", txtbuscar.Text);
                 da.Fill(dt);
                 datalistado.DataSource = dt;
+                tablaUsuarios.DataSource = dt;
                 con.Close();
-
+                /*
                 datalistado.Columns[1].Visible = false;
                 datalistado.Columns[2].Visible = false;
                 datalistado.Columns[3].Visible = false;
                 datalistado.Columns[9].Visible = false;
-                datalistado.Columns[10].Visible = false;
+                datalistado.Columns[10].Visible = false;*/
             }
             catch (Exception ex)
             {
@@ -523,7 +523,6 @@ namespace SistemaVentas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -626,6 +625,32 @@ namespace SistemaVentas
                 frm.ShowDialog();
             }
 
+        }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            Close();
+
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void Maximizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
+            Maximizar.Visible = false;
+            Restaurar.Visible = true;
+        }
+
+        private void Restaurar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+            Restaurar.Visible = false;
+            Maximizar.Visible = true;
         }
     }
 }

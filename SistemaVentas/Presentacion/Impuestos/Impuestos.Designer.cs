@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,6 +66,9 @@
             this.datalistado = new System.Windows.Forms.DataGridView();
             this.EliminarG = new System.Windows.Forms.DataGridViewImageColumn();
             this.EditarG = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tableProducts = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
@@ -72,6 +76,7 @@
             this.panelRegistros.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -231,10 +236,7 @@
             this.txtTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTipo.FormattingEnabled = true;
             this.txtTipo.Items.AddRange(new object[] {
-
-
             "IVA",
-
             "Impuesto Categoria",
             "Impuesto Productos"});
             this.txtTipo.Location = new System.Drawing.Point(392, 57);
@@ -471,11 +473,60 @@
             this.EditarG.Name = "EditarG";
             this.EditarG.ReadOnly = true;
             // 
+            // tableProducts
+            // 
+            this.tableProducts.AllowUserToAddRows = false;
+            this.tableProducts.AllowUserToDeleteRows = false;
+            this.tableProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tableProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tableProducts.BackgroundColor = System.Drawing.Color.White;
+            this.tableProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tableProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tableProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableProducts.ColumnHeadersVisible = false;
+            this.tableProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewImageColumn2,
+            this.dataGridViewImageColumn3});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(8);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableProducts.DefaultCellStyle = dataGridViewCellStyle6;
+            this.tableProducts.GridColor = System.Drawing.Color.LightGray;
+            this.tableProducts.Location = new System.Drawing.Point(12, 114);
+            this.tableProducts.Name = "tableProducts";
+            this.tableProducts.ReadOnly = true;
+            this.tableProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tableProducts.RowHeadersVisible = false;
+            this.tableProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.tableProducts.Size = new System.Drawing.Size(840, 430);
+            this.tableProducts.TabIndex = 368;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "editar";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.HeaderText = "eliminar";
+            this.dataGridViewImageColumn3.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn3.Image")));
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            // 
             // Impuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 655);
+            this.Controls.Add(this.tableProducts);
             this.Controls.Add(this.panelRegistros);
             this.Controls.Add(this.datalistado);
             this.Controls.Add(this.panel2);
@@ -495,6 +546,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -531,5 +583,8 @@
         private System.Windows.Forms.DataGridViewImageColumn EliminarG;
         private System.Windows.Forms.DataGridViewImageColumn EditarG;
         internal System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridView tableProducts;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
     }
 }

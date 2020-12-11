@@ -28,15 +28,7 @@ namespace SistemaVentas.Presentacion.CAJA
 
         private void ToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty (txtmonto.Text ))
-            {
-                txtmonto.Text = "0";
-            }
-            bool  estado = Editar_datos.editar_dinero_caja_inicial(txtidcaja, Convert.ToDouble(txtmonto.Text));
-            if (estado ==true )
-            {
-                pasar_a_ventas();
-            }       
+           
         }
 
   
@@ -53,7 +45,6 @@ namespace SistemaVentas.Presentacion.CAJA
 
         private void btnomitir_Click(object sender, EventArgs e)
         {
-            pasar_a_ventas();
         }
         private void pasar_a_ventas()
         {
@@ -66,6 +57,36 @@ namespace SistemaVentas.Presentacion.CAJA
         private void txtmonto_KeyPress(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txtmonto, e);
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnconfig_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtmonto.Text))
+            {
+                txtmonto.Text = "0";
+            }
+            bool estado = Editar_datos.editar_dinero_caja_inicial(txtidcaja, Convert.ToDouble(txtmonto.Text));
+            if (estado == true)
+            {
+                pasar_a_ventas();
+            }
+        }
+
+        private void Omitir_Click(object sender, EventArgs e)
+        {
+            pasar_a_ventas();
+
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
 
         }
     }

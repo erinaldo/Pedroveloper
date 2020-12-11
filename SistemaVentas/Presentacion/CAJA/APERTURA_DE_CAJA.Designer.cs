@@ -31,148 +31,120 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(APERTURA_DE_CAJA));
             this.PanelCaja = new System.Windows.Forms.Panel();
-            this.Panel2 = new System.Windows.Forms.Panel();
-            this.Label2 = new System.Windows.Forms.Label();
+            this.Omitir = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnconfig = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.txtmonto = new System.Windows.Forms.TextBox();
+            this.Label9 = new System.Windows.Forms.Label();
+            this.Label1 = new System.Windows.Forms.Label();
             this.Button1 = new System.Windows.Forms.Button();
             this.txtfecha = new System.Windows.Forms.DateTimePicker();
             this.txtip = new System.Windows.Forms.Label();
-            this.txtmonto = new System.Windows.Forms.TextBox();
-            this.MenuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnguardar = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnomitir = new System.Windows.Forms.ToolStripMenuItem();
-            this.Label9 = new System.Windows.Forms.Label();
-            this.Label1 = new System.Windows.Forms.Label();
-            this.Panel12 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Panel12 = new System.Windows.Forms.Panel();
+            this.Minimizar = new System.Windows.Forms.PictureBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.CurvaPanelInfoDetallada = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PanelCaja.SuspendLayout();
-            this.Panel2.SuspendLayout();
-            this.MenuStrip1.SuspendLayout();
+            this.Panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelCaja
             // 
             this.PanelCaja.BackColor = System.Drawing.Color.White;
-            this.PanelCaja.Controls.Add(this.Panel2);
+            this.PanelCaja.Controls.Add(this.Omitir);
+            this.PanelCaja.Controls.Add(this.btnconfig);
             this.PanelCaja.Controls.Add(this.txtmonto);
-            this.PanelCaja.Controls.Add(this.MenuStrip1);
             this.PanelCaja.Controls.Add(this.Label9);
             this.PanelCaja.Controls.Add(this.Label1);
-            this.PanelCaja.Location = new System.Drawing.Point(368, 251);
+            this.PanelCaja.Controls.Add(this.pictureBox2);
+            this.PanelCaja.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelCaja.Location = new System.Drawing.Point(0, 73);
             this.PanelCaja.Name = "PanelCaja";
-            this.PanelCaja.Size = new System.Drawing.Size(408, 239);
+            this.PanelCaja.Size = new System.Drawing.Size(351, 277);
             this.PanelCaja.TabIndex = 566;
             // 
-            // Panel2
+            // Omitir
             // 
-            this.Panel2.BackColor = System.Drawing.Color.White;
-            this.Panel2.Controls.Add(this.Label2);
-            this.Panel2.Controls.Add(this.Button1);
-            this.Panel2.Controls.Add(this.txtfecha);
-            this.Panel2.Controls.Add(this.txtip);
-            this.Panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel2.Location = new System.Drawing.Point(0, 0);
-            this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(408, 60);
-            this.Panel2.TabIndex = 565;
+            this.Omitir.AnimationHoverSpeed = 0.07F;
+            this.Omitir.AnimationSpeed = 0.03F;
+            this.Omitir.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.Omitir.BorderColor = System.Drawing.Color.Black;
+            this.Omitir.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.Omitir.CheckedBorderColor = System.Drawing.Color.Black;
+            this.Omitir.CheckedForeColor = System.Drawing.Color.White;
+            this.Omitir.CheckedImage = ((System.Drawing.Image)(resources.GetObject("Omitir.CheckedImage")));
+            this.Omitir.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.Omitir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Omitir.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Omitir.FocusedColor = System.Drawing.Color.Empty;
+            this.Omitir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.Omitir.ForeColor = System.Drawing.Color.White;
+            this.Omitir.Image = ((System.Drawing.Image)(resources.GetObject("Omitir.Image")));
+            this.Omitir.ImageSize = new System.Drawing.Size(20, 20);
+            this.Omitir.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.Omitir.Location = new System.Drawing.Point(15, 166);
+            this.Omitir.Name = "Omitir";
+            this.Omitir.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.Omitir.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.Omitir.OnHoverForeColor = System.Drawing.Color.White;
+            this.Omitir.OnHoverImage = null;
+            this.Omitir.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.Omitir.OnPressedColor = System.Drawing.Color.Black;
+            this.Omitir.Size = new System.Drawing.Size(180, 42);
+            this.Omitir.TabIndex = 619;
+            this.Omitir.Text = "Omitir";
+            this.Omitir.Click += new System.EventHandler(this.Omitir_Click);
             // 
-            // Label2
+            // btnconfig
             // 
-            this.Label2.BackColor = System.Drawing.Color.Transparent;
-            this.Label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.Label2.ForeColor = System.Drawing.Color.Black;
-            this.Label2.Location = new System.Drawing.Point(0, 0);
-            this.Label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(408, 60);
-            this.Label2.TabIndex = 532;
-            this.Label2.Text = "Dinero en Caja";
-            this.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Button1
-            // 
-            this.Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(197)))), ((int)(((byte)(76)))));
-            this.Button1.FlatAppearance.BorderSize = 0;
-            this.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
-            this.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button1.ForeColor = System.Drawing.Color.White;
-            this.Button1.Location = new System.Drawing.Point(378, 3);
-            this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(27, 32);
-            this.Button1.TabIndex = 540;
-            this.Button1.Text = "X";
-            this.Button1.UseVisualStyleBackColor = false;
-            // 
-            // txtfecha
-            // 
-            this.txtfecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtfecha.Location = new System.Drawing.Point(137, 6);
-            this.txtfecha.Name = "txtfecha";
-            this.txtfecha.Size = new System.Drawing.Size(74, 20);
-            this.txtfecha.TabIndex = 566;
-            // 
-            // txtip
-            // 
-            this.txtip.AutoSize = true;
-            this.txtip.BackColor = System.Drawing.Color.Transparent;
-            this.txtip.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtip.ForeColor = System.Drawing.Color.White;
-            this.txtip.Location = new System.Drawing.Point(90, 38);
-            this.txtip.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.txtip.Name = "txtip";
-            this.txtip.Size = new System.Drawing.Size(90, 13);
-            this.txtip.TabIndex = 527;
-            this.txtip.Text = "tu nomvbre de pc";
+            this.btnconfig.AnimationHoverSpeed = 0.07F;
+            this.btnconfig.AnimationSpeed = 0.03F;
+            this.btnconfig.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnconfig.BorderColor = System.Drawing.Color.Black;
+            this.btnconfig.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnconfig.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnconfig.CheckedForeColor = System.Drawing.Color.White;
+            this.btnconfig.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnconfig.CheckedImage")));
+            this.btnconfig.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnconfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnconfig.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnconfig.FocusedColor = System.Drawing.Color.Empty;
+            this.btnconfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnconfig.ForeColor = System.Drawing.Color.White;
+            this.btnconfig.Image = ((System.Drawing.Image)(resources.GetObject("btnconfig.Image")));
+            this.btnconfig.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnconfig.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnconfig.Location = new System.Drawing.Point(15, 214);
+            this.btnconfig.Name = "btnconfig";
+            this.btnconfig.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnconfig.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnconfig.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnconfig.OnHoverImage = null;
+            this.btnconfig.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnconfig.OnPressedColor = System.Drawing.Color.Black;
+            this.btnconfig.Size = new System.Drawing.Size(180, 42);
+            this.btnconfig.TabIndex = 618;
+            this.btnconfig.Text = "Iniciar";
+            this.btnconfig.Click += new System.EventHandler(this.btnconfig_Click);
             // 
             // txtmonto
             // 
+            this.txtmonto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtmonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtmonto.Location = new System.Drawing.Point(45, 131);
+            this.txtmonto.Location = new System.Drawing.Point(21, 75);
+            this.txtmonto.Multiline = true;
             this.txtmonto.Name = "txtmonto";
-            this.txtmonto.Size = new System.Drawing.Size(284, 30);
+            this.txtmonto.Size = new System.Drawing.Size(174, 25);
             this.txtmonto.TabIndex = 564;
             this.txtmonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmonto_KeyPress);
-            // 
-            // MenuStrip1
-            // 
-            this.MenuStrip1.AutoSize = false;
-            this.MenuStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.MenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnguardar,
-            this.btnomitir});
-            this.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.MenuStrip1.Location = new System.Drawing.Point(45, 164);
-            this.MenuStrip1.Name = "MenuStrip1";
-            this.MenuStrip1.ShowItemToolTips = true;
-            this.MenuStrip1.Size = new System.Drawing.Size(216, 43);
-            this.MenuStrip1.TabIndex = 562;
-            this.MenuStrip1.Text = "MenuStrip7";
-            // 
-            // btnguardar
-            // 
-            this.btnguardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(63)))), ((int)(((byte)(67)))));
-            this.btnguardar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnguardar.ForeColor = System.Drawing.Color.White;
-            this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(70, 39);
-            this.btnguardar.Text = "Iniciar";
-            this.btnguardar.ToolTipText = "Iniciar";
-            this.btnguardar.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
-            // 
-            // btnomitir
-            // 
-            this.btnomitir.BackColor = System.Drawing.Color.White;
-            this.btnomitir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnomitir.ForeColor = System.Drawing.Color.Black;
-            this.btnomitir.Name = "btnomitir";
-            this.btnomitir.Size = new System.Drawing.Size(71, 39);
-            this.btnomitir.Text = "Omitir";
-            this.btnomitir.ToolTipText = "Omitir";
-            this.btnomitir.Click += new System.EventHandler(this.btnomitir_Click);
             // 
             // Label9
             // 
@@ -188,61 +160,180 @@
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label1.ForeColor = System.Drawing.Color.Black;
-            this.Label1.Location = new System.Drawing.Point(27, 95);
+            this.Label1.Location = new System.Drawing.Point(9, 22);
             this.Label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(317, 31);
+            this.Label1.Size = new System.Drawing.Size(278, 29);
             this.Label1.TabIndex = 511;
             this.Label1.Text = "¿Efectivo inicial en Caja?";
             // 
+            // Button1
+            // 
+            this.Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(197)))), ((int)(((byte)(76)))));
+            this.Button1.FlatAppearance.BorderSize = 0;
+            this.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            this.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button1.ForeColor = System.Drawing.Color.White;
+            this.Button1.Location = new System.Drawing.Point(195, 277);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(27, 32);
+            this.Button1.TabIndex = 540;
+            this.Button1.Text = "X";
+            this.Button1.UseVisualStyleBackColor = false;
+            this.Button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // txtfecha
+            // 
+            this.txtfecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtfecha.Location = new System.Drawing.Point(718, 223);
+            this.txtfecha.Name = "txtfecha";
+            this.txtfecha.Size = new System.Drawing.Size(74, 20);
+            this.txtfecha.TabIndex = 566;
+            // 
+            // txtip
+            // 
+            this.txtip.AutoSize = true;
+            this.txtip.BackColor = System.Drawing.Color.Transparent;
+            this.txtip.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtip.ForeColor = System.Drawing.Color.White;
+            this.txtip.Location = new System.Drawing.Point(310, 111);
+            this.txtip.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.txtip.Name = "txtip";
+            this.txtip.Size = new System.Drawing.Size(90, 13);
+            this.txtip.TabIndex = 527;
+            this.txtip.Text = "tu nomvbre de pc";
+            // 
             // Panel12
             // 
-            this.Panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(63)))), ((int)(((byte)(67)))));
+            this.Panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.Panel12.Controls.Add(this.Minimizar);
+            this.Panel12.Controls.Add(this.label20);
+            this.Panel12.Controls.Add(this.pictureBox5);
             this.Panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel12.Location = new System.Drawing.Point(0, 0);
             this.Panel12.Name = "Panel12";
-            this.Panel12.Size = new System.Drawing.Size(938, 233);
-            this.Panel12.TabIndex = 606;
+            this.Panel12.Size = new System.Drawing.Size(351, 73);
+            this.Panel12.TabIndex = 609;
+            // 
+            // Minimizar
+            // 
+            this.Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("Minimizar.Image")));
+            this.Minimizar.Location = new System.Drawing.Point(309, 20);
+            this.Minimizar.Name = "Minimizar";
+            this.Minimizar.Size = new System.Drawing.Size(30, 30);
+            this.Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Minimizar.TabIndex = 642;
+            this.Minimizar.TabStop = false;
+            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(106, 30);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(171, 20);
+            this.label20.TabIndex = 639;
+            this.label20.Text = "Dinero actual en Caja";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(100, 73);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 638;
+            this.pictureBox5.TabStop = false;
+            // 
+            // CurvaPanelInfoDetallada
+            // 
+            this.CurvaPanelInfoDetallada.ElipseRadius = 7;
+            this.CurvaPanelInfoDetallada.TargetControl = this;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 7;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 7;
+            this.bunifuElipse2.TargetControl = this;
+            // 
+            // bunifuElipse3
+            // 
+            this.bunifuElipse3.ElipseRadius = 7;
+            this.bunifuElipse3.TargetControl = this;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(8, 75);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(214, 34);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 679;
+            this.pictureBox2.TabStop = false;
             // 
             // APERTURA_DE_CAJA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 659);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(351, 350);
             this.Controls.Add(this.PanelCaja);
             this.Controls.Add(this.Panel12);
+            this.Controls.Add(this.txtip);
+            this.Controls.Add(this.txtfecha);
+            this.Controls.Add(this.Button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "APERTURA_DE_CAJA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.APERTURA_DE_CAJA_Load);
             this.PanelCaja.ResumeLayout(false);
             this.PanelCaja.PerformLayout();
-            this.Panel2.ResumeLayout(false);
-            this.Panel2.PerformLayout();
-            this.MenuStrip1.ResumeLayout(false);
-            this.MenuStrip1.PerformLayout();
+            this.Panel12.ResumeLayout(false);
+            this.Panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         internal System.Windows.Forms.Panel PanelCaja;
-        internal System.Windows.Forms.Panel Panel2;
-        internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.Button Button1;
         internal System.Windows.Forms.DateTimePicker txtfecha;
         internal System.Windows.Forms.Label txtip;
         internal System.Windows.Forms.TextBox txtmonto;
-        internal System.Windows.Forms.MenuStrip MenuStrip1;
-        internal System.Windows.Forms.ToolStripMenuItem btnguardar;
-        internal System.Windows.Forms.ToolStripMenuItem btnomitir;
         internal System.Windows.Forms.Label Label9;
         internal System.Windows.Forms.Label Label1;
-        internal System.Windows.Forms.Panel Panel12;
         private System.Windows.Forms.Timer timer1;
+        internal System.Windows.Forms.Panel Panel12;
+        private System.Windows.Forms.PictureBox Minimizar;
+        private System.Windows.Forms.Label label20;
+        internal System.Windows.Forms.PictureBox pictureBox5;
+        private Bunifu.Framework.UI.BunifuElipse CurvaPanelInfoDetallada;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
+        private Guna.UI.WinForms.GunaAdvenceButton Omitir;
+        private Guna.UI.WinForms.GunaAdvenceButton btnconfig;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

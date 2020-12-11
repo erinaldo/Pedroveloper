@@ -105,14 +105,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             if (Tipo_de_busqueda == "TECLADO")
             {
                 lbltipodebusqueda2.Text = "Buscar con TECLADO";
-                BTNLECTORA.BackColor = Color.WhiteSmoke;
-                BTNTECLADO.BackColor = Color.LightGreen;
+                //BTNLECTORA.BackColor = Color.WhiteSmoke;
+               // BTNTECLADO.BackColor = Color.LightGreen;
             }
             else
             {
                 lbltipodebusqueda2.Text = "Buscar con LECTORA de Codigos de Barras";
-                BTNLECTORA.BackColor = Color.LightGreen;
-                BTNTECLADO.BackColor = Color.WhiteSmoke;
+                //BTNLECTORA.BackColor = Color.LightGreen;
+               // BTNTECLADO.BackColor = Color.WhiteSmoke;
             }
             ValidarTemaCaja();
             Limpiar_para_venta_nueva();
@@ -1603,22 +1603,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void BTNLECTORA_Click_1(object sender, EventArgs e)
         {
-            lbltipodebusqueda2.Text = "Buscar con LECTORA de Codigos de Barras";
-            Tipo_de_busqueda = "LECTORA";
-            BTNLECTORA.BackColor = Color.LightGreen;
-            BTNTECLADO.BackColor = Color.WhiteSmoke;
-            txtbuscar.Clear();
-            txtbuscar.Focus();
+         
         }
 
         private void BTNTECLADO_Click_1(object sender, EventArgs e)
         {
-            lbltipodebusqueda2.Text = "Buscar con  TECLADO";
-            Tipo_de_busqueda = "TECLADO";
-            BTNTECLADO.BackColor = Color.LightGreen;
-            BTNLECTORA.BackColor = Color.WhiteSmoke;
-            txtbuscar.Clear();
-            txtbuscar.Focus();
+           
         }
 
         private void btnverMovimientosCaja_Click(object sender, EventArgs e)
@@ -1943,8 +1933,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 EditarTemaCaja();
                 TemaOscuro();
                 Listarproductosagregados();
-                PictureBox4.Visible = true;
-                pictureBox5.Visible = false;
             }
             else
             {
@@ -1952,8 +1940,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 EditarTemaCaja();
                 TemaClaro();
                 Listarproductosagregados();
-                PictureBox4.Visible = false;
-                pictureBox5.Visible = true;
             }
         }
         private void EditarTemaCaja()
@@ -1970,7 +1956,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             label9.ForeColor = Color.White;
             label9.BackColor = Color.FromArgb(35, 35, 35);
             PanelC1.BackColor = Color.FromArgb(35, 35, 35);
-            lblNombreSoftware.ForeColor = Color.White;
             btnadmin.ForeColor = Color.White;
             txtbuscar.BackColor = Color.FromArgb(20, 20, 20);
             txtbuscar.ForeColor = Color.White;
@@ -2037,7 +2022,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             label9.ForeColor = Color.Black;
             label9.BackColor = Color.White;
             PanelC1.BackColor = Color.White;
-            lblNombreSoftware.ForeColor = Color.Black;
             btnadmin.ForeColor = Color.Black;
             txtbuscar.BackColor = Color.White;
             txtbuscar.ForeColor = Color.Black;
@@ -2307,6 +2291,53 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             Presentacion.Pagos.Pagos frm = new Presentacion.Pagos.Pagos();
             frm.ShowDialog();
+        }
+
+        private void teclado_Click(object sender, EventArgs e)
+        {
+           
+            lbltipodebusqueda2.Text = "Buscar con TECLADO";
+            Tipo_de_busqueda = "TECLADO";
+           // BTNTECLADO.BackColor = Color.LightGreen;
+            //BTNLECTORA.BackColor = Color.WhiteSmoke;
+            txtbuscar.Clear();
+            txtbuscar.Focus();
+        }
+
+        private void lector_Click(object sender, EventArgs e)
+        {
+            lbltipodebusqueda2.Text = "Buscar con LECTORA de Codigos de Barras";
+            Tipo_de_busqueda = "LECTORA";
+            //BTNLECTORA.BackColor = Color.LightGreen;
+            //BTNTECLADO.BackColor = Color.WhiteSmoke;
+            txtbuscar.Clear();
+            txtbuscar.Focus();
+
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void Restaurar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+            Restaurar.Visible = false;
+            Maximizar.Visible = true;
+        }
+
+        private void Maximizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
+            Maximizar.Visible = false;
+            Restaurar.Visible = true;
+        }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+         
         }
     }
 }

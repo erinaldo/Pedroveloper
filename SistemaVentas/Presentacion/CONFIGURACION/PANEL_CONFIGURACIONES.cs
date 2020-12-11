@@ -413,32 +413,7 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
 
         private void ToolStripButton22_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in datalistado.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario == idusuarioBuscar)
-                {
-                    if (modulo == "Dashboard")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Dispose();
-                            Admin_nivel_dios.DASHBOARD_PRINCIPAL frm = new Admin_nivel_dios.DASHBOARD_PRINCIPAL();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
+            
            
         }
 
@@ -886,6 +861,42 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
         {
             FacturasCredito.FacturasCredito frm = new FacturasCredito.FacturasCredito();
             frm.ShowDialog();
+        }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in datalistado.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario == idusuarioBuscar)
+                {
+                    if (modulo == "Dashboard")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Dispose();
+                            Admin_nivel_dios.DASHBOARD_PRINCIPAL frm = new Admin_nivel_dios.DASHBOARD_PRINCIPAL();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
         }
     }
 }
