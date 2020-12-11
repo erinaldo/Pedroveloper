@@ -233,16 +233,55 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     lblsubtotal.Text = "0.00";
                 }
 
+<<<<<<< HEAD
+=======
+                double preciounitario;
+                double cantidad; 
+                double itbis1;
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 double totalpagar;
                 subtotal = 0;
                 preciounitario = 0;
                 cantidad = 0;
                 preciounitario = 0;
+<<<<<<< HEAD
                 totalpagar = 0;
                 foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
                 {
                         totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
                         txt_total_suma.Text = Convert.ToString(totalpagar + Convert.ToDouble(lblItbiss.Text));
+=======
+                itbis1 = 0;
+                totalpagar = 0;
+                double total = 0;
+                double descuento = 0;
+                foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
+                {
+                   // MessageBox.Show(fila.Cells.IndexOf(fila.Cells["Itbis"]).ToString());
+                   /*itbis1 += Convert.ToDouble(fila.Cells["Itbis"].Value);
+                    if (itbis1 == 0.18)
+                    {
+                        MessageBox.Show(itbis1.ToString());
+                        preciounitario += Convert.ToDouble(fila.Cells["PrecioUnidad"].Value);
+                        cantidad += Convert.ToInt32(fila.Cells["Cantidad"].Value);
+
+                        descuento += Convert.ToDouble(fila.Cells["Descuento"].Value);
+
+                        totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
+
+                        total += (((preciounitario * cantidad) - descuento) * itbis1);
+                        lblItbiss.Text = Convert.ToString(total);
+                        txt_total_suma.Text = Convert.ToString(totalpagar + total);
+                    }
+                    else
+                    {*/
+                       // MessageBox.Show(itbis1.ToString());
+                        totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
+                        txt_total_suma.Text = Convert.ToString(totalpagar + Convert.ToDouble(lblItbiss.Text));
+
+                   /* }*/
+                    // lblsubtotal.Text += Convert.ToString(totalpagar - total);
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 }
             }
             catch (Exception ex)
@@ -323,6 +362,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
                     descuento += Convert.ToDouble(fila.Cells["Descuento"].Value);
                     lbldescuento.Text = Convert.ToString(descuento);
+<<<<<<< HEAD
+=======
+                  //  lblsubtotal.Text = lbldescuento.Text;
+
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 }
             }
             catch (Exception ex)

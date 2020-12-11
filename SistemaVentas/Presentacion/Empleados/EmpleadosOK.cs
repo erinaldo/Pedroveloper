@@ -110,7 +110,11 @@ namespace SistemaVentas.Presentacion.Empleados
                     }
                     else
                     {
+<<<<<<< HEAD
                         if (txtNumeracion.Text.Length == 12)
+=======
+                        if (txtNumeracion.Text.Length == 13)
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                         {
                             if (txtCuentaBanco.Text.Length == 9)
                             {

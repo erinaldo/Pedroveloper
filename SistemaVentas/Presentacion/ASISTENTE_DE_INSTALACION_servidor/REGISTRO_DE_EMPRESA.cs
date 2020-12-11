@@ -22,13 +22,96 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             InitializeComponent();
         }
         string lblIDSERIAL;
+<<<<<<< HEAD
         bool RegistroInformacionAdicional = false;
+=======
+        private void Panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
         public static string correo;
         public bool validar_Mail(string sMail)
         {
             return Regex.IsMatch(sMail, @"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$");
 
         }
+<<<<<<< HEAD
+=======
+        private void TSIGUIENTE_Y_GUARDAR__Click(object sender, EventArgs e)
+        {
+            if (validar_Mail(txtcorreo.Text) == false)
+            {
+                MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtcorreo.Focus();
+                txtcorreo.SelectAll();
+            }
+            else
+            {
+
+                if (txtempresa.Text != "")
+                {
+                    if (txtRuta.Text != "")
+                    {
+                        if (no.Checked == true)
+                        {
+                            TXTTRABAJASCONIMPUESTOS.Text = "NO";
+                        }
+                        if (si.Checked == true)
+                        {
+                            TXTTRABAJASCONIMPUESTOS.Text = "SI";
+                        }
+                        Ingresar_empresa();
+                        Ingresar_caja();
+                        insertar_3_COMPROBANTES_POR_DEFECTO();
+                        insertarTipoHorario();
+                        insertarTipoTelefono();
+                        insertarTelefono();
+                        insertarMunicipio();
+                        insertarHorario();
+                        insertarCalle();
+                        insertarProvincia();
+                        insertarRegion();
+                        insertarSector();
+                        InsertarDocumento();
+                        insertarDireccion();
+                        insertarImpuesto();
+                        insertarDescuento();
+                        InsertarCategoria();
+                        Ingresar_Persona();
+                        insertarEmpleado(); insertarRol();
+                        insertar_clientes();
+                        insertar_Proveedores();
+                        insertarModulos();
+                        insertarPermisos();
+                        permisosrolfactura();
+                        insertarPermisosRol();
+                        insertarUnidadesCompra();
+                        insertarUnidadEstandar();
+                        correo = txtcorreo.Text;
+
+                        Dispose();
+
+                       
+                        USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new USUARIOS_AUTORIZADOS_AL_SISTEMA();
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Seleccione una Ruta para Guardar las Copias de Seguridad", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un Nombre de Empresa", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+
+              
+        }
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
          public void insertarUnidadEstandar()
         {
            /* try
@@ -53,17 +136,26 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarImpuestosgeneral", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@nombre", "Ventas");
                 cmd.Parameters.AddWithValue("@Impuesto", 0.18);
                 cmd.Parameters.AddWithValue("@Tipo", "Impuesto Productos");
 
+=======
+                cmd.Parameters.AddWithValue("@nombre", "Generico");
+                cmd.Parameters.AddWithValue("@Impuesto", 0.00);
+                cmd.Parameters.AddWithValue("@Tipo", "Impuesto Productos");
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 cmd.ExecuteNonQuery();
             }
             catch (Exception EX)
             {
                 MessageBox.Show(EX.Message);
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             try
             {
                 CONEXIONMAESTRA.abrir();
@@ -71,6 +163,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", "Ventas");
                 cmd.Parameters.AddWithValue("@Impuesto", 0.18);
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@Tipo", "Impuesto Categoria");
 
                 cmd.ExecuteNonQuery();
@@ -91,20 +184,31 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@nombre", "Generico");
                 cmd.Parameters.AddWithValue("@Impuesto", 0.00);
                 cmd.Parameters.AddWithValue("@Tipo", "Impuesto Productos");
+=======
+                cmd.Parameters.AddWithValue("@Tipo", "IVA");
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 cmd.ExecuteNonQuery();
             }
             catch (Exception EX)
             {
                 MessageBox.Show(EX.Message);
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarImpuestosgeneral", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@nombre", "Generico");
                 cmd.Parameters.AddWithValue("@Impuesto", 0.00);
+=======
+                cmd.Parameters.AddWithValue("@nombre", "Ventas");
+                cmd.Parameters.AddWithValue("@Impuesto", 0.18);
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 cmd.Parameters.AddWithValue("@Tipo", "Impuesto Categoria");
                 cmd.ExecuteNonQuery();
             }
@@ -113,7 +217,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 MessageBox.Show(EX.Message);
             }
         }
+<<<<<<< HEAD
             private void Ingresar_caja()
+=======
+        private void Ingresar_caja()
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
         {
             try
             {
@@ -761,7 +869,10 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@Saldo", 0);
                 cmd.ExecuteNonQuery();
                 return true;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception ex)
             {
@@ -773,6 +884,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 CONEXIONMAESTRA.cerrar();
             }
         }
+<<<<<<< HEAD
         public void IngresarCorreoEmpresa()
         {
             try
@@ -804,6 +916,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             }
         }
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
         private void Ingresar_Persona()
         {
             try
@@ -813,10 +927,15 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", "Generico");
                 cmd.Parameters.AddWithValue("@apellido", "-");
+<<<<<<< HEAD
+=======
+                cmd.Parameters.AddWithValue("@Correo", "-");
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 cmd.Parameters.AddWithValue("@fechaNacimiento", DateTime.Now);
                 cmd.Parameters.AddWithValue("@idDireccion", "1");
                 cmd.Parameters.AddWithValue("@idDocumento", "1");
                 cmd.Parameters.AddWithValue("@idTelefono", "1");
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@idCorreo ", "1");
 
                 cmd.ExecuteNonQuery();
@@ -844,6 +963,10 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
 
+=======
+
+                cmd.ExecuteNonQuery();
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception EX)
             {
@@ -859,8 +982,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@TipoTelefono", "Generico");
                 cmd.ExecuteNonQuery();
+<<<<<<< HEAD
                 CONEXIONMAESTRA.cerrar();
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception EX)
             {
@@ -880,7 +1006,10 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@HoraSalida", 12);
                 cmd.Parameters.AddWithValue("@TipoHorario", 1);
                 cmd.ExecuteNonQuery();
+<<<<<<< HEAD
                 CONEXIONMAESTRA.cerrar();
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
 
             }
             catch (Exception EX)
@@ -898,8 +1027,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@TipoDocumento","Generico");
                 cmd.Parameters.AddWithValue("@numeracion", "-");
                 cmd.ExecuteNonQuery();
+<<<<<<< HEAD
                 CONEXIONMAESTRA.cerrar();
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception EX)
             {
@@ -926,6 +1058,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@estado", "ACTIVO");
                 cmd.Parameters.AddWithValue("@idEmpresa", 1);
                 cmd.ExecuteNonQuery();
+<<<<<<< HEAD
                 CONEXIONMAESTRA.cerrar();
 
             }
@@ -955,6 +1088,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception ex)
             {
@@ -974,8 +1109,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@TipoHorario", "Generico");
                 cmd.ExecuteNonQuery();
+<<<<<<< HEAD
                 CONEXIONMAESTRA.cerrar();
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception EX)
             {
@@ -990,7 +1128,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             try
             {
                 CONEXIONMAESTRA.abrir();
+<<<<<<< HEAD
                 SqlCommand cmd = new SqlCommand("insertarDireccion", CONEXIONMAESTRA.conectar);
+=======
+                SqlCommand cmd = new SqlCommand("insertar_Direccion", CONEXIONMAESTRA.conectar);
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@descripcion", "Generico");
                 cmd.Parameters.AddWithValue("@idRegion", "1");
@@ -998,28 +1140,41 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@idSector", "1");
                 cmd.Parameters.AddWithValue("@idProvincia", "1");
                 cmd.Parameters.AddWithValue("@idCalle", "1");
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@idCiudad", "1");
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
 
+=======
+                cmd.ExecuteNonQuery();
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception EX)
             {
                 MessageBox.Show(EX.Message);
             }
         }
+<<<<<<< HEAD
 
         public void insertarDescuento()
         {
             
 
+=======
+        public void insertarDescuento()
+        {
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             try
             {
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarDescuento", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Descuento", 0.00);
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento Producto");
+=======
+                cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento Categoria");
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1034,7 +1189,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 SqlCommand cmd = new SqlCommand("insertarDescuento", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Descuento", 0.00);
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento Categoria");
+=======
+                cmd.Parameters.AddWithValue("@TipoDescuento", "Descuento Producto");
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
             }
@@ -1051,14 +1210,22 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarCategoria", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@idDescuento", 2);
                 cmd.Parameters.AddWithValue("@idItbis", 2);
+=======
+                cmd.Parameters.AddWithValue("@idDescuento", 1);
+                cmd.Parameters.AddWithValue("@idItbis", 1);
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 cmd.Parameters.AddWithValue("@descripcion", "Generico");
                 cmd.Parameters.AddWithValue("@departamento", "Generico");
                 cmd.Parameters.AddWithValue("@estado", "Activo");
                 cmd.ExecuteNonQuery();
+<<<<<<< HEAD
                 CONEXIONMAESTRA.cerrar();
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception EX)
             {
@@ -1076,18 +1243,22 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@descripcion", "Generico");
                 cmd.ExecuteNonQuery();
 
+<<<<<<< HEAD
                 SqlCommand cmd_= new SqlCommand("insertar_calle", CONEXIONMAESTRA.conectar);
                 cmd_.CommandType = CommandType.StoredProcedure;
                 cmd_.Parameters.AddWithValue("@descripcion", txtCalle.Text);
                 cmd_.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception EX)
             {
                 MessageBox.Show(EX.Message);
             }
         }
+<<<<<<< HEAD
         public void insertarCiudad()
         {
             try
@@ -1121,6 +1292,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             }
         }
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
         public void insertarProvincia( )
         {
             try
@@ -1130,8 +1303,11 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@descripcion", "Generico");
                 cmd.ExecuteNonQuery();
+<<<<<<< HEAD
                 CONEXIONMAESTRA.cerrar();
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception EX)
             {
@@ -1148,12 +1324,15 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@descripcion", "Generico");
                 cmd.ExecuteNonQuery();
 
+<<<<<<< HEAD
                 SqlCommand cmd_ = new SqlCommand("insertar_municipio", CONEXIONMAESTRA.conectar);
                 cmd_.CommandType = CommandType.StoredProcedure;
                 cmd_.Parameters.AddWithValue("@descripcion", txtMunicipio.Text);
                 cmd_.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception EX)
             {
@@ -1170,7 +1349,10 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@descripcion", "Generico");
                 cmd.ExecuteNonQuery();
+<<<<<<< HEAD
                 CONEXIONMAESTRA.cerrar();
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
 
             }
             catch (Exception EX)
@@ -1189,7 +1371,10 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@descripcion", "Generico");
                 cmd.ExecuteNonQuery();
+<<<<<<< HEAD
                 CONEXIONMAESTRA.cerrar();
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
 
             }
             catch (Exception EX)
@@ -1294,6 +1479,12 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
             insertar.insertarClavesSat(parametros);
         }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
         public void insertarTelefono()
         {
             try
@@ -1311,6 +1502,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 MessageBox.Show(EX.Message);
             }
         }
+<<<<<<< HEAD
         public int idCorreo;
         public int idDireccion;
         public int idDatosFiscales;
@@ -1334,11 +1526,20 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             obtenerids();
             try
             {
+=======
+        private void Ingresar_empresa()
+        {
+            try
+            {
+
+
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
               
+<<<<<<< HEAD
                 cmd = new SqlCommand("insertarEmpresa", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -1351,10 +1552,30 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@idDireccion", idDireccion);
                 cmd.Parameters.AddWithValue("@idDatosFiscales", idDatosFiscales);
                 cmd.Parameters.AddWithValue("@Frecuencia_de_copias", 1);
+=======
+                cmd = new SqlCommand("insertar_Empresa", con);
+              cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Nombre_Empresa", txtempresa.Text);
+                cmd.Parameters.AddWithValue("@Impuesto", txtimpuesto.Text);
+                cmd.Parameters.AddWithValue("@Porcentaje_impuesto", txtporcentaje.Text);
+                cmd.Parameters.AddWithValue("@Moneda", txtmoneda.Text);
+                cmd.Parameters.AddWithValue("@Trabajas_con_impuestos", TXTTRABAJASCONIMPUESTOS.Text);
+
+                cmd.Parameters.AddWithValue("@Carpeta_para_copias_de_seguridad", txtRuta.Text);
+                cmd.Parameters.AddWithValue("@Correo_para_envio_de_reportes", txtcorreo.Text);
+                cmd.Parameters.AddWithValue("@Ultima_fecha_de_copia_de_seguridad", "Ninguna");
+                cmd.Parameters.AddWithValue("@Ultima_fecha_de_copia_date", txtfecha.Value);
+                cmd.Parameters.AddWithValue("@Frecuencia_de_copias", 1);
+                cmd.Parameters.AddWithValue("@Estado", "PENDIENTE");
+                cmd.Parameters.AddWithValue("@Tipo_de_empresa", "GENERAL");
+
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 if (TXTCON_LECTORA.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Modo_de_busqueda", "LECTORA");
                 }
+<<<<<<< HEAD
                 if (txtteclado.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Modo_de_busqueda", "TECLADO");
@@ -1363,6 +1584,26 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 System.IO.MemoryStream ms = new System.IO.MemoryStream();
                 ImagenEmpresa.Image.Save(ms, ImagenEmpresa.Image.RawFormat);
                 cmd.Parameters.AddWithValue("@logo", ms.GetBuffer());
+=======
+
+
+                if (txtteclado.Checked == true)
+                {
+
+               
+                    cmd.Parameters.AddWithValue("@Modo_de_busqueda", "TECLADO");
+                }
+
+
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                ImagenEmpresa.Image.Save(ms, ImagenEmpresa.Image.RawFormat);
+
+
+                cmd.Parameters.AddWithValue("@logo", ms.GetBuffer());
+                cmd.Parameters.AddWithValue("@Pais", TXTPAIS.Text);
+                cmd.Parameters.AddWithValue("@Redondeo_de_total", "NO");
+
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 cmd.ExecuteNonQuery();
                 con.Close();
              
@@ -1372,6 +1613,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 MessageBox.Show(ex.Message);
             }
         }
+<<<<<<< HEAD
      
         private void ingresarDatosFiscales()
         {
@@ -1419,6 +1661,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 MessageBox.Show(EX.Message);
             }
         }
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
 
         private void TXTCON_LECTORA_CheckedChanged(object sender, EventArgs e)
         {
@@ -1510,6 +1754,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
             }
         }
+<<<<<<< HEAD
         
     private void REGISTRO_DE_EMPRESA_Load(object sender, EventArgs e)
         {
@@ -1743,6 +1988,32 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
         private void panelVDatosFiscales_Paint(object sender, PaintEventArgs e)
         {
+=======
+
+        private void REGISTRO_DE_EMPRESA_Load(object sender, EventArgs e)
+        {
+            Bases.Obtener_serialPC(ref lblIDSERIAL);
+            Panel16.Location = new Point((Width - Panel16.Width) / 2, (Height - Panel16.Height) / 2);       
+            TXTCON_LECTORA.Checked = true;
+            txtteclado.Checked = false;
+            no.Checked = true;
+            Panel11.Visible = false;
+            Panel9.Visible = false;
+
+
+            TSIGUIENTE.Visible = false;
+            TSIGUIENTE_Y_GUARDAR.Visible = true;
+        }
+
+        private void si_CheckedChanged(object sender, EventArgs e)
+        {
+            Panel11.Visible = true;
+        }
+
+        private void no_CheckedChanged(object sender, EventArgs e)
+        {
+            Panel11.Visible = false;
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
 
         }
     }

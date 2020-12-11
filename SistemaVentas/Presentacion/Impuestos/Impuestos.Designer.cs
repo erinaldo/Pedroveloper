@@ -231,6 +231,10 @@
             this.txtTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTipo.FormattingEnabled = true;
             this.txtTipo.Items.AddRange(new object[] {
+<<<<<<< HEAD
+=======
+            "IVA",
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             "Impuesto Categoria",
             "Impuesto Productos"});
             this.txtTipo.Location = new System.Drawing.Point(392, 57);

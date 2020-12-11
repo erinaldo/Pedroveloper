@@ -22,6 +22,10 @@ namespace SistemaVentas.Presentacion
 {
 
     public partial class LOGIN : Form
+<<<<<<< HEAD
+=======
+
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
     {
 
         int contador;
@@ -76,7 +80,11 @@ namespace SistemaVentas.Presentacion
                     b.Name = rdr["idUsuario"].ToString();
                     b.Size = new System.Drawing.Size(175, 25);
                     b.Font = new System.Drawing.Font("Microsoft Sans Serif", 13);
+<<<<<<< HEAD
                     b.BackColor = Color.FromArgb(30, 30, 46);
+=======
+                    b.BackColor = Color.FromArgb(20, 20, 20);
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                     b.ForeColor = Color.White;
                     b.Dock = DockStyle.Bottom;
                     b.TextAlign = ContentAlignment.MiddleCenter;
@@ -84,7 +92,11 @@ namespace SistemaVentas.Presentacion
 
                     p1.Size = new System.Drawing.Size(155, 167);
                     p1.BorderStyle = BorderStyle.None;
+<<<<<<< HEAD
                     p1.BackColor = Color.FromArgb(30, 30, 46);
+=======
+                    p1.BackColor = Color.FromArgb(20, 20, 20);
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
 
 
                     I1.Size = new System.Drawing.Size(175, 132);
@@ -155,21 +167,31 @@ namespace SistemaVentas.Presentacion
                 da.Fill(dt);
                 datalistadousuarios.DataSource = dt;
                 con.Close();
+<<<<<<< HEAD
+=======
+                datalistadousuarios.DataSource = dt;
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             PanelIngreso_de_contraseña.Visible = true;
             PanelUsuarios.Visible = false;
             txtpaswwor.Focus();
 
+<<<<<<< HEAD
             foto.BackgroundImage = null;
             byte[] b = (Byte[])datalistadousuarios.SelectedCells[5].Value;
             MemoryStream ms = new MemoryStream(b);
             foto.Image = Image.FromStream(ms);
 
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
         }
 
         private void mieventoLabel(System.Object sender, EventArgs e)
@@ -203,7 +225,11 @@ namespace SistemaVentas.Presentacion
         private void LOGIN_Load(object sender, EventArgs e)
         {
 
+<<<<<<< HEAD
             PdeCarga2.Visible = false;
+=======
+
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             Bases.Multilinea(ref datalistado);
             txtpaswwor.Focus();
             validar_conexion();
@@ -243,6 +269,7 @@ namespace SistemaVentas.Presentacion
         void escalar_paneles()
         {
 
+<<<<<<< HEAD
             PanelUsuarios.Size = new System.Drawing.Size(932,459);
             PanelUsuarios.Dock = DockStyle.Fill;
             //separator.
@@ -256,6 +283,17 @@ namespace SistemaVentas.Presentacion
 
             PanelIngreso_de_contraseña.Location = new Point(312,113);
             PanelUsuarios.Location = new Point((Width - PanelUsuarios.Width) / 2, (Height - PanelUsuarios.Height) / 2);
+=======
+            PanelUsuarios.Size = new System.Drawing.Size(1005, 649);
+            PanelIngreso_de_contraseña.Size = new System.Drawing.Size(397, 654);
+            PdeCarga.Size = new System.Drawing.Size(397, 654);
+            PanelRestaurarCuenta.Size = new System.Drawing.Size(538, 654);
+            PanelIngreso_de_contraseña.Visible = false;
+            PdeCarga.Location = new Point((Width - PdeCarga.Width) / 2, (Height - PdeCarga.Height) / 2);
+            PanelIngreso_de_contraseña.Location = new Point((Width - PanelIngreso_de_contraseña.Width) / 2, (Height - PanelIngreso_de_contraseña.Height) / 2);
+            PanelUsuarios.Location = new Point((Width - PanelUsuarios.Width) / 2, (Height - PanelUsuarios.Height) / 2);
+            PanelRestaurarCuenta.Location = new Point((Width - PanelRestaurarCuenta.Width) / 2, (Height - PanelRestaurarCuenta.Height) / 2);
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             PanelUsuarios.Visible = true;
         }
         private void flowLayoutPanel1_Click(object sender, EventArgs e)
@@ -659,6 +697,10 @@ namespace SistemaVentas.Presentacion
                         Dispose();
                         Presentacion.ASISTENTE_DE_INSTALACION_servidor.REGISTRO_DE_EMPRESA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.REGISTRO_DE_EMPRESA();
                         frm.ShowDialog();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                     }
                     else
                     {
@@ -820,12 +862,20 @@ namespace SistemaVentas.Presentacion
 
             private void timerValidarRol_Tick(object sender, EventArgs e)
             {
+<<<<<<< HEAD
                 if (PdeCarga2.Value < 100)
                 {
                     BackColor = Color.FromArgb(30, 30, 46);
                 PanelIngreso_de_contraseña.Visible = false;
                     PdeCarga2.Value = PdeCarga2.Value + 10;
                     PdeCarga2.Visible = true;
+=======
+                if (progressBar1.Value < 100)
+                {
+                    BackColor = Color.FromArgb(26, 26, 26);
+                    progressBar1.Value = progressBar1.Value + 10;
+                    PdeCarga.Visible = true;
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
                 }
                 else
                 {
@@ -878,14 +928,32 @@ namespace SistemaVentas.Presentacion
 
             }
 
+<<<<<<< HEAD
 
             private void Button2_Click(object sender, EventArgs e)
             {
                
+=======
+            private void btncambioUsuario_Click(object sender, EventArgs e)
+            {
+                PanelUsuarios.Visible = true;
+                PanelIngreso_de_contraseña.Visible = false;
+                txtpaswwor.Clear();
+            }
+
+            private void Button2_Click(object sender, EventArgs e)
+            {
+                PanelRestaurarCuenta.Visible = true;
+                PanelRestaurarCuenta.BringToFront();
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
 
             private void button3_Click_1(object sender, EventArgs e)
             {
+<<<<<<< HEAD
+=======
+                enviarCorreo();
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
             }
 
 
@@ -898,6 +966,7 @@ namespace SistemaVentas.Presentacion
             {
 
             }
+<<<<<<< HEAD
 
         private void Salir_Click_1(object sender, EventArgs e)
         {
@@ -942,4 +1011,7 @@ namespace SistemaVentas.Presentacion
 
         }
     }
+=======
+        }
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
     } 

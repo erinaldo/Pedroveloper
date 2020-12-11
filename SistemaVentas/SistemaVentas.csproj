@@ -77,9 +77,12 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\BUNIFU UI\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
     <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
@@ -98,10 +101,13 @@
     <Reference Include="GMap.NET.WindowsPresentation, Version=2.0.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
       <HintPath>..\packages\GMap.NET.WinPresentation.2.0.1\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="Guna.UI">
       <HintPath>..\..\Guna.UI-Framework-Lib-master\Guna.UI_WinForms\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -163,7 +169,10 @@
     <Compile Include="Logica\Lcontrolcobros.cs" />
     <Compile Include="Logica\Lcontrolpagos.cs" />
     <Compile Include="Logica\LCotizacion.cs" />
+<<<<<<< HEAD
     <Compile Include="Logica\LDatosFiscales.cs" />
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
     <Compile Include="Logica\LDescuento.cs" />
     <Compile Include="Logica\LdetalleFactura.cs" />
     <Compile Include="Logica\LDireccion.cs" />
@@ -189,7 +198,10 @@
     <Compile Include="Logica\LTelefono.cs" />
     <Compile Include="Logica\LUnidadProductos.cs" />
     <Compile Include="Logica\LUnidadesMedida.cs" />
+<<<<<<< HEAD
     <Compile Include="Logica\LUsuarios_.cs" />
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
     <Compile Include="Logica\LVehiculos.cs" />
     <Compile Include="Logica\Lventas.cs" />
     <Compile Include="Logica\Mayoreo.cs" />
@@ -490,12 +502,15 @@
     <Compile Include="Presentacion\LICENCIAS_MENBRESIAS\MembresiasNuevo.Designer.cs">
       <DependentUpon>MembresiasNuevo.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Presentacion\LoginInicio\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\LoginInicio\Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
     <Compile Include="Presentacion\LOGIN\LOGIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -878,9 +893,12 @@
     <EmbeddedResource Include="Presentacion\LICENCIAS_MENBRESIAS\MembresiasNuevo.resx">
       <DependentUpon>MembresiasNuevo.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Presentacion\LoginInicio\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
     <EmbeddedResource Include="Presentacion\LOGIN\LOGIN.resx">
       <DependentUpon>LOGIN.cs</DependentUpon>
     </EmbeddedResource>

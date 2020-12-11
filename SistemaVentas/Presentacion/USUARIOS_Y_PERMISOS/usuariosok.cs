@@ -21,7 +21,14 @@ namespace SistemaVentas
         int idEmpleado1;
         int idPersona;
         int idPersona1;
+<<<<<<< HEAD
 
+=======
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+>>>>>>> 070e0db6f7cb668b558c2edfe87731c1cff6d7d7
         private void Cargar_estado_de_iconos()
         {
             try
