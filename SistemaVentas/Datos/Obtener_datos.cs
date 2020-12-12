@@ -453,6 +453,21 @@ namespace SistemaVentas.Datos
                 return true;
             }
         }
+        public void obtenerDatosEmpresa(ref DataTable dt)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("obtenerDatosEmpresa", CONEXIONMAESTRA.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                CONEXIONMAESTRA.cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
 
         public bool mostrarVehiculosV(ref DataTable dt)
         {

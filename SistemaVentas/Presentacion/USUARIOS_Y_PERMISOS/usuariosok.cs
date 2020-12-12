@@ -21,13 +21,8 @@ namespace SistemaVentas
         int idEmpleado1;
         int idPersona;
         int idPersona1;
-
-
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        int idCorreo;
+        string correo;
 
         private void Cargar_estado_de_iconos()
         {
@@ -97,11 +92,7 @@ namespace SistemaVentas
             return Regex.IsMatch(sMail, @"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$");
 
         }
-        private void mostrarRoles()
-        {
 
-
-        }
         private void mostrar()
         {
             try
@@ -144,8 +135,6 @@ namespace SistemaVentas
             panelICONO.Visible = true;
             panelborder.Visible = false;
             panelborder.Dock = DockStyle.Fill;
-
-
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -178,51 +167,13 @@ namespace SistemaVentas
 
         }
 
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            //   ICONO.Image = pictureBox7.Image;
-            lblnumeroIcono.Text = "5";
-            LblAnuncioIcono.Visible = false;
-            panelICONO.Visible = false;
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            //   ICONO.Image = pictureBox8.Image;
-            lblnumeroIcono.Text = "6";
-            LblAnuncioIcono.Visible = false;
-            panelICONO.Visible = false;
-        }
-
-        private void pictureBox9_Click(object sender, EventArgs e)
-        {
-            //    ICONO.Image = pictureBox9.Image;
-            lblnumeroIcono.Text = "7";
-            LblAnuncioIcono.Visible = false;
-            panelICONO.Visible = false;
-        }
-
-
-        private void pictureBox10_Click(object sender, EventArgs e)
-        {
-            //       ICONO.Image = pictureBox10.Image;
-            lblnumeroIcono.Text = "8";
-            LblAnuncioIcono.Visible = false;
-            panelICONO.Visible = false;
-        }
         public void HideWidthColumns()
         {
             tablaUsuarios.Columns[10].Visible = false;
 
-            /*
-            tablaUsuarios.Columns[6].Width = 150;
-            */
             tablaUsuarios.Columns[0].DisplayIndex = 14;
             tablaUsuarios.Columns[1].DisplayIndex = 14;
-            /*
-            tablaUsuarios.Columns[7].Width = 80;
-            tablaUsuarios.Columns[8].Width = 300;
-            tablaUsuarios.Columns[9].Width = 200;*/
+
         }
         private void usuariosok_Load(object sender, EventArgs e)
         {
@@ -241,31 +192,9 @@ namespace SistemaVentas
             txtroles.ValueMember = "idRol";
         }
 
-        private void PictureBox2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void datalistado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        /*
-         
-                tablaUsuarios.Columns[2].Visible = false;
-                tablaUsuarios.Columns[3].Visible = false;
-                tablaUsuarios.Columns[4].Visible = false;
-                tablaUsuarios.Columns[11].Visible = false;
-                tablaUsuarios.Columns[13].Visible = false;
-         **/
 
         #region Editar usuarios
-      
+
         #endregion
 
         private void ICONO_Click(object sender, EventArgs e)
@@ -357,15 +286,6 @@ namespace SistemaVentas
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             Numeros(txtbuscar, e);
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
@@ -597,39 +517,104 @@ namespace SistemaVentas
             }
         }
 
+        private bool editarCorreo()
+        {
+            MessageBox.Show("id" + idCorreo.ToString());
+            MessageBox.Show(correo.ToString());
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd = new SqlCommand("editar_correo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCorreo",idCorreo);
+                cmd.Parameters.AddWithValue("@correo",correo);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+            }
+        }
         private void guardarcambios_Click(object sender, EventArgs e)
         {
-
-            if (txtEmpleado.Text != "")
+            bool band = false;
+            if (validar_Mail(txtCorreo.Text) == false)
             {
-                try
+                MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCorreo.Focus();
+                txtCorreo.SelectAll();
+            }
+            else
+            {
+                band = editarCorreo();
+                if (band == true)
                 {
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand();
-                    cmd = new SqlCommand("editar_usuario", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@idUsuario", lblId_usuario.Text);
-                    cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado1);
-                    cmd.Parameters.AddWithValue("@Login", txtlogin.Text);
-                    cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-                    cmd.Parameters.AddWithValue("@idRol", Convert.ToInt32(txtroles.SelectedValue));
                     System.IO.MemoryStream ms = new System.IO.MemoryStream();
                     ICONO.Image.Save(ms, ICONO.Image.RawFormat);
-                    cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
-                    cmd.Parameters.AddWithValue("@Nombre_de_icono", lblnumeroIcono.Text);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    mostrar();
-                    panelRegistros.Visible = false;
+                    if (ICONO.Image != null)
+                    {
+                        if (txtEmpleado.Text != "")
+                        {
+                            if (txtroles.Text != "")
+                            {
+                                if (LblAnuncioIcono.Visible == false)
+                                {
+                                    try
+                                    {
+                                        SqlConnection con = new SqlConnection();
+                                        con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                                        con.Open();
+                                        SqlCommand cmd = new SqlCommand();
+                                        cmd = new SqlCommand("editar_usuario", con);
+                                        cmd.CommandType = CommandType.StoredProcedure;
+                                        cmd.Parameters.AddWithValue("@idUsuario", lblId_usuario.Text);
+                                        cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
+                                        cmd.Parameters.AddWithValue("@Login", txtlogin.Text);
+                                        cmd.Parameters.AddWithValue("@Password", Bases.Encriptar(txtPassword.Text));
+                                        cmd.Parameters.AddWithValue("@idRol", Convert.ToInt32(txtroles.SelectedValue));
+                                        ICONO.Image.Save(ms, ICONO.Image.RawFormat);
+                                        cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
+                                        cmd.Parameters.AddWithValue("@Nombre_de_icono", lblnumeroIcono.Text);
+                                        cmd.ExecuteNonQuery();
+                                        con.Close();
+                                        mostrar();
+                                        panelRegistros.Visible = false;
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show(ex.Message);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Elija un Icono", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Elija un Rol", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Asegúrese de haber llenado todos los campos para poder continuar", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asegúrese de haber seleccionado el icono", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
-
+                    MessageBox.Show("El correo digitado existe\nDigite un correo diferente.", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
             }
         }
 
@@ -638,12 +623,33 @@ namespace SistemaVentas
             panelRegistros.Visible = false;
 
         }
-        private void ObtenerDatos()
-        {
-            
-        }
         private void tablaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (tablaUsuarios.Rows[e.RowIndex].Cells["Editar"].Selected)
+            {
+                
+                MessageBox.Show(tablaUsuarios.Rows[e.RowIndex].Cells["idUsuario"].Value.ToString());
+                  lblId_usuario.Text = tablaUsuarios.Rows[e.RowIndex].Cells["idUsuario"].Value.ToString();
+                idEmpleado = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idEmpleado"].Value);
+                idEmpleado1 = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idEmpleado"].Value);
+                txtEmpleado.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Nombre"].Value.ToString() ;
+                txtlogin.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Login"].Value.ToString();
+                txtPassword.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Password"].Value.ToString();
+                ICONO.BackgroundImage = null;
+                txtroles.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Rol"].Value.ToString();
+                lblnumeroIcono.Text = tablaUsuarios.Rows[e.RowIndex].Cells["NombreIcono"].Value.ToString();
+                txtCorreo.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
+                idCorreo = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idCorreo"].Value);
+                correo = tablaUsuarios.Rows[e.RowIndex].Cells["Correo"].Value.ToString(); 
+                byte[] b = (Byte[])tablaUsuarios.Rows[e.RowIndex].Cells["Icono"].Value;
+                MemoryStream ms = new MemoryStream(b);
+                ICONO.Image = Image.FromStream(ms);
+                LblAnuncioIcono.Visible = false;
+                panelRegistros.Visible = true;
+                panelRegistros.Dock = DockStyle.Fill;
+                guardar.Visible = false;
+                guardarcambios.Visible = true;
+            }
             if (e.ColumnIndex == this.tablaUsuarios.Columns["Eli"].Index)
             {
                 DialogResult result;
@@ -654,8 +660,8 @@ namespace SistemaVentas
 
                     try
                     {
-                        int onekey = Convert.ToInt32(tablaUsuarios.SelectedCells[2].Value.ToString());
-                        string usuario = tablaUsuarios.SelectedCells[7].Value.ToString();
+                        int onekey = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idUsuario"].Value);
+                        string usuario = tablaUsuarios.Rows[e.RowIndex].Cells["Login"].Value.ToString();
                         SqlCommand cmd;
                         SqlConnection con = new SqlConnection();
                         con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
@@ -675,28 +681,6 @@ namespace SistemaVentas
                 }
                 mostrar();
             }
-            if (e.ColumnIndex == this.tablaUsuarios.Columns["Editar"].Index)
-            {
-                if (tablaUsuarios.Rows.Count > 0)
-                {
-                    lblId_usuario.Text = tablaUsuarios.SelectedCells[2].Value.ToString();
-                    idEmpleado1 = Convert.ToInt32(tablaUsuarios.SelectedCells[3].Value);
-                    txtEmpleado.Text = tablaUsuarios.SelectedCells[5].Value.ToString();
-                    txtlogin.Text = tablaUsuarios.SelectedCells[7].Value.ToString();
-                    txtPassword.Text = tablaUsuarios.SelectedCells[8].Value.ToString();
-                    ICONO.BackgroundImage = null;
-                    txtroles.Text = tablaUsuarios.SelectedCells[9].Value.ToString();
-                    lblnumeroIcono.Text = tablaUsuarios.SelectedCells[10].Value.ToString();
-                    byte[] b = (Byte[])tablaUsuarios.SelectedCells[11].Value;
-                    MemoryStream ms = new MemoryStream(b);
-                    ICONO.Image = Image.FromStream(ms);
-                    LblAnuncioIcono.Visible = false;
-                    panelRegistros.Visible = true;
-                    panelRegistros.Dock = DockStyle.Fill;
-                    guardar.Visible = false;
-                    guardarcambios.Visible = true;
-                }
-            }
         }
-        }
+    }
 }

@@ -83,7 +83,7 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
                     {
                         if (Operacion == "ACCESO")
                         {
-                            EMPRESA_CONFIGURACION.EMPRESA_CONFIG frm = new EMPRESA_CONFIGURACION.EMPRESA_CONFIG();
+                            ASISTENTE_DE_INSTALACION_servidor.REGISTRO_DE_EMPRESA frm = new ASISTENTE_DE_INSTALACION_servidor.REGISTRO_DE_EMPRESA();
                             frm.ShowDialog();
                         }
                         else

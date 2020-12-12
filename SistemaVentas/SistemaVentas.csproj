@@ -406,12 +406,6 @@
     <Compile Include="Presentacion\Empleados\EmpleadosOK.Designer.cs">
       <DependentUpon>EmpleadosOK.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\EMPRESA_CONFIGURACION\EMPRESA_CONFIG.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentacion\EMPRESA_CONFIGURACION\EMPRESA_CONFIG.Designer.cs">
-      <DependentUpon>EMPRESA_CONFIG.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentacion\FacturasCredito\FacturasCredito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -836,9 +830,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Empleados\EmpleadosOK.resx">
       <DependentUpon>EmpleadosOK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\EMPRESA_CONFIGURACION\EMPRESA_CONFIG.resx">
-      <DependentUpon>EMPRESA_CONFIG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FacturasCredito\FacturasCredito.resx">
       <DependentUpon>FacturasCredito.cs</DependentUpon>

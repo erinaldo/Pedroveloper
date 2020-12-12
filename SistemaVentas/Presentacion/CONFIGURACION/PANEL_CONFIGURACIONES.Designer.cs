@@ -42,11 +42,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ToolStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnadministrar = new System.Windows.Forms.ToolStripMenuItem();
-            this.FlowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Panel6 = new System.Windows.Forms.Panel();
-            this.btnRespaldos = new System.Windows.Forms.Button();
-            this.Label5 = new System.Windows.Forms.Label();
-            this.Label6 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel16 = new System.Windows.Forms.Panel();
@@ -102,23 +97,30 @@
             this.button14 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.FlowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.btnimpresoras = new System.Windows.Forms.Button();
-            this.Label4 = new System.Windows.Forms.Label();
-            this.Label30 = new System.Windows.Forms.Label();
             this.FlowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel7 = new System.Windows.Forms.Panel();
             this.btnEnvios_a_correo = new System.Windows.Forms.Button();
             this.btncorreo = new System.Windows.Forms.Button();
             this.Label2 = new System.Windows.Forms.Label();
+            this.FlowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Panel6 = new System.Windows.Forms.Panel();
+            this.btnRespaldos = new System.Windows.Forms.Button();
+            this.Label5 = new System.Windows.Forms.Label();
+            this.FlowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnimpresoras = new System.Windows.Forms.Button();
+            this.Label4 = new System.Windows.Forms.Label();
             this.Label38 = new System.Windows.Forms.Label();
+            this.Label6 = new System.Windows.Forms.Label();
+            this.Label30 = new System.Windows.Forms.Label();
             this.Panel38 = new System.Windows.Forms.Panel();
             this.FlowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel40 = new System.Windows.Forms.Panel();
             this.btndiseñador = new System.Windows.Forms.Button();
             this.Label31 = new System.Windows.Forms.Label();
             this.Label35 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnNewBrand = new Bunifu.Framework.UI.BunifuThinButton2();
             this.panelUnidadVenta = new System.Windows.Forms.Panel();
             this.datalistado = new System.Windows.Forms.DataGridView();
             this.panel22 = new System.Windows.Forms.Panel();
@@ -138,13 +140,9 @@
             this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.btnNewBrand = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.ToolStrip1.SuspendLayout();
-            this.FlowLayoutPanel5.SuspendLayout();
-            this.Panel6.SuspendLayout();
             this.FlowLayoutPanel1.SuspendLayout();
             this.Panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_empresa)).BeginInit();
@@ -165,13 +163,16 @@
             this.panel23.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.FlowLayoutPanel3.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.FlowLayoutPanel4.SuspendLayout();
             this.Panel7.SuspendLayout();
+            this.FlowLayoutPanel5.SuspendLayout();
+            this.Panel6.SuspendLayout();
+            this.FlowLayoutPanel3.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.Panel38.SuspendLayout();
             this.FlowLayoutPanel2.SuspendLayout();
             this.Panel40.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panelUnidadVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
             this.panel22.SuspendLayout();
@@ -183,7 +184,6 @@
             this.panel30.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -200,7 +200,6 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.ToolStrip1);
             this.panel2.Controls.Add(this.label20);
-            this.panel2.Controls.Add(this.FlowLayoutPanel1);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.Panel38);
             this.panel2.Controls.Add(this.panel3);
@@ -236,64 +235,6 @@
             this.btnadministrar.Text = "Volver al Administrador";
             this.btnadministrar.Click += new System.EventHandler(this.ToolStripButton22_Click);
             // 
-            // FlowLayoutPanel5
-            // 
-            this.FlowLayoutPanel5.Controls.Add(this.Panel6);
-            this.FlowLayoutPanel5.ForeColor = System.Drawing.Color.DimGray;
-            this.FlowLayoutPanel5.Location = new System.Drawing.Point(140, 34);
-            this.FlowLayoutPanel5.Name = "FlowLayoutPanel5";
-            this.FlowLayoutPanel5.Size = new System.Drawing.Size(171, 106);
-            this.FlowLayoutPanel5.TabIndex = 602;
-            // 
-            // Panel6
-            // 
-            this.Panel6.BackColor = System.Drawing.Color.Transparent;
-            this.Panel6.Controls.Add(this.btnRespaldos);
-            this.Panel6.Controls.Add(this.Label5);
-            this.Panel6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Panel6.Location = new System.Drawing.Point(3, 3);
-            this.Panel6.Name = "Panel6";
-            this.Panel6.Size = new System.Drawing.Size(157, 94);
-            this.Panel6.TabIndex = 590;
-            // 
-            // btnRespaldos
-            // 
-            this.btnRespaldos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRespaldos.BackgroundImage")));
-            this.btnRespaldos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRespaldos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRespaldos.FlatAppearance.BorderSize = 0;
-            this.btnRespaldos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRespaldos.ForeColor = System.Drawing.Color.White;
-            this.btnRespaldos.Location = new System.Drawing.Point(0, 0);
-            this.btnRespaldos.Name = "btnRespaldos";
-            this.btnRespaldos.Size = new System.Drawing.Size(157, 47);
-            this.btnRespaldos.TabIndex = 5;
-            this.btnRespaldos.UseVisualStyleBackColor = true;
-            this.btnRespaldos.Click += new System.EventHandler(this.btnRespaldos_Click);
-            // 
-            // Label5
-            // 
-            this.Label5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.Label5.ForeColor = System.Drawing.Color.White;
-            this.Label5.Location = new System.Drawing.Point(0, 47);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(157, 47);
-            this.Label5.TabIndex = 3;
-            this.Label5.Text = "Respaldo de Base de datos";
-            this.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Label6
-            // 
-            this.Label6.AutoSize = true;
-            this.Label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Label6.ForeColor = System.Drawing.Color.White;
-            this.Label6.Location = new System.Drawing.Point(136, 11);
-            this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(127, 20);
-            this.Label6.TabIndex = 0;
-            this.Label6.Text = "Mantenimiento";
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -327,9 +268,9 @@
             this.FlowLayoutPanel1.Controls.Add(this.panel23);
             this.FlowLayoutPanel1.Controls.Add(this.panel24);
             this.FlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(15, 23);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(3, 23);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
-            this.FlowLayoutPanel1.Size = new System.Drawing.Size(977, 151);
+            this.FlowLayoutPanel1.Size = new System.Drawing.Size(997, 151);
             this.FlowLayoutPanel1.TabIndex = 603;
             // 
             // Panel16
@@ -1005,68 +946,10 @@
             this.panel4.Controls.Add(this.Label38);
             this.panel4.Controls.Add(this.Label6);
             this.panel4.Controls.Add(this.Label30);
-            this.panel4.Location = new System.Drawing.Point(15, 352);
+            this.panel4.Location = new System.Drawing.Point(6, 352);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(977, 140);
+            this.panel4.Size = new System.Drawing.Size(994, 140);
             this.panel4.TabIndex = 595;
-            // 
-            // FlowLayoutPanel3
-            // 
-            this.FlowLayoutPanel3.Controls.Add(this.panel8);
-            this.FlowLayoutPanel3.ForeColor = System.Drawing.Color.DimGray;
-            this.FlowLayoutPanel3.Location = new System.Drawing.Point(7, 34);
-            this.FlowLayoutPanel3.Name = "FlowLayoutPanel3";
-            this.FlowLayoutPanel3.Size = new System.Drawing.Size(115, 106);
-            this.FlowLayoutPanel3.TabIndex = 602;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Transparent;
-            this.panel8.Controls.Add(this.btnimpresoras);
-            this.panel8.Controls.Add(this.Label4);
-            this.panel8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel8.Location = new System.Drawing.Point(3, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(100, 94);
-            this.panel8.TabIndex = 590;
-            // 
-            // btnimpresoras
-            // 
-            this.btnimpresoras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnimpresoras.BackgroundImage")));
-            this.btnimpresoras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnimpresoras.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnimpresoras.FlatAppearance.BorderSize = 0;
-            this.btnimpresoras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnimpresoras.ForeColor = System.Drawing.Color.White;
-            this.btnimpresoras.Location = new System.Drawing.Point(0, 0);
-            this.btnimpresoras.Name = "btnimpresoras";
-            this.btnimpresoras.Size = new System.Drawing.Size(100, 75);
-            this.btnimpresoras.TabIndex = 5;
-            this.btnimpresoras.UseVisualStyleBackColor = true;
-            this.btnimpresoras.Click += new System.EventHandler(this.btnimpresoras_Click);
-            // 
-            // Label4
-            // 
-            this.Label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.Label4.ForeColor = System.Drawing.Color.White;
-            this.Label4.Location = new System.Drawing.Point(0, 75);
-            this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(100, 19);
-            this.Label4.TabIndex = 3;
-            this.Label4.Text = "Impresoras";
-            this.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Label30
-            // 
-            this.Label30.AutoSize = true;
-            this.Label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Label30.ForeColor = System.Drawing.Color.White;
-            this.Label30.Location = new System.Drawing.Point(6, 11);
-            this.Label30.Name = "Label30";
-            this.Label30.Size = new System.Drawing.Size(105, 20);
-            this.Label30.TabIndex = 0;
-            this.Label30.Text = "Dispositivos";
             // 
             // FlowLayoutPanel4
             // 
@@ -1130,6 +1013,100 @@
             this.Label2.Text = "Notificaciones por Correo Electronico";
             this.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // FlowLayoutPanel5
+            // 
+            this.FlowLayoutPanel5.Controls.Add(this.Panel6);
+            this.FlowLayoutPanel5.ForeColor = System.Drawing.Color.DimGray;
+            this.FlowLayoutPanel5.Location = new System.Drawing.Point(140, 34);
+            this.FlowLayoutPanel5.Name = "FlowLayoutPanel5";
+            this.FlowLayoutPanel5.Size = new System.Drawing.Size(171, 106);
+            this.FlowLayoutPanel5.TabIndex = 602;
+            // 
+            // Panel6
+            // 
+            this.Panel6.BackColor = System.Drawing.Color.Transparent;
+            this.Panel6.Controls.Add(this.btnRespaldos);
+            this.Panel6.Controls.Add(this.Label5);
+            this.Panel6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Panel6.Location = new System.Drawing.Point(3, 3);
+            this.Panel6.Name = "Panel6";
+            this.Panel6.Size = new System.Drawing.Size(157, 94);
+            this.Panel6.TabIndex = 590;
+            // 
+            // btnRespaldos
+            // 
+            this.btnRespaldos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRespaldos.BackgroundImage")));
+            this.btnRespaldos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRespaldos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRespaldos.FlatAppearance.BorderSize = 0;
+            this.btnRespaldos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRespaldos.ForeColor = System.Drawing.Color.White;
+            this.btnRespaldos.Location = new System.Drawing.Point(0, 0);
+            this.btnRespaldos.Name = "btnRespaldos";
+            this.btnRespaldos.Size = new System.Drawing.Size(157, 47);
+            this.btnRespaldos.TabIndex = 5;
+            this.btnRespaldos.UseVisualStyleBackColor = true;
+            this.btnRespaldos.Click += new System.EventHandler(this.btnRespaldos_Click);
+            // 
+            // Label5
+            // 
+            this.Label5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Label5.ForeColor = System.Drawing.Color.White;
+            this.Label5.Location = new System.Drawing.Point(0, 47);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(157, 47);
+            this.Label5.TabIndex = 3;
+            this.Label5.Text = "Respaldo de Base de datos";
+            this.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FlowLayoutPanel3
+            // 
+            this.FlowLayoutPanel3.Controls.Add(this.panel8);
+            this.FlowLayoutPanel3.ForeColor = System.Drawing.Color.DimGray;
+            this.FlowLayoutPanel3.Location = new System.Drawing.Point(7, 34);
+            this.FlowLayoutPanel3.Name = "FlowLayoutPanel3";
+            this.FlowLayoutPanel3.Size = new System.Drawing.Size(115, 106);
+            this.FlowLayoutPanel3.TabIndex = 602;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Transparent;
+            this.panel8.Controls.Add(this.btnimpresoras);
+            this.panel8.Controls.Add(this.Label4);
+            this.panel8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(100, 94);
+            this.panel8.TabIndex = 590;
+            // 
+            // btnimpresoras
+            // 
+            this.btnimpresoras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnimpresoras.BackgroundImage")));
+            this.btnimpresoras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnimpresoras.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnimpresoras.FlatAppearance.BorderSize = 0;
+            this.btnimpresoras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnimpresoras.ForeColor = System.Drawing.Color.White;
+            this.btnimpresoras.Location = new System.Drawing.Point(0, 0);
+            this.btnimpresoras.Name = "btnimpresoras";
+            this.btnimpresoras.Size = new System.Drawing.Size(100, 75);
+            this.btnimpresoras.TabIndex = 5;
+            this.btnimpresoras.UseVisualStyleBackColor = true;
+            this.btnimpresoras.Click += new System.EventHandler(this.btnimpresoras_Click);
+            // 
+            // Label4
+            // 
+            this.Label4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Label4.ForeColor = System.Drawing.Color.White;
+            this.Label4.Location = new System.Drawing.Point(0, 75);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(100, 19);
+            this.Label4.TabIndex = 3;
+            this.Label4.Text = "Impresoras";
+            this.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Label38
             // 
             this.Label38.AutoSize = true;
@@ -1141,15 +1118,37 @@
             this.Label38.TabIndex = 0;
             this.Label38.Text = "Notificaciones";
             // 
+            // Label6
+            // 
+            this.Label6.AutoSize = true;
+            this.Label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.Label6.ForeColor = System.Drawing.Color.White;
+            this.Label6.Location = new System.Drawing.Point(136, 11);
+            this.Label6.Name = "Label6";
+            this.Label6.Size = new System.Drawing.Size(127, 20);
+            this.Label6.TabIndex = 0;
+            this.Label6.Text = "Mantenimiento";
+            // 
+            // Label30
+            // 
+            this.Label30.AutoSize = true;
+            this.Label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.Label30.ForeColor = System.Drawing.Color.White;
+            this.Label30.Location = new System.Drawing.Point(6, 11);
+            this.Label30.Name = "Label30";
+            this.Label30.Size = new System.Drawing.Size(105, 20);
+            this.Label30.TabIndex = 0;
+            this.Label30.Text = "Dispositivos";
+            // 
             // Panel38
             // 
             this.Panel38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.Panel38.Controls.Add(this.FlowLayoutPanel2);
             this.Panel38.Controls.Add(this.Label35);
             this.Panel38.ForeColor = System.Drawing.Color.Black;
-            this.Panel38.Location = new System.Drawing.Point(15, 180);
+            this.Panel38.Location = new System.Drawing.Point(3, 180);
             this.Panel38.Name = "Panel38";
-            this.Panel38.Size = new System.Drawing.Size(977, 166);
+            this.Panel38.Size = new System.Drawing.Size(997, 166);
             this.Panel38.TabIndex = 593;
             // 
             // FlowLayoutPanel2
@@ -1209,6 +1208,44 @@
             this.Label35.Size = new System.Drawing.Size(135, 20);
             this.Label35.TabIndex = 0;
             this.Label35.Text = "Personalización";
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.btnNewBrand);
+            this.panel3.Controls.Add(this.FlowLayoutPanel1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1003, 512);
+            this.panel3.TabIndex = 613;
+            // 
+            // btnNewBrand
+            // 
+            this.btnNewBrand.ActiveBorderThickness = 1;
+            this.btnNewBrand.ActiveCornerRadius = 20;
+            this.btnNewBrand.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
+            this.btnNewBrand.ActiveForecolor = System.Drawing.Color.White;
+            this.btnNewBrand.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
+            this.btnNewBrand.BackColor = System.Drawing.Color.White;
+            this.btnNewBrand.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNewBrand.BackgroundImage")));
+            this.btnNewBrand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNewBrand.ButtonText = "NUEVA MARCA";
+            this.btnNewBrand.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewBrand.ForeColor = System.Drawing.Color.White;
+            this.btnNewBrand.IdleBorderThickness = 1;
+            this.btnNewBrand.IdleCornerRadius = 20;
+            this.btnNewBrand.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
+            this.btnNewBrand.IdleForecolor = System.Drawing.Color.White;
+            this.btnNewBrand.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
+            this.btnNewBrand.Location = new System.Drawing.Point(1397, -10);
+            this.btnNewBrand.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.btnNewBrand.Name = "btnNewBrand";
+            this.btnNewBrand.Size = new System.Drawing.Size(201, 54);
+            this.btnNewBrand.TabIndex = 2;
+            this.btnNewBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelUnidadVenta
             // 
@@ -1411,7 +1448,7 @@
             // 
             this.Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("Minimizar.Image")));
-            this.Minimizar.Location = new System.Drawing.Point(62, 20);
+            this.Minimizar.Location = new System.Drawing.Point(73, 20);
             this.Minimizar.Name = "Minimizar";
             this.Minimizar.Size = new System.Drawing.Size(30, 30);
             this.Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1454,47 +1491,12 @@
             // bunifuElipse5
             // 
             this.bunifuElipse5.ElipseRadius = 10;
+            this.bunifuElipse5.TargetControl = this;
             // 
             // bunifuElipse6
             // 
             this.bunifuElipse6.ElipseRadius = 10;
-            // 
-            // btnNewBrand
-            // 
-            this.btnNewBrand.ActiveBorderThickness = 1;
-            this.btnNewBrand.ActiveCornerRadius = 20;
-            this.btnNewBrand.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
-            this.btnNewBrand.ActiveForecolor = System.Drawing.Color.White;
-            this.btnNewBrand.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
-            this.btnNewBrand.BackColor = System.Drawing.Color.White;
-            this.btnNewBrand.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNewBrand.BackgroundImage")));
-            this.btnNewBrand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNewBrand.ButtonText = "NUEVA MARCA";
-            this.btnNewBrand.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNewBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewBrand.ForeColor = System.Drawing.Color.White;
-            this.btnNewBrand.IdleBorderThickness = 1;
-            this.btnNewBrand.IdleCornerRadius = 20;
-            this.btnNewBrand.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
-            this.btnNewBrand.IdleForecolor = System.Drawing.Color.White;
-            this.btnNewBrand.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
-            this.btnNewBrand.Location = new System.Drawing.Point(1397, -10);
-            this.btnNewBrand.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.btnNewBrand.Name = "btnNewBrand";
-            this.btnNewBrand.Size = new System.Drawing.Size(201, 54);
-            this.btnNewBrand.TabIndex = 2;
-            this.btnNewBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Controls.Add(this.btnNewBrand);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1003, 512);
-            this.panel3.TabIndex = 613;
+            this.bunifuElipse6.TargetControl = this;
             // 
             // PANEL_CONFIGURACIONES
             // 
@@ -1517,8 +1519,6 @@
             this.panel2.PerformLayout();
             this.ToolStrip1.ResumeLayout(false);
             this.ToolStrip1.PerformLayout();
-            this.FlowLayoutPanel5.ResumeLayout(false);
-            this.Panel6.ResumeLayout(false);
             this.FlowLayoutPanel1.ResumeLayout(false);
             this.Panel16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Logo_empresa)).EndInit();
@@ -1541,14 +1541,17 @@
             this.panel24.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.FlowLayoutPanel3.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
             this.FlowLayoutPanel4.ResumeLayout(false);
             this.Panel7.ResumeLayout(false);
+            this.FlowLayoutPanel5.ResumeLayout(false);
+            this.Panel6.ResumeLayout(false);
+            this.FlowLayoutPanel3.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.Panel38.ResumeLayout(false);
             this.Panel38.PerformLayout();
             this.FlowLayoutPanel2.ResumeLayout(false);
             this.Panel40.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panelUnidadVenta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
             this.panel22.ResumeLayout(false);
@@ -1561,7 +1564,6 @@
             this.panel30.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

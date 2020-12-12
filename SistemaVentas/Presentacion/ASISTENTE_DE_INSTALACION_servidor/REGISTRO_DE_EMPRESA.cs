@@ -24,6 +24,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         string lblIDSERIAL;
         bool RegistroInformacionAdicional = false;
         public static string correo;
+        public int idEmpresa = 0;
         public bool validar_Mail(string sMail)
         {
             return Regex.IsMatch(sMail, @"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$");
@@ -1518,24 +1519,74 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             }
         }
 
+        private bool verificar()
+        {
+            CONEXIONMAESTRA.abrir();
+            SqlCommand com = new SqlCommand("verificarEmpresa", CONEXIONMAESTRA.conectar);
+            com.CommandType = CommandType.StoredProcedure;
+            idEmpresa = Convert.ToInt32(com.ExecuteScalar());
+            CONEXIONMAESTRA.cerrar();
+            if(idEmpresa > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void ObtenerDatos()
+        {
+            DataTable dt = new DataTable();
+            Obtener_datos datos = new Obtener_datos();
+            datos.obtenerDatosEmpresa(ref dt);
+            tablaUsuarios.DataSource = dt;
+            /*
+            lblId_usuario.Text = tablaUsuarios.Rows[e.RowIndex].Cells["idUsuario"].Value.ToString();
+            idEmpleado = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idEmpleado"].Value);
+            idEmpleado1 = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idEmpleado"].Value);
+            txtEmpleado.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+            txtlogin.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Login"].Value.ToString();
+            txtPassword.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Password"].Value.ToString();
+            ICONO.BackgroundImage = null;
+            txtroles.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Rol"].Value.ToString();
+            lblnumeroIcono.Text = tablaUsuarios.Rows[e.RowIndex].Cells["NombreIcono"].Value.ToString();
+            txtCorreo.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
+            idCorreo = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idCorreo"].Value);
+            correo = tablaUsuarios.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
+            byte[] b = (Byte[])tablaUsuarios.Rows[e.RowIndex].Cells["Icono"].Value;
+            MemoryStream ms = new MemoryStream(b);
+            ICONO.Image = Image.FromStream(ms);*/
+        }
+
         private void REGISTRO_DE_EMPRESA_Load(object sender, EventArgs e)
         {
-            panelInfoBasica.Enabled = false;
-            panelInfoBasicaDetalle.Enabled = false;
-            Salir.Enabled = false;
-            TXTPAIS.SelectedIndex = 0;
-            txtPorcentaje.SelectedIndex = 0;
-            txtImpuesto.SelectedIndex = 0;
-            txtmoneda.SelectedIndex = 0;
-
             Bases.Obtener_serialPC(ref lblIDSERIAL);
-            Panel16.Location = new Point((Width - Panel16.Width) / 2, (Height - Panel16.Height) / 2);
-            TXTCON_LECTORA.Checked = true;
-            txtteclado.Checked = false;
-            no.Checked = true;
-            if (no.Checked)
+            if (verificar() == true) {
+                ObtenerDatos();
+                panelVDatosFiscales.Visible = false;
+                btnSiguiente.Visible = false;
+            }
+            else
             {
-                panelImpuestos.Visible = false;
+
+                panelInfoBasica.Enabled = false;
+                panelInfoBasicaDetalle.Enabled = false;
+                Salir.Enabled = false;
+                TXTPAIS.SelectedIndex = 0;
+                txtPorcentaje.SelectedIndex = 0;
+                txtImpuesto.SelectedIndex = 0;
+                txtmoneda.SelectedIndex = 0;
+
+                Panel16.Location = new Point((Width - Panel16.Width) / 2, (Height - Panel16.Height) / 2);
+                TXTCON_LECTORA.Checked = true;
+                txtteclado.Checked = false;
+                no.Checked = true;
+                if (no.Checked)
+                {
+                    panelImpuestos.Visible = false;
+                }
             }
 
         }
@@ -1553,7 +1604,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
         private void Salir_Click(object sender, EventArgs e)
         {
-
+            Hide();
         }
 
         private void Restaurar_Click(object sender, EventArgs e)
