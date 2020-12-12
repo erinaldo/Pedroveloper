@@ -55,16 +55,6 @@ namespace SistemaVentas.Presentacion.Almacenes
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            TextBox[] array = { txtDescripcionAlmacen, txtStockMinimo, txtAnaquel, txtDireccion, txtLocalizacion,txtZona};
-            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
-            {
-                insertar();
-                rellenarCamposVacios();
-            }
-            else
-            {
-                MessageBox.Show("Canmpos vacios\n Llene correctamente los campos", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private void insertar()
@@ -485,3 +475,14 @@ namespace SistemaVentas.Presentacion.Almacenes
     }
 
 }
+/*
+            TextBox[] array = { txtDescripcionAlmacen, txtStockMinimo, txtAnaquel, txtDireccion, txtLocalizacion,txtZona};
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+                insertar();
+                rellenarCamposVacios();
+            }
+            else
+            {
+                MessageBox.Show("Canmpos vacios\n Llene correctamente los campos", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }*/

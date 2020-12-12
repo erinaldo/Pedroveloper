@@ -787,6 +787,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@correo", "Generico");
                 cmd.Parameters.AddWithValue("@TipoCorreo", "Generico");
                 cmd.ExecuteNonQuery();
+
+
             }
             catch (Exception EX)
             {

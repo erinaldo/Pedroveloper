@@ -292,5 +292,21 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             Maximizar.Visible = false;
             Restaurar.Visible = true;
         }
+
+        private void lbleditarLogo_Click(object sender, EventArgs e)
+        {
+
+            dlg.InitialDirectory = "";
+            dlg.Filter = "Imagenes|*.jpg;*.png";
+            dlg.FilterIndex = 2;
+            dlg.Title = "";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                ImagenAdmin.BackgroundImage = null;
+                ImagenAdmin.Image = new Bitmap(dlg.FileName);
+                ImagenAdmin.SizeMode = PictureBoxSizeMode.Zoom;
+
+            }
+        }
     }
 }
