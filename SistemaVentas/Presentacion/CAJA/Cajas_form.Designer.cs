@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cajas_form));
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panelEdicion_de_caja = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -67,7 +67,20 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.CurvaPanleInformacion = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.Restaurar = new System.Windows.Forms.PictureBox();
+            this.Minimizar = new System.Windows.Forms.PictureBox();
+            this.Maximizar = new System.Windows.Forms.PictureBox();
+            this.Salir = new System.Windows.Forms.PictureBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel18.SuspendLayout();
             this.panelEdicion_de_caja.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -76,38 +89,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Maximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel21.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel18);
-            this.panel1.Controls.Add(this.panel9);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(21, 42);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1329, 696);
-            this.panel1.TabIndex = 0;
             // 
             // panel18
             // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.panel18.Controls.Add(this.panelEdicion_de_caja);
-            this.panel18.Location = new System.Drawing.Point(12, 16);
+            this.panel18.Location = new System.Drawing.Point(38, 59);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(356, 401);
+            this.panel18.Size = new System.Drawing.Size(368, 317);
             this.panel18.TabIndex = 8;
             this.panel18.Visible = false;
             // 
             // panelEdicion_de_caja
             // 
+            this.panelEdicion_de_caja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.panelEdicion_de_caja.Controls.Add(this.button2);
             this.panelEdicion_de_caja.Controls.Add(this.button1);
             this.panelEdicion_de_caja.Controls.Add(this.panel20);
@@ -157,13 +160,13 @@
             // 
             // txtcaja
             // 
-            this.txtcaja.BackColor = System.Drawing.Color.Black;
+            this.txtcaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.txtcaja.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtcaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcaja.ForeColor = System.Drawing.Color.White;
             this.txtcaja.Location = new System.Drawing.Point(12, 87);
             this.txtcaja.Name = "txtcaja";
-            this.txtcaja.Size = new System.Drawing.Size(310, 22);
+            this.txtcaja.Size = new System.Drawing.Size(310, 13);
             this.txtcaja.TabIndex = 1;
             this.txtcaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -180,11 +183,12 @@
             // 
             // panel9
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.panel9.Controls.Add(this.label6);
             this.panel9.Controls.Add(this.label7);
             this.panel9.Controls.Add(this.panel13);
-            this.panel9.Location = new System.Drawing.Point(1097, 36);
+            this.panel9.ForeColor = System.Drawing.Color.White;
+            this.panel9.Location = new System.Drawing.Point(1123, 79);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(208, 143);
             this.panel9.TabIndex = 7;
@@ -193,7 +197,7 @@
             // label6
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 23F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(0, 25);
             this.label6.Name = "label6";
@@ -205,7 +209,7 @@
             // label7
             // 
             this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(0, 116);
             this.label7.Name = "label7";
@@ -220,6 +224,8 @@
             this.panel13.Controls.Add(this.label5);
             this.panel13.Controls.Add(this.menuStrip1);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel13.ForeColor = System.Drawing.Color.White;
             this.panel13.Location = new System.Drawing.Point(0, 0);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(208, 25);
@@ -265,7 +271,8 @@
             // 
             // label5
             // 
-            this.label5.ForeColor = System.Drawing.Color.Gray;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(59, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 25);
@@ -317,13 +324,15 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.panel2.Controls.Add(this.panel14);
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel12);
             this.panel2.Controls.Add(this.panel11);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.panel8);
-            this.panel2.Location = new System.Drawing.Point(666, 16);
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(692, 59);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(208, 143);
             this.panel2.TabIndex = 0;
@@ -379,24 +388,24 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Yellow;
-            this.panel4.Location = new System.Drawing.Point(386, 224);
+            this.panel4.Location = new System.Drawing.Point(412, 267);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(731, 10);
             this.panel4.TabIndex = 4;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(374, 291);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(412, 347);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(791, 363);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(731, 231);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1185, 321);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(1211, 364);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 51);
             this.label4.TabIndex = 1;
@@ -406,8 +415,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(880, 60);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(906, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 51);
             this.label2.TabIndex = 1;
@@ -417,8 +426,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 321);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(29, 364);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(357, 51);
             this.label3.TabIndex = 1;
@@ -427,7 +436,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Yellow;
-            this.panel5.Location = new System.Drawing.Point(386, 224);
+            this.panel5.Location = new System.Drawing.Point(412, 267);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(10, 74);
             this.panel5.TabIndex = 5;
@@ -435,7 +444,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Yellow;
-            this.panel6.Location = new System.Drawing.Point(1107, 224);
+            this.panel6.Location = new System.Drawing.Point(1133, 267);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(10, 77);
             this.panel6.TabIndex = 6;
@@ -443,7 +452,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Yellow;
-            this.panel3.Location = new System.Drawing.Point(758, 150);
+            this.panel3.Location = new System.Drawing.Point(784, 193);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(10, 77);
             this.panel3.TabIndex = 3;
@@ -452,29 +461,169 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(330, 60);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(356, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(330, 51);
             this.label1.TabIndex = 1;
             this.label1.Text = "Caja Principal {";
             // 
+            // CurvaPanleInformacion
+            // 
+            this.CurvaPanleInformacion.ElipseRadius = 7;
+            this.CurvaPanleInformacion.TargetControl = this;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 7;
+            this.bunifuElipse1.TargetControl = this.panel2;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 7;
+            this.bunifuElipse2.TargetControl = this;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel19.Controls.Add(this.Restaurar);
+            this.panel19.Controls.Add(this.Minimizar);
+            this.panel19.Controls.Add(this.Maximizar);
+            this.panel19.Controls.Add(this.Salir);
+            this.panel19.Controls.Add(this.label20);
+            this.panel19.Controls.Add(this.pictureBox5);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(1483, 72);
+            this.panel19.TabIndex = 610;
+            // 
+            // Restaurar
+            // 
+            this.Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("Restaurar.Image")));
+            this.Restaurar.Location = new System.Drawing.Point(1396, 18);
+            this.Restaurar.Name = "Restaurar";
+            this.Restaurar.Size = new System.Drawing.Size(30, 30);
+            this.Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Restaurar.TabIndex = 637;
+            this.Restaurar.TabStop = false;
+            this.Restaurar.Visible = false;
+            this.Restaurar.Click += new System.EventHandler(this.Restaurar_Click);
+            // 
+            // Minimizar
+            // 
+            this.Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("Minimizar.Image")));
+            this.Minimizar.Location = new System.Drawing.Point(1360, 18);
+            this.Minimizar.Name = "Minimizar";
+            this.Minimizar.Size = new System.Drawing.Size(30, 30);
+            this.Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Minimizar.TabIndex = 636;
+            this.Minimizar.TabStop = false;
+            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
+            // 
+            // Maximizar
+            // 
+            this.Maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Maximizar.Image = ((System.Drawing.Image)(resources.GetObject("Maximizar.Image")));
+            this.Maximizar.Location = new System.Drawing.Point(1396, 18);
+            this.Maximizar.Name = "Maximizar";
+            this.Maximizar.Size = new System.Drawing.Size(30, 30);
+            this.Maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Maximizar.TabIndex = 635;
+            this.Maximizar.TabStop = false;
+            this.Maximizar.Click += new System.EventHandler(this.Maximizar_Click);
+            // 
+            // Salir
+            // 
+            this.Salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Salir.Image = ((System.Drawing.Image)(resources.GetObject("Salir.Image")));
+            this.Salir.Location = new System.Drawing.Point(1432, 18);
+            this.Salir.Name = "Salir";
+            this.Salir.Size = new System.Drawing.Size(30, 30);
+            this.Salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Salir.TabIndex = 634;
+            this.Salir.TabStop = false;
+            this.Salir.Click += new System.EventHandler(this.Salir_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(106, 28);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(52, 20);
+            this.label20.TabIndex = 633;
+            this.label20.Text = "CAJA";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(100, 72);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 632;
+            this.pictureBox5.TabStop = false;
+            // 
+            // panel21
+            // 
+            this.panel21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel21.BackgroundImage")));
+            this.panel21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel21.Controls.Add(this.panel18);
+            this.panel21.Controls.Add(this.panel9);
+            this.panel21.Controls.Add(this.panel2);
+            this.panel21.Controls.Add(this.label1);
+            this.panel21.Controls.Add(this.panel4);
+            this.panel21.Controls.Add(this.panel3);
+            this.panel21.Controls.Add(this.flowLayoutPanel1);
+            this.panel21.Controls.Add(this.panel6);
+            this.panel21.Controls.Add(this.label4);
+            this.panel21.Controls.Add(this.panel5);
+            this.panel21.Controls.Add(this.label2);
+            this.panel21.Controls.Add(this.label3);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(0, 72);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(1483, 670);
+            this.panel21.TabIndex = 613;
+            this.panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.panel21_Paint);
+            // 
+            // bunifuElipse3
+            // 
+            this.bunifuElipse3.ElipseRadius = 7;
+            this.bunifuElipse3.TargetControl = this.panel18;
+            // 
+            // bunifuElipse4
+            // 
+            this.bunifuElipse4.ElipseRadius = 7;
+            this.bunifuElipse4.TargetControl = this.panel9;
+            // 
+            // bunifuElipse5
+            // 
+            this.bunifuElipse5.ElipseRadius = 7;
+            this.bunifuElipse5.TargetControl = this.panel2;
+            // 
             // Cajas_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1483, 742);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel21);
+            this.Controls.Add(this.panel19);
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Cajas_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cajas";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Cajas_form_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panelEdicion_de_caja.ResumeLayout(false);
             this.panelEdicion_de_caja.PerformLayout();
@@ -485,13 +634,20 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Maximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Salir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel10;
@@ -529,5 +685,19 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restaurarToolStripMenuItem;
+        private Bunifu.Framework.UI.BunifuElipse CurvaPanleInformacion;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        internal System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.PictureBox Restaurar;
+        private System.Windows.Forms.PictureBox Minimizar;
+        private System.Windows.Forms.PictureBox Maximizar;
+        private System.Windows.Forms.PictureBox Salir;
+        private System.Windows.Forms.Label label20;
+        internal System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel panel21;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
     }
 }

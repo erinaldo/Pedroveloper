@@ -399,9 +399,9 @@ namespace SistemaVentas.Presentacion.Empleados
                 estado = datalistado.SelectedCells[26].Value.ToString();
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                MessageBox.Show(e.StackTrace);
             }
         }
         private void obtenerDatos()

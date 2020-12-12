@@ -78,7 +78,7 @@ namespace SistemaVentas.Presentacion.CAJA
                     p1.Size = new System.Drawing.Size(208, 143);
                     p1.BorderStyle = BorderStyle.None;
                     p1.Dock = DockStyle.Top;
-                    p1.BackColor = Color.FromArgb(20, 20, 20);
+                    p1.BackColor = Color.FromArgb(30, 30, 46);
 
                     p2.Size = new System.Drawing.Size(208, 24);
                     p2.Dock = DockStyle.Top;
@@ -457,6 +457,36 @@ namespace SistemaVentas.Presentacion.CAJA
         private void button2_Click(object sender, EventArgs e)
         {
             panel18.Visible = false;
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void Restaurar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+            Restaurar.Visible = false;
+            Maximizar.Visible = true;
+        }
+
+        private void Maximizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
+            Maximizar.Visible = false;
+            Restaurar.Visible = true;
+        }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void panel21_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

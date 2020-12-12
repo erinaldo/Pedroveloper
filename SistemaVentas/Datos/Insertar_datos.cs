@@ -129,7 +129,37 @@ namespace SistemaVentas.Datos
                 return false;
             }
         }
-
+        public bool editarDatosFiscales(LDatosFiscales d)
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarDatosFiscales", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idDatosFiscales", d.idDatosFiscales);
+                cmd.Parameters.AddWithValue("@NombreFiscal", d.NombreFiscal);
+                cmd.Parameters.AddWithValue("@infoAdicional", d.infoAdicional);
+                cmd.Parameters.AddWithValue("@RegimenFiscal", d.RegimenFiscal);
+                cmd.Parameters.AddWithValue("@RNC", d.RNC);
+                cmd.Parameters.AddWithValue("@NoFiscal", d.NoFiscal);
+                cmd.Parameters.AddWithValue("@CodPostal", d.CodPostal);
+                cmd.Parameters.AddWithValue("@Localidad", d.Localidad);
+                cmd.Parameters.AddWithValue("@Domicilio", d.Domicilio);
+                cmd.Parameters.AddWithValue("@NoInt", d.NoInt);
+                cmd.Parameters.AddWithValue("@NoExt", d.NoExt);
+                cmd.Parameters.AddWithValue("@CDL", d.CDL);
+                cmd.Parameters.AddWithValue("@Provincia", d.Provincia);
+                cmd.Parameters.AddWithValue("@Ciudad", d.Ciudad);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
         public bool editarMayoreo(Mayoreo mayoreo)
         {
             try

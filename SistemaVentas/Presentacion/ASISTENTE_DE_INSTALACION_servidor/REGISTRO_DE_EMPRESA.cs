@@ -13,6 +13,8 @@ using System.Management;
 using SistemaVentas.Logica;
 using SistemaVentas.CONEXION;
 using SistemaVentas.Datos;
+using System.IO;
+
 namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 {
     public partial class REGISTRO_DE_EMPRESA : Form
@@ -25,6 +27,14 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         bool RegistroInformacionAdicional = false;
         public static string correo;
         public int idEmpresa = 0;
+        public int idCiudad;
+        public int idDireccionEditar;
+        public int idCalle;
+        public int idMunicipio;
+        public int idCorreoEditar; 
+        public int idCelular;
+        public int idTelefono;
+
         public bool validar_Mail(string sMail)
         {
             return Regex.IsMatch(sMail, @"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$");
@@ -285,8 +295,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cant = Convert.ToInt32(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.StackTrace);
             }
             string operacion = "";
             int res = cant / 3;
@@ -320,8 +331,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                     CONEXIONMAESTRA.cerrar();
                 }
             }
-
         }
+        
         private void insertarPermisos()
         {
 
@@ -333,8 +344,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cant = Convert.ToInt32(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.StackTrace);
             }
             string operacion = "";
 
@@ -504,8 +516,9 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cant = Convert.ToInt32(da.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.StackTrace);
             }
             string operacion = "";
             for (int i = 1; i <= cant; i++)
@@ -751,7 +764,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             }
         }
 
-        public bool insertar_clientes()
+        public void insertar_clientes()
         {
             try
             {
@@ -763,13 +776,10 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@Estado", "0");
                 cmd.Parameters.AddWithValue("@Saldo", 0);
                 cmd.ExecuteNonQuery();
-                return true;
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return false;
             }
             finally
             {
@@ -811,6 +821,23 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             }
         }
         #endregion
+
+        public void editarCorreoEmpresa()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editar_correo", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCorreo", idCorreoEditar);
+                cmd.Parameters.AddWithValue("@correo", txtcorreo.Text);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+        }
 
         private void Ingresar_Persona()
         {
@@ -866,6 +893,37 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 SqlCommand cmd = new SqlCommand("insertarTipoTelefono", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@TipoTelefono", "Generico");
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarTipoTelefono", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TipoTelefono", "Telefono Empresarial");
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+
+
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarTipoTelefono", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TipoTelefono", "Celular Empresarial");
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
 
@@ -1096,6 +1154,25 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 MessageBox.Show(EX.Message);
             }
         }
+
+        public void editarCalle()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarCalle", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCalle", idCalle);
+                cmd.Parameters.AddWithValue("@descripcion", txtCalle.Text);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+        }
         public void insertarCiudad()
         {
             try
@@ -1122,6 +1199,24 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
 
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+        }
+
+        public void editarCiudad()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarCiudad", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCiudad", idCiudad);
+                cmd.Parameters.AddWithValue("@ciudad", txtCiudad.Text);
+                cmd.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception EX)
             {
@@ -1158,6 +1253,25 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
                 SqlCommand cmd_ = new SqlCommand("insertar_municipio", CONEXIONMAESTRA.conectar);
                 cmd_.CommandType = CommandType.StoredProcedure;
+                cmd_.Parameters.AddWithValue("@descripcion", txtMunicipio.Text);
+                cmd_.ExecuteNonQuery();
+                CONEXIONMAESTRA.cerrar();
+
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+
+            }
+        }
+        public void editarMunicipio()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd_ = new SqlCommand("Editarmunicipio", CONEXIONMAESTRA.conectar);
+                cmd_.CommandType = CommandType.StoredProcedure;
+                cmd_.Parameters.AddWithValue("@idMunicipio", idMunicipio);
                 cmd_.Parameters.AddWithValue("@descripcion", txtMunicipio.Text);
                 cmd_.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
@@ -1318,7 +1432,68 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             {
                 MessageBox.Show(EX.Message);
             }
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarTelefono", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Telefono", txtTelefono);
+                cmd.Parameters.AddWithValue("@idTipoTelefono", 2);
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarTelefono", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Telefono", txtCelular);
+                cmd.Parameters.AddWithValue("@idTipoTelefono", 3);
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
         }
+        public void editarTelefono()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarTelefono_", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idTelefono", idTelefono);
+                cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editarTelefono_", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idTelefono", idCelular);
+                cmd.Parameters.AddWithValue("@Telefono", txtCelular.Text);
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+        }
+
         public int idCorreo;
         public int idDireccion;
         public int idDatosFiscales;
@@ -1381,6 +1556,70 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             }
         }
 
+        private void editarEmpresa()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+
+                cmd = new SqlCommand("editarEmpresa", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idEmpresa", idEmpresa);
+                cmd.Parameters.AddWithValue("@Nombre_Empresa", txtempresa.Text);
+                cmd.Parameters.AddWithValue("@Moneda", txtmoneda.Text);
+                cmd.Parameters.AddWithValue("@Carpeta_para_copias_de_seguridad", txtRuta.Text);
+                cmd.Parameters.AddWithValue("@idCorreo", idCorreoEditar);
+                cmd.Parameters.AddWithValue("@idDireccion", idDireccionEditar);
+                cmd.Parameters.AddWithValue("@idDatosFiscales", idDatosFiscales);
+                cmd.Parameters.AddWithValue("@idTelefono", idTelefono);
+                cmd.Parameters.AddWithValue("@idCelular", idCelular);
+                if (TXTCON_LECTORA.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Modo_de_busqueda", "LECTORA");
+                }
+                if (txtteclado.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Modo_de_busqueda", "TECLADO");
+                }
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                ImagenEmpresa.Image.Save(ms, ImagenEmpresa.Image.RawFormat);
+                cmd.Parameters.AddWithValue("@logo", ms.GetBuffer());
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void editarDatosFiscales()
+        {
+            LDatosFiscales DF = new LDatosFiscales();
+            Insertar_datos datos = new Insertar_datos();
+
+            DF.idDatosFiscales = idDatosFiscales;
+            DF.NombreFiscal = txtNombreFiscal.Text;
+            DF.infoAdicional = txtInfoAdicional.Text;
+            DF.RegimenFiscal = txtRegimenFiscal.Text;
+            DF.RNC = txtRNC.Text;
+            DF.NoFiscal = txtNoFiscal.Text;
+            DF.CodPostal = txtCodPostal.Text;
+            DF.Localidad = txtLocalidadF.Text;
+            DF.Domicilio = txtDomicilioF.Text;
+            DF.NoInt = txtInterno.Text;
+            DF.NoExt = txtExt.Text;
+            DF.CDL = txtCedula.Text;
+            DF.Provincia = txtProvinciaF.Text;
+            DF.Ciudad = txtCiudadF.Text;
+
+            if (datos.editarDatosFiscales(DF) == true)
+            {
+            }
+        }
         private void ingresarDatosFiscales()
         {
             LDatosFiscales DF = new LDatosFiscales();
@@ -1405,7 +1644,6 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
             }
         }
-
         public void IngresarDireccionEmpresa()
         {
             try
@@ -1526,7 +1764,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             com.CommandType = CommandType.StoredProcedure;
             idEmpresa = Convert.ToInt32(com.ExecuteScalar());
             CONEXIONMAESTRA.cerrar();
-            if(idEmpresa > 0)
+            if (idEmpresa > 0)
             {
                 return true;
             }
@@ -1541,36 +1779,90 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             DataTable dt = new DataTable();
             Obtener_datos datos = new Obtener_datos();
             datos.obtenerDatosEmpresa(ref dt);
-            tablaUsuarios.DataSource = dt;
-            /*
-            lblId_usuario.Text = tablaUsuarios.Rows[e.RowIndex].Cells["idUsuario"].Value.ToString();
-            idEmpleado = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idEmpleado"].Value);
-            idEmpleado1 = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idEmpleado"].Value);
-            txtEmpleado.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-            txtlogin.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Login"].Value.ToString();
-            txtPassword.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Password"].Value.ToString();
-            ICONO.BackgroundImage = null;
-            txtroles.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Rol"].Value.ToString();
-            lblnumeroIcono.Text = tablaUsuarios.Rows[e.RowIndex].Cells["NombreIcono"].Value.ToString();
-            txtCorreo.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
-            idCorreo = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idCorreo"].Value);
-            correo = tablaUsuarios.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
-            byte[] b = (Byte[])tablaUsuarios.Rows[e.RowIndex].Cells["Icono"].Value;
-            MemoryStream ms = new MemoryStream(b);
-            ICONO.Image = Image.FromStream(ms);*/
+            tablaEmpresa.DataSource = dt;
+
+            foreach (DataGridViewRow row in tablaEmpresa.SelectedRows)
+            {
+                ///<summary>
+                ///Datos de la Empresa
+                /// </summary>
+                idEmpresa = Convert.ToInt32(row.Cells["id_empresa"].Value.ToString());
+                LBLIDEMPRESA.Text = row.Cells["id_empresa"].Value.ToString();
+                txtempresa.Text = row.Cells["Nombre_Empresa"].Value.ToString();
+                ImagenEmpresa.BackgroundImage = null;
+                byte[] b = (Byte[])row.Cells["Logo"].Value;
+                MemoryStream ms = new MemoryStream(b);
+                ImagenEmpresa.Image = Image.FromStream(ms);
+                txtmoneda.Text = row.Cells["Moneda"].Value.ToString();
+                string modo_busqueda;
+                modo_busqueda = row.Cells["modo_de_busqueda"].Value.ToString();
+                if (modo_busqueda.Equals("TECLADO"))
+                {
+                    txtteclado.Checked = true;
+                    TXTCON_LECTORA.Checked = false;
+                }
+                else
+                {
+                    txtteclado.Checked = true;
+                    TXTCON_LECTORA.Checked = false;
+                }
+                txtRuta.Text = row.Cells["Carpeta_para_copias_de_seguridad"].Value.ToString();
+                idCorreoEditar = Convert.ToInt32(row.Cells["idCorreo"].Value.ToString());
+                idDireccionEditar = Convert.ToInt32(row.Cells["idDireccionE"].Value.ToString());
+                idDatosFiscales = Convert.ToInt32(row.Cells["idDatosFiscales"].Value.ToString());
+                idCalle = Convert.ToInt32(row.Cells["idCalle"].Value.ToString());
+                idMunicipio = Convert.ToInt32(row.Cells["idMunicipio"].Value.ToString());
+                idCiudad = Convert.ToInt32(row.Cells["idCiudadE"].Value.ToString());
+                txtCalle.Text = (row.Cells["Calle"].Value.ToString());
+                txtCiudad.Text = (row.Cells["CiudadE"].Value.ToString());
+                txtMunicipio.Text = (row.Cells["Municipio"].Value.ToString());
+                ///<summary>
+                ///Datos Fiscales
+                ///</summary>
+                txtNombreFiscal.Text = (row.Cells["NombreFiscal"].Value.ToString());
+                txtInfoAdicional.Text = (row.Cells["InfoAdicional"].Value.ToString());
+                txtRegimenFiscal.Text = (row.Cells["RegimenFiscal"].Value.ToString());
+                txtRNC.Text = (row.Cells["RNC"].Value.ToString());
+                txtNoFiscal.Text = (row.Cells["NoFiscal"].Value.ToString());
+                txtCodPostal.Text = (row.Cells["CodPostal"].Value.ToString());
+                txtLocalidadF.Text = (row.Cells["Localidad"].Value.ToString());
+                txtDomicilioF.Text = (row.Cells["Domicilio"].Value.ToString());
+                txtInterno.Text = (row.Cells["NoInt"].Value.ToString());
+                txtExt.Text = (row.Cells["NoExt"].Value.ToString());
+                txtCedula.Text = (row.Cells["CDL"].Value.ToString());
+                txtProvinciaF.Text = (row.Cells["Provincia"].Value.ToString());
+                txtCiudadF.Text = (row.Cells["Ciudad"].Value.ToString());
+                txtcorreo.Text = (row.Cells["Correo"].Value.ToString());
+                txtTelefono.Text = (row.Cells["Telefono"].Value.ToString());
+                idTelefono = Convert.ToInt32(row.Cells["idTelefono"].Value.ToString());
+                idCelular = Convert.ToInt32(row.Cells["idCelular"].Value.ToString());
+                txtCelular.Text = (row.Cells["Celular"].Value.ToString());
+            }
         }
 
         private void REGISTRO_DE_EMPRESA_Load(object sender, EventArgs e)
         {
+            //El label 44 es para las direcciones(CLICK EVENT)
+            label44.Visible = false;
+            TXTPAIS.Text = "República Dominicana";
+            //lbl1 es el label de la Caja
+            lbl1.Visible = false;
+            //panel5 panel impuestos
+            panel5.Enabled = false;
+
             Bases.Obtener_serialPC(ref lblIDSERIAL);
-            if (verificar() == true) {
+            if (verificar() == true)
+            {
+                label44.Visible = true;
+                txtcaja.Enabled = false;
+                lbl1.Visible = true;
                 ObtenerDatos();
                 panelVDatosFiscales.Visible = false;
                 btnSiguiente.Visible = false;
             }
             else
             {
-
+                panel5.Enabled = true;
                 panelInfoBasica.Enabled = false;
                 panelInfoBasicaDetalle.Enabled = false;
                 Salir.Enabled = false;
@@ -1627,7 +1919,6 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         }
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-
             if (RegistroInformacionAdicional == true)
             {
                 if (txtRNC.Text.Length > 4)
@@ -1661,8 +1952,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 RegistrarEmpresa();
             }
         }
-
-        private void RegistrarEmpresa()
+       private void RegistrarEmpresa()
         {
             if (txtTelefono.Text.Length == 12)
             {
@@ -1692,14 +1982,12 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
                     if (Insertar_datos.ValidTextIsNotNullOrEmpty(array_))
                     {
-
-
-                        if (no.Checked == true)
+                        if (no.Checked)
                         {
                             TXTTRABAJASCONIMPUESTOS.Text = "NO";
                             insertarImpuestoGenerico();
                         }
-                        if (si.Checked == true)
+                        if (si.Checked)
                         {
                             TXTTRABAJASCONIMPUESTOS.Text = "SI";
                             insertarImpuesto();
@@ -1718,7 +2006,6 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         //insertarDireccion
                         insertarDireccion();
                         IngresarDireccionEmpresa();
-
                         ingresarDatosFiscales();
 
                         Ingresar_empresa();
@@ -1803,6 +2090,93 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         private void panelVDatosFiscales_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Label19_Click(object sender, EventArgs e)
+        {
+            Presentacion.CAJA.Cajas_form frm = new CAJA.Cajas_form();
+            frm.ShowDialog();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+            if (RegistroInformacionAdicional == true)
+            {
+                if (txtRNC.Text.Length > 4)
+                {
+                    if (txtCodPostal.Text.Length == 5)
+                    {
+                        if (txtCedula.Text.Length == 12)
+                        {
+                            RegistrarEmpresa();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cedula no válida, la cedula debe tener el formato: xxx-xxxxxx-x," +
+                                " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Código postal no válido, el Cod.Postal debe tener el formato: xxxxx, " + " por favor digite un Código postal válido",
+                            "Validación de Código postal", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("R.N.C no válido, el R.N.C debe tener 9 digitos, " + " por favor digite un R.N.C válido",
+                        "Validación de R.N.C ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                EditarEmpresa();
+            }
+        }
+
+        private void EditarEmpresa()
+        {
+            if (txtTelefono.Text.Length == 12)
+            {
+                if (validar_Mail(txtcorreo.Text) == false)
+                {
+                    MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtcorreo.Focus();
+                    txtcorreo.SelectAll();
+                }
+                else
+                {
+                    // Utilizo v para la verificacion del los campos a verificar
+                    TextBox[] array = { txtempresa, txtCalle, txtCedula, txtTelefono, txtCelular, txtMunicipio,
+                        txtCiudad, txtCiudadF, txtNombreFiscal,txtRNC, txtRegimenFiscal, txtInfoAdicional, txtInterno,
+                        txtExt, txtProvinciaF, txtLocalidadF, txtDomicilioF, txtCiudad, txtCodPostal, txtNoFiscal};
+                    if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+                    {
+                        //Direcciones
+                        editarCalle();
+                        editarMunicipio();
+                        editarCiudad();
+                        editarCorreoEmpresa();
+                        editarTelefono();
+
+                        editarDatosFiscales();
+                        editarEmpresa();
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Telefono no válido, el Telefono debe tener el formato: 809-555-5555, " + " por favor digite un telefono válido",
+                    "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void label44_Click(object sender, EventArgs e)
+        {
+            Direccion.Direcciones frm = new Direccion.Direcciones();
+            frm.ShowDialog();
         }
     }
 }

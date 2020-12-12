@@ -479,9 +479,9 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
 
 
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
-
+                MessageBox.Show(e.StackTrace);
                     }
                     finally
                     {

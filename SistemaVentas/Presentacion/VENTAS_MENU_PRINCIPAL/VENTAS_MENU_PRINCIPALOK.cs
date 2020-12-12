@@ -951,12 +951,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-
+                MessageBox.Show(e.StackTrace);
             }
-
         }
 
         private void ejecutar_editar_detalle_venta_sumar()
