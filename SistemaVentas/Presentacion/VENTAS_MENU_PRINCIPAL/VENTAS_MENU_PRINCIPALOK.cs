@@ -106,13 +106,13 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 lbltipodebusqueda2.Text = "Buscar con TECLADO";
                 //BTNLECTORA.BackColor = Color.WhiteSmoke;
-               // BTNTECLADO.BackColor = Color.LightGreen;
+                // BTNTECLADO.BackColor = Color.LightGreen;
             }
             else
             {
                 lbltipodebusqueda2.Text = "Buscar con LECTORA de Codigos de Barras";
                 //BTNLECTORA.BackColor = Color.LightGreen;
-               // BTNTECLADO.BackColor = Color.WhiteSmoke;
+                // BTNTECLADO.BackColor = Color.WhiteSmoke;
             }
             ValidarTemaCaja();
             Limpiar_para_venta_nueva();
@@ -765,16 +765,27 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             tablaProductos.Columns[0].Width = 100;
             tablaProductos.Columns[1].Width = 100;
             tablaProductos.Columns[2].Width = 100;
-            tablaProductos.Columns[3].Visible = false;
-            tablaProductos.Columns[3].Width = 150;
-            tablaProductos.Columns[4].Width = 100;
+            tablaProductos.Columns[4].Width = 150;
+            tablaProductos.Columns[5].Width = 90;
+            tablaProductos.Columns[6].Width = 100;
+            tablaProductos.Columns[16].Width = 8;
+            tablaProductos.Columns[17].Width = 8;
+            tablaProductos.Columns[18].Width = 90;
+
+            /*tablaProductos.Columns[19].Width = 100;*/
+
+            /*
             tablaProductos.Columns[5].Width = 100;
             tablaProductos.Columns[6].Width = 100;
-            tablaProductos.Columns[6].Width  = 100;
-            tablaProductos.AutoSizeColumnsMode = Filll;
+        tablaProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            tablaProductos.Columns[11].Width = tablaProductos.Width - (tablaProductos.Columns[0].Width - tablaProductos.Columns[1].Width - tablaProductos.Columns[2].Width -
-              tablaProductos.Columns[4].Width - tablaProductos.Columns[5].Width - tablaProductos.Columns[6].Width - tablaProductos.Columns[7].Width);
+            /*
+            tablaProductos.Columns[18].Width = tablaProductos.Width - (tablaProductos.Columns[7].Width - tablaProductos.Columns[8].Width - tablaProductos.Columns[9].Width -
+              tablaProductos.Columns[10].Width - tablaProductos.Columns[11].Width - tablaProductos.Columns[12].Width - tablaProductos.Columns[13].Width - tablaProductos.Columns[14].Width
+              - tablaProductos.Columns[15].Width - tablaProductos.Columns[16].Width - tablaProductos.Columns[17].Width);
+            */
+            //tablaProductos.Columns[19].Width = 10;
+            tablaProductos.Columns[3].Visible = false;
             tablaProductos.Columns[8].Visible = false;
             tablaProductos.Columns[9].Visible = false;
             tablaProductos.Columns[10].Visible = false;
@@ -785,7 +796,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             tablaProductos.Columns[15].Visible = false;
             tablaProductos.Columns[16].Visible = false;
             tablaProductos.Columns[17].Visible = false;
-            tablaProductos.Columns[18].Visible = false;
         }
         private void Listarproductosagregados()
         {
@@ -1035,10 +1045,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             try
             {
-                iddetalleventa = Convert.ToInt32(datalistadoDetalleVenta.SelectedCells[9].Value.ToString());
-                idproducto = Convert.ToInt32(datalistadoDetalleVenta.SelectedCells[8].Value.ToString());
-                sevendePor = datalistadoDetalleVenta.SelectedCells[17].Value.ToString();
-                cantidad = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
+                iddetalleventa = Convert.ToInt32(tablaProductos.SelectedCells[9].Value.ToString());
+                idproducto = Convert.ToInt32(tablaProductos.SelectedCells[8].Value.ToString());
+                sevendePor = tablaProductos.SelectedCells[17].Value.ToString();
+                cantidad = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
             }
             catch (Exception ex)
             {
@@ -1116,47 +1126,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void datalistadoDetalleVenta_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            Obtener_datos_del_detalle_de_venta();
-
-
-            if (e.ColumnIndex == this.datalistadoDetalleVenta.Columns["S"].Index)
-            {
-                txtpantalla = 1;
-                editar_detalle_venta_sumar();
-            }
-            if (e.ColumnIndex == this.datalistadoDetalleVenta.Columns["R"].Index)
-            {
-                txtpantalla = 1;
-                editar_detalle_venta_restar();
-                EliminarVentas();
-            }
-
-
-            if (e.ColumnIndex == this.datalistadoDetalleVenta.Columns["EL"].Index)
-            {
-
-                int iddetalle_venta = Convert.ToInt32(datalistadoDetalleVenta.SelectedCells[9].Value);
-                try
-                {
-                    SqlCommand cmd;
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                    con.Open();
-                    cmd = new SqlCommand("eliminar_detalle_factura", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@iddetallefactura", iddetalle_venta);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    txtpantalla = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
-                    aumentar_stock_en_detalle_de_venta();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                Listarproductosagregados();
-                EliminarVentas();
-            }
         }
         private void EliminarVentas()
         {
@@ -1190,7 +1159,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void contar_tablas_ventas()
         {
             int x;
-            x = datalistadoDetalleVenta.Rows.Count;
+            x = tablaProductos.Rows.Count;
             Contador = (x);
         }
 
@@ -2113,7 +2082,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
@@ -2202,10 +2171,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void teclado_Click(object sender, EventArgs e)
         {
-           
+
             lbltipodebusqueda2.Text = "Buscar con TECLADO";
             Tipo_de_busqueda = "TECLADO";
-           // BTNTECLADO.BackColor = Color.LightGreen;
+            // BTNTECLADO.BackColor = Color.LightGreen;
             //BTNLECTORA.BackColor = Color.WhiteSmoke;
             txtbuscar.Clear();
             txtbuscar.Focus();
@@ -2244,7 +2213,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void Salir_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -2431,35 +2400,38 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         #region btnAgregarProductos
         private void btnAgregarProductos_Click(object sender, EventArgs e)
         {
-            string numero;
-            bool entero = true;
-
-
-            numero = txtCantidad.Text;
-
-            char[] test = numero.ToCharArray();
-
-            for (int i = 0; i < test.Length; i++)
+            if (txtCantidad.Text != "")
             {
-                if (test[i] == '.')
+                string numero;
+                bool entero = true;
+
+
+                numero = txtCantidad.Text;
+
+                char[] test = numero.ToCharArray();
+
+                for (int i = 0; i < test.Length; i++)
                 {
-                    entero = false;
+                    if (test[i] == '.')
+                    {
+                        entero = false;
+                    }
                 }
-            }
 
-            if (entero)
-            {
-                txtpantalla = Convert.ToInt32(numero);
+                if (entero)
+                {
+                    txtpantalla = Convert.ToInt32(numero);
+                }
+                else
+                {
+                    txtpantalla = Convert.ToDouble(numero);
+                }
+                PANELGRANEL.Visible = false;
+                PANELGRANEL.BringToFront();
+                txtCantidad.Focus();
+                DATALISTADO_PRODUCTOS_OKA.Visible = false;
+                ejecutar_ventas_a_granel();
             }
-            else
-            {
-                txtpantalla = Convert.ToDouble(numero);
-            }
-            PANELGRANEL.Visible = false;
-            PANELGRANEL.BringToFront();
-            txtCantidad.Focus();
-            DATALISTADO_PRODUCTOS_OKA.Visible = false;
-            ejecutar_ventas_a_granel();
         }
         #endregion
         #region btnCancelarAgregarProductosGranel
@@ -2469,8 +2441,50 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtbuscar.Focus();
             txtbuscar.SelectAll();
         }
+
         #endregion
 
+        private void tablaProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Obtener_datos_del_detalle_de_venta();
 
+
+            if (e.ColumnIndex == this.tablaProductos.Columns["su"].Index)
+            {
+                txtpantalla = 1;
+                editar_detalle_venta_sumar();
+            }
+            if (e.ColumnIndex == this.tablaProductos.Columns["re"].Index)
+            {
+                txtpantalla = 1;
+                editar_detalle_venta_restar();
+                EliminarVentas();
+            }
+            if (e.ColumnIndex == this.tablaProductos.Columns["d"].Index)
+            {
+
+                int iddetalle_venta = Convert.ToInt32(tablaProductos.SelectedCells[9].Value);
+                try
+                {
+                    SqlCommand cmd;
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                    con.Open();
+                    cmd = new SqlCommand("eliminar_detalle_factura", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@iddetallefactura", iddetalle_venta);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    txtpantalla = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
+                    aumentar_stock_en_detalle_de_venta();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                Listarproductosagregados();
+                EliminarVentas();
+            }
+        }
     }
 }
