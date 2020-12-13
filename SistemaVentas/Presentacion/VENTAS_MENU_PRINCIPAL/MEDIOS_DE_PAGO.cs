@@ -525,239 +525,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show(ex.StackTrace);
             }
         }
-        private void btn1_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO==1)
-            {
-                txtefectivo2.Text = txtefectivo2.Text + "1";
-            }
-            else if (INDICADOR_DE_FOCO==2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "1";
-            }
-            else if (INDICADOR_DE_FOCO==3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "1";
-            }
-        }
 
-        private void btn2_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO == 1)
-            {
-                txtefectivo2.Text = txtefectivo2.Text + "2";
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "2";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "2";
-            }
-        }
-
-        private void btn3_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO == 1)
-            {
-                txtefectivo2.Text = txtefectivo2.Text + "3";
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "3";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "3";
-            }
-        }
-
-        private void btn4_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO == 1)
-            {
-                txtefectivo2.Text = txtefectivo2.Text + "4";
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "4";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "4";
-            }
-        }
-
-        private void btn5_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO == 1)
-            {
-                txtefectivo2.Text = txtefectivo2.Text + "5";
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "5";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "5";
-            }
-        }
-
-        private void btn6_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO == 1)
-            {
-                txtefectivo2.Text = txtefectivo2.Text + "6";
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "6";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "6";
-            }
-        }
-
-        private void btn7_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO == 1)
-            {
-                txtefectivo2.Text = txtefectivo2.Text + "7";
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "7";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "7";
-            }
-        }
-
-        private void btn8_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO == 1)
-            {
-                txtefectivo2.Text = txtefectivo2.Text + "8";
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "8";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "8";
-            }
-        }
-
-        private void btn9_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO == 1)
-            {
-                txtefectivo2.Text = txtefectivo2.Text + "9";
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "9";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "9";
-            }
-        }
-
-        private void btn0_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO == 1)
-            {
-                txtefectivo2.Text = txtefectivo2.Text + "0";
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                txttarjeta2.Text = txttarjeta2.Text + "0";
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                txtcredito2.Text = txtcredito2.Text + "0";
-            }
-        }
-
-        private void btnpunto_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO == 1)
-            {
-                if (SECUENCIA1 == true  ) 
-                {
-                    txtefectivo2.Text = txtefectivo2.Text + ".";
-                    SECUENCIA1 = false;
-                }
-           
-                 else
-               {
-                    return;
-                }
-
-            }
-            else if (INDICADOR_DE_FOCO == 2)
-            {
-                if (SECUENCIA2 == true)
-                {
-                    txttarjeta2 .Text = txttarjeta2.Text + ".";
-                    SECUENCIA2 = false;
-                }
-
-                else
-                {
-                    return;
-                }
-
-            }
-            else if (INDICADOR_DE_FOCO == 3)
-            {
-                if (SECUENCIA3 == true)
-                {
-                    txtcredito2 .Text = txtcredito2.Text + ".";
-                    SECUENCIA3 = false;
-                }
-
-                else
-                {
-                    return;
-                }
-
-            }
-
-        }
-
-        private void btnborrartodo_Click(object sender, EventArgs e)
-        {
-            if (INDICADOR_DE_FOCO==1)
-            {
-                txtcredito2.Clear();
-                SECUENCIA1 = true;
-            }
-            else if (INDICADOR_DE_FOCO==2)
-            {
-                txttarjeta2.Clear();
-                SECUENCIA2 = true;
-            }
-            else if (INDICADOR_DE_FOCO ==3)
-            {
-                txtcredito2.Clear();
-                SECUENCIA3 = true;
-            }
-        }
-
+   
         private void FlowLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
 
@@ -1184,8 +953,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             PanelImpresionvistaprevia.Visible = true;
             PanelImpresionvistaprevia.Dock = DockStyle.Fill;
-            panelGuardado_de_datos.Dock = DockStyle.None;
-            panelGuardado_de_datos.Visible = false;
+        //    panelGuardado_de_datos.Dock = DockStyle.None;
+        //    panelGuardado_de_datos.Visible = false;
 
             Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
             DataTable dt = new DataTable();
@@ -1217,8 +986,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             PanelImpresionvistaprevia.Visible = true;
             PanelImpresionvistaprevia.Dock = DockStyle.Fill;
-            panelGuardado_de_datos.Dock = DockStyle.None;
-            panelGuardado_de_datos.Visible = false;
+            //panelGuardado_de_datos.Dock = DockStyle.None;
+         //   panelGuardado_de_datos.Visible = false;
 
             Presentacion.REPORTES.Impresion_de_comprobantes.factura_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.factura_report();
             DataTable dt = new DataTable();
@@ -1270,7 +1039,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         void CONFIRMAR_VENTA_EFECTIVO()
         {
-            if (Envio.Checked == true)
+         /*   if (Envio.Checked == true)
             {
 
                 if (idvehiculo != 0 && idEmpleado != 0 && idcliente != 0)
@@ -1355,7 +1124,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             }
 
-
+            */
         }
         void aumentar_monto_a_cliente()
         {
@@ -1531,8 +1300,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 if (txtImpresora.Text != "Ninguna")
                 {
-                    if (Envio.Checked == true)
-                    {
+                  /*  if (Envio.Checked == true)
+                    {*/
                         if (idEmpleado != 0)
                         {
                             editar_eleccion_de_impresora();
@@ -1544,13 +1313,13 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         {
                             MessageBox.Show("Selecciona un Empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
-                    } else
-                    {
+                /*    } else
+                    {*/
                         editar_eleccion_de_impresora();
                         indicador = "DIRECTO";
                         identificar_el_tipo_de_pago();
                         INGRESAR_LOS_DATOS();
-                    }
+                  //  }
                 }
                 else
                 {
@@ -1565,21 +1334,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnGuardarImprimirdirecto_Click_1(object sender, EventArgs e)
         {
-            if (idEmpleado !=0)
-            {
-                ImprimirDirecto();
-            }
-            else
-            {
-            }
+         
         }
 
         public void GuardarSinImprimir()
         {
             if (restante == 0)
             {
-                if (Envio.Checked == true)
-                {
+              /*  if (Envio.Checked == true)
+                {*/
                     if(idEmpleado != 0)
                     {
                         if(idvehiculo != 0)
@@ -1598,24 +1361,19 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     {
                         MessageBox.Show("Selecciona un Empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                } else
+               /* } else
                 {
                     indicador = "VISTA PREVIA";
                     identificar_el_tipo_de_pago();
                     INGRESAR_LOS_DATOS();
-                }
+                }*/
             }
             else
             {
                 MessageBox.Show("El restante debe ser 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-        private void TGuardarSinImprimir_Click_1(object sender, EventArgs e)
-        {
-            
-                GuardarSinImprimir();
-            
-        }
+     
 
         private void txtefectivo2_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1680,7 +1438,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void Envio_CheckedChanged(object sender, EventArgs e)
         {
-            if (Envio.Checked == true)
+        /*    if (Envio.Checked == true)
             {
                 // Verificacion disponibilidad de Personal. ---------------GOOD-------------
                 // Verificar vehiculos disponibles
@@ -1723,11 +1481,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             else
             {
-                Envio.Checked = false;
-                Envio.CheckState = CheckState.Unchecked;
+              //  Envio.Checked = false;
+                //Envio.CheckState = CheckState.Unchecked;
                 panelVehiculos.Visible = false;
                 panelEmpleado.Visible = false;
-            }
+            }*/
         }
 
         public bool VerificarEstadoPersonal()
@@ -1954,7 +1712,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 {
                     MessageBox.Show("No existen vehículos disponibles por el momento", "Vehículos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }*/
-                datalistadovehiculosv.DataSource = dt;
+        datalistadovehiculosv.DataSource = dt;
             }
             datalistadovehiculosv.Columns[0].Visible = false;
             datalistadovehiculosv.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -2336,11 +2094,270 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             Mapa.Refresh();
         }
 
-        /*private void button2_Click(object sender, EventArgs e)
+        private void btnN1_Click(object sender, EventArgs e)
         {
-            Double result = GetDistance() / 1000;
-            MessageBox.Show(result.ToString());
-        }*/
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "1";
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Text = txttarjeta2.Text + "1";
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Text = txtcredito2.Text + "1";
+            }
+        }
 
+        private void btnN2_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "2";
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Text = txttarjeta2.Text + "2";
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Text = txtcredito2.Text + "2";
+            }
+        }
+
+        private void btnN3_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "3";
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Text = txttarjeta2.Text + "3";
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Text = txtcredito2.Text + "3";
+            }
+        }
+
+        private void btnN6_Click(object sender, EventArgs e)
+        {
+
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "6";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Text = txttarjeta2.Text + "6";
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Text = txtcredito2.Text + "6";
+            }
+        }
+
+        private void btnN5_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "5";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Text = txttarjeta2.Text + "5";
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Text = txtcredito2.Text + "5";
+            }
+        }
+
+        private void btnN4_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "4";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Text = txttarjeta2.Text + "4";
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Text = txtcredito2.Text + "4";
+            }
+        }
+
+        private void btnN7_Click(object sender, EventArgs e)
+        {
+
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "7";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Text = txttarjeta2.Text + "7";
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Text = txtcredito2.Text + "7";
+            }
+    }
+
+        private void btnN8_Click(object sender, EventArgs e)
+        {
+
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "8";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Text = txttarjeta2.Text + "8";
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Text = txtcredito2.Text + "8";
+            }
+    }
+
+        private void btnN9_Click(object sender, EventArgs e)
+        {
+
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "9";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Text = txttarjeta2.Text + "9";
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Text = txtcredito2.Text + "9";
+            }
+        }
+
+        private void btnNborrar_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtcredito2.Clear();
+                SECUENCIA1 = true;
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Clear();
+                SECUENCIA2 = true;
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Clear();
+                SECUENCIA3 = true;
+            }
+        }
+
+        private void btnNcoma_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                if (SECUENCIA1 == true)
+                {
+                    txtefectivo2.Text = txtefectivo2.Text + ".";
+                    SECUENCIA1 = false;
+                }
+
+                else
+                {
+                    return;
+                }
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                if (SECUENCIA2 == true)
+                {
+                    txttarjeta2.Text = txttarjeta2.Text + ".";
+                    SECUENCIA2 = false;
+                }
+
+                else
+                {
+                    return;
+                }
+
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                if (SECUENCIA3 == true)
+                {
+                    txtcredito2.Text = txtcredito2.Text + ".";
+                    SECUENCIA3 = false;
+                }
+
+                else
+                {
+                    return;
+                }
+
+            }
+        }
+
+        private void btnN0_Click(object sender, EventArgs e)
+        {
+
+
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "0";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                txttarjeta2.Text = txttarjeta2.Text + "0";
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                txtcredito2.Text = txtcredito2.Text + "0";
+            }
+        }
+
+        private void btnGuardarImprimirdirecto_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imprimir_Click(object sender, EventArgs e)
+        {
+            //Checked
+            if (idEmpleado != 0)
+            {
+                ImprimirDirecto();
+            }
+            else
+            {
+            }
+        }
+
+        private void TGuardarSinImprimir_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IMPRIMIRG_Click(object sender, EventArgs e)
+        {
+            GuardarSinImprimir();
+
+        }
     }
 }

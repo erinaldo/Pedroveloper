@@ -434,7 +434,7 @@
             this.Panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel5.Location = new System.Drawing.Point(0, 0);
             this.Panel5.Name = "Panel5";
-            this.Panel5.Size = new System.Drawing.Size(1176, 70);
+            this.Panel5.Size = new System.Drawing.Size(1196, 70);
             this.Panel5.TabIndex = 538;
             // 
             // flowLayoutPanel1
@@ -627,7 +627,7 @@
             this.Panel14.Controls.Add(this.Maximizar);
             this.Panel14.Controls.Add(this.Salir);
             this.Panel14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Panel14.Location = new System.Drawing.Point(999, 0);
+            this.Panel14.Location = new System.Drawing.Point(1019, 0);
             this.Panel14.Name = "Panel14";
             this.Panel14.Size = new System.Drawing.Size(177, 70);
             this.Panel14.TabIndex = 599;
@@ -2806,6 +2806,8 @@
             // 
             this.Panel4.AutoScroll = true;
             this.Panel4.BackColor = System.Drawing.SystemColors.Control;
+            this.Panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Panel4.BackgroundImage")));
+            this.Panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Panel4.Controls.Add(this.lblfechaHoy);
             this.Panel4.Controls.Add(this.btnRepos);
             this.Panel4.Controls.Add(this.btninventarios);
@@ -2825,7 +2827,7 @@
             this.Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel4.Location = new System.Drawing.Point(0, 70);
             this.Panel4.Name = "Panel4";
-            this.Panel4.Size = new System.Drawing.Size(1176, 549);
+            this.Panel4.Size = new System.Drawing.Size(1196, 544);
             this.Panel4.TabIndex = 539;
             // 
             // lblfechaHoy
@@ -2834,7 +2836,7 @@
             this.lblfechaHoy.BackColor = System.Drawing.Color.Transparent;
             this.lblfechaHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lblfechaHoy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.lblfechaHoy.Location = new System.Drawing.Point(215, 10);
+            this.lblfechaHoy.Location = new System.Drawing.Point(228, 12);
             this.lblfechaHoy.Name = "lblfechaHoy";
             this.lblfechaHoy.Size = new System.Drawing.Size(67, 13);
             this.lblfechaHoy.TabIndex = 1;
@@ -2859,7 +2861,7 @@
             this.btnRepos.Image = ((System.Drawing.Image)(resources.GetObject("btnRepos.Image")));
             this.btnRepos.ImageSize = new System.Drawing.Size(20, 20);
             this.btnRepos.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnRepos.Location = new System.Drawing.Point(397, 111);
+            this.btnRepos.Location = new System.Drawing.Point(410, 113);
             this.btnRepos.Name = "btnRepos";
             this.btnRepos.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
             this.btnRepos.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -2891,7 +2893,7 @@
             this.btninventarios.Image = ((System.Drawing.Image)(resources.GetObject("btninventarios.Image")));
             this.btninventarios.ImageSize = new System.Drawing.Size(20, 20);
             this.btninventarios.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btninventarios.Location = new System.Drawing.Point(589, 111);
+            this.btninventarios.Location = new System.Drawing.Point(602, 113);
             this.btninventarios.Name = "btninventarios";
             this.btninventarios.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
             this.btninventarios.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -2923,7 +2925,7 @@
             this.btnconfig.Image = ((System.Drawing.Image)(resources.GetObject("btnconfig.Image")));
             this.btnconfig.ImageSize = new System.Drawing.Size(20, 20);
             this.btnconfig.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnconfig.Location = new System.Drawing.Point(781, 110);
+            this.btnconfig.Location = new System.Drawing.Point(794, 112);
             this.btnconfig.Name = "btnconfig";
             this.btnconfig.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
             this.btnconfig.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -2955,7 +2957,7 @@
             this.btnMenuPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuPrincipal.Image")));
             this.btnMenuPrincipal.ImageSize = new System.Drawing.Size(20, 20);
             this.btnMenuPrincipal.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(970, 108);
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(983, 110);
             this.btnMenuPrincipal.Name = "btnMenuPrincipal";
             this.btnMenuPrincipal.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
             this.btnMenuPrincipal.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -2987,7 +2989,7 @@
             this.btnRestaurarBD.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurarBD.Image")));
             this.btnRestaurarBD.ImageSize = new System.Drawing.Size(20, 20);
             this.btnRestaurarBD.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnRestaurarBD.Location = new System.Drawing.Point(203, 110);
+            this.btnRestaurarBD.Location = new System.Drawing.Point(216, 112);
             this.btnRestaurarBD.Name = "btnRestaurarBD";
             this.btnRestaurarBD.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnRestaurarBD.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -3019,7 +3021,7 @@
             this.btnCopias.Image = ((System.Drawing.Image)(resources.GetObject("btnCopias.Image")));
             this.btnCopias.ImageSize = new System.Drawing.Size(20, 20);
             this.btnCopias.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnCopias.Location = new System.Drawing.Point(10, 109);
+            this.btnCopias.Location = new System.Drawing.Point(23, 111);
             this.btnCopias.Name = "btnCopias";
             this.btnCopias.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnCopias.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -3038,7 +3040,7 @@
             this.Panel22.Controls.Add(this.PictureBox2);
             this.Panel22.Controls.Add(this.lblPorcobrar);
             this.Panel22.Controls.Add(this.Label20);
-            this.Panel22.Location = new System.Drawing.Point(10, 30);
+            this.Panel22.Location = new System.Drawing.Point(23, 32);
             this.Panel22.Name = "Panel22";
             this.Panel22.Size = new System.Drawing.Size(184, 70);
             this.Panel22.TabIndex = 536;
@@ -3083,7 +3085,7 @@
             this.Label18.BackColor = System.Drawing.Color.Transparent;
             this.Label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.Label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.Label18.Location = new System.Drawing.Point(9, 10);
+            this.Label18.Location = new System.Drawing.Point(22, 12);
             this.Label18.Name = "Label18";
             this.Label18.Size = new System.Drawing.Size(208, 13);
             this.Label18.TabIndex = 1;
@@ -3095,7 +3097,7 @@
             this.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Panel1.Controls.Add(this.chartProductos);
             this.Panel1.Controls.Add(this.Panel2);
-            this.Panel1.Location = new System.Drawing.Point(667, 159);
+            this.Panel1.Location = new System.Drawing.Point(680, 161);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(498, 369);
             this.Panel1.TabIndex = 534;
@@ -3336,7 +3338,7 @@
             this.Panel17.Controls.Add(this.MenuStrip6);
             this.Panel17.Controls.Add(this.Label6);
             this.Panel17.Controls.Add(this.Label32);
-            this.Panel17.Location = new System.Drawing.Point(9, 159);
+            this.Panel17.Location = new System.Drawing.Point(22, 161);
             this.Panel17.Name = "Panel17";
             this.Panel17.Size = new System.Drawing.Size(652, 369);
             this.Panel17.TabIndex = 411;
@@ -3577,7 +3579,7 @@
             this.Panel24.Controls.Add(this.LinkLabel11);
             this.Panel24.Controls.Add(this.PictureBox17);
             this.Panel24.Controls.Add(this.lblProductos);
-            this.Panel24.Location = new System.Drawing.Point(970, 30);
+            this.Panel24.Location = new System.Drawing.Point(983, 32);
             this.Panel24.Name = "Panel24";
             this.Panel24.Size = new System.Drawing.Size(186, 69);
             this.Panel24.TabIndex = 410;
@@ -3645,7 +3647,7 @@
             this.Panel19.Controls.Add(this.LinkLabel8);
             this.Panel19.Controls.Add(this.PictureBox10);
             this.Panel19.Controls.Add(this.lblGanancias);
-            this.Panel19.Location = new System.Drawing.Point(394, 30);
+            this.Panel19.Location = new System.Drawing.Point(407, 32);
             this.Panel19.Name = "Panel19";
             this.Panel19.Size = new System.Drawing.Size(186, 69);
             this.Panel19.TabIndex = 410;
@@ -3713,7 +3715,7 @@
             this.Panel20.Controls.Add(this.LinkLabel9);
             this.Panel20.Controls.Add(this.PictureBox12);
             this.Panel20.Controls.Add(this.lblStockBajo);
-            this.Panel20.Location = new System.Drawing.Point(586, 30);
+            this.Panel20.Location = new System.Drawing.Point(599, 32);
             this.Panel20.Name = "Panel20";
             this.Panel20.Size = new System.Drawing.Size(186, 69);
             this.Panel20.TabIndex = 410;
@@ -3781,7 +3783,7 @@
             this.Panel23.Controls.Add(this.LinkLabel10);
             this.Panel23.Controls.Add(this.PictureBox14);
             this.Panel23.Controls.Add(this.lblNclientes);
-            this.Panel23.Location = new System.Drawing.Point(778, 30);
+            this.Panel23.Location = new System.Drawing.Point(791, 32);
             this.Panel23.Name = "Panel23";
             this.Panel23.Size = new System.Drawing.Size(186, 69);
             this.Panel23.TabIndex = 410;
@@ -3849,7 +3851,7 @@
             this.panelCuentasPorPagar.Controls.Add(this.LinkLabel7);
             this.panelCuentasPorPagar.Controls.Add(this.PictureBox8);
             this.panelCuentasPorPagar.Controls.Add(this.lblPorPagar);
-            this.panelCuentasPorPagar.Location = new System.Drawing.Point(200, 30);
+            this.panelCuentasPorPagar.Location = new System.Drawing.Point(213, 32);
             this.panelCuentasPorPagar.Name = "panelCuentasPorPagar";
             this.panelCuentasPorPagar.Size = new System.Drawing.Size(188, 69);
             this.panelCuentasPorPagar.TabIndex = 410;
@@ -4014,7 +4016,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(1176, 619);
+            this.ClientSize = new System.Drawing.Size(1196, 614);
             this.Controls.Add(this.Panel4);
             this.Controls.Add(this.Panel26);
             this.Controls.Add(this.Panel7);
