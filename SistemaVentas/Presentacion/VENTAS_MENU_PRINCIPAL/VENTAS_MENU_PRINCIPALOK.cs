@@ -105,16 +105,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             if (Tipo_de_busqueda == "TECLADO")
             {
                 lbltipodebusqueda2.Text = "Buscar con TECLADO";
-                //BTNLECTORA.BackColor = Color.WhiteSmoke;
-                // BTNTECLADO.BackColor = Color.LightGreen;
             }
             else
             {
                 lbltipodebusqueda2.Text = "Buscar con LECTORA de Codigos de Barras";
-                //BTNLECTORA.BackColor = Color.LightGreen;
-                // BTNTECLADO.BackColor = Color.WhiteSmoke;
             }
-            ValidarTemaCaja();
+            //ValidarTemaCaja();
             Limpiar_para_venta_nueva();
             ObtenerIpLocal();
             panelNotificacionEspera.Visible = true;
@@ -138,11 +134,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     {
                         if (Operacion == "ACCESO")
                         {
-                            panelC4.Enabled = true;
+                            wrapperProduct.Enabled = true;
                         }
                         else
                         {
-                            panelC4.Enabled = false;
+                            wrapperProduct.Enabled = false;
                         }
                     }
                 }
@@ -188,12 +184,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             if (Tema == "Redentor")
             {
                 TemaClaro();
-                IndicadorTema.Checked = false;
+                //IndicadorTema.Checked = false;
             }
             else
             {
                 TemaOscuro();
-                IndicadorTema.Checked = true;
+                //IndicadorTema.Checked = true;
 
             }
         }
@@ -225,7 +221,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
 
                 int x;
-                x = datalistadoDetalleVenta.Rows.Count;
+                x = tablaProductos.Rows.Count;
                 if (x == 0)
                 {
                     txt_total_suma.Text = "0.00";
@@ -239,7 +235,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cantidad = 0;
                 preciounitario = 0;
                 totalpagar = 0;
-                foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
+                foreach (DataGridViewRow fila in tablaProductos.Rows)
                 {
                     totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
                     txt_total_suma.Text = Convert.ToString(totalpagar + Convert.ToDouble(lblItbiss.Text));
@@ -258,14 +254,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
 
                 int x;
-                x = datalistadoDetalleVenta.Rows.Count;
+                x = tablaProductos.Rows.Count;
                 if (x == 0)
                 {
                     lblsubtotal.Text = "0.00";
                 }
 
                 subtotal = 0;
-                foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
+                foreach (DataGridViewRow fila in tablaProductos.Rows)
                 {
                     subtotal += Convert.ToDouble(fila.Cells["Importe"].Value);
                     lblsubtotal.Text = Convert.ToString(subtotal);
@@ -284,14 +280,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
 
                 int x;
-                x = datalistadoDetalleVenta.Rows.Count;
+                x = tablaProductos.Rows.Count;
                 if (x == 0)
                 {
                     lblsubtotal.Text = "0.00";
                 }
 
                 subtotal = 0;
-                foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
+                foreach (DataGridViewRow fila in tablaProductos.Rows)
                 {
                     subtotal += Convert.ToDouble(fila.Cells["Itbis"].Value);
                     lblItbiss.Text = Convert.ToString(subtotal);
@@ -310,7 +306,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
 
                 int x;
-                x = datalistadoDetalleVenta.Rows.Count;
+                x = tablaProductos.Rows.Count;
                 if (x == 0)
                 {
                     txt_total_suma.Text = "0.00";
@@ -318,7 +314,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
                 double descuento;
                 descuento = 0;
-                foreach (DataGridViewRow fila in datalistadoDetalleVenta.Rows)
+                foreach (DataGridViewRow fila in tablaProductos.Rows)
                 {
 
                     descuento += Convert.ToDouble(fila.Cells["Descuento"].Value);
@@ -456,19 +452,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void mostrar_productos()
         {
-            panel_mostrador_de_productos.Size = new System.Drawing.Size(600, 186);
-            panel_mostrador_de_productos.BackColor = Color.White;
-            panel_mostrador_de_productos.Location = new Point(panelReferenciaProductos.Location.X, panelReferenciaProductos.Location.Y);
-            panel_mostrador_de_productos.Visible = true;
+            //panel_mostrador_de_productos.Size = new System.Drawing.Size(600, 186);
+            //panel_mostrador_de_productos.BackColor = Color.White;
+            //panel_mostrador_de_productos.Location = new Point(panelReferenciaProductos.Location.X, panelReferenciaProductos.Location.Y);
+            //panel_mostrador_de_productos.Visible = true;
             DATALISTADO_PRODUCTOS_OKA.Visible = true;
-            DATALISTADO_PRODUCTOS_OKA.Dock = DockStyle.Fill;
+          //  DATALISTADO_PRODUCTOS_OKA.Dock = DockStyle.Fill;
             DATALISTADO_PRODUCTOS_OKA.BackgroundColor = Color.White;
             lbltipodebusqueda2.Visible = false;
-            panel_mostrador_de_productos.Controls.Add(DATALISTADO_PRODUCTOS_OKA);
-
+           /* panel_mostrador_de_productos.Controls.Add(DATALISTADO_PRODUCTOS_OKA);
             this.Controls.Add(panel_mostrador_de_productos);
             panel_mostrador_de_productos.BringToFront();
-
+            */
         }
         private void ocultar_mostrar_productos()
         {
@@ -488,14 +483,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtdescripcion = DATALISTADO_PRODUCTOS_OKA.SelectedCells[4].Value.ToString();
             txtProductoGranel.Text = txtdescripcion;
             txtbuscar.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
-            PANELGRANEL.Location = new Point((Width - PANELGRANEL.Width) / 2, (Height - PANELGRANEL.Height) / 2);
+            PANELGRANEL.Visible = true;
             vender_por_teclado();
             ValidarVentasNuevas();
         }
 
         public void ValidarVentasNuevas()
         {
-            if (datalistadoDetalleVenta.RowCount == 0)
+            if (tablaProductos.RowCount == 0)
             {
                 Limpiar_para_venta_nueva();
             }
@@ -565,19 +560,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void vender_a_granel()
         {
-
-            PANELGRANEL.Visible = true;
-
             PANELGRANEL.BringToFront();
             PANELGRANEL.Visible = true;
-            PANELGRANEL.Location = new Point(527, 211);
+            DATALISTADO_PRODUCTOS_OKA.Visible = false;
         }
-
-        private void Frm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            ejecutar_ventas_a_granel();
-        }
-
         public void ejecutar_ventas_a_granel()
         {
             // MessageBox.Show(txtpantalla.ToString() + "ejecutar_ventas_a_granel");
@@ -810,10 +796,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@idfactura", idVenta);
                 da.Fill(dt);
-                datalistadoDetalleVenta.DataSource = dt;
                 tablaProductos.DataSource = dt;
                 HideWidthColumns();
-
                 con.Close();
                 /*
                 datalistadoDetalleVenta.Columns[0].Width = 50;
@@ -837,14 +821,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoDetalleVenta.Columns[17].Visible = false;*/
                 /* datalistadoDetalleVenta.Columns[18].Visible = false;
                  datalistadoDetalleVenta.Columns[19].Visible = false;*/
-                if (Tema == "Redentor")
-                {
-                    Bases.Multilinea(ref datalistadoDetalleVenta);
-                }
-                else
-                {
-                    Bases.MultilineaTemaOscuro(ref datalistadoDetalleVenta);
-                }
+                //if (Tema == "Redentor")
+                //{
+                //    Bases.Multilinea(ref tablaProductos);
+                //}
+                //else
+                //{
+                //    Bases.MultilineaTemaOscuro(ref tablaProductos);
+                //}
                 sumarItbis();
                 sumar();
                 sumar2();
@@ -852,7 +836,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace);
+              //  MessageBox.Show(ex.StackTrace);
             }
         }
         private void insertar_detalle_venta()
@@ -1015,10 +999,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -1034,10 +1017,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.ExecuteNonQuery();
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-
+                MessageBox.Show(ex.Message);
             }
         }
         private void Obtener_datos_del_detalle_de_venta()
@@ -1052,17 +1034,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+            //    MessageBox.Show(ex.Message);
             }
         }
         private void editar_detalle_venta_sumar()
         {
-
-
-            lblStock_de_Productos = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[15].Value.ToString());
+            //ACA
             if (lblStock_de_Productos > 0)
             {
-
+                //SUMAR ERROR
                 ejecutar_editar_detalle_venta_sumar();
                 disminuir_stock_en_detalle_de_venta();
             }
@@ -1088,14 +1068,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 CONEXION.CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("aumentar_stock_en_detalle_de_factura", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Id_Producto1", idproducto);
+                cmd.Parameters.AddWithValue("@idProducto", idproducto);
                 cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.ExecuteNonQuery();
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
         private void ejecutar_editar_detalle_venta_restar()
@@ -1166,21 +1146,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void datalistadoDetalleVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Obtener_datos_del_detalle_de_venta();
-            if (e.KeyChar == Convert.ToChar("+"))
-            {
-                editar_detalle_venta_sumar();
-            }
-            if (e.KeyChar == Convert.ToChar("-"))
-            {
-                editar_detalle_venta_restar();
-                contar_tablas_ventas();
-                if (Contador == 0)
-                {
-                    eliminar_venta_al_agregar_productos();
-                    txtventagenerada = "factura NUEVA";
-                }
-            }
         }
 
         private void btn1_Click(object sender, EventArgs e)
@@ -1362,7 +1327,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 if (!string.IsNullOrEmpty(txtmonto.Text))
                 {
-                    if (datalistadoDetalleVenta.RowCount > 0)
+                    if (tablaProductos.RowCount > 0)
                     {
 
                         /*if (sevendePor == "Unidad")
@@ -1398,15 +1363,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             double MontoaIngresar;
             MontoaIngresar = Convert.ToDouble(txtmonto.Text);
             double Cantidad;
-            Cantidad = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
+            Cantidad = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
 
             double stock;
             double condicional;
             string ControlStock;
-            ControlStock = datalistadoDetalleVenta.SelectedCells[16].Value.ToString();
+            ControlStock = tablaProductos.SelectedCells[16].Value.ToString();
             if (ControlStock == "SI")
             {
-                stock = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[11].Value);
+                stock = Convert.ToDouble(tablaProductos.SelectedCells[11].Value);
                 condicional = Cantidad + stock;
                 if (condicional >= MontoaIngresar)
                 {
@@ -1428,14 +1393,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             double MontoaIngresar;
             MontoaIngresar = Convert.ToDouble(txtmonto.Text);
             double Cantidad;
-            Cantidad = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[18].Value);
+            Cantidad = Convert.ToDouble(tablaProductos.SelectedCells[18].Value);
             double stock;
             double condicional;
             string ControlStock;
-            ControlStock = datalistadoDetalleVenta.SelectedCells[16].Value.ToString();
+            ControlStock = tablaProductos.SelectedCells[16].Value.ToString();
             if (ControlStock == "SI")
             {
-                stock = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[11].Value);
+                stock = Convert.ToDouble(tablaProductos.SelectedCells[11].Value);
                 condicional = Cantidad + stock;
                 if (condicional >= MontoaIngresar)
                 {
@@ -1458,7 +1423,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             double MontoaIngresar;
             MontoaIngresar = Convert.ToDouble(txtmonto.Text);
             double Cantidad;
-            Cantidad = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
+            Cantidad = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
 
             if (MontoaIngresar > Cantidad)
             {
@@ -1505,7 +1470,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void befectivo_Click_1(object sender, EventArgs e)
         {
-            if (datalistadoDetalleVenta.Rows.Count == 0)
+            if (tablaProductos.Rows.Count == 0)
             {
 
             }
@@ -1522,9 +1487,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnrestaurar_Click_1(object sender, EventArgs e)
         {
-            Ventas_en_espera frm = new Ventas_en_espera();
-            frm.FormClosing += Frm_FormClosing1;
-            frm.ShowDialog();
+           
         }
 
         private void Frm_FormClosing1(object sender, FormClosingEventArgs e)
@@ -1535,31 +1498,13 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (datalistadoDetalleVenta.RowCount > 0)
-            {
-                DialogResult pregunta = MessageBox.Show("¿Realmente desea eliminar esta Venta?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (pregunta == DialogResult.OK)
-                {
-                    Eliminar_datos.eliminar_factura(idVenta);
-                    Limpiar_para_venta_nueva();
-                }
-            }
-
+            
 
         }
 
         private void btnespera_Click(object sender, EventArgs e)
         {
-            if (datalistadoDetalleVenta.RowCount > 0)
-            {
-                MOSTRAR_comprobante_serializado_POR_DEFECTO();
-                PanelEnespera.Visible = true;
-                PanelEnespera.BringToFront();
-                PanelEnespera.Dock = DockStyle.Fill;
-                txtnombre.Clear();
-            }
-
-
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -1588,103 +1533,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnverMovimientosCaja_Click(object sender, EventArgs e)
         {
-            CAJA.Listado_gastos_ingresos frm = new CAJA.Listado_gastos_ingresos();
-            frm.ShowDialog();
+            
         }
 
-        private void btnGastos_Click(object sender, EventArgs e)
-        {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario_que_inicio_sesion == idusuarioBuscar)
-                {
-                    if (modulo == "Egresos")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Gastos_varios.Gastos frm = new Gastos_varios.Gastos();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
-
-        }
-
-        private void btnIngresosCaja_Click(object sender, EventArgs e)
-        {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario_que_inicio_sesion == idusuarioBuscar)
-                {
-                    if (modulo == "Ingresos")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Ingresos_varios.IngresosVarios frm = new Ingresos_varios.IngresosVarios();
-                            frm.ShowDialog();
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
-
-
-        }
-
-        private void BtnCerrar_turno_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void btnCreditoPagar_Click(object sender, EventArgs e)
-        {
-            Apertura_de_credito.PorPagar frm = new Apertura_de_credito.PorPagar();
-            frm.ShowDialog();
-        }
-
-        private void btnCreditoCobrar_Click(object sender, EventArgs e)
-        {
-            Apertura_de_credito.PorCobrarOk frm = new Apertura_de_credito.PorCobrarOk();
-            frm.ShowDialog();
-        }
-
-        private void btnadmin_Click(object sender, EventArgs e)
-        {
-        }
 
         private void VENTAS_MENU_PRINCIPALOK_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -1708,36 +1559,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnCobros_Click(object sender, EventArgs e)
         {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario_que_inicio_sesion == idusuarioBuscar)
-                {
-                    if (modulo == "Cobros creditos clientes")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Cobros.CobrosForm frm = new Cobros.CobrosForm();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
 
 
         }
@@ -1748,7 +1569,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void aplicar_precio_mayoreo()
         {
-            if (datalistadoDetalleVenta.Rows.Count > 0)
+            if (tablaProductos.Rows.Count > 0)
             {
                 Ldetallefactura parametros = new Ldetallefactura();
                 Editar_datos funcion = new Editar_datos();
@@ -1762,14 +1583,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         }
 
-        private void datalistadoDetalleVenta_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnprecio_Click(object sender, EventArgs e)
         {
-            //double precio = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[5].Value);
+            //double precio = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
             if (iddetalleventa == 0)
             {
                 MessageBox.Show("Seleccione un producto para realizar la edición", "Editar precio del Articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1804,7 +1621,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             else
             {
-                double precio = Convert.ToDouble(datalistadoDetalleVenta.SelectedCells[6].Value);
+                double precio = Convert.ToDouble(tablaProductos.SelectedCells[6].Value);
                 //MessageBox.Show(precio.ToString());
                 if (!string.IsNullOrEmpty(txtmonto.Text))
                 {
@@ -1832,12 +1649,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btndevoluciones_Click(object sender, EventArgs e)
         {
-            HistorialVentas.HistorialVentasForm frm = new HistorialVentas.HistorialVentasForm();
-            frm.ShowDialog();
+          
         }
 
 
-
+        /*
         private void IndicadorTema_CheckedChanged(object sender, EventArgs e)
         {
             if (IndicadorTema.Checked == true)
@@ -1855,6 +1671,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 Listarproductosagregados();
             }
         }
+        */
+
         private void EditarTemaCaja()
         {
             Lcaja parametros = new Lcaja();
@@ -1873,9 +1691,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             txtbuscar.ForeColor = Color.White;
             lbltipodebusqueda2.BackColor = Color.FromArgb(20, 20, 20);
             //PanelC2 Intermedio
-            panelC2.BackColor = Color.FromArgb(35, 35, 35);
-            btnCobros.BackColor = Color.FromArgb(45, 45, 45);
-            btnCobros.ForeColor = Color.White;
 
 
             /*btnCreditoCobrar.BackColor = Color.FromArgb(45, 45, 45);
@@ -1885,34 +1700,15 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             */
             btnMayoreo.BackColor = Color.FromArgb(45, 45, 45);
             btnMayoreo.ForeColor = Color.White;
-            btnIngresosCaja.BackColor = Color.FromArgb(45, 45, 45);
-            btnIngresosCaja.ForeColor = Color.White;
-            btnGastos.BackColor = Color.FromArgb(45, 45, 45);
-            btnGastos.ForeColor = Color.White;
-            BtnTecladoV.BackColor = Color.FromArgb(45, 45, 45);
-            BtnTecladoV.ForeColor = Color.White;
-            //PanelC4 Pie de pagina
-            panelC4.BackColor = Color.FromArgb(20, 20, 20);
-            btnespera.BackColor = Color.FromArgb(20, 20, 20);
-            btnespera.ForeColor = Color.White;
-            btnrestaurar.BackColor = Color.FromArgb(20, 20, 20);
-            btnrestaurar.ForeColor = Color.White;
-            btneliminar.BackColor = Color.FromArgb(20, 20, 20);
-            btneliminar.ForeColor = Color.White;
+            //wrapperProduct Pie de pagina
             button7.BackColor = Color.FromArgb(20, 20, 20);
             button7.ForeColor = Color.White;
-            button6.BackColor = Color.FromArgb(20, 20, 20);
-            button6.ForeColor = Color.White;
-            btndevoluciones.BackColor = Color.FromArgb(20, 20, 20);
-            btndevoluciones.ForeColor = Color.White;
             //PanelOperaciones
             PanelOperaciones.BackColor = Color.FromArgb(35, 35, 35);
             txt_total_suma.ForeColor = Color.WhiteSmoke;
             //PanelBienvenida
             panelBienvenida.BackColor = Color.FromArgb(35, 35, 35);
             label8.ForeColor = Color.WhiteSmoke;
-            button4.BackColor = Color.FromArgb(45, 45, 45);
-            button4.ForeColor = Color.White;
             btn4.ForeColor = Color.WhiteSmoke;
             btn4.BackColor = Color.FromArgb(45, 45, 45);
             Listarproductosagregados();
@@ -1922,10 +1718,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void TemaClaro()
         {
-            button4.ForeColor = Color.Black;
-            button4.BackColor = Color.WhiteSmoke;
-            button6.ForeColor = Color.Black;
-            button6.BackColor = Color.Gainsboro;
             button7.ForeColor = Color.Black;
             button7.BackColor = Color.Gainsboro;
             //PanelC1 encabezado
@@ -1939,9 +1731,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             btn4.BackColor = Color.White;
 
             //PanelC2 intermedio
-            panelC2.BackColor = Color.White;
-            btnCobros.BackColor = Color.WhiteSmoke;
-            btnCobros.ForeColor = Color.Black;
             btn4.BackColor = Color.WhiteSmoke;
             btn4.ForeColor = Color.White;
 
@@ -1952,22 +1741,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             btnMayoreo.BackColor = Color.WhiteSmoke;
             btnMayoreo.ForeColor = Color.Black;
-            btnIngresosCaja.BackColor = Color.WhiteSmoke;
-            btnIngresosCaja.ForeColor = Color.Black;
-            btnGastos.BackColor = Color.WhiteSmoke;
-            btnGastos.ForeColor = Color.Black;
-            BtnTecladoV.BackColor = Color.WhiteSmoke;
-            BtnTecladoV.ForeColor = Color.Black;
-            //PanelC4 pie de pagina
-            panelC4.BackColor = Color.Gainsboro;
-            btnespera.BackColor = Color.Gainsboro;
-            btnespera.ForeColor = Color.Black;
-            btnrestaurar.BackColor = Color.Gainsboro;
-            btnrestaurar.ForeColor = Color.Black;
-            btneliminar.BackColor = Color.Gainsboro;
-            btneliminar.ForeColor = Color.Black;
-            btndevoluciones.BackColor = Color.Gainsboro;
-            btndevoluciones.ForeColor = Color.Black;
+            //wrapperProduct pie de pagina
 
             //PanelOperaciones
             PanelOperaciones.BackColor = Color.White;
@@ -1981,109 +1755,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario_que_inicio_sesion == idusuarioBuscar)
-                {
-                    if (modulo == "Cotizacion")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Cotizacion.Cotizaciones frm = new Cotizacion.Cotizaciones();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-            Cotizaciones_En_Espera frm = new Cotizaciones_En_Espera();
-            frm.FormClosing += Frm_FormClosing1;
-            frm.ShowDialog();
-        }
-
-        private void datalistadocotizacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            Pedidos_En_Espera frm = new Pedidos_En_Espera();
-            frm.ShowDialog();
-        }
-
         private void button9_Click(object sender, EventArgs e)
         {
             txtmonto.Text = txtmonto.Text + "0";
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario_que_inicio_sesion == idusuarioBuscar)
-                {
-                    if (modulo == "Compras")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Compras_proveedor.Compras_proveedor frm = new Compras_proveedor.Compras_proveedor();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
-
-        }
-
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
         {
@@ -2118,55 +1794,13 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             stockgranel.Text = Convert.ToString(lblStock_de_Productos);
         }
 
-        private void btnCancelarGRANEL_Click(object sender, EventArgs e)
-        {
-        }
+   
 
-        private void button11_Click(object sender, EventArgs e)
-        {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario_que_inicio_sesion == idusuarioBuscar)
-                {
-                    if (modulo == "Productos")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            PRODUCTOS_OK.Productos_ok frm = new PRODUCTOS_OK.Productos_ok();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
-
-        }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txtCantidad, e);
 
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            Presentacion.Pagos.Pagos frm = new Presentacion.Pagos.Pagos();
-            frm.ShowDialog();
         }
 
         private void teclado_Click(object sender, EventArgs e)
@@ -2308,6 +1942,38 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             selectedBotons((Bunifu.Framework.UI.BunifuFlatButton)sender);
             arrowGuide((Bunifu.Framework.UI.BunifuFlatButton)sender);
+
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                {
+                    if (modulo == "Compras")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Compras_proveedor.Compras_proveedor frm = new Compras_proveedor.Compras_proveedor();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+
         }
 
         private void btnWork_Click(object sender, EventArgs e)
@@ -2446,45 +2112,265 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void tablaProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Obtener_datos_del_detalle_de_venta();
-
-
-            if (e.ColumnIndex == this.tablaProductos.Columns["su"].Index)
+            if (tablaProductos.Rows.Count > 0)
             {
-                txtpantalla = 1;
+
+                Obtener_datos_del_detalle_de_venta();
+
+
+                if (e.ColumnIndex == this.tablaProductos.Columns["su"].Index)
+                {
+                    txtpantalla = 1;
+                    editar_detalle_venta_sumar();
+                    lblStock_de_Productos = Convert.ToDouble(tablaProductos.Rows[e.RowIndex].Cells["Stock"].Value.ToString());
+                }
+                if (e.ColumnIndex == this.tablaProductos.Columns["re"].Index)
+                {
+                    txtpantalla = 1;
+                    editar_detalle_venta_restar();
+                    EliminarVentas();
+                }
+                if (e.ColumnIndex == this.tablaProductos.Columns["d"].Index)
+                {
+
+                    int iddetalle_venta = Convert.ToInt32(tablaProductos.Rows[e.RowIndex].Cells["iddetalle_factura"].Value.ToString());
+                    try
+                    {
+                        SqlCommand cmd;
+                        SqlConnection con = new SqlConnection();
+                        con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                        con.Open();
+                        cmd = new SqlCommand("eliminar_detalle_factura", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@iddetallefactura", iddetalle_venta);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        idproducto = Convert.ToInt32(tablaProductos.Rows[e.RowIndex].Cells["Id_producto"].Value.ToString());
+                        txtpantalla = Convert.ToDouble(tablaProductos.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString());
+                        aumentar_stock_en_detalle_de_venta();
+                    }
+                    catch (Exception ex)
+                    {
+                      //  MessageBox.Show(ex.Message);
+                    }
+                    Listarproductosagregados();
+                    EliminarVentas();
+                }
+            }
+        }
+
+        private void tablaProductos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Obtener_datos_del_detalle_de_venta();
+            if (e.KeyChar == Convert.ToChar("+"))
+            {
                 editar_detalle_venta_sumar();
             }
-            if (e.ColumnIndex == this.tablaProductos.Columns["re"].Index)
+            if (e.KeyChar == Convert.ToChar("-"))
             {
-                txtpantalla = 1;
                 editar_detalle_venta_restar();
-                EliminarVentas();
+                contar_tablas_ventas();
+                if (Contador == 0)
+                {
+                    eliminar_venta_al_agregar_productos();
+                    txtventagenerada = "factura NUEVA";
+                }
             }
-            if (e.ColumnIndex == this.tablaProductos.Columns["d"].Index)
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
             {
 
-                int iddetalle_venta = Convert.ToInt32(tablaProductos.SelectedCells[9].Value);
-                try
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
                 {
-                    SqlCommand cmd;
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                    con.Open();
-                    cmd = new SqlCommand("eliminar_detalle_factura", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@iddetallefactura", iddetalle_venta);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    txtpantalla = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
-                    aumentar_stock_en_detalle_de_venta();
+                    if (modulo == "Cobros creditos clientes")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Cobros.CobrosForm frm = new Cobros.CobrosForm();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                Listarproductosagregados();
-                EliminarVentas();
+
             }
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            Presentacion.Pagos.Pagos frm = new Presentacion.Pagos.Pagos();
+            frm.ShowDialog();
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                {
+                    if (modulo == "Cotizacion")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Cotizacion.Cotizaciones frm = new Cotizacion.Cotizaciones();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                {
+                    if (modulo == "Ingresos")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Ingresos_varios.IngresosVarios frm = new Ingresos_varios.IngresosVarios();
+                            frm.ShowDialog();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                {
+                    if (modulo == "Egresos")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Gastos_varios.Gastos frm = new Gastos_varios.Gastos();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+            CAJA.Listado_gastos_ingresos frm = new CAJA.Listado_gastos_ingresos();
+            frm.ShowDialog();
+        }
+
+        private void btnPONERESPERA_Click(object sender, EventArgs e)
+        {
+            if (tablaProductos.RowCount > 0)
+            {
+                MOSTRAR_comprobante_serializado_POR_DEFECTO();
+                PanelEnespera.Visible = true;
+                PanelEnespera.BringToFront();
+                PanelEnespera.Dock = DockStyle.Fill;
+                txtnombre.Clear();
+            }
+
+        }
+
+        private void BTNESPERAA_Click(object sender, EventArgs e)
+        {
+            Ventas_en_espera frm = new Ventas_en_espera();
+            frm.FormClosing += Frm_FormClosing1;
+            frm.ShowDialog();
+        }
+
+        private void deletefactura_Click(object sender, EventArgs e)
+        {
+            if (tablaProductos.RowCount > 0)
+            {
+                DialogResult pregunta = MessageBox.Show("¿Realmente desea eliminar esta Factura?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (pregunta == DialogResult.OK)
+                {
+                    Eliminar_datos.eliminar_factura(idVenta);
+                    Limpiar_para_venta_nueva();
+                }
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+            HistorialVentas.HistorialVentasForm frm = new HistorialVentas.HistorialVentasForm();
+            frm.ShowDialog();
         }
     }
 }
