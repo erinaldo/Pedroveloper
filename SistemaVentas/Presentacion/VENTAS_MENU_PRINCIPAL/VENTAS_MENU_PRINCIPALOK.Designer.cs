@@ -322,9 +322,6 @@
             this.btnRestaurarr = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnPONERESPERA = new Guna.UI.WinForms.GunaAdvenceButton();
             this.tablaProductos = new System.Windows.Forms.DataGridView();
-            this.su = new System.Windows.Forms.DataGridViewImageColumn();
-            this.re = new System.Windows.Forms.DataGridViewImageColumn();
-            this.d = new System.Windows.Forms.DataGridViewImageColumn();
             this.wrapperProduct = new System.Windows.Forms.FlowLayoutPanel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
@@ -402,6 +399,10 @@
             this.bunifuElipse25 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse26 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse27 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuWebClient1 = new Bunifu.Framework.UI.BunifuWebClient(this.components);
+            this.s = new System.Windows.Forms.DataGridViewImageColumn();
+            this.r = new System.Windows.Forms.DataGridViewImageColumn();
+            this.e = new System.Windows.Forms.DataGridViewImageColumn();
             this.PanelC1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.panel21.SuspendLayout();
@@ -3552,7 +3553,7 @@
             this.PanelEnespera.Controls.Add(this.pictureBox4);
             this.PanelEnespera.Location = new System.Drawing.Point(18, 69);
             this.PanelEnespera.Name = "PanelEnespera";
-            this.PanelEnespera.Size = new System.Drawing.Size(658, 243);
+            this.PanelEnespera.Size = new System.Drawing.Size(458, 172);
             this.PanelEnespera.TabIndex = 613;
             this.PanelEnespera.Visible = false;
             // 
@@ -4359,9 +4360,9 @@
             this.tablaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaProductos.ColumnHeadersVisible = false;
             this.tablaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.su,
-            this.re,
-            this.d});
+            this.s,
+            this.r,
+            this.e});
             dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle32.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4382,29 +4383,6 @@
             this.tablaProductos.TabIndex = 624;
             this.tablaProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaProductos_CellClick);
             this.tablaProductos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tablaProductos_KeyPress);
-            // 
-            // su
-            // 
-            this.su.HeaderText = "sumar";
-            this.su.Image = ((System.Drawing.Image)(resources.GetObject("su.Image")));
-            this.su.Name = "su";
-            this.su.ReadOnly = true;
-            // 
-            // re
-            // 
-            this.re.HeaderText = "restar";
-            this.re.Image = ((System.Drawing.Image)(resources.GetObject("re.Image")));
-            this.re.Name = "re";
-            this.re.ReadOnly = true;
-            this.re.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.re.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // d
-            // 
-            this.d.HeaderText = "eliminar";
-            this.d.Image = ((System.Drawing.Image)(resources.GetObject("d.Image")));
-            this.d.Name = "d";
-            this.d.ReadOnly = true;
             // 
             // wrapperProduct
             // 
@@ -5318,6 +5296,42 @@
             this.bunifuElipse27.ElipseRadius = 7;
             this.bunifuElipse27.TargetControl = this.btnVentasMediosPago;
             // 
+            // bunifuWebClient1
+            // 
+            this.bunifuWebClient1.AllowReadStreamBuffering = false;
+            this.bunifuWebClient1.AllowWriteStreamBuffering = false;
+            this.bunifuWebClient1.BaseAddress = "";
+            this.bunifuWebClient1.CachePolicy = null;
+            this.bunifuWebClient1.Credentials = null;
+            this.bunifuWebClient1.Encoding = ((System.Text.Encoding)(resources.GetObject("bunifuWebClient1.Encoding")));
+            this.bunifuWebClient1.Headers = ((System.Net.WebHeaderCollection)(resources.GetObject("bunifuWebClient1.Headers")));
+            this.bunifuWebClient1.QueryString = ((System.Collections.Specialized.NameValueCollection)(resources.GetObject("bunifuWebClient1.QueryString")));
+            this.bunifuWebClient1.UseDefaultCredentials = false;
+            // 
+            // s
+            // 
+            this.s.HeaderText = "s";
+            this.s.Image = ((System.Drawing.Image)(resources.GetObject("s.Image")));
+            this.s.Name = "s";
+            this.s.ReadOnly = true;
+            this.s.ToolTipText = "Opcional \"Supr\" para Eliminar";
+            // 
+            // r
+            // 
+            this.r.HeaderText = "r";
+            this.r.Image = ((System.Drawing.Image)(resources.GetObject("r.Image")));
+            this.r.Name = "r";
+            this.r.ReadOnly = true;
+            this.r.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.r.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // e
+            // 
+            this.e.HeaderText = "e";
+            this.e.Image = ((System.Drawing.Image)(resources.GetObject("e.Image")));
+            this.e.Name = "e";
+            this.e.ReadOnly = true;
+            // 
             // VENTAS_MENU_PRINCIPALOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5725,9 +5739,6 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.DataGridViewImageColumn su;
-        private System.Windows.Forms.DataGridViewImageColumn re;
-        private System.Windows.Forms.DataGridViewImageColumn d;
         private System.Windows.Forms.FlowLayoutPanel wrapperProduct;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel22;
@@ -5800,5 +5811,10 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse26;
         private Bunifu.Framework.UI.BunifuFlatButton btnVentasMediosPago;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse27;
+        private Bunifu.Framework.UI.BunifuWebClient bunifuWebClient1;
+        private System.Windows.Forms.DataGridViewImageColumn d;
+        private System.Windows.Forms.DataGridViewImageColumn s;
+        private System.Windows.Forms.DataGridViewImageColumn r;
+        private System.Windows.Forms.DataGridViewImageColumn e;
     }
 }
