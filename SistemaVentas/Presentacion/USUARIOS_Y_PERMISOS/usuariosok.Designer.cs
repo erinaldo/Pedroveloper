@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usuariosok));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtbuscar = new System.Windows.Forms.TextBox();
             this.dlg = new System.Windows.Forms.OpenFileDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -342,11 +342,11 @@
             this.datalistadoEmpleado.AllowUserToAddRows = false;
             this.datalistadoEmpleado.AllowUserToDeleteRows = false;
             this.datalistadoEmpleado.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoEmpleado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoEmpleado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.datalistadoEmpleado.BackgroundColor = System.Drawing.Color.White;
             this.datalistadoEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datalistadoEmpleado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -360,8 +360,8 @@
             this.datalistadoEmpleado.ReadOnly = true;
             this.datalistadoEmpleado.RowHeadersVisible = false;
             this.datalistadoEmpleado.RowHeadersWidth = 9;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            this.datalistadoEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.datalistadoEmpleado.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
@@ -370,7 +370,7 @@
             this.datalistadoEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datalistadoEmpleado.Size = new System.Drawing.Size(254, 93);
             this.datalistadoEmpleado.TabIndex = 644;
-            this.datalistadoEmpleado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoEmpleado_CellContentClick);
+            this.datalistadoEmpleado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoEmpleado_CellClick);
             // 
             // panel10
             // 
@@ -570,7 +570,7 @@
             this.guardar.Image = ((System.Drawing.Image)(resources.GetObject("guardar.Image")));
             this.guardar.ImageSize = new System.Drawing.Size(20, 20);
             this.guardar.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.guardar.Location = new System.Drawing.Point(43, 337);
+            this.guardar.Location = new System.Drawing.Point(22, 337);
             this.guardar.Name = "guardar";
             this.guardar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
             this.guardar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -980,15 +980,15 @@
             this.tablaUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.editar,
             this.Eli});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(8);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaUsuarios.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(8);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaUsuarios.DefaultCellStyle = dataGridViewCellStyle6;
             this.tablaUsuarios.GridColor = System.Drawing.Color.LightGray;
             this.tablaUsuarios.Location = new System.Drawing.Point(31, 187);
             this.tablaUsuarios.Name = "tablaUsuarios";

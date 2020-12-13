@@ -1009,6 +1009,7 @@
   <ItemGroup>
     <Content Include="Presentacion\CAJA\FormatoCierreCaja.html" />
     <Content Include="Presentacion\LOGIN\HTMLPage1.html" />
+    <None Include="Resources\editar.Image.png" />
     <None Include="Resources\pictureBox5.Image.png" />
     <None Include="Resources\pictureBox4.Image.png" />
     <None Include="Resources\this.BackgroundImage.png" />

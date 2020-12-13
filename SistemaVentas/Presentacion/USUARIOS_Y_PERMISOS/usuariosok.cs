@@ -20,6 +20,7 @@ namespace SistemaVentas
         int idEmpleado;
         int idEmpleado1;
         int idPersona;
+        int idCorreoEditar;
         int idPersona1;
         int idCorreo;
         string correo;
@@ -340,12 +341,7 @@ namespace SistemaVentas
 
         private void datalistadoEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            idEmpleado = Convert.ToInt32(datalistadoEmpleado.SelectedCells[0].Value);
-            idEmpleado1 = Convert.ToInt32(datalistadoEmpleado.SelectedCells[0].Value);
-            idPersona = Convert.ToInt32(datalistadoEmpleado.SelectedCells[1].Value);
-            idPersona1 = Convert.ToInt32(datalistadoEmpleado.SelectedCells[1].Value);
-            txtEmpleado.Text = datalistadoEmpleado.SelectedCells[2].Value.ToString();
-            panelDataListadoEmpleado.Visible = false;
+            
         }
 
         private void txtEmpleado_KeyPress(object sender, KeyPressEventArgs e)
@@ -458,7 +454,6 @@ namespace SistemaVentas
                                         ICONO.Image.Save(ms, ICONO.Image.RawFormat);
                                         cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
                                         cmd.Parameters.AddWithValue("@Nombre_de_icono", lblnumeroIcono.Text);
-                                        cmd.Parameters.AddWithValue("@idCorreo", correo);
                                         cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                                         cmd.ExecuteNonQuery();
                                         con.Close();
@@ -519,20 +514,14 @@ namespace SistemaVentas
 
         private bool editarCorreo()
         {
-            MessageBox.Show("id" + idCorreo.ToString());
-            MessageBox.Show(correo.ToString());
-            try
+          try
             {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd = new SqlCommand("editar_correo", con);
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editar_correo", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCorreo",idCorreo);
-                cmd.Parameters.AddWithValue("@correo",correo);
+                cmd.Parameters.AddWithValue("@idCorreo", idCorreoEditar);
+                cmd.Parameters.AddWithValue("@correo", txtCorreo.Text);
                 cmd.ExecuteNonQuery();
-                con.Close();
                 return true;
             }
             catch (Exception EX)
@@ -546,7 +535,7 @@ namespace SistemaVentas
             bool band = false;
             if (validar_Mail(txtCorreo.Text) == false)
             {
-                MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Dirección de correo electrónico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtCorreo.Focus();
                 txtCorreo.SelectAll();
             }
@@ -628,7 +617,6 @@ namespace SistemaVentas
             if (tablaUsuarios.Rows[e.RowIndex].Cells["Editar"].Selected)
             {
                 
-                MessageBox.Show(tablaUsuarios.Rows[e.RowIndex].Cells["idUsuario"].Value.ToString());
                   lblId_usuario.Text = tablaUsuarios.Rows[e.RowIndex].Cells["idUsuario"].Value.ToString();
                 idEmpleado = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idEmpleado"].Value);
                 idEmpleado1 = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idEmpleado"].Value);
@@ -639,7 +627,7 @@ namespace SistemaVentas
                 txtroles.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Rol"].Value.ToString();
                 lblnumeroIcono.Text = tablaUsuarios.Rows[e.RowIndex].Cells["NombreIcono"].Value.ToString();
                 txtCorreo.Text = tablaUsuarios.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
-                idCorreo = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idCorreo"].Value);
+                idCorreoEditar = Convert.ToInt32(tablaUsuarios.Rows[e.RowIndex].Cells["idCorreo"].Value);
                 correo = tablaUsuarios.Rows[e.RowIndex].Cells["Correo"].Value.ToString(); 
                 byte[] b = (Byte[])tablaUsuarios.Rows[e.RowIndex].Cells["Icono"].Value;
                 MemoryStream ms = new MemoryStream(b);
@@ -681,6 +669,16 @@ namespace SistemaVentas
                 }
                 mostrar();
             }
+        }
+
+        private void datalistadoEmpleado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idEmpleado = Convert.ToInt32(datalistadoEmpleado.SelectedCells[0].Value);
+            idEmpleado1 = Convert.ToInt32(datalistadoEmpleado.SelectedCells[0].Value);
+            idPersona = Convert.ToInt32(datalistadoEmpleado.SelectedCells[1].Value);
+            idPersona1 = Convert.ToInt32(datalistadoEmpleado.SelectedCells[1].Value);
+            txtEmpleado.Text = datalistadoEmpleado.SelectedCells[2].Value.ToString();
+            panelDataListadoEmpleado.Visible = false;
         }
     }
 }

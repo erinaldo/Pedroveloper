@@ -446,5 +446,20 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         {
 
         }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            DialogResult dlg;
+            dlg = MessageBox.Show("¿Seguro que desea cerrar esta Instalación?", "Instalacion del Servidor", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if(dlg == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            }
+        }
     }
-}

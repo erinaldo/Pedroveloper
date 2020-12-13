@@ -1246,6 +1246,17 @@ namespace SistemaVentas.Presentacion.Empleados
             }
         }
 
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
+
         private void datalistadoTiposTelefono_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

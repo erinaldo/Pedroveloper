@@ -62,6 +62,24 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
         private void Button3_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void volver_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Presentacion.ASISTENTE_DE_INSTALACION_servidor.Instalacion_del_servidorSQL frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.Instalacion_del_servidorSQL();
+            frm.ShowDialog();
+        }
+
+        private void gunaAdvenceButton1_Click(object sender, EventArgs e)
+        {
             Dispose();
             Conexion_remota.Conexion_secundaria frm = new Conexion_remota.Conexion_secundaria();
             frm.ShowDialog();

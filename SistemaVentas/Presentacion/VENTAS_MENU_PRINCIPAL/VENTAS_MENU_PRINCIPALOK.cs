@@ -759,6 +759,34 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             panelBienvenida.Visible = false;
             PanelOperaciones.Visible = true;
         }
+        public void HideWidthColumns()
+        {
+
+            tablaProductos.Columns[0].Width = 100;
+            tablaProductos.Columns[1].Width = 100;
+            tablaProductos.Columns[2].Width = 100;
+            tablaProductos.Columns[3].Visible = false;
+            tablaProductos.Columns[3].Width = 150;
+            tablaProductos.Columns[4].Width = 100;
+            tablaProductos.Columns[5].Width = 100;
+            tablaProductos.Columns[6].Width = 100;
+            tablaProductos.Columns[6].Width  = 100;
+            tablaProductos.AutoSizeColumnsMode = Filll;
+
+            tablaProductos.Columns[11].Width = tablaProductos.Width - (tablaProductos.Columns[0].Width - tablaProductos.Columns[1].Width - tablaProductos.Columns[2].Width -
+              tablaProductos.Columns[4].Width - tablaProductos.Columns[5].Width - tablaProductos.Columns[6].Width - tablaProductos.Columns[7].Width);
+            tablaProductos.Columns[8].Visible = false;
+            tablaProductos.Columns[9].Visible = false;
+            tablaProductos.Columns[10].Visible = false;
+            tablaProductos.Columns[11].Visible = false;
+            tablaProductos.Columns[12].Visible = false;
+            tablaProductos.Columns[13].Visible = false;
+            tablaProductos.Columns[14].Visible = false;
+            tablaProductos.Columns[15].Visible = false;
+            tablaProductos.Columns[16].Visible = false;
+            tablaProductos.Columns[17].Visible = false;
+            tablaProductos.Columns[18].Visible = false;
+        }
         private void Listarproductosagregados()
         {
             try
@@ -773,7 +801,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 da.SelectCommand.Parameters.AddWithValue("@idfactura", idVenta);
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
+                tablaProductos.DataSource = dt;
+                HideWidthColumns();
+
                 con.Close();
+                /*
                 datalistadoDetalleVenta.Columns[0].Width = 50;
                 datalistadoDetalleVenta.Columns[1].Width = 50;
                 datalistadoDetalleVenta.Columns[2].Width = 50;
@@ -792,7 +824,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 datalistadoDetalleVenta.Columns[14].Visible = false;
                 datalistadoDetalleVenta.Columns[15].Visible = false;
                 datalistadoDetalleVenta.Columns[16].Visible = false;
-                datalistadoDetalleVenta.Columns[17].Visible = false;
+                datalistadoDetalleVenta.Columns[17].Visible = false;*/
                 /* datalistadoDetalleVenta.Columns[18].Visible = false;
                  datalistadoDetalleVenta.Columns[19].Visible = false;*/
                 if (Tema == "Redentor")
@@ -1571,18 +1603,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             PanelEnespera.Visible = false;
             PanelEnespera.Dock = DockStyle.None;
         }
-        private void btnGuardarEspera_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtnombre.Text))
-            {
-                editarVentaEspera();
-            }
-            else
-            {
-                MessageBox.Show("Ingrese una referencia");
-            }
 
-        }
         private void editarVentaEspera()
 
         {
@@ -1593,21 +1614,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void btnAutomaticoEspera_Click(object sender, EventArgs e)
         {
             //OJOOOOOOO
-            txtnombre.Text = "Ticket" + idVenta;
-            editarVentaEspera();
         }
 
-
-
-        private void BTNLECTORA_Click_1(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void BTNTECLADO_Click_1(object sender, EventArgs e)
-        {
-           
-        }
 
         private void btnverMovimientosCaja_Click(object sender, EventArgs e)
         {
@@ -1689,38 +1697,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void BtnCerrar_turno_Click(object sender, EventArgs e)
         {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario_que_inicio_sesion == idusuarioBuscar)
-                {
-                    if (modulo == "Cerrar turno")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Dispose();
-                            CAJA.CIERRE_DE_CAJA frm = new CAJA.CIERRE_DE_CAJA();
-                            frm.ShowDialog();
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
 
 
         }
@@ -1739,36 +1715,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnadmin_Click(object sender, EventArgs e)
         {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario_que_inicio_sesion == idusuarioBuscar)
-                {
-                    if (modulo == "Configuracion")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Dispose();
-                            DASHBOARD_PRINCIPAL frm = new DASHBOARD_PRINCIPAL();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-            }
         }
 
         private void VENTAS_MENU_PRINCIPALOK_FormClosing(object sender, FormClosingEventArgs e)
@@ -1954,7 +1900,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             label9.ForeColor = Color.White;
             label9.BackColor = Color.FromArgb(35, 35, 35);
             PanelC1.BackColor = Color.FromArgb(35, 35, 35);
-            btnadmin.ForeColor = Color.White;
             txtbuscar.BackColor = Color.FromArgb(20, 20, 20);
             txtbuscar.ForeColor = Color.White;
             lbltipodebusqueda2.BackColor = Color.FromArgb(20, 20, 20);
@@ -1969,8 +1914,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             btnCreditoPagar.BackColor = Color.FromArgb(45, 45, 45);
             btnCreditoPagar.ForeColor = Color.White;
             */
-            //PanelC3
-            PanelC3.BackColor = Color.FromArgb(35, 35, 35);
             btnMayoreo.BackColor = Color.FromArgb(45, 45, 45);
             btnMayoreo.ForeColor = Color.White;
             btnIngresosCaja.BackColor = Color.FromArgb(45, 45, 45);
@@ -2020,7 +1963,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             label9.ForeColor = Color.Black;
             label9.BackColor = Color.White;
             PanelC1.BackColor = Color.White;
-            btnadmin.ForeColor = Color.Black;
             txtbuscar.BackColor = Color.White;
             txtbuscar.ForeColor = Color.Black;
             lbltipodebusqueda2.BackColor = Color.White;
@@ -2039,8 +1981,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
               btnCreditoPagar.BackColor = Color.WhiteSmoke;
               btnCreditoPagar.ForeColor = Color.Black;*/
 
-            //PanelC3
-            PanelC3.BackColor = Color.White;
             btnMayoreo.BackColor = Color.WhiteSmoke;
             btnMayoreo.ForeColor = Color.Black;
             btnIngresosCaja.BackColor = Color.WhiteSmoke;
@@ -2173,35 +2113,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            string numero;
-            bool entero = true;
-
-
-            numero = txtCantidad.Text;
-
-            char[] test = numero.ToCharArray();
-
-            for (int i = 0; i < test.Length; i++)
-            {
-                if (test[i] == '.')
-                {
-                    entero = false;
-                }
-            }
-
-            if (entero)
-            {
-                txtpantalla = Convert.ToInt32(numero);
-            }
-            else
-            {
-                txtpantalla = Convert.ToDouble(numero);
-            }
-            PANELGRANEL.Visible = false;
-            PANELGRANEL.BringToFront();
-            txtCantidad.Focus();
-            DATALISTADO_PRODUCTOS_OKA.Visible = false;
-            ejecutar_ventas_a_granel();
+           
         }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
@@ -2239,9 +2151,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnCancelarGRANEL_Click(object sender, EventArgs e)
         {
-            PANELGRANEL.Visible = false;
-            txtbuscar.Focus();
-            txtbuscar.SelectAll();
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -2337,5 +2246,231 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
          
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            selectedBotons((Bunifu.Framework.UI.BunifuFlatButton)sender);
+            arrowGuide((Bunifu.Framework.UI.BunifuFlatButton)sender);
+
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                {
+                    if (modulo == "Configuracion")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Dispose();
+                            DASHBOARD_PRINCIPAL frm = new DASHBOARD_PRINCIPAL();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            selectedBotons((Bunifu.Framework.UI.BunifuFlatButton)sender);
+            arrowGuide((Bunifu.Framework.UI.BunifuFlatButton)sender);
+            showFormInWrapper(new Presentacion.PRODUCTOS_OK.Productos_ok());
+
+            //showFormInWrapper(new productsView());
+        }
+
+        private Form FormActive = null;
+
+        private void showFormInWrapper(Form FormSon)
+        {
+            if (FormActive != null)
+                FormActive.Close();
+            FormActive = FormSon;
+            FormSon.TopLevel = false;
+            FormSon.Dock = DockStyle.Fill;
+            wrapper.Controls.Add(FormSon);
+            wrapper.Tag = FormSon;
+            FormSon.BringToFront();
+            FormSon.Show();
+        }
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+            selectedBotons((Bunifu.Framework.UI.BunifuFlatButton)sender);
+            arrowGuide((Bunifu.Framework.UI.BunifuFlatButton)sender);
+        }
+        public void arrowGuide(Bunifu.Framework.UI.BunifuFlatButton sender)
+        {
+            arrow.Top = sender.Top;
+        }
+        public void selectedBotons(Bunifu.Framework.UI.BunifuFlatButton sender)
+        {
+            btnDashboard.Textcolor = Color.WhiteSmoke;
+            btnProducts.Textcolor = Color.WhiteSmoke;
+            btnSales.Textcolor = Color.WhiteSmoke;
+            btnBuy.Textcolor = Color.WhiteSmoke;
+            btnWork.Textcolor = Color.WhiteSmoke;
+            btnClients.Textcolor = Color.WhiteSmoke;
+            btnProvs.Textcolor = Color.WhiteSmoke;
+            btnMoney.Textcolor = Color.WhiteSmoke;
+
+            sender.selected = true;
+
+            if (sender.selected)
+            {
+                sender.Textcolor = Color.FromArgb(98, 195, 140);
+            }
+        }
+
+        private void btnBuy_Click(object sender, EventArgs e)
+        {
+            selectedBotons((Bunifu.Framework.UI.BunifuFlatButton)sender);
+            arrowGuide((Bunifu.Framework.UI.BunifuFlatButton)sender);
+        }
+
+        private void btnWork_Click(object sender, EventArgs e)
+        {
+            selectedBotons((Bunifu.Framework.UI.BunifuFlatButton)sender);
+            arrowGuide((Bunifu.Framework.UI.BunifuFlatButton)sender);
+        }
+
+        private void btnClients_Click(object sender, EventArgs e)
+        {
+            selectedBotons((Bunifu.Framework.UI.BunifuFlatButton)sender);
+            arrowGuide((Bunifu.Framework.UI.BunifuFlatButton)sender);
+        }
+
+        private void btnProvs_Click(object sender, EventArgs e)
+        {
+            selectedBotons((Bunifu.Framework.UI.BunifuFlatButton)sender);
+            arrowGuide((Bunifu.Framework.UI.BunifuFlatButton)sender);
+        }
+
+        private void btnMoney_Click(object sender, EventArgs e)
+        {
+
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                {
+                    if (modulo == "Cerrar turno")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Dispose();
+                            CAJA.CIERRE_DE_CAJA frm = new CAJA.CIERRE_DE_CAJA();
+                            frm.ShowDialog();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        #region btnVolverPanelVentasEspera
+        private void btnVolverPanelVentasEspera_Click(object sender, EventArgs e)
+        {
+            ocularPanelenEspera();
+
+        }
+        #endregion
+        #region botonGuardarVentaEspera
+        private void gunaAdvenceButton1_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtnombre.Text))
+            {
+                editarVentaEspera();
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una referencia");
+            }
+        }
+
+        #endregion
+        #region btnGenerarCodigoAutomatico
+        private void gunaAdvenceButton1_Click_1(object sender, EventArgs e)
+        {
+            txtnombre.Text = "Ticket" + idVenta;
+            editarVentaEspera();
+        }
+        #endregion
+
+        /// <summary>
+        /// Agregar productos a ventas.
+        /// </summary>
+        #region btnAgregarProductos
+        private void btnAgregarProductos_Click(object sender, EventArgs e)
+        {
+            string numero;
+            bool entero = true;
+
+
+            numero = txtCantidad.Text;
+
+            char[] test = numero.ToCharArray();
+
+            for (int i = 0; i < test.Length; i++)
+            {
+                if (test[i] == '.')
+                {
+                    entero = false;
+                }
+            }
+
+            if (entero)
+            {
+                txtpantalla = Convert.ToInt32(numero);
+            }
+            else
+            {
+                txtpantalla = Convert.ToDouble(numero);
+            }
+            PANELGRANEL.Visible = false;
+            PANELGRANEL.BringToFront();
+            txtCantidad.Focus();
+            DATALISTADO_PRODUCTOS_OKA.Visible = false;
+            ejecutar_ventas_a_granel();
+        }
+        #endregion
+        #region btnCancelarAgregarProductosGranel
+        private void btnCancelarAgregarProductosGRANEL_Click(object sender, EventArgs e)
+        {
+            PANELGRANEL.Visible = false;
+            txtbuscar.Focus();
+            txtbuscar.SelectAll();
+        }
+        #endregion
+
+
     }
 }

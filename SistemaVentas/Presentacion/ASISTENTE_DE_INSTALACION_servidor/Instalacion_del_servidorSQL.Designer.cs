@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Instalacion_del_servidorSQL));
-            this.Panel8 = new System.Windows.Forms.Panel();
-            this.Label10 = new System.Windows.Forms.Label();
-            this.PictureBox7 = new System.Windows.Forms.PictureBox();
-            this.lblwindows = new System.Windows.Forms.Label();
             this.Panel2 = new System.Windows.Forms.Panel();
             this.Panel4 = new System.Windows.Forms.Panel();
             this.PictureBox2 = new System.Windows.Forms.PictureBox();
@@ -84,8 +80,18 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.TimerCRARINI = new System.Windows.Forms.Timer(this.components);
-            this.Panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox7)).BeginInit();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.Minimizar = new System.Windows.Forms.PictureBox();
+            this.Salir = new System.Windows.Forms.PictureBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Panel2.SuspendLayout();
             this.Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
@@ -98,60 +104,19 @@
             this.Panel10.SuspendLayout();
             this.GroupBox1.SuspendLayout();
             this.GroupBox2.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Panel8
-            // 
-            this.Panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.Panel8.Controls.Add(this.Label10);
-            this.Panel8.Controls.Add(this.PictureBox7);
-            this.Panel8.Controls.Add(this.lblwindows);
-            this.Panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel8.Location = new System.Drawing.Point(0, 0);
-            this.Panel8.Name = "Panel8";
-            this.Panel8.Size = new System.Drawing.Size(1807, 86);
-            this.Panel8.TabIndex = 590;
-            // 
-            // Label10
-            // 
-            this.Label10.AutoSize = true;
-            this.Label10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold);
-            this.Label10.ForeColor = System.Drawing.Color.White;
-            this.Label10.Location = new System.Drawing.Point(111, 25);
-            this.Label10.Name = "Label10";
-            this.Label10.Size = new System.Drawing.Size(618, 46);
-            this.Label10.TabIndex = 608;
-            this.Label10.Text = "INSTALACION DEL SERVIDOR";
-            // 
-            // PictureBox7
-            // 
-            this.PictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox7.Image")));
-            this.PictureBox7.Location = new System.Drawing.Point(-5, -21);
-            this.PictureBox7.Name = "PictureBox7";
-            this.PictureBox7.Size = new System.Drawing.Size(110, 135);
-            this.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox7.TabIndex = 609;
-            this.PictureBox7.TabStop = false;
-            // 
-            // lblwindows
-            // 
-            this.lblwindows.BackColor = System.Drawing.Color.Transparent;
-            this.lblwindows.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblwindows.ForeColor = System.Drawing.Color.White;
-            this.lblwindows.Location = new System.Drawing.Point(1288, 0);
-            this.lblwindows.Name = "lblwindows";
-            this.lblwindows.Size = new System.Drawing.Size(519, 86);
-            this.lblwindows.TabIndex = 607;
-            this.lblwindows.Text = "...";
-            this.lblwindows.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Panel2
             // 
             this.Panel2.Controls.Add(this.Panel4);
             this.Panel2.Controls.Add(this.Panel9);
             this.Panel2.Controls.Add(this.btnInstalarServidor);
-            this.Panel2.Location = new System.Drawing.Point(385, 115);
+            this.Panel2.Location = new System.Drawing.Point(25, 102);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(501, 555);
             this.Panel2.TabIndex = 617;
@@ -363,7 +328,7 @@
             this.Panel3.Controls.Add(this.lblBasededatos);
             this.Panel3.Controls.Add(this.Label6);
             this.Panel3.Controls.Add(this.Label8);
-            this.Panel3.Location = new System.Drawing.Point(1005, 104);
+            this.Panel3.Location = new System.Drawing.Point(635, 102);
             this.Panel3.Name = "Panel3";
             this.Panel3.Size = new System.Drawing.Size(736, 603);
             this.Panel3.TabIndex = 619;
@@ -381,7 +346,8 @@
             // Label15
             // 
             this.Label15.AutoSize = true;
-            this.Label15.ForeColor = System.Drawing.Color.White;
+            this.Label15.BackColor = System.Drawing.Color.White;
+            this.Label15.ForeColor = System.Drawing.Color.Black;
             this.Label15.Location = new System.Drawing.Point(92, 45);
             this.Label15.Name = "Label15";
             this.Label15.Size = new System.Drawing.Size(46, 13);
@@ -616,7 +582,8 @@
             // Label9
             // 
             this.Label9.AutoSize = true;
-            this.Label9.ForeColor = System.Drawing.Color.White;
+            this.Label9.BackColor = System.Drawing.Color.White;
+            this.Label9.ForeColor = System.Drawing.Color.Black;
             this.Label9.Location = new System.Drawing.Point(36, 156);
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(95, 13);
@@ -626,7 +593,8 @@
             // lblBasededatos
             // 
             this.lblBasededatos.AutoSize = true;
-            this.lblBasededatos.ForeColor = System.Drawing.Color.White;
+            this.lblBasededatos.BackColor = System.Drawing.Color.White;
+            this.lblBasededatos.ForeColor = System.Drawing.Color.Black;
             this.lblBasededatos.Location = new System.Drawing.Point(52, 118);
             this.lblBasededatos.Name = "lblBasededatos";
             this.lblBasededatos.Size = new System.Drawing.Size(78, 13);
@@ -636,7 +604,8 @@
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.ForeColor = System.Drawing.Color.White;
+            this.Label6.BackColor = System.Drawing.Color.White;
+            this.Label6.ForeColor = System.Drawing.Color.Black;
             this.Label6.Location = new System.Drawing.Point(42, 79);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(88, 13);
@@ -646,7 +615,8 @@
             // Label8
             // 
             this.Label8.AutoSize = true;
-            this.Label8.ForeColor = System.Drawing.Color.White;
+            this.Label8.BackColor = System.Drawing.Color.White;
+            this.Label8.ForeColor = System.Drawing.Color.Black;
             this.Label8.Location = new System.Drawing.Point(30, 14);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(108, 13);
@@ -673,23 +643,123 @@
             this.TimerCRARINI.Interval = 10;
             this.TimerCRARINI.Tick += new System.EventHandler(this.TimerCRARINI_Tick);
             // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel11.BackgroundImage")));
+            this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel11.Controls.Add(this.Panel3);
+            this.panel11.Controls.Add(this.Panel2);
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1413, 732);
+            this.panel11.TabIndex = 620;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel12.Controls.Add(this.Minimizar);
+            this.panel12.Controls.Add(this.Salir);
+            this.panel12.Controls.Add(this.label20);
+            this.panel12.Controls.Add(this.pictureBox5);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1413, 72);
+            this.panel12.TabIndex = 610;
+            // 
+            // Minimizar
+            // 
+            this.Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("Minimizar.Image")));
+            this.Minimizar.Location = new System.Drawing.Point(1326, 18);
+            this.Minimizar.Name = "Minimizar";
+            this.Minimizar.Size = new System.Drawing.Size(30, 30);
+            this.Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Minimizar.TabIndex = 636;
+            this.Minimizar.TabStop = false;
+            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
+            // 
+            // Salir
+            // 
+            this.Salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Salir.Image = ((System.Drawing.Image)(resources.GetObject("Salir.Image")));
+            this.Salir.Location = new System.Drawing.Point(1362, 18);
+            this.Salir.Name = "Salir";
+            this.Salir.Size = new System.Drawing.Size(30, 30);
+            this.Salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Salir.TabIndex = 634;
+            this.Salir.TabStop = false;
+            this.Salir.Click += new System.EventHandler(this.Salir_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(106, 28);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(250, 20);
+            this.label20.TabIndex = 633;
+            this.label20.Text = "INSTALACIÓN DEL SERVIDOR";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(100, 72);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 632;
+            this.pictureBox5.TabStop = false;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 7;
+            this.bunifuElipse2.TargetControl = this;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 7;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // bunifuElipse3
+            // 
+            this.bunifuElipse3.ElipseRadius = 7;
+            this.bunifuElipse3.TargetControl = this;
+            // 
+            // bunifuElipse4
+            // 
+            this.bunifuElipse4.ElipseRadius = 7;
+            this.bunifuElipse4.TargetControl = this;
+            // 
+            // bunifuElipse5
+            // 
+            this.bunifuElipse5.ElipseRadius = 7;
+            this.bunifuElipse5.TargetControl = this;
+            // 
+            // bunifuElipse6
+            // 
+            this.bunifuElipse6.ElipseRadius = 7;
+            this.bunifuElipse6.TargetControl = this;
+            // 
             // Instalacion_del_servidorSQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1807, 742);
-            this.Controls.Add(this.Panel3);
-            this.Controls.Add(this.Panel2);
-            this.Controls.Add(this.Panel8);
+            this.BackColor = System.Drawing.Color.BlueViolet;
+            this.ClientSize = new System.Drawing.Size(1413, 732);
+            this.Controls.Add(this.panel11);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Instalacion_del_servidorSQL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Instalacion_del_servidorSQL_Load);
-            this.Panel8.ResumeLayout(false);
-            this.Panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox7)).EndInit();
             this.Panel2.ResumeLayout(false);
             this.Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
@@ -706,14 +776,17 @@
             this.Panel10.PerformLayout();
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox2.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Salir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        internal System.Windows.Forms.Panel Panel8;
-        internal System.Windows.Forms.Label lblwindows;
         internal System.Windows.Forms.Panel Panel2;
         internal System.Windows.Forms.Panel Panel9;
         internal System.Windows.Forms.Label lblbuscador_de_servidores;
@@ -764,7 +837,17 @@
         internal System.Windows.Forms.TextBox txtCrearUsuarioDb;
         internal System.Windows.Forms.TextBox txtusuario;
         internal System.Windows.Forms.Label Label15;
-        internal System.Windows.Forms.Label Label10;
-        internal System.Windows.Forms.PictureBox PictureBox7;
+        private System.Windows.Forms.Panel panel11;
+        internal System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.PictureBox Minimizar;
+        private System.Windows.Forms.PictureBox Salir;
+        private System.Windows.Forms.Label label20;
+        internal System.Windows.Forms.PictureBox pictureBox5;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse6;
     }
 }
