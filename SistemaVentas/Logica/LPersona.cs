@@ -11,7 +11,7 @@ namespace SistemaVentas.Logica
         public string nombre { get; set; }
         public string apellido { get; set; }
         public DateTime fechaNacimiento { set; get; }
-
+        public int idCorreo { get; set; }
         public int idDireccion { get; set; }
         public int idDocumento { get; set; }
         public int idTelefono { get; set; }

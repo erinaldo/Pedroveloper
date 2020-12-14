@@ -1,4 +1,5 @@
-﻿using SistemaVentas.Datos;
+﻿using SistemaVentas.CONEXION;
+using SistemaVentas.Datos;
 using SistemaVentas.Logica;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,10 @@ namespace SistemaVentas.Presentacion.Empleados
         }
         int idTipoTelefonoEditar;
         int idDireccionEditar;
+        bool band;
+        int idCorreo;
+        int idCorreo1;
+        int correo;
         int idEmpleado;
         string estado;
         int idDireccion;
@@ -31,9 +36,7 @@ namespace SistemaVentas.Presentacion.Empleados
         int idPersona;
         private void PictureBox2_Click(object sender, EventArgs e)
         {
-            mostrarTipos();
-            Nuevo();
-            panelRegistros.Visible = true;
+           
         }
 
         private void EmpleadosOK_Load(object sender, EventArgs e)
@@ -73,100 +76,17 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void button3_Click(object sender, EventArgs e)
         {
-            panelRegistros.Visible = false;
 
         }
 
         private void LblAnuncioIcono_Click(object sender, EventArgs e)
         {
-            dlg.InitialDirectory = "";
-            dlg.Filter = "Imagenes|*.jpg;*.png";
-            dlg.FilterIndex = 2;
-            dlg.Title = "";
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                ICONO.BackgroundImage = null;
-                ICONO.Image = new Bitmap(dlg.FileName);
-                ICONO.SizeMode = PictureBoxSizeMode.Zoom;
-                lblnumeroIcono.Text = Path.GetFileName(dlg.FileName);
-                Console.WriteLine(lblnumeroIcono.Text);
-                LblAnuncioIcono.Visible = false;
-            }
+          
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtCuentaBanco, txtTipoTelefono };
-            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
-            {
-                System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                if (ICONO.Image != null)
-                {
-                    if (Datos.Obtener_datos.validar_Mail(txtCorreo.Text) == false)
-                    {
-                        MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        txtCorreo.Focus();
-                        txtCorreo.SelectAll();
-                    }
-                    else
-                    {
-                        if (txtNumeracion.Text.Length == 12)
-                        {
-                            if (txtCuentaBanco.Text.Length == 9)
-                            {
-                                if (txtDepartamento.Text != "")
-                                {
-                                    if (txtBanco.Text != "")
-                                    {
-                                        if (txtTelefono.Text.Length == 12)
-                                        {
-                                            if (txtTipoDocumento.Text != "" && txtTipoHorario.Text != "")
-                                            {
-
-                                                insertar();
-                                                rellenarCamposVacios();
-
-                                            }
-                                            else
-                                            {
-                                                MessageBox.Show("Elija un Tipo de Documento correctamente o el Tipo de Horario", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                            }
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
-                                                "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Elija un tipo de banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Elija un departamento correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Cuenta de banco no valida, la cuenta debe tener el formato: XXXXXXXXX 9 CARACTERES," +
-                                    " " + " por favor seleccione una cuenta valida", "Validación de cuenta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
-                                " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Seleccione una foto del Empleado", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+           
         }
         private void insertar()
         {
@@ -174,7 +94,16 @@ namespace SistemaVentas.Presentacion.Empleados
             {
                 if (idDireccion != 0)
                 {
-                    insertarTipoHorario();
+                    band = insertarCorreo();
+                    if (band == true)
+                    {
+                        CONEXIONMAESTRA.abrir();
+                        SqlCommand com = new SqlCommand("ObtenerUltimoCorreo", CONEXIONMAESTRA.conectar);
+                        com.CommandType = CommandType.StoredProcedure;
+                        correo = Convert.ToInt32(com.ExecuteScalar());
+                        CONEXIONMAESTRA.cerrar();
+                        insertarTipoHorario();
+                    }
                 }
                 else
                 {
@@ -187,7 +116,24 @@ namespace SistemaVentas.Presentacion.Empleados
 
             }
         }
-
+        private bool insertarCorreo()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarCorreo", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@correo", txtCorreo.Text);
+                cmd.Parameters.AddWithValue("@TipoCorreo", "Correo Empleado");
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+            }
+        }
         public void insertarEmpleado()
         {
             idHorario = Obtener_datos.obtenerHorario();
@@ -213,7 +159,6 @@ namespace SistemaVentas.Presentacion.Empleados
         public void insertarPersona()
         {
 
-            MessageBox.Show("idTelefono" + idTelefono.ToString());
             idTelefono = Obtener_datos.obtenerTelefono();
             idDocumento = Obtener_datos.obtenerDocumento();
 
@@ -222,7 +167,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
             parametrosPersona.nombre = txtnombre.Text;
             parametrosPersona.apellido = txtApellido.Text;
-            parametrosPersona.correo = txtCorreo.Text;
+            parametrosPersona.idCorreo = correo;
             parametrosPersona.fechaNacimiento = txtFecha.Value;
             parametrosPersona.idDireccion = idDireccion;
             parametrosPersona.idDocumento = idDocumento;
@@ -327,25 +272,21 @@ namespace SistemaVentas.Presentacion.Empleados
         {
             DataTable dt = new DataTable();
             Obtener_datos.mostrar_Empleados(ref dt);
-            datalistado.DataSource = dt;
+            tablaEmpleados.DataSource = dt;
             panelRegistros.Visible = false;
             panelDataListadoDireccion.Visible = true;
-            datalistado.Columns[2].Visible = false;
-            datalistado.Columns[3].Visible = false;
-            datalistado.Columns[4].Visible = false;
-            datalistado.Columns[9].Visible = false;
+            tablaEmpleados.Columns[0].DisplayIndex = 26;
+            tablaEmpleados.Columns[1].DisplayIndex = 26;
+            tablaEmpleados.Columns[2].Visible = false;
+            tablaEmpleados.Columns[3].Visible = false;
+            tablaEmpleados.Columns[4].Visible = false;
+            tablaEmpleados.Columns[9].Visible = false;
 
-            datalistado.Columns[11].Visible = false;
-            datalistado.Columns[14].Visible = false;
-            datalistado.Columns[16].Visible = false;
-            datalistado.Columns[20].Visible = false;
-            datalistado.Columns[25].Visible = false;
-            pintarDatalistado();
-        }
-        private void pintarDatalistado()
-        {
-            Bases.Multilinea(ref datalistado);
-
+            tablaEmpleados.Columns[11].Visible = false;
+            tablaEmpleados.Columns[14].Visible = false;
+            tablaEmpleados.Columns[16].Visible = false;
+            tablaEmpleados.Columns[20].Visible = false;
+            tablaEmpleados.Columns[25].Visible = false;
         }
         private void pintarDatalistadoDireccion()
         {
@@ -356,21 +297,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void datalistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == datalistado.Columns["EditarEmpleado1"].Index)
-            {
-                obtenerDatos();
-            }
-            if (e.ColumnIndex == datalistado.Columns["EliminarEmpleado1"].Index)
-            {
-                obtenerId_estado();
-                idEmpleado = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (result == System.Windows.Forms.DialogResult.OK)
-                {
-                    eliminar();
-                }
-
-            }
+           
         }
 
 
@@ -388,15 +315,27 @@ namespace SistemaVentas.Presentacion.Empleados
         {
             DataTable dt = new DataTable();
             Obtener_datos.buscar_empleados(ref dt, txtbuscar.Text);
-            datalistado.DataSource = dt;
-            pintarDatalistado();
+            tablaEmpleados.DataSource = dt;
+            tablaEmpleados.Columns[0].DisplayIndex = 26;
+            tablaEmpleados.Columns[1].DisplayIndex = 26;
+
+            tablaEmpleados.Columns[2].Visible = false;
+            tablaEmpleados.Columns[3].Visible = false;
+            tablaEmpleados.Columns[4].Visible = false;
+            tablaEmpleados.Columns[9].Visible = false;
+
+            tablaEmpleados.Columns[11].Visible = false;
+            tablaEmpleados.Columns[14].Visible = false;
+            tablaEmpleados.Columns[16].Visible = false;
+            tablaEmpleados.Columns[20].Visible = false;
+            tablaEmpleados.Columns[25].Visible = false;
         }
         private void obtenerId_estado()
         {
             try
             {
-                idEmpleado = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                estado = datalistado.SelectedCells[26].Value.ToString();
+                idEmpleado = Convert.ToInt32(tablaEmpleados.SelectedCells[2].Value);
+                estado = tablaEmpleados.SelectedCells[26].Value.ToString();
 
             }
             catch (Exception e)
@@ -406,62 +345,6 @@ namespace SistemaVentas.Presentacion.Empleados
         }
         private void obtenerDatos()
         {
-            try
-            {
-                idEmpleado = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                idEmpleado1 = idEmpleado;
-                idPersona = Convert.ToInt32(datalistado.SelectedCells[3].Value);
-                idPersona1 = idPersona;
-                idHorario = Convert.ToInt32(datalistado.SelectedCells[4].Value);
-                idHorario1 = idHorario;
-                txtnombre.Text = datalistado.SelectedCells[5].Value.ToString();
-                txtApellido.Text = datalistado.SelectedCells[6].Value.ToString();
-                txtCorreo.Text = datalistado.SelectedCells[7].Value.ToString();
-                txtFecha.Value = Convert.ToDateTime(datalistado.SelectedCells[8].Value);
-                idDireccion = Convert.ToInt32(datalistado.SelectedCells[9].Value);
-                idDireccion1 = idDireccion;
-                txtDireccion.Text = datalistado.SelectedCells[10].Value.ToString();
-                idDocumento = Convert.ToInt32(datalistado.SelectedCells[11].Value);
-                idDocumento1 = idDocumento;
-                txtNumeracion.Text = datalistado.SelectedCells[12].Value.ToString();
-                txtTipoDocumento.Text = datalistado.SelectedCells[13].Value.ToString();
-                idTelefono = Convert.ToInt32(datalistado.SelectedCells[14].Value);
-                idTelefon1o = idTelefono;
-                txtTelefono.Text = datalistado.SelectedCells[15].Value.ToString();
-                idTipoTelefono = Convert.ToInt32(datalistado.SelectedCells[16].Value);
-                txtTipoTelefono.Text = datalistado.SelectedCells[17].Value.ToString();
-                txtEntrada.Maximum = Convert.ToDecimal(datalistado.SelectedCells[18].Value);
-                txtSalida.Minimum = Convert.ToDecimal(datalistado.SelectedCells[19].Value);
-                idTipoHorario = Convert.ToInt32(datalistado.SelectedCells[20].Value);
-
-                txtTipoHorario.Text = datalistado.SelectedCells[21].Value.ToString();
-                txtCuentaBanco.Text = datalistado.SelectedCells[22].Value.ToString();
-                txtDepartamento.Text = datalistado.SelectedCells[23].Value.ToString();
-                txtBanco.Text = datalistado.SelectedCells[24].Value.ToString();
-                ICONO.BackgroundImage = null;
-                byte[] b = (Byte[])datalistado.SelectedCells[25].Value;
-                MemoryStream ms = new MemoryStream(b);
-                ICONO.Image = Image.FromStream(ms);
-                LblAnuncioIcono.Visible = false;
-                estado = datalistado.SelectedCells[26].Value.ToString();
-                if (estado == "ELIMINADO")
-                {
-                    DialogResult result = MessageBox.Show("Este Empleado se Elimino. ¿Desea Volver a Habilitarlo?", "Restaurando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (result == System.Windows.Forms.DialogResult.OK)
-                    {
-                        restaurar();
-                        prepararEdicion();
-                    }
-                }
-                else
-                {
-                    prepararEdicion();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void prepararEdicion()
@@ -470,9 +353,9 @@ namespace SistemaVentas.Presentacion.Empleados
             panelRegistros.Visible = true;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.BringToFront();
-            //datalistado.SendToBack();
-            btnGuardar.Visible = false;
-            btnGuardarCambios.Visible = true;
+            //tablaEmpleados.SendToBack();
+            btnguardar.Visible = false;
+            btnguardarcambios.Visible = true;
         }
 
 
@@ -489,76 +372,7 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtCuentaBanco, txtTipoTelefono };
-            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
-            {
-                System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                if (ICONO.Image != null)
-                {
-                    if (Datos.Obtener_datos.validar_Mail(txtCorreo.Text) == false)
-                    {
-                        MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        txtCorreo.Focus();
-                        txtCorreo.SelectAll();
-                    }
-                    else
-                    {
-                        if (txtNumeracion.Text.Length == 13)
-                        {
-                            if (txtCuentaBanco.Text.Length == 9)
-                            {
-                                if (txtDepartamento.Text != "")
-                                {
-                                    if (txtBanco.Text != "")
-                                    {
-                                        if (txtTelefono.Text.Length == 12)
-                                        {
-                                            if (txtTipoDocumento.Text != "" && txtTipoHorario.Text != "")
-                                            {
-                                                obtenerId_estado();
-                                                rellenarCamposVacios();
-                                                editar();
-                                            }
-                                            else
-                                            {
-                                                MessageBox.Show("Elija un Tipo de Documento correctamente o el Tipo de Horario", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                            }
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
-                                                "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Elija un tipo de banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Elija un departamento correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Cuenta de banco no valida, la cuenta debe tener el formato: XXXXXXXXX 9 CARACTERES," +
-                                    " " + " por favor seleccione una cuenta valida", "Validación de cuenta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
-                                " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Seleccione una foto del Empleado", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+         
         }
 
         int idEmpleado1;
@@ -573,7 +387,7 @@ namespace SistemaVentas.Presentacion.Empleados
         {
             try
             {
-                idEmpleado1 = Convert.ToInt32(datalistado.SelectedCells[2].Value);
+               /* idEmpleado1 = Convert.ToInt32(tablaEmpleados.SelectedCells[2].Value);
                 idPersona1 = Convert.ToInt32(datalistado.SelectedCells[3].Value);
                 idHorario1 = Convert.ToInt32(datalistado.SelectedCells[4].Value);
                 //idDireccion1 = Convert.ToInt32(datalistado.SelectedCells[9].Value);
@@ -581,7 +395,7 @@ namespace SistemaVentas.Presentacion.Empleados
                 idDocumento1 = Convert.ToInt32(datalistado.SelectedCells[11].Value);
                 idTelefon1o = Convert.ToInt32(datalistado.SelectedCells[14].Value);
                 idTipoTelefono1 = Convert.ToInt32(datalistado.SelectedCells[16].Value);
-                idTipoHorario1 = Convert.ToInt32(datalistado.SelectedCells[20].Value);
+                idTipoHorario1 = Convert.ToInt32(datalistado.SelectedCells[20].Value);*/
 
             }
             catch (Exception ex)
@@ -732,8 +546,8 @@ namespace SistemaVentas.Presentacion.Empleados
         {
             panelRegistros.Visible = true;
             limpiar();
-            btnGuardar.Visible = true;
-            btnGuardarCambios.Visible = false;
+            btnguardar.Visible = true;
+            btnguardarcambios.Visible = false;
             txtnombre.Focus();
             panelRegistros.Dock = DockStyle.Fill;
 
@@ -839,7 +653,19 @@ namespace SistemaVentas.Presentacion.Empleados
 
         private void ICONO_Click(object sender, EventArgs e)
         {
-
+            dlg.InitialDirectory = "";
+            dlg.Filter = "Imagenes|*.jpg;*.png";
+            dlg.FilterIndex = 2;
+            dlg.Title = "";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                ICONO.BackgroundImage = null;
+                ICONO.Image = new Bitmap(dlg.FileName);
+                ICONO.SizeMode = PictureBoxSizeMode.Zoom;
+                lblnumeroIcono.Text = Path.GetFileName(dlg.FileName);
+                Console.WriteLine(lblnumeroIcono.Text);
+                LblAnuncioIcono.Visible = false;
+            }
         }
 
         private void txtDepartamento_SelectedIndexChanged(object sender, EventArgs e)
@@ -1009,7 +835,7 @@ namespace SistemaVentas.Presentacion.Empleados
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistado);
+            Bases.Multilinea(ref datalistadoTiposTelefono);
         }
 
         private void btnGuardar_grupo_Click(object sender, EventArgs e)
@@ -1040,11 +866,6 @@ namespace SistemaVentas.Presentacion.Empleados
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void btnNuevoGrupo_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -1257,9 +1078,248 @@ namespace SistemaVentas.Presentacion.Empleados
 
         }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            mostrarTipos();
+            Nuevo();
+            panelRegistros.Visible = true;
+        }
+
+        private void btnguardar_Click_1(object sender, EventArgs e)
+        {
+            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtCuentaBanco, txtTipoTelefono };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                if (ICONO.Image != null)
+                {
+                    if (Datos.Obtener_datos.validar_Mail(txtCorreo.Text) == false)
+                    {
+                        MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtCorreo.Focus();
+                        txtCorreo.SelectAll();
+                    }
+                    else
+                    {
+                        if (txtNumeracion.Text.Length == 12)
+                        {
+                            if (txtCuentaBanco.Text.Length == 9)
+                            {
+                                if (txtDepartamento.Text != "")
+                                {
+                                    if (txtBanco.Text != "")
+                                    {
+                                        if (txtTelefono.Text.Length == 12)
+                                        {
+                                            if (txtTipoDocumento.Text != "" && txtTipoHorario.Text != "")
+                                            {
+
+                                                insertar();
+                                                rellenarCamposVacios();
+
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Elija un Tipo de Documento correctamente o el Tipo de Horario", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
+                                                "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Elija un tipo de banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Elija un departamento correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Cuenta de banco no valida, la cuenta debe tener el formato: XXXXXXXXX 9 CARACTERES," +
+                                    " " + " por favor seleccione una cuenta valida", "Validación de cuenta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
+                                " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una foto del Empleado", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnguardarcambios_Click(object sender, EventArgs e)
+        {
+            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtCuentaBanco, txtTipoTelefono };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                if (ICONO.Image != null)
+                {
+                    if (Datos.Obtener_datos.validar_Mail(txtCorreo.Text) == false)
+                    {
+                        MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " + " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtCorreo.Focus();
+                        txtCorreo.SelectAll();
+                    }
+                    else
+                    {
+                        if (txtNumeracion.Text.Length == 13)
+                        {
+                            if (txtCuentaBanco.Text.Length == 9)
+                            {
+                                if (txtDepartamento.Text != "")
+                                {
+                                    if (txtBanco.Text != "")
+                                    {
+                                        if (txtTelefono.Text.Length == 12)
+                                        {
+                                            if (txtTipoDocumento.Text != "" && txtTipoHorario.Text != "")
+                                            {
+                                                obtenerId_estado();
+                                                rellenarCamposVacios();
+                                                editar();
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Elija un Tipo de Documento correctamente o el Tipo de Horario", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
+                                                "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Elija un tipo de banco correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Elija un departamento correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Cuenta de banco no valida, la cuenta debe tener el formato: XXXXXXXXX 9 CARACTERES," +
+                                    " " + " por favor seleccione una cuenta valida", "Validación de cuenta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
+                                " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una foto del Empleado", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void volver_Click(object sender, EventArgs e)
+        {
+            panelRegistros.Visible = false;
+
+        }
+
+        private void tablaEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (tablaEmpleados.Rows[e.RowIndex].Cells["e"].Selected)
+                {
+                    idEmpleado = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["idEmpleado"].Value);
+                    idEmpleado1 = idEmpleado;
+                    idPersona = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["idPersona"].Value.ToString());
+                    idPersona1 = idPersona;
+                    idHorario = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["idHorario"].Value.ToString());
+                    idHorario1 = idHorario;
+                    txtnombre.Text = tablaEmpleados.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                    txtApellido.Text = tablaEmpleados.Rows[e.RowIndex].Cells["Apellido"].Value.ToString();
+                    txtCorreo.Text = tablaEmpleados.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
+                   // txtFecha.Value = Convert.ToDateTime(datalistado.SelectedCells[8].Value);
+                    idDireccion = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["idDireccion"].Value.ToString());
+                    idDireccion1 = idDireccion;
+                    txtDireccion.Text = tablaEmpleados.Rows[e.RowIndex].Cells["Direccion"].Value.ToString();
+                    idDocumento = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["idDireccion"].Value.ToString());
+                    idDocumento1 = idDocumento;
+                    txtNumeracion.Text = tablaEmpleados.Rows[e.RowIndex].Cells["Documento"].Value.ToString();
+                    txtTipoDocumento.Text = tablaEmpleados.Rows[e.RowIndex].Cells["TipoDocumento"].Value.ToString();
+                    idTelefono = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["idDireccion"].Value.ToString());
+                    idTelefon1o = idTelefono;
+                    txtTelefono.Text = tablaEmpleados.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
+                    idTipoTelefono = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["idTipoTelefono"].Value.ToString());
+                    idTipoTelefono1 = idTipoTelefono;
+                    txtTipoTelefono.Text = tablaEmpleados.Rows[e.RowIndex].Cells["TipoTelefono"].Value.ToString();
+                    txtEntrada.Maximum = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["Entrada"].Value);
+                    txtSalida.Minimum = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["Salida"].Value);
+                    idTipoHorario = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["idTipoHorario"].Value.ToString());
+                    txtTipoHorario.Text = tablaEmpleados.Rows[e.RowIndex].Cells["TipoHorario"].Value.ToString();
+                    txtCuentaBanco.Text = tablaEmpleados.Rows[e.RowIndex].Cells["CuentaBanco"].Value.ToString();
+                    txtDepartamento.Text = tablaEmpleados.Rows[e.RowIndex].Cells["Departamento"].Value.ToString();
+                    txtBanco.Text = tablaEmpleados.Rows[e.RowIndex].Cells["Banco"].Value.ToString();
+                    ICONO.BackgroundImage = null;
+
+                    byte[] b = (Byte[])tablaEmpleados.Rows[e.RowIndex].Cells["Icono"].Value;
+                    MemoryStream ms = new MemoryStream(b);
+                    ICONO.Image = Image.FromStream(ms);
+                    LblAnuncioIcono.Visible = false;
+                    estado = tablaEmpleados.Rows[e.RowIndex].Cells["Estado"].Value.ToString();
+                    if (estado == "ELIMINADO")
+                    {
+                        DialogResult result = MessageBox.Show("Este Empleado se Elimino. ¿Desea Volver a Habilitarlo?", "Restaurando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (result == System.Windows.Forms.DialogResult.OK)
+                        {
+                            restaurar();
+                            prepararEdicion();
+                        }
+                    }
+                    else
+                    {
+                        prepararEdicion();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            if (e.ColumnIndex == this.tablaEmpleados.Columns["d"].Index)
+            {
+                obtenerId_estado();
+                idEmpleado = Convert.ToInt32(tablaEmpleados.Rows[e.RowIndex].Cells["idEmpleado"].Value.ToString());
+                idEmpleado1 = idEmpleado;
+                DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == System.Windows.Forms.DialogResult.OK)
+                {
+                    eliminar();
+                }
+            }
+        }
+
+        
+
         private void datalistadoTiposTelefono_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
     }
 

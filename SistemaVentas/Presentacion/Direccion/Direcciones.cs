@@ -177,7 +177,7 @@ namespace SistemaVentas.Presentacion.Direccion
         private void buscar()
         {
             DataTable dt = new DataTable();
-            Obtener_datos.buscar_empleados(ref dt, txtbuscar.Text);
+            Obtener_datos.buscarDireccion(ref dt, txtbuscar.Text);
             datalistado.DataSource = dt;
             pintarDatalistado();
         }

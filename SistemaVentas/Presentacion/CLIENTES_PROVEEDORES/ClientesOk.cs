@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using SistemaVentas.CONEXION;
 using SistemaVentas.Datos;
 using SistemaVentas.Logica;
 namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
@@ -24,7 +25,9 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
         int idDocumento;
         int idTelefono;
         int idTipoTelefono;
-
+        int correo;
+        bool band;
+        int idCorreo;
         string numeracion, telefono, nombre;
         //Crud--------
         private void insertar()
@@ -33,7 +36,20 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             {
                 if(idDireccion != 0)
                 {
-                    insertarDocumento();
+                    band = insertarCorreo();
+                    if (band == true)
+                    {
+                        CONEXIONMAESTRA.abrir();
+                        SqlCommand com = new SqlCommand("ObtenerUltimoCorreo", CONEXIONMAESTRA.conectar);
+                        com.CommandType = CommandType.StoredProcedure;
+                        correo = Convert.ToInt32(com.ExecuteScalar());
+                        CONEXIONMAESTRA.cerrar();
+                        insertarDocumento();
+                    }
+                    else
+                    {
+
+                    }
                 }
                 else
                 {
@@ -48,6 +64,24 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             }
         }
 
+        private bool insertarCorreo()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("insertarCorreo", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@correo", txtCorreo.Text);
+                cmd.Parameters.AddWithValue("@TipoCorreo", "Correo Cliente");
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+            }
+        }
         public void insertarCliente()
         {
             idPersona = Obtener_datos.obtenerPersona();
@@ -73,8 +107,11 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
             parametrosPersona.nombre = txtnombre.Text;
             parametrosPersona.apellido = txtApellido.Text;
-            parametrosPersona.correo = txtCorreo.Text;
-            parametrosPersona.fechaNacimiento = txtFecha.Value;
+            parametrosPersona.idCorreo = correo;
+            DateTime myDateTime = txtFecha.Value;
+            string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd");
+
+            parametrosPersona.fechaNacimiento = txtFecha.Value.Date;
             parametrosPersona.idDireccion = idDireccion;
             parametrosPersona.idDocumento = idDocumento;
             parametrosPersona.idTelefono = idTelefono;
@@ -125,13 +162,28 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
                 insertarTipoTelefono();
             }
         }
+        public void HideWidthColumns()
+        {
+            tablaClientes.Columns[0].DisplayIndex = 17;
+            tablaClientes.Columns[1].DisplayIndex = 17;
+            tablaClientes.Columns[2].Visible = false;
+            tablaClientes.Columns[3].Visible = false;
+            tablaClientes.Columns[8].Visible = false;
+            tablaClientes.Columns[10].Visible = false;
+            tablaClientes.Columns[13].Visible = false;
+            tablaClientes.Columns[15].Visible = false;
+            tablaClientes.Columns[18].Visible = false;
+            tablaClientes.Columns[19].Visible = false;
+            tablaClientes.Columns[20].Visible = false;
+        }
+
         private void mostrar()
         {
             DataTable dt = new DataTable();
             Obtener_datos.mostrar_clientes (ref dt);
-            datalistado.DataSource = dt;
+            tablaClientes.DataSource = dt;
             Panelregistro.Visible = false;
-            pintarDatalistado();
+            HideWidthColumns();
         }
         int idCliente1;
         int idDireccion1;
@@ -139,15 +191,12 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
         int idDocumento1;
         int idTelefon1o;
         int idTipoTelefono1;
+        int idCorreo1;
         private void obtenerDatosID()
         {
             try
             {
-                idPersona1 = Convert.ToInt32(datalistado.SelectedCells[3].Value);
-                idDireccion1 = Convert.ToInt32(datalistado.SelectedCells[8].Value);
-                idTelefon1o = Convert.ToInt32(datalistado.SelectedCells[13].Value);
-                idTipoTelefono1 = Convert.ToInt32(datalistado.SelectedCells[15].Value);
-
+               
             }
             catch (Exception ex)
             {
@@ -156,12 +205,21 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
         }
         public void editar()
         {
-            obtenerDatosID();
+           /* idPersona1 = Convert.ToInt32(tablaClientes.SelectedCells[3].Value);
+            idDireccion1 = Convert.ToInt32(tablaClientes.SelectedCells[8].Value);
+            idTelefon1o = Convert.ToInt32(tablaClientes.SelectedCells[13].Value);
+            idTipoTelefono1 = Convert.ToInt32(tablaClientes.SelectedCells[15].Value);
+            idCorreo1 = Convert.ToInt32(tablaClientes.SelectedCells[20].Value);*/
+
             if (idTipoTelefono != 0)
             {
                 if (idDireccion != 0)
                 {
-                    editarDocumento();
+                    bool correo = editarCorreo();
+                    if (correo)
+                    {
+                        editarDocumento();
+                    }
                 }
                 else
                 {
@@ -176,6 +234,24 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             }
         }
 
+        private bool editarCorreo()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("editar_correo", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idCorreo", idCorreo);
+                cmd.Parameters.AddWithValue("@correo", txtCorreo.Text);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+                return false;
+            }
+        }
         public void editarCliente()
         {
             Lclientes parametros = new Lclientes();
@@ -197,11 +273,11 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             parametrosPersona.idPersona = idPersona1;
             parametrosPersona.nombre = txtnombre.Text;
             parametrosPersona.apellido = txtApellido.Text;
-            parametrosPersona.correo = txtCorreo.Text;
             parametrosPersona.fechaNacimiento = txtFecha.Value;
             parametrosPersona.idDireccion = idDireccion;
             parametrosPersona.idDocumento = idDocumento;
             parametrosPersona.idTelefono = idTelefono;
+            parametrosPersona.idCorreo = idCorreo;
 
             if (funcion.editarPersona(parametrosPersona) == true)
             {
@@ -217,7 +293,7 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             parametros.idTelefono = idTelefon1o;
             parametros.Telefono = txtTelefono.Text;
             parametros.TipoTelefono = txtTipoTelefono.Text;
-            parametros.idTipoTelefono = Convert.ToInt32(lblidtipotelefono.Text);
+            parametros.idTipoTelefono = idTipoTelefono1;
 
             if (funcion.editarTelefono(parametros) == true)
             {
@@ -292,21 +368,8 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
         {
             DataTable dt = new DataTable();
             Obtener_datos.buscar_clientes(ref dt, txtbusca.Text);
-            datalistado.DataSource = dt;
-            pintarDatalistado();
-        }
-        //------------
-        private void pintarDatalistado()
-        {
-            Bases.Multilinea(ref datalistado);
-            datalistado.Columns[2].Visible = false;
-            datalistado.Columns[3].Visible = false;
-            datalistado.Columns[8].Visible = false;
-            datalistado.Columns[10].Visible = false;
-            datalistado.Columns[13].Visible = false;
-            datalistado.Columns[15].Visible = false;
-
-            foreach (DataGridViewRow row in datalistado.Rows)
+            tablaClientes.DataSource = dt;
+            foreach (DataGridViewRow row in tablaClientes.Rows)
             {
                 string estado = Convert.ToString(row.Cells["Estado"].Value);
                 if (estado == "ELIMINADO")
@@ -314,24 +377,21 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
                     row.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Strikeout | FontStyle.Bold);
                     row.DefaultCellStyle.ForeColor = Color.Red;
                 }
-
             }
         }
+        //------------
+       
         private void ClientesOk_Load(object sender, EventArgs e)
         {
             mostrar();
         }
 
-        private void pNuevo_Click(object sender, EventArgs e)
-        {
-            Nuevo();
-        }
         private void Nuevo()
         {
             Panelregistro.Visible = true;
             limpiar();
-            btnGuardar.Visible = true;
-            btnGuardarCambios.Visible = false;
+            guardar.Visible = true;
+            guardarcambios.Visible = false;
             txtnombre.Focus();
             Panelregistro.Dock = DockStyle.Fill;
         }
@@ -349,34 +409,7 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             txtTipoDocumento.SelectedIndex = 0;
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtTipoTelefono, txtCorreo};
-            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
-            {
-
-                if (txtNumeracion.Text.Length == 13)
-                {
-
-                    if (txtTelefono.Text.Length == 12)
-                    {
-                        rellenarCamposVacios();
-                        insertar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
-                            "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
-                       " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-        }
+     
         private void rellenarCamposVacios()
         {
             if (string.IsNullOrEmpty(txtTelefono.Text)) { txtTelefono.Text = "-"; };
@@ -387,77 +420,15 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
         private void datalistado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == datalistado.Columns["Editar"].Index)
-            {
-                obtenerDatos();
-            }
-            if (e.ColumnIndex == datalistado.Columns["Eliminar"].Index)
-            {
-                obtenerId_estado();
-                if (estado == "ACTIVO")
-                {
-                    DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (result == System.Windows.Forms.DialogResult.OK)
-                    {
-                        eliminar();
-                    }
-                }
-            }
+        
         }
         private void obtenerId_estado()
         {
             try
             {
-                idCliente = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                estado = datalistado.SelectedCells[17].Value.ToString();
+                idCliente = Convert.ToInt32(tablaClientes.SelectedCells[2].Value);
+                estado = tablaClientes.SelectedCells[17].Value.ToString();
 
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-        private void obtenerDatos()
-        {
-            try
-            {
-                idCliente = Convert.ToInt32(datalistado.SelectedCells[2].Value);
-                idCliente1 = idCliente;
-                idPersona = Convert.ToInt32(datalistado.SelectedCells[3].Value);
-                idPersona1 = idPersona;
-                txtnombre.Text = datalistado.SelectedCells[4].Value.ToString();
-                nombre = datalistado.SelectedCells[4].Value.ToString();
-                txtApellido.Text = datalistado.SelectedCells[5].Value.ToString();
-                txtCorreo.Text = datalistado.SelectedCells[6].Value.ToString();
-                txtFecha.Value = Convert.ToDateTime(datalistado.SelectedCells[7].Value);
-                idDireccion = Convert.ToInt32(datalistado.SelectedCells[8].Value);
-                txtDireccion.Text = datalistado.SelectedCells[9].Value.ToString();
-                idDocumento = Convert.ToInt32(datalistado.SelectedCells[10].Value);
-                idDocumento1 = idDocumento;
-                txtNumeracion.Text = datalistado.SelectedCells[11].Value.ToString();
-                numeracion = datalistado.SelectedCells[11].Value.ToString();
-                txtTipoDocumento.Text = datalistado.SelectedCells[12].Value.ToString();
-                idTelefono = Convert.ToInt32(datalistado.SelectedCells[13].Value);
-                idTelefon1o = idTelefono;
-                txtTelefono.Text = datalistado.SelectedCells[14].Value.ToString();
-                telefono = datalistado.SelectedCells[14].Value.ToString();
-                idTipoTelefono1 = Convert.ToInt32(datalistado.SelectedCells[15].Value);
-                txtTipoTelefono.Text = datalistado.SelectedCells[16].Value.ToString();
-                txtIdentificador.Text = datalistado.SelectedCells[17].Value.ToString();
-                estado = datalistado.SelectedCells[18].Value.ToString();
-                if (estado == "ELIMINADO")
-                {
-                    DialogResult result = MessageBox.Show("Este Proveedor se Elimino. ¿Desea Volver a Habilitarlo?", "Restaurando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (result == System.Windows.Forms.DialogResult.OK)
-                    {
-                        restaurar();
-                        prepararEdicion();
-                    }
-                }
-                else
-                {
-                    prepararEdicion();
-                }
             }
             catch (Exception)
             {
@@ -469,42 +440,10 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
         {
             Panelregistro.Visible = true;
             Panelregistro.Dock = DockStyle.Fill;
-            btnGuardar.Visible = false;
-            btnGuardarCambios.Visible = true;
+            guardar.Visible = false;
+            guardarcambios.Visible = true;
         }
 
-        private void BtnVolver_Click(object sender, EventArgs e)
-        {
-            Panelregistro.Visible = false;
-        }
-
-        private void btnGuardarCambios_Click(object sender, EventArgs e)
-        {
-            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtTipoTelefono, txtCorreo };
-            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
-            {
-
-                if (txtNumeracion.Text.Length == 13)
-                {
-
-                    if (txtTelefono.Text.Length == 12)
-                    {
-                        rellenarCamposVacios();
-                        editar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
-                            "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
-                       " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-        }
 
         private void txtbusca_TextChanged(object sender, EventArgs e)
         {
@@ -516,10 +455,7 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+ 
 
         private void txtdireccion_TextChanged(object sender, EventArgs e)
         {
@@ -553,7 +489,8 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
                 datalistadoDireccion.DataSource = dt;
                 pintarDatalistadoDireccion();
-                datalistadoDireccion.Columns[1].Width = 500;
+                datalistadoDireccion.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
 
             }
             catch (Exception ex)
@@ -561,7 +498,7 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
                 MessageBox.Show(ex.Message);
             }
 
-            Bases.Multilinea(ref datalistado);
+            Bases.Multilinea(ref datalistadoDireccion);
         }
         private void pintarDatalistadoDireccion()
         {
@@ -638,14 +575,15 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
                 datalistadoTiposTelefono.DataSource = dt;
                 datalistadoTiposTelefono.Columns[2].Visible = false;
-                datalistadoTiposTelefono.Columns[3].Width = 500;
+                datalistadoTiposTelefono.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
              
-            Bases.Multilinea(ref datalistado);
+            Bases.Multilinea(ref datalistadoTiposTelefono);
         }
 
         private void btnNuevoGrupo_Click(object sender, EventArgs e)
@@ -670,11 +608,6 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
         }
 
-        private void datalistadoTiposTelefono_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void txtNumeracion_TextChanged(object sender, EventArgs e)
         {
 
@@ -685,9 +618,154 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Close();
+            Nuevo();
+
+        }
+
+        private void guardar_Click(object sender, EventArgs e)
+        {
+
+            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtTipoTelefono, txtCorreo };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+
+                if (txtNumeracion.Text.Length == 13)
+                {
+
+                    if (txtTelefono.Text.Length == 12)
+                    {
+                        rellenarCamposVacios();
+                        insertar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
+                            "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
+                       " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void guardarcambios_Click(object sender, EventArgs e)
+        {
+            TextBox[] array = { txtnombre, txtApellido, txtNumeracion, txtTelefono, txtDireccion, txtTipoTelefono, txtCorreo };
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+
+                if (txtNumeracion.Text.Length == 13)
+                {
+
+                    if (txtTelefono.Text.Length == 12)
+                    {
+                        rellenarCamposVacios();
+                        editar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Telefono no valido, el Telefono debe tener el formato: 809-555-5555, " + " por favor seleccione un telefono valido",
+                            "Validación de Telefono", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Cedula no valida, la cedula debe tener el formato: xxx-xxxxxx-x," +
+                       " " + " por favor seleccione una cedula valida", "Validación de cedula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void volver_Click(object sender, EventArgs e)
+        {
+            Panelregistro.Visible = false;
+
+        }
+
+        private void tablaClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (tablaClientes.Rows[e.RowIndex].Cells["e"].Selected)
+            {
+                try
+                {
+                    idCliente = Convert.ToInt32(tablaClientes.Rows[e.RowIndex].Cells["idclientev"].Value.ToString());
+                    idCliente1 = idCliente;
+                    idPersona = Convert.ToInt32(tablaClientes.Rows[e.RowIndex].Cells["idPersona"].Value.ToString());
+                    idPersona1 = idPersona;
+                    txtnombre.Text = tablaClientes.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                    nombre = tablaClientes.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                    txtApellido.Text = tablaClientes.Rows[e.RowIndex].Cells["apellido"].Value.ToString();
+                    txtCorreo.Text = tablaClientes.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
+                    /* DateTime fecha = Convert.ToDateTime(tablaClientes.Rows[e.RowIndex].Cells["fechaNacimiento"].Value.ToString());
+                     MessageBox.Show(fecha.ToString());*/
+                    string fecha = (tablaClientes.Rows[e.RowIndex].Cells["fechaNacimiento"].Value.ToString());
+                    //txtFecha.Value = Convert.ToDateTime(tablaClientes.SelectedCells[7].Value.ToString());
+                    idDireccion = Convert.ToInt32(tablaClientes.Rows[e.RowIndex].Cells["idDireccion"].Value.ToString());
+                    idDireccion1= Convert.ToInt32(tablaClientes.Rows[e.RowIndex].Cells["idDireccion"].Value.ToString());
+                    txtDireccion.Text = tablaClientes.Rows[e.RowIndex].Cells["Direccion"].Value.ToString();
+                    idDocumento = Convert.ToInt32(tablaClientes.Rows[e.RowIndex].Cells["idDocumento"].Value.ToString());
+                    idDocumento1 = idDocumento;
+                    txtNumeracion.Text = tablaClientes.Rows[e.RowIndex].Cells["Documento"].Value.ToString();
+                    numeracion = tablaClientes.Rows[e.RowIndex].Cells["Documento"].Value.ToString();
+                    txtTipoDocumento.Text = tablaClientes.Rows[e.RowIndex].Cells["TipoDocumento"].Value.ToString();
+                    idTelefono = Convert.ToInt32(tablaClientes.Rows[e.RowIndex].Cells["idTelefono"].Value.ToString());
+                    idTelefon1o = idTelefono;
+                    txtTelefono.Text = tablaClientes.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
+                    telefono = tablaClientes.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
+                    idTipoTelefono = Convert.ToInt32(tablaClientes.Rows[e.RowIndex].Cells["idTipoTelefono"].Value.ToString());
+                    idTipoTelefono1 = Convert.ToInt32(tablaClientes.Rows[e.RowIndex].Cells["idTipoTelefono"].Value.ToString());
+                    string t = tablaClientes.Rows[e.RowIndex].Cells["TipoTelefono"].Value.ToString();
+                    txtTipoTelefono.Text = t;
+                    txtIdentificador.Text = tablaClientes.Rows[e.RowIndex].Cells["IdentificadorFiscal"].Value.ToString();
+
+                    estado = tablaClientes.Rows[e.RowIndex].Cells["Estado"].Value.ToString();
+                    idCorreo = Convert.ToInt32(tablaClientes.Rows[e.RowIndex].Cells["idCorreo"].Value.ToString());
+                    if (estado == "ELIMINADO")
+                    {
+                        DialogResult result = MessageBox.Show("Este Proveedor se Elimino. ¿Desea Volver a Habilitarlo?", "Restaurando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (result == System.Windows.Forms.DialogResult.OK)
+                        {
+                            restaurar();
+                            prepararEdicion();
+                        }
+                    }
+                    else
+                    {
+                        prepararEdicion();
+                    }
+                }
+                catch (Exception ex)
+                {
+                  //  MessageBox.Show(ex.StackTrace);
+                }
+            }
+            if (tablaClientes.Rows[e.RowIndex].Cells["d"].Selected)
+            {
+                obtenerId_estado();
+                if (estado == "ACTIVO")
+                {
+                    DialogResult result = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (result == System.Windows.Forms.DialogResult.OK)
+                    {
+                        eliminar();
+                    }
+                }
+            }
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tablaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
 

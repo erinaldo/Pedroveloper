@@ -1271,7 +1271,7 @@ namespace SistemaVentas.Datos
             try
             {
                 CONEXIONMAESTRA.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("buscar_clientes", CONEXIONMAESTRA.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("Buscar_clientes-", CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letra", buscador);
                 da.Fill(dt);

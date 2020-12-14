@@ -500,7 +500,7 @@ namespace SistemaVentas
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarCorreo", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@correo", txtCorreo);
+                cmd.Parameters.AddWithValue("@correo", txtCorreo.Text);
                 cmd.Parameters.AddWithValue("@TipoCorreo", "Correo Usuario");
                 cmd.ExecuteNonQuery();
                 return true;

@@ -72,6 +72,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
+            panelGeolocalizacion.Visible = false;
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
             PanelBack.Visible = true;
             PanelBack.BringToFront();
@@ -954,8 +955,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             PanelImpresionvistaprevia.Visible = true;
             PanelImpresionvistaprevia.Dock = DockStyle.Fill;
-        //    panelGuardado_de_datos.Dock = DockStyle.None;
-        //    panelGuardado_de_datos.Visible = false;
+            PanelImpresionvistaprevia.BringToFront();
+            //    panelGuardado_de_datos.Dock = DockStyle.None;
+            //    panelGuardado_de_datos.Visible = false;
 
             Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
             DataTable dt = new DataTable();
@@ -1040,7 +1042,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         void CONFIRMAR_VENTA_EFECTIVO()
         {
-         /*   if (Envio.Checked == true)
+            if (Envio.Checked == true)
             {
 
                 if (idvehiculo != 0 && idEmpleado != 0 && idcliente != 0)
@@ -1125,7 +1127,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
             }
 
-            */
+            
         }
         void aumentar_monto_a_cliente()
         {
@@ -1342,8 +1344,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             if (restante == 0)
             {
-              /*  if (Envio.Checked == true)
-                {*/
+                if (Envio.Checked == true)
+                {
                     if(idEmpleado != 0)
                     {
                         if(idvehiculo != 0)
@@ -1352,7 +1354,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                             identificar_el_tipo_de_pago();
                             INGRESAR_LOS_DATOS();
                             //AsignarPersonalEnvio();
-
                         }
                         else
                         {
@@ -1362,12 +1363,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     {
                         MessageBox.Show("Selecciona un Empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-               /* } else
+                } else
                 {
                     indicador = "VISTA PREVIA";
                     identificar_el_tipo_de_pago();
                     INGRESAR_LOS_DATOS();
-                }*/
+                }
             }
             else
             {
@@ -1396,36 +1397,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void btnagregarCliente_Click(object sender, EventArgs e)
         {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario == idusuarioBuscar)
-                {
-                    if (modulo == "Clientes")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
+           
            
         }
 
@@ -1439,7 +1411,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void Envio_CheckedChanged(object sender, EventArgs e)
         {
-        /*    if (Envio.Checked == true)
+            if (Envio.Checked == true)
             {
                 // Verificacion disponibilidad de Personal. ---------------GOOD-------------
                 // Verificar vehiculos disponibles
@@ -1482,11 +1454,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             else
             {
-              //  Envio.Checked = false;
+                Envio.Checked = true;
                 //Envio.CheckState = CheckState.Unchecked;
                 panelVehiculos.Visible = false;
                 panelEmpleado.Visible = false;
-            }*/
+            }
         }
 
         public bool VerificarEstadoPersonal()
@@ -1688,7 +1660,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void button2_Click(object sender, EventArgs e)
         {
-            panelVerificar.Visible = false;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -2333,32 +2304,64 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
         }
 
-        private void btnGuardarImprimirdirecto_Click_2(object sender, EventArgs e)
-        {
-
-        }
 
         private void imprimir_Click(object sender, EventArgs e)
         {
-            //Checked
-            if (idEmpleado != 0)
-            {
-                ImprimirDirecto();
-            }
-            else
-            {
-            }
+            ImprimirDirecto();
         }
 
-        private void TGuardarSinImprimir_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void IMPRIMIRG_Click(object sender, EventArgs e)
         {
             GuardarSinImprimir();
+        }
 
+     
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario == idusuarioBuscar)
+                {
+                    if (modulo == "Clientes")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            panelVerificar.Visible = false;
+        }
+
+        private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            panelVerificar.Visible = true;
+            //panelVerificar.Dock = DockStyle.Fill;
+            panelVerificar.BringToFront();
+            panelVerificar.Size = new Size(995, 539);
         }
     }
 }

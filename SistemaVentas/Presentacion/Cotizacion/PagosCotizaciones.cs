@@ -394,8 +394,8 @@ namespace SistemaVentas.Presentacion.Cotizacion
             }*/
             PanelImpresionvistaprevia.Visible = true;
             PanelImpresionvistaprevia.Dock = DockStyle.Fill;
-            panelGuardado_de_datos.Dock = DockStyle.None;
-            panelGuardado_de_datos.Visible = false;
+            /*panelGuardado_de_datos.Dock = DockStyle.None;
+            panelGuardado_de_datos.Visible = false;*/
 
             Presentacion.REPORTES.Impresion_de_comprobantes.factura_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.factura_report();
             DataTable dt = new DataTable();
@@ -573,8 +573,8 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
             PanelImpresionvistaprevia.Visible = true;
             PanelImpresionvistaprevia.Dock = DockStyle.Fill;
-            panelGuardado_de_datos.Dock = DockStyle.None;
-            panelGuardado_de_datos.Visible = false;
+            //panelGuardado_de_datos.Dock = DockStyle.None;
+            //panelGuardado_de_datos.Visible = false;
 
             Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
             DataTable dt = new DataTable();
@@ -701,42 +701,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
         }
 
-        private void btnGuardarImprimirdirecto_Click_1(object sender, EventArgs e)
-        {
-            if (restante == 0)
-            {
-                if (txtImpresora.Text != "Ninguna")
-                {
-                    editar_eleccion_de_impresora();
-                    indicador = "DIRECTO";
-                    identificar_el_tipo_de_pago();
-                    INGRESAR_LOS_DATOS();
-                }
-                else
-                {
-                    MessageBox.Show("Seleccione una Impresora", "Impresora Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            else
-            {
-                MessageBox.Show("El restante debe ser 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
-        private void TGuardarSinImprimir_Click_1(object sender, EventArgs e)
-        {
-            if (restante == 0)
-            {
-                indicador = "VISTA PREVIA";
-                identificar_el_tipo_de_pago();
-                INGRESAR_LOS_DATOS();
-            }
-            else
-            {
-                MessageBox.Show("El restante debe ser 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
+       
 
         private void btnagregarCliente_Click(object sender, EventArgs e)
         {
@@ -749,11 +714,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             
         }
 
-        private void txtclientesolicitabnte3_TextChanged(object sender, EventArgs e)
-        {
-            buscarclientes3();
-            datalistadoclientes3.Visible = true;
-        }
+     
     
     void buscarclientes2()
     {
@@ -783,17 +744,16 @@ namespace SistemaVentas.Presentacion.Cotizacion
     {
         try
         {
-            DataTable dt = new DataTable();
-            Obtener_datos.buscar_clientes(ref dt, txtclientesolicitabnte3.Text);
-            datalistadoclientes3.DataSource = dt;
-            /*datalistadoclientes3.Columns[1].Visible = false;
-            datalistadoclientes3.Columns[3].Visible = false;
-            datalistadoclientes3.Columns[4].Visible = false;
-            datalistadoclientes3.Columns[5].Visible = false;
-            datalistadoclientes3.Columns[6].Visible = false;*/
-            datalistadoclientes3.Columns[2].Width = 420;
-            CONEXION.CONEXIONMAESTRA.cerrar();
-        }
+                DataTable dt = new DataTable();
+                Obtener_datos.buscar_clientes(ref dt, txtclientesolicitabnte3.Text);
+                datalistadoclientes3.DataSource = dt;
+                datalistadoclientes3.Columns[1].Visible = false;
+                datalistadoclientes3.Columns[3].Visible = false;
+                datalistadoclientes3.Columns[4].Visible = false;
+                datalistadoclientes3.Columns[5].Visible = false;
+                datalistadoclientes3.Columns[2].Width = 420;
+                CONEXION.CONEXIONMAESTRA.cerrar();
+            }
 #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
         catch (Exception ex)
 #pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
@@ -859,6 +819,51 @@ namespace SistemaVentas.Presentacion.Cotizacion
             datalistadoclientes3.Visible = false;
         }
 
+        private void imprimir_Click(object sender, EventArgs e)
+        {
+            if (restante == 0)
+            {
+                if (txtImpresora.Text != "Ninguna")
+                {
+                    editar_eleccion_de_impresora();
+                    indicador = "DIRECTO";
+                    identificar_el_tipo_de_pago();
+                    INGRESAR_LOS_DATOS();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una Impresora", "Impresora Inexistente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("El restante debe ser 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
 
+        private void IMPRIMIRG_Click(object sender, EventArgs e)
+        {
+            if (restante == 0)
+            {
+                indicador = "VISTA PREVIA";
+                identificar_el_tipo_de_pago();
+                INGRESAR_LOS_DATOS();
+            }
+            else
+            {
+                MessageBox.Show("El restante debe ser 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void txtclientesolicitabnte3_TextChanged_1(object sender, EventArgs e)
+        {
+            buscarclientes3();
+            datalistadoclientes3.Visible = true;
+        }
+
+        private void btnagregarCliente_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -279,7 +279,7 @@ namespace SistemaVentas.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", parametros.nombre);
                 cmd.Parameters.AddWithValue("@apellido", parametros.apellido);
-                cmd.Parameters.AddWithValue("@Correo", parametros.correo);
+                cmd.Parameters.AddWithValue("@idCorreo", parametros.idCorreo);
                 cmd.Parameters.AddWithValue("@fechaNacimiento", parametros.fechaNacimiento);
                 cmd.Parameters.AddWithValue("@idDireccion", parametros.idDireccion);
                 cmd.Parameters.AddWithValue("@idDocumento", parametros.idDocumento);

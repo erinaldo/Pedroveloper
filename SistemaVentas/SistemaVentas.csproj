@@ -695,6 +695,12 @@
     <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\MEDIOS_DE_PAGO_CAMIONES.Designer.cs">
       <DependentUpon>MEDIOS_DE_PAGO_CAMIONES.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\MENUPRINCIPAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\MENUPRINCIPAL.Designer.cs">
+      <DependentUpon>MENUPRINCIPAL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\VENTAS_MENU_PRINCIPAL\Pedidos_En_Espera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -970,6 +976,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\MEDIOS_DE_PAGO_CAMIONES.resx">
       <DependentUpon>MEDIOS_DE_PAGO_CAMIONES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\MENUPRINCIPAL.resx">
+      <DependentUpon>MENUPRINCIPAL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\VENTAS_MENU_PRINCIPAL\Pedidos_En_Espera.resx">
       <DependentUpon>Pedidos_En_Espera.cs</DependentUpon>
