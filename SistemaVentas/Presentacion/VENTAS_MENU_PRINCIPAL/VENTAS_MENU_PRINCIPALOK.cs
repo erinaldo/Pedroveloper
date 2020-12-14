@@ -2112,6 +2112,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         public void selectedBotons(Bunifu.Framework.UI.BunifuFlatButton sender)
         {
         }
+
+        private void PanelEnespera_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

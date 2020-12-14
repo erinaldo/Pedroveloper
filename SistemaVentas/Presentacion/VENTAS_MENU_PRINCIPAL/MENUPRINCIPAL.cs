@@ -194,8 +194,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     {
                         if (Operacion == "ACCESO")
                         {
-                            Compras_proveedor.Compras_proveedor frm = new Compras_proveedor.Compras_proveedor();
-                            frm.ShowDialog();
+                            showFormInWrapper(new Compras_proveedor.Compras_proveedor());
                         }
                         else
                         {
