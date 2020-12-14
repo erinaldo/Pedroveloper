@@ -29,7 +29,7 @@ namespace SistemaVentas.Datos
             SqlCommand cmd = new SqlCommand("cambio_de_CajaCotizacion", CONEXIONMAESTRA.conectar);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@idcaja", idcaja);
-            cmd.Parameters.AddWithValue("@idCotizacion", idfactura);
+            cmd.Parameters.AddWithValue("@idFactura", idfactura);
             cmd.ExecuteNonQuery();
             CONEXIONMAESTRA.cerrar();
         }

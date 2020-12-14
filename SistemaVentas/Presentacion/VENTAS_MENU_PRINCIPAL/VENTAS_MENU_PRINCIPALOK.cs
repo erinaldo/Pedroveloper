@@ -792,7 +792,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             catch (Exception ex)
             {
-                //  MessageBox.Show(ex.StackTrace);
+                 MessageBox.Show(ex.StackTrace);
             }
         }
         private void insertar_detalle_venta()
@@ -1054,15 +1054,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
         }
 
-        private void datalistadoDetalleVenta_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+     
         private void EliminarVentas()
         {
             contar_tablas_ventas();
@@ -1557,6 +1554,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             //txttotal.Clear();
             // txtprecio_unitario2.Text = "0";
             //stockgranel.Text = "0";
+            txtCantidad.SelectAll();
+            txtCantidad.Focus();
             txtprecio_unitario2.Text = Convert.ToString(txtprecio_unitario);
             stockgranel.Text = Convert.ToString(lblStock_de_Productos);
         }
@@ -1681,6 +1680,35 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             selectedBotons((Bunifu.Framework.UI.BunifuFlatButton)sender);
             arrowGuide((Bunifu.Framework.UI.BunifuFlatButton)sender);
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                {
+                    if (modulo == "Ventas")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            showFormInWrapper(new Presentacion.VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
         }
         public void arrowGuide(Bunifu.Framework.UI.BunifuFlatButton sender)
         {
@@ -1759,6 +1787,35 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             selectedBotons((Bunifu.Framework.UI.BunifuFlatButton)sender);
             arrowGuide((Bunifu.Framework.UI.BunifuFlatButton)sender);
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
+
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                {
+                    if (modulo == "Cotizacion")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            showFormInWrapper(new Presentacion.Cotizacion.Cotizaciones());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
         }
 
         private void btnMoney_Click(object sender, EventArgs e)
@@ -1997,36 +2054,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void pictureBox11_Click(object sender, EventArgs e)
         {
 
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario_que_inicio_sesion == idusuarioBuscar)
-                {
-                    if (modulo == "Cotizacion")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Cotizacion.Cotizaciones frm = new Cotizacion.Cotizaciones();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
         }
 
         private void pictureBox12_Click(object sender, EventArgs e)

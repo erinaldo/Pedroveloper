@@ -73,7 +73,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
-
+            PanelBack.Visible = true;
+            PanelBack.BringToFront();
             try
             {
                 DataTable dt = new DataTable();
