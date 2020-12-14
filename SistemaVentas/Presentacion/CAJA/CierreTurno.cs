@@ -27,6 +27,9 @@ namespace SistemaVentas.Presentacion.CAJA
         string usuario;
         private void CierreTurno_Load(object sender, EventArgs e)
         {
+            Panelregistro.Visible = true;
+            Panelregistro.Dock = DockStyle.Fill;
+            Panelregistro.BringToFront();
             lblDeberiaHaber.Text = CIERRE_DE_CAJA.dineroencaja.ToString ();
             dinerocalculado = Convert.ToDouble ( lblDeberiaHaber.Text);
             mostrarCorreoBase();
@@ -149,7 +152,6 @@ namespace SistemaVentas.Presentacion.CAJA
 
         private void BtnCerrar_turno_Click(object sender, EventArgs e)
         {
-            cerrarCaja();
 
         }
 
@@ -206,9 +208,10 @@ namespace SistemaVentas.Presentacion.CAJA
         }
         private void generarCopiaBd()
         {
-                Dispose();
+                
                 CopiasBd.GeneradorAutomatico frm = new CopiasBd.GeneradorAutomatico();
                 frm.ShowDialog();
+                Application.Exit();
         }
         public void ReemplazarHtml()
         {
@@ -239,6 +242,12 @@ namespace SistemaVentas.Presentacion.CAJA
 
         private void lblanuncio_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void guardar_Click(object sender, EventArgs e)
+        {
+            cerrarCaja();
 
         }
     }

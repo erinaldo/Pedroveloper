@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CIERRE_DE_CAJA));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Label46 = new System.Windows.Forms.Label();
-            this.btnvolver = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.lbldesdehasta = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel9 = new System.Windows.Forms.Panel();
@@ -81,9 +78,12 @@
             this.Label18 = new System.Windows.Forms.Label();
             this.Label19 = new System.Windows.Forms.Label();
             this.Label20 = new System.Windows.Forms.Label();
-            this.BtnCerrar_turno = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.Panelregistro = new System.Windows.Forms.Panel();
+            this.CurvaPanleInformacion = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.volver = new Guna.UI.WinForms.GunaAdvenceButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.Panel9.SuspendLayout();
             this.Panel8.SuspendLayout();
@@ -91,93 +91,41 @@
             this.Panel5.SuspendLayout();
             this.Panel3.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.Panelregistro.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.Label46);
-            this.panel1.Controls.Add(this.btnvolver);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1238, 51);
-            this.panel1.TabIndex = 0;
-            // 
-            // Label46
-            // 
-            this.Label46.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.Label46.ForeColor = System.Drawing.Color.White;
-            this.Label46.Location = new System.Drawing.Point(144, 0);
-            this.Label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label46.Name = "Label46";
-            this.Label46.Size = new System.Drawing.Size(908, 51);
-            this.Label46.TabIndex = 597;
-            this.Label46.Text = "Cuadre de CAJA";
-            this.Label46.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnvolver
-            // 
-            this.btnvolver.BackColor = System.Drawing.Color.Transparent;
-            this.btnvolver.BackgroundImage = global::SistemaVentas.Properties.Resources.azul;
-            this.btnvolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnvolver.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnvolver.FlatAppearance.BorderSize = 0;
-            this.btnvolver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnvolver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnvolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnvolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnvolver.ForeColor = System.Drawing.Color.White;
-            this.btnvolver.Location = new System.Drawing.Point(0, 0);
-            this.btnvolver.Name = "btnvolver";
-            this.btnvolver.Size = new System.Drawing.Size(144, 51);
-            this.btnvolver.TabIndex = 604;
-            this.btnvolver.Text = "Volver";
-            this.btnvolver.UseVisualStyleBackColor = false;
-            this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lbldesdehasta);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 51);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1238, 44);
-            this.panel2.TabIndex = 1;
             // 
             // lbldesdehasta
             // 
-            this.lbldesdehasta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbldesdehasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbldesdehasta.Location = new System.Drawing.Point(0, 0);
+            this.lbldesdehasta.Location = new System.Drawing.Point(24, 25);
             this.lbldesdehasta.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbldesdehasta.Name = "lbldesdehasta";
-            this.lbldesdehasta.Size = new System.Drawing.Size(1238, 44);
+            this.lbldesdehasta.Size = new System.Drawing.Size(941, 44);
             this.lbldesdehasta.TabIndex = 478;
             this.lbldesdehasta.Text = "De 12:24 pm a las 10:40 pm - (Turno Actual)";
             this.lbldesdehasta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
+            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.flowLayoutPanel1.Controls.Add(this.Panel9);
             this.flowLayoutPanel1.Controls.Add(this.Panel8);
             this.flowLayoutPanel1.Controls.Add(this.Panel7);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 95);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(25, 74);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1238, 55);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(937, 55);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // Panel9
             // 
-            this.Panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Panel9.BackColor = System.Drawing.Color.White;
             this.Panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Panel9.Controls.Add(this.lblgananciasVentas);
             this.Panel9.Controls.Add(this.Label36);
+            this.Panel9.ForeColor = System.Drawing.Color.Black;
             this.Panel9.Location = new System.Drawing.Point(3, 3);
             this.Panel9.Name = "Panel9";
             this.Panel9.Size = new System.Drawing.Size(262, 45);
@@ -186,10 +134,11 @@
             // lblgananciasVentas
             // 
             this.lblgananciasVentas.AutoSize = true;
+            this.lblgananciasVentas.BackColor = System.Drawing.Color.White;
             this.lblgananciasVentas.Enabled = false;
             this.lblgananciasVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblgananciasVentas.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblgananciasVentas.Location = new System.Drawing.Point(141, 14);
+            this.lblgananciasVentas.ForeColor = System.Drawing.Color.Black;
+            this.lblgananciasVentas.Location = new System.Drawing.Point(102, 14);
             this.lblgananciasVentas.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblgananciasVentas.Name = "lblgananciasVentas";
             this.lblgananciasVentas.Size = new System.Drawing.Size(19, 20);
@@ -199,8 +148,9 @@
             // Label36
             // 
             this.Label36.AutoSize = true;
+            this.Label36.BackColor = System.Drawing.Color.White;
             this.Label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Label36.ForeColor = System.Drawing.Color.White;
+            this.Label36.ForeColor = System.Drawing.Color.Black;
             this.Label36.Location = new System.Drawing.Point(11, 14);
             this.Label36.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label36.Name = "Label36";
@@ -210,10 +160,11 @@
             // 
             // Panel8
             // 
-            this.Panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Panel8.BackColor = System.Drawing.Color.White;
             this.Panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Panel8.Controls.Add(this.lbltotalventas);
             this.Panel8.Controls.Add(this.Label34);
+            this.Panel8.ForeColor = System.Drawing.Color.Black;
             this.Panel8.Location = new System.Drawing.Point(271, 3);
             this.Panel8.Name = "Panel8";
             this.Panel8.Size = new System.Drawing.Size(262, 45);
@@ -222,10 +173,10 @@
             // lbltotalventas
             // 
             this.lbltotalventas.AutoSize = true;
-            this.lbltotalventas.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalventas.BackColor = System.Drawing.Color.White;
             this.lbltotalventas.Enabled = false;
             this.lbltotalventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lbltotalventas.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lbltotalventas.ForeColor = System.Drawing.Color.Black;
             this.lbltotalventas.Location = new System.Drawing.Point(155, 14);
             this.lbltotalventas.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbltotalventas.Name = "lbltotalventas";
@@ -236,18 +187,19 @@
             // Label34
             // 
             this.Label34.AutoSize = true;
+            this.Label34.BackColor = System.Drawing.Color.White;
             this.Label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Label34.ForeColor = System.Drawing.Color.White;
+            this.Label34.ForeColor = System.Drawing.Color.Black;
             this.Label34.Location = new System.Drawing.Point(11, 14);
             this.Label34.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label34.Name = "Label34";
-            this.Label34.Size = new System.Drawing.Size(149, 20);
+            this.Label34.Size = new System.Drawing.Size(145, 20);
             this.Label34.TabIndex = 192;
-            this.Label34.Text = "facturas Totales:";
+            this.Label34.Text = "Facturas totales:";
             // 
             // Panel7
             // 
-            this.Panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Panel7.BackColor = System.Drawing.Color.White;
             this.Panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Panel7.Controls.Add(this.lbldineroTotalCaja);
             this.Panel7.Controls.Add(this.Label45);
@@ -259,11 +211,11 @@
             // lbldineroTotalCaja
             // 
             this.lbldineroTotalCaja.AutoSize = true;
-            this.lbldineroTotalCaja.BackColor = System.Drawing.Color.Transparent;
+            this.lbldineroTotalCaja.BackColor = System.Drawing.Color.White;
             this.lbldineroTotalCaja.Enabled = false;
             this.lbldineroTotalCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lbldineroTotalCaja.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lbldineroTotalCaja.Location = new System.Drawing.Point(160, 14);
+            this.lbldineroTotalCaja.ForeColor = System.Drawing.Color.Black;
+            this.lbldineroTotalCaja.Location = new System.Drawing.Point(173, 14);
             this.lbldineroTotalCaja.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbldineroTotalCaja.Name = "lbldineroTotalCaja";
             this.lbldineroTotalCaja.Size = new System.Drawing.Size(19, 20);
@@ -273,20 +225,21 @@
             // Label45
             // 
             this.Label45.AutoSize = true;
+            this.Label45.BackColor = System.Drawing.Color.White;
             this.Label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Label45.ForeColor = System.Drawing.Color.White;
+            this.Label45.ForeColor = System.Drawing.Color.Black;
             this.Label45.Location = new System.Drawing.Point(11, 14);
             this.Label45.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label45.Name = "Label45";
-            this.Label45.Size = new System.Drawing.Size(154, 20);
+            this.Label45.Size = new System.Drawing.Size(164, 20);
             this.Label45.TabIndex = 192;
-            this.Label45.Text = "Efectivo en CAJA:";
+            this.Label45.Text = "Efectivo en la Caja:";
             // 
             // Panel10
             // 
             this.Panel10.BackColor = System.Drawing.Color.Silver;
             this.Panel10.ForeColor = System.Drawing.Color.White;
-            this.Panel10.Location = new System.Drawing.Point(7, 168);
+            this.Panel10.Location = new System.Drawing.Point(10, 147);
             this.Panel10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Panel10.Name = "Panel10";
             this.Panel10.Size = new System.Drawing.Size(346, 1);
@@ -296,8 +249,8 @@
             // 
             this.Label37.AutoSize = true;
             this.Label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Label37.ForeColor = System.Drawing.Color.White;
-            this.Label37.Location = new System.Drawing.Point(366, 149);
+            this.Label37.ForeColor = System.Drawing.Color.Black;
+            this.Label37.Location = new System.Drawing.Point(369, 134);
             this.Label37.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.Label37.Name = "Label37";
             this.Label37.Size = new System.Drawing.Size(67, 20);
@@ -308,7 +261,7 @@
             // 
             this.Panel11.BackColor = System.Drawing.Color.Silver;
             this.Panel11.ForeColor = System.Drawing.Color.White;
-            this.Panel11.Location = new System.Drawing.Point(453, 168);
+            this.Panel11.Location = new System.Drawing.Point(456, 147);
             this.Panel11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Panel11.Name = "Panel11";
             this.Panel11.Size = new System.Drawing.Size(346, 1);
@@ -316,7 +269,8 @@
             // 
             // Panel5
             // 
-            this.Panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Panel5.BackColor = System.Drawing.Color.White;
+            this.Panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Panel5.BackgroundImage")));
             this.Panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Panel5.Controls.Add(this.Panel6);
             this.Panel5.Controls.Add(this.lblDineroEncaja);
@@ -335,15 +289,16 @@
             this.Panel5.Controls.Add(this.Label29);
             this.Panel5.Controls.Add(this.Label30);
             this.Panel5.Controls.Add(this.Label32);
-            this.Panel5.ForeColor = System.Drawing.Color.White;
-            this.Panel5.Location = new System.Drawing.Point(7, 188);
+            this.Panel5.ForeColor = System.Drawing.Color.Black;
+            this.Panel5.Location = new System.Drawing.Point(25, 167);
             this.Panel5.Name = "Panel5";
-            this.Panel5.Size = new System.Drawing.Size(461, 295);
+            this.Panel5.Size = new System.Drawing.Size(446, 295);
             this.Panel5.TabIndex = 543;
             // 
             // Panel6
             // 
-            this.Panel6.BackColor = System.Drawing.Color.Gainsboro;
+            this.Panel6.BackColor = System.Drawing.Color.Black;
+            this.Panel6.ForeColor = System.Drawing.Color.Black;
             this.Panel6.Location = new System.Drawing.Point(273, 256);
             this.Panel6.Name = "Panel6";
             this.Panel6.Size = new System.Drawing.Size(119, 1);
@@ -352,10 +307,11 @@
             // lblDineroEncaja
             // 
             this.lblDineroEncaja.AutoSize = true;
+            this.lblDineroEncaja.BackColor = System.Drawing.Color.White;
             this.lblDineroEncaja.Enabled = false;
             this.lblDineroEncaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblDineroEncaja.ForeColor = System.Drawing.Color.White;
-            this.lblDineroEncaja.Location = new System.Drawing.Point(309, 260);
+            this.lblDineroEncaja.ForeColor = System.Drawing.Color.Black;
+            this.lblDineroEncaja.Location = new System.Drawing.Point(278, 260);
             this.lblDineroEncaja.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDineroEncaja.Name = "lblDineroEncaja";
             this.lblDineroEncaja.Size = new System.Drawing.Size(19, 20);
@@ -365,9 +321,9 @@
             // lblgastos
             // 
             this.lblgastos.AutoSize = true;
-            this.lblgastos.BackColor = System.Drawing.Color.Transparent;
+            this.lblgastos.BackColor = System.Drawing.Color.White;
             this.lblgastos.Enabled = false;
-            this.lblgastos.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblgastos.ForeColor = System.Drawing.Color.Black;
             this.lblgastos.Location = new System.Drawing.Point(278, 220);
             this.lblgastos.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblgastos.Name = "lblgastos";
@@ -378,9 +334,9 @@
             // lblingresos
             // 
             this.lblingresos.AutoSize = true;
-            this.lblingresos.BackColor = System.Drawing.Color.Transparent;
+            this.lblingresos.BackColor = System.Drawing.Color.White;
             this.lblingresos.Enabled = false;
-            this.lblingresos.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblingresos.ForeColor = System.Drawing.Color.Black;
             this.lblingresos.Location = new System.Drawing.Point(278, 189);
             this.lblingresos.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblingresos.Name = "lblingresos";
@@ -391,9 +347,9 @@
             // lblPAGOSEfectivo
             // 
             this.lblPAGOSEfectivo.AutoSize = true;
-            this.lblPAGOSEfectivo.BackColor = System.Drawing.Color.Transparent;
+            this.lblPAGOSEfectivo.BackColor = System.Drawing.Color.White;
             this.lblPAGOSEfectivo.Enabled = false;
-            this.lblPAGOSEfectivo.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblPAGOSEfectivo.ForeColor = System.Drawing.Color.Black;
             this.lblPAGOSEfectivo.Location = new System.Drawing.Point(278, 164);
             this.lblPAGOSEfectivo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPAGOSEfectivo.Name = "lblPAGOSEfectivo";
@@ -404,9 +360,9 @@
             // lblabonosTarjeta
             // 
             this.lblabonosTarjeta.AutoSize = true;
-            this.lblabonosTarjeta.BackColor = System.Drawing.Color.Transparent;
+            this.lblabonosTarjeta.BackColor = System.Drawing.Color.White;
             this.lblabonosTarjeta.Enabled = false;
-            this.lblabonosTarjeta.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblabonosTarjeta.ForeColor = System.Drawing.Color.Black;
             this.lblabonosTarjeta.Location = new System.Drawing.Point(278, 138);
             this.lblabonosTarjeta.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblabonosTarjeta.Name = "lblabonosTarjeta";
@@ -417,9 +373,9 @@
             // lblabonosEfectivo
             // 
             this.lblabonosEfectivo.AutoSize = true;
-            this.lblabonosEfectivo.BackColor = System.Drawing.Color.Transparent;
+            this.lblabonosEfectivo.BackColor = System.Drawing.Color.White;
             this.lblabonosEfectivo.Enabled = false;
-            this.lblabonosEfectivo.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblabonosEfectivo.ForeColor = System.Drawing.Color.Black;
             this.lblabonosEfectivo.Location = new System.Drawing.Point(278, 107);
             this.lblabonosEfectivo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblabonosEfectivo.Name = "lblabonosEfectivo";
@@ -430,9 +386,9 @@
             // lblventasefectivo
             // 
             this.lblventasefectivo.AutoSize = true;
-            this.lblventasefectivo.BackColor = System.Drawing.Color.Transparent;
+            this.lblventasefectivo.BackColor = System.Drawing.Color.White;
             this.lblventasefectivo.Enabled = false;
-            this.lblventasefectivo.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblventasefectivo.ForeColor = System.Drawing.Color.Black;
             this.lblventasefectivo.Location = new System.Drawing.Point(278, 76);
             this.lblventasefectivo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblventasefectivo.Name = "lblventasefectivo";
@@ -443,9 +399,9 @@
             // lblfondodeCaja
             // 
             this.lblfondodeCaja.AutoSize = true;
-            this.lblfondodeCaja.BackColor = System.Drawing.Color.Transparent;
+            this.lblfondodeCaja.BackColor = System.Drawing.Color.White;
             this.lblfondodeCaja.Enabled = false;
-            this.lblfondodeCaja.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblfondodeCaja.ForeColor = System.Drawing.Color.Black;
             this.lblfondodeCaja.Location = new System.Drawing.Point(278, 46);
             this.lblfondodeCaja.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblfondodeCaja.Name = "lblfondodeCaja";
@@ -456,7 +412,8 @@
             // Label40
             // 
             this.Label40.AutoSize = true;
-            this.Label40.ForeColor = System.Drawing.Color.White;
+            this.Label40.BackColor = System.Drawing.Color.White;
+            this.Label40.ForeColor = System.Drawing.Color.Black;
             this.Label40.Location = new System.Drawing.Point(152, 220);
             this.Label40.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label40.Name = "Label40";
@@ -467,7 +424,8 @@
             // Label27
             // 
             this.Label27.AutoSize = true;
-            this.Label27.ForeColor = System.Drawing.Color.White;
+            this.Label27.BackColor = System.Drawing.Color.White;
+            this.Label27.ForeColor = System.Drawing.Color.Black;
             this.Label27.Location = new System.Drawing.Point(139, 189);
             this.Label27.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label27.Name = "Label27";
@@ -478,7 +436,8 @@
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.ForeColor = System.Drawing.Color.White;
+            this.Label6.BackColor = System.Drawing.Color.White;
+            this.Label6.ForeColor = System.Drawing.Color.Black;
             this.Label6.Location = new System.Drawing.Point(123, 164);
             this.Label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label6.Name = "Label6";
@@ -489,7 +448,8 @@
             // Label7
             // 
             this.Label7.AutoSize = true;
-            this.Label7.ForeColor = System.Drawing.Color.White;
+            this.Label7.BackColor = System.Drawing.Color.White;
+            this.Label7.ForeColor = System.Drawing.Color.Black;
             this.Label7.Location = new System.Drawing.Point(117, 138);
             this.Label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label7.Name = "Label7";
@@ -500,7 +460,8 @@
             // Label28
             // 
             this.Label28.AutoSize = true;
-            this.Label28.ForeColor = System.Drawing.Color.White;
+            this.Label28.BackColor = System.Drawing.Color.White;
+            this.Label28.ForeColor = System.Drawing.Color.Black;
             this.Label28.Location = new System.Drawing.Point(117, 107);
             this.Label28.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label28.Name = "Label28";
@@ -511,18 +472,20 @@
             // Label29
             // 
             this.Label29.AutoSize = true;
-            this.Label29.ForeColor = System.Drawing.Color.White;
+            this.Label29.BackColor = System.Drawing.Color.White;
+            this.Label29.ForeColor = System.Drawing.Color.Black;
             this.Label29.Location = new System.Drawing.Point(117, 76);
             this.Label29.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label29.Name = "Label29";
-            this.Label29.Size = new System.Drawing.Size(157, 20);
+            this.Label29.Size = new System.Drawing.Size(152, 20);
             this.Label29.TabIndex = 192;
             this.Label29.Text = "facturas en efectivo:";
             // 
             // Label30
             // 
             this.Label30.AutoSize = true;
-            this.Label30.ForeColor = System.Drawing.Color.White;
+            this.Label30.BackColor = System.Drawing.Color.White;
+            this.Label30.ForeColor = System.Drawing.Color.Black;
             this.Label30.Location = new System.Drawing.Point(148, 46);
             this.Label30.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label30.Name = "Label30";
@@ -533,8 +496,9 @@
             // Label32
             // 
             this.Label32.AutoSize = true;
+            this.Label32.BackColor = System.Drawing.Color.White;
             this.Label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Label32.ForeColor = System.Drawing.Color.White;
+            this.Label32.ForeColor = System.Drawing.Color.Black;
             this.Label32.Location = new System.Drawing.Point(177, 14);
             this.Label32.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label32.Name = "Label32";
@@ -544,7 +508,8 @@
             // 
             // Panel3
             // 
-            this.Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Panel3.BackColor = System.Drawing.Color.White;
+            this.Panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Panel3.BackgroundImage")));
             this.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Panel3.Controls.Add(this.Panel4);
             this.Panel3.Controls.Add(this.lblVentasTotal);
@@ -555,15 +520,16 @@
             this.Panel3.Controls.Add(this.Label14);
             this.Panel3.Controls.Add(this.Label12);
             this.Panel3.Controls.Add(this.Label9);
-            this.Panel3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.Panel3.Location = new System.Drawing.Point(474, 188);
+            this.Panel3.ForeColor = System.Drawing.Color.Black;
+            this.Panel3.Location = new System.Drawing.Point(477, 167);
             this.Panel3.Name = "Panel3";
             this.Panel3.Size = new System.Drawing.Size(485, 295);
             this.Panel3.TabIndex = 544;
             // 
             // Panel4
             // 
-            this.Panel4.BackColor = System.Drawing.Color.Gainsboro;
+            this.Panel4.BackColor = System.Drawing.Color.Black;
+            this.Panel4.ForeColor = System.Drawing.Color.Black;
             this.Panel4.Location = new System.Drawing.Point(282, 138);
             this.Panel4.Name = "Panel4";
             this.Panel4.Size = new System.Drawing.Size(119, 1);
@@ -572,10 +538,10 @@
             // lblVentasTotal
             // 
             this.lblVentasTotal.AutoSize = true;
-            this.lblVentasTotal.BackColor = System.Drawing.Color.Transparent;
+            this.lblVentasTotal.BackColor = System.Drawing.Color.White;
             this.lblVentasTotal.Enabled = false;
             this.lblVentasTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblVentasTotal.ForeColor = System.Drawing.Color.White;
+            this.lblVentasTotal.ForeColor = System.Drawing.Color.Black;
             this.lblVentasTotal.Location = new System.Drawing.Point(278, 142);
             this.lblVentasTotal.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblVentasTotal.Name = "lblVentasTotal";
@@ -586,9 +552,9 @@
             // lblVentasAcredito
             // 
             this.lblVentasAcredito.AutoSize = true;
-            this.lblVentasAcredito.BackColor = System.Drawing.Color.Transparent;
+            this.lblVentasAcredito.BackColor = System.Drawing.Color.White;
             this.lblVentasAcredito.Enabled = false;
-            this.lblVentasAcredito.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblVentasAcredito.ForeColor = System.Drawing.Color.Black;
             this.lblVentasAcredito.Location = new System.Drawing.Point(278, 107);
             this.lblVentasAcredito.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblVentasAcredito.Name = "lblVentasAcredito";
@@ -599,9 +565,9 @@
             // lblventas_Tarjeta
             // 
             this.lblventas_Tarjeta.AutoSize = true;
-            this.lblventas_Tarjeta.BackColor = System.Drawing.Color.Transparent;
+            this.lblventas_Tarjeta.BackColor = System.Drawing.Color.White;
             this.lblventas_Tarjeta.Enabled = false;
-            this.lblventas_Tarjeta.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblventas_Tarjeta.ForeColor = System.Drawing.Color.Black;
             this.lblventas_Tarjeta.Location = new System.Drawing.Point(278, 76);
             this.lblventas_Tarjeta.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblventas_Tarjeta.Name = "lblventas_Tarjeta";
@@ -612,9 +578,9 @@
             // lblventasefectivoGeneral
             // 
             this.lblventasefectivoGeneral.AutoSize = true;
-            this.lblventasefectivoGeneral.BackColor = System.Drawing.Color.Transparent;
+            this.lblventasefectivoGeneral.BackColor = System.Drawing.Color.White;
             this.lblventasefectivoGeneral.Enabled = false;
-            this.lblventasefectivoGeneral.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblventasefectivoGeneral.ForeColor = System.Drawing.Color.Black;
             this.lblventasefectivoGeneral.Location = new System.Drawing.Point(278, 46);
             this.lblventasefectivoGeneral.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblventasefectivoGeneral.Name = "lblventasefectivoGeneral";
@@ -625,7 +591,8 @@
             // Label16
             // 
             this.Label16.AutoSize = true;
-            this.Label16.ForeColor = System.Drawing.Color.White;
+            this.Label16.BackColor = System.Drawing.Color.White;
+            this.Label16.ForeColor = System.Drawing.Color.Black;
             this.Label16.Location = new System.Drawing.Point(184, 107);
             this.Label16.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label16.Name = "Label16";
@@ -636,7 +603,8 @@
             // Label14
             // 
             this.Label14.AutoSize = true;
-            this.Label14.ForeColor = System.Drawing.Color.White;
+            this.Label14.BackColor = System.Drawing.Color.White;
+            this.Label14.ForeColor = System.Drawing.Color.Black;
             this.Label14.Location = new System.Drawing.Point(168, 76);
             this.Label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label14.Name = "Label14";
@@ -647,7 +615,8 @@
             // Label12
             // 
             this.Label12.AutoSize = true;
-            this.Label12.ForeColor = System.Drawing.Color.White;
+            this.Label12.BackColor = System.Drawing.Color.White;
+            this.Label12.ForeColor = System.Drawing.Color.Black;
             this.Label12.Location = new System.Drawing.Point(168, 46);
             this.Label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label12.Name = "Label12";
@@ -658,36 +627,38 @@
             // Label9
             // 
             this.Label9.AutoSize = true;
+            this.Label9.BackColor = System.Drawing.Color.White;
             this.Label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Label9.ForeColor = System.Drawing.Color.White;
+            this.Label9.ForeColor = System.Drawing.Color.Black;
             this.Label9.Location = new System.Drawing.Point(175, 14);
             this.Label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(144, 20);
+            this.Label9.Size = new System.Drawing.Size(139, 20);
             this.Label9.TabIndex = 192;
             this.Label9.Text = "facturas Totales";
             // 
             // panel12
             // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel12.BackColor = System.Drawing.Color.White;
+            this.panel12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel12.BackgroundImage")));
             this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel12.Controls.Add(this.lblPorpagar);
             this.panel12.Controls.Add(this.lblPorCobrar);
             this.panel12.Controls.Add(this.Label18);
             this.panel12.Controls.Add(this.Label19);
             this.panel12.Controls.Add(this.Label20);
-            this.panel12.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.panel12.Location = new System.Drawing.Point(7, 489);
+            this.panel12.ForeColor = System.Drawing.Color.Black;
+            this.panel12.Location = new System.Drawing.Point(25, 468);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(461, 115);
+            this.panel12.Size = new System.Drawing.Size(446, 115);
             this.panel12.TabIndex = 602;
             // 
             // lblPorpagar
             // 
             this.lblPorpagar.AutoSize = true;
-            this.lblPorpagar.BackColor = System.Drawing.Color.Transparent;
+            this.lblPorpagar.BackColor = System.Drawing.Color.White;
             this.lblPorpagar.Enabled = false;
-            this.lblPorpagar.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblPorpagar.ForeColor = System.Drawing.Color.Black;
             this.lblPorpagar.Location = new System.Drawing.Point(278, 76);
             this.lblPorpagar.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPorpagar.Name = "lblPorpagar";
@@ -698,9 +669,9 @@
             // lblPorCobrar
             // 
             this.lblPorCobrar.AutoSize = true;
-            this.lblPorCobrar.BackColor = System.Drawing.Color.Transparent;
+            this.lblPorCobrar.BackColor = System.Drawing.Color.White;
             this.lblPorCobrar.Enabled = false;
-            this.lblPorCobrar.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblPorCobrar.ForeColor = System.Drawing.Color.Black;
             this.lblPorCobrar.Location = new System.Drawing.Point(278, 46);
             this.lblPorCobrar.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPorCobrar.Name = "lblPorCobrar";
@@ -711,7 +682,8 @@
             // Label18
             // 
             this.Label18.AutoSize = true;
-            this.Label18.ForeColor = System.Drawing.Color.White;
+            this.Label18.BackColor = System.Drawing.Color.White;
+            this.Label18.ForeColor = System.Drawing.Color.Black;
             this.Label18.Location = new System.Drawing.Point(180, 76);
             this.Label18.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label18.Name = "Label18";
@@ -722,7 +694,8 @@
             // Label19
             // 
             this.Label19.AutoSize = true;
-            this.Label19.ForeColor = System.Drawing.Color.White;
+            this.Label19.BackColor = System.Drawing.Color.White;
+            this.Label19.ForeColor = System.Drawing.Color.Black;
             this.Label19.Location = new System.Drawing.Point(174, 46);
             this.Label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label19.Name = "Label19";
@@ -733,8 +706,9 @@
             // Label20
             // 
             this.Label20.AutoSize = true;
+            this.Label20.BackColor = System.Drawing.Color.White;
             this.Label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Label20.ForeColor = System.Drawing.Color.White;
+            this.Label20.ForeColor = System.Drawing.Color.Black;
             this.Label20.Location = new System.Drawing.Point(175, 14);
             this.Label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label20.Name = "Label20";
@@ -743,52 +717,96 @@
             this.Label20.Text = "Creditos Aperturados";
             this.Label20.Click += new System.EventHandler(this.Label20_Click);
             // 
-            // BtnCerrar_turno
+            // Panelregistro
             // 
-            this.BtnCerrar_turno.BackColor = System.Drawing.Color.Transparent;
-            this.BtnCerrar_turno.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
-            this.BtnCerrar_turno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnCerrar_turno.FlatAppearance.BorderSize = 0;
-            this.BtnCerrar_turno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BtnCerrar_turno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BtnCerrar_turno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrar_turno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrar_turno.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrar_turno.Location = new System.Drawing.Point(7, 610);
-            this.BtnCerrar_turno.Name = "BtnCerrar_turno";
-            this.BtnCerrar_turno.Size = new System.Drawing.Size(194, 57);
-            this.BtnCerrar_turno.TabIndex = 603;
-            this.BtnCerrar_turno.Text = "Cerrar Caja";
-            this.BtnCerrar_turno.UseVisualStyleBackColor = false;
-            this.BtnCerrar_turno.Click += new System.EventHandler(this.BtnCerrar_turno_Click);
+            this.Panelregistro.BackColor = System.Drawing.Color.White;
+            this.Panelregistro.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
+            this.Panelregistro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Panelregistro.Controls.Add(this.volver);
+            this.Panelregistro.Controls.Add(this.lbldesdehasta);
+            this.Panelregistro.Controls.Add(this.flowLayoutPanel1);
+            this.Panelregistro.Controls.Add(this.Panel10);
+            this.Panelregistro.Controls.Add(this.Panel3);
+            this.Panelregistro.Controls.Add(this.Label37);
+            this.Panelregistro.Controls.Add(this.Panel11);
+            this.Panelregistro.Controls.Add(this.panel12);
+            this.Panelregistro.Controls.Add(this.Panel5);
+            this.Panelregistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Panelregistro.Location = new System.Drawing.Point(19, 81);
+            this.Panelregistro.Name = "Panelregistro";
+            this.Panelregistro.Size = new System.Drawing.Size(1251, 615);
+            this.Panelregistro.TabIndex = 651;
+            this.Panelregistro.Visible = false;
+            this.Panelregistro.Paint += new System.Windows.Forms.PaintEventHandler(this.Panelregistro_Paint);
+            // 
+            // CurvaPanleInformacion
+            // 
+            this.CurvaPanleInformacion.ElipseRadius = 7;
+            this.CurvaPanleInformacion.TargetControl = this;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 7;
+            this.bunifuElipse1.TargetControl = this.volver;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 7;
+            this.bunifuElipse2.TargetControl = this;
+            // 
+            // bunifuElipse3
+            // 
+            this.bunifuElipse3.ElipseRadius = 7;
+            this.bunifuElipse3.TargetControl = this;
+            // 
+            // volver
+            // 
+            this.volver.AnimationHoverSpeed = 0.07F;
+            this.volver.AnimationSpeed = 0.03F;
+            this.volver.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.volver.BorderColor = System.Drawing.Color.Black;
+            this.volver.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.volver.CheckedBorderColor = System.Drawing.Color.Black;
+            this.volver.CheckedForeColor = System.Drawing.Color.White;
+            this.volver.CheckedImage = ((System.Drawing.Image)(resources.GetObject("volver.CheckedImage")));
+            this.volver.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.volver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.volver.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.volver.FocusedColor = System.Drawing.Color.Empty;
+            this.volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.volver.ForeColor = System.Drawing.Color.White;
+            this.volver.Image = ((System.Drawing.Image)(resources.GetObject("volver.Image")));
+            this.volver.ImageSize = new System.Drawing.Size(20, 20);
+            this.volver.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.volver.Location = new System.Drawing.Point(486, 468);
+            this.volver.Name = "volver";
+            this.volver.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.volver.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.volver.OnHoverForeColor = System.Drawing.Color.White;
+            this.volver.OnHoverImage = null;
+            this.volver.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.volver.OnPressedColor = System.Drawing.Color.Black;
+            this.volver.Size = new System.Drawing.Size(190, 66);
+            this.volver.TabIndex = 665;
+            this.volver.Text = "Cerrar turno";
+            this.volver.Click += new System.EventHandler(this.volver_Click);
             // 
             // CIERRE_DE_CAJA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1238, 749);
-            this.Controls.Add(this.Panel3);
-            this.Controls.Add(this.BtnCerrar_turno);
-            this.Controls.Add(this.panel12);
-            this.Controls.Add(this.Panel5);
-            this.Controls.Add(this.Panel11);
-            this.Controls.Add(this.Label37);
-            this.Controls.Add(this.Panel10);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Panelregistro);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CIERRE_DE_CAJA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cierre de caja";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CIERRE_DE_CAJA_FormClosing);
             this.Load += new System.EventHandler(this.CIERRE_DE_CAJA_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.Panel9.ResumeLayout(false);
             this.Panel9.PerformLayout();
@@ -802,16 +820,13 @@
             this.Panel3.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            this.Panelregistro.ResumeLayout(false);
+            this.Panelregistro.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        internal System.Windows.Forms.Label Label46;
         internal System.Windows.Forms.Label lbldesdehasta;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         internal System.Windows.Forms.Panel Panel10;
@@ -851,7 +866,6 @@
         internal System.Windows.Forms.Label Label18;
         internal System.Windows.Forms.Label Label19;
         internal System.Windows.Forms.Label Label20;
-        internal System.Windows.Forms.Button BtnCerrar_turno;
         internal System.Windows.Forms.Panel Panel9;
         internal System.Windows.Forms.Label lblgananciasVentas;
         internal System.Windows.Forms.Label Label36;
@@ -861,6 +875,11 @@
         internal System.Windows.Forms.Panel Panel7;
         internal System.Windows.Forms.Label lbldineroTotalCaja;
         internal System.Windows.Forms.Label Label45;
-        internal System.Windows.Forms.Button btnvolver;
+        private System.Windows.Forms.Panel Panelregistro;
+        private Bunifu.Framework.UI.BunifuElipse CurvaPanleInformacion;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
+        private Guna.UI.WinForms.GunaAdvenceButton volver;
     }
 }

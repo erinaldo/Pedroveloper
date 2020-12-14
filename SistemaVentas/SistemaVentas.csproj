@@ -503,6 +503,12 @@
     <Compile Include="Presentacion\MASCARAS\MASCARA.Designer.cs">
       <DependentUpon>MASCARA.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\NOTIFICACIONES\Notificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\NOTIFICACIONES\Notificacion.Designer.cs">
+      <DependentUpon>Notificacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\NOTIFICACIONES\Notificaciones_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -886,6 +892,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\MASCARAS\MASCARA.resx">
       <DependentUpon>MASCARA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\NOTIFICACIONES\Notificacion.resx">
+      <DependentUpon>Notificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\NOTIFICACIONES\Notificaciones_form.resx">
       <DependentUpon>Notificaciones_form.cs</DependentUpon>

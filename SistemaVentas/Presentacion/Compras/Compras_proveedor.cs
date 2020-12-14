@@ -73,6 +73,26 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             MOSTRAR_TIPO_DE_BUSQUEDA();
             Obtener_id_de_proveedor_estandar();
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario_que_inicio_sesion);
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+
+                da = new SqlDataAdapter("obtenerAccesoUsuarios", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@idUsuario", idusuario_que_inicio_sesion);
+                da.Fill(dt);
+                datalistadousuario.DataSource = dt;
+                con.Close();
+                datalistadousuario.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             if (Tipo_de_busqueda == "TECLADO")
             {
@@ -433,6 +453,8 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             lblcosto.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[5].Value.ToString();
             lblcodigo.Text = DATALISTADO_PRODUCTOS_OKA.SelectedCells[7].Value.ToString();
             unidadVenta = DATALISTADO_PRODUCTOS_OKA.SelectedCells[8].Value.ToString();
+            txtprecio_compra = Convert.ToDouble(lblcosto.Text);
+            precioVenta = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
             sevendePor = "Granel";
 
             txtprecio_unitario = Convert.ToDouble(DATALISTADO_PRODUCTOS_OKA.SelectedCells[6].Value.ToString());
@@ -1312,44 +1334,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 ProgressBarETIQUETA_STOCK.Value = 0;
             }
         }
-        private void befectivo_Click_1(object sender, EventArgs e)
-        {
-            if (tablaProductos.Rows.Count == 0)
-            {
-
-            }
-            else
-            {
-                Editar_datos funcion = new Editar_datos();
-                Lproductos parametrosProductos = new Lproductos();
-                /* foreach (DataGridViewRow fila in tablaProductos.Rows)
-                 {
-
-                     idproducto = Convert.ToInt32(fila.Cells["Id_producto"].Value);
-                     precioCompra = Convert.ToDouble(fila.Cells["PrecioUnidad"].Value);
-                     precioVenta = Convert.ToDouble(fila.Cells["Costo"].Value);
-                     double precioVentaNuevo;
-                     double precioVentaNuevo_;
-                     precioVentaNuevo = precioCompra - precioVenta;
-                     precioVentaNuevo_ = precioVentaNuevo + precioCompra;
-
-                     // if (precioCompra != precioVenta)
-                     //{
-                     if (funcion.Editarpreciosproductoscompra(parametrosProductos) == true)
-                     {
-                         MessageBox.Show("id:" + idproducto.ToString() + " prventa:" + precioVenta.ToString() +
-                     "prcompra:" + precioCompra.ToString() + " prventaN:" + precioVentaNuevo.ToString());
-                     }
-                     // }
-                */
-
-                total = Convert.ToDouble(txt_total_suma.Text);
-                Medios_de_Compra.Medios_de_Compra frm = new Medios_de_Compra.Medios_de_Compra();
-                frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
-                frm.ShowDialog();
-            }
-        }
-
+    
         
         private void btnrestaurar_Click_1(object sender, EventArgs e)
         {
@@ -1753,7 +1738,7 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
                 string numero;
                 bool entero = true;
                 double variable = Convert.ToDouble(txtCantidad.Text);
-                variable *= 2;
+                variable *= 1;
                 numero = Convert.ToString(variable);
                 char[] test = numero.ToCharArray();
                 for (int i = 0; i < test.Length; i++)
@@ -2093,8 +2078,41 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         private void btnVentasMediosPago_Click(object sender, EventArgs e)
         {
+            if (tablaProductos.Rows.Count == 0)
+            {
 
-        }
+            }
+            else
+            {
+                Editar_datos funcion = new Editar_datos();
+                Lproductos parametrosProductos = new Lproductos();
+                /* foreach (DataGridViewRow fila in tablaProductos.Rows)
+                 {
+
+                     idproducto = Convert.ToInt32(fila.Cells["Id_producto"].Value);
+                     precioCompra = Convert.ToDouble(fila.Cells["PrecioUnidad"].Value);
+                     precioVenta = Convert.ToDouble(fila.Cells["Costo"].Value);
+                     double precioVentaNuevo;
+                     double precioVentaNuevo_;
+                     precioVentaNuevo = precioCompra - precioVenta;
+                     precioVentaNuevo_ = precioVentaNuevo + precioCompra;
+
+                     // if (precioCompra != precioVenta)
+                     //{
+                     if (funcion.Editarpreciosproductoscompra(parametrosProductos) == true)
+                     {
+                         MessageBox.Show("id:" + idproducto.ToString() + " prventa:" + precioVenta.ToString() +
+                     "prcompra:" + precioCompra.ToString() + " prventaN:" + precioVentaNuevo.ToString());
+                     }
+                     // }
+                */
+
+                total = Convert.ToDouble(txt_total_suma.Text);
+                Medios_de_Compra.Medios_de_Compra frm = new Medios_de_Compra.Medios_de_Compra();
+                frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
+                frm.ShowDialog();
+            }
+            }
 
         private void pictureBox16_Click(object sender, EventArgs e)
         {
@@ -2102,16 +2120,57 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
             frm.ShowDialog();
         }
 
+        private void showFormInWrapper(Form FormSon)
+        {
+            if (FormActive != null)
+                FormActive.Close();
+            FormActive = FormSon;
+            FormSon.TopLevel = false;
+            FormSon.Dock = DockStyle.Fill;
+            wrapper.Controls.Add(FormSon);
+            wrapper.Tag = FormSon;
+            FormSon.BringToFront();
+            FormSon.Show();
+        }
+
         private void pictureBox11_Click(object sender, EventArgs e)
         {
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
 
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                {
+                    if (modulo == "Proveedores")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            showFormInWrapper(new Presentacion.CLIENTES_PROVEEDORES.Proveedores());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
-            Pedidos_En_Espera frm = new Pedidos_En_Espera();
-            frm.ShowDialog();
+          //  Pedidos_En_Espera frm = new Pedidos_En_Espera();
+           // frm.ShowDialog();
         }
     }
 }

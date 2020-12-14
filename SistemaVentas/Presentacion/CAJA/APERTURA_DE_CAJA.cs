@@ -45,11 +45,12 @@ namespace SistemaVentas.Presentacion.CAJA
 
         private void btnomitir_Click(object sender, EventArgs e)
         {
+            pasar_a_ventas();
         }
         private void pasar_a_ventas()
         {
             Dispose();
-            VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK frm = new VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK();
+            VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL frm = new VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL();
             frm.ShowDialog();
            
         }

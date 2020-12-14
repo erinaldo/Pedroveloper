@@ -413,7 +413,7 @@ namespace SistemaVentas.Presentacion.Admin_nivel_dios
             {
           
                 Dispose();
-                VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK frmVentas = new VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK();
+                VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL frmVentas = new VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL();
                 frmVentas.ShowDialog();
 
             }

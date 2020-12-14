@@ -1776,7 +1776,35 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void pictureBox11_Click(object sender, EventArgs e)
         {
+            int idRol;
+            string Rol;
+            string modulo;
+            string Operacion;
 
+            foreach (DataGridViewRow row in datalistadousuario.Rows)
+            {
+
+                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                Rol = Convert.ToString(row.Cells["Rol"].Value);
+                modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                {
+                    if (modulo == "Proveedores")
+                    {
+                        if (Operacion == "ACCESO")
+                        {
+                            showFormInWrapper(new Presentacion.CLIENTES_PROVEEDORES.Proveedores());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+            }
         }
 
         private void pictureBox12_Click(object sender, EventArgs e)

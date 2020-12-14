@@ -56,6 +56,9 @@ namespace SistemaVentas.Presentacion.CAJA
             sumar_CreditoPorCobrar();
             M_ventas_Tarjeta_por_turno();
             M_ventas_credito_por_turno();
+            Panelregistro.Visible = true;
+            Panelregistro.Dock = DockStyle.Fill;
+            Panelregistro.BringToFront();
             calcular();
         }
         private void calcular()
@@ -121,7 +124,7 @@ namespace SistemaVentas.Presentacion.CAJA
         }
         private void mostrar_cobros_efectivo_por_turno()
         {
-            MessageBox.Show(fechaInicial.ToString(), fechafinal.ToString());
+           // MessageBox.Show(fechaInicial.ToString(), fechafinal.ToString());
             Obtener_datos.mostrar_cobros_en_efectivo_por_turno(idcaja, fechaInicial, fechafinal, ref cobrosEfectivo);
             lblabonosEfectivo.Text = cobrosEfectivo.ToString();
         }
@@ -141,23 +144,44 @@ namespace SistemaVentas.Presentacion.CAJA
 
         }
 
-        private void BtnCerrar_turno_Click(object sender, EventArgs e)
-        {          
-            CierreTurno frm = new CierreTurno();
-            dineroencaja =Convert.ToDouble ( lblDineroEncaja.Text);
-            frm.ShowDialog();
-        }
-
         private void CIERRE_DE_CAJA_FormClosing(object sender, FormClosingEventArgs e)
         {
            
         }
 
-        private void btnvolver_Click(object sender, EventArgs e)
+        private void Panelregistro_Paint(object sender, PaintEventArgs e)
         {
-            Dispose();
-            VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK frm = new VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK();
-            frm.ShowDialog();
+
+        }
+        private Form FormActive = null;
+
+        private void showFormInWrapper(Form FormSon)
+        {
+            if (FormActive != null)
+                FormActive.Close();
+            FormActive = FormSon;
+            FormSon.TopLevel = false;
+            FormSon.Dock = DockStyle.Fill;
+            Panelregistro.Controls.Add(FormSon);
+            Panelregistro.Tag = FormSon;
+            FormSon.BringToFront();
+            FormSon.Show();
+        }
+        private void volver_Click(object sender, EventArgs e)
+        {
+
+            volver.Enabled = false;
+            if (Convert.ToDouble(lblDineroEncaja.Text) > 0.00)
+            {
+                dineroencaja = Convert.ToDouble(lblDineroEncaja.Text);
+                showFormInWrapper(new CierreTurno());
+            }
+            else
+            {
+                showFormInWrapper(new CIERRE_DE_CAJA());
+            }
+
+
         }
     }
 }

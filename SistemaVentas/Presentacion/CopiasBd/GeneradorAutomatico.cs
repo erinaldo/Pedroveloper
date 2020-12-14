@@ -114,7 +114,6 @@ namespace SistemaVentas.Presentacion.CopiasBd
         private void btncancelar_Click(object sender, EventArgs e)
         {
 
-            Application.Exit();
 
         }
 
@@ -150,6 +149,13 @@ namespace SistemaVentas.Presentacion.CopiasBd
         private void GeneradorAutomatico_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void volver_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL frm = new VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL();
+            frm.ShowDialog();
         }
     }
 }

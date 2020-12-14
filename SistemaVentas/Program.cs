@@ -23,7 +23,7 @@ namespace SistemaVentas
             //Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA();
             //Presentacion.Vehiculos.Vehiculos frm = new Presentacion.Vehiculos.Vehiculos();
             // Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
-            Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL frm = new Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL();
+         Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL frm = new Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL();
              // Presentacion.VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK frm = new Presentacion.VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK();
               //Presentacion.VENTAS_MENU_PRINCIPAL.MEDIOS_DE_PAGO frm = new Presentacion.VENTAS_MENU_PRINCIPAL.MEDIOS_DE_PAGO();
             // Presentacion.Compras_proveedor.Compras_proveedor frm = new Presentacion.Compras_proveedor.Compras_proveedor();

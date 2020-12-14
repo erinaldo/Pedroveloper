@@ -29,23 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Medios_de_Compra));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TXTTOTAL = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtefectivo2 = new System.Windows.Forms.TextBox();
             this.Panel20 = new System.Windows.Forms.Panel();
             this.Label18 = new System.Windows.Forms.Label();
-            this.btn0 = new System.Windows.Forms.Button();
             this.chkCredito = new System.Windows.Forms.CheckBox();
             this.pcredito = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -58,21 +57,9 @@
             this.chkContado = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.asd2 = new System.Windows.Forms.Panel();
-            this.btnpunto = new System.Windows.Forms.Button();
             this.txtMonto = new System.Windows.Forms.TextBox();
-            this.btnborrartodo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.asd1 = new System.Windows.Forms.Panel();
-            this.FlowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn1 = new System.Windows.Forms.Button();
-            this.btn2 = new System.Windows.Forms.Button();
-            this.btn3 = new System.Windows.Forms.Button();
-            this.btn4 = new System.Windows.Forms.Button();
-            this.btn5 = new System.Windows.Forms.Button();
-            this.btn6 = new System.Windows.Forms.Button();
-            this.btn7 = new System.Windows.Forms.Button();
-            this.btn8 = new System.Windows.Forms.Button();
-            this.btn9 = new System.Windows.Forms.Button();
             this.txtTransferencia = new System.Windows.Forms.TextBox();
             this.txtrestante = new System.Windows.Forms.Label();
             this.Label8 = new System.Windows.Forms.Label();
@@ -81,9 +68,6 @@
             this.Label31 = new System.Windows.Forms.Label();
             this.chkTrans = new System.Windows.Forms.CheckBox();
             this.lblprueba = new System.Windows.Forms.Label();
-            this.panelGuardado_de_datos = new System.Windows.Forms.Panel();
-            this.btnGuardarImprimirdirecto = new System.Windows.Forms.Button();
-            this.TGuardarSinImprimir = new System.Windows.Forms.Button();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtserie = new System.Windows.Forms.Label();
             this.lblCorrelativoconCeros = new System.Windows.Forms.Label();
@@ -124,12 +108,48 @@
             this.DATALISTADOVERIFICAR = new System.Windows.Forms.DataGridView();
             this.lblCantidad_de_numeros = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.imprimir = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnN9 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnN8 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnN7 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnN6 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnN5 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnN4 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnN3 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnN2 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnN1 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnN0 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnNcoma = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnNborrar = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.IMPRIMIRG = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.bunifuElipse19 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse20 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse18 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse17 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse16 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse15 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse7 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse8 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse13 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse12 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse21 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse22 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse23 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse14 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse9 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1.SuspendLayout();
             this.pcredito.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoProveedores)).BeginInit();
-            this.FlowLayoutPanel2.SuspendLayout();
-            this.panelGuardado_de_datos.SuspendLayout();
             this.FlowLayoutPanel1.SuspendLayout();
             this.panelClientefactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoclientes3)).BeginInit();
@@ -142,6 +162,9 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TXTTOTAL
@@ -158,21 +181,19 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.txtefectivo2);
             this.panel1.Controls.Add(this.Panel20);
             this.panel1.Controls.Add(this.Label18);
-            this.panel1.Controls.Add(this.btn0);
             this.panel1.Controls.Add(this.chkCredito);
             this.panel1.Controls.Add(this.pcredito);
             this.panel1.Controls.Add(this.chkContado);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.asd2);
-            this.panel1.Controls.Add(this.btnpunto);
             this.panel1.Controls.Add(this.txtMonto);
-            this.panel1.Controls.Add(this.btnborrartodo);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.asd1);
-            this.panel1.Controls.Add(this.FlowLayoutPanel2);
             this.panel1.Controls.Add(this.txtTransferencia);
             this.panel1.Controls.Add(this.txtrestante);
             this.panel1.Controls.Add(this.Label8);
@@ -180,6 +201,7 @@
             this.panel1.Controls.Add(this.TXTVUELTO);
             this.panel1.Controls.Add(this.Label31);
             this.panel1.Controls.Add(this.chkTrans);
+            this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Location = new System.Drawing.Point(19, 93);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(613, 515);
@@ -187,20 +209,21 @@
             // 
             // txtefectivo2
             // 
-            this.txtefectivo2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txtefectivo2.BackColor = System.Drawing.Color.White;
             this.txtefectivo2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtefectivo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.txtefectivo2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtefectivo2.Location = new System.Drawing.Point(137, 17);
+            this.txtefectivo2.ForeColor = System.Drawing.Color.Black;
+            this.txtefectivo2.Location = new System.Drawing.Point(138, 25);
             this.txtefectivo2.Name = "txtefectivo2";
-            this.txtefectivo2.Size = new System.Drawing.Size(177, 28);
+            this.txtefectivo2.Size = new System.Drawing.Size(277, 28);
             this.txtefectivo2.TabIndex = 641;
             this.txtefectivo2.TextChanged += new System.EventHandler(this.txtefectivo2_TextChanged_1);
             this.txtefectivo2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtefectivo2_KeyPress);
             // 
             // Panel20
             // 
-            this.Panel20.BackColor = System.Drawing.Color.SeaGreen;
+            this.Panel20.BackColor = System.Drawing.Color.White;
+            this.Panel20.ForeColor = System.Drawing.Color.Black;
             this.Panel20.Location = new System.Drawing.Point(134, 50);
             this.Panel20.Name = "Panel20";
             this.Panel20.Size = new System.Drawing.Size(180, 1);
@@ -209,8 +232,9 @@
             // Label18
             // 
             this.Label18.AutoSize = true;
+            this.Label18.BackColor = System.Drawing.Color.White;
             this.Label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.Label18.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Label18.ForeColor = System.Drawing.Color.Black;
             this.Label18.Location = new System.Drawing.Point(14, 23);
             this.Label18.Name = "Label18";
             this.Label18.Size = new System.Drawing.Size(118, 29);
@@ -218,42 +242,24 @@
             this.Label18.Text = "Adicional:";
             this.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn0
-            // 
-            this.btn0.BackColor = System.Drawing.Color.Transparent;
-            this.btn0.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn0.BackgroundImage")));
-            this.btn0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn0.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn0.FlatAppearance.BorderSize = 0;
-            this.btn0.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn0.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn0.Font = new System.Drawing.Font("Calibri", 21F, System.Drawing.FontStyle.Bold);
-            this.btn0.ForeColor = System.Drawing.Color.White;
-            this.btn0.Image = ((System.Drawing.Image)(resources.GetObject("btn0.Image")));
-            this.btn0.Location = new System.Drawing.Point(397, 297);
-            this.btn0.Name = "btn0";
-            this.btn0.Size = new System.Drawing.Size(65, 66);
-            this.btn0.TabIndex = 638;
-            this.btn0.Text = "0";
-            this.btn0.UseVisualStyleBackColor = false;
-            this.btn0.Click += new System.EventHandler(this.btn0_Click);
-            // 
             // chkCredito
             // 
             this.chkCredito.AutoSize = true;
+            this.chkCredito.BackColor = System.Drawing.Color.White;
             this.chkCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCredito.ForeColor = System.Drawing.SystemColors.Control;
+            this.chkCredito.ForeColor = System.Drawing.Color.Black;
             this.chkCredito.Location = new System.Drawing.Point(18, 122);
             this.chkCredito.Name = "chkCredito";
             this.chkCredito.Size = new System.Drawing.Size(111, 33);
             this.chkCredito.TabIndex = 637;
             this.chkCredito.Text = "Credito";
-            this.chkCredito.UseVisualStyleBackColor = true;
+            this.chkCredito.UseVisualStyleBackColor = false;
             this.chkCredito.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // pcredito
             // 
+            this.pcredito.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
+            this.pcredito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pcredito.Controls.Add(this.menuStrip1);
             this.pcredito.Controls.Add(this.datalistadoProveedores);
             this.pcredito.Controls.Add(this.txtfecha_de_pago);
@@ -268,7 +274,7 @@
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
@@ -353,7 +359,9 @@
             // 
             // txtProveedorCredito
             // 
+            this.txtProveedorCredito.BackColor = System.Drawing.Color.White;
             this.txtProveedorCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtProveedorCredito.ForeColor = System.Drawing.Color.Black;
             this.txtProveedorCredito.Location = new System.Drawing.Point(4, 3);
             this.txtProveedorCredito.Name = "txtProveedorCredito";
             this.txtProveedorCredito.Size = new System.Drawing.Size(305, 29);
@@ -363,21 +371,23 @@
             // chkContado
             // 
             this.chkContado.AutoSize = true;
+            this.chkContado.BackColor = System.Drawing.Color.White;
             this.chkContado.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkContado.ForeColor = System.Drawing.SystemColors.Control;
+            this.chkContado.ForeColor = System.Drawing.Color.Black;
             this.chkContado.Location = new System.Drawing.Point(18, 83);
             this.chkContado.Name = "chkContado";
             this.chkContado.Size = new System.Drawing.Size(123, 33);
             this.chkContado.TabIndex = 636;
             this.chkContado.Text = "Contado\r\n";
-            this.chkContado.UseVisualStyleBackColor = true;
+            this.chkContado.UseVisualStyleBackColor = false;
             this.chkContado.CheckedChanged += new System.EventHandler(this.chkContado_CheckedChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(13, 197);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 29);
@@ -387,39 +397,19 @@
             // 
             // asd2
             // 
-            this.asd2.BackColor = System.Drawing.Color.Crimson;
+            this.asd2.BackColor = System.Drawing.Color.White;
+            this.asd2.ForeColor = System.Drawing.Color.Black;
             this.asd2.Location = new System.Drawing.Point(200, 229);
             this.asd2.Name = "asd2";
             this.asd2.Size = new System.Drawing.Size(180, 1);
             this.asd2.TabIndex = 636;
             // 
-            // btnpunto
-            // 
-            this.btnpunto.BackColor = System.Drawing.Color.Transparent;
-            this.btnpunto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnpunto.BackgroundImage")));
-            this.btnpunto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnpunto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnpunto.FlatAppearance.BorderSize = 0;
-            this.btnpunto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnpunto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnpunto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnpunto.Font = new System.Drawing.Font("Calibri", 21F, System.Drawing.FontStyle.Bold);
-            this.btnpunto.ForeColor = System.Drawing.Color.White;
-            this.btnpunto.Image = ((System.Drawing.Image)(resources.GetObject("btnpunto.Image")));
-            this.btnpunto.Location = new System.Drawing.Point(468, 297);
-            this.btnpunto.Name = "btnpunto";
-            this.btnpunto.Size = new System.Drawing.Size(65, 66);
-            this.btnpunto.TabIndex = 630;
-            this.btnpunto.Text = ",";
-            this.btnpunto.UseVisualStyleBackColor = false;
-            this.btnpunto.Click += new System.EventHandler(this.btnpunto_Click);
-            // 
             // txtMonto
             // 
-            this.txtMonto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txtMonto.BackColor = System.Drawing.Color.White;
             this.txtMonto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.txtMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtMonto.ForeColor = System.Drawing.Color.Black;
             this.txtMonto.Location = new System.Drawing.Point(200, 197);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(177, 28);
@@ -428,32 +418,12 @@
             this.txtMonto.TextChanged += new System.EventHandler(this.txtMonto_TextChanged);
             this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
-            // btnborrartodo
-            // 
-            this.btnborrartodo.BackColor = System.Drawing.Color.Transparent;
-            this.btnborrartodo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnborrartodo.BackgroundImage")));
-            this.btnborrartodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnborrartodo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnborrartodo.FlatAppearance.BorderSize = 0;
-            this.btnborrartodo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnborrartodo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnborrartodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnborrartodo.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
-            this.btnborrartodo.ForeColor = System.Drawing.Color.White;
-            this.btnborrartodo.Image = global::SistemaVentas.Properties.Resources.negro;
-            this.btnborrartodo.Location = new System.Drawing.Point(539, 297);
-            this.btnborrartodo.Name = "btnborrartodo";
-            this.btnborrartodo.Size = new System.Drawing.Size(65, 66);
-            this.btnborrartodo.TabIndex = 629;
-            this.btnborrartodo.Text = "Borrar";
-            this.btnborrartodo.UseVisualStyleBackColor = false;
-            this.btnborrartodo.Click += new System.EventHandler(this.btnborrartodo_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(15, 247);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 29);
@@ -469,226 +439,12 @@
             this.asd1.Size = new System.Drawing.Size(180, 1);
             this.asd1.TabIndex = 633;
             // 
-            // FlowLayoutPanel2
-            // 
-            this.FlowLayoutPanel2.Controls.Add(this.btn1);
-            this.FlowLayoutPanel2.Controls.Add(this.btn2);
-            this.FlowLayoutPanel2.Controls.Add(this.btn3);
-            this.FlowLayoutPanel2.Controls.Add(this.btn4);
-            this.FlowLayoutPanel2.Controls.Add(this.btn5);
-            this.FlowLayoutPanel2.Controls.Add(this.btn6);
-            this.FlowLayoutPanel2.Controls.Add(this.btn7);
-            this.FlowLayoutPanel2.Controls.Add(this.btn8);
-            this.FlowLayoutPanel2.Controls.Add(this.btn9);
-            this.FlowLayoutPanel2.Location = new System.Drawing.Point(394, 77);
-            this.FlowLayoutPanel2.Name = "FlowLayoutPanel2";
-            this.FlowLayoutPanel2.Size = new System.Drawing.Size(217, 214);
-            this.FlowLayoutPanel2.TabIndex = 628;
-            // 
-            // btn1
-            // 
-            this.btn1.BackColor = System.Drawing.Color.Transparent;
-            this.btn1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn1.BackgroundImage")));
-            this.btn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn1.FlatAppearance.BorderSize = 0;
-            this.btn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn1.Font = new System.Drawing.Font("Calibri", 35F, System.Drawing.FontStyle.Bold);
-            this.btn1.ForeColor = System.Drawing.Color.White;
-            this.btn1.Image = ((System.Drawing.Image)(resources.GetObject("btn1.Image")));
-            this.btn1.Location = new System.Drawing.Point(3, 3);
-            this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(65, 65);
-            this.btn1.TabIndex = 40;
-            this.btn1.Text = "1";
-            this.btn1.UseVisualStyleBackColor = false;
-            this.btn1.Click += new System.EventHandler(this.btn1_Click);
-            // 
-            // btn2
-            // 
-            this.btn2.BackColor = System.Drawing.Color.Transparent;
-            this.btn2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn2.BackgroundImage")));
-            this.btn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn2.FlatAppearance.BorderSize = 0;
-            this.btn2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn2.Font = new System.Drawing.Font("Calibri", 35F, System.Drawing.FontStyle.Bold);
-            this.btn2.ForeColor = System.Drawing.Color.White;
-            this.btn2.Image = ((System.Drawing.Image)(resources.GetObject("btn2.Image")));
-            this.btn2.Location = new System.Drawing.Point(74, 3);
-            this.btn2.Name = "btn2";
-            this.btn2.Size = new System.Drawing.Size(65, 65);
-            this.btn2.TabIndex = 41;
-            this.btn2.Text = "2";
-            this.btn2.UseVisualStyleBackColor = false;
-            this.btn2.Click += new System.EventHandler(this.btn2_Click);
-            // 
-            // btn3
-            // 
-            this.btn3.BackColor = System.Drawing.Color.Transparent;
-            this.btn3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn3.BackgroundImage")));
-            this.btn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn3.FlatAppearance.BorderSize = 0;
-            this.btn3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn3.Font = new System.Drawing.Font("Calibri", 35F, System.Drawing.FontStyle.Bold);
-            this.btn3.ForeColor = System.Drawing.Color.White;
-            this.btn3.Image = ((System.Drawing.Image)(resources.GetObject("btn3.Image")));
-            this.btn3.Location = new System.Drawing.Point(145, 3);
-            this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(65, 65);
-            this.btn3.TabIndex = 42;
-            this.btn3.Text = "3";
-            this.btn3.UseVisualStyleBackColor = false;
-            this.btn3.Click += new System.EventHandler(this.btn3_Click);
-            // 
-            // btn4
-            // 
-            this.btn4.BackColor = System.Drawing.Color.Transparent;
-            this.btn4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn4.BackgroundImage")));
-            this.btn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn4.FlatAppearance.BorderSize = 0;
-            this.btn4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn4.Font = new System.Drawing.Font("Calibri", 35F, System.Drawing.FontStyle.Bold);
-            this.btn4.ForeColor = System.Drawing.Color.White;
-            this.btn4.Image = ((System.Drawing.Image)(resources.GetObject("btn4.Image")));
-            this.btn4.Location = new System.Drawing.Point(3, 74);
-            this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(65, 65);
-            this.btn4.TabIndex = 35;
-            this.btn4.Text = "4";
-            this.btn4.UseVisualStyleBackColor = false;
-            this.btn4.Click += new System.EventHandler(this.btn4_Click);
-            // 
-            // btn5
-            // 
-            this.btn5.BackColor = System.Drawing.Color.Transparent;
-            this.btn5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn5.BackgroundImage")));
-            this.btn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn5.FlatAppearance.BorderSize = 0;
-            this.btn5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn5.Font = new System.Drawing.Font("Calibri", 35F, System.Drawing.FontStyle.Bold);
-            this.btn5.ForeColor = System.Drawing.Color.White;
-            this.btn5.Image = ((System.Drawing.Image)(resources.GetObject("btn5.Image")));
-            this.btn5.Location = new System.Drawing.Point(74, 74);
-            this.btn5.Name = "btn5";
-            this.btn5.Size = new System.Drawing.Size(65, 65);
-            this.btn5.TabIndex = 36;
-            this.btn5.Text = "5";
-            this.btn5.UseVisualStyleBackColor = false;
-            this.btn5.Click += new System.EventHandler(this.btn5_Click);
-            // 
-            // btn6
-            // 
-            this.btn6.BackColor = System.Drawing.Color.Transparent;
-            this.btn6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn6.BackgroundImage")));
-            this.btn6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn6.FlatAppearance.BorderSize = 0;
-            this.btn6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn6.Font = new System.Drawing.Font("Calibri", 35F, System.Drawing.FontStyle.Bold);
-            this.btn6.ForeColor = System.Drawing.Color.White;
-            this.btn6.Image = ((System.Drawing.Image)(resources.GetObject("btn6.Image")));
-            this.btn6.Location = new System.Drawing.Point(145, 74);
-            this.btn6.Name = "btn6";
-            this.btn6.Size = new System.Drawing.Size(65, 65);
-            this.btn6.TabIndex = 37;
-            this.btn6.Text = "6";
-            this.btn6.UseVisualStyleBackColor = false;
-            this.btn6.Click += new System.EventHandler(this.btn6_Click);
-            // 
-            // btn7
-            // 
-            this.btn7.BackColor = System.Drawing.Color.Transparent;
-            this.btn7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn7.BackgroundImage")));
-            this.btn7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn7.FlatAppearance.BorderSize = 0;
-            this.btn7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn7.Font = new System.Drawing.Font("Calibri", 35F, System.Drawing.FontStyle.Bold);
-            this.btn7.ForeColor = System.Drawing.Color.White;
-            this.btn7.Image = ((System.Drawing.Image)(resources.GetObject("btn7.Image")));
-            this.btn7.Location = new System.Drawing.Point(3, 145);
-            this.btn7.Name = "btn7";
-            this.btn7.Size = new System.Drawing.Size(65, 65);
-            this.btn7.TabIndex = 30;
-            this.btn7.Text = "7";
-            this.btn7.UseVisualStyleBackColor = false;
-            this.btn7.Click += new System.EventHandler(this.btn7_Click);
-            // 
-            // btn8
-            // 
-            this.btn8.BackColor = System.Drawing.Color.Transparent;
-            this.btn8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn8.BackgroundImage")));
-            this.btn8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn8.FlatAppearance.BorderSize = 0;
-            this.btn8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn8.Font = new System.Drawing.Font("Calibri", 35F, System.Drawing.FontStyle.Bold);
-            this.btn8.ForeColor = System.Drawing.Color.White;
-            this.btn8.Image = ((System.Drawing.Image)(resources.GetObject("btn8.Image")));
-            this.btn8.Location = new System.Drawing.Point(74, 145);
-            this.btn8.Name = "btn8";
-            this.btn8.Size = new System.Drawing.Size(65, 65);
-            this.btn8.TabIndex = 31;
-            this.btn8.Text = "8";
-            this.btn8.UseVisualStyleBackColor = false;
-            this.btn8.Click += new System.EventHandler(this.btn8_Click);
-            // 
-            // btn9
-            // 
-            this.btn9.BackColor = System.Drawing.Color.Transparent;
-            this.btn9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn9.BackgroundImage")));
-            this.btn9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn9.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn9.FlatAppearance.BorderSize = 0;
-            this.btn9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn9.Font = new System.Drawing.Font("Calibri", 35F, System.Drawing.FontStyle.Bold);
-            this.btn9.ForeColor = System.Drawing.Color.White;
-            this.btn9.Image = ((System.Drawing.Image)(resources.GetObject("btn9.Image")));
-            this.btn9.Location = new System.Drawing.Point(145, 145);
-            this.btn9.Name = "btn9";
-            this.btn9.Size = new System.Drawing.Size(65, 65);
-            this.btn9.TabIndex = 32;
-            this.btn9.Text = "9";
-            this.btn9.UseVisualStyleBackColor = false;
-            this.btn9.Click += new System.EventHandler(this.btn9_Click);
-            // 
             // txtTransferencia
             // 
-            this.txtTransferencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txtTransferencia.BackColor = System.Drawing.Color.White;
             this.txtTransferencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTransferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.txtTransferencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtTransferencia.ForeColor = System.Drawing.Color.Black;
             this.txtTransferencia.Location = new System.Drawing.Point(205, 247);
             this.txtTransferencia.Name = "txtTransferencia";
             this.txtTransferencia.Size = new System.Drawing.Size(177, 28);
@@ -754,14 +510,15 @@
             // chkTrans
             // 
             this.chkTrans.AutoSize = true;
+            this.chkTrans.BackColor = System.Drawing.Color.White;
             this.chkTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkTrans.ForeColor = System.Drawing.SystemColors.Control;
+            this.chkTrans.ForeColor = System.Drawing.Color.Black;
             this.chkTrans.Location = new System.Drawing.Point(20, 161);
             this.chkTrans.Name = "chkTrans";
             this.chkTrans.Size = new System.Drawing.Size(280, 33);
             this.chkTrans.TabIndex = 635;
             this.chkTrans.Text = "Transferencia Bancaria";
-            this.chkTrans.UseVisualStyleBackColor = true;
+            this.chkTrans.UseVisualStyleBackColor = false;
             this.chkTrans.CheckedChanged += new System.EventHandler(this.chkTrans_CheckedChanged);
             // 
             // lblprueba
@@ -776,67 +533,12 @@
             this.lblprueba.Text = "12";
             this.lblprueba.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelGuardado_de_datos
-            // 
-            this.panelGuardado_de_datos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.panelGuardado_de_datos.Controls.Add(this.btnGuardarImprimirdirecto);
-            this.panelGuardado_de_datos.Controls.Add(this.TGuardarSinImprimir);
-            this.panelGuardado_de_datos.Controls.Add(this.FlowLayoutPanel1);
-            this.panelGuardado_de_datos.Controls.Add(this.panelClientefactura);
-            this.panelGuardado_de_datos.Controls.Add(this.FlowLayoutPanel3);
-            this.panelGuardado_de_datos.Controls.Add(this.txtImpresora);
-            this.panelGuardado_de_datos.Controls.Add(this.Label1);
-            this.panelGuardado_de_datos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelGuardado_de_datos.Location = new System.Drawing.Point(638, 0);
-            this.panelGuardado_de_datos.Name = "panelGuardado_de_datos";
-            this.panelGuardado_de_datos.Size = new System.Drawing.Size(531, 620);
-            this.panelGuardado_de_datos.TabIndex = 4;
-            this.panelGuardado_de_datos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGuardado_de_datos_Paint);
-            // 
-            // btnGuardarImprimirdirecto
-            // 
-            this.btnGuardarImprimirdirecto.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardarImprimirdirecto.BackgroundImage = global::SistemaVentas.Properties.Resources.verde;
-            this.btnGuardarImprimirdirecto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuardarImprimirdirecto.FlatAppearance.BorderSize = 0;
-            this.btnGuardarImprimirdirecto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnGuardarImprimirdirecto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnGuardarImprimirdirecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarImprimirdirecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarImprimirdirecto.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarImprimirdirecto.Location = new System.Drawing.Point(16, 83);
-            this.btnGuardarImprimirdirecto.Name = "btnGuardarImprimirdirecto";
-            this.btnGuardarImprimirdirecto.Size = new System.Drawing.Size(201, 55);
-            this.btnGuardarImprimirdirecto.TabIndex = 615;
-            this.btnGuardarImprimirdirecto.Text = "Imprimir directo";
-            this.btnGuardarImprimirdirecto.UseVisualStyleBackColor = false;
-            this.btnGuardarImprimirdirecto.Click += new System.EventHandler(this.btnGuardarImprimirdirecto_Click_1);
-            // 
-            // TGuardarSinImprimir
-            // 
-            this.TGuardarSinImprimir.BackColor = System.Drawing.Color.Transparent;
-            this.TGuardarSinImprimir.BackgroundImage = global::SistemaVentas.Properties.Resources.Rojo;
-            this.TGuardarSinImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TGuardarSinImprimir.FlatAppearance.BorderSize = 0;
-            this.TGuardarSinImprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.TGuardarSinImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.TGuardarSinImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TGuardarSinImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TGuardarSinImprimir.ForeColor = System.Drawing.Color.White;
-            this.TGuardarSinImprimir.Location = new System.Drawing.Point(257, 82);
-            this.TGuardarSinImprimir.Name = "TGuardarSinImprimir";
-            this.TGuardarSinImprimir.Size = new System.Drawing.Size(201, 57);
-            this.TGuardarSinImprimir.TabIndex = 614;
-            this.TGuardarSinImprimir.Text = "Guardar y ver en Pantalla";
-            this.TGuardarSinImprimir.UseVisualStyleBackColor = false;
-            this.TGuardarSinImprimir.Click += new System.EventHandler(this.TGuardarSinImprimir_Click_1);
-            // 
             // FlowLayoutPanel1
             // 
             this.FlowLayoutPanel1.Controls.Add(this.txtserie);
             this.FlowLayoutPanel1.Controls.Add(this.lblCorrelativoconCeros);
             this.FlowLayoutPanel1.Controls.Add(this.lblComprobante);
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(16, 514);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(642, 538);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
             this.FlowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(442, 19);
@@ -880,12 +582,14 @@
             // 
             // panelClientefactura
             // 
-            this.panelClientefactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.panelClientefactura.BackColor = System.Drawing.Color.White;
+            this.panelClientefactura.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
+            this.panelClientefactura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelClientefactura.Controls.Add(this.datalistadoclientes3);
             this.panelClientefactura.Controls.Add(this.lblindicador_de_factura_1);
             this.panelClientefactura.Controls.Add(this.txtProveedor);
             this.panelClientefactura.Controls.Add(this.MenuStrip10);
-            this.panelClientefactura.Location = new System.Drawing.Point(16, 335);
+            this.panelClientefactura.Location = new System.Drawing.Point(642, 359);
             this.panelClientefactura.Name = "panelClientefactura";
             this.panelClientefactura.Size = new System.Drawing.Size(442, 174);
             this.panelClientefactura.TabIndex = 610;
@@ -942,7 +646,9 @@
             // 
             // txtProveedor
             // 
+            this.txtProveedor.BackColor = System.Drawing.Color.White;
             this.txtProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.txtProveedor.ForeColor = System.Drawing.Color.Black;
             this.txtProveedor.Location = new System.Drawing.Point(9, 37);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(310, 30);
@@ -952,7 +658,7 @@
             // MenuStrip10
             // 
             this.MenuStrip10.AutoSize = false;
-            this.MenuStrip10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.MenuStrip10.BackColor = System.Drawing.Color.White;
             this.MenuStrip10.Dock = System.Windows.Forms.DockStyle.None;
             this.MenuStrip10.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnagregarCliente});
@@ -979,7 +685,9 @@
             // 
             // FlowLayoutPanel3
             // 
-            this.FlowLayoutPanel3.Location = new System.Drawing.Point(16, 188);
+            this.FlowLayoutPanel3.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
+            this.FlowLayoutPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FlowLayoutPanel3.Location = new System.Drawing.Point(642, 212);
             this.FlowLayoutPanel3.Name = "FlowLayoutPanel3";
             this.FlowLayoutPanel3.Size = new System.Drawing.Size(442, 120);
             this.FlowLayoutPanel3.TabIndex = 609;
@@ -989,8 +697,9 @@
             // 
             this.txtImpresora.BackColor = System.Drawing.Color.White;
             this.txtImpresora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtImpresora.ForeColor = System.Drawing.Color.Black;
             this.txtImpresora.FormattingEnabled = true;
-            this.txtImpresora.Location = new System.Drawing.Point(16, 32);
+            this.txtImpresora.Location = new System.Drawing.Point(642, 56);
             this.txtImpresora.Name = "txtImpresora";
             this.txtImpresora.Size = new System.Drawing.Size(442, 28);
             this.txtImpresora.TabIndex = 580;
@@ -1000,7 +709,7 @@
             this.Label1.AutoSize = true;
             this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.Label1.ForeColor = System.Drawing.Color.Gray;
-            this.Label1.Location = new System.Drawing.Point(12, 9);
+            this.Label1.Location = new System.Drawing.Point(638, 33);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(95, 20);
             this.Label1.TabIndex = 579;
@@ -1072,9 +781,9 @@
             this.PanelImpresionvistaprevia.Controls.Add(this.label5);
             this.PanelImpresionvistaprevia.Controls.Add(this.datalistadovehiculo);
             this.PanelImpresionvistaprevia.Controls.Add(this.reportViewer1);
-            this.PanelImpresionvistaprevia.Location = new System.Drawing.Point(88, 9);
+            this.PanelImpresionvistaprevia.Location = new System.Drawing.Point(12, 9);
             this.PanelImpresionvistaprevia.Name = "PanelImpresionvistaprevia";
-            this.PanelImpresionvistaprevia.Size = new System.Drawing.Size(10, 10);
+            this.PanelImpresionvistaprevia.Size = new System.Drawing.Size(1072, 610);
             this.PanelImpresionvistaprevia.TabIndex = 6;
             this.PanelImpresionvistaprevia.Visible = false;
             // 
@@ -1084,7 +793,7 @@
             this.pictureBox1.Image = global::SistemaVentas.Properties.Resources.LogoNegro;
             this.pictureBox1.Location = new System.Drawing.Point(695, 200);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(0, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(377, 80);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -1096,7 +805,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Location = new System.Drawing.Point(695, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 200);
+            this.label5.Size = new System.Drawing.Size(377, 200);
             this.label5.TabIndex = 1;
             this.label5.Text = "COMPRA REALIZADA CORRECTAMENTE";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1132,7 +841,7 @@
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Left;
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(695, 10);
+            this.reportViewer1.Size = new System.Drawing.Size(695, 610);
             this.reportViewer1.TabIndex = 0;
             // 
             // txttotaldecimal
@@ -1169,14 +878,14 @@
             this.datalistadoDetalleVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datalistadoDetalleVenta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.datalistadoDetalleVenta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadoDetalleVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle51.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadoDetalleVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle51;
             this.datalistadoDetalleVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datalistadoDetalleVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EL,
@@ -1201,14 +910,14 @@
             // 
             // EL
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.EL.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle52.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle52.NullValue = null;
+            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.White;
+            this.EL.DefaultCellStyle = dataGridViewCellStyle52;
             this.EL.HeaderText = "";
             this.EL.Image = ((System.Drawing.Image)(resources.GetObject("EL.Image")));
             this.EL.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -1219,13 +928,13 @@
             // 
             // S
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.S.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle53.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.Color.Black;
+            this.S.DefaultCellStyle = dataGridViewCellStyle53;
             this.S.HeaderText = "";
             this.S.Name = "S";
             this.S.ReadOnly = true;
@@ -1234,13 +943,13 @@
             // 
             // R
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.R.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle54.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle54.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.Color.Black;
+            this.R.DefaultCellStyle = dataGridViewCellStyle54;
             this.R.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.R.HeaderText = "";
             this.R.Name = "R";
@@ -1275,27 +984,27 @@
             this.datalistadoprueba.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datalistadoprueba.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.datalistadoprueba.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistadoprueba.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle55.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle55.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle55.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistadoprueba.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle55;
             this.datalistadoprueba.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datalistadoprueba.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewImageColumn1,
             this.dataGridViewButtonColumn1,
             this.dataGridViewButtonColumn2});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistadoprueba.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle59.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle59.ForeColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistadoprueba.DefaultCellStyle = dataGridViewCellStyle59;
             this.datalistadoprueba.EnableHeadersVisualStyles = false;
             this.datalistadoprueba.GridColor = System.Drawing.Color.Gainsboro;
             this.datalistadoprueba.Location = new System.Drawing.Point(102, 4);
@@ -1315,14 +1024,14 @@
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.NullValue = null;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle56.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle56.NullValue = null;
+            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle56;
             this.dataGridViewImageColumn1.HeaderText = "";
             this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -1333,13 +1042,13 @@
             // 
             // dataGridViewButtonColumn1
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle57.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle57;
             this.dataGridViewButtonColumn1.HeaderText = "";
             this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
             this.dataGridViewButtonColumn1.ReadOnly = true;
@@ -1348,13 +1057,13 @@
             // 
             // dataGridViewButtonColumn2
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridViewButtonColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle58.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle58.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewButtonColumn2.DefaultCellStyle = dataGridViewCellStyle58;
             this.dataGridViewButtonColumn2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.dataGridViewButtonColumn2.HeaderText = "";
             this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
@@ -1409,14 +1118,14 @@
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.NullValue = null;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle60.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle60.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle60.NullValue = null;
+            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle60;
             this.dataGridViewImageColumn2.HeaderText = "";
             this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -1424,17 +1133,622 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.ToolTipText = "Opcional \"Supr\" para Eliminar";
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(134, 23);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(294, 34);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 698;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(200, 247);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(182, 34);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 699;
+            this.pictureBox2.TabStop = false;
+            // 
+            // imprimir
+            // 
+            this.imprimir.AnimationHoverSpeed = 0.07F;
+            this.imprimir.AnimationSpeed = 0.03F;
+            this.imprimir.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.imprimir.BorderColor = System.Drawing.Color.Black;
+            this.imprimir.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.imprimir.CheckedBorderColor = System.Drawing.Color.Black;
+            this.imprimir.CheckedForeColor = System.Drawing.Color.White;
+            this.imprimir.CheckedImage = null;
+            this.imprimir.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.imprimir.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.imprimir.FocusedColor = System.Drawing.Color.Empty;
+            this.imprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.imprimir.ForeColor = System.Drawing.Color.White;
+            this.imprimir.Image = null;
+            this.imprimir.ImageSize = new System.Drawing.Size(20, 20);
+            this.imprimir.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.imprimir.Location = new System.Drawing.Point(650, 116);
+            this.imprimir.Name = "imprimir";
+            this.imprimir.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.imprimir.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.imprimir.OnHoverForeColor = System.Drawing.Color.White;
+            this.imprimir.OnHoverImage = null;
+            this.imprimir.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.imprimir.OnPressedColor = System.Drawing.Color.Black;
+            this.imprimir.Size = new System.Drawing.Size(186, 43);
+            this.imprimir.TabIndex = 695;
+            this.imprimir.Text = "IMPRIMIR";
+            this.imprimir.Click += new System.EventHandler(this.imprimir_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.btnN9);
+            this.panel2.Controls.Add(this.btnN8);
+            this.panel2.Controls.Add(this.btnN7);
+            this.panel2.Controls.Add(this.btnN6);
+            this.panel2.Controls.Add(this.btnN5);
+            this.panel2.Controls.Add(this.btnN4);
+            this.panel2.Controls.Add(this.btnN3);
+            this.panel2.Controls.Add(this.btnN2);
+            this.panel2.Controls.Add(this.btnN1);
+            this.panel2.Controls.Add(this.btnN0);
+            this.panel2.Controls.Add(this.btnNcoma);
+            this.panel2.Controls.Add(this.btnNborrar);
+            this.panel2.Location = new System.Drawing.Point(398, 73);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(201, 260);
+            this.panel2.TabIndex = 700;
+            // 
+            // btnN9
+            // 
+            this.btnN9.AnimationHoverSpeed = 0.07F;
+            this.btnN9.AnimationSpeed = 0.03F;
+            this.btnN9.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnN9.BorderColor = System.Drawing.Color.Black;
+            this.btnN9.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN9.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnN9.CheckedForeColor = System.Drawing.Color.White;
+            this.btnN9.CheckedImage = null;
+            this.btnN9.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnN9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnN9.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnN9.FocusedColor = System.Drawing.Color.Empty;
+            this.btnN9.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnN9.ForeColor = System.Drawing.Color.White;
+            this.btnN9.Image = null;
+            this.btnN9.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnN9.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN9.Location = new System.Drawing.Point(133, 137);
+            this.btnN9.Name = "btnN9";
+            this.btnN9.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN9.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnN9.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnN9.OnHoverImage = null;
+            this.btnN9.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN9.OnPressedColor = System.Drawing.Color.Black;
+            this.btnN9.Size = new System.Drawing.Size(55, 55);
+            this.btnN9.TabIndex = 640;
+            this.btnN9.Text = "9";
+            this.btnN9.Click += new System.EventHandler(this.btnN9_Click);
+            // 
+            // btnN8
+            // 
+            this.btnN8.AnimationHoverSpeed = 0.07F;
+            this.btnN8.AnimationSpeed = 0.03F;
+            this.btnN8.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnN8.BorderColor = System.Drawing.Color.Black;
+            this.btnN8.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN8.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnN8.CheckedForeColor = System.Drawing.Color.White;
+            this.btnN8.CheckedImage = null;
+            this.btnN8.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnN8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnN8.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnN8.FocusedColor = System.Drawing.Color.Empty;
+            this.btnN8.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnN8.ForeColor = System.Drawing.Color.White;
+            this.btnN8.Image = null;
+            this.btnN8.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnN8.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN8.Location = new System.Drawing.Point(72, 137);
+            this.btnN8.Name = "btnN8";
+            this.btnN8.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN8.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnN8.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnN8.OnHoverImage = null;
+            this.btnN8.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN8.OnPressedColor = System.Drawing.Color.Black;
+            this.btnN8.Size = new System.Drawing.Size(55, 55);
+            this.btnN8.TabIndex = 641;
+            this.btnN8.Text = "8";
+            this.btnN8.Click += new System.EventHandler(this.btnN8_Click);
+            // 
+            // btnN7
+            // 
+            this.btnN7.AnimationHoverSpeed = 0.07F;
+            this.btnN7.AnimationSpeed = 0.03F;
+            this.btnN7.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnN7.BorderColor = System.Drawing.Color.Black;
+            this.btnN7.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN7.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnN7.CheckedForeColor = System.Drawing.Color.White;
+            this.btnN7.CheckedImage = null;
+            this.btnN7.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnN7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnN7.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnN7.FocusedColor = System.Drawing.Color.Empty;
+            this.btnN7.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnN7.ForeColor = System.Drawing.Color.White;
+            this.btnN7.Image = null;
+            this.btnN7.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnN7.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN7.Location = new System.Drawing.Point(11, 137);
+            this.btnN7.Name = "btnN7";
+            this.btnN7.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN7.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnN7.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnN7.OnHoverImage = null;
+            this.btnN7.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN7.OnPressedColor = System.Drawing.Color.Black;
+            this.btnN7.Size = new System.Drawing.Size(55, 55);
+            this.btnN7.TabIndex = 642;
+            this.btnN7.Text = "7";
+            this.btnN7.Click += new System.EventHandler(this.btnN7_Click);
+            // 
+            // btnN6
+            // 
+            this.btnN6.AnimationHoverSpeed = 0.07F;
+            this.btnN6.AnimationSpeed = 0.03F;
+            this.btnN6.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnN6.BorderColor = System.Drawing.Color.Black;
+            this.btnN6.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN6.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnN6.CheckedForeColor = System.Drawing.Color.White;
+            this.btnN6.CheckedImage = null;
+            this.btnN6.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnN6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnN6.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnN6.FocusedColor = System.Drawing.Color.Empty;
+            this.btnN6.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnN6.ForeColor = System.Drawing.Color.White;
+            this.btnN6.Image = null;
+            this.btnN6.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnN6.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN6.Location = new System.Drawing.Point(133, 76);
+            this.btnN6.Name = "btnN6";
+            this.btnN6.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN6.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnN6.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnN6.OnHoverImage = null;
+            this.btnN6.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN6.OnPressedColor = System.Drawing.Color.Black;
+            this.btnN6.Size = new System.Drawing.Size(55, 55);
+            this.btnN6.TabIndex = 643;
+            this.btnN6.Text = "6";
+            this.btnN6.Click += new System.EventHandler(this.btnN6_Click);
+            // 
+            // btnN5
+            // 
+            this.btnN5.AnimationHoverSpeed = 0.07F;
+            this.btnN5.AnimationSpeed = 0.03F;
+            this.btnN5.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnN5.BorderColor = System.Drawing.Color.Black;
+            this.btnN5.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN5.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnN5.CheckedForeColor = System.Drawing.Color.White;
+            this.btnN5.CheckedImage = null;
+            this.btnN5.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnN5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnN5.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnN5.FocusedColor = System.Drawing.Color.Empty;
+            this.btnN5.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnN5.ForeColor = System.Drawing.Color.White;
+            this.btnN5.Image = null;
+            this.btnN5.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnN5.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN5.Location = new System.Drawing.Point(72, 76);
+            this.btnN5.Name = "btnN5";
+            this.btnN5.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN5.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnN5.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnN5.OnHoverImage = null;
+            this.btnN5.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN5.OnPressedColor = System.Drawing.Color.Black;
+            this.btnN5.Size = new System.Drawing.Size(55, 55);
+            this.btnN5.TabIndex = 644;
+            this.btnN5.Text = "5";
+            this.btnN5.Click += new System.EventHandler(this.btnN5_Click);
+            // 
+            // btnN4
+            // 
+            this.btnN4.AnimationHoverSpeed = 0.07F;
+            this.btnN4.AnimationSpeed = 0.03F;
+            this.btnN4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnN4.BorderColor = System.Drawing.Color.Black;
+            this.btnN4.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN4.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnN4.CheckedForeColor = System.Drawing.Color.White;
+            this.btnN4.CheckedImage = null;
+            this.btnN4.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnN4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnN4.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnN4.FocusedColor = System.Drawing.Color.Empty;
+            this.btnN4.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnN4.ForeColor = System.Drawing.Color.White;
+            this.btnN4.Image = null;
+            this.btnN4.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnN4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN4.Location = new System.Drawing.Point(11, 76);
+            this.btnN4.Name = "btnN4";
+            this.btnN4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN4.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnN4.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnN4.OnHoverImage = null;
+            this.btnN4.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN4.OnPressedColor = System.Drawing.Color.Black;
+            this.btnN4.Size = new System.Drawing.Size(55, 55);
+            this.btnN4.TabIndex = 645;
+            this.btnN4.Text = "4";
+            this.btnN4.Click += new System.EventHandler(this.btnN4_Click);
+            // 
+            // btnN3
+            // 
+            this.btnN3.AnimationHoverSpeed = 0.07F;
+            this.btnN3.AnimationSpeed = 0.03F;
+            this.btnN3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnN3.BorderColor = System.Drawing.Color.Black;
+            this.btnN3.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN3.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnN3.CheckedForeColor = System.Drawing.Color.White;
+            this.btnN3.CheckedImage = null;
+            this.btnN3.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnN3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnN3.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnN3.FocusedColor = System.Drawing.Color.Empty;
+            this.btnN3.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnN3.ForeColor = System.Drawing.Color.White;
+            this.btnN3.Image = null;
+            this.btnN3.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnN3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN3.Location = new System.Drawing.Point(133, 15);
+            this.btnN3.Name = "btnN3";
+            this.btnN3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN3.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnN3.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnN3.OnHoverImage = null;
+            this.btnN3.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN3.OnPressedColor = System.Drawing.Color.Black;
+            this.btnN3.Size = new System.Drawing.Size(55, 55);
+            this.btnN3.TabIndex = 646;
+            this.btnN3.Text = "3";
+            this.btnN3.Click += new System.EventHandler(this.btnN3_Click);
+            // 
+            // btnN2
+            // 
+            this.btnN2.AnimationHoverSpeed = 0.07F;
+            this.btnN2.AnimationSpeed = 0.03F;
+            this.btnN2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnN2.BorderColor = System.Drawing.Color.Black;
+            this.btnN2.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN2.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnN2.CheckedForeColor = System.Drawing.Color.White;
+            this.btnN2.CheckedImage = null;
+            this.btnN2.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnN2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnN2.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnN2.FocusedColor = System.Drawing.Color.Empty;
+            this.btnN2.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnN2.ForeColor = System.Drawing.Color.White;
+            this.btnN2.Image = null;
+            this.btnN2.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnN2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN2.Location = new System.Drawing.Point(72, 15);
+            this.btnN2.Name = "btnN2";
+            this.btnN2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN2.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnN2.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnN2.OnHoverImage = null;
+            this.btnN2.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN2.OnPressedColor = System.Drawing.Color.Black;
+            this.btnN2.Size = new System.Drawing.Size(55, 55);
+            this.btnN2.TabIndex = 647;
+            this.btnN2.Text = "2";
+            this.btnN2.Click += new System.EventHandler(this.btnN2_Click);
+            // 
+            // btnN1
+            // 
+            this.btnN1.AnimationHoverSpeed = 0.07F;
+            this.btnN1.AnimationSpeed = 0.03F;
+            this.btnN1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnN1.BorderColor = System.Drawing.Color.Black;
+            this.btnN1.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN1.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnN1.CheckedForeColor = System.Drawing.Color.White;
+            this.btnN1.CheckedImage = null;
+            this.btnN1.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnN1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnN1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnN1.FocusedColor = System.Drawing.Color.Empty;
+            this.btnN1.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnN1.ForeColor = System.Drawing.Color.White;
+            this.btnN1.Image = null;
+            this.btnN1.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnN1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN1.Location = new System.Drawing.Point(11, 15);
+            this.btnN1.Name = "btnN1";
+            this.btnN1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN1.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnN1.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnN1.OnHoverImage = null;
+            this.btnN1.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN1.OnPressedColor = System.Drawing.Color.Black;
+            this.btnN1.Size = new System.Drawing.Size(55, 55);
+            this.btnN1.TabIndex = 636;
+            this.btnN1.Text = "1";
+            this.btnN1.Click += new System.EventHandler(this.btnN1_Click);
+            // 
+            // btnN0
+            // 
+            this.btnN0.AnimationHoverSpeed = 0.07F;
+            this.btnN0.AnimationSpeed = 0.03F;
+            this.btnN0.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnN0.BorderColor = System.Drawing.Color.Black;
+            this.btnN0.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN0.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnN0.CheckedForeColor = System.Drawing.Color.White;
+            this.btnN0.CheckedImage = null;
+            this.btnN0.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnN0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnN0.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnN0.FocusedColor = System.Drawing.Color.Empty;
+            this.btnN0.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnN0.ForeColor = System.Drawing.Color.White;
+            this.btnN0.Image = null;
+            this.btnN0.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnN0.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN0.Location = new System.Drawing.Point(11, 198);
+            this.btnN0.Name = "btnN0";
+            this.btnN0.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnN0.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnN0.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnN0.OnHoverImage = null;
+            this.btnN0.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnN0.OnPressedColor = System.Drawing.Color.Black;
+            this.btnN0.Size = new System.Drawing.Size(55, 55);
+            this.btnN0.TabIndex = 685;
+            this.btnN0.Text = "0";
+            this.btnN0.Click += new System.EventHandler(this.btnN0_Click);
+            // 
+            // btnNcoma
+            // 
+            this.btnNcoma.AnimationHoverSpeed = 0.07F;
+            this.btnNcoma.AnimationSpeed = 0.03F;
+            this.btnNcoma.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnNcoma.BorderColor = System.Drawing.Color.Black;
+            this.btnNcoma.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnNcoma.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnNcoma.CheckedForeColor = System.Drawing.Color.White;
+            this.btnNcoma.CheckedImage = null;
+            this.btnNcoma.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnNcoma.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNcoma.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnNcoma.FocusedColor = System.Drawing.Color.Empty;
+            this.btnNcoma.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNcoma.ForeColor = System.Drawing.Color.White;
+            this.btnNcoma.Image = null;
+            this.btnNcoma.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnNcoma.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnNcoma.Location = new System.Drawing.Point(72, 197);
+            this.btnNcoma.Name = "btnNcoma";
+            this.btnNcoma.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnNcoma.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnNcoma.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnNcoma.OnHoverImage = null;
+            this.btnNcoma.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnNcoma.OnPressedColor = System.Drawing.Color.Black;
+            this.btnNcoma.Size = new System.Drawing.Size(55, 55);
+            this.btnNcoma.TabIndex = 684;
+            this.btnNcoma.Text = ",";
+            this.btnNcoma.Click += new System.EventHandler(this.btnNcoma_Click);
+            // 
+            // btnNborrar
+            // 
+            this.btnNborrar.AnimationHoverSpeed = 0.07F;
+            this.btnNborrar.AnimationSpeed = 0.03F;
+            this.btnNborrar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnNborrar.BorderColor = System.Drawing.Color.Black;
+            this.btnNborrar.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnNborrar.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnNborrar.CheckedForeColor = System.Drawing.Color.White;
+            this.btnNborrar.CheckedImage = null;
+            this.btnNborrar.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnNborrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNborrar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnNborrar.FocusedColor = System.Drawing.Color.Empty;
+            this.btnNborrar.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNborrar.ForeColor = System.Drawing.Color.White;
+            this.btnNborrar.Image = null;
+            this.btnNborrar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnNborrar.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnNborrar.Location = new System.Drawing.Point(133, 197);
+            this.btnNborrar.Name = "btnNborrar";
+            this.btnNborrar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnNborrar.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnNborrar.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnNborrar.OnHoverImage = null;
+            this.btnNborrar.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnNborrar.OnPressedColor = System.Drawing.Color.Black;
+            this.btnNborrar.Size = new System.Drawing.Size(55, 55);
+            this.btnNborrar.TabIndex = 683;
+            this.btnNborrar.Text = "Borrar";
+            this.btnNborrar.Click += new System.EventHandler(this.btnNborrar_Click);
+            // 
+            // IMPRIMIRG
+            // 
+            this.IMPRIMIRG.AnimationHoverSpeed = 0.07F;
+            this.IMPRIMIRG.AnimationSpeed = 0.03F;
+            this.IMPRIMIRG.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.IMPRIMIRG.BorderColor = System.Drawing.Color.Black;
+            this.IMPRIMIRG.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.IMPRIMIRG.CheckedBorderColor = System.Drawing.Color.Black;
+            this.IMPRIMIRG.CheckedForeColor = System.Drawing.Color.White;
+            this.IMPRIMIRG.CheckedImage = null;
+            this.IMPRIMIRG.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.IMPRIMIRG.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IMPRIMIRG.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.IMPRIMIRG.FocusedColor = System.Drawing.Color.Empty;
+            this.IMPRIMIRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.IMPRIMIRG.ForeColor = System.Drawing.Color.White;
+            this.IMPRIMIRG.Image = null;
+            this.IMPRIMIRG.ImageSize = new System.Drawing.Size(20, 20);
+            this.IMPRIMIRG.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.IMPRIMIRG.Location = new System.Drawing.Point(892, 116);
+            this.IMPRIMIRG.Name = "IMPRIMIRG";
+            this.IMPRIMIRG.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.IMPRIMIRG.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.IMPRIMIRG.OnHoverForeColor = System.Drawing.Color.White;
+            this.IMPRIMIRG.OnHoverImage = null;
+            this.IMPRIMIRG.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.IMPRIMIRG.OnPressedColor = System.Drawing.Color.Black;
+            this.IMPRIMIRG.Size = new System.Drawing.Size(186, 43);
+            this.IMPRIMIRG.TabIndex = 696;
+            this.IMPRIMIRG.Text = "IMPRIMIR | VER";
+            this.IMPRIMIRG.Click += new System.EventHandler(this.IMPRIMIRG_Click);
+            // 
+            // bunifuElipse19
+            // 
+            this.bunifuElipse19.ElipseRadius = 7;
+            this.bunifuElipse19.TargetControl = this.btnN8;
+            // 
+            // bunifuElipse20
+            // 
+            this.bunifuElipse20.ElipseRadius = 7;
+            this.bunifuElipse20.TargetControl = this.btnN9;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 7;
+            this.bunifuElipse1.TargetControl = this.btnN8;
+            // 
+            // bunifuElipse18
+            // 
+            this.bunifuElipse18.ElipseRadius = 7;
+            this.bunifuElipse18.TargetControl = this.btnN7;
+            // 
+            // bunifuElipse17
+            // 
+            this.bunifuElipse17.ElipseRadius = 7;
+            this.bunifuElipse17.TargetControl = this.btnN6;
+            // 
+            // bunifuElipse16
+            // 
+            this.bunifuElipse16.ElipseRadius = 7;
+            this.bunifuElipse16.TargetControl = this.btnN5;
+            // 
+            // bunifuElipse15
+            // 
+            this.bunifuElipse15.ElipseRadius = 7;
+            this.bunifuElipse15.TargetControl = this.btnN4;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 7;
+            this.bunifuElipse2.TargetControl = this.btnN3;
+            // 
+            // bunifuElipse3
+            // 
+            this.bunifuElipse3.ElipseRadius = 7;
+            this.bunifuElipse3.TargetControl = this.imprimir;
+            // 
+            // bunifuElipse4
+            // 
+            this.bunifuElipse4.ElipseRadius = 7;
+            this.bunifuElipse4.TargetControl = this.IMPRIMIRG;
+            // 
+            // bunifuElipse5
+            // 
+            this.bunifuElipse5.ElipseRadius = 7;
+            this.bunifuElipse5.TargetControl = this;
+            // 
+            // bunifuElipse6
+            // 
+            this.bunifuElipse6.ElipseRadius = 7;
+            this.bunifuElipse6.TargetControl = this;
+            // 
+            // bunifuElipse7
+            // 
+            this.bunifuElipse7.ElipseRadius = 7;
+            this.bunifuElipse7.TargetControl = this;
+            // 
+            // bunifuElipse8
+            // 
+            this.bunifuElipse8.ElipseRadius = 7;
+            this.bunifuElipse8.TargetControl = this;
+            // 
+            // bunifuElipse13
+            // 
+            this.bunifuElipse13.ElipseRadius = 7;
+            this.bunifuElipse13.TargetControl = this.btnN2;
+            // 
+            // bunifuElipse12
+            // 
+            this.bunifuElipse12.ElipseRadius = 7;
+            this.bunifuElipse12.TargetControl = this.btnN1;
+            // 
+            // bunifuElipse21
+            // 
+            this.bunifuElipse21.ElipseRadius = 7;
+            this.bunifuElipse21.TargetControl = this.btnNborrar;
+            // 
+            // bunifuElipse22
+            // 
+            this.bunifuElipse22.ElipseRadius = 7;
+            this.bunifuElipse22.TargetControl = this.btnNcoma;
+            // 
+            // bunifuElipse23
+            // 
+            this.bunifuElipse23.ElipseRadius = 7;
+            this.bunifuElipse23.TargetControl = this.btnN0;
+            // 
+            // bunifuElipse14
+            // 
+            this.bunifuElipse14.ElipseRadius = 7;
+            this.bunifuElipse14.TargetControl = this.btnN3;
+            // 
+            // bunifuElipse9
+            // 
+            this.bunifuElipse9.ElipseRadius = 7;
+            this.bunifuElipse9.TargetControl = this;
+            // 
             // Medios_de_Compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(1169, 620);
-            this.Controls.Add(this.panel3);
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1098, 631);
             this.Controls.Add(this.PanelImpresionvistaprevia);
-            this.Controls.Add(this.panelGuardado_de_datos);
+            this.Controls.Add(this.IMPRIMIRG);
+            this.Controls.Add(this.imprimir);
+            this.Controls.Add(this.FlowLayoutPanel1);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelClientefactura);
+            this.Controls.Add(this.FlowLayoutPanel3);
+            this.Controls.Add(this.txtImpresora);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Label1);
             this.Controls.Add(this.TXTTOTAL);
+            this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.Color.Cyan;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1448,9 +1762,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoProveedores)).EndInit();
-            this.FlowLayoutPanel2.ResumeLayout(false);
-            this.panelGuardado_de_datos.ResumeLayout(false);
-            this.panelGuardado_de_datos.PerformLayout();
             this.FlowLayoutPanel1.ResumeLayout(false);
             this.FlowLayoutPanel1.PerformLayout();
             this.panelClientefactura.ResumeLayout(false);
@@ -1467,6 +1778,9 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoprueba)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADOVERIFICAR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1481,19 +1795,6 @@
         internal System.Windows.Forms.Panel Panel8;
         internal System.Windows.Forms.TextBox TXTVUELTO;
         internal System.Windows.Forms.Label Label31;
-        internal System.Windows.Forms.Button btnpunto;
-        internal System.Windows.Forms.Button btnborrartodo;
-        internal System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel2;
-        internal System.Windows.Forms.Button btn1;
-        internal System.Windows.Forms.Button btn2;
-        internal System.Windows.Forms.Button btn3;
-        internal System.Windows.Forms.Button btn4;
-        internal System.Windows.Forms.Button btn5;
-        internal System.Windows.Forms.Button btn6;
-        internal System.Windows.Forms.Button btn7;
-        internal System.Windows.Forms.Button btn8;
-        internal System.Windows.Forms.Button btn9;
-        private System.Windows.Forms.Panel panelGuardado_de_datos;
         internal System.Windows.Forms.ComboBox txtImpresora;
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel1;
@@ -1525,8 +1826,6 @@
         internal System.Windows.Forms.DataGridViewButtonColumn S;
         internal System.Windows.Forms.DataGridViewButtonColumn R;
         private System.Windows.Forms.Panel panel3;
-        internal System.Windows.Forms.Button btnGuardarImprimirdirecto;
-        internal System.Windows.Forms.Button TGuardarSinImprimir;
         public System.Windows.Forms.DataGridView DATALISTADOVERIFICAR;
         public System.Windows.Forms.DataGridView datalistadovehiculo;
         internal System.Windows.Forms.ToolStripMenuItem btnagregarCliente;
@@ -1553,10 +1852,47 @@
         internal System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.CheckBox chkCredito;
         private System.Windows.Forms.CheckBox chkContado;
-        internal System.Windows.Forms.Button btn0;
         private System.Windows.Forms.Label lblcomprobantecompra;
         internal System.Windows.Forms.TextBox txtefectivo2;
         internal System.Windows.Forms.Panel Panel20;
         internal System.Windows.Forms.Label Label18;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private Guna.UI.WinForms.GunaAdvenceButton imprimir;
+        private System.Windows.Forms.Panel panel2;
+        private Guna.UI.WinForms.GunaAdvenceButton btnN9;
+        private Guna.UI.WinForms.GunaAdvenceButton btnN8;
+        private Guna.UI.WinForms.GunaAdvenceButton btnN7;
+        private Guna.UI.WinForms.GunaAdvenceButton btnN6;
+        private Guna.UI.WinForms.GunaAdvenceButton btnN5;
+        private Guna.UI.WinForms.GunaAdvenceButton btnN4;
+        private Guna.UI.WinForms.GunaAdvenceButton btnN3;
+        private Guna.UI.WinForms.GunaAdvenceButton btnN2;
+        private Guna.UI.WinForms.GunaAdvenceButton btnN1;
+        private Guna.UI.WinForms.GunaAdvenceButton btnN0;
+        private Guna.UI.WinForms.GunaAdvenceButton btnNcoma;
+        private Guna.UI.WinForms.GunaAdvenceButton btnNborrar;
+        private Guna.UI.WinForms.GunaAdvenceButton IMPRIMIRG;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse19;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse20;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse18;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse17;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse16;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse15;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse6;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse7;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse8;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse13;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse12;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse21;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse22;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse23;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse14;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse9;
     }
 }

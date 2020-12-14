@@ -860,8 +860,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             PanelImpresionvistaprevia.Visible = true;
             PanelImpresionvistaprevia.Dock = DockStyle.Fill;
-            panelGuardado_de_datos.Dock = DockStyle.None;
-            panelGuardado_de_datos.Visible = false;
+           
 
             Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
             DataTable dt = new DataTable();
@@ -892,9 +891,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         void mostrar_compra_impresa_VISTA_PREVIA()
         {
             PanelImpresionvistaprevia.Visible = true;
-            PanelImpresionvistaprevia.Dock = DockStyle.Fill;
-            panelGuardado_de_datos.Dock = DockStyle.None;
-            panelGuardado_de_datos.Visible = false;
+            PanelImpresionvistaprevia.BringToFront();
 
             Presentacion.REPORTES.Impresion_de_comprobantes.Compra_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Compra_report();
             DataTable dt = new DataTable();
@@ -948,7 +945,7 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         {
             try
             {
-                MessageBox.Show(txttipo);
+             //   MessageBox.Show(txttipo);
                 CONEXION.CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("confirmar_compra", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -1122,27 +1119,6 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
 
         private void btnGuardarImprimirdirecto_Click_1(object sender, EventArgs e)
         {
-            if (chkContado.Checked || chkCredito.Checked)
-            {
-                if (chkTrans.Checked)
-                {
-                    if (!string.IsNullOrEmpty(txtTransferencia.Text)){
-                        GuardarSinImprimir();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Asigne el numero de transferencia", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-                else
-                {
-                    GuardarSinImprimir();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Selecciona un tipo de Compra", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
 
         public void GuardarSinImprimir()
@@ -1160,29 +1136,6 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         }
         private void TGuardarSinImprimir_Click_1(object sender, EventArgs e)
         {
-
-            if (chkContado.Checked || chkCredito.Checked)
-            {
-                if (chkTrans.Checked)
-                {
-                    if (!string.IsNullOrEmpty(txtTransferencia.Text)){
-                        GuardarSinImprimir();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Asigne el numero de transferencia", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-                else
-                {
-                    GuardarSinImprimir();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Selecciona un tipo de Compra", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
 
         }
         private void btnagregarCliente_Click(object sender, EventArgs e)
@@ -1495,6 +1448,273 @@ namespace SistemaVentas.Presentacion.Medios_de_Compra
         private void calculototal()
         {
             txtMonto.Text = Convert.ToString(result);
+        }
+
+        private void btnN1_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "1";
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+            }
+        }
+
+        private void btnN2_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "2";
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+            }
+        }
+
+        private void btnN3_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "3";
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+            }
+        }
+
+        private void btnN6_Click(object sender, EventArgs e)
+        {
+
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "6";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+            }
+        }
+
+        private void btnN5_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "5";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+            }
+        }
+
+        private void btnN4_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "4";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+            }
+        }
+
+        private void btnN7_Click(object sender, EventArgs e)
+        {
+
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "7";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+            }
+        }
+
+        private void btnN8_Click(object sender, EventArgs e)
+        {
+
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "8";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+            }
+        }
+
+        private void btnN9_Click(object sender, EventArgs e)
+        {
+
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "9";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+            }
+        }
+
+        private void btnNborrar_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                SECUENCIA1 = true;
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                SECUENCIA2 = true;
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                SECUENCIA3 = true;
+            }
+        }
+
+        private void btnNcoma_Click(object sender, EventArgs e)
+        {
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                if (SECUENCIA1 == true)
+                {
+                    txtefectivo2.Text = txtefectivo2.Text + ".";
+                    SECUENCIA1 = false;
+                }
+
+                else
+                {
+                    return;
+                }
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+                if (SECUENCIA2 == true)
+                {
+                    SECUENCIA2 = false;
+                }
+
+                else
+                {
+                    return;
+                }
+
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+                if (SECUENCIA3 == true)
+                {
+                    SECUENCIA3 = false;
+                }
+
+                else
+                {
+                    return;
+                }
+
+            }
+        }
+
+        private void btnN0_Click(object sender, EventArgs e)
+        {
+
+
+            if (INDICADOR_DE_FOCO == 1)
+            {
+                txtefectivo2.Text = txtefectivo2.Text + "0";
+
+            }
+            else if (INDICADOR_DE_FOCO == 2)
+            {
+            }
+            else if (INDICADOR_DE_FOCO == 3)
+            {
+            }
+        }
+
+        private void imprimir_Click(object sender, EventArgs e)
+        {
+
+            if (chkContado.Checked || chkCredito.Checked)
+            {
+                if (chkTrans.Checked)
+                {
+                    if (!string.IsNullOrEmpty(txtTransferencia.Text))
+                    {
+                        GuardarSinImprimir();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asigne el número de transferencia", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    GuardarSinImprimir();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un tipo de Compra", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void IMPRIMIRG_Click(object sender, EventArgs e)
+        {
+            if (chkContado.Checked || chkCredito.Checked)
+            {
+                if (chkTrans.Checked)
+                {
+                    if (!string.IsNullOrEmpty(txtTransferencia.Text))
+                    {
+                        GuardarSinImprimir();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asigne el numero de transferencia", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    GuardarSinImprimir();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un tipo de Compra", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
     }
 }

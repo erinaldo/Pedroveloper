@@ -14,6 +14,7 @@ using SistemaVentas.Logica;
 using SistemaVentas.CONEXION;
 using SistemaVentas.Datos;
 using System.IO;
+using SistemaVentas.Presentacion.NOTIFICACIONES;
 
 namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 {
@@ -2109,7 +2110,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                     {
                         if (txtCedula.Text.Length == 12)
                         {
-                            RegistrarEmpresa();
+                            EditarEmpresa();
                         }
                         else
                         {
@@ -2162,7 +2163,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
                         editarDatosFiscales();
                         editarEmpresa();
-
+                        animacionCierre();
                     }
                 }
             }
@@ -2178,5 +2179,16 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
             Direccion.Direcciones frm = new Direccion.Direcciones();
             frm.ShowDialog();
         }
+        private void animacionCierre()
+        {
+                try
+                {
+                    NOTIFICACIONES.Notificacion.confirmarForm("EMPRESA GUARDADA");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudo guardar el registro" + ex);
+                }
+            }
     }
 }

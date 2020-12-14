@@ -334,10 +334,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     {
                         if (Operacion == "ACCESO")
                         {
-                            Dispose();
-                            CAJA.CIERRE_DE_CAJA frm = new CAJA.CIERRE_DE_CAJA();
-                            frm.ShowDialog();
 
+                            showFormInWrapper(new CAJA.CIERRE_DE_CAJA());
+                           // btnMoney.Enabled = false;
+                           // this.Close();
                         }
                         else
                         {
@@ -384,6 +384,38 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             else
             {
+                int idRol;
+                string Rol;
+                string modulo;
+                string Operacion;
+
+                foreach (DataGridViewRow row in datalistadousuario.Rows)
+                {
+
+                    int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
+                    idRol = Convert.ToInt32(row.Cells["idRol"].Value);
+                    Rol = Convert.ToString(row.Cells["Rol"].Value);
+                    modulo = Convert.ToString(row.Cells["Modulo"].Value);
+                    Operacion = Convert.ToString(row.Cells["Operacion"].Value);
+                    if (idusuario_que_inicio_sesion == idusuarioBuscar)
+                    {
+                        if (modulo == "Cerrar turno")
+                        {
+                            if (Operacion == "ACCESO")
+                            {
+                                showFormInWrapper(new CAJA.CIERRE_DE_CAJA());
+
+                                // btnMoney.Enabled = false;
+                                // this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+
+                }
                 e.Cancel = true;
             }
         }

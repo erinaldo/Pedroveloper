@@ -29,17 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientesOk));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientesOk));
             this.panel1 = new System.Windows.Forms.Panel();
             this.Panelregistro = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Label14 = new System.Windows.Forms.Label();
+            this.txtIdentificador = new System.Windows.Forms.TextBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.volver = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.panelDataListadoDireccion = new System.Windows.Forms.Panel();
+            this.datalistadoDireccion = new System.Windows.Forms.DataGridView();
+            this.guardar = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.guardarcambios = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.label21 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panelDatalistado = new System.Windows.Forms.Panel();
             this.datalistadoTiposTelefono = new System.Windows.Forms.DataGridView();
@@ -64,16 +73,19 @@
             this.BtnCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNuevoGrupo = new System.Windows.Forms.ToolStripMenuItem();
             this.Label38 = new System.Windows.Forms.Label();
-            this.panelDataListadoDireccion = new System.Windows.Forms.Panel();
-            this.datalistadoDireccion = new System.Windows.Forms.DataGridView();
-            this.txtIdentificador = new System.Windows.Forms.TextBox();
-            this.Label14 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -91,48 +103,36 @@
             this.txtbusca = new System.Windows.Forms.TextBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.tablaClientes = new System.Windows.Forms.DataGridView();
+            this.e = new System.Windows.Forms.DataGridViewImageColumn();
+            this.d = new System.Windows.Forms.DataGridViewImageColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.datalistado = new System.Windows.Forms.DataGridView();
             this.CurvaPanleInformacion = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.volver = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.guardar = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.guardarcambios = new Guna.UI.WinForms.GunaAdvenceButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.e = new System.Windows.Forms.DataGridViewImageColumn();
-            this.d = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.Panelregistro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panelDataListadoDireccion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoDireccion)).BeginInit();
             this.panelDatalistado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoTiposTelefono)).BeginInit();
             this.MenuStrip1.SuspendLayout();
             this.MenuStrip9.SuspendLayout();
-            this.panelDataListadoDireccion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoDireccion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaClientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -205,19 +205,198 @@
             this.Panelregistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Panelregistro.Location = new System.Drawing.Point(140, 115);
             this.Panelregistro.Name = "Panelregistro";
-            this.Panelregistro.Size = new System.Drawing.Size(1137, 538);
+            this.Panelregistro.Size = new System.Drawing.Size(1168, 596);
             this.Panelregistro.TabIndex = 364;
             this.Panelregistro.Visible = false;
             // 
-            // pictureBox5
+            // panel2
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(170, 36);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(300, 34);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 683;
-            this.pictureBox5.TabStop = false;
+            this.panel2.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.Label14);
+            this.panel2.Controls.Add(this.txtIdentificador);
+            this.panel2.Controls.Add(this.pictureBox8);
+            this.panel2.Location = new System.Drawing.Point(526, 36);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(693, 91);
+            this.panel2.TabIndex = 691;
+            // 
+            // Label14
+            // 
+            this.Label14.AutoSize = true;
+            this.Label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label14.ForeColor = System.Drawing.Color.Black;
+            this.Label14.Location = new System.Drawing.Point(14, 6);
+            this.Label14.Name = "Label14";
+            this.Label14.Size = new System.Drawing.Size(232, 20);
+            this.Label14.TabIndex = 337;
+            this.Label14.Text = "Identificador fiscal(OPCIONAL):";
+            // 
+            // txtIdentificador
+            // 
+            this.txtIdentificador.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIdentificador.Location = new System.Drawing.Point(30, 46);
+            this.txtIdentificador.Name = "txtIdentificador";
+            this.txtIdentificador.Size = new System.Drawing.Size(624, 19);
+            this.txtIdentificador.TabIndex = 338;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(18, 39);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(648, 34);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 685;
+            this.pictureBox8.TabStop = false;
+            // 
+            // volver
+            // 
+            this.volver.AnimationHoverSpeed = 0.07F;
+            this.volver.AnimationSpeed = 0.03F;
+            this.volver.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.volver.BorderColor = System.Drawing.Color.Black;
+            this.volver.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.volver.CheckedBorderColor = System.Drawing.Color.Black;
+            this.volver.CheckedForeColor = System.Drawing.Color.White;
+            this.volver.CheckedImage = ((System.Drawing.Image)(resources.GetObject("volver.CheckedImage")));
+            this.volver.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.volver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.volver.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.volver.FocusedColor = System.Drawing.Color.Empty;
+            this.volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.volver.ForeColor = System.Drawing.Color.White;
+            this.volver.Image = ((System.Drawing.Image)(resources.GetObject("volver.Image")));
+            this.volver.ImageSize = new System.Drawing.Size(20, 20);
+            this.volver.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.volver.Location = new System.Drawing.Point(293, 542);
+            this.volver.Name = "volver";
+            this.volver.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.volver.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.volver.OnHoverForeColor = System.Drawing.Color.White;
+            this.volver.OnHoverImage = null;
+            this.volver.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.volver.OnPressedColor = System.Drawing.Color.Black;
+            this.volver.Size = new System.Drawing.Size(180, 42);
+            this.volver.TabIndex = 664;
+            this.volver.Text = "Volver";
+            this.volver.Click += new System.EventHandler(this.volver_Click);
+            // 
+            // panelDataListadoDireccion
+            // 
+            this.panelDataListadoDireccion.Controls.Add(this.datalistadoDireccion);
+            this.panelDataListadoDireccion.Location = new System.Drawing.Point(173, 287);
+            this.panelDataListadoDireccion.Name = "panelDataListadoDireccion";
+            this.panelDataListadoDireccion.Size = new System.Drawing.Size(300, 86);
+            this.panelDataListadoDireccion.TabIndex = 652;
+            // 
+            // datalistadoDireccion
+            // 
+            this.datalistadoDireccion.AllowUserToAddRows = false;
+            this.datalistadoDireccion.AllowUserToDeleteRows = false;
+            this.datalistadoDireccion.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistadoDireccion.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.datalistadoDireccion.BackgroundColor = System.Drawing.Color.White;
+            this.datalistadoDireccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datalistadoDireccion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datalistadoDireccion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.datalistadoDireccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistadoDireccion.ColumnHeadersVisible = false;
+            this.datalistadoDireccion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datalistadoDireccion.EnableHeadersVisualStyles = false;
+            this.datalistadoDireccion.Location = new System.Drawing.Point(0, 0);
+            this.datalistadoDireccion.Name = "datalistadoDireccion";
+            this.datalistadoDireccion.ReadOnly = true;
+            this.datalistadoDireccion.RowHeadersVisible = false;
+            this.datalistadoDireccion.RowHeadersWidth = 9;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistadoDireccion.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.datalistadoDireccion.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.datalistadoDireccion.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.datalistadoDireccion.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            this.datalistadoDireccion.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.datalistadoDireccion.RowTemplate.Height = 40;
+            this.datalistadoDireccion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistadoDireccion.Size = new System.Drawing.Size(300, 86);
+            this.datalistadoDireccion.TabIndex = 644;
+            this.datalistadoDireccion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoDireccion_CellContentClick);
+            // 
+            // guardar
+            // 
+            this.guardar.AnimationHoverSpeed = 0.07F;
+            this.guardar.AnimationSpeed = 0.03F;
+            this.guardar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.guardar.BorderColor = System.Drawing.Color.Black;
+            this.guardar.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.guardar.CheckedBorderColor = System.Drawing.Color.Black;
+            this.guardar.CheckedForeColor = System.Drawing.Color.White;
+            this.guardar.CheckedImage = ((System.Drawing.Image)(resources.GetObject("guardar.CheckedImage")));
+            this.guardar.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.guardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guardar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.guardar.FocusedColor = System.Drawing.Color.Empty;
+            this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.guardar.ForeColor = System.Drawing.Color.White;
+            this.guardar.Image = ((System.Drawing.Image)(resources.GetObject("guardar.Image")));
+            this.guardar.ImageSize = new System.Drawing.Size(20, 20);
+            this.guardar.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.guardar.Location = new System.Drawing.Point(43, 542);
+            this.guardar.Name = "guardar";
+            this.guardar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.guardar.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.guardar.OnHoverForeColor = System.Drawing.Color.White;
+            this.guardar.OnHoverImage = null;
+            this.guardar.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.guardar.OnPressedColor = System.Drawing.Color.Black;
+            this.guardar.Size = new System.Drawing.Size(180, 42);
+            this.guardar.TabIndex = 662;
+            this.guardar.Text = "Guardar";
+            this.guardar.Click += new System.EventHandler(this.guardar_Click);
+            // 
+            // guardarcambios
+            // 
+            this.guardarcambios.AnimationHoverSpeed = 0.07F;
+            this.guardarcambios.AnimationSpeed = 0.03F;
+            this.guardarcambios.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.guardarcambios.BorderColor = System.Drawing.Color.Black;
+            this.guardarcambios.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.guardarcambios.CheckedBorderColor = System.Drawing.Color.Black;
+            this.guardarcambios.CheckedForeColor = System.Drawing.Color.White;
+            this.guardarcambios.CheckedImage = ((System.Drawing.Image)(resources.GetObject("guardarcambios.CheckedImage")));
+            this.guardarcambios.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.guardarcambios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guardarcambios.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.guardarcambios.FocusedColor = System.Drawing.Color.Empty;
+            this.guardarcambios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.guardarcambios.ForeColor = System.Drawing.Color.White;
+            this.guardarcambios.Image = ((System.Drawing.Image)(resources.GetObject("guardarcambios.Image")));
+            this.guardarcambios.ImageSize = new System.Drawing.Size(20, 20);
+            this.guardarcambios.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.guardarcambios.Location = new System.Drawing.Point(43, 542);
+            this.guardarcambios.Name = "guardarcambios";
+            this.guardarcambios.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.guardarcambios.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.guardarcambios.OnHoverForeColor = System.Drawing.Color.White;
+            this.guardarcambios.OnHoverImage = null;
+            this.guardarcambios.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.guardarcambios.OnPressedColor = System.Drawing.Color.Black;
+            this.guardarcambios.Size = new System.Drawing.Size(180, 42);
+            this.guardarcambios.TabIndex = 663;
+            this.guardarcambios.Text = "Guardar cambios";
+            this.guardarcambios.Click += new System.EventHandler(this.guardarcambios_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(37, 488);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(130, 20);
+            this.label21.TabIndex = 689;
+            this.label21.Text = "Tipo Documento:";
             // 
             // label15
             // 
@@ -498,68 +677,6 @@
             this.Label38.TabIndex = 653;
             this.Label38.Text = "Tipo:";
             // 
-            // panelDataListadoDireccion
-            // 
-            this.panelDataListadoDireccion.Controls.Add(this.datalistadoDireccion);
-            this.panelDataListadoDireccion.Location = new System.Drawing.Point(173, 287);
-            this.panelDataListadoDireccion.Name = "panelDataListadoDireccion";
-            this.panelDataListadoDireccion.Size = new System.Drawing.Size(300, 86);
-            this.panelDataListadoDireccion.TabIndex = 652;
-            // 
-            // datalistadoDireccion
-            // 
-            this.datalistadoDireccion.AllowUserToAddRows = false;
-            this.datalistadoDireccion.AllowUserToDeleteRows = false;
-            this.datalistadoDireccion.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistadoDireccion.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.datalistadoDireccion.BackgroundColor = System.Drawing.Color.White;
-            this.datalistadoDireccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.datalistadoDireccion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.datalistadoDireccion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.datalistadoDireccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datalistadoDireccion.ColumnHeadersVisible = false;
-            this.datalistadoDireccion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datalistadoDireccion.EnableHeadersVisualStyles = false;
-            this.datalistadoDireccion.Location = new System.Drawing.Point(0, 0);
-            this.datalistadoDireccion.Name = "datalistadoDireccion";
-            this.datalistadoDireccion.ReadOnly = true;
-            this.datalistadoDireccion.RowHeadersVisible = false;
-            this.datalistadoDireccion.RowHeadersWidth = 9;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            this.datalistadoDireccion.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.datalistadoDireccion.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.datalistadoDireccion.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.datalistadoDireccion.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            this.datalistadoDireccion.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.datalistadoDireccion.RowTemplate.Height = 40;
-            this.datalistadoDireccion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadoDireccion.Size = new System.Drawing.Size(300, 86);
-            this.datalistadoDireccion.TabIndex = 644;
-            this.datalistadoDireccion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistadoDireccion_CellContentClick);
-            // 
-            // txtIdentificador
-            // 
-            this.txtIdentificador.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIdentificador.Location = new System.Drawing.Point(30, 46);
-            this.txtIdentificador.Name = "txtIdentificador";
-            this.txtIdentificador.Size = new System.Drawing.Size(624, 19);
-            this.txtIdentificador.TabIndex = 338;
-            // 
-            // Label14
-            // 
-            this.Label14.AutoSize = true;
-            this.Label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label14.ForeColor = System.Drawing.Color.Black;
-            this.Label14.Location = new System.Drawing.Point(14, 6);
-            this.Label14.Name = "Label14";
-            this.Label14.Size = new System.Drawing.Size(232, 20);
-            this.Label14.TabIndex = 337;
-            this.Label14.Text = "Identificador fiscal(OPCIONAL):";
-            // 
             // txtDireccion
             // 
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -613,6 +730,76 @@
             this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nombre:";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(170, 36);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(300, 34);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 683;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(170, 94);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 684;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(170, 150);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(300, 34);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 685;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(173, 253);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(300, 34);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 686;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(173, 318);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(300, 34);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 687;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(173, 428);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(300, 34);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 688;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(170, 202);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(300, 34);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 690;
+            this.pictureBox7.TabStop = false;
             // 
             // label19
             // 
@@ -846,6 +1033,20 @@
             this.tablaClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaClientes_CellClick);
             this.tablaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaClientes_CellContentClick);
             // 
+            // e
+            // 
+            this.e.HeaderText = "editar";
+            this.e.Image = ((System.Drawing.Image)(resources.GetObject("e.Image")));
+            this.e.Name = "e";
+            this.e.ReadOnly = true;
+            // 
+            // d
+            // 
+            this.d.HeaderText = "eliminar";
+            this.d.Image = ((System.Drawing.Image)(resources.GetObject("d.Image")));
+            this.d.Name = "d";
+            this.d.ReadOnly = true;
+            // 
             // Editar
             // 
             this.Editar.HeaderText = "";
@@ -907,171 +1108,6 @@
             this.CurvaPanleInformacion.ElipseRadius = 7;
             this.CurvaPanleInformacion.TargetControl = this;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(170, 94);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 34);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 684;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(170, 150);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(300, 34);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 685;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(173, 253);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(300, 34);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 686;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(173, 318);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(300, 34);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 687;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(173, 428);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(300, 34);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 688;
-            this.pictureBox6.TabStop = false;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(37, 488);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(130, 20);
-            this.label21.TabIndex = 689;
-            this.label21.Text = "Tipo Documento:";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(170, 202);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(300, 34);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 690;
-            this.pictureBox7.TabStop = false;
-            // 
-            // volver
-            // 
-            this.volver.AnimationHoverSpeed = 0.07F;
-            this.volver.AnimationSpeed = 0.03F;
-            this.volver.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.volver.BorderColor = System.Drawing.Color.Black;
-            this.volver.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.volver.CheckedBorderColor = System.Drawing.Color.Black;
-            this.volver.CheckedForeColor = System.Drawing.Color.White;
-            this.volver.CheckedImage = ((System.Drawing.Image)(resources.GetObject("volver.CheckedImage")));
-            this.volver.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.volver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.volver.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.volver.FocusedColor = System.Drawing.Color.Empty;
-            this.volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.volver.ForeColor = System.Drawing.Color.White;
-            this.volver.Image = ((System.Drawing.Image)(resources.GetObject("volver.Image")));
-            this.volver.ImageSize = new System.Drawing.Size(20, 20);
-            this.volver.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.volver.Location = new System.Drawing.Point(293, 542);
-            this.volver.Name = "volver";
-            this.volver.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.volver.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.volver.OnHoverForeColor = System.Drawing.Color.White;
-            this.volver.OnHoverImage = null;
-            this.volver.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.volver.OnPressedColor = System.Drawing.Color.Black;
-            this.volver.Size = new System.Drawing.Size(180, 42);
-            this.volver.TabIndex = 664;
-            this.volver.Text = "Volver";
-            this.volver.Click += new System.EventHandler(this.volver_Click);
-            // 
-            // guardar
-            // 
-            this.guardar.AnimationHoverSpeed = 0.07F;
-            this.guardar.AnimationSpeed = 0.03F;
-            this.guardar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.guardar.BorderColor = System.Drawing.Color.Black;
-            this.guardar.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.guardar.CheckedBorderColor = System.Drawing.Color.Black;
-            this.guardar.CheckedForeColor = System.Drawing.Color.White;
-            this.guardar.CheckedImage = ((System.Drawing.Image)(resources.GetObject("guardar.CheckedImage")));
-            this.guardar.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.guardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guardar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.guardar.FocusedColor = System.Drawing.Color.Empty;
-            this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.guardar.ForeColor = System.Drawing.Color.White;
-            this.guardar.Image = ((System.Drawing.Image)(resources.GetObject("guardar.Image")));
-            this.guardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.guardar.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.guardar.Location = new System.Drawing.Point(43, 542);
-            this.guardar.Name = "guardar";
-            this.guardar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.guardar.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.guardar.OnHoverForeColor = System.Drawing.Color.White;
-            this.guardar.OnHoverImage = null;
-            this.guardar.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.guardar.OnPressedColor = System.Drawing.Color.Black;
-            this.guardar.Size = new System.Drawing.Size(180, 42);
-            this.guardar.TabIndex = 662;
-            this.guardar.Text = "Guardar";
-            this.guardar.Click += new System.EventHandler(this.guardar_Click);
-            // 
-            // guardarcambios
-            // 
-            this.guardarcambios.AnimationHoverSpeed = 0.07F;
-            this.guardarcambios.AnimationSpeed = 0.03F;
-            this.guardarcambios.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.guardarcambios.BorderColor = System.Drawing.Color.Black;
-            this.guardarcambios.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.guardarcambios.CheckedBorderColor = System.Drawing.Color.Black;
-            this.guardarcambios.CheckedForeColor = System.Drawing.Color.White;
-            this.guardarcambios.CheckedImage = ((System.Drawing.Image)(resources.GetObject("guardarcambios.CheckedImage")));
-            this.guardarcambios.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.guardarcambios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guardarcambios.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.guardarcambios.FocusedColor = System.Drawing.Color.Empty;
-            this.guardarcambios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.guardarcambios.ForeColor = System.Drawing.Color.White;
-            this.guardarcambios.Image = ((System.Drawing.Image)(resources.GetObject("guardarcambios.Image")));
-            this.guardarcambios.ImageSize = new System.Drawing.Size(20, 20);
-            this.guardarcambios.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.guardarcambios.Location = new System.Drawing.Point(43, 542);
-            this.guardarcambios.Name = "guardarcambios";
-            this.guardarcambios.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.guardarcambios.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.guardarcambios.OnHoverForeColor = System.Drawing.Color.White;
-            this.guardarcambios.OnHoverImage = null;
-            this.guardarcambios.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.guardarcambios.OnPressedColor = System.Drawing.Color.Black;
-            this.guardarcambios.Size = new System.Drawing.Size(180, 42);
-            this.guardarcambios.TabIndex = 663;
-            this.guardarcambios.Text = "Guardar cambios";
-            this.guardarcambios.Click += new System.EventHandler(this.guardarcambios_Click);
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 7;
@@ -1086,42 +1122,6 @@
             // 
             this.bunifuElipse3.ElipseRadius = 7;
             this.bunifuElipse3.TargetControl = this.volver;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(18, 39);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(648, 34);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 685;
-            this.pictureBox8.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.Label14);
-            this.panel2.Controls.Add(this.txtIdentificador);
-            this.panel2.Controls.Add(this.pictureBox8);
-            this.panel2.Location = new System.Drawing.Point(526, 36);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(693, 91);
-            this.panel2.TabIndex = 691;
-            // 
-            // e
-            // 
-            this.e.HeaderText = "editar";
-            this.e.Image = ((System.Drawing.Image)(resources.GetObject("e.Image")));
-            this.e.Name = "e";
-            this.e.ReadOnly = true;
-            // 
-            // d
-            // 
-            this.d.HeaderText = "eliminar";
-            this.d.Image = ((System.Drawing.Image)(resources.GetObject("d.Image")));
-            this.d.Name = "d";
-            this.d.ReadOnly = true;
             // 
             // ClientesOk
             // 
@@ -1140,7 +1140,11 @@
             this.panel1.PerformLayout();
             this.Panelregistro.ResumeLayout(false);
             this.Panelregistro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.panelDataListadoDireccion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datalistadoDireccion)).EndInit();
             this.panelDatalistado.ResumeLayout(false);
             this.panelDatalistado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoTiposTelefono)).EndInit();
@@ -1148,21 +1152,17 @@
             this.MenuStrip1.PerformLayout();
             this.MenuStrip9.ResumeLayout(false);
             this.MenuStrip9.PerformLayout();
-            this.panelDataListadoDireccion.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datalistadoDireccion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaClientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
             this.ResumeLayout(false);
 
         }
