@@ -193,6 +193,7 @@
     <Compile Include="Logica\LUsuarios_.cs" />
     <Compile Include="Logica\LVehiculos.cs" />
     <Compile Include="Logica\Lventas.cs" />
+    <Compile Include="Logica\LVentasPrecios.cs" />
     <Compile Include="Logica\Mayoreo.cs" />
     <Compile Include="Logica\Pedidos.cs" />
     <Compile Include="Logica\Precios.cs" />

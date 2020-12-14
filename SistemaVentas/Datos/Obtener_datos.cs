@@ -513,6 +513,7 @@ namespace SistemaVentas.Datos
                 CONEXIONMAESTRA.abrir();
                 SqlCommand com = new SqlCommand("obtenerMunicipio", CONEXIONMAESTRA.conectar);
                 com.CommandType = CommandType.StoredProcedure;
+
                 idMunicipio = Convert.ToInt32(com.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
                 return idMunicipio;
