@@ -629,9 +629,9 @@
             this.groupBox1.Controls.Add(this.txtfechaM);
             this.groupBox1.Controls.Add(this.Label4);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(438, 5);
+            this.groupBox1.Location = new System.Drawing.Point(552, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1076, 108);
+            this.groupBox1.Size = new System.Drawing.Size(962, 108);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro Activado";

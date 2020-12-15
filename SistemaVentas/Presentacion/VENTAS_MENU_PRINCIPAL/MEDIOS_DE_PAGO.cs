@@ -2363,5 +2363,19 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             panelVerificar.BringToFront();
             panelVerificar.Size = new Size(995, 539);
         }
+
+        private void gunaAdvenceButton1_Click(object sender, EventArgs e)
+        {
+            panelGeolocalizacion.Visible = true;
+            //panelVerificar.Dock = DockStyle.Fill;
+            panelGeolocalizacion.BringToFront();
+            panelGeolocalizacion.Size = new Size(390,389);
+        }
+
+        private void BTNCERRARMAPA_Click(object sender, EventArgs e)
+        {
+            panelGeolocalizacion.Visible = false;
+            panelGeolocalizacion.SendToBack();
+        }
     }
 }

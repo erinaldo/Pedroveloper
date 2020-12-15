@@ -52,14 +52,13 @@
             this.Salir = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btnNewBrand = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.CurvaPanleInformacion = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.datalistado = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.CurvaPanleInformacion = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -69,8 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel4
@@ -309,59 +308,6 @@
             this.pictureBox2.TabIndex = 632;
             this.pictureBox2.TabStop = false;
             // 
-            // panel9
-            // 
-            this.panel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel9.BackgroundImage")));
-            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel9.Controls.Add(this.Panel4);
-            this.panel9.Controls.Add(this.btnNewBrand);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 72);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(958, 493);
-            this.panel9.TabIndex = 614;
-            // 
-            // btnNewBrand
-            // 
-            this.btnNewBrand.ActiveBorderThickness = 1;
-            this.btnNewBrand.ActiveCornerRadius = 20;
-            this.btnNewBrand.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
-            this.btnNewBrand.ActiveForecolor = System.Drawing.Color.White;
-            this.btnNewBrand.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
-            this.btnNewBrand.BackColor = System.Drawing.Color.White;
-            this.btnNewBrand.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNewBrand.BackgroundImage")));
-            this.btnNewBrand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNewBrand.ButtonText = "NUEVA MARCA";
-            this.btnNewBrand.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNewBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewBrand.ForeColor = System.Drawing.Color.White;
-            this.btnNewBrand.IdleBorderThickness = 1;
-            this.btnNewBrand.IdleCornerRadius = 20;
-            this.btnNewBrand.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
-            this.btnNewBrand.IdleForecolor = System.Drawing.Color.White;
-            this.btnNewBrand.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(111)))), ((int)(((byte)(248)))));
-            this.btnNewBrand.Location = new System.Drawing.Point(1397, -10);
-            this.btnNewBrand.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.btnNewBrand.Name = "btnNewBrand";
-            this.btnNewBrand.Size = new System.Drawing.Size(201, 54);
-            this.btnNewBrand.TabIndex = 2;
-            this.btnNewBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CurvaPanleInformacion
-            // 
-            this.CurvaPanleInformacion.ElipseRadius = 7;
-            this.CurvaPanleInformacion.TargetControl = this;
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 10;
-            this.bunifuElipse1.TargetControl = this.PRINCIPAL;
-            // 
-            // bunifuElipse2
-            // 
-            this.bunifuElipse2.ElipseRadius = 10;
-            this.bunifuElipse2.TargetControl = this.SECUNDARIA;
-            // 
             // datalistado
             // 
             this.datalistado.AllowUserToAddRows = false;
@@ -438,6 +384,32 @@
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
             // 
+            // panel9
+            // 
+            this.panel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel9.BackgroundImage")));
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel9.Controls.Add(this.Panel4);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 72);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(958, 493);
+            this.panel9.TabIndex = 614;
+            // 
+            // CurvaPanleInformacion
+            // 
+            this.CurvaPanleInformacion.ElipseRadius = 7;
+            this.CurvaPanleInformacion.TargetControl = this;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 10;
+            this.bunifuElipse1.TargetControl = this.PRINCIPAL;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 10;
+            this.bunifuElipse2.TargetControl = this.SECUNDARIA;
+            // 
             // Eleccion_Servidor_o_remoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -464,8 +436,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -484,7 +456,6 @@
         private System.Windows.Forms.Label label20;
         internal System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel9;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnNewBrand;
         private Guna.UI.WinForms.GunaAdvenceButton PRINCIPAL;
         private Guna.UI.WinForms.GunaAdvenceButton SECUNDARIA;
         private Bunifu.Framework.UI.BunifuElipse CurvaPanleInformacion;

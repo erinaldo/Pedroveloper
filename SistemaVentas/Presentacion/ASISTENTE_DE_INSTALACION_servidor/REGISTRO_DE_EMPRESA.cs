@@ -68,7 +68,6 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@nombre", "Ventas");
                 cmd.Parameters.AddWithValue("@Impuesto", 0.18);
                 cmd.Parameters.AddWithValue("@Tipo", "Impuesto Productos");
-
                 cmd.ExecuteNonQuery();
             }
             catch (Exception EX)

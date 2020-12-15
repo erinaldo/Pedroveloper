@@ -41,6 +41,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         public int idProductoSelectL;
         public double precioNuevo;
         int contador_stock_detalle_de_venta;
+        double precio;
         int idproducto;
         int idClienteEstandar;
         public static int idusuario_que_inicio_sesion;
@@ -69,14 +70,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         Panel panel_mostrador_de_productos = new Panel();
         public static int idcotizacion;
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
             panelListaPrecios.Visible = false;
+            ListaPreciosAlPorMayor.Visible = false;
+
             txttotal.Enabled = false;
             PANELGRANEL.Visible = false;
             MOSTRAR_comprobante_serializado_POR_DEFECTO();
@@ -1494,8 +1492,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             btnCreditoPagar.BackColor = Color.FromArgb(45, 45, 45);
             btnCreditoPagar.ForeColor = Color.White;
             */
-            btnMayoreo.BackColor = Color.FromArgb(45, 45, 45);
-            btnMayoreo.ForeColor = Color.White;
+          
             //wrapperProduct Pie de pagina
             //PanelOperaciones
             PanelOperaciones.BackColor = Color.FromArgb(35, 35, 35);
@@ -1504,9 +1501,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             panelBienvenida.BackColor = Color.FromArgb(35, 35, 35);
             label8.ForeColor = Color.WhiteSmoke;
             Listarproductosagregados();
-
-
-
         }
         private void TemaClaro()
         {
@@ -1525,8 +1519,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
               btnCreditoPagar.BackColor = Color.WhiteSmoke;
               btnCreditoPagar.ForeColor = Color.Black;*/
 
-            btnMayoreo.BackColor = Color.WhiteSmoke;
-            btnMayoreo.ForeColor = Color.Black;
             //wrapperProduct pie de pagina
 
             //PanelOperaciones
@@ -1697,6 +1689,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 if (tablaProductos.Rows.Count <= 0)
                     return;
+                precio = Convert.ToDouble(tablaProductos.Rows[e.RowIndex].Cells["PrecioUnidad"].Value);
                 iddetalleventa = Convert.ToInt32(tablaProductos.Rows[e.RowIndex].Cells["iddetalle_factura"].Value);
                 idproducto = Convert.ToInt32(tablaProductos.Rows[e.RowIndex].Cells["Id_producto"].Value);
                 sevendePor = tablaProductos.Rows[e.RowIndex].Cells["se_vende_a"].Value.ToString();
@@ -2086,7 +2079,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             }
             else
             {
-                double precio = Convert.ToDouble(tablaProductos.SelectedCells[6].Value);
+
                 //MessageBox.Show(precio.ToString());
                 if (!string.IsNullOrEmpty(txtmonto.Text))
                 {
@@ -2109,12 +2102,26 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 iddetalleventa = 0;
                 txtmonto.Focus();
                 txtmonto.Clear();
+
+
             }
         }
 
         private void gunaAdvenceButton3_Click(object sender, EventArgs e)
         {
-           
+            if (tablaProductos.Rows.Count <= 0)
+            {
+                animacionCierre();
+            }
+            else
+            {
+                LVentasPrecios lVentasPrecios = new LVentasPrecios();
+                panelListaPrecios.Visible = true;
+                panelListaPrecios.BringToFront();
+                txtProductoL.DataSource = lVentasPrecios.CargarCombo(idVenta);
+                txtProductoL.DisplayMember = "Producto";
+                txtProductoL.ValueMember = "idProducto";
+            }
         }
         private Form FormActive = null;
 
@@ -2205,9 +2212,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             panelListaPrecios.Visible = false;
         }
         int cont = 0;
+        private int idProductoSelectM;
+
         private void txtProductoL_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            txtPrecioL.Items.Clear();
             ObtenerListaDePrecios_por_Productos();
         }
 
@@ -2262,6 +2271,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         txtbuscar.Focus();
                         txtbuscar.Clear();
                         panelListaPrecios.Visible = false;
+                        txtPrecioL.Items.Clear();
                     }
                 }
                 
@@ -2287,6 +2297,143 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void txtPrecioL_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void ListaPreciosAlPorMayor_Paint(object sender, PaintEventArgs e)
+        {
+            idProductoSelectM = Convert.ToInt32(txtProductoSelectAM.SelectedValue.ToString());
+            LVentasPrecios lVentasPrecios = new LVentasPrecios();
+            DataTable dt = new DataTable();
+            dt = lVentasPrecios.CargarComboLista(idProductoSelectM);
+            listapreciosmayor.DataSource = dt;
+            DataTable dt_ = new DataTable();
+            dt_ = lVentasPrecios.CargarComboListaMayor(idProductoSelectM);
+            listaalpormayor.DataSource = dt_;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (tablaProductos.Rows.Count <= 0)
+            {
+                animacionCierre();
+            }
+            else
+            {
+                LVentasPrecios lVentasPrecios = new LVentasPrecios();
+                ListaPreciosAlPorMayor.Visible = true;
+                ListaPreciosAlPorMayor.BringToFront();
+
+                txtProductoSelectAM.DataSource = lVentasPrecios.CargarCombo(idVenta);
+                txtProductoSelectAM.DisplayMember = "Producto";
+                txtProductoSelectAM.ValueMember = "idProducto";
+            }
+        }
+
+        private void btnCancelarPreciosM_Click(object sender, EventArgs e)
+        {
+            ListaPreciosAlPorMayor.Visible = false;
+
+        }
+
+        private void btnCambioPrecioM_Click(object sender, EventArgs e)
+        {
+            //double precio = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
+            CONEXIONMAESTRA.abrir();
+            SqlCommand com = new SqlCommand("ObtenerDetalleVenta", CONEXIONMAESTRA.conectar);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@idFactura", idVenta);
+            com.Parameters.AddWithValue("@idProducto", idProductoSelectL);
+            iddetalleventa = Convert.ToInt32(com.ExecuteScalar());
+            CONEXIONMAESTRA.cerrar();
+            /*  MessageBox.Show(idVenta.ToString());
+              MessageBox.Show(idProductoSelectL.ToString());
+              MessageBox.Show(iddetalleventa.ToString());
+              MessageBox.Show(precioNuevo.ToString());*/
+            if (iddetalleventa == 0)
+            {
+                MessageBox.Show("Seleccione un producto para realizar la edición", "Editar precio del Articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (Convert.ToDouble(lblPrecioAlPorMayor.Text) > 0.00)
+                {
+                    Ldetallefactura parametros = new Ldetallefactura();
+                    Editar_datos funcion = new Editar_datos();
+                    parametros.iddetalle_factura = iddetalleventa;
+                    parametros.preciounitario =Convert.ToDouble( lblPrecioAlPorMayor.Text);
+                    if (funcion.editarPrecioVenta(parametros))
+                    {
+                        //funcion.editarCantidad
+                        Listarproductosagregados();
+                        txtbuscar.Focus();
+                        txtbuscar.Clear();
+                        ListaPreciosAlPorMayor.Visible = false;
+                        txtNoUnidades.Items.Clear();
+                    }
+                }
+                iddetalleventa = 0;
+            }
+        }
+
+        private void txtNoUnidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if(txtNoUnidades.SelectedIndex == 0)
+            {
+                lblPrecioAlPorMayor.Text = (listapreciosmayor.CurrentRow.Cells[0].Value).ToString();
+                lblCantidadNueva.Text = (listaalpormayor.CurrentRow.Cells[0].Value).ToString();
+            }
+            if (txtNoUnidades.SelectedIndex == 1)
+            {
+                lblPrecioAlPorMayor.Text = (listapreciosmayor.CurrentRow.Cells[1].Value).ToString();
+                lblCantidadNueva.Text = (listaalpormayor.CurrentRow.Cells[1].Value).ToString();
+
+            }
+            if (txtNoUnidades.SelectedIndex == 2)
+            {
+                lblPrecioAlPorMayor.Text = (listapreciosmayor.CurrentRow.Cells[2].Value).ToString();
+                lblCantidadNueva.Text = (listaalpormayor.CurrentRow.Cells[2].Value).ToString();
+
+            }
+            if (txtNoUnidades.SelectedIndex == 3)
+            {
+                lblPrecioAlPorMayor.Text = (listapreciosmayor.CurrentRow.Cells[3].Value).ToString();
+                lblCantidadNueva.Text = (listaalpormayor.CurrentRow.Cells[3].Value).ToString();
+
+            }
+
+        }
+
+        private void txtProductoSelectAM_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtNoUnidades.Items.Clear();
+            obtenerListaDeAlPorMayor();
+        }
+
+        private void obtenerListaDeAlPorMayor()
+        {
+            double unidades;
+
+            if (listaalpormayor.Rows.Count > 0 && listapreciosmayor.Rows.Count > 0)
+            {
+                /*    precio = Convert.ToDouble(listapreciosmayor.CurrentRow.Cells[0].Value);
+                    txt.Items.Add(precio.ToString());
+                    precio = Convert.ToDouble(listapreciosmayor.CurrentRow.Cells[1].Value);
+                    txtPrecioL.Items.Add(precio.ToString());
+                    precio = Convert.ToDouble(listapreciosmayor.CurrentRow.Cells[2].Value);
+                    txtPrecioL.Items.Add(precio.ToString());
+                    precio = Convert.ToDouble(listapreciosmayor.CurrentRow.Cells[3].Value);
+                    txtPrecioL.Items.Add(precio.ToString());
+                */
+                unidades = Convert.ToDouble(listaalpormayor.CurrentRow.Cells[0].Value);
+                txtNoUnidades.Items.Add("1");
+                unidades = Convert.ToDouble(listaalpormayor.CurrentRow.Cells[1].Value);
+                txtNoUnidades.Items.Add(unidades.ToString());
+                unidades = Convert.ToDouble(listaalpormayor.CurrentRow.Cells[2].Value);
+                txtNoUnidades.Items.Add(unidades.ToString());
+                unidades = Convert.ToDouble(listaalpormayor.CurrentRow.Cells[3].Value);
+                txtNoUnidades.Items.Add(unidades.ToString());
+            }
         }
     }
 }

@@ -104,7 +104,7 @@ namespace SistemaVentas.Presentacion.Impuestos
             DataTable dt = new DataTable();
             Obtener_datos.mostrarImpuestos(ref dt);
             datalistado.DataSource = dt;
-            tableProducts.DataSource = dt;
+            //tableProducts.DataSource = dt;
             panelRegistros.Visible = false;
             pintarDatalistado();
         }

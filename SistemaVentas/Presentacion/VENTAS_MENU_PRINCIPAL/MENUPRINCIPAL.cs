@@ -1,4 +1,5 @@
-﻿using SistemaVentas.Datos;
+﻿using SistemaVentas.CONEXION;
+using SistemaVentas.Datos;
 using SistemaVentas.Presentacion.Admin_nivel_dios;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -21,9 +23,28 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         public static int idusuario_que_inicio_sesion;
 
+        private void ObtenerFoto()
+        {
+            int idDocumento;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("obtenerFoto", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                byte[] b = (Byte[])(cmd.ExecuteScalar());
+                MemoryStream ms = new MemoryStream(b);
+                imagenEmpresa.Image = Image.FromStream(ms);
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+        }
         private void MENUPRINCIPAL_Load(object sender, EventArgs e)
         {
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario_que_inicio_sesion);
+            ObtenerFoto();
+
             try
             {
                 DataTable dt = new DataTable();

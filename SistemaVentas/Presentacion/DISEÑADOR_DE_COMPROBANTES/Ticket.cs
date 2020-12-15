@@ -150,5 +150,16 @@ namespace SistemaVentas.Presentacion.DISEÑADOR_DE_COMPROBANTES
                 MessageBox.Show(EX.StackTrace);
             }
         }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
     }
 }

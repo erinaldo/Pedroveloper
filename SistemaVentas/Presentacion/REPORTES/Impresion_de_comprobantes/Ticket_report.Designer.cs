@@ -244,7 +244,17 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // detail
             // 
-            this.detail.Height = Telerik.Reporting.Drawing.Unit.Cm(0.132D);
+            this.detail.Height = Telerik.Reporting.Drawing.Unit.Cm(3.4D);
+            this.detail.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
+            this.textBox21,
+            this.textBox20,
+            this.textBox26,
+            this.textBox27,
+            this.textBox28,
+            this.textBox29,
+            this.textBox30,
+            this.textBox31,
+            this.textBox32});
             this.detail.Name = "detail";
             // 
             // pageFooterSection1
@@ -254,22 +264,13 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // reportHeaderSection1
             // 
-            this.reportHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Cm(6.306D);
+            this.reportHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Cm(2.8D);
             this.reportHeaderSection1.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.table1,
             this.TextBox16,
             this.textBox17,
             this.textBox18,
             this.textBox19,
-            this.textBox20,
-            this.textBox21,
-            this.textBox26,
-            this.textBox27,
-            this.textBox28,
-            this.textBox29,
-            this.textBox30,
-            this.textBox31,
-            this.textBox32,
             this.textBox33,
             this.textBox34});
             this.reportHeaderSection1.Name = "reportHeaderSection1";
@@ -345,7 +346,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox17.Style.Font.Name = "Courier New";
             this.textBox17.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(8D);
             this.textBox17.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
-            this.textBox17.Value = "=Fields.Moneda + Fields.Subtotal_Impuesto";
+            this.textBox17.Value = "=Fields.Itbis";
             // 
             // textBox18
             // 
@@ -366,11 +367,11 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox19.Style.Font.Name = "Courier New";
             this.textBox19.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(8D);
             this.textBox19.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
-            this.textBox19.Value = "=Fields.Moneda + Fields.Monto_total";
+            this.textBox19.Value = "=Fields.Monto_total";
             // 
             // textBox20
             // 
-            this.textBox20.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(3D));
+            this.textBox20.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(0D));
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.012D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
             this.textBox20.Style.Font.Bold = true;
@@ -381,7 +382,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox21
             // 
-            this.textBox21.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.03D), Telerik.Reporting.Drawing.Unit.Cm(3D));
+            this.textBox21.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.03D), Telerik.Reporting.Drawing.Unit.Cm(0D));
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.07D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
             this.textBox21.Style.Font.Name = "Courier New";
@@ -391,7 +392,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox26
             // 
-            this.textBox26.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(3.4D));
+            this.textBox26.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
             this.textBox26.Name = "textBox26";
             this.textBox26.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.1D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
             this.textBox26.Style.Font.Bold = false;
@@ -401,7 +402,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox27
             // 
-            this.textBox27.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(3.8D));
+            this.textBox27.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(0.8D));
             this.textBox27.Name = "textBox27";
             this.textBox27.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.1D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
             this.textBox27.Style.Font.Bold = false;
@@ -411,7 +412,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox28
             // 
-            this.textBox28.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(4.2D));
+            this.textBox28.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(1.2D));
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.081D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
             this.textBox28.Style.Font.Bold = false;
@@ -422,7 +423,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox29
             // 
-            this.textBox29.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(4.6D));
+            this.textBox29.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(1.6D));
             this.textBox29.Name = "textBox29";
             this.textBox29.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.081D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
             this.textBox29.Style.Font.Bold = false;
@@ -433,7 +434,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox30
             // 
-            this.textBox30.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(5D));
+            this.textBox30.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(2D));
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.081D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
             this.textBox30.Style.Font.Bold = false;
@@ -444,7 +445,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox31
             // 
-            this.textBox31.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(5.4D));
+            this.textBox31.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(2.4D));
             this.textBox31.Name = "textBox31";
             this.textBox31.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.081D), Telerik.Reporting.Drawing.Unit.Cm(0.4D));
             this.textBox31.Style.Font.Bold = false;
@@ -454,7 +455,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             // 
             // textBox32
             // 
-            this.textBox32.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(5.8D));
+            this.textBox32.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.019D), Telerik.Reporting.Drawing.Unit.Cm(2.8D));
             this.textBox32.Name = "textBox32";
             this.textBox32.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(8.081D), Telerik.Reporting.Drawing.Unit.Cm(0.506D));
             this.textBox32.Style.Font.Bold = false;
@@ -483,7 +484,7 @@ namespace SistemaVentas.Presentacion.REPORTES.Impresion_de_comprobantes
             this.textBox34.Style.Font.Name = "Courier New";
             this.textBox34.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(8D);
             this.textBox34.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
-            this.textBox34.Value = "=Fields.Moneda +  Fields.Descuento";
+            this.textBox34.Value = "= Fields.Descuento";
             // 
             // Ticket_report
             // 

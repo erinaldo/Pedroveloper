@@ -42,6 +42,7 @@
             this.DataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.datalistado = new System.Windows.Forms.DataGridView();
             this.Eli = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_empresa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado_movimientos_validar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
@@ -207,12 +208,23 @@
             this.Eli.Name = "Eli";
             this.Eli.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 223);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(478, 13);
+            this.label1.TabIndex = 599;
+            this.label1.Text = "\"data source = ServidorSQL; initial catalog = BaseDatos; user id = Usuario; passw" +
+    "ord = Contraseña\"";
+            // 
             // CONEXION_MANUAL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(670, 283);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.datalistado);
             this.Controls.Add(this.Logo_empresa);
             this.Controls.Add(this.txtCnString);
@@ -246,5 +258,6 @@
         internal System.Windows.Forms.DataGridViewCheckBoxColumn DataGridViewCheckBoxColumn5;
         private System.Windows.Forms.DataGridView datalistado;
         private System.Windows.Forms.DataGridViewImageColumn Eli;
+        private System.Windows.Forms.Label label1;
     }
 }
