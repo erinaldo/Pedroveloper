@@ -24,6 +24,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
         {
             InitializeComponent();
         }
+
         string lblIDSERIAL;
         bool RegistroInformacionAdicional = false;
         public static string correo;
@@ -1842,6 +1843,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
 
         private void REGISTRO_DE_EMPRESA_Load(object sender, EventArgs e)
         {
+            
+            btnEditar.Visible = false;
             //El label 44 es para las direcciones(CLICK EVENT)
             label44.Visible = false;
             TXTPAIS.Text = "República Dominicana";

@@ -401,6 +401,7 @@
             this.pictureBox33 = new System.Windows.Forms.PictureBox();
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.label11 = new System.Windows.Forms.Label();
             this.Panel27.SuspendLayout();
             this.Panel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadoDetalleProducto)).BeginInit();
@@ -4720,6 +4721,7 @@
             // 
             this.panel17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel17.BackgroundImage")));
             this.panel17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel17.Controls.Add(this.label11);
             this.panel17.Controls.Add(this.PANELREGISTRO);
             this.panel17.Controls.Add(this.MenuStrip4);
             this.panel17.Controls.Add(this.datalistado);
@@ -4791,6 +4793,19 @@
             // 
             this.bunifuElipse1.ElipseRadius = 7;
             this.bunifuElipse1.TargetControl = this.panel30;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Gray;
+            this.label11.Location = new System.Drawing.Point(333, 88);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(675, 30);
+            this.label11.TabIndex = 701;
+            this.label11.Text = "Profesor, de ultimo minuto,SI ABRIO EL PANEL DESDE CONFIGURACIONES ALT+F4 PARA CE" +
+    "RRAR NO ME DIO TIEMPO\r\n. SIENTO LOS INCONVENIENTES";
             // 
             // Productos_ok
             // 
@@ -5268,5 +5283,6 @@
         private System.Windows.Forms.PictureBox pictureBox34;
         private System.Windows.Forms.Panel panelUnidadVenta;
         internal System.Windows.Forms.DataGridView datalistadoUnidadVenta;
+        internal System.Windows.Forms.Label label11;
     }
 }

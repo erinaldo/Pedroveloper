@@ -387,11 +387,11 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             bool bandera = Presentacion.CONFIGURACION.PANEL_CONFIGURACIONES.banderaClientes;
             if (bandera)
             {
-                Salir.Visible = true;
+                //Salir.Visible = true;
             }
             else
             {
-                Salir.Visible = false;
+                //Salir.Visible = false;
             }
             mostrar();
         }
