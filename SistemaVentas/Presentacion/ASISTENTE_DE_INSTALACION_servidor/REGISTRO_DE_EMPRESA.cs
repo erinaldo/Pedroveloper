@@ -1427,7 +1427,6 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@Telefono", "Generico");
                 cmd.Parameters.AddWithValue("@idTipoTelefono", "1");
                 cmd.ExecuteNonQuery();
-
             }
             catch (Exception EX)
             {
@@ -1438,7 +1437,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarTelefono", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Telefono", txtTelefono);
+                cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
                 cmd.Parameters.AddWithValue("@idTipoTelefono", 2);
                 cmd.ExecuteNonQuery();
 
@@ -1453,7 +1452,7 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertarTelefono", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Telefono", txtCelular);
+                cmd.Parameters.AddWithValue("@Telefono", txtCelular.Text);
                 cmd.Parameters.AddWithValue("@idTipoTelefono", 3);
                 cmd.ExecuteNonQuery();
 
@@ -1532,6 +1531,8 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                 cmd.Parameters.AddWithValue("@Ultima_fecha_de_copia_de_seguridad", "Ninguna");
                 cmd.Parameters.AddWithValue("@Ultima_fecha_de_copia_date", txtfecha.Value);
                 cmd.Parameters.AddWithValue("@idCorreo", idCorreo);
+                cmd.Parameters.AddWithValue("@idTelefono", 2);
+                cmd.Parameters.AddWithValue("@idCelular", 3);
                 cmd.Parameters.AddWithValue("@idDireccion", idDireccion);
                 cmd.Parameters.AddWithValue("@idDatosFiscales", idDatosFiscales);
                 cmd.Parameters.AddWithValue("@Frecuencia_de_copias", 1);
@@ -2006,28 +2007,22 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertarSector();
                         insertarProvincia();
 
+                        insertarTipoTelefono();
+                        insertarTelefono();
+                        insertarTipoHorario();
+                        insertarHorario();
+
                         //insertarDireccion
                         insertarDireccion();
                         IngresarDireccionEmpresa();
                         ingresarDatosFiscales();
-
-                        Ingresar_empresa();
-
                         Ingresar_caja();
 
-                        insertar_3_COMPROBANTES_POR_DEFECTO();
-
-                        insertarTipoHorario();
-                        insertarTipoTelefono();
-                        insertarTelefono();
-                        insertarHorario();
                         InsertarDocumento();
                         insertarDescuento();
                         InsertarCategoria();
 
-
                         Ingresar_Persona();
-                        insertarEmpleado();
                         insertar_clientes();
                         insertar_Proveedores();
 
@@ -2038,6 +2033,13 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertarPermisosRol();
                         insertarUnidadesCompra();
                         insertarUnidadEstandar();
+                        insertar_3_COMPROBANTES_POR_DEFECTO();
+
+                        Ingresar_empresa();
+                        insertarEmpleado();
+
+
+
                         correo = txtcorreo.Text;
                         Dispose();
                         USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new USUARIOS_AUTORIZADOS_AL_SISTEMA();
