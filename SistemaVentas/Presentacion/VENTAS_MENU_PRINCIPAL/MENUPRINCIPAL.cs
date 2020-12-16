@@ -22,6 +22,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
 
         public static int idusuario_que_inicio_sesion;
+        //public static bool banderacliente = false;
+
 
         private void ObtenerFoto()
         {

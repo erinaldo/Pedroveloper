@@ -63,6 +63,10 @@ namespace SistemaVentas.Presentacion.Compras_proveedor
 
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
+            btnCambiarCantidad.Enabled = false;
+            btnDescuento.Enabled = false;
+            btnPrecio.Enabled = false;
+
             txttotal.Enabled = false;
             PANELGRANEL.Visible = false;
             MOSTRAR_comprobante_serializado_POR_DEFECTO();

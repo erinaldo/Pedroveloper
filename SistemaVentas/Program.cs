@@ -23,7 +23,7 @@ namespace SistemaVentas
             //Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA();
             //Presentacion.Vehiculos.Vehiculos frm = new Presentacion.Vehiculos.Vehiculos();
             // Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
-         Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL frm = new Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL();
+        // Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL frm = new Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL();
              // Presentacion.VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK frm = new Presentacion.VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK();
               //Presentacion.VENTAS_MENU_PRINCIPAL.MEDIOS_DE_PAGO frm = new Presentacion.VENTAS_MENU_PRINCIPAL.MEDIOS_DE_PAGO();
             // Presentacion.Compras_proveedor.Compras_proveedor frm = new Presentacion.Compras_proveedor.Compras_proveedor();
@@ -37,7 +37,7 @@ namespace SistemaVentas
             //Presentacion.Geolocalizacion.Geolocalizacion frm = new Presentacion.Geolocalizacion.Geolocalizacion();
             //Presentacion.ASISTENTE_DE_INSTALACION_servidor.REGISTRO_DE_EMPRESA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.REGISTRO_DE_EMPRESA();
             //Presentacion.FacturasCredito.FacturasCredito frm = new Presentacion.FacturasCredito.FacturasCredito();
-            //Presentacion.LoginInicio.Inicio frm = new Presentacion.LoginInicio.Inicio();
+            Presentacion.LoginInicio.Inicio frm = new Presentacion.LoginInicio.Inicio();
             //Presentacion.CONFIGURACION.PANEL_CONFIGURACIONES frm = new Presentacion.CONFIGURACION.PANEL_CONFIGURACIONES();
             //Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA frm = new Presentacion.ASISTENTE_DE_INSTALACION_servidor.USUARIOS_AUTORIZADOS_AL_SISTEMA();
             //Presentacion.CAJA.APERTURA_DE_CAJA frm = new Presentacion.CAJA.APERTURA_DE_CAJA();

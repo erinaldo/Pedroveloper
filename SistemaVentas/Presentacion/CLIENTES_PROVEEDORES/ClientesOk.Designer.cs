@@ -112,6 +112,7 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.Salir = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.Panelregistro.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -133,6 +134,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -141,6 +143,7 @@
             this.panel1.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.Panelregistro);
+            this.panel1.Controls.Add(this.Salir);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.label1);
@@ -1123,6 +1126,17 @@
             this.bunifuElipse3.ElipseRadius = 7;
             this.bunifuElipse3.TargetControl = this.volver;
             // 
+            // Salir
+            // 
+            this.Salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Salir.Image = ((System.Drawing.Image)(resources.GetObject("Salir.Image")));
+            this.Salir.Location = new System.Drawing.Point(1462, 20);
+            this.Salir.Name = "Salir";
+            this.Salir.Size = new System.Drawing.Size(41, 38);
+            this.Salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Salir.TabIndex = 634;
+            this.Salir.TabStop = false;
+            // 
             // ClientesOk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1163,6 +1177,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Salir)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1244,5 +1259,6 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.DataGridViewImageColumn e;
         private System.Windows.Forms.DataGridViewImageColumn d;
+        private System.Windows.Forms.PictureBox Salir;
     }
 }

@@ -718,6 +718,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MENUPRINCIPAL";
             this.Text = "MENUPRINCIPAL";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MENUPRINCIPAL_FormClosing);
             this.Load += new System.EventHandler(this.MENUPRINCIPAL_Load);
             this.sidebar.ResumeLayout(false);

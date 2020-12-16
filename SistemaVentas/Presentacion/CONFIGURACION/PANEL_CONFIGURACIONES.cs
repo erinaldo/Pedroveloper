@@ -20,6 +20,11 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
             InitializeComponent();
         }
 
+        public static bool banderaUsuario = true;
+        public static bool banderaEmpleado = true;
+        public static bool banderaProductos = true;
+        public static bool banderaClientes;
+        public static bool banderaProveedores = true;
         int idRol;
         string Rol;
         string Operacion;
@@ -156,6 +161,8 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
                         {
                             usuariosok frm = new usuariosok();
                             frm.ShowDialog();
+                            banderaUsuario = true;
+
                         }
                         else
                         {
@@ -263,7 +270,6 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
         {
             foreach (DataGridViewRow row in datalistado.Rows)
             {
-
                 int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
                 idRol = Convert.ToInt32(row.Cells["idRol"].Value);
                 Rol = Convert.ToString(row.Cells["Rol"].Value);
@@ -277,6 +283,8 @@ namespace SistemaVentas.Presentacion.CONFIGURACION
                         {
                             CLIENTES_PROVEEDORES.ClientesOk frm = new CLIENTES_PROVEEDORES.ClientesOk();
                             frm.ShowDialog();
+                            banderaClientes = true;
+
                         }
                         else
                         {

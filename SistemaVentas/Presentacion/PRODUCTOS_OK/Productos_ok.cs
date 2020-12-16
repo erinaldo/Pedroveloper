@@ -653,9 +653,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void Productos_ok_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Dispose();
+          /*  Dispose();
             CONFIGURACION.PANEL_CONFIGURACIONES frm = new CONFIGURACION.PANEL_CONFIGURACIONES();
-            frm.ShowDialog();
+            frm.ShowDialog();*/
         }
 
 

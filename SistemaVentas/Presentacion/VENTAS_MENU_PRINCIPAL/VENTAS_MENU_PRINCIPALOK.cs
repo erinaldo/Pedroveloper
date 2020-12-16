@@ -72,6 +72,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
+            pictureBox5.Enabled = false;
             panelListaPrecios.Visible = false;
             ListaPreciosAlPorMayor.Visible = false;
 

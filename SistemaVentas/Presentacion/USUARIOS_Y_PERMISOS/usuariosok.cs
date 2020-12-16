@@ -178,7 +178,7 @@ namespace SistemaVentas
         }
         private void usuariosok_Load(object sender, EventArgs e)
         {
-
+     
             LRoles cat = new LRoles();
             panelDataListadoEmpleado.Visible = false;
             panelRegistros.Visible = false;

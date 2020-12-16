@@ -383,6 +383,16 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
        
         private void ClientesOk_Load(object sender, EventArgs e)
         {
+
+            bool bandera = Presentacion.CONFIGURACION.PANEL_CONFIGURACIONES.banderaClientes;
+            if (bandera)
+            {
+                Salir.Visible = true;
+            }
+            else
+            {
+                Salir.Visible = false;
+            }
             mostrar();
         }
 

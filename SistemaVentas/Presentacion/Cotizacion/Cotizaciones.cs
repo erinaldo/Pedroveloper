@@ -24,27 +24,31 @@ namespace SistemaVentas.Presentacion.Cotizacion
         int contador_stock_detalle_de_venta;
         int idproducto;
         int idClienteEstandar;
-        public static    int idusuario_que_inicio_sesion;
-        public static    int idCotizacion;
+        public static int idusuario_que_inicio_sesion;
+        public static int idCotizacion;
         int iddetallecotizacion;
         int Contador;
-        public static  double txtpantalla;
+        public static double txtpantalla;
         double lblStock_de_Productos;
         public static double total;
-        public static   int Id_caja = VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK.Id_caja;
+        public static int Id_caja = VENTAS_MENU_PRINCIPAL.VENTAS_MENU_PRINCIPALOK.Id_caja;
         string SerialPC;
         private string unidadVenta;
         string sevendePor;
-         public static  string txtventagenerada;
+        public static string txtventagenerada;
         double txtprecio_unitario;
         string Ip;
         double cantidad;
         Panel panel_mostrador_de_productos = new Panel();
 
 
-        
+
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
+            btnCambiarCantidad.Enabled = false;
+            btnDescuento.Enabled = false;
+            btnPrecio.Enabled = false;
+
             PanelEnespera.Visible = false;
             txttotal.Enabled = false;
             MOSTRAR_comprobante_serializado_POR_DEFECTO();
@@ -58,24 +62,24 @@ namespace SistemaVentas.Presentacion.Cotizacion
             Obtener_id_de_cliente_estandar();
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario_que_inicio_sesion);
 
-             if (Tipo_de_busqueda == "TECLADO")
+            if (Tipo_de_busqueda == "TECLADO")
             {
                 lbltipodebusqueda2.Text = "Buscar con TECLADO";
             }
-             else
+            else
             {
                 lbltipodebusqueda2.Text = "Buscar con LECTORA de Codigos de Barras";
             }
             Limpiar_para_venta_nueva();
             ObtenerIpLocal();
         }
-      
+
         private void ObtenerIpLocal()
         {
 
             this.Text = Bases.ObtenerIp(ref Ip);
         }
-        
+
         private void Limpiar_para_venta_nueva()
         {
             idCotizacion = 0;
@@ -89,19 +93,19 @@ namespace SistemaVentas.Presentacion.Cotizacion
             lbldescuento.Text = "0.00";
             txt_total_suma.Text = "0.00";
             lblItbiss.Text = "0.00";
-     //       panelBienvenida.Visible = true;
+            //       panelBienvenida.Visible = true;
             PanelOperaciones.Visible = false;
         }
 
 
-       private void sumar()
+        private void sumar()
         {
             try
             {
 
                 int x;
                 x = tablaProductos.Rows.Count;
-                if(x==0)
+                if (x == 0)
                 {
                     txt_total_suma.Text = "0.00";
                     lblItbiss.Text = "0.00";
@@ -118,7 +122,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 double descuento = 0;
                 double totalpagar;
                 totalpagar = 0;
-                foreach (DataGridViewRow fila in tablaProductos.Rows )
+                foreach (DataGridViewRow fila in tablaProductos.Rows)
                 {
 
                     totalpagar += Convert.ToDouble(fila.Cells["Importe"].Value);
@@ -160,9 +164,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 DataTable dt = new DataTable();
-                SqlDataAdapter da;       
+                SqlDataAdapter da;
                 CONEXION.CONEXIONMAESTRA.abrir();
-                da = new SqlDataAdapter("BUSCAR_PRODUCTOS_oka", CONEXION.CONEXIONMAESTRA.conectar );
+                da = new SqlDataAdapter("BUSCAR_PRODUCTOS_oka", CONEXION.CONEXIONMAESTRA.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@letrab", txtbuscar.Text);
                 da.Fill(dt);
@@ -170,7 +174,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 CONEXION.CONEXIONMAESTRA.cerrar();
                 DATALISTADO_PRODUCTOS_OKA.Columns[0].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[1].Visible = false;
-                DATALISTADO_PRODUCTOS_OKA.Columns[2].Width  = 600;
+                DATALISTADO_PRODUCTOS_OKA.Columns[2].Width = 600;
                 DATALISTADO_PRODUCTOS_OKA.Columns[3].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[4].Visible = false;
                 DATALISTADO_PRODUCTOS_OKA.Columns[5].Visible = false;
@@ -187,8 +191,8 @@ namespace SistemaVentas.Presentacion.Cotizacion
             }
         }
 
-     
-      
+
+
         string Tipo_de_busqueda;
         private void MOSTRAR_TIPO_DE_BUSQUEDA()
         {
@@ -199,7 +203,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
             try
             {
                 con.Open();
-                Tipo_de_busqueda = Convert.ToString (com.ExecuteScalar());
+                Tipo_de_busqueda = Convert.ToString(com.ExecuteScalar());
                 con.Close();
             }
             catch (Exception ex)
@@ -248,7 +252,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
 
         public void ValidarVentasNuevas()
         {
-           if (tablaProductos.RowCount ==0)
+            if (tablaProductos.RowCount == 0)
             {
                 Limpiar_para_venta_nueva();
             }
@@ -321,15 +325,15 @@ namespace SistemaVentas.Presentacion.Cotizacion
             PANELGRANEL.Visible = true;
             DATALISTADO_PRODUCTOS_OKA.Visible = false;
         }
-       
+
         private void Frm_FormClosing(object sender, FormClosingEventArgs e)
         {
             ejecutar_ventas_a_granel();
         }
 
-        public  void ejecutar_ventas_a_granel()
+        public void ejecutar_ventas_a_granel()
         {
-            
+
             ejecutar_insertar_ventas();
             if (txtventagenerada == "COTIZACION GENERADA")
             {
@@ -339,7 +343,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 txtbuscar.Focus();
 
             }
-        
+
         }
 
         private void Obtener_id_de_cliente_estandar()
@@ -418,7 +422,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         }
         private void ejecutar_insertar_ventas()
         {
-           // MOSTRAR_comprobante_serializado_POR_DEFECTO();
+            // MOSTRAR_comprobante_serializado_POR_DEFECTO();
             if (txtventagenerada == "COTIZACION NUEVA")
             {
                 try
@@ -459,7 +463,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         }
         private void mostrar_panel_de_Cobro()
         {
-          //  panelBienvenida.Visible = false;
+            //  panelBienvenida.Visible = false;
             PanelOperaciones.Visible = true;
         }
         public void HideWidthColumns()
@@ -632,7 +636,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         }
         private void mostrar_stock_de_detalle_de_ventas()
         {
-             try
+            try
             {
                 DataTable dt = new DataTable();
                 SqlDataAdapter da;
@@ -645,12 +649,12 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 da.Fill(dt);
                 datalistado_stock_detalle_venta.DataSource = dt;
                 con.Close();
-              
+
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace + ex.Message );
+                MessageBox.Show(ex.StackTrace + ex.Message);
             }
         }
 
@@ -658,26 +662,26 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
             try
             {
-           SqlCommand cmd;
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-            con.Open();
-            cmd = new SqlCommand("Editar_detalle_factura_sumar", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Id_producto", idproducto);
-            cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
-            cmd.Parameters.AddWithValue("@Id_factura", idCotizacion);
-            cmd.ExecuteNonQuery();
-            con.Close();
+                SqlCommand cmd;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+                cmd = new SqlCommand("Editar_detalle_factura_sumar", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_producto", idproducto);
+                cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
+                cmd.Parameters.AddWithValue("@Id_factura", idCotizacion);
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
             catch (Exception)
             {
 
-               
+
             }
-           
+
         }
-        
+
         private void disminuir_stock_en_detalle_de_venta()
         {
             try
@@ -686,26 +690,26 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 SqlCommand cmd = new SqlCommand("disminuir_stock_en_detalle_de_venta", CONEXION.CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_Producto1", idproducto);
-                cmd.Parameters.AddWithValue("@cantidad", txtpantalla );
+                cmd.Parameters.AddWithValue("@cantidad", txtpantalla);
                 cmd.ExecuteNonQuery();
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
             catch (Exception)
             {
 
-             
+
             }
         }
-        
+
         private void Obtener_datos_del_detalle_de_venta()
         {
-            
+
             try
             {
-                iddetallecotizacion = Convert.ToInt32 ( tablaProductos.SelectedCells[9].Value.ToString());
+                iddetallecotizacion = Convert.ToInt32(tablaProductos.SelectedCells[9].Value.ToString());
                 idproducto = Convert.ToInt32(tablaProductos.SelectedCells[8].Value.ToString());
                 sevendePor = tablaProductos.SelectedCells[17].Value.ToString();
-                cantidad=Convert.ToDouble( tablaProductos.SelectedCells[5].Value);
+                cantidad = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
             }
             catch (Exception ex)
             {
@@ -715,7 +719,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
         private void Editar_detalle_factura_sumar()
         {
 
-        //    lblStock_de_Productos = Convert.ToDouble(tablaProductos.SelectedCells[15].Value.ToString());
+            //    lblStock_de_Productos = Convert.ToDouble(tablaProductos.SelectedCells[15].Value.ToString());
             if (lblStock_de_Productos > 0)
             {
 
@@ -731,9 +735,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
         }
         private void Editar_detalle_factura_restar()
         {
-           
-                ejecutar_editar_detalle_venta_restar();
-                aumentar_stock_en_detalle_de_venta();
+
+            ejecutar_editar_detalle_venta_restar();
+            aumentar_stock_en_detalle_de_venta();
             Listarproductosagregados();
         }
         private void aumentar_stock_en_detalle_de_venta()
@@ -757,25 +761,25 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
             try
             {
-            SqlCommand cmd;
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-            con.Open();
-            cmd = new SqlCommand("Editar_detalle_factura_restar", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@iddetalle_factura", iddetallecotizacion);
-            cmd.Parameters.AddWithValue("cantidad", txtpantalla );
-            cmd.Parameters.AddWithValue("@Id_producto", idproducto);
-            cmd.Parameters.AddWithValue("@Id_factura", idCotizacion);
-            cmd.ExecuteNonQuery();
-            con.Close();
-           
+                SqlCommand cmd;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                con.Open();
+                cmd = new SqlCommand("Editar_detalle_factura_restar", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@iddetalle_factura", iddetallecotizacion);
+                cmd.Parameters.AddWithValue("cantidad", txtpantalla);
+                cmd.Parameters.AddWithValue("@Id_producto", idproducto);
+                cmd.Parameters.AddWithValue("@Id_factura", idCotizacion);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-           
+
         }
 
         private void datalistadoDetalleVenta_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -789,36 +793,36 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 txtpantalla = 1;
                 Editar_detalle_factura_sumar();
             }
-            if (e.ColumnIndex== this .tablaProductos.Columns ["R"].Index )
+            if (e.ColumnIndex == this.tablaProductos.Columns["R"].Index)
             {
                 txtpantalla = 1;
                 Editar_detalle_factura_restar();
                 Eliminarfacturas();
             }
-            
+
 
             if (e.ColumnIndex == this.tablaProductos.Columns["EL"].Index)
             {
 
-                int iddetalle_cotizacion =Convert.ToInt32 ( tablaProductos.SelectedCells[9].Value);
-                    try
-                    {
-                        SqlCommand cmd;
-                        SqlConnection con = new SqlConnection();
-                        con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                        con.Open();
-                        cmd = new SqlCommand("eliminar_detalle_factura", con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@idDetallefactura", iddetalle_cotizacion);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        txtpantalla = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
-                        aumentar_stock_en_detalle_de_venta();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }      
+                int iddetalle_cotizacion = Convert.ToInt32(tablaProductos.SelectedCells[9].Value);
+                try
+                {
+                    SqlCommand cmd;
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
+                    con.Open();
+                    cmd = new SqlCommand("eliminar_detalle_factura", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idDetallefactura", iddetalle_cotizacion);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    txtpantalla = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
+                    aumentar_stock_en_detalle_de_venta();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 Listarproductosagregados();
                 Eliminarfacturas();
             }
@@ -858,17 +862,17 @@ namespace SistemaVentas.Presentacion.Cotizacion
             x = tablaProductos.Rows.Count;
             Contador = (x);
         }
-           
+
 
         private void datalistadoDetalleVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
             Obtener_datos_del_detalle_de_venta();
-            if (e.KeyChar ==Convert.ToChar ("+"))
-            {    
+            if (e.KeyChar == Convert.ToChar("+"))
+            {
                 Editar_detalle_factura_sumar();
             }
-            if (e.KeyChar == Convert.ToChar ("-"))
-                {
+            if (e.KeyChar == Convert.ToChar("-"))
+            {
                 Editar_detalle_factura_restar();
                 contar_tablas_ventas();
                 if (Contador == 0)
@@ -977,11 +981,11 @@ namespace SistemaVentas.Presentacion.Cotizacion
         {
             try
             {
-  if (txtbuscar.Text =="")
-            {
-                DATALISTADO_PRODUCTOS_OKA.Visible = false;
-                lbltipodebusqueda2.Visible = true;
-            }
+                if (txtbuscar.Text == "")
+                {
+                    DATALISTADO_PRODUCTOS_OKA.Visible = false;
+                    lbltipodebusqueda2.Visible = true;
+                }
                 if (txtbuscar.Text != "")
                 {
                     DATALISTADO_PRODUCTOS_OKA.Visible = true;
@@ -1016,9 +1020,9 @@ namespace SistemaVentas.Presentacion.Cotizacion
             catch (Exception)
             {
 
-              
+
             }
-        
+
         }
         private void lbltipodebusqueda2_Click(object sender, EventArgs e)
         {
@@ -1043,7 +1047,7 @@ namespace SistemaVentas.Presentacion.Cotizacion
                 txtmonto.Clear();
                 txtmonto.Focus();
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -1084,30 +1088,25 @@ namespace SistemaVentas.Presentacion.Cotizacion
             double Cantidad;
             Cantidad = Convert.ToDouble(tablaProductos.SelectedCells[5].Value);
 
-            double stock ;
-            double condicional ;
-            string ControlStock ;
+            double stock;
+            double condicional;
+            string ControlStock;
             ControlStock = tablaProductos.SelectedCells[16].Value.ToString();
-            if (ControlStock =="SI")
-            {
-                stock= Convert.ToDouble(tablaProductos.SelectedCells[11].Value);
-                condicional = Cantidad + stock;
-                if (condicional>= MontoaIngresar)
-                {
-                    BotonCantidadEjecuta();
-                }
-                else
-                {
-                    TimerLABEL_STOCK.Start();
-                }
-            }
-            else
+            stock = Convert.ToDouble(tablaProductos.SelectedCells[11].Value);
+            condicional = Cantidad + stock;
+            if (condicional >= MontoaIngresar)
             {
                 BotonCantidadEjecuta();
             }
-          
+            else
+            {
+                TimerLABEL_STOCK.Start();
+            }
 
         }
+    
+
+        
         private void BotonCantidadEjecuta()
         {
             double MontoaIngresar;
