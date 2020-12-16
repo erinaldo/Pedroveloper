@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using SistemaVentas.CONEXION;
+
 namespace SistemaVentas.Presentacion.DISEÑADOR_DE_COMPROBANTES
 {
     public partial class Ticket : Form
@@ -17,9 +19,28 @@ namespace SistemaVentas.Presentacion.DISEÑADOR_DE_COMPROBANTES
         {
             InitializeComponent();
         }
+        private void ObtenerFoto()
+        {
+            int idDocumento;
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("obtenerFoto", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                byte[] b = (Byte[])(cmd.ExecuteScalar());
+                MemoryStream ms = new MemoryStream(b);
+                ICONO.Image = Image.FromStream(ms);
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+        }
+
         string txttipo;
         private void Ticket_Load(object sender, EventArgs e)
         {
+            ObtenerFoto();
             Mostrar_formato_ticket();
             obtener_datos();
         }
@@ -31,11 +52,11 @@ namespace SistemaVentas.Presentacion.DISEÑADOR_DE_COMPROBANTES
 
                 DataTable dt = new DataTable();
                 SqlDataAdapter da;
-                CONEXION.CONEXIONMAESTRA.conectar.Open();
-                da = new SqlDataAdapter("Mostrar_formato_ticket", CONEXION.CONEXIONMAESTRA.conectar);
+                CONEXIONMAESTRA.abrir();
+                da = new SqlDataAdapter("Mostrar_formato_ticket",CONEXIONMAESTRA.conectar);
                 da.Fill(dt);
                 datalistado_tickets.DataSource = dt;
-                CONEXION.CONEXIONMAESTRA.conectar.Close();
+               CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
@@ -114,6 +135,7 @@ namespace SistemaVentas.Presentacion.DISEÑADOR_DE_COMPROBANTES
 
         private void Button4_Click(object sender, EventArgs e)
         {
+
             try
             {
                CONEXION.CONEXIONMAESTRA.conectar .Open();

@@ -2033,10 +2033,10 @@ namespace SistemaVentas.Presentacion.ASISTENTE_DE_INSTALACION_servidor
                         insertarPermisosRol();
                         insertarUnidadesCompra();
                         insertarUnidadEstandar();
-                        insertar_3_COMPROBANTES_POR_DEFECTO();
 
                         Ingresar_empresa();
                         insertarEmpleado();
+                        insertar_3_COMPROBANTES_POR_DEFECTO();
 
 
 

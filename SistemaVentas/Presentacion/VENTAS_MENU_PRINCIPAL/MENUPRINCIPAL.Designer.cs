@@ -710,6 +710,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1735, 824);
             this.Controls.Add(this.wrapper);
             this.Controls.Add(this.datalistadousuario);

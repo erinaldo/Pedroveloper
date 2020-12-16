@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ticket));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.ICONO = new System.Windows.Forms.PictureBox();
@@ -96,13 +96,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Label12 = new System.Windows.Forms.Label();
-            this.btnTicket = new System.Windows.Forms.Button();
-            this.btnfacturaBoleta = new System.Windows.Forms.Button();
-            this.Button4 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.datalistado_tickets = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Button4 = new System.Windows.Forms.Button();
+            this.btnfacturaBoleta = new System.Windows.Forms.Button();
+            this.btnTicket = new System.Windows.Forms.Button();
+            this.Label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.Minimizar = new System.Windows.Forms.PictureBox();
@@ -351,7 +351,7 @@
             // 
             this.Label15.AutoSize = true;
             this.Label15.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.Label15.Location = new System.Drawing.Point(43, 347);
+            this.Label15.Location = new System.Drawing.Point(90, 288);
             this.Label15.Name = "Label15";
             this.Label15.Size = new System.Drawing.Size(13, 13);
             this.Label15.TabIndex = 641;
@@ -361,7 +361,7 @@
             // 
             this.Label21.AutoSize = true;
             this.Label21.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.Label21.Location = new System.Drawing.Point(384, 303);
+            this.Label21.Location = new System.Drawing.Point(366, 356);
             this.Label21.Name = "Label21";
             this.Label21.Size = new System.Drawing.Size(35, 13);
             this.Label21.TabIndex = 640;
@@ -371,7 +371,7 @@
             // 
             this.Label26.AutoSize = true;
             this.Label26.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.Label26.Location = new System.Drawing.Point(382, 330);
+            this.Label26.Location = new System.Drawing.Point(382, 504);
             this.Label26.Name = "Label26";
             this.Label26.Size = new System.Drawing.Size(35, 13);
             this.Label26.TabIndex = 639;
@@ -391,7 +391,7 @@
             // 
             this.Label27.AutoSize = true;
             this.Label27.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.Label27.Location = new System.Drawing.Point(382, 343);
+            this.Label27.Location = new System.Drawing.Point(379, 383);
             this.Label27.Name = "Label27";
             this.Label27.Size = new System.Drawing.Size(44, 13);
             this.Label27.TabIndex = 637;
@@ -401,7 +401,7 @@
             // 
             this.Label29.AutoSize = true;
             this.Label29.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.Label29.Location = new System.Drawing.Point(382, 369);
+            this.Label29.Location = new System.Drawing.Point(385, 409);
             this.Label29.Name = "Label29";
             this.Label29.Size = new System.Drawing.Size(35, 13);
             this.Label29.TabIndex = 636;
@@ -556,7 +556,7 @@
             // 
             this.Label31.AutoSize = true;
             this.Label31.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.Label31.Location = new System.Drawing.Point(384, 428);
+            this.Label31.Location = new System.Drawing.Point(384, 422);
             this.Label31.Name = "Label31";
             this.Label31.Size = new System.Drawing.Size(35, 13);
             this.Label31.TabIndex = 648;
@@ -566,7 +566,7 @@
             // 
             this.Label37.AutoSize = true;
             this.Label37.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.Label37.Location = new System.Drawing.Point(384, 451);
+            this.Label37.Location = new System.Drawing.Point(381, 529);
             this.Label37.Name = "Label37";
             this.Label37.Size = new System.Drawing.Size(35, 13);
             this.Label37.TabIndex = 647;
@@ -576,7 +576,7 @@
             // 
             this.Label19.AutoSize = true;
             this.Label19.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.Label19.Location = new System.Drawing.Point(376, 476);
+            this.Label19.Location = new System.Drawing.Point(376, 481);
             this.Label19.Name = "Label19";
             this.Label19.Size = new System.Drawing.Size(47, 13);
             this.Label19.TabIndex = 646;
@@ -735,7 +735,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label20.Location = new System.Drawing.Point(382, 356);
+            this.label20.Location = new System.Drawing.Point(379, 396);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(44, 13);
             this.label20.TabIndex = 666;
@@ -761,6 +761,7 @@
             this.panel9.Controls.Add(this.label2);
             this.panel9.Controls.Add(this.PictureBox1);
             this.panel9.Controls.Add(this.label20);
+            this.panel9.Controls.Add(this.Label26);
             this.panel9.Controls.Add(this.ICONO);
             this.panel9.Controls.Add(this.txtempresaTICKET);
             this.panel9.Controls.Add(this.PictureBox2);
@@ -798,7 +799,6 @@
             this.panel9.Controls.Add(this.Label10);
             this.panel9.Controls.Add(this.Label21);
             this.panel9.Controls.Add(this.Label32);
-            this.panel9.Controls.Add(this.Label26);
             this.panel9.Controls.Add(this.Panel16);
             this.panel9.Controls.Add(this.Label18);
             this.panel9.Controls.Add(this.txtMoneda_String);
@@ -826,62 +826,11 @@
             this.panel2.Controls.Add(this.btnfacturaBoleta);
             this.panel2.Controls.Add(this.btnTicket);
             this.panel2.Controls.Add(this.Label12);
+            this.panel2.Controls.Add(this.Label15);
             this.panel2.Location = new System.Drawing.Point(423, 15);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(452, 880);
             this.panel2.TabIndex = 1;
-            // 
-            // Label12
-            // 
-            this.Label12.AutoSize = true;
-            this.Label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Label12.Location = new System.Drawing.Point(18, 112);
-            this.Label12.Name = "Label12";
-            this.Label12.Size = new System.Drawing.Size(284, 40);
-            this.Label12.TabIndex = 3;
-            this.Label12.Text = "Elige un Formato de Comprobante\r\ncon el que Trabajaras";
-            // 
-            // btnTicket
-            // 
-            this.btnTicket.BackColor = System.Drawing.Color.White;
-            this.btnTicket.FlatAppearance.BorderSize = 0;
-            this.btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTicket.Location = new System.Drawing.Point(22, 158);
-            this.btnTicket.Name = "btnTicket";
-            this.btnTicket.Size = new System.Drawing.Size(183, 37);
-            this.btnTicket.TabIndex = 603;
-            this.btnTicket.Text = "Ticket No Fiscal";
-            this.btnTicket.UseVisualStyleBackColor = false;
-            this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
-            // 
-            // btnfacturaBoleta
-            // 
-            this.btnfacturaBoleta.BackColor = System.Drawing.Color.White;
-            this.btnfacturaBoleta.FlatAppearance.BorderSize = 0;
-            this.btnfacturaBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnfacturaBoleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnfacturaBoleta.Location = new System.Drawing.Point(212, 158);
-            this.btnfacturaBoleta.Name = "btnfacturaBoleta";
-            this.btnfacturaBoleta.Size = new System.Drawing.Size(183, 37);
-            this.btnfacturaBoleta.TabIndex = 602;
-            this.btnfacturaBoleta.Text = "factura - Boleta";
-            this.btnfacturaBoleta.UseVisualStyleBackColor = false;
-            this.btnfacturaBoleta.Click += new System.EventHandler(this.btnfacturaBoleta_Click);
-            // 
-            // Button4
-            // 
-            this.Button4.BackColor = System.Drawing.Color.White;
-            this.Button4.FlatAppearance.BorderSize = 2;
-            this.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button4.Location = new System.Drawing.Point(22, 202);
-            this.Button4.Name = "Button4";
-            this.Button4.Size = new System.Drawing.Size(183, 37);
-            this.Button4.TabIndex = 604;
-            this.Button4.Text = "Guardar";
-            this.Button4.UseVisualStyleBackColor = false;
-            this.Button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // panel7
             // 
@@ -896,50 +845,50 @@
             this.datalistado_tickets.AllowUserToAddRows = false;
             this.datalistado_tickets.AllowUserToDeleteRows = false;
             this.datalistado_tickets.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
-            this.datalistado_tickets.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            this.datalistado_tickets.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.datalistado_tickets.BackgroundColor = System.Drawing.Color.White;
             this.datalistado_tickets.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datalistado_tickets.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.datalistado_tickets.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistado_tickets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistado_tickets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.datalistado_tickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datalistado_tickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datalistado_tickets.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datalistado_tickets.DefaultCellStyle = dataGridViewCellStyle13;
             this.datalistado_tickets.EnableHeadersVisualStyles = false;
             this.datalistado_tickets.Location = new System.Drawing.Point(21, 12);
             this.datalistado_tickets.Name = "datalistado_tickets";
             this.datalistado_tickets.ReadOnly = true;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datalistado_tickets.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datalistado_tickets.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.datalistado_tickets.RowHeadersVisible = false;
             this.datalistado_tickets.RowHeadersWidth = 9;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Gainsboro;
-            this.datalistado_tickets.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Gainsboro;
+            this.datalistado_tickets.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.datalistado_tickets.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.datalistado_tickets.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.datalistado_tickets.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
@@ -958,17 +907,68 @@
             this.Eliminar.ReadOnly = true;
             this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // Button4
+            // 
+            this.Button4.BackColor = System.Drawing.Color.White;
+            this.Button4.FlatAppearance.BorderSize = 2;
+            this.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button4.Location = new System.Drawing.Point(22, 202);
+            this.Button4.Name = "Button4";
+            this.Button4.Size = new System.Drawing.Size(183, 37);
+            this.Button4.TabIndex = 604;
+            this.Button4.Text = "Guardar";
+            this.Button4.UseVisualStyleBackColor = false;
+            this.Button4.Click += new System.EventHandler(this.Button4_Click);
+            // 
+            // btnfacturaBoleta
+            // 
+            this.btnfacturaBoleta.BackColor = System.Drawing.Color.White;
+            this.btnfacturaBoleta.FlatAppearance.BorderSize = 0;
+            this.btnfacturaBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnfacturaBoleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnfacturaBoleta.Location = new System.Drawing.Point(212, 158);
+            this.btnfacturaBoleta.Name = "btnfacturaBoleta";
+            this.btnfacturaBoleta.Size = new System.Drawing.Size(183, 37);
+            this.btnfacturaBoleta.TabIndex = 602;
+            this.btnfacturaBoleta.Text = "factura - Boleta";
+            this.btnfacturaBoleta.UseVisualStyleBackColor = false;
+            this.btnfacturaBoleta.Click += new System.EventHandler(this.btnfacturaBoleta_Click);
+            // 
+            // btnTicket
+            // 
+            this.btnTicket.BackColor = System.Drawing.Color.White;
+            this.btnTicket.FlatAppearance.BorderSize = 0;
+            this.btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTicket.Location = new System.Drawing.Point(22, 158);
+            this.btnTicket.Name = "btnTicket";
+            this.btnTicket.Size = new System.Drawing.Size(183, 37);
+            this.btnTicket.TabIndex = 603;
+            this.btnTicket.Text = "Ticket No Fiscal";
+            this.btnTicket.UseVisualStyleBackColor = false;
+            this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
+            // 
+            // Label12
+            // 
+            this.Label12.AutoSize = true;
+            this.Label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.Label12.Location = new System.Drawing.Point(18, 112);
+            this.Label12.Name = "Label12";
+            this.Label12.Size = new System.Drawing.Size(284, 40);
+            this.Label12.TabIndex = 3;
+            this.Label12.Text = "Elige un Formato de Comprobante\r\ncon el que Trabajaras";
+            // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.Label15);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(912, 1024);
+            this.panel1.Size = new System.Drawing.Size(909, 1024);
             this.panel1.TabIndex = 0;
             // 
             // panel8
@@ -1038,13 +1038,15 @@
             // 
             // Ticket
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 1024);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(909, 1024);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Name = "Ticket";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formato de Comprobantes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1060,7 +1062,6 @@
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistado_tickets)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
