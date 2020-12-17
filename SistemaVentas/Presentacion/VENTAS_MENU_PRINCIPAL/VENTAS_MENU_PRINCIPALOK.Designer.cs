@@ -226,6 +226,8 @@
             this.txtProducto = new System.Windows.Forms.Label();
             this.lblidproducto = new System.Windows.Forms.Label();
             this.Label38 = new System.Windows.Forms.Label();
+            this.txtbuscar = new System.Windows.Forms.TextBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.dtempresaok = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DATALISTADO_PRODUCTOS_OKA = new System.Windows.Forms.DataGridView();
@@ -437,8 +439,6 @@
             this.bunifuElipse32 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse33 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse34 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.txtbuscar = new System.Windows.Forms.TextBox();
             this.PanelC1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.panel21.SuspendLayout();
@@ -472,6 +472,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datalistadocomprobante)).BeginInit();
             this.Panel4.SuspendLayout();
             this.MenuStrip4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtempresaok)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADO_PRODUCTOS_OKA)).BeginInit();
             this.Panel11.SuspendLayout();
@@ -532,7 +533,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.listapreciosdt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaalpormayor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listapreciosmayor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelC1
@@ -2574,6 +2574,27 @@
             this.Label38.Size = new System.Drawing.Size(175, 25);
             this.Label38.TabIndex = 0;
             this.Label38.Text = "Precio unitario = ";
+            // 
+            // txtbuscar
+            // 
+            this.txtbuscar.BackColor = System.Drawing.Color.White;
+            this.txtbuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.txtbuscar.Location = new System.Drawing.Point(67, 15);
+            this.txtbuscar.Name = "txtbuscar";
+            this.txtbuscar.Size = new System.Drawing.Size(366, 20);
+            this.txtbuscar.TabIndex = 457;
+            this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(55, 6);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(400, 34);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 677;
+            this.pictureBox7.TabStop = false;
             // 
             // dtempresaok
             // 
@@ -5173,7 +5194,7 @@
             this.panel38.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel38.Controls.Add(this.label40);
             this.panel38.Controls.Add(this.pictureBox15);
-            this.panel38.Location = new System.Drawing.Point(8, 8);
+            this.panel38.Location = new System.Drawing.Point(4, 4);
             this.panel38.Name = "panel38";
             this.panel38.Size = new System.Drawing.Size(192, 120);
             this.panel38.TabIndex = 1;
@@ -5600,31 +5621,11 @@
             this.bunifuElipse34.ElipseRadius = 7;
             this.bunifuElipse34.TargetControl = this.ListaPreciosAlPorMayor;
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(55, 6);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(400, 34);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 677;
-            this.pictureBox7.TabStop = false;
-            // 
-            // txtbuscar
-            // 
-            this.txtbuscar.BackColor = System.Drawing.Color.White;
-            this.txtbuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.txtbuscar.Location = new System.Drawing.Point(67, 15);
-            this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.Size = new System.Drawing.Size(366, 20);
-            this.txtbuscar.TabIndex = 457;
-            this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
-            // 
             // VENTAS_MENU_PRINCIPALOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1735, 824);
             this.Controls.Add(this.wrapper);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -5685,6 +5686,7 @@
             this.Panel4.PerformLayout();
             this.MenuStrip4.ResumeLayout(false);
             this.MenuStrip4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtempresaok)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADO_PRODUCTOS_OKA)).EndInit();
             this.Panel11.ResumeLayout(false);
@@ -5760,7 +5762,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.listapreciosdt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaalpormayor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listapreciosmayor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }

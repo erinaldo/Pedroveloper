@@ -417,32 +417,16 @@ namespace SistemaVentas.Presentacion.FacturasCredito
             txttotal_saldo.Text = "0";
         }
 
-        /*
-          internal void Buscar_id_USUARIOS()
+        private void txtProveedor_DoubleClick(object sender, EventArgs e)
         {
 
-            string resultado;
-            string queryMoneda;
-            queryMoneda = "Buscar_id_USUARIOS";
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-            
-            SqlCommand comMoneda = new SqlCommand(queryMoneda, con);
-            comMoneda.CommandType = CommandType.StoredProcedure;
-            comMoneda.Parameters.AddWithValue("@Nombre_y_Apelllidos", txtUSUARIOS.Text);
-            try
-            {
-                con.Open();
-                resultado = Convert.ToString(comMoneda.ExecuteScalar()); //asignamos el valor del importe
-                txtIdusuario.Text = resultado;
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                resultado = "";
-            }
+            Presentacion.CLIENTES_PROVEEDORES.Proveedores frm = new CLIENTES_PROVEEDORES.Proveedores();
+            frm.ShowDialog();
         }
-         * */
+
+        private void txtFechaPedido_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

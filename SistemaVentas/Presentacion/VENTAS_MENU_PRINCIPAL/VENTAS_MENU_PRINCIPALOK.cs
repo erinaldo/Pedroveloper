@@ -475,6 +475,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             DATALISTADO_PRODUCTOS_OKA.Visible = true;
             //  DATALISTADO_PRODUCTOS_OKA.Dock = DockStyle.Fill;
             DATALISTADO_PRODUCTOS_OKA.BackgroundColor = Color.White;
+            DATALISTADO_PRODUCTOS_OKA.BringToFront();
             lbltipodebusqueda2.Visible = false;
             /* panel_mostrador_de_productos.Controls.Add(DATALISTADO_PRODUCTOS_OKA);
              this.Controls.Add(panel_mostrador_de_productos);
