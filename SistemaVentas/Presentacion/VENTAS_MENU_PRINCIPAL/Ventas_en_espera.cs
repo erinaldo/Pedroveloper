@@ -77,9 +77,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
 
         private void datalistado_ventas_en_espera_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        {}
 
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
@@ -98,8 +96,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
 
         private void txtbusca_TextChanged(object sender, EventArgs e)
-        {
+        {}
 
+        private void cerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
+
     }
 }

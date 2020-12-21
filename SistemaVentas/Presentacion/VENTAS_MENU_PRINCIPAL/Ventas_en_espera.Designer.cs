@@ -44,7 +44,6 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.Panel29 = new System.Windows.Forms.Panel();
             this.txtbusca = new System.Windows.Forms.TextBox();
             this.MenuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,32 +52,32 @@
             this.datalistadodetalledeventasarestaurar = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblfechadeventa = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.cerrar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistado_ventas_en_espera)).BeginInit();
             this.panel3.SuspendLayout();
             this.MenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datalistadodetalledeventasarestaurar)).BeginInit();
-            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.datalistado_ventas_en_espera);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(21, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 466);
+            this.panel1.Size = new System.Drawing.Size(373, 425);
             this.panel1.TabIndex = 0;
             // 
             // datalistado_ventas_en_espera
@@ -137,7 +136,7 @@
             this.datalistado_ventas_en_espera.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.datalistado_ventas_en_espera.RowTemplate.Height = 40;
             this.datalistado_ventas_en_espera.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistado_ventas_en_espera.Size = new System.Drawing.Size(360, 364);
+            this.datalistado_ventas_en_espera.Size = new System.Drawing.Size(373, 323);
             this.datalistado_ventas_en_espera.TabIndex = 359;
             this.datalistado_ventas_en_espera.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistado_ventas_en_espera_CellClick);
             this.datalistado_ventas_en_espera.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datalistado_ventas_en_espera_CellContentClick);
@@ -155,14 +154,14 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.Panel29);
             this.panel3.Controls.Add(this.txtbusca);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.pictureBox7);
             this.panel3.Controls.Add(this.MenuStrip1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(360, 102);
+            this.panel3.Size = new System.Drawing.Size(373, 102);
             this.panel3.TabIndex = 0;
             // 
             // label1
@@ -171,18 +170,10 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(360, 43);
+            this.label1.Size = new System.Drawing.Size(373, 43);
             this.label1.TabIndex = 537;
-            this.label1.Text = "facturas en Espera";
+            this.label1.Text = "Facturas en Espera";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Panel29
-            // 
-            this.Panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(198)))), ((int)(((byte)(91)))));
-            this.Panel29.Location = new System.Drawing.Point(12, 88);
-            this.Panel29.Name = "Panel29";
-            this.Panel29.Size = new System.Drawing.Size(273, 2);
-            this.Panel29.TabIndex = 536;
             // 
             // txtbusca
             // 
@@ -191,9 +182,9 @@
             this.txtbusca.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtbusca.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtbusca.ForeColor = System.Drawing.Color.Black;
-            this.txtbusca.Location = new System.Drawing.Point(12, 63);
+            this.txtbusca.Location = new System.Drawing.Point(86, 58);
             this.txtbusca.Name = "txtbusca";
-            this.txtbusca.Size = new System.Drawing.Size(272, 22);
+            this.txtbusca.Size = new System.Drawing.Size(262, 22);
             this.txtbusca.TabIndex = 534;
             this.txtbusca.TextChanged += new System.EventHandler(this.txtbusca_TextChanged);
             // 
@@ -206,7 +197,7 @@
             this.ToolStripMenuItem5,
             this.ToolStripMenuItem4});
             this.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.MenuStrip1.Location = new System.Drawing.Point(286, 54);
+            this.MenuStrip1.Location = new System.Drawing.Point(5, 43);
             this.MenuStrip1.Name = "MenuStrip1";
             this.MenuStrip1.ShowItemToolTips = true;
             this.MenuStrip1.Size = new System.Drawing.Size(67, 45);
@@ -216,7 +207,7 @@
             // ToolStripMenuItem5
             // 
             this.ToolStripMenuItem5.AutoSize = false;
-            this.ToolStripMenuItem5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ToolStripMenuItem5.BackColor = System.Drawing.Color.White;
             this.ToolStripMenuItem5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.ToolStripMenuItem5.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.ToolStripMenuItem5.ForeColor = System.Drawing.Color.Black;
@@ -234,14 +225,13 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.datalistadodetalledeventasarestaurar);
-            this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel6);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(360, 0);
+            this.panel2.Location = new System.Drawing.Point(400, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(625, 466);
+            this.panel2.Size = new System.Drawing.Size(554, 440);
             this.panel2.TabIndex = 1;
             // 
             // datalistadodetalledeventasarestaurar
@@ -280,7 +270,8 @@
             this.datalistadodetalledeventasarestaurar.DefaultCellStyle = dataGridViewCellStyle8;
             this.datalistadodetalledeventasarestaurar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datalistadodetalledeventasarestaurar.EnableHeadersVisualStyles = false;
-            this.datalistadodetalledeventasarestaurar.Location = new System.Drawing.Point(5, 102);
+            this.datalistadodetalledeventasarestaurar.GridColor = System.Drawing.Color.White;
+            this.datalistadodetalledeventasarestaurar.Location = new System.Drawing.Point(5, 53);
             this.datalistadodetalledeventasarestaurar.Name = "datalistadodetalledeventasarestaurar";
             this.datalistadodetalledeventasarestaurar.ReadOnly = true;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -301,7 +292,7 @@
             this.datalistadodetalledeventasarestaurar.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.datalistadodetalledeventasarestaurar.RowTemplate.Height = 40;
             this.datalistadodetalledeventasarestaurar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datalistadodetalledeventasarestaurar.Size = new System.Drawing.Size(620, 364);
+            this.datalistadodetalledeventasarestaurar.Size = new System.Drawing.Size(549, 387);
             this.datalistadodetalledeventasarestaurar.TabIndex = 360;
             // 
             // dataGridViewImageColumn1
@@ -321,47 +312,16 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ReadOnly = true;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.lblfechadeventa);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(5, 53);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(620, 49);
-            this.panel5.TabIndex = 1;
-            // 
-            // lblfechadeventa
-            // 
-            this.lblfechadeventa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblfechadeventa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfechadeventa.Location = new System.Drawing.Point(134, 0);
-            this.lblfechadeventa.Name = "lblfechadeventa";
-            this.lblfechadeventa.Size = new System.Drawing.Size(486, 49);
-            this.lblfechadeventa.TabIndex = 1;
-            this.lblfechadeventa.Text = "--";
-            this.lblfechadeventa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 49);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Fecha de factura:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.cerrar);
             this.panel4.Controls.Add(this.btneliminar);
             this.panel4.Controls.Add(this.btnRestaurar);
             this.panel4.Controls.Add(this.panel7);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(5, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(620, 53);
+            this.panel4.Size = new System.Drawing.Size(549, 53);
             this.panel4.TabIndex = 0;
             // 
             // btneliminar
@@ -401,7 +361,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(620, 6);
+            this.panel7.Size = new System.Drawing.Size(549, 6);
             this.panel7.TabIndex = 5;
             // 
             // panel6
@@ -409,16 +369,54 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(5, 466);
+            this.panel6.Size = new System.Drawing.Size(5, 440);
             this.panel6.TabIndex = 361;
+            // 
+            // panel9
+            // 
+            this.panel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel9.BackgroundImage")));
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel9.Controls.Add(this.panel2);
+            this.panel9.Controls.Add(this.panel1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(985, 466);
+            this.panel9.TabIndex = 613;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(70, 46);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(300, 40);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 678;
+            this.pictureBox7.TabStop = false;
+            // 
+            // cerrar
+            // 
+            this.cerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cerrar.BackgroundImage")));
+            this.cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cerrar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cerrar.FlatAppearance.BorderSize = 0;
+            this.cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cerrar.Location = new System.Drawing.Point(342, 6);
+            this.cerrar.Name = "cerrar";
+            this.cerrar.Size = new System.Drawing.Size(167, 47);
+            this.cerrar.TabIndex = 6;
+            this.cerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cerrar.UseVisualStyleBackColor = true;
+            this.cerrar.Click += new System.EventHandler(this.cerrar_Click);
             // 
             // Ventas_en_espera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(985, 466);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel9);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Ventas_en_espera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -431,8 +429,9 @@
             this.MenuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datalistadodetalledeventasarestaurar)).EndInit();
-            this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,23 +442,22 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        internal System.Windows.Forms.Panel Panel29;
         internal System.Windows.Forms.TextBox txtbusca;
         internal System.Windows.Forms.MenuStrip MenuStrip1;
         internal System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem5;
         internal System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem4;
         internal System.Windows.Forms.DataGridView datalistado_ventas_en_espera;
         internal System.Windows.Forms.DataGridView datalistadodetalledeventasarestaurar;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label lblfechadeventa;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btnRestaurar;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         internal System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         internal System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button cerrar;
     }
 }

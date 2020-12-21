@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>https://codigo369.com/wp-content/uploads/2020/05/797.jpg/</UpdateUrl>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -348,6 +348,12 @@
     </Compile>
     <Compile Include="Presentacion\CONFIGURACION\PANEL_CONFIGURACIONES.Designer.cs">
       <DependentUpon>PANEL_CONFIGURACIONES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Contabilidad\Contabilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Contabilidad\Contabilidad.Designer.cs">
+      <DependentUpon>Contabilidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\CopiasBd\CrearCopiaBd.cs">
       <SubType>Form</SubType>

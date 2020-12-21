@@ -220,7 +220,6 @@
             this.CurvaPanelInfoDetallada = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label45 = new System.Windows.Forms.Label();
             this.Panel16.SuspendLayout();
             this.Panel2.SuspendLayout();
             this.panelInformacion.SuspendLayout();
@@ -459,7 +458,6 @@
             // 
             this.panelInfoBasicaDetalle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelInfoBasicaDetalle.BackgroundImage")));
             this.panelInfoBasicaDetalle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelInfoBasicaDetalle.Controls.Add(this.label45);
             this.panelInfoBasicaDetalle.Controls.Add(this.label43);
             this.panelInfoBasicaDetalle.Controls.Add(this.tablaEmpresa);
             this.panelInfoBasicaDetalle.Controls.Add(this.btnEditar);
@@ -860,7 +858,7 @@
             this.bunifuSeparator27.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator27.ForeColor = System.Drawing.Color.White;
             this.bunifuSeparator27.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bunifuSeparator27.LineThickness = 8;
+            this.bunifuSeparator27.LineThickness = 12;
             this.bunifuSeparator27.Location = new System.Drawing.Point(412, 43);
             this.bunifuSeparator27.Margin = new System.Windows.Forms.Padding(8);
             this.bunifuSeparator27.Name = "bunifuSeparator27";
@@ -874,7 +872,7 @@
             this.bunifuSeparator14.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator14.Dock = System.Windows.Forms.DockStyle.Top;
             this.bunifuSeparator14.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuSeparator14.LineThickness = 3205;
+            this.bunifuSeparator14.LineThickness = 4931;
             this.bunifuSeparator14.Location = new System.Drawing.Point(0, 272);
             this.bunifuSeparator14.Margin = new System.Windows.Forms.Padding(8);
             this.bunifuSeparator14.Name = "bunifuSeparator14";
@@ -1034,7 +1032,7 @@
             // 
             this.bunifuSeparator22.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator22.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuSeparator22.LineThickness = 4931;
+            this.bunifuSeparator22.LineThickness = 7586;
             this.bunifuSeparator22.Location = new System.Drawing.Point(617, 372);
             this.bunifuSeparator22.Margin = new System.Windows.Forms.Padding(797, 372, 797, 372);
             this.bunifuSeparator22.Name = "bunifuSeparator22";
@@ -1169,7 +1167,7 @@
             // 
             this.bunifuSeparator12.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator12.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuSeparator12.LineThickness = 4931;
+            this.bunifuSeparator12.LineThickness = 7586;
             this.bunifuSeparator12.Location = new System.Drawing.Point(1458, 109);
             this.bunifuSeparator12.Margin = new System.Windows.Forms.Padding(103, 66, 103, 66);
             this.bunifuSeparator12.Name = "bunifuSeparator12";
@@ -2620,19 +2618,6 @@
             this.bunifuElipse2.ElipseRadius = 10;
             this.bunifuElipse2.TargetControl = this.btnEditar;
             // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.BackColor = System.Drawing.Color.White;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.ForeColor = System.Drawing.Color.Gray;
-            this.label45.Location = new System.Drawing.Point(15, 126);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(736, 15);
-            this.label45.TabIndex = 700;
-            this.label45.Text = "Profesor, de ultimo minuto, clickee en siguiente si esta instalando. Si es editan" +
-    "do clickee en guardar. SIENTO LOS INCONVENIENTES";
-            // 
             // REGISTRO_DE_EMPRESA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2904,6 +2889,5 @@
         internal System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Panel panel5;
         internal System.Windows.Forms.Label label44;
-        internal System.Windows.Forms.Label label45;
     }
 }

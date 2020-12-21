@@ -107,7 +107,6 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label22 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.panel1.SuspendLayout();
@@ -197,7 +196,6 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::SistemaVentas.Properties.Resources.this_BackgroundImage;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.Panelregistro);
             this.panel1.Controls.Add(this.btnNuevo);
             this.panel1.Controls.Add(this.pictureBox12);
@@ -1058,19 +1056,6 @@
             this.bunifuElipse3.ElipseRadius = 7;
             this.bunifuElipse3.TargetControl = this.volver;
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.White;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Gray;
-            this.label22.Location = new System.Drawing.Point(253, 31);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(675, 30);
-            this.label22.TabIndex = 702;
-            this.label22.Text = "Profesor, de ultimo minuto,SI ABRIO EL PANEL DESDE CONFIGURACIONES ALT+F4 PARA CE" +
-    "RRAR NO ME DIO TIEMPO\r\n. SIENTO LOS INCONVENIENTES";
-            // 
             // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1186,6 +1171,5 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
-        internal System.Windows.Forms.Label label22;
     }
 }

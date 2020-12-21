@@ -23,11 +23,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         public static int idusuario_que_inicio_sesion;
         //public static bool banderacliente = false;
-
+        public string nombre_empresa;
 
         private void ObtenerFoto()
         {
-            int idDocumento;
             try
             {
                 CONEXIONMAESTRA.abrir();
@@ -42,11 +41,27 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show(EX.Message);
             }
         }
+        private void ObtenerNombreEmpresa()
+        {
+            try
+            {
+                CONEXIONMAESTRA.abrir();
+                SqlCommand cmd = new SqlCommand("ObtenerNombreEmpresa", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                nombre_empresa = cmd.ExecuteScalar().ToString();
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show(EX.Message);
+            }
+        }
         private void MENUPRINCIPAL_Load(object sender, EventArgs e)
         {
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario_que_inicio_sesion);
             ObtenerFoto();
+            ObtenerNombreEmpresa();
 
+            lblNombreEmpresa.Text = nombre_empresa;
             try
             {
                 DataTable dt = new DataTable();

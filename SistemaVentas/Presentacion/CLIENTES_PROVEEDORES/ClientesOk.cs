@@ -34,22 +34,16 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
         {
             if(idTipoTelefono != 0)
             {
-                if(idDireccion != 0)
+                if (idDireccion != 0)
                 {
-                    band = insertarCorreo();
-                    if (band == true)
-                    {
-                        CONEXIONMAESTRA.abrir();
-                        SqlCommand com = new SqlCommand("ObtenerUltimoCorreo", CONEXIONMAESTRA.conectar);
-                        com.CommandType = CommandType.StoredProcedure;
-                        correo = Convert.ToInt32(com.ExecuteScalar());
-                        CONEXIONMAESTRA.cerrar();
-                        insertarDocumento();
-                    }
-                    else
-                    {
+                   
+                    insertarDocumento();
+                    insertarTipoTelefono();
+                    insertarTelefono();
+                    insertarPersona();
+                    insertarCliente();
+                    mostrar();
 
-                    }
                 }
                 else
                 {
@@ -64,7 +58,7 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             }
         }
 
-        private bool insertarCorreo()
+        private void insertarCorreo()
         {
             try
             {
@@ -74,12 +68,10 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
                 cmd.Parameters.AddWithValue("@correo", txtCorreo.Text);
                 cmd.Parameters.AddWithValue("@TipoCorreo", "Correo Cliente");
                 cmd.ExecuteNonQuery();
-                return true;
             }
             catch (Exception EX)
             {
                 MessageBox.Show(EX.Message);
-                return false;
             }
         }
         public void insertarCliente()
@@ -91,13 +83,18 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             parametros.IdentificadorFiscal = txtIdentificador.Text;
             if (funcion.insertar_clientes(parametros) == true)
             {
-                mostrar();
             }
 
         }
         //InsertarDireccion - Documento - Telefono
         public void insertarPersona()
         {
+            insertarCorreo();
+            CONEXIONMAESTRA.abrir();
+            SqlCommand com = new SqlCommand("ObtenerUltimoCorreo", CONEXIONMAESTRA.conectar);
+            com.CommandType = CommandType.StoredProcedure;
+            correo = Convert.ToInt32(com.ExecuteScalar());
+            CONEXIONMAESTRA.cerrar();
 
             idTelefono = Obtener_datos.obtenerTelefono();
             idDocumento = Obtener_datos.obtenerDocumento();
@@ -116,9 +113,9 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             parametrosPersona.idDocumento = idDocumento;
             parametrosPersona.idTelefono = idTelefono;
 
+          
             if (funcion.insertarPersona(parametrosPersona) == true)
             {
-                insertarCliente();
             }
         }
 
@@ -132,9 +129,8 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
             int idTipoTelefono1 = Obtener_datos.obtenerTipoTelefono();
 
-            if (funcion.insertarTelefono(parametros, idTipoTelefono1) == true)
+            if (funcion.insertarTelefono(parametros, idTipoTelefono1))
             {
-                insertarPersona();
             }
         }
 
@@ -146,7 +142,6 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             parametros.Telefono = txtTelefono.Text;
             parametros.TipoTelefono = txtTipoTelefono.Text;
 
-            insertarTelefono();
         }
 
         public void insertarDocumento()
@@ -157,9 +152,8 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             parametrosDocumentos.tipo = txtTipoDocumento.Text;
             parametrosDocumentos.numeracion = txtNumeracion.Text;
 
-            if (funcion.InsertarDocumento(parametrosDocumentos) == true)
+            if (funcion.InsertarDocumento(parametrosDocumentos))
             {
-                insertarTipoTelefono();
             }
         }
         public void HideWidthColumns()

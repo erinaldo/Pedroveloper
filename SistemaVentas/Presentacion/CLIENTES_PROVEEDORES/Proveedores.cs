@@ -20,7 +20,7 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
         }
         int idProveedor;
         string estado;
-        int idCorreo;
+        private int idCorreo;
         int idDireccion;
         int idDocumento;
         int idTelefono;
@@ -36,20 +36,13 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             {
                 if (idDireccion != 0)
                 {
-                    band = insertarCorreo();
-                    if (band == true)
-                    {
-                        CONEXIONMAESTRA.abrir();
-                        SqlCommand com = new SqlCommand("ObtenerUltimoCorreo", CONEXIONMAESTRA.conectar);
-                        com.CommandType = CommandType.StoredProcedure;
-                        correo = Convert.ToInt32(com.ExecuteScalar());
-                        CONEXIONMAESTRA.cerrar();
-                        insertarDocumento();
-                    }
-                    else
-                    {
-
-                    }
+                    insertarCorreo();
+                    CONEXIONMAESTRA.abrir();
+                    SqlCommand com = new SqlCommand("ObtenerUltimoCorreo", CONEXIONMAESTRA.conectar);
+                    com.CommandType = CommandType.StoredProcedure;
+                    correo = Convert.ToInt32(com.ExecuteScalar());
+                    CONEXIONMAESTRA.cerrar();
+                    insertarDocumento();
                 }
                 else
                 {
@@ -64,7 +57,7 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
             }
         }
 
-        private bool insertarCorreo()
+        private void insertarCorreo()
         {
             try
             {
@@ -72,14 +65,12 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
                 SqlCommand cmd = new SqlCommand("insertarCorreo", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@correo", txtCorreo.Text);
-                cmd.Parameters.AddWithValue("@TipoCorreo", "Correo Cliente");
+                cmd.Parameters.AddWithValue("@TipoCorreo", "Correo Proveedor");
                 cmd.ExecuteNonQuery();
-                return true;
             }
             catch (Exception EX)
             {
                 MessageBox.Show(EX.Message);
-                return false;
             }
         }
         public void insertarProveedor()
@@ -105,7 +96,7 @@ namespace SistemaVentas.Presentacion.CLIENTES_PROVEEDORES
 
             parametrosPersona.nombre = txtnombre.Text;
             parametrosPersona.apellido = txtApellido.Text;
-            parametrosPersona.idCorreo = idCorreo;
+            parametrosPersona.idCorreo = correo;
             parametrosPersona.fechaNacimiento = txtFecha.Value;
             parametrosPersona.idDireccion = idDireccion;
             parametrosPersona.idDocumento = idDocumento;

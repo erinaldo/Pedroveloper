@@ -1555,7 +1555,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cantidad = Convert.ToDouble(txtCantidad.Text);
                 total = txtprecio_unitario * cantidad;
                 txttotal.Text = Convert.ToString(total);
-                txtprecio_unitario2.Text = txttotal.Text;
             }
             catch (Exception)
             {

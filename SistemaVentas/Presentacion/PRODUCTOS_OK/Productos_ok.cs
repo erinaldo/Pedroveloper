@@ -85,6 +85,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void Productos_ok_Load(object sender, EventArgs e)
         {
+            btnImportarExcel.Enabled = false;
+            chkImpuestos.Checked = true;
+            chkImpuestos.Visible = false;
             sumar_costo_de_inventario_CONTAR_PRODUCTOS();
             mostrarProductos();
             //chkListaItbis.CheckOnClick = true;
@@ -98,7 +101,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelCategoria.Visible = false;
             panelUnidad.Visible = false;
             panelClaveUnidadSat.Visible = false;
-            btnGuardarCambiosInformacionBasica.Visible = false;
+            guardarCambiosInfoB.Visible = false;
             panelCategoriaAgregar.Visible = false;
             PANELINFOR.Visible = false;
             panelImpuestosAgregar.Visible = false;
@@ -114,6 +117,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             panelPrecios.Enabled = false;
             txtDepartamento.Enabled = false;
             txtVenta.Enabled = false;
+            txtVenta.Visible = true;
+
             txtPreciosProveedor.Enabled = false;
 
             txtPrecioCompraImpuestos.Enabled = false;
@@ -342,8 +347,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             btnGenerarCodigo.Enabled = false;
             PANELREGISTRO.Visible = true;
             PANELINFOR.Visible = true;
-            btnGuardarInformacionBasica.Visible = false;
-            btnGuardarCambiosInformacionBasica.Visible = true;
+            guardarInfoB.Visible = false;
+            guardarCambiosInfoB.Visible = true;
             try
             {
                 idProducto = Convert.ToInt32(datalistado.SelectedCells[2].Value);
@@ -610,6 +615,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             }
             if (e.ColumnIndex == this.datalistado.Columns["Editar"].Index)
             {
+                PANELREGISTRO.Dock = DockStyle.Fill;
                 obtenerDatosProductos();
                 txtPreciosProveedor.Enabled = true;
                 //idProducto = Convert.ToInt32(datalistado.SelectedCells[0].Value);
@@ -1438,7 +1444,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void btnCancelarRegistro_Click(object sender, EventArgs e)
         {
-            PANELREGISTRO.Visible = false;
         }
 
         private void datalistadoUnidadVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1531,9 +1536,9 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void chkImpuestos_CheckedChanged(object sender, EventArgs e)
         {
-            itbis = 0.18;
-            
-            if(itbis == 0.00)
+            /*itbis = 0.18;
+
+            if (itbis == 0.00)
             {
                 MessageBox.Show("No existe un Impuesto de productos", "Impuesto de Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -1543,23 +1548,15 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 if (chkImpuestos.Checked == false)
                 {
                     txtPrecioCompraImpuestos.Text = txtPrecioCompra.Text;
-                 /*   txtPorcentajeGanancia1.Text = "0.00";
-                    txtPorcentajeGanancia2.Text = "0.00";
-                    txtPorcentajeGanancia3.Text = "0.00";
-                    txtPorcentajeGanancia4.Text = "0.00";
 
-                    txtPrecioVentaPrecio1.Text = "0.00";
-                    txtPrecioVentaPrecio2.Text = "0.00";
-                    txtPrecioVentaPrecio3.Text = "0.00";
-                    txtPrecioVentaPrecio4.Text = "0.00";*/
                 }
-                 if (chkImpuestos.Checked == true)
-                {
+                else
+                {*/
                     try
                     {
                         double totalImpuesto;
                         double txtPrecioComprav = Convert.ToDouble(txtPrecioCompra.Text);
-                        totalImpuesto = txtPrecioComprav * itbis;
+                        totalImpuesto = txtPrecioComprav * 1;
                         if (totalImpuesto >= 0)
                         {
                             double total = totalImpuesto + Convert.ToDouble(txtPrecioCompra.Text);
@@ -1573,8 +1570,8 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                     {
                         MessageBox.Show(ex.Message);
                     }
-                }
-            }
+              /*  }
+            }*/
         }
 
         private void txtPrecioCompraImpuestos_KeyPress(object sender, KeyPressEventArgs e)
@@ -1653,7 +1650,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             if (txtPrecioCompraImpuestos.Text == "")
             {
                 txtPrecioCompraImpuestos.Text = txtPrecioCompra.Text;
-
             }
 
             if ((Convert.ToDouble(txtPrecioCompra.Text) > 0) && (Convert.ToDouble(txtPrecioCompraImpuestos.Text) > 0))
@@ -1662,6 +1658,7 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 txtVenta.Text = txtPrecioVentaPrecio1.Text;
                 if (txtPrecioVentaPrecio1.Text != "")
                 {
+                    txtVenta.Text = txtPrecioVentaPrecio1.Text;
                     double precioVenta1;
                     double precioCompra1;
                     precioVenta1 = Convert.ToDouble(txtPrecioVentaPrecio1.Text);
@@ -1888,56 +1885,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void btnGuardarInformacionBasica_Click(object sender, EventArgs e)
         {
-
-            TextBox[] array = { txtdescripcion, txtcodigodebarras, txtCategoria, txtUnidadCompra, txtUnidadDeVenta, txtPrecioCompra, txtPrecioCompraImpuestos, txtStock };
-
-            if (idDescuento != 0 && idCategoria != 0 && idUnidadVenta != 0 && idUnidadCompra != 0)
-            {
-                if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
-                {
-                    if (txtPrecioVentaPrecio1.Text != "0" && txtPrecioVentaPrecio2.Text != "0" && txtPrecioVentaPrecio3.Text != "0" && txtPrecioVentaPrecio4.Text != "0" &&
-                       txtPrecioCompra.Text != "0" && txtUnidadDeVenta.Text != "0" && txtUnidadVenta.Text != "0")
-                    {
-                        if (Convert.ToDouble((Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio1.Text))
-                            && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio2.Text))
-                            && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio3.Text))
-                            && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio4.Text))) > 0)
-                        {
-
-                            if (Verificar())
-                            {
-                                insertarMayoreo();
-                                insertarPrecios();
-                                insertarProductos();
-                                PANELREGISTRO.Visible = false;
-                                insertarDetalle();
-                                mostrarProductos();
-                            }
-                            else
-                            {
-                                insertarMayoreo();
-                                insertarPrecios();
-                                insertarProductos();
-                                PANELREGISTRO.Visible = false;
-                                mostrarProductos();
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Los datos estan incorrectos.\n El formato es Precio de Compra > Precio de venta(1,2,3,4)", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Los datos estan incorrectos\nExisten campos con 0", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    }
-                }
-
-            }
-            else
-            {
-             //   MessageBox.Show("Los datos estan incorrectos\n Selecciona todos los campos correctamente ", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            }
         }
         private void insertarMayoreo()
         {
@@ -2032,12 +1979,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void insertarProductos()
         {
-            if (idDescuento == 0 || idUnidadCompra == 0 || idUnidadVenta == 0 || idImpuestoAgregar == 0)
-            {
-
-            }
-
-
             Lproductos lproductos = new Lproductos();
             if (chkImpuestos.Checked == true)
             {
@@ -2073,17 +2014,13 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
             parametros.idUnidadVenta = idUnidadVenta;
             parametros.idUnidadCompra = idUnidadCompra;
 
-            if (insertar.insertarProducto(lproductos, kardex, parametros) == true)
-            {
-
+            if (insertar.insertarProducto(lproductos, kardex, parametros)) { 
             }
-
         }
 
         private void insertarDetalle()
         {
             TextBox[] array = { txtLocalizacion, txtPesoArt, txtStockMinimo, txtidProveedor };
-
             if (idProveedor != 0)
             {
                 if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
@@ -2243,138 +2180,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
         {
             Bases.Separador_de_Numeros(txtStock, e);
         }
-
-        public bool verificarEditarDetalle()
-        {
-            if (datalistadoDetalleProducto.Rows.Count > 0)
-            {
-                return true;
-            }
-            else
-            {
-                /* DialogResult dlgRes = MessageBox.Show("¿Desea guardar los cambios de este producto sin su información completa?", "Datos incompletos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                 if (dlgRes == DialogResult.Yes)
-                 {
-                     return true;
-                 }
-                 else
-                 {
-                     idDetalleProducto = 0;
-                     idProveedor = 0;
-                     txtFecha.Value = DateTime.Today;
-                     txtLocalizacion.Text = "";
-                     txtPesoArt.Text = "";
-                     chkGranel.Checked = false;
-                     chkUsoInterno.Checked = false;
-                     chkObtenerPesoAuto.Checked = false;
-                     txtStockMinimo.Text = "";
-                     txtAplicarFecha.Checked = false;
-                     return false;
-                 }*/
-                return true;
-            }
-        }
-        private void btnGuardarCambiosInformacionBasica_Click(object sender, EventArgs e)
-        {
-
-            TextBox[] array = { txtdescripcion, txtcodigodebarras, txtCategoria, txtUnidadCompra, txtUnidadDeVenta, txtPrecioCompra, txtPrecioCompraImpuestos, txtStock };
-
-            if (idDescuento != 0)
-            {
-                if (idCategoria != 0)
-                {
-                    if (idUnidadVenta != 0)
-                    {
-                        if (idUnidadCompra != 0)
-                        {
-                            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
-                            {
-                                if (txtPrecioVentaPrecio1.Text != "0" && txtPrecioVentaPrecio2.Text != "0" && txtPrecioVentaPrecio3.Text != "0" && txtPrecioVentaPrecio4.Text != "0" &&
-                                   txtPrecioCompra.Text != "0" && txtUnidadDeVenta.Text != "0" && txtUnidadVenta.Text != "0")
-                                {
-                                    if (Convert.ToDouble((Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio1.Text))
-                                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio2.Text))
-                                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio3.Text))
-                                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio4.Text))) > 0)
-                                    {
-                                        if (Verificar())
-                                        {
-
-                                            editarMayoreo();
-                                            editarPrecios();
-                                            editarProductos();
-                                            if (datalistadoDetalleProducto.Rows.Count > 0)
-                                            {
-                                                PANELREGISTRO.Visible = false;
-                                                mostrarProductos();
-                                            }
-                                            else
-                                            {
-                                                PANELREGISTRO.Visible = false;
-                                                mostrarProductos();
-                                            }
-                                        }
-                                        else
-                                        {
-                                            if (idProveedor != 0)
-                                            {
-                                                editarMayoreo();
-                                                editarPrecios();
-                                                editarProductos();
-                                                if (datalistadoDetalleProducto.Rows.Count > 0)
-                                                {
-                                                    editarDetalle();
-                                                    PANELREGISTRO.Visible = false;
-                                                    mostrarProductos();
-                                                }
-                                                else
-                                                {
-                                                    insertarDetalleValidado();
-                                                    PANELREGISTRO.Visible = false;
-                                                    mostrarProductos();
-                                                }
-                                            }
-                                            else
-                                            {
-                                                MessageBox.Show("Los datos estan incorrectos.\nSeleccione correctamente el Proveedor en la ventana Informacion detallada del producto", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                                            }
-
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Los datos estan incorrectos.\n El formato es Precio de Compra > Precio de venta(1,2,3,4)", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Los datos estan incorrectos\nExisten campos con 0", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Selecciona la Unidad de Compra nuevamente", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Selecciona la Unidad de Venta nuevamente", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Selecciona la Categoria nuevamente", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Selecciona el Descuento nuevamente", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            }
-        }
-
-
-
         private void editarMayoreo()
         {
             Insertar_datos insertar = new Insertar_datos();
@@ -2439,12 +2244,6 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void editarProductos()
         {
-            if (idDescuento == 0 || idUnidadCompra == 0 || idUnidadVenta == 0 || idImpuestoAgregar == 0)
-            {
-
-            }
-
-
             Lproductos lproductos = new Lproductos();
             if (chkImpuestos.Checked == true)
             {
@@ -3109,15 +2908,11 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@buscar", txtDescuento.Text);
                 da.Fill(dt);
-                datalistadoUnidadesSAT.DataSource = dt;
-                con.Close();
-
                 datalistadoDescuentoBasico.DataSource = dt;
+                con.Close();
                 datalistadoDescuentoBasico.Columns[0].Visible = false;
                 datalistadoDescuentoBasico.Columns[2].Visible = false;
                 datalistadoDescuentoBasico.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-
             }
             catch (Exception ex)
             {
@@ -3262,9 +3057,121 @@ namespace SistemaVentas.Presentacion.PRODUCTOS_OK
 
         private void btnNewProduct_Click(object sender, EventArgs e)
         {
+            PANELREGISTRO.Dock = DockStyle.Fill;
             PANELREGISTRO.Visible = true;
             PANELINFOR.Visible = true;
             LIMPIAR();
+        }
+
+        private void guardarInfoB_Click(object sender, EventArgs e)
+        {
+
+
+            TextBox[] array = { txtdescripcion, txtcodigodebarras, txtCategoria, txtUnidadCompra, txtUnidadDeVenta, txtPrecioCompra, txtPrecioCompraImpuestos, txtStock };
+
+            if (idDescuento != 0 && idCategoria != 0 && idUnidadVenta != 0 && idUnidadCompra != 0)
+            {
+                if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+                {
+
+                    if (Convert.ToDouble((Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio1.Text))
+                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio2.Text))
+                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio3.Text))
+                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio4.Text))) > 0)
+                    {
+
+                        if (Verificar())
+                        {
+                            insertarMayoreo();
+                            insertarPrecios();
+                            insertarProductos();
+                            PANELREGISTRO.Visible = false;
+                            mostrarProductos();
+                        }
+                        else
+                        {
+                            insertarMayoreo();
+                            insertarPrecios();
+                            insertarProductos();
+                            insertarDetalle();
+                            PANELREGISTRO.Visible = false;
+                            mostrarProductos();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Los datos estan incorrectos.\n El formato es Precio de Compra > Precio de venta(1,2,3,4)", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+
+        private void guardarCambiosInfoB_Click(object sender, EventArgs e)
+        {
+
+            TextBox[] array = { txtdescripcion, txtcodigodebarras, txtCategoria, txtUnidadCompra, txtUnidadDeVenta, txtPrecioCompra, txtPrecioCompraImpuestos, txtStock };
+
+            if (Insertar_datos.ValidTextIsNotNullOrEmpty(array))
+            {
+                if (txtPrecioVentaPrecio1.Text != "0" && txtPrecioVentaPrecio2.Text != "0" && txtPrecioVentaPrecio3.Text != "0" && txtPrecioVentaPrecio4.Text != "0" &&
+                   txtPrecioCompra.Text != "0" && txtUnidadDeVenta.Text != "0" && txtUnidadVenta.Text != "0")
+                {
+                    if (Convert.ToDouble((Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio1.Text))
+                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio2.Text))
+                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio3.Text))
+                        && (Convert.ToDouble(txtPrecioCompra.Text)) <= (Convert.ToDouble(txtPrecioVentaPrecio4.Text))) > 0)
+                    {
+                        if (Verificar())
+                        {
+                            editarMayoreo();
+                            editarPrecios();
+                            editarProductos();
+                            PANELREGISTRO.Visible = false;
+                            mostrarProductos();
+                        }
+                        else
+                        {
+                            if (idProveedor != 0)
+                            {
+                                editarMayoreo();
+                                editarPrecios();
+                                editarProductos();
+                                if (datalistadoDetalleProducto.Rows.Count > 0)
+                                {
+                                    editarDetalle();
+                                    PANELREGISTRO.Visible = false;
+                                    mostrarProductos();
+                                }
+                                else
+                                {
+                                    insertarDetalleValidado();
+                                    PANELREGISTRO.Visible = false;
+                                    mostrarProductos();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Los datos estan incorrectos.\nSeleccione correctamente el Proveedor en la ventana Informacion detallada del producto", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Los datos estan incorrectos.\n El formato es Precio de Compra > Precio de venta(1,2,3,4)", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Los datos estan incorrectos\nExisten campos con 0", "Datos incompletos", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void volver_Click(object sender, EventArgs e)
+        {
+            PANELREGISTRO.Visible = false;
+
         }
     }
 }

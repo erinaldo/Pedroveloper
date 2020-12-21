@@ -73,6 +73,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
             panelGeolocalizacion.Visible = false;
+            btnVerificar.Visible = false;
+            Envio.Visible = false;
+            lblEnvio.Visible = false;
+            gunaAdvenceButton1.Visible = false;
             Obtener_datos.mostrar_inicio_De_sesion(ref idusuario);
             PanelBack.Visible = true;
             PanelBack.BringToFront();
@@ -1303,26 +1307,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 if (txtImpresora.Text != "Ninguna")
                 {
-                  /*  if (Envio.Checked == true)
-                    {*/
-                        if (idEmpleado != 0)
-                        {
-                            editar_eleccion_de_impresora();
-                            indicador = "DIRECTO";
-                            identificar_el_tipo_de_pago();
-                            INGRESAR_LOS_DATOS();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Selecciona un Empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }
-                /*    } else
-                    {*/
-                        editar_eleccion_de_impresora();
-                        indicador = "DIRECTO";
-                        identificar_el_tipo_de_pago();
-                        INGRESAR_LOS_DATOS();
-                  //  }
+                    editar_eleccion_de_impresora();
+                    indicador = "DIRECTO";
+                    identificar_el_tipo_de_pago();
+                    INGRESAR_LOS_DATOS();
                 }
                 else
                 {
@@ -1334,7 +1322,28 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show("El restante debe ser 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
+        /*
+            if (Envio.Checked == true)
+                    {
+          if (idEmpleado != 0)
+          {
+        editar_eleccion_de_impresora();
+        indicador = "DIRECTO";
+                            identificar_el_tipo_de_pago();
+        INGRESAR_LOS_DATOS();
+                    /*    }
+                        else
+                        {
+                            MessageBox.Show("Selecciona un Empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }*/
+                /*    } else
+                    {
+                        editar_eleccion_de_impresora();
+                        indicador = "DIRECTO";
+                        identificar_el_tipo_de_pago();
+                        INGRESAR_LOS_DATOS();
+                  //  }*/
+        
         private void btnGuardarImprimirdirecto_Click_1(object sender, EventArgs e)
         {
          
