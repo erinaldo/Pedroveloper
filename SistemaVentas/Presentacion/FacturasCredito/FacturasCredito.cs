@@ -282,8 +282,8 @@ namespace SistemaVentas.Presentacion.FacturasCredito
                     cmd.Parameters.AddWithValue("@NumFact", txtNumFact.Text);
                     cmd.Parameters.AddWithValue("@NumPed", txtNumPed.Text);
                     cmd.Parameters.AddWithValue("@Total", Convert.ToDouble(txtTotal.Text));
-                    cmd.Parameters.AddWithValue("@FechaV", Convert.ToDateTime(txtFechaVencimiento.Text));
-                    cmd.Parameters.AddWithValue("@FechaP", Convert.ToDateTime(txtFechaPedido.Text));
+                    cmd.Parameters.AddWithValue("@FechaV", Convert.ToDateTime(txtFechaVencimiento.Value.ToShortDateString()));
+                    cmd.Parameters.AddWithValue("@FechaP", Convert.ToDateTime(txtFechaPedido.Value.ToShortDateString()));
                     cmd.Parameters.AddWithValue("@Tipo", txtTipo.Text);
                     cmd.Parameters.AddWithValue("@Saldo", Convert.ToDouble(txtTotal.Text));
                     cmd.Parameters.AddWithValue("@idProveedor", Convert.ToInt32(idProveedor_));

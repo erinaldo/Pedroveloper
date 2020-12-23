@@ -79,7 +79,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
                 panelBienvenida.Visible = false;
                 Panelcantidad.Visible = false;
                 panelReporte.Visible = false;
-                panelDetalle.Dock = DockStyle.Fill;
+                //panelDetalle.Dock = DockStyle.Fill;
                 MostrarDetalleCompra();
             }
         }
@@ -204,6 +204,7 @@ namespace SistemaVentas.Presentacion.HistorialVentas
                 PanelTICKET.Visible = false;
                 Pcancelado.Visible = true;
                 Pcancelado.Dock = DockStyle.Fill;
+                Pcancelado.BringToFront();
                 panelDetalle.Visible = false;
                 panelBienvenida.Visible = false;
             }

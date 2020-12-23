@@ -16,10 +16,10 @@ namespace SistemaVentas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Presentacion.LoginInicio.Inicio frm = new Presentacion.LoginInicio.Inicio();
-            Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL frm = new Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL();
+             Presentacion.LoginInicio.Inicio frm = new Presentacion.LoginInicio.Inicio();
+           // Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL frm = new Presentacion.VENTAS_MENU_PRINCIPAL.MENUPRINCIPAL();
             frm.FormClosed += Frm_FormClosed;
-            frm.ShowDialog();  
+            frm.ShowDialog();
             Application.Run();
         }
         private static void Frm_FormClosed(object sender, FormClosedEventArgs e)
