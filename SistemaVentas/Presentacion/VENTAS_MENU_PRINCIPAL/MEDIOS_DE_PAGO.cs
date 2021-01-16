@@ -758,6 +758,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     reportProcessor.PrintReport(reportViewer2.ReportSource, printerSettings);
                 }
                 Dispose();
+
             }
             catch (Exception ex)
             {
@@ -857,9 +858,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
                 rpt.table1.DataSource = dt;
                 rpt.DataSource = dt;
-#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.Report = rpt;
-#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.RefreshReport();
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
@@ -872,8 +871,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             PanelImpresionvistaprevia.Visible = true;
             PanelImpresionvistaprevia.Dock = DockStyle.Fill;
-            //panelGuardado_de_datos.Dock = DockStyle.None;
-         //   panelGuardado_de_datos.Visible = false;
             Presentacion.REPORTES.Impresion_de_comprobantes.factura_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.factura_report();
             DataTable dt = new DataTable();
             try
@@ -888,9 +885,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.factura_report();
                 rpt.table1.DataSource = dt;
                 rpt.DataSource = dt;
-#pragma warning disable CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.Report = rpt;
-#pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.RefreshReport();
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
@@ -1539,53 +1534,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
         }
         private void panelVerificar_PaddingChanged(object sender, EventArgs e)
-        {
-        }
-        private void Mapa_Load(object sender, EventArgs e)
-        {
-        }
-        private void Mapa_MouseClick(object sender, MouseEventArgs e)
-        {
-            double lat = Mapa.FromLocalToLatLng(e.X, e.Y).Lat;
-            double lng = Mapa.FromLocalToLatLng(e.X, e.Y).Lng;
-            txtLatitud.Text = lat.ToString();
-            txtLongitud.Text = lng.ToString();
-            //Bitmap bmpMarker = Image.FromFile("img/")
-            marker.Position = new PointLatLng(lat, lng);
-            marker.ToolTipText = string.Format("Ubicación: \n Latitud: {0} \n Longitud:{1}", lat, lng);
-         //   CrearDireccionTrazarRuta(lat, lng);
-        }
-        private void datalistadoLocalizacion_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            filaSeleccionada = e.RowIndex; // No. fila
-            // Recuperar los datos del grid y los asignamos a los textbox
-            txtDescripcion.Text = datalistadoLocalizacion.Rows[filaSeleccionada].Cells[0].Value.ToString();
-            txtLatitud.Text = datalistadoLocalizacion.Rows[filaSeleccionada].Cells[1].Value.ToString();
-            txtLongitud.Text = datalistadoLocalizacion.Rows[filaSeleccionada].Cells[2].Value.ToString();
-            marker.Position = new PointLatLng(Convert.ToDouble(txtLatitud.Text), Convert.ToDouble(txtLongitud.Text));
-            Mapa.Position = marker.Position;
-        }
-        private void panelGeolocalizacion_Paint(object sender, PaintEventArgs e)
-        {
-        }
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            dt.Rows.Add(txtDescripcion.Text, txtLatitud.Text, txtLongitud.Text);
-        }
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            datalistadoLocalizacion.Rows.RemoveAt(filaSeleccionada);
-        }
-        private void btnPoligono_Click(object sender, EventArgs e)
-        {
-        }
-        private void btnRuta_Click(object sender, EventArgs e)
-        {
-        }  
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-        }
-        private void comboBox1_Click(object sender, EventArgs e)
         {
         }
         private void btnN1_Click(object sender, EventArgs e)

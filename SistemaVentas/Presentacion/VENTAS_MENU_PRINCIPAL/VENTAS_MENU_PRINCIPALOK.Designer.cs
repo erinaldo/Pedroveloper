@@ -53,9 +53,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -65,6 +62,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelC1 = new System.Windows.Forms.Panel();
             this.lector = new Guna.UI.WinForms.GunaAdvenceButton();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
@@ -304,29 +304,6 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.wrapper = new System.Windows.Forms.Panel();
-            this.ListaPreciosAlPorMayor = new System.Windows.Forms.Panel();
-            this.lblCantidadNueva = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.lblPrecioAlPorMayor = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.txtNoUnidades = new Guna.UI.WinForms.GunaComboBox();
-            this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.label47 = new System.Windows.Forms.Label();
-            this.txtProductoSelectAM = new Guna.UI.WinForms.GunaComboBox();
-            this.btnCancelarPreciosM = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.btnCambioPrecioM = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.panel45 = new System.Windows.Forms.Panel();
-            this.panel46 = new System.Windows.Forms.Panel();
-            this.panel47 = new System.Windows.Forms.Panel();
-            this.panel48 = new System.Windows.Forms.Panel();
-            this.panel49 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.pictureBox22 = new System.Windows.Forms.PictureBox();
             this.panelListaPrecios = new System.Windows.Forms.Panel();
             this.label51 = new System.Windows.Forms.Label();
             this.txtPrecioL = new Guna.UI.WinForms.GunaComboBox();
@@ -438,6 +415,29 @@
             this.bunifuElipse32 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse33 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse34 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.panel49 = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.panel48 = new System.Windows.Forms.Panel();
+            this.panel47 = new System.Windows.Forms.Panel();
+            this.panel46 = new System.Windows.Forms.Panel();
+            this.panel45 = new System.Windows.Forms.Panel();
+            this.btnCambioPrecioM = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnCancelarPreciosM = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.txtProductoSelectAM = new Guna.UI.WinForms.GunaComboBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.txtNoUnidades = new Guna.UI.WinForms.GunaComboBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.lblPrecioAlPorMayor = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.lblCantidadNueva = new System.Windows.Forms.Label();
+            this.ListaPreciosAlPorMayor = new System.Windows.Forms.Panel();
             this.PanelC1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.panel21.SuspendLayout();
@@ -488,11 +488,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.wrapper.SuspendLayout();
-            this.ListaPreciosAlPorMayor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
-            this.panel49.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             this.panelListaPrecios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             this.panel44.SuspendLayout();
@@ -531,6 +526,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.listapreciosdt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaalpormayor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listapreciosmayor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            this.panel49.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            this.ListaPreciosAlPorMayor.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelC1
@@ -3972,369 +3972,6 @@
             this.wrapper.Size = new System.Drawing.Size(1384, 824);
             this.wrapper.TabIndex = 617;
             // 
-            // ListaPreciosAlPorMayor
-            // 
-            this.ListaPreciosAlPorMayor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ListaPreciosAlPorMayor.BackgroundImage")));
-            this.ListaPreciosAlPorMayor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ListaPreciosAlPorMayor.Controls.Add(this.lblCantidadNueva);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.label56);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.label54);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.lblPrecioAlPorMayor);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.label53);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.label46);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.txtNoUnidades);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.pictureBox21);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.label47);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.txtProductoSelectAM);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.btnCancelarPreciosM);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.btnCambioPrecioM);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.panel45);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.panel46);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.panel47);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.panel48);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.panel49);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.label48);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.label49);
-            this.ListaPreciosAlPorMayor.Controls.Add(this.pictureBox22);
-            this.ListaPreciosAlPorMayor.Location = new System.Drawing.Point(18, 66);
-            this.ListaPreciosAlPorMayor.Name = "ListaPreciosAlPorMayor";
-            this.ListaPreciosAlPorMayor.Size = new System.Drawing.Size(715, 297);
-            this.ListaPreciosAlPorMayor.TabIndex = 684;
-            this.ListaPreciosAlPorMayor.Paint += new System.Windows.Forms.PaintEventHandler(this.ListaPreciosAlPorMayor_Paint);
-            // 
-            // lblCantidadNueva
-            // 
-            this.lblCantidadNueva.AutoSize = true;
-            this.lblCantidadNueva.BackColor = System.Drawing.Color.White;
-            this.lblCantidadNueva.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadNueva.ForeColor = System.Drawing.Color.Gray;
-            this.lblCantidadNueva.Location = new System.Drawing.Point(117, 254);
-            this.lblCantidadNueva.Name = "lblCantidadNueva";
-            this.lblCantidadNueva.Size = new System.Drawing.Size(54, 25);
-            this.lblCantidadNueva.TabIndex = 691;
-            this.lblCantidadNueva.Text = "0.00";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.BackColor = System.Drawing.Color.White;
-            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.ForeColor = System.Drawing.Color.Gray;
-            this.label56.Location = new System.Drawing.Point(16, 253);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(104, 25);
-            this.label56.TabIndex = 690;
-            this.label56.Text = "Cantidad:";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.BackColor = System.Drawing.Color.White;
-            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label54.ForeColor = System.Drawing.Color.Gray;
-            this.label54.Location = new System.Drawing.Point(18, 189);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(540, 16);
-            this.label54.TabIndex = 689;
-            this.label54.Text = "Tenga en cuenta que al cambiar el precio cambiara la cantidad dependiendo de su s" +
-    "tock";
-            this.label54.Visible = false;
-            // 
-            // lblPrecioAlPorMayor
-            // 
-            this.lblPrecioAlPorMayor.AutoSize = true;
-            this.lblPrecioAlPorMayor.BackColor = System.Drawing.Color.White;
-            this.lblPrecioAlPorMayor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioAlPorMayor.ForeColor = System.Drawing.Color.Gray;
-            this.lblPrecioAlPorMayor.Location = new System.Drawing.Point(117, 221);
-            this.lblPrecioAlPorMayor.Name = "lblPrecioAlPorMayor";
-            this.lblPrecioAlPorMayor.Size = new System.Drawing.Size(54, 25);
-            this.lblPrecioAlPorMayor.TabIndex = 688;
-            this.lblPrecioAlPorMayor.Text = "0.00";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.BackColor = System.Drawing.Color.White;
-            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.ForeColor = System.Drawing.Color.Gray;
-            this.label53.Location = new System.Drawing.Point(21, 220);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(79, 25);
-            this.label53.TabIndex = 687;
-            this.label53.Text = "Precio:";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.BackColor = System.Drawing.Color.White;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label46.ForeColor = System.Drawing.Color.Gray;
-            this.label46.Location = new System.Drawing.Point(294, 58);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(197, 16);
-            this.label46.TabIndex = 603;
-            this.label46.Text = "Primero seleccione un producto";
-            this.label46.Visible = false;
-            // 
-            // txtNoUnidades
-            // 
-            this.txtNoUnidades.BackColor = System.Drawing.Color.Transparent;
-            this.txtNoUnidades.BaseColor = System.Drawing.Color.White;
-            this.txtNoUnidades.BorderColor = System.Drawing.Color.Silver;
-            this.txtNoUnidades.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtNoUnidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtNoUnidades.FocusedColor = System.Drawing.Color.Empty;
-            this.txtNoUnidades.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNoUnidades.ForeColor = System.Drawing.Color.Black;
-            this.txtNoUnidades.FormattingEnabled = true;
-            this.txtNoUnidades.Location = new System.Drawing.Point(294, 150);
-            this.txtNoUnidades.Name = "txtNoUnidades";
-            this.txtNoUnidades.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtNoUnidades.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.txtNoUnidades.Size = new System.Drawing.Size(217, 26);
-            this.txtNoUnidades.TabIndex = 686;
-            this.txtNoUnidades.SelectedIndexChanged += new System.EventHandler(this.txtNoUnidades_SelectedIndexChanged);
-            // 
-            // pictureBox21
-            // 
-            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
-            this.pictureBox21.Location = new System.Drawing.Point(288, 146);
-            this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.Size = new System.Drawing.Size(233, 34);
-            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox21.TabIndex = 685;
-            this.pictureBox21.TabStop = false;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.BackColor = System.Drawing.Color.White;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label47.ForeColor = System.Drawing.Color.Black;
-            this.label47.Location = new System.Drawing.Point(15, 147);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(271, 25);
-            this.label47.TabIndex = 684;
-            this.label47.Text = "Seleccionar un No. Unidades:";
-            // 
-            // txtProductoSelectAM
-            // 
-            this.txtProductoSelectAM.BackColor = System.Drawing.Color.Transparent;
-            this.txtProductoSelectAM.BaseColor = System.Drawing.Color.White;
-            this.txtProductoSelectAM.BorderColor = System.Drawing.Color.Silver;
-            this.txtProductoSelectAM.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtProductoSelectAM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtProductoSelectAM.FocusedColor = System.Drawing.Color.Empty;
-            this.txtProductoSelectAM.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtProductoSelectAM.ForeColor = System.Drawing.Color.Black;
-            this.txtProductoSelectAM.FormattingEnabled = true;
-            this.txtProductoSelectAM.Location = new System.Drawing.Point(292, 84);
-            this.txtProductoSelectAM.Name = "txtProductoSelectAM";
-            this.txtProductoSelectAM.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtProductoSelectAM.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.txtProductoSelectAM.Size = new System.Drawing.Size(217, 26);
-            this.txtProductoSelectAM.TabIndex = 683;
-            this.txtProductoSelectAM.SelectedIndexChanged += new System.EventHandler(this.txtProductoSelectAM_SelectedIndexChanged);
-            // 
-            // btnCancelarPreciosM
-            // 
-            this.btnCancelarPreciosM.AnimationHoverSpeed = 0.07F;
-            this.btnCancelarPreciosM.AnimationSpeed = 0.03F;
-            this.btnCancelarPreciosM.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.btnCancelarPreciosM.BorderColor = System.Drawing.Color.Black;
-            this.btnCancelarPreciosM.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.btnCancelarPreciosM.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnCancelarPreciosM.CheckedForeColor = System.Drawing.Color.White;
-            this.btnCancelarPreciosM.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnCancelarPreciosM.CheckedImage")));
-            this.btnCancelarPreciosM.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnCancelarPreciosM.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelarPreciosM.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnCancelarPreciosM.FocusedColor = System.Drawing.Color.Empty;
-            this.btnCancelarPreciosM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnCancelarPreciosM.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarPreciosM.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarPreciosM.Image")));
-            this.btnCancelarPreciosM.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnCancelarPreciosM.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnCancelarPreciosM.Location = new System.Drawing.Point(566, 234);
-            this.btnCancelarPreciosM.Name = "btnCancelarPreciosM";
-            this.btnCancelarPreciosM.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.btnCancelarPreciosM.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnCancelarPreciosM.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnCancelarPreciosM.OnHoverImage = null;
-            this.btnCancelarPreciosM.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnCancelarPreciosM.OnPressedColor = System.Drawing.Color.Black;
-            this.btnCancelarPreciosM.Size = new System.Drawing.Size(130, 42);
-            this.btnCancelarPreciosM.TabIndex = 682;
-            this.btnCancelarPreciosM.Text = "Cancelar";
-            this.btnCancelarPreciosM.Click += new System.EventHandler(this.btnCancelarPreciosM_Click);
-            // 
-            // btnCambioPrecioM
-            // 
-            this.btnCambioPrecioM.AnimationHoverSpeed = 0.07F;
-            this.btnCambioPrecioM.AnimationSpeed = 0.03F;
-            this.btnCambioPrecioM.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.btnCambioPrecioM.BorderColor = System.Drawing.Color.Black;
-            this.btnCambioPrecioM.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.btnCambioPrecioM.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnCambioPrecioM.CheckedForeColor = System.Drawing.Color.White;
-            this.btnCambioPrecioM.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnCambioPrecioM.CheckedImage")));
-            this.btnCambioPrecioM.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnCambioPrecioM.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCambioPrecioM.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnCambioPrecioM.FocusedColor = System.Drawing.Color.Empty;
-            this.btnCambioPrecioM.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCambioPrecioM.ForeColor = System.Drawing.Color.White;
-            this.btnCambioPrecioM.Image = ((System.Drawing.Image)(resources.GetObject("btnCambioPrecioM.Image")));
-            this.btnCambioPrecioM.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnCambioPrecioM.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnCambioPrecioM.Location = new System.Drawing.Point(566, 171);
-            this.btnCambioPrecioM.Name = "btnCambioPrecioM";
-            this.btnCambioPrecioM.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnCambioPrecioM.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnCambioPrecioM.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnCambioPrecioM.OnHoverImage = null;
-            this.btnCambioPrecioM.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnCambioPrecioM.OnPressedColor = System.Drawing.Color.Black;
-            this.btnCambioPrecioM.Size = new System.Drawing.Size(130, 42);
-            this.btnCambioPrecioM.TabIndex = 681;
-            this.btnCambioPrecioM.Text = "Cambiar Precio";
-            this.btnCambioPrecioM.Click += new System.EventHandler(this.btnCambioPrecioM_Click);
-            // 
-            // panel45
-            // 
-            this.panel45.BackColor = System.Drawing.Color.Black;
-            this.panel45.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel45.Location = new System.Drawing.Point(1, 296);
-            this.panel45.Name = "panel45";
-            this.panel45.Size = new System.Drawing.Size(713, 1);
-            this.panel45.TabIndex = 618;
-            // 
-            // panel46
-            // 
-            this.panel46.BackColor = System.Drawing.Color.Black;
-            this.panel46.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel46.Location = new System.Drawing.Point(714, 1);
-            this.panel46.Name = "panel46";
-            this.panel46.Size = new System.Drawing.Size(1, 296);
-            this.panel46.TabIndex = 617;
-            // 
-            // panel47
-            // 
-            this.panel47.BackColor = System.Drawing.Color.Black;
-            this.panel47.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel47.Location = new System.Drawing.Point(0, 1);
-            this.panel47.Name = "panel47";
-            this.panel47.Size = new System.Drawing.Size(1, 296);
-            this.panel47.TabIndex = 616;
-            // 
-            // panel48
-            // 
-            this.panel48.BackColor = System.Drawing.Color.Black;
-            this.panel48.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel48.Location = new System.Drawing.Point(0, 0);
-            this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(715, 1);
-            this.panel48.TabIndex = 615;
-            // 
-            // panel49
-            // 
-            this.panel49.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel49.Controls.Add(this.dataGridView2);
-            this.panel49.Location = new System.Drawing.Point(574, 14);
-            this.panel49.Name = "panel49";
-            this.panel49.Size = new System.Drawing.Size(10, 10);
-            this.panel49.TabIndex = 536;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.ColumnHeadersVisible = false;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewCheckBoxColumn10});
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle25;
-            this.dataGridView2.EnableHeadersVisualStyles = false;
-            this.dataGridView2.Location = new System.Drawing.Point(-84, 30);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowHeadersWidth = 9;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView2.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView2.RowTemplate.Height = 40;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(389, 117);
-            this.dataGridView2.TabIndex = 493;
-            // 
-            // dataGridViewCheckBoxColumn10
-            // 
-            this.dataGridViewCheckBoxColumn10.DataPropertyName = "Marcar";
-            this.dataGridViewCheckBoxColumn10.HeaderText = "Marcar";
-            this.dataGridViewCheckBoxColumn10.Name = "dataGridViewCheckBoxColumn10";
-            this.dataGridViewCheckBoxColumn10.ReadOnly = true;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.BackColor = System.Drawing.Color.White;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label48.ForeColor = System.Drawing.Color.Black;
-            this.label48.Location = new System.Drawing.Point(14, 80);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(229, 25);
-            this.label48.TabIndex = 606;
-            this.label48.Text = "Seleccionar un producto:";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.BackColor = System.Drawing.Color.White;
-            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.ForeColor = System.Drawing.Color.Gray;
-            this.label49.Location = new System.Drawing.Point(18, 10);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(291, 25);
-            this.label49.TabIndex = 604;
-            this.label49.Text = "Lista de Precios al por mayor";
-            // 
-            // pictureBox22
-            // 
-            this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
-            this.pictureBox22.Location = new System.Drawing.Point(286, 80);
-            this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.Size = new System.Drawing.Size(233, 34);
-            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox22.TabIndex = 679;
-            this.pictureBox22.TabStop = false;
-            // 
             // panelListaPrecios
             // 
             this.panelListaPrecios.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelListaPrecios.BackgroundImage")));
@@ -4822,7 +4459,7 @@
             this.tablaProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tablaProductos.RowHeadersVisible = false;
             this.tablaProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.tablaProductos.Size = new System.Drawing.Size(961, 297);
+            this.tablaProductos.Size = new System.Drawing.Size(973, 297);
             this.tablaProductos.TabIndex = 624;
             this.tablaProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaProductos_CellClick);
             this.tablaProductos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tablaProductos_KeyPress);
@@ -5612,6 +5249,369 @@
             this.bunifuElipse34.ElipseRadius = 7;
             this.bunifuElipse34.TargetControl = this.ListaPreciosAlPorMayor;
             // 
+            // pictureBox22
+            // 
+            this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
+            this.pictureBox22.Location = new System.Drawing.Point(286, 80);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(233, 34);
+            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox22.TabIndex = 679;
+            this.pictureBox22.TabStop = false;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.BackColor = System.Drawing.Color.White;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.ForeColor = System.Drawing.Color.Gray;
+            this.label49.Location = new System.Drawing.Point(18, 10);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(291, 25);
+            this.label49.TabIndex = 604;
+            this.label49.Text = "Lista de Precios al por mayor";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.BackColor = System.Drawing.Color.White;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label48.ForeColor = System.Drawing.Color.Black;
+            this.label48.Location = new System.Drawing.Point(14, 80);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(229, 25);
+            this.label48.TabIndex = 606;
+            this.label48.Text = "Seleccionar un producto:";
+            // 
+            // panel49
+            // 
+            this.panel49.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel49.Controls.Add(this.dataGridView2);
+            this.panel49.Location = new System.Drawing.Point(574, 14);
+            this.panel49.Name = "panel49";
+            this.panel49.Size = new System.Drawing.Size(10, 10);
+            this.panel49.TabIndex = 536;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.ColumnHeadersVisible = false;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewCheckBoxColumn10});
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle25;
+            this.dataGridView2.EnableHeadersVisualStyles = false;
+            this.dataGridView2.Location = new System.Drawing.Point(-84, 30);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowHeadersWidth = 9;
+            this.dataGridView2.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView2.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView2.RowTemplate.Height = 40;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(389, 117);
+            this.dataGridView2.TabIndex = 493;
+            // 
+            // dataGridViewCheckBoxColumn10
+            // 
+            this.dataGridViewCheckBoxColumn10.DataPropertyName = "Marcar";
+            this.dataGridViewCheckBoxColumn10.HeaderText = "Marcar";
+            this.dataGridViewCheckBoxColumn10.Name = "dataGridViewCheckBoxColumn10";
+            this.dataGridViewCheckBoxColumn10.ReadOnly = true;
+            // 
+            // panel48
+            // 
+            this.panel48.BackColor = System.Drawing.Color.Black;
+            this.panel48.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel48.Location = new System.Drawing.Point(0, 0);
+            this.panel48.Name = "panel48";
+            this.panel48.Size = new System.Drawing.Size(715, 1);
+            this.panel48.TabIndex = 615;
+            // 
+            // panel47
+            // 
+            this.panel47.BackColor = System.Drawing.Color.Black;
+            this.panel47.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel47.Location = new System.Drawing.Point(0, 1);
+            this.panel47.Name = "panel47";
+            this.panel47.Size = new System.Drawing.Size(1, 296);
+            this.panel47.TabIndex = 616;
+            // 
+            // panel46
+            // 
+            this.panel46.BackColor = System.Drawing.Color.Black;
+            this.panel46.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel46.Location = new System.Drawing.Point(714, 1);
+            this.panel46.Name = "panel46";
+            this.panel46.Size = new System.Drawing.Size(1, 296);
+            this.panel46.TabIndex = 617;
+            // 
+            // panel45
+            // 
+            this.panel45.BackColor = System.Drawing.Color.Black;
+            this.panel45.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel45.Location = new System.Drawing.Point(1, 296);
+            this.panel45.Name = "panel45";
+            this.panel45.Size = new System.Drawing.Size(713, 1);
+            this.panel45.TabIndex = 618;
+            // 
+            // btnCambioPrecioM
+            // 
+            this.btnCambioPrecioM.AnimationHoverSpeed = 0.07F;
+            this.btnCambioPrecioM.AnimationSpeed = 0.03F;
+            this.btnCambioPrecioM.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btnCambioPrecioM.BorderColor = System.Drawing.Color.Black;
+            this.btnCambioPrecioM.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnCambioPrecioM.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnCambioPrecioM.CheckedForeColor = System.Drawing.Color.White;
+            this.btnCambioPrecioM.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnCambioPrecioM.CheckedImage")));
+            this.btnCambioPrecioM.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnCambioPrecioM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCambioPrecioM.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCambioPrecioM.FocusedColor = System.Drawing.Color.Empty;
+            this.btnCambioPrecioM.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCambioPrecioM.ForeColor = System.Drawing.Color.White;
+            this.btnCambioPrecioM.Image = ((System.Drawing.Image)(resources.GetObject("btnCambioPrecioM.Image")));
+            this.btnCambioPrecioM.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnCambioPrecioM.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnCambioPrecioM.Location = new System.Drawing.Point(566, 171);
+            this.btnCambioPrecioM.Name = "btnCambioPrecioM";
+            this.btnCambioPrecioM.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnCambioPrecioM.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnCambioPrecioM.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnCambioPrecioM.OnHoverImage = null;
+            this.btnCambioPrecioM.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnCambioPrecioM.OnPressedColor = System.Drawing.Color.Black;
+            this.btnCambioPrecioM.Size = new System.Drawing.Size(130, 42);
+            this.btnCambioPrecioM.TabIndex = 681;
+            this.btnCambioPrecioM.Text = "Cambiar Precio";
+            this.btnCambioPrecioM.Click += new System.EventHandler(this.btnCambioPrecioM_Click);
+            // 
+            // btnCancelarPreciosM
+            // 
+            this.btnCancelarPreciosM.AnimationHoverSpeed = 0.07F;
+            this.btnCancelarPreciosM.AnimationSpeed = 0.03F;
+            this.btnCancelarPreciosM.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnCancelarPreciosM.BorderColor = System.Drawing.Color.Black;
+            this.btnCancelarPreciosM.CheckedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnCancelarPreciosM.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnCancelarPreciosM.CheckedForeColor = System.Drawing.Color.White;
+            this.btnCancelarPreciosM.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnCancelarPreciosM.CheckedImage")));
+            this.btnCancelarPreciosM.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnCancelarPreciosM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelarPreciosM.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCancelarPreciosM.FocusedColor = System.Drawing.Color.Empty;
+            this.btnCancelarPreciosM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnCancelarPreciosM.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarPreciosM.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarPreciosM.Image")));
+            this.btnCancelarPreciosM.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnCancelarPreciosM.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnCancelarPreciosM.Location = new System.Drawing.Point(566, 234);
+            this.btnCancelarPreciosM.Name = "btnCancelarPreciosM";
+            this.btnCancelarPreciosM.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.btnCancelarPreciosM.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnCancelarPreciosM.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnCancelarPreciosM.OnHoverImage = null;
+            this.btnCancelarPreciosM.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnCancelarPreciosM.OnPressedColor = System.Drawing.Color.Black;
+            this.btnCancelarPreciosM.Size = new System.Drawing.Size(130, 42);
+            this.btnCancelarPreciosM.TabIndex = 682;
+            this.btnCancelarPreciosM.Text = "Cancelar";
+            this.btnCancelarPreciosM.Click += new System.EventHandler(this.btnCancelarPreciosM_Click);
+            // 
+            // txtProductoSelectAM
+            // 
+            this.txtProductoSelectAM.BackColor = System.Drawing.Color.Transparent;
+            this.txtProductoSelectAM.BaseColor = System.Drawing.Color.White;
+            this.txtProductoSelectAM.BorderColor = System.Drawing.Color.Silver;
+            this.txtProductoSelectAM.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtProductoSelectAM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtProductoSelectAM.FocusedColor = System.Drawing.Color.Empty;
+            this.txtProductoSelectAM.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtProductoSelectAM.ForeColor = System.Drawing.Color.Black;
+            this.txtProductoSelectAM.FormattingEnabled = true;
+            this.txtProductoSelectAM.Location = new System.Drawing.Point(292, 84);
+            this.txtProductoSelectAM.Name = "txtProductoSelectAM";
+            this.txtProductoSelectAM.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtProductoSelectAM.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.txtProductoSelectAM.Size = new System.Drawing.Size(217, 26);
+            this.txtProductoSelectAM.TabIndex = 683;
+            this.txtProductoSelectAM.SelectedIndexChanged += new System.EventHandler(this.txtProductoSelectAM_SelectedIndexChanged);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.BackColor = System.Drawing.Color.White;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label47.ForeColor = System.Drawing.Color.Black;
+            this.label47.Location = new System.Drawing.Point(15, 147);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(271, 25);
+            this.label47.TabIndex = 684;
+            this.label47.Text = "Seleccionar un No. Unidades:";
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
+            this.pictureBox21.Location = new System.Drawing.Point(288, 146);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(233, 34);
+            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox21.TabIndex = 685;
+            this.pictureBox21.TabStop = false;
+            // 
+            // txtNoUnidades
+            // 
+            this.txtNoUnidades.BackColor = System.Drawing.Color.Transparent;
+            this.txtNoUnidades.BaseColor = System.Drawing.Color.White;
+            this.txtNoUnidades.BorderColor = System.Drawing.Color.Silver;
+            this.txtNoUnidades.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtNoUnidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtNoUnidades.FocusedColor = System.Drawing.Color.Empty;
+            this.txtNoUnidades.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNoUnidades.ForeColor = System.Drawing.Color.Black;
+            this.txtNoUnidades.FormattingEnabled = true;
+            this.txtNoUnidades.Location = new System.Drawing.Point(294, 150);
+            this.txtNoUnidades.Name = "txtNoUnidades";
+            this.txtNoUnidades.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtNoUnidades.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.txtNoUnidades.Size = new System.Drawing.Size(217, 26);
+            this.txtNoUnidades.TabIndex = 686;
+            this.txtNoUnidades.SelectedIndexChanged += new System.EventHandler(this.txtNoUnidades_SelectedIndexChanged);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.BackColor = System.Drawing.Color.White;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label46.ForeColor = System.Drawing.Color.Gray;
+            this.label46.Location = new System.Drawing.Point(294, 58);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(197, 16);
+            this.label46.TabIndex = 603;
+            this.label46.Text = "Primero seleccione un producto";
+            this.label46.Visible = false;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.BackColor = System.Drawing.Color.White;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.ForeColor = System.Drawing.Color.Gray;
+            this.label53.Location = new System.Drawing.Point(21, 220);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(79, 25);
+            this.label53.TabIndex = 687;
+            this.label53.Text = "Precio:";
+            // 
+            // lblPrecioAlPorMayor
+            // 
+            this.lblPrecioAlPorMayor.AutoSize = true;
+            this.lblPrecioAlPorMayor.BackColor = System.Drawing.Color.White;
+            this.lblPrecioAlPorMayor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioAlPorMayor.ForeColor = System.Drawing.Color.Gray;
+            this.lblPrecioAlPorMayor.Location = new System.Drawing.Point(117, 221);
+            this.lblPrecioAlPorMayor.Name = "lblPrecioAlPorMayor";
+            this.lblPrecioAlPorMayor.Size = new System.Drawing.Size(54, 25);
+            this.lblPrecioAlPorMayor.TabIndex = 688;
+            this.lblPrecioAlPorMayor.Text = "0.00";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.BackColor = System.Drawing.Color.White;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label54.ForeColor = System.Drawing.Color.Gray;
+            this.label54.Location = new System.Drawing.Point(18, 189);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(540, 16);
+            this.label54.TabIndex = 689;
+            this.label54.Text = "Tenga en cuenta que al cambiar el precio cambiara la cantidad dependiendo de su s" +
+    "tock";
+            this.label54.Visible = false;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.BackColor = System.Drawing.Color.White;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.ForeColor = System.Drawing.Color.Gray;
+            this.label56.Location = new System.Drawing.Point(16, 253);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(104, 25);
+            this.label56.TabIndex = 690;
+            this.label56.Text = "Cantidad:";
+            // 
+            // lblCantidadNueva
+            // 
+            this.lblCantidadNueva.AutoSize = true;
+            this.lblCantidadNueva.BackColor = System.Drawing.Color.White;
+            this.lblCantidadNueva.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadNueva.ForeColor = System.Drawing.Color.Gray;
+            this.lblCantidadNueva.Location = new System.Drawing.Point(117, 254);
+            this.lblCantidadNueva.Name = "lblCantidadNueva";
+            this.lblCantidadNueva.Size = new System.Drawing.Size(54, 25);
+            this.lblCantidadNueva.TabIndex = 691;
+            this.lblCantidadNueva.Text = "0.00";
+            // 
+            // ListaPreciosAlPorMayor
+            // 
+            this.ListaPreciosAlPorMayor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ListaPreciosAlPorMayor.BackgroundImage")));
+            this.ListaPreciosAlPorMayor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ListaPreciosAlPorMayor.Controls.Add(this.lblCantidadNueva);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.label56);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.label54);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.lblPrecioAlPorMayor);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.label53);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.label46);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.txtNoUnidades);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.pictureBox21);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.label47);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.txtProductoSelectAM);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.btnCancelarPreciosM);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.btnCambioPrecioM);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.panel45);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.panel46);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.panel47);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.panel48);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.panel49);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.label48);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.label49);
+            this.ListaPreciosAlPorMayor.Controls.Add(this.pictureBox22);
+            this.ListaPreciosAlPorMayor.Location = new System.Drawing.Point(18, 66);
+            this.ListaPreciosAlPorMayor.Name = "ListaPreciosAlPorMayor";
+            this.ListaPreciosAlPorMayor.Size = new System.Drawing.Size(715, 297);
+            this.ListaPreciosAlPorMayor.TabIndex = 684;
+            this.ListaPreciosAlPorMayor.Paint += new System.Windows.Forms.PaintEventHandler(this.ListaPreciosAlPorMayor_Paint);
+            // 
             // VENTAS_MENU_PRINCIPALOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5699,12 +5699,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.wrapper.ResumeLayout(false);
             this.wrapper.PerformLayout();
-            this.ListaPreciosAlPorMayor.ResumeLayout(false);
-            this.ListaPreciosAlPorMayor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
-            this.panel49.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
             this.panelListaPrecios.ResumeLayout(false);
             this.panelListaPrecios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
@@ -5753,6 +5747,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.listapreciosdt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaalpormayor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listapreciosmayor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            this.panel49.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            this.ListaPreciosAlPorMayor.ResumeLayout(false);
+            this.ListaPreciosAlPorMayor.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -6104,7 +6104,19 @@
         private System.Windows.Forms.DataGridViewImageColumn s;
         private System.Windows.Forms.DataGridViewImageColumn r;
         private System.Windows.Forms.DataGridViewImageColumn e;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse32;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse33;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse34;
+        private System.Windows.Forms.DataGridView listapreciosmayor;
+        private System.Windows.Forms.DataGridView listaalpormayor;
+        internal System.Windows.Forms.TextBox txtbuscar;
+        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Panel ListaPreciosAlPorMayor;
+        internal System.Windows.Forms.Label lblCantidadNueva;
+        internal System.Windows.Forms.Label label56;
+        internal System.Windows.Forms.Label label54;
+        internal System.Windows.Forms.Label lblPrecioAlPorMayor;
+        internal System.Windows.Forms.Label label53;
         internal System.Windows.Forms.Label label46;
         private Guna.UI.WinForms.GunaComboBox txtNoUnidades;
         private System.Windows.Forms.PictureBox pictureBox21;
@@ -6122,17 +6134,5 @@
         internal System.Windows.Forms.Label label48;
         internal System.Windows.Forms.Label label49;
         private System.Windows.Forms.PictureBox pictureBox22;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse32;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse33;
-        internal System.Windows.Forms.Label lblPrecioAlPorMayor;
-        internal System.Windows.Forms.Label label53;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse34;
-        private System.Windows.Forms.DataGridView listapreciosmayor;
-        private System.Windows.Forms.DataGridView listaalpormayor;
-        internal System.Windows.Forms.Label label54;
-        internal System.Windows.Forms.Label lblCantidadNueva;
-        internal System.Windows.Forms.Label label56;
-        internal System.Windows.Forms.TextBox txtbuscar;
-        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }
