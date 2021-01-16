@@ -16,6 +16,7 @@ using GMap.NET.MapProviders;
 using DocumentFormat.OpenXml.Office2010.ExcelAc;
 using System.IO;
 
+#region Formas de Pago
 namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 {
     public partial class MEDIOS_DE_PAGO : Form
@@ -28,7 +29,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         string moneda;
         int idcliente;
         int idclienteasignado;
-
         int idfactura;
         double total;
         double vuelto = 0;
@@ -56,23 +56,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         string direccioncliente;
         string nombreCliente;
         int idusuario;
-
         GMarkerGoogle marker;
         GMapOverlay markerOverlay;
         DataTable dt;
-
         bool trazarRuta = false;
         int ContadorIndicadoresRuta = 0;
        // PointLatLng inicio;
        // PointLatLng final;
-
         int filaSeleccionada = 0;
         double LatInicial = 19.5663208725355;
         double LngInicial = -70.876225233078;
-
         private void MEDIOS_DE_PAGO_Load(object sender, EventArgs e)
         {
-            panelGeolocalizacion.Visible = false;
             btnVerificar.Visible = false;
             Envio.Visible = false;
             lblEnvio.Visible = false;
@@ -87,7 +82,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                 con.Open();
-
                 da = new SqlDataAdapter("obtenerAccesoUsuarios", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@idUsuario", idusuario);
@@ -110,62 +104,17 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             Obtener_id_de_venta();
             mostrar_impresora();
             cargar_impresoras_del_equipo();
-
             calcular_restante();
             validarPedidodeCliente();
             panelEmpleado.Visible = false;
             panelVehiculos.Visible = false;
-
-            GMapProviders.GoogleMap.ApiKey = @"AIzaSyAv4Lhhah38GEMDVCunk-o1ZmfDkQfy3CM";
-            GMaps.Instance.Mode = AccessMode.ServerAndCache;
-            Mapa.CacheLocation = @"cache";
-            Mapa.DragButton = MouseButtons.Left;
-            Mapa.MapProvider = GMapProviders.GoogleMap;
-            Mapa.ShowCenter = false;
-            //
-            dt = new DataTable();
-            dt.Columns.Add(new DataColumn("Descripcion", typeof(string)));
-            dt.Columns.Add(new DataColumn("Lat", typeof(double)));
-            dt.Columns.Add(new DataColumn("Long", typeof(double)));
-
-            dt.Rows.Add("Ubicacion 1", LatInicial, LngInicial);
-            datalistadoLocalizacion.DataSource = dt;
-            Bases.Multilinea(ref datalistadoLocalizacion);
-            datalistadoLocalizacion.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            datalistadoLocalizacion.AutoResizeColumns();
-
-            datalistadoLocalizacion.Columns[1].Visible = false;
-            datalistadoLocalizacion.Columns[2].Visible = false;
-
-            Mapa.DragButton = MouseButtons.Left;
-            Mapa.CanDragMap = true;
-            Mapa.MapProvider = GMapProviders.GoogleMap;
-            Mapa.Position = new PointLatLng(LatInicial, LngInicial);
-            Mapa.MinZoom = 0;
-            Mapa.MaxZoom = 24;
-            Mapa.Zoom = 9;
-            Mapa.AutoScroll = true;
-
-            // Marcador
-            markerOverlay = new GMapOverlay("Marcador");
-            marker = new GMarkerGoogle(new PointLatLng(LatInicial, LngInicial), GMarkerGoogleType.green);
-            markerOverlay.Markers.Add(marker);
-
-            // tooltip
-            marker.ToolTipMode = MarkerTooltipMode.Always;
-            marker.ToolTipText = string.Format("Ubicacion: \n Latitud:{0} \n Longitud: {1}", LatInicial, LngInicial);
-
-            // agregar overlay en el mapa control
-            Mapa.Overlays.Add(markerOverlay);
         }
-
         void calcular_restante()
         {
             try
             {
                 double efectivo = 0;
                 double tarjeta = 0;
-              
                 if(txtefectivo2.Text =="")
                 {
                     efectivo = 0;
@@ -190,7 +139,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 {
                     tarjeta = Convert.ToDouble(txttarjeta2.Text);
                 }
-
                 if (txtefectivo2.Text == "0.00")
                 {
                     efectivo = 0;
@@ -202,9 +150,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 if (txttarjeta2.Text == "0.00")
                 {
                     tarjeta = 0;
-
                 }
-
                 if (txtefectivo2.Text == ".")
                 {
                     efectivo = 0;
@@ -227,7 +173,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 //V=E-(T-TA)
                 //V=10-(5-2)
                 //V=7
-       
                 try
                 {
                     if (efectivo>total)
@@ -248,7 +193,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                             txtrestante.Text = Convert.ToString ( restante);
                             txtrestante.Text = decimal.Parse(txtrestante.Text).ToString("##0.00");
                         }
-                      
                     }
                     else
                     {
@@ -264,7 +208,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 {
                     MessageBox.Show(ex.StackTrace);
                 }
-               
             }
             catch (Exception ex)
             {
@@ -315,7 +258,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             total = VENTAS_MENU_PRINCIPALOK.total;
             txtefectivo2.Text =Convert.ToString (total);
             idcliente = 0;
-
         }
         void mostrar_moneda_de_empresa()
         {
@@ -375,14 +317,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     b.FlatStyle = FlatStyle.Flat;
                     b.ForeColor = Color.WhiteSmoke;
                     FlowLayoutPanel3.Controls.Add(b);
-                    
                     if (b.Text == lblComprobante.Text)
                     {
                         tipoImpresion = b.Text;
                         b.Visible = false;
                     }
                     b.Click += miEvento;
-                    
                 }
                     CONEXION.CONEXIONMAESTRA.cerrar();
             }
@@ -401,8 +341,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         private void validarPedidodeCliente()
         {
-            
-          
           if (lblComprobante.Text =="factura" && txttipo =="CREDITO")
             {
                 panelClientefactura.Visible = false;
@@ -412,22 +350,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 panelClientefactura.Visible = true;
                 lblindicador_de_factura_1.Text = "Cliente: (Obligatorio)";
                 lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
-
             }
             else if (lblComprobante.Text != "factura" && txttipo == "EFECTIVO")
             {
                 panelClientefactura.Visible = true;
                 lblindicador_de_factura_1.Text = "Cliente: (Opcional)";
                 lblindicador_de_factura_1.ForeColor = Color.DimGray;
-
             }
-
             if (lblComprobante.Text == "factura" && txttipo == "TARJETA")
             {
                 panelClientefactura.Visible = true;
                 lblindicador_de_factura_1.Text = "Cliente: (Obligatorio)";
                 lblindicador_de_factura_1.ForeColor = Color.FromArgb(255, 192, 192);
-
             }
             else if (lblComprobante.Text != "factura" && txttipo == "TARJETA")
             {
@@ -435,8 +369,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 lblindicador_de_factura_1.Text = "Cliente: (Opcional)";
                 lblindicador_de_factura_1.ForeColor = Color.DimGray;
             }
-
-
         }
         void validar_tipos_de_comprobantes()
         {
@@ -444,9 +376,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             try
             {
                 int numerofin;
-                
                 txtserie.Text = dtComprobantes.SelectedCells[2].Value.ToString();
-
                 numerofin = Convert.ToInt32 ( dtComprobantes.SelectedCells[4].Value);
                 idcomprobante= Convert.ToInt32(dtComprobantes.SelectedCells[5].Value);
                 txtnumerofin.Text =Convert.ToString  ( numerofin + 1);
@@ -457,7 +387,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             catch (Exception ex)
 #pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
-
             }
         }
          void buscar_Tipo_de_documentos_para_insertar_en_ventas()
@@ -484,12 +413,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             calcular_restante();
         }
-
         private void txttarjeta2_TextChanged(object sender, EventArgs e)
         {
             calcular_restante();
         }
-
         private void txtcredito2_TextChanged(object sender, EventArgs e)
         {
             calcular_restante();
@@ -512,7 +439,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 {
                     textocredito = Convert.ToDouble(txtcredito2.Text);
                 }
-
                 if (textocredito>0)
                 {
                     pcredito.Visible = true;
@@ -522,7 +448,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 {
                     pcredito.Visible = false;
                     panelClientefactura.Visible = true;
-
                     idcliente = 0;
                 }
             }
@@ -531,19 +456,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show(ex.StackTrace);
             }
         }
-
-   
         private void FlowLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
-
         }
-
         private void txtclientesolicitabnte3_TextChanged(object sender, EventArgs e)
         {
             buscarclientes3();
             datalistadoclientes3.Visible = true;
         }
-
         private void txtclientesolicitabnte2_TextChanged(object sender, EventArgs e)
         {
             buscarclientes2();
@@ -551,12 +471,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         }
         void buscarclientes2()
         {
-        
-
             try
             {
-
-
                 DataTable dt = new DataTable();
                 Obtener_datos.buscar_clientes(ref dt, txtclientesolicitabnte2.Text);
                 datalistadoclientes2.DataSource = dt;
@@ -571,7 +487,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             catch (Exception ex)
 #pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
-                
             }
         }
         void buscarclientes3()
@@ -592,23 +507,17 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             catch (Exception ex)
 #pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
-
             }
         }
-
-
         private void datalistadoclientes2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
-
         private void datalistadoclientes2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             idcliente = Convert.ToInt32(datalistadoclientes2.SelectedCells[1].Value.ToString());
             txtclientesolicitabnte2.Text = datalistadoclientes2.SelectedCells[2].Value.ToString();
             datalistadoclientes2.Visible = false;
         }
-
         private void txtefectivo2_Click(object sender, EventArgs e)
         {
             calcular_restante();
@@ -622,7 +531,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtefectivo2.Text = txtrestante.Text;
             }
         }
-
         private void txttarjeta2_Click(object sender, EventArgs e)
         {
             calcular_restante();
@@ -636,7 +544,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txttarjeta2.Text = txtrestante.Text;
             }
         }
-
         private void txtcredito2_Click(object sender, EventArgs e)
         {
             calcular_restante();
@@ -651,12 +558,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 ValidarPanelCredito();
             }
         }
-
         private void TGuardarSinImprimir_Click(object sender, EventArgs e)
         {
-          
         }
- 
         void INGRESAR_LOS_DATOS()
         {
             CONVERTIR_TOTAL_A_LETRAS();
@@ -664,7 +568,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             if (txttipo =="EFECTIVO" && vuelto >=0)
             {
                 vender_en_efectivo();
-
             }
             else if (txttipo == "EFECTIVO" && vuelto < 0)
             {
@@ -679,18 +582,14 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
              MessageBox.Show("Seleccione un Cliente para Activar Pago a Credito", "Datos Incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
             if (txttipo == "TARJETA")
             {
                 vender_en_efectivo();
             }
-
-
             if (txttipo == "MIXTO")
             {
                 vender_en_efectivo();
             }
-
         }
         void vender_en_efectivo()
         {
@@ -714,10 +613,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 procesar_venta_efectivo();
             }
-
-
-
-           
         }
         void procesar_venta_efectivo()
         {
@@ -725,7 +620,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             validar_tipos_de_comprobantes();
             CONFIRMAR_VENTA_EFECTIVO();
             if (lblproceso=="PROCEDE")
-            {                            
+            {
                 disminuir_stock_productos();
                 INSERTAR_KARDEX_SALIDA();
                 aumentar_monto_a_cliente();
@@ -741,7 +636,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     int Id_producto = Convert.ToInt32(row.Cells["Id_producto"].Value);
                     double cantidad = Convert.ToDouble(row.Cells["Cantidad"].Value);
                     string STOCK = Convert.ToString(row.Cells["Stock"].Value);
-                  
                         CONEXION.CONEXIONMAESTRA.abrir();
                         SqlCommand cmd = new SqlCommand("insertar_KARDEX_SALIDA", CONEXION.CONEXIONMAESTRA.conectar );
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -755,9 +649,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         cmd.Parameters.AddWithValue("@Id_caja", VENTAS_MENU_PRINCIPALOK.Id_caja);
                         cmd.ExecuteNonQuery();
                         CONEXION.CONEXIONMAESTRA.cerrar();
-
-                    
-
                 }
             }
             catch (Exception ex)
@@ -777,7 +668,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 da.Fill(dt);
                 datalistadoDetalleVenta.DataSource = dt;
                 CONEXION.CONEXIONMAESTRA.cerrar();
-
             }
             catch (Exception ex)
             {
@@ -809,8 +699,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     MessageBox.Show(ex.Message);
                   }
             }
-          
-
         }
         void actualizar_serie_mas_uno()
         {
@@ -823,15 +711,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@idserie", idcomprobante);           
                 cmd.ExecuteNonQuery();
                 CONEXION.CONEXIONMAESTRA.cerrar();
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
         void validar_tipo_de_impresion()
         {
            if ( indicador =="VISTA PREVIA")
@@ -855,7 +740,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 else if (tipoImpresion == "TICKET")
                 {
                     imprimir_directo();
-
                 }
             }
         }
@@ -921,7 +805,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 #pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer2.RefreshReport();
                 CONEXION.CONEXIONMAESTRA.cerrar();
-
             }
             catch (Exception ex)
             {
@@ -948,7 +831,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 #pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer2.RefreshReport();
                 CONEXION.CONEXIONMAESTRA.cerrar();
-
             }
             catch (Exception ex)
             {
@@ -962,7 +844,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             PanelImpresionvistaprevia.BringToFront();
             //    panelGuardado_de_datos.Dock = DockStyle.None;
             //    panelGuardado_de_datos.Visible = false;
-
             Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.Ticket_report();
             DataTable dt = new DataTable();
             try
@@ -981,13 +862,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 #pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.RefreshReport();
                 CONEXION.CONEXIONMAESTRA.cerrar();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
             }
-
         }
         void mostrar_factura_impresa_VISTA_PREVIA()
         {
@@ -995,7 +874,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             PanelImpresionvistaprevia.Dock = DockStyle.Fill;
             //panelGuardado_de_datos.Dock = DockStyle.None;
          //   panelGuardado_de_datos.Visible = false;
-
             Presentacion.REPORTES.Impresion_de_comprobantes.factura_report rpt = new Presentacion.REPORTES.Impresion_de_comprobantes.factura_report();
             DataTable dt = new DataTable();
             try
@@ -1015,13 +893,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 #pragma warning restore CS0618 // 'ReportViewerBase.Report' está obsoleto: 'Telerik.ReportViewer.WinForms.ReportViewer.Report is now obsolete. Please use the Telerik.ReportViewer.WinForms.ReportViewer.ReportSource property instead. For more information, please visit: http://www.telerik.com/support/kb/reporting/general/q2-2012-api-changes-reportsources.aspx#winformsviewer.'
                 reportViewer1.RefreshReport();
                 CONEXION.CONEXIONMAESTRA.cerrar();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
             }
-
         }
         private void asdasd()
         {
@@ -1048,7 +924,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         {
             if (Envio.Checked == true)
             {
-
                 if (idvehiculo != 0 && idEmpleado != 0 && idcliente != 0)
                 {
                     AsignarPersonalEnvio();
@@ -1056,7 +931,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     actualizarEmpleado(idEmpleado);
                     try
                     {
-
                         CONEXION.CONEXIONMAESTRA.abrir();
                         SqlCommand cmd = new SqlCommand("confirmar_factura", CONEXION.CONEXIONMAESTRA.conectar);
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -1097,7 +971,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 try
                 {
-
                     CONEXION.CONEXIONMAESTRA.abrir();
                     SqlCommand cmd = new SqlCommand("confirmar_factura", CONEXION.CONEXIONMAESTRA.conectar);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -1128,10 +1001,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     lblproceso = "NO PROCEDE";
                     MessageBox.Show(ex.Message);
                 }
-
             }
-
-            
         }
         void aumentar_monto_a_cliente()
         {
@@ -1146,7 +1016,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 cmd.Parameters.AddWithValue("@idcliente", idcliente);
                     cmd.ExecuteNonQuery();
                     CONEXION.CONEXIONMAESTRA.cerrar();
-
              }
             catch (Exception ex)
              {
@@ -1154,7 +1023,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show(ex.StackTrace);
              }
              }
-          
         }
         void MOSTRAR_cliente_standar()
         {
@@ -1205,14 +1073,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             {
                 MessageBox.Show(ex.Message);
             }
-  
         }
         void identificar_el_tipo_de_pago()
         {
             int indicadorEfectivo = 4;
             int indicadorCredito = 2;
             int indicadorTarjeta = 3;
-
             // validacion para evitar valores vacios
             if (txtefectivo2.Text =="")
             {
@@ -1272,12 +1138,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 indicador_de_tipo_de_pago_string = "MIXTO";
             }
             txttipo = indicador_de_tipo_de_pago_string;
-
-        }
-
-        private void btnGuardarImprimirdirecto_Click(object sender, EventArgs e)
-        {
-            
         }
         void editar_eleccion_de_impresora()
         {
@@ -1296,11 +1156,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show(ex.StackTrace);
             }
         }
-
         private void TXTTOTAL_Click(object sender, EventArgs e)
         {
         }
-
         public void ImprimirDirecto()
         {
             if (restante == 0)
@@ -1322,33 +1180,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show("El restante debe ser 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-        /*
-            if (Envio.Checked == true)
-                    {
-          if (idEmpleado != 0)
-          {
-        editar_eleccion_de_impresora();
-        indicador = "DIRECTO";
-                            identificar_el_tipo_de_pago();
-        INGRESAR_LOS_DATOS();
-                    /*    }
-                        else
-                        {
-                            MessageBox.Show("Selecciona un Empleado", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }*/
-                /*    } else
-                    {
-                        editar_eleccion_de_impresora();
-                        indicador = "DIRECTO";
-                        identificar_el_tipo_de_pago();
-                        INGRESAR_LOS_DATOS();
-                  //  }*/
-        
-        private void btnGuardarImprimirdirecto_Click_1(object sender, EventArgs e)
-        {
-         
-        }
-
         public void GuardarSinImprimir()
         {
             if (restante == 0)
@@ -1384,40 +1215,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 MessageBox.Show("El restante debe ser 0", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-     
-
         private void txtefectivo2_KeyPress(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txtefectivo2, e);
-
         }
-
         private void txttarjeta2_KeyPress(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txttarjeta2, e);
-
         }
-
         private void txtcredito2_KeyPress(object sender, KeyPressEventArgs e)
         {
             Bases.Separador_de_Numeros(txtcredito2, e);
-
         }
-
-        private void btnagregarCliente_Click(object sender, EventArgs e)
-        {
-           
-           
-        }
-
-        private void datalistadoclientes3_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            idcliente = Convert.ToInt32(datalistadoclientes3.SelectedCells[1].Value.ToString());
-            //MessageBox.Show(idcliente.ToString());
-            txtclientesolicitabnte3.Text = datalistadoclientes3.SelectedCells[2].Value.ToString();
-            datalistadoclientes3.Visible = false;
-        }
-
         private void Envio_CheckedChanged(object sender, EventArgs e)
         {
             if (Envio.Checked == true)
@@ -1429,14 +1238,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 if (idcliente !=0)
                 {
                     panelEmpleado.Visible = true;
-
                     if (VerificarEstadoPersonal() == true)
                     {
                         if (verificarCliente() == true)
                         {
                             if (VerificarEstadoVehiculos() == true)
                             {
-
                             }
                             else
                             {
@@ -1447,7 +1254,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         else
                         {
                             MessageBox.Show("Verifica el Cliente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                         }
                     }
                     else
@@ -1469,7 +1275,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 panelEmpleado.Visible = false;
             }
         }
-
         public bool VerificarEstadoPersonal()
         {
             DataTable dt = new DataTable();
@@ -1480,7 +1285,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             datalistadoempleado.Columns[3].Visible = false;
             Bases.Multilinea(ref datalistadoempleado);
             datalistadoempleado.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
             if (datalistadoempleado.Rows.Count > 0)
             {
                 return true;
@@ -1506,7 +1310,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 return false;
             }
         }
-
         public void ObtenerEmpleado()
         {
             idEmpleado = Convert.ToInt32(datalistadoempleado.SelectedCells[0].Value);
@@ -1516,12 +1319,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             MessageBox.Show("El Empleado " + nombreEmpleado + " llevara el pedido", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             panelVehiculos.Visible = true;
         }
-
-        public void ObtenerVehiculo()
-        {
-          
-        }
-
         public bool verificarCliente()
         {
             try
@@ -1538,7 +1335,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 idclienteasignado = Convert.ToInt32(DATALISTADOVERIFICAR.SelectedCells[0].Value);
                 nombreCliente = DATALISTADOVERIFICAR.SelectedCells[1].Value.ToString();
                 direccioncliente = DATALISTADOVERIFICAR.SelectedCells[2].Value.ToString();
-
                 CONEXION.CONEXIONMAESTRA.cerrar();
                 if (idclienteasignado!=0)
                 {
@@ -1559,7 +1355,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             ObtenerEmpleado();
             buscarEmpleado.Text = datalistadoempleado.SelectedCells[1].Value.ToString();
         }
-
         public void AsignarPersonalEnvio()
         {
             Logica.Pedidos parametros = new Logica.Pedidos();
@@ -1577,7 +1372,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 //mostrar();
             }
         }
-
         public void actualizarVehiculo(int idVehiculo)
         {
             try
@@ -1616,90 +1410,22 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 CONEXION.CONEXIONMAESTRA.cerrar();
             }
         }
-
-        private void datalistadoempleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void MenuStrip9_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario == idusuarioBuscar)
-                {
-                    if (modulo == "Clientes")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Presentacion.CLIENTES_PROVEEDORES.ClientesOk frm = new Presentacion.CLIENTES_PROVEEDORES.ClientesOk();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
-            
-        }
-
-        private void datalistadoclientes3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            panelVerificar.Visible = true;
-            panelVerificar.BringToFront();
-        }
-
         private void panelVerificar_Paint(object sender, PaintEventArgs e)
         {
             mostrarVehiculos();
             mostrarEmpleados();
         }
-
         private void mostrarVehiculos()
         {
             DataTable dt = new DataTable();
             Obtener_datos datos = new Obtener_datos();
             if (datos.mostrarVehiculosV(ref dt) == true)
             {
-                /**if (datalistadovehiculosv.Rows.Count == 0)
-                {
-                    MessageBox.Show("No existen vehículos disponibles por el momento", "Vehículos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }*/
-        datalistadovehiculosv.DataSource = dt;
+                datalistadovehiculosv.DataSource = dt;
             }
             datalistadovehiculosv.Columns[0].Visible = false;
             datalistadovehiculosv.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
         }
-
         private void mostrarEmpleados()
         {
             DataTable dt = new DataTable();
@@ -1707,26 +1433,18 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             if(datos.mostrarEmpleadosV(ref dt) == true)
             {
                 datalistadoempleadosv.DataSource = dt;
-               /* if (datalistadoempleadosv.Rows.Count == 0)
-                {
-                    MessageBox.Show("No existen Empleados disponibles por el momento", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }*/
             }
             datalistadoempleadosv.Columns[0].Visible = false;
             datalistadoempleadosv.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             int idRol;
             string Rol;
             string modulo;
             string Operacion;
-
             foreach (DataGridViewRow row in datalistadousuario.Rows)
             {
-
                 int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
                 idRol = Convert.ToInt32(row.Cells["idRol"].Value);
                 Rol = Convert.ToString(row.Cells["Rol"].Value);
@@ -1747,21 +1465,16 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         }
                     }
                 }
-
             }
-           
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             int idRol;
             string Rol;
             string modulo;
             string Operacion;
-
             foreach (DataGridViewRow row in datalistadousuario.Rows)
             {
-
                 int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
                 idRol = Convert.ToInt32(row.Cells["idRol"].Value);
                 Rol = Convert.ToString(row.Cells["Rol"].Value);
@@ -1782,60 +1495,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         }
                     }
                 }
-
             }
-
         }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void buscarEmpleado_TextChanged(object sender, EventArgs e)
-        {
-            if (buscarEmpleado.Text != "")
-            {
-
-                try
-                {
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter da;
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
-                    con.Open();
-
-                    da = new SqlDataAdapter("buscarEmpleadosV", con);
-                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    da.SelectCommand.Parameters.AddWithValue("@letra", buscarEmpleado.Text);
-                    da.Fill(dt);
-                    datalistadoempleado.DataSource = dt;
-                    con.Close();
-                    datalistadoempleado.DataSource = dt;
-                    datalistadoempleado.Columns[0].Visible = false;
-                    datalistadoempleado.Columns[2].Visible = false;
-                    datalistadoempleado.Columns[3].Visible = false;
-
-                    Bases.Multilinea(ref datalistadoempleado);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            else
-            {
-                buscarEmpleado.Text = "";
-            }
-
-        }
-
         private void buscarVehiculos_TextChanged(object sender, EventArgs e)
         {
             if (buscarVehiculos.Text != "")
             {
-
                 try
                 {
                     DataTable dt = new DataTable();
@@ -1843,7 +1508,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CONEXION.CONEXIONMAESTRA.conexion;
                     con.Open();
-
                     da = new SqlDataAdapter("buscarVehiculosV", con);
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.AddWithValue("@letra", buscarVehiculos.Text);
@@ -1864,75 +1528,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 buscarVehiculos.Text = "";
             }
         }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario == idusuarioBuscar)
-                {
-                    if (modulo == "Empleados")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Presentacion.Vehiculos.Vehiculos frm = new Presentacion.Vehiculos.Vehiculos();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
-        }
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            int idRol;
-            string Rol;
-            string modulo;
-            string Operacion;
-
-            foreach (DataGridViewRow row in datalistadousuario.Rows)
-            {
-
-                int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
-                idRol = Convert.ToInt32(row.Cells["idRol"].Value);
-                Rol = Convert.ToString(row.Cells["Rol"].Value);
-                modulo = Convert.ToString(row.Cells["Modulo"].Value);
-                Operacion = Convert.ToString(row.Cells["Operacion"].Value);
-                if (idusuario == idusuarioBuscar)
-                {
-                    if (modulo == "Empleados")
-                    {
-                        if (Operacion == "ACCESO")
-                        {
-                            Presentacion.Empleados.EmpleadosOK frm = new Presentacion.Empleados.EmpleadosOK();
-                            frm.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Acceso restringido\nComunicate con tu administrador", "Panel de Configuraciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
-
-            }
-        }
-
         private void datalistadovehiculo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             idvehiculo = Convert.ToInt32(datalistadovehiculo.SelectedCells[0].Value);
@@ -1940,141 +1535,59 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             buscarVehiculos.Text = marca;
             estadovehiculo = datalistadovehiculo.SelectedCells[1].Value.ToString();
         }
-
         private void panelVehiculos_Paint(object sender, PaintEventArgs e)
         {
-
         }
-
         private void panelVerificar_PaddingChanged(object sender, EventArgs e)
         {
-
         }
-
         private void Mapa_Load(object sender, EventArgs e)
         {
-
         }
-
         private void Mapa_MouseClick(object sender, MouseEventArgs e)
         {
             double lat = Mapa.FromLocalToLatLng(e.X, e.Y).Lat;
             double lng = Mapa.FromLocalToLatLng(e.X, e.Y).Lng;
-
             txtLatitud.Text = lat.ToString();
             txtLongitud.Text = lng.ToString();
-
             //Bitmap bmpMarker = Image.FromFile("img/")
-
             marker.Position = new PointLatLng(lat, lng);
             marker.ToolTipText = string.Format("Ubicación: \n Latitud: {0} \n Longitud:{1}", lat, lng);
          //   CrearDireccionTrazarRuta(lat, lng);
         }
-
         private void datalistadoLocalizacion_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             filaSeleccionada = e.RowIndex; // No. fila
             // Recuperar los datos del grid y los asignamos a los textbox
-
             txtDescripcion.Text = datalistadoLocalizacion.Rows[filaSeleccionada].Cells[0].Value.ToString();
             txtLatitud.Text = datalistadoLocalizacion.Rows[filaSeleccionada].Cells[1].Value.ToString();
             txtLongitud.Text = datalistadoLocalizacion.Rows[filaSeleccionada].Cells[2].Value.ToString();
-
             marker.Position = new PointLatLng(Convert.ToDouble(txtLatitud.Text), Convert.ToDouble(txtLongitud.Text));
-
             Mapa.Position = marker.Position;
         }
-
         private void panelGeolocalizacion_Paint(object sender, PaintEventArgs e)
         {
-           
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             dt.Rows.Add(txtDescripcion.Text, txtLatitud.Text, txtLongitud.Text);
-
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             datalistadoLocalizacion.Rows.RemoveAt(filaSeleccionada);
-
         }
-
         private void btnPoligono_Click(object sender, EventArgs e)
         {
-            GMapOverlay Poligono = new GMapOverlay("Poligono");
-            List<PointLatLng> puntos = new List<PointLatLng>();
-            double lng, lat;
-
-            for (int filas = 0; filas < datalistadoLocalizacion.Rows.Count; filas++)
-            {
-                lat = Convert.ToDouble(datalistadoLocalizacion.Rows[filas].Cells[1].Value);
-                lng = Convert.ToDouble(datalistadoLocalizacion.Rows[filas].Cells[2].Value);
-                puntos.Add(new PointLatLng(lat, lng));
-            }
-
-            GMapPolygon poligonoPuntos = new GMapPolygon(puntos, "Plogino");
-            Poligono.Polygons.Add(poligonoPuntos);
-            Mapa.Overlays.Add(Poligono);
-            Mapa.Zoom = Mapa.Zoom + 1;
-            Mapa.Zoom = Mapa.Zoom - 1;
         }
-
         private void btnRuta_Click(object sender, EventArgs e)
         {
-            GMapOverlay Ruta = new GMapOverlay("Poligono");
-            List<PointLatLng> puntos = new List<PointLatLng>();
-            double lng, lat;
-
-            for (int filas = 0; filas < datalistadoLocalizacion.Rows.Count; filas++)
-            {
-                lat = Convert.ToDouble(datalistadoLocalizacion.Rows[filas].Cells[1].Value);
-                lng = Convert.ToDouble(datalistadoLocalizacion.Rows[filas].Cells[2].Value);
-                puntos.Add(new PointLatLng(lat, lng));
-            }
-
-            GMapRoute poligonoRutas = new GMapRoute(puntos, "Ruta");
-            Ruta.Routes.Add(poligonoRutas);
-            Mapa.Overlays.Add(Ruta);
-            Mapa.Zoom = Mapa.Zoom + 1;
-            Mapa.Zoom = Mapa.Zoom - 1;
-        }
-
-        public const double EarthRadius = 6371;
-        public static double GetDistance()
-        {
-            double distance = 0;
-            double Lat = (19.5235528916917 - 19.5663208725355) * (Math.PI / 180);
-            double Lon = ((-71.0842895507813) - (-70.876225233078)) * (Math.PI / 180);
-            double a = Math.Sin(Lat / 2) * Math.Sin(Lat / 2) + Math.Cos(19.5663208725355 * (Math.PI / 180)) * Math.Cos(19.5235528916917 * (Math.PI / 180)) * Math.Sin(Lon / 2) * Math.Sin(Lon / 2);
-            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-            distance = EarthRadius * c;
-            return distance;
-        }
-
+        }  
         private void button3_Click_1(object sender, EventArgs e)
         {
-          
         }
-
         private void comboBox1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "Google Maps Satélite")
-                Mapa.MapProvider = GMapProviders.GoogleSatelliteMap;
-            if (comboBox1.Text == "Google Maps Callejero")
-                Mapa.MapProvider = GMapProviders.GoogleMap;
-            if (comboBox1.Text == "Google Maps Híbrido")
-                Mapa.MapProvider = GMapProviders.GoogleHybridMap;
-            if (comboBox1.Text == "OpenStreetMap")
-                Mapa.MapProvider = GMapProviders.OpenStreetMap;
-            if (comboBox1.Text == "OpenClycleMap")
-                Mapa.MapProvider = GMapProviders.OpenCycleMap;
-
-            Mapa.Refresh();
         }
-
         private void btnN1_Click(object sender, EventArgs e)
         {
             if (INDICADOR_DE_FOCO == 1)
@@ -2090,7 +1603,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtcredito2.Text = txtcredito2.Text + "1";
             }
         }
-
         private void btnN2_Click(object sender, EventArgs e)
         {
             if (INDICADOR_DE_FOCO == 1)
@@ -2106,7 +1618,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtcredito2.Text = txtcredito2.Text + "2";
             }
         }
-
         private void btnN3_Click(object sender, EventArgs e)
         {
             if (INDICADOR_DE_FOCO == 1)
@@ -2122,14 +1633,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtcredito2.Text = txtcredito2.Text + "3";
             }
         }
-
         private void btnN6_Click(object sender, EventArgs e)
         {
-
             if (INDICADOR_DE_FOCO == 1)
             {
                 txtefectivo2.Text = txtefectivo2.Text + "6";
-
             }
             else if (INDICADOR_DE_FOCO == 2)
             {
@@ -2140,13 +1648,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtcredito2.Text = txtcredito2.Text + "6";
             }
         }
-
         private void btnN5_Click(object sender, EventArgs e)
         {
             if (INDICADOR_DE_FOCO == 1)
             {
                 txtefectivo2.Text = txtefectivo2.Text + "5";
-
             }
             else if (INDICADOR_DE_FOCO == 2)
             {
@@ -2157,13 +1663,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtcredito2.Text = txtcredito2.Text + "5";
             }
         }
-
         private void btnN4_Click(object sender, EventArgs e)
         {
             if (INDICADOR_DE_FOCO == 1)
             {
                 txtefectivo2.Text = txtefectivo2.Text + "4";
-
             }
             else if (INDICADOR_DE_FOCO == 2)
             {
@@ -2174,14 +1678,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtcredito2.Text = txtcredito2.Text + "4";
             }
         }
-
         private void btnN7_Click(object sender, EventArgs e)
         {
-
             if (INDICADOR_DE_FOCO == 1)
             {
                 txtefectivo2.Text = txtefectivo2.Text + "7";
-
             }
             else if (INDICADOR_DE_FOCO == 2)
             {
@@ -2192,14 +1693,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtcredito2.Text = txtcredito2.Text + "7";
             }
     }
-
         private void btnN8_Click(object sender, EventArgs e)
         {
-
             if (INDICADOR_DE_FOCO == 1)
             {
                 txtefectivo2.Text = txtefectivo2.Text + "8";
-
             }
             else if (INDICADOR_DE_FOCO == 2)
             {
@@ -2210,14 +1708,11 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtcredito2.Text = txtcredito2.Text + "8";
             }
     }
-
         private void btnN9_Click(object sender, EventArgs e)
         {
-
             if (INDICADOR_DE_FOCO == 1)
             {
                 txtefectivo2.Text = txtefectivo2.Text + "9";
-
             }
             else if (INDICADOR_DE_FOCO == 2)
             {
@@ -2228,7 +1723,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtcredito2.Text = txtcredito2.Text + "9";
             }
         }
-
         private void btnNborrar_Click(object sender, EventArgs e)
         {
             if (INDICADOR_DE_FOCO == 1)
@@ -2247,7 +1741,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 SECUENCIA3 = true;
             }
         }
-
         private void btnNcoma_Click(object sender, EventArgs e)
         {
             if (INDICADOR_DE_FOCO == 1)
@@ -2257,12 +1750,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     txtefectivo2.Text = txtefectivo2.Text + ".";
                     SECUENCIA1 = false;
                 }
-
                 else
                 {
                     return;
                 }
-
             }
             else if (INDICADOR_DE_FOCO == 2)
             {
@@ -2271,12 +1762,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     txttarjeta2.Text = txttarjeta2.Text + ".";
                     SECUENCIA2 = false;
                 }
-
                 else
                 {
                     return;
                 }
-
             }
             else if (INDICADOR_DE_FOCO == 3)
             {
@@ -2285,23 +1774,17 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                     txtcredito2.Text = txtcredito2.Text + ".";
                     SECUENCIA3 = false;
                 }
-
                 else
                 {
                     return;
                 }
-
             }
         }
-
         private void btnN0_Click(object sender, EventArgs e)
         {
-
-
             if (INDICADOR_DE_FOCO == 1)
             {
                 txtefectivo2.Text = txtefectivo2.Text + "0";
-
             }
             else if (INDICADOR_DE_FOCO == 2)
             {
@@ -2312,30 +1795,22 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 txtcredito2.Text = txtcredito2.Text + "0";
             }
         }
-
-
         private void imprimir_Click(object sender, EventArgs e)
         {
             ImprimirDirecto();
         }
-
-      
         private void IMPRIMIRG_Click(object sender, EventArgs e)
         {
             GuardarSinImprimir();
         }
-
-     
         private void pictureBox9_Click(object sender, EventArgs e)
         {
             int idRol;
             string Rol;
             string modulo;
             string Operacion;
-
             foreach (DataGridViewRow row in datalistadousuario.Rows)
             {
-
                 int idusuarioBuscar = Convert.ToInt32(row.Cells["idUsuario"].Value);
                 idRol = Convert.ToInt32(row.Cells["idRol"].Value);
                 Rol = Convert.ToString(row.Cells["Rol"].Value);
@@ -2356,15 +1831,12 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                         }
                     }
                 }
-
             }
         }
-
         private void Salir_Click(object sender, EventArgs e)
         {
             panelVerificar.Visible = false;
         }
-
         private void btnVerificar_Click(object sender, EventArgs e)
         {
             panelVerificar.Visible = true;
@@ -2372,19 +1844,10 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             panelVerificar.BringToFront();
             panelVerificar.Size = new Size(995, 539);
         }
-
         private void gunaAdvenceButton1_Click(object sender, EventArgs e)
         {
-            panelGeolocalizacion.Visible = true;
             //panelVerificar.Dock = DockStyle.Fill;
-            panelGeolocalizacion.BringToFront();
-            panelGeolocalizacion.Size = new Size(390,389);
-        }
-
-        private void BTNCERRARMAPA_Click(object sender, EventArgs e)
-        {
-            panelGeolocalizacion.Visible = false;
-            panelGeolocalizacion.SendToBack();
         }
     }
 }
+#endregion

@@ -72,6 +72,7 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
 
         private void VENTAS_MENU_PRINCIPALOK_Load(object sender, EventArgs e)
         {
+            Limpiar_para_venta_nueva();
             pictureBox5.Enabled = false;
             panelListaPrecios.Visible = false;
             ListaPreciosAlPorMayor.Visible = false;
@@ -115,7 +116,6 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
                 lbltipodebusqueda2.Text = "Buscar con LECTORA de Codigos de Barras";
             }
             //ValidarTemaCaja();
-            Limpiar_para_venta_nueva();
             ObtenerIpLocal();
             panelNotificacionEspera.Visible = true;
 
