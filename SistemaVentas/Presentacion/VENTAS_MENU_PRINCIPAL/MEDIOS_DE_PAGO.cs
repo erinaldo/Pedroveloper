@@ -1746,6 +1746,9 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
         private void imprimir_Click(object sender, EventArgs e)
         {
             ImprimirDirecto();
+            Dispose();
+            MENUPRINCIPAL frm = new MENUPRINCIPAL();
+            frm.ShowDialog();
         }
         private void IMPRIMIRG_Click(object sender, EventArgs e)
         {

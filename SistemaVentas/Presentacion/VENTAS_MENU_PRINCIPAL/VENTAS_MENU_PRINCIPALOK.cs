@@ -177,6 +177,8 @@ namespace SistemaVentas.Presentacion.VENTAS_MENU_PRINCIPAL
             ContarVentasEspera();
             ContarCotizacionesEnEspera();
         }
+
+
         private void sumar()
         {
             try
